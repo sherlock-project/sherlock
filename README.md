@@ -22,6 +22,8 @@ $ pip3 install -r requirements.txt
 ## Usage
 Just run ```python3 sherlock.py```
 
+All of the accounts found will be stored in a text file with their usename (e.g ```user123.txt```)
+
 
 ## License
 MIT License
