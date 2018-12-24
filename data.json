@@ -179,5 +179,10 @@
     "url": "https://{}.livejournal.com",
     "errorType": "message",
     "errorMsg": "Unknown Journal"
+  },
+  "VSCO": {
+    "url": "https://vsco.co/{}",
+    "errorType": "message",
+    "errorMsg": "This page does not exist"
   }
 }
