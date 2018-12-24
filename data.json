@@ -339,5 +339,10 @@
     "url": "https://hackerone.com/{}",
     "errorType": "message",
     "errorMsg": "Page not found"
+  },
+  "Tinder": {
+    "url": "https://www.gotinder.com/@{}",
+    "errorType": "message",
+    "errorMsg": "Looking for Someone?"
   }
 }
