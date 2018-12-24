@@ -1,0 +1,183 @@
+{
+  "Instagram": {
+    "url": "https://www.instagram.com/{}",
+    "errorType": "message",
+    "errorMsg": "The link you followed may be broken"
+  },
+  "Twitter": {
+    "url": "https://www.twitter.com/{}",
+    "errorType": "message",
+    "errorMsg": "page doesn’t exist"
+  },
+  "Facebook": {
+    "url": "https://www.facebook.com/{}",
+    "errorType": "message",
+    "errorMsg": "not found"
+  },
+  "YouTube": {
+    "url": "https://www.youtube.com/{}",
+    "errorType": "message",
+    "errorMsg": "Not Found"
+  },
+  "Blogger": {
+    "url": "https://{}.blogspot.com",
+    "errorType": "status_code"
+  },
+  "Google Plus": {
+    "url": "https://plus.google.com/+{}",
+    "errorType": "status_code"
+  },
+  "Reddit": {
+    "url": "https://www.reddit.com/user/{}",
+    "errorType": "message",
+    "errorMsg":"page not found"
+  },
+  "Pinterest": {
+    "url": "https://www.pinterest.com/{}",
+    "errorType": "response_url",
+    "errorMsgInUrl": "?show_error"
+  },
+  "GitHub": {
+    "url": "https://www.github.com/{}",
+    "errorType": "message",
+    "errorMsg": "404 Not Found"
+  },
+  "Steam": {
+    "url": "https://steamcommunity.com/id/{}",
+    "errorType": "message",
+    "errorMsg": "The specified profile could not be found"
+  },
+  "Vimeo": {
+    "url": "https://vimeo.com/{}",
+    "errorType": "message",
+    "errorMsg": "404 Not Found"
+  },
+  "SoundCloud": {
+    "url": "https://soundcloud.com/{}",
+    "errorType": "message",
+    "errorMsg": "404 Not Found"
+  },
+  "Tumblr": {
+    "url": "https://{}.tumblr.com",
+    "errorType": "message",
+    "errorMsg": " There's nothing here"
+  },
+  "Disqus": {
+    "url": "https://disqus.com/{}",
+    "errorType": "message",
+    "errorMsg": "404 NOT FOUND"
+  },
+  "Medium": {
+    "url": "https://medium.com/@{}",
+    "errorType": "status_code"
+  },
+  "DeviantART": {
+    "url": "https://{}.deviantart.com",
+    "errorType": "status_code"
+  },
+  "VK": {
+    "url": "https://vk.com/{}",
+    "errorType": "status_code"
+  },
+  "About.me": {
+    "url": "https://about.me/{}",
+    "errorType": "status_code"
+  },
+  "Imgur": {
+    "url": "https://imgur.com/user/{}",
+    "errorType": "status_code"
+  },
+  "Flipboard": {
+    "url": "https://flipboard.com/@{}",
+    "errorType": "status_code"
+  },
+  "SlideShare": {
+    "url": "https://slideshare.net/{}",
+    "errorType": "status_code"
+  },
+  "Fotolog": {
+    "url": "https://fotolog.com/{}",
+    "errorType": "status_code"
+  },
+  "Spotify": {
+    "url": "https://open.spotify.com/user/{}",
+    "errorType": "status_code"
+  },
+  "MixCloud": {
+    "url": "https://www.mixcloud.com/{}",
+    "errorType": "message",
+    "errorMsg": "Page Not Found"
+  },
+  "Scribd": {
+    "url": "https://www.scribd.com/{}",
+    "errorType": "message",
+    "errorMsg": "Page not found"
+  },
+  "Patreon": {
+    "url": "https://www.patreon.com/{}",
+    "errorType": "status_code"
+  },
+  "BitBucket": {
+    "url": "https://bitbucket.org/{}",
+    "errorType": "status_code"
+  },
+  "Roblox": {
+    "url": "https://www.roblox.com/user.aspx?username={}",
+    "errorType": "message",
+    "errorMsg": "Page cannot be found or no longer exists"
+  },
+  "Gravatar": {
+    "url": "http://en.gravatar.com/{}",
+    "errorType": "message",
+    "errorMsg": "We’re sorry, we couldn't find that profile"
+  },
+  "iMGSRC.RU": {
+    "url": "https://imgsrc.ru/main/user.php?user={}",
+    "errorType": "message",
+    "errorMsg": "Rapidly growing community of over a million users, dedicated to sharing."
+  },
+  "DailyMotion": {
+    "url": "https://www.dailymotion.com/{}",
+    "errorType": "message",
+    "errorMsg": "Page not found"
+  },
+  "Etsy": {
+    "url": "https://www.etsy.com/shop/{}",
+    "errorType": "status_code"
+  },
+  "CashMe": {
+    "url": "https://cash.me/{}",
+    "errorType": "message",
+    "errorMsg": "Oh no"
+  },
+  "Behance": {
+    "url": "https://www.behance.net/{}",
+    "errorType": "message",
+    "errorMsg": "Oops! We can’t find that page."
+  },
+  "GoodReads": {
+    "url": "https://www.goodreads.com/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry you lost your way."
+  },
+  "Instructables": {
+    "url": "https://www.instructables.com/member/{}",
+    "errorType": "message",
+    "errorMsg": "404: We're sorry, things break sometimes"
+  },
+  "Keybase": {
+    "url": "https://keybase.io/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry, what you are looking for...it does not exist."
+  },
+  "Kongregate": {
+    "url": "https://www.kongregate.com/accounts/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry, no account with that name was found."
+  },
+  "LiveJournal": {
+    "url": "https://{}.livejournal.com",
+    "errorType": "message",
+    "errorMsg": "Unknown Journal"
+  }
+}
