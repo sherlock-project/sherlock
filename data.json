@@ -184,5 +184,160 @@
     "url": "https://vsco.co/{}",
     "errorType": "message",
     "errorMsg": "This page does not exist"
+  },
+  "AngelList": {
+    "url": "https://angel.co/{}",
+    "errorType": "message",
+    "errorMsg": "We couldn't find what you were looking for."
+  },
+  "last.fm": {
+    "url": "https://last.fm/user/{}",
+    "errorType": "message",
+    "errorMsg": "Whoops! Sorry, but this page doesn't exist."
+  },
+  "last.fm": {
+    "url": "https://dribbble.com/{}",
+    "errorType": "message",
+    "errorMsg": "Whoops, that page is gone."
+  },
+  "Dribbble": {
+    "url": "https://dribbble.com/{}",
+    "errorType": "message",
+    "errorMsg": "Whoops, that page is gone."
+  },
+  "Codecademy": {
+    "url": "https://www.codecademy.com/{}",
+    "errorType": "message",
+    "errorMsg": "404 error"
+  },
+  "Pastebin": {
+    "url": "https://pastebin.com/u/{}",
+    "errorType": "response_url",
+    "errorMsgInUrl": "index"
+  },
+  "Foursquare": {
+    "url": "https://foursquare.com/{}",
+    "errorType": "message",
+    "errorMsg": "We couldn't find the page you're looking for."
+  },
+  "Gumroad": {
+    "url": "https://www.gumroad.com/{}",
+    "errorType": "message",
+    "errorMsg": "Page not found."
+  },
+  "Newgrounds": {
+    "url": "https://{}.newgrounds.com",
+    "errorType": "message",
+    "errorMsg": "ERROR — No user"
+  },
+  "Wattpad": {
+    "url": "https://www.wattpad.com/user/{}",
+    "errorType": "message",
+    "errorMsg": "This page seems to be missing..."
+  },
+  "Canva": {
+    "url": "https://www.canva.com/{}",
+    "errorType": "message",
+    "errorMsg": "Not found (404)"
+  },
+  "Trakt": {
+    "url": "https://www.trakt.tv/users/{}",
+    "errorType": "message",
+    "errorMsg": "404"
+  },
+  "500px": {
+    "url": "https://500px.com/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry, no such page."
+  },
+  "BuzzFeed": {
+    "url": "https://buzzfeed.com/{}",
+    "errorType": "message",
+    "errorMsg": "We can't find the page you're looking for."
+  },
+  "TripAdvisor": {
+    "url": "https://tripadvisor.com/members/{}",
+    "errorType": "message",
+    "errorMsg": "This page is on vacation…"
+  },
+  "Contently": {
+    "url": "https://{}.contently.com/",
+    "errorType": "message",
+    "errorMsg": "We can't find that page!"
+  },
+  "Houzz": {
+    "url": "https://houzz.com/user/{}",
+    "errorType": "message",
+    "errorMsg": "The page you requested was not found."
+  },
+  "Houzz": {
+    "url": "https://houzz.com/user/{}",
+    "errorType": "message",
+    "errorMsg": "The page you requested was not found."
+  },
+  "BLIP.fm": {
+    "url": "https://blip.fm/{}",
+    "errorType": "message",
+    "errorMsg": "404 Page Not Found"
+  },
+  "HackerNews": {
+    "url": "https://news.ycombinator.com/user?id={}",
+    "errorType": "message",
+    "errorMsg": "No such user."
+  },
+  "Codementor": {
+    "url": "https://www.codementor.io/{}",
+    "errorType": "message",
+    "errorMsg": "404"
+  },
+  "ReverbNation": {
+    "url": "https://www.reverbnation.com/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry, we couldn't find that page"
+  },
+  "Designspiration": {
+    "url": "https://www.designspiration.net/{}",
+    "errorType": "message",
+    "errorMsg": "Content Not Found"
+  },
+  "Bandcamp": {
+    "url": "https://www.bandcamp.com/{}",
+    "errorType": "message",
+    "errorMsg": "Sorry, that something isn’t here"
+  },
+  "ColourLovers": {
+    "url": "https://www.colourlovers.com/love/{}",
+    "errorType": "message",
+    "errorMsg": "Page Not Loved"
+  },
+  "IFTTT": {
+    "url": "https://www.ifttt.com/p/{}",
+    "errorType": "message",
+    "errorMsg": "The requested page or file does not exist"
+  },
+  "Ebay": {
+    "url": "https://www.ebay.com/usr/{}",
+    "errorType": "message",
+    "errorMsg": "The User ID you entered was not found"
+  },
+  "Slack": {
+    "url": "https://{}.slack.com",
+    "errorType": "message",
+    "errorMsg": "There’s been a glitch…"
+  },
+  "Trip": {
+    "url": "https://www.trip.skyscanner.com/user/{}",
+    "errorType": "message",
+    "errorMsg": "Page not found"
+  },
+  "Ello": {
+    "url": "https://ello.co/{}",
+    "errorType": "message",
+    "errorMsg": "We couldn't find the page you're looking for"
+  },
+  "HackerOne": {
+    "url": "https://hackerone.com/{}",
+    "errorType": "message",
+    "errorMsg": "Page not found"
   }
 }
