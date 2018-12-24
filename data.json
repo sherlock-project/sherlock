@@ -344,5 +344,10 @@
     "url": "https://www.gotinder.com/@{}",
     "errorType": "message",
     "errorMsg": "Looking for Someone?"
+  },
+  "We Heart It": {
+    "url": "https://weheartit.com/{}",
+    "errorType": "message",
+    "errorMsg": "Oops! You've landed on a moving target!"
   }
 }
