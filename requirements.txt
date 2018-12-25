@@ -1,2 +1,1 @@
-requests
 requests_futures
