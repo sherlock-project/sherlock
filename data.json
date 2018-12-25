@@ -364,5 +364,10 @@
     "url": "https://unsplash.com/@{}",
     "errorType": "message",
     "errorMsg": "Hm, the page you were looking for doesn't seem to exist anymore"
+  },
+  "Pexels": {
+    "url": "https://www.pexels.com/@{}",
+    "errorType": "message",
+    "errorMsg": "Ouch, something went wrong!"
   }
 }
