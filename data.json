@@ -349,5 +349,20 @@
     "url": "https://weheartit.com/{}",
     "errorType": "message",
     "errorMsg": "Oops! You've landed on a moving target!"
+  },
+  "Flickr": {
+    "url": "https://www.flickr.com/people/{}",
+    "errorType": "message",
+    "errorMsg": "This is not the page you’re looking for"
+  },
+  "WordPress": {
+    "url": "https://{}.wordpress.com",
+    "errorType": "message",
+    "errorMsg": "Do you want to register"
+  },
+  "Unsplash": {
+    "url": "https://unsplash.com/@{}",
+    "errorType": "message",
+    "errorMsg": "Hm, the page you were looking for doesn't seem to exist anymore"
   }
 }
