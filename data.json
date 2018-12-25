@@ -265,11 +265,6 @@
     "errorType": "message",
     "errorMsg": "The page you requested was not found."
   },
-  "Houzz": {
-    "url": "https://houzz.com/user/{}",
-    "errorType": "message",
-    "errorMsg": "The page you requested was not found."
-  },
   "BLIP.fm": {
     "url": "https://blip.fm/{}",
     "errorType": "message",
