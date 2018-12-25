@@ -195,11 +195,6 @@
     "errorType": "message",
     "errorMsg": "Whoops! Sorry, but this page doesn't exist."
   },
-  "last.fm": {
-    "url": "https://dribbble.com/{}",
-    "errorType": "message",
-    "errorMsg": "Whoops, that page is gone."
-  },
   "Dribbble": {
     "url": "https://dribbble.com/{}",
     "errorType": "message",
