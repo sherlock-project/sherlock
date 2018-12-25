@@ -1,6 +1,13 @@
-import requests
+from concurrent.futures import ThreadPoolExecutor
+from requests_futures.sessions import FuturesSession
 import json
 import os
+
+raw = open("data.json", "r")
+data = json.load(raw)
+
+# Allow 1 thread for each external service, so `len(data)` threads total
+session = FuturesSession(executor=ThreadPoolExecutor(max_workers=len(data)))
 
 
 def write_to_file(url, fname):
@@ -34,8 +41,6 @@ def main():
         "\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: "
         "\033[0m".format(
             username))
-    raw = open("data.json", "r")
-    data = json.load(raw)
 
     # User agent is needed because some sites does not 
     # return the correct information because it thinks that
@@ -44,16 +49,31 @@ def main():
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
+    # Create futures for all requests
     for social_network in data:
-        url = data.get(social_network).get("url").format(username)
-        error_type = data.get(social_network).get("errorType")
+        url = data[social_network]['url'].format(username)
 
-        r = requests.get(url, headers=headers)
+        # This future starts running the request in a new thread, doesn't block the main thread
+        future = session.get(url=url, headers=headers)
 
+        # Store future in data for access later
+        data[social_network]['request'] = future
+
+    # Print results
+    for social_network in data:
+
+        url = data[social_network]['url'].format(username)
+        error_type = data[social_network]['errorType']
+
+        # Retrieve future and ensure it has finished
+        future = data[social_network]['request']
+        response = future.result()
+
+        # Print result
         if error_type == "message":
-            error = data.get(social_network).get("errorMsg")
+            error = data[social_network]['errorMsg']
 
-            if not error in r.text:
+            if not error in response.text:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
 
@@ -62,7 +82,7 @@ def main():
 
         elif error_type == "status_code":
 
-            if not r.status_code == 404:
+            if not response.status_code == 404:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
 
@@ -72,7 +92,7 @@ def main():
         elif error_type == "response_url":
             error = data.get(social_network).get("errorMsgInUrl")
 
-            if not error in r.url:
+            if not error in response.url:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
             else:
