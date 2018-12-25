@@ -1,0 +1,5 @@
+# User files
+*.txt
+
+# Virtual Environment
+venv/
