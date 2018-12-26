@@ -114,22 +114,7 @@ def sherlock(username):
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
 
-class ArgumentParserError(Exception): pass
-
-class ArgumentParser(argparse.ArgumentParser):
-    def error(self, message):
-        print("                                              .\"\"\"-.")
-        print("                                             /      \\")
-        print("\033[37;1m ____  _               _            _        |  _..--'-.")
-        print("\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`")
-        print("\033[37;1m\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\")
-        print("\033[37;1m ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.")
-        print("\033[37;1m|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.")
-        print("\033[37;1m                                           .'`-._ `.\    | J /")
-        print("\033[37;1m                                          /      `--.|   \__/\033[0m")
-        self.print_usage(sys.stderr)
-
-parser = ArgumentParser()
+parser = argparse.ArgumentParser()
 parser.add_argument('username', help='check services with given username')
 parser.add_argument("-d", '--debug', help="enable debug mode", action="store_true")
 
