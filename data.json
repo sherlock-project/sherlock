@@ -351,5 +351,10 @@
     "url": "https://www.pexels.com/@{}",
     "errorType": "message",
     "errorMsg": "Ouch, something went wrong!"
+  },
+  "devRant": {
+    "url": "https://devrant.com/users/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://devrant.com/"
   }
 }
