@@ -12,31 +12,25 @@ def write_to_file(url, fname):
 	with open(fname, "a") as f:
 		f.write(url+"\n")
 
+def print_error(err, errstr, var, debug = False):
+    if debug:
+        print (f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err}")
+    else:
+        print (f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
+
 def make_request(url, headers, error_type, social_network):
     try:
         r = requests.get(url, headers=headers)
         if r.status_code:
             return r, error_type
     except requests.exceptions.HTTPError as errh:
-        if DEBUG:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", errh)
-        else:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", social_network)
+        print_error(errh, "HTTP Error:", social_network, DEBUG)
     except requests.exceptions.ConnectionError as errc:
-        if DEBUG:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", errc)
-        else:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", social_network)
+        print_error(errc, "Error Connecting:", social_network, DEBUG)
     except requests.exceptions.Timeout as errt:
-        if DEBUG:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", errt)
-        else:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", social_network)
+        print_error(errt, "Timeout Error:", social_network, DEBUG)
     except requests.exceptions.RequestException as err:
-        if DEBUG:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", err)
-        else:
-            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", social_network)
+        print_error(err, "Unknown error:", social_network, DEBUG)
     return None, ""
     
 def sherlock(username):
@@ -114,12 +108,15 @@ def sherlock(username):
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
 
-parser = argparse.ArgumentParser()
-parser.add_argument('username', help='check services with given username')
-parser.add_argument("-d", '--debug', help="enable debug mode", action="store_true")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('username', help='check services with given username')
+    parser.add_argument("-d", '--debug', help="enable debug mode", action="store_true")
 
-args = parser.parse_args()
-if args.debug:
-    DEBUG = True
-if args.username:
-    sherlock(args.username)
+    args = parser.parse_args()
+    
+    if args.debug:
+        DEBUG = True
+
+    if args.username:
+        sherlock(args.username)
