@@ -4,23 +4,37 @@ import os
 import sys
 import argparse
 
+DEBUG = False
+
 def write_to_file(url, fname):
 	with open(fname, "a") as f:
 		f.write(url+"\n")
 
-def make_request(url, headers, error_type):
+def make_request(url, headers, error_type, social_network):
     try:
         r = requests.get(url, headers=headers)
         if r.status_code:
             return r, error_type
     except requests.exceptions.HTTPError as errh:
-        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", errh)
+        if DEBUG:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", errh)
+        else:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", social_network)
     except requests.exceptions.ConnectionError as errc:
-        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", errc)
+        if DEBUG:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", errc)
+        else:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", social_network)
     except requests.exceptions.Timeout as errt:
-        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", errt)
+        if DEBUG:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", errt)
+        else:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", social_network)
     except requests.exceptions.RequestException as err:
-        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", err)
+        if DEBUG:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", err)
+        else:
+            print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", social_network)
     return None, ""
     
 def sherlock(username):
@@ -34,11 +48,6 @@ def sherlock(username):
     print("\033[37;1m|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.")
     print("\033[37;1m                                           .'`-._ `.\    | J /")
     print("\033[37;1m                                          /      `--.|   \__/\033[0m")
-
-    if len(sys.argv) > 1:
-        username = sys.argv[1]
-    else:
-        username = input("\033[92;1m[\033[37;1m?\033[92;1m]\033[92;1m Input Username: \033[0m")
 
     print()
 
@@ -63,7 +72,7 @@ def sherlock(username):
         url = data.get(social_network).get("url").format(username)
         error_type = data.get(social_network).get("errorType")
 
-        r, error_type = make_request(url=url, headers=headers, error_type=error_type)
+        r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network)
         
         if error_type == "message":
             error = data.get(social_network).get("errorMsg")
@@ -116,7 +125,10 @@ class ArgumentParser(argparse.ArgumentParser):
 
 parser = ArgumentParser()
 parser.add_argument('username', help='check services with given username')
+parser.add_argument("-d", '--debug', help="enable debug mode", action="store_true")
 
 args = parser.parse_args()
+if args.debug:
+    DEBUG = True
 if args.username:
     sherlock(args.username)
