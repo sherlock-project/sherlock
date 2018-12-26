@@ -75,8 +75,8 @@ def sherlock(username):
         error_type = data.get(social_network).get("errorType")
         cant_have_period = data.get(social_network).get("noPeriod")
 
-        if cant_have_period == "True":
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+        if ("." in username) and (cant_have_period == "True"):
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m User Name Not Allowed!".format(social_network))
             continue
             
         r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network)
