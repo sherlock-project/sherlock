@@ -11,8 +11,7 @@
   },
   "Facebook": {
     "url": "https://www.facebook.com/{}",
-    "errorType": "message",
-    "errorMsg": "not found"
+    "errorType": "status_code"
   },
   "YouTube": {
     "url": "https://www.youtube.com/{}",
@@ -21,7 +20,8 @@
   },
   "Blogger": {
     "url": "https://{}.blogspot.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Google Plus": {
     "url": "https://plus.google.com/+{}",
@@ -35,12 +35,12 @@
   "Pinterest": {
     "url": "https://www.pinterest.com/{}",
     "errorType": "response_url",
-    "errorMsgInUrl": "?show_error"
+    "errorUrl": "https://www.pinterest.com/?show_error=true"
   },
   "GitHub": {
     "url": "https://www.github.com/{}",
-    "errorType": "message",
-    "errorMsg": "404 Not Found"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Steam": {
     "url": "https://steamcommunity.com/id/{}",
@@ -54,18 +54,11 @@
   },
   "SoundCloud": {
     "url": "https://soundcloud.com/{}",
-    "errorType": "message",
-    "errorMsg": "404 Not Found"
-  },
-  "Tumblr": {
-    "url": "https://{}.tumblr.com",
-    "errorType": "message",
-    "errorMsg": " There's nothing here"
+    "errorType": "status_code"
   },
   "Disqus": {
     "url": "https://disqus.com/{}",
-    "errorType": "message",
-    "errorMsg": "404 NOT FOUND"
+    "errorType": "status_code"
   },
   "Medium": {
     "url": "https://medium.com/@{}",
@@ -73,7 +66,8 @@
   },
   "DeviantART": {
     "url": "https://{}.deviantart.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "VK": {
     "url": "https://vk.com/{}",
@@ -89,7 +83,8 @@
   },
   "Flipboard": {
     "url": "https://flipboard.com/@{}",
-    "errorType": "status_code"
+    "errorType": "message",
+    "errorMsg": "loading"
   },
   "SlideShare": {
     "url": "https://slideshare.net/{}",
@@ -128,13 +123,12 @@
   },
   "Gravatar": {
     "url": "http://en.gravatar.com/{}",
-    "errorType": "message",
-    "errorMsg": "We’re sorry, we couldn't find that profile"
+    "errorType": "status_code"
   },
   "iMGSRC.RU": {
     "url": "https://imgsrc.ru/main/user.php?user={}",
-    "errorType": "message",
-    "errorMsg": "Rapidly growing community of over a million users, dedicated to sharing."
+    "errorType": "response_url",
+    "errorUrl": "https://imgsrc.ru/"
   },
   "DailyMotion": {
     "url": "https://www.dailymotion.com/{}",
@@ -147,8 +141,7 @@
   },
   "CashMe": {
     "url": "https://cash.me/{}",
-    "errorType": "message",
-    "errorMsg": "Oh no"
+    "errorType": "status_code"
   },
   "Behance": {
     "url": "https://www.behance.net/{}",
@@ -157,8 +150,7 @@
   },
   "GoodReads": {
     "url": "https://www.goodreads.com/{}",
-    "errorType": "message",
-    "errorMsg": "Sorry you lost your way."
+    "errorType": "status_code"
   },
   "Instructables": {
     "url": "https://www.instructables.com/member/{}",
@@ -167,23 +159,23 @@
   },
   "Keybase": {
     "url": "https://keybase.io/{}",
-    "errorType": "message",
-    "errorMsg": "Sorry, what you are looking for...it does not exist."
+    "errorType": "status_code"
   },
   "Kongregate": {
     "url": "https://www.kongregate.com/accounts/{}",
     "errorType": "message",
-    "errorMsg": "Sorry, no account with that name was found."
+    "errorMsg": "Sorry, no account with that name was found.",
+    "noPeriod": "True"
   },
   "LiveJournal": {
     "url": "https://{}.livejournal.com",
     "errorType": "message",
-    "errorMsg": "Unknown Journal"
+    "errorMsg": "Unknown Journal",
+    "noPeriod": "True"
   },
   "VSCO": {
     "url": "https://vsco.co/{}",
-    "errorType": "message",
-    "errorMsg": "This page does not exist"
+    "errorType": "status_code"
   },
   "AngelList": {
     "url": "https://angel.co/{}",
@@ -198,7 +190,8 @@
   "Dribbble": {
     "url": "https://dribbble.com/{}",
     "errorType": "message",
-    "errorMsg": "Whoops, that page is gone."
+    "errorMsg": "Whoops, that page is gone.",
+    "noPeriod": "True"
   },
   "Codecademy": {
     "url": "https://www.codecademy.com/{}",
@@ -208,12 +201,11 @@
   "Pastebin": {
     "url": "https://pastebin.com/u/{}",
     "errorType": "response_url",
-    "errorMsgInUrl": "index"
+    "errorUrl": "https://pastebin.com/index"
   },
   "Foursquare": {
     "url": "https://foursquare.com/{}",
-    "errorType": "message",
-    "errorMsg": "We couldn't find the page you're looking for."
+    "errorType": "status_code"
   },
   "Gumroad": {
     "url": "https://www.gumroad.com/{}",
@@ -222,8 +214,8 @@
   },
   "Newgrounds": {
     "url": "https://{}.newgrounds.com",
-    "errorType": "message",
-    "errorMsg": "ERROR — No user"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Wattpad": {
     "url": "https://www.wattpad.com/user/{}",
@@ -258,12 +250,8 @@
   "Contently": {
     "url": "https://{}.contently.com/",
     "errorType": "message",
-    "errorMsg": "We can't find that page!"
-  },
-  "Houzz": {
-    "url": "https://houzz.com/user/{}",
-    "errorType": "message",
-    "errorMsg": "The page you requested was not found."
+    "errorMsg": "We can't find that page!",
+    "noPeriod": "True"
   },
   "Houzz": {
     "url": "https://houzz.com/user/{}",
@@ -273,7 +261,7 @@
   "BLIP.fm": {
     "url": "https://blip.fm/{}",
     "errorType": "message",
-    "errorMsg": "404 Page Not Found"
+    "errorMsg": "Page Not Found"
   },
   "HackerNews": {
     "url": "https://news.ycombinator.com/user?id={}",
@@ -317,8 +305,8 @@
   },
   "Slack": {
     "url": "https://{}.slack.com",
-    "errorType": "message",
-    "errorMsg": "There’s been a glitch…"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Trip": {
     "url": "https://www.trip.skyscanner.com/user/{}",
@@ -347,18 +335,17 @@
   },
   "Flickr": {
     "url": "https://www.flickr.com/people/{}",
-    "errorType": "message",
-    "errorMsg": "This is not the page you’re looking for"
+    "errorType": "status_code"
   },
   "WordPress": {
     "url": "https://{}.wordpress.com",
-    "errorType": "message",
-    "errorMsg": "Do you want to register"
+    "errorType": "response_url",
+    "errorUrl": "wordpress.com/typo/?subdomain=",
+    "noPeriod": "True"
   },
   "Unsplash": {
     "url": "https://unsplash.com/@{}",
-    "errorType": "message",
-    "errorMsg": "Hm, the page you were looking for doesn't seem to exist anymore"
+    "errorType": "status_code"
   },
   "Pexels": {
     "url": "https://www.pexels.com/@{}",
