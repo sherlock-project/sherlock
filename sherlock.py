@@ -11,8 +11,8 @@ def write_to_file(url, fname):
 
 def main():
     # Not sure why, but the banner messes up if i put into one print function
-    print("                                              .\"\"\"-.")
-    print("                                             /      \\")
+    print("\033[37;1m                                              .\"\"\"-.")
+    print("\033[37;1m                                             /      \\")
     print("\033[37;1m ____  _               _            _        |  _..--'-.")
     print("\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`")
     print("\033[37;1m\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\")
