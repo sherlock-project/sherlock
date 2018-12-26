@@ -32,7 +32,7 @@ def main():
 
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
-    raw = open("data.json", "r")
+    raw = open("data.json", "r", encoding="utf-8")
     data = json.load(raw)
 
     # User agent is needed because some sites does not 
