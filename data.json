@@ -20,7 +20,8 @@
   },
   "Blogger": {
     "url": "https://{}.blogspot.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Google Plus": {
     "url": "https://plus.google.com/+{}",
@@ -38,7 +39,8 @@
   },
   "GitHub": {
     "url": "https://www.github.com/{}",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Steam": {
     "url": "https://steamcommunity.com/id/{}",
@@ -64,7 +66,8 @@
   },
   "DeviantART": {
     "url": "https://{}.deviantart.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "VK": {
     "url": "https://vk.com/{}",
@@ -161,12 +164,14 @@
   "Kongregate": {
     "url": "https://www.kongregate.com/accounts/{}",
     "errorType": "message",
-    "errorMsg": "Sorry, no account with that name was found."
+    "errorMsg": "Sorry, no account with that name was found.",
+    "noPeriod": "True"
   },
   "LiveJournal": {
     "url": "https://{}.livejournal.com",
     "errorType": "message",
-    "errorMsg": "Unknown Journal"
+    "errorMsg": "Unknown Journal",
+    "noPeriod": "True"
   },
   "VSCO": {
     "url": "https://vsco.co/{}",
@@ -185,7 +190,8 @@
   "Dribbble": {
     "url": "https://dribbble.com/{}",
     "errorType": "message",
-    "errorMsg": "Whoops, that page is gone."
+    "errorMsg": "Whoops, that page is gone.",
+    "noPeriod": "True"
   },
   "Codecademy": {
     "url": "https://www.codecademy.com/{}",
@@ -208,7 +214,8 @@
   },
   "Newgrounds": {
     "url": "https://{}.newgrounds.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Wattpad": {
     "url": "https://www.wattpad.com/user/{}",
@@ -243,7 +250,8 @@
   "Contently": {
     "url": "https://{}.contently.com/",
     "errorType": "message",
-    "errorMsg": "We can't find that page!"
+    "errorMsg": "We can't find that page!",
+    "noPeriod": "True"
   },
   "Houzz": {
     "url": "https://houzz.com/user/{}",
@@ -302,7 +310,8 @@
   },
   "Slack": {
     "url": "https://{}.slack.com",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "noPeriod": "True"
   },
   "Trip": {
     "url": "https://www.trip.skyscanner.com/user/{}",
@@ -336,7 +345,8 @@
   "WordPress": {
     "url": "https://{}.wordpress.com",
     "errorType": "response_url",
-    "errorUrl": "wordpress.com/typo/?subdomain="
+    "errorUrl": "wordpress.com/typo/?subdomain=",
+    "noPeriod": "True"
   },
   "Unsplash": {
     "url": "https://unsplash.com/@{}",

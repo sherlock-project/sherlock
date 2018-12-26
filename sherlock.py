@@ -45,7 +45,12 @@ def main():
     for social_network in data:
         url = data.get(social_network).get("url").format(username)
         error_type = data.get(social_network).get("errorType")
-    
+
+        cant_have_period = data.get(social_network).get("noPeriod")
+
+        if cant_have_period == "True":
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+            continue
 
         r = requests.get(url, headers=headers)
     
