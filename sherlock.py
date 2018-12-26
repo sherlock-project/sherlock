@@ -2,6 +2,8 @@ import requests
 import json
 import os
 
+# TODO: fix tumblr
+
 def write_to_file(url, fname):
 	with open(fname, "a") as f:
 		f.write(url+"\n")
@@ -49,7 +51,7 @@ def main():
     
         if error_type == "message":
             error = data.get(social_network).get("errorMsg")
-            
+            # Checks if the error message is in the HTML
             if not error in r.text:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)                	
@@ -58,7 +60,7 @@ def main():
             	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
             
         elif error_type == "status_code":
-            
+            # Checks if the status code of the repsonse is 404
             if not r.status_code == 404:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
@@ -67,8 +69,8 @@ def main():
             	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
 
         elif error_type == "response_url":
-            error = data.get(social_network).get("errorMsgInUrl")
-            
+            error = data.get(social_network).get("errorUrl")
+            # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
