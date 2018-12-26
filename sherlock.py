@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import sys
+import argparse
 
 def write_to_file(url, fname):
 	with open(fname, "a") as f:
@@ -13,16 +14,16 @@ def make_request(url, headers, error_type):
         if r.status_code:
             return r, error_type
     except requests.exceptions.HTTPError as errh:
-        print ("HTTP Error: ", errh)
+        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m HTTP Error:\033[93;1m", errh)
     except requests.exceptions.ConnectionError as errc:
-        print ("Error Connecting: ", errc)
+        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Error Connecting:\033[93;1m", errc)
     except requests.exceptions.Timeout as errt:
-        print ("Timeout Error: ", errt)
+        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Timeout Error:\033[93;1m", errt)
     except requests.exceptions.RequestException as err:
-        print ("Unknown error: ", err)
+        print ("\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m Unknown error:\033[93;1m", err)
     return None, ""
     
-def main():
+def sherlock(username):
     # Not sure why, but the banner messes up if i put into one print function
     print("                                              .\"\"\"-.")
     print("                                             /      \\")
@@ -96,5 +97,26 @@ def main():
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
-        	
-main()
+
+
+class ArgumentParserError(Exception): pass
+
+class ArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        print("                                              .\"\"\"-.")
+        print("                                             /      \\")
+        print("\033[37;1m ____  _               _            _        |  _..--'-.")
+        print("\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`")
+        print("\033[37;1m\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\")
+        print("\033[37;1m ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.")
+        print("\033[37;1m|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.")
+        print("\033[37;1m                                           .'`-._ `.\    | J /")
+        print("\033[37;1m                                          /      `--.|   \__/\033[0m")
+        self.print_usage(sys.stderr)
+
+parser = ArgumentParser()
+parser.add_argument('username', help='check services with given username')
+
+args = parser.parse_args()
+if args.username:
+    sherlock(args.username)
