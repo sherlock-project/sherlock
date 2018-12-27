@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import sys
+import re
 import argparse
 
 DEBUG = False
@@ -67,12 +68,17 @@ def sherlock(username):
     for social_network in data:
         url = data.get(social_network).get("url").format(username)
         error_type = data.get(social_network).get("errorType")
-        cant_have_period = data.get(social_network).get("noPeriod")
+        regex_check = data.get(social_network).get("regexCheck")
 
-        if ("." in username) and (cant_have_period == "True"):
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m User Name Not Allowed!".format(social_network))
+        if regex_check is None:
+            #Use default regular expression check for user names.
+            regex_check = "^[a-zA-Z][a-zA-Z0-9._-]*$"
+
+        if re.search(regex_check, username) is None:
+            #No need to do the check at the site: this user name is not allowed.
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal User Name Format For This Site!".format(social_network))
             continue
-            
+
         r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network)
         
         if error_type == "message":
