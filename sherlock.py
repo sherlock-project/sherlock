@@ -47,15 +47,16 @@ def sherlock(username):
 
     print()
 
-    fname = username+".txt"
+    fname = username + ".txt"
 
     if os.path.isfile(fname):
     	os.remove(fname)
     	print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
 
-    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
-    raw = open("data.json", "r", encoding="utf-8")
-    data = json.load(raw)
+    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}"
+          "\033[0m\033[1;92m on: \033[0m".format(username))
+    with open("data.json", "r", encoding="utf-8") as raw:
+        data = json.load(raw)
 
     # User agent is needed because some sites does not 
     # return the correct information because it thinks that
@@ -64,19 +65,19 @@ def sherlock(username):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
-    for social_network in data:
-        url = data.get(social_network).get("url").format(username)
-        error_type = data.get(social_network).get("errorType")
-        cant_have_period = data.get(social_network).get("noPeriod")
+    for social_network, info in data.items():
+        url = info["url"].format(username)
+        error_type = info["errorType"]
+        cant_have_period = info["noPeriod"]
 
-        if ("." in username) and (cant_have_period == "True"):
+        if "." in username and cant_have_period == "True":
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m User Name Not Allowed!".format(social_network))
             continue
             
         r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network)
         
         if error_type == "message":
-            error = data.get(social_network).get("errorMsg")
+            error = info["errorMsg"]
             # Checks if the error message is in the HTML
             if not error in r.text:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
@@ -95,7 +96,7 @@ def sherlock(username):
             	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
 
         elif error_type == "response_url":
-            error = data.get(social_network).get("errorUrl")
+            error = info["errorUrl"]
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
