@@ -356,5 +356,9 @@
     "url": "https://devrant.com/users/{}",
     "errorType": "response_url",
     "errorUrl": "https://devrant.com/"
+  },
+  "MyAnimeList": {
+    "url": "https://myanimelist.net/profile/{}",
+    "errorType": "status_code"
   }
 }
