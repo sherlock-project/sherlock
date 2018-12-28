@@ -369,5 +369,10 @@
   "Badoo": {
     "url": "https://badoo.com/profile/{}",
     "errorType": "status_code"
+  },
+  "MeetMe": {
+    "url": "https://www.meetme.com/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://www.meetme.com/"
   }
 }
