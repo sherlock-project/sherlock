@@ -360,5 +360,10 @@
   "MyAnimeList": {
     "url": "https://myanimelist.net/profile/{}",
     "errorType": "status_code"
+  },
+  "ImageShack": {
+    "url": "https://imageshack.us/user/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://imageshack.us/"
   }
 }
