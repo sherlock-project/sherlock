@@ -365,5 +365,9 @@
     "url": "https://imageshack.us/user/{}",
     "errorType": "response_url",
     "errorUrl": "https://imageshack.us/"
+  },
+  "Badoo": {
+    "url": "https://badoo.com/profile/{}",
+    "errorType": "status_code"
   }
 }
