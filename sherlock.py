@@ -63,11 +63,7 @@ def sherlock(username, verbose=False):
         error_type = data.get(social_network).get("errorType")
         regex_check = data.get(social_network).get("regexCheck")
 
-        if regex_check is None:
-            #Use default regular expression check for user names.
-            regex_check = "^[a-zA-Z][a-zA-Z0-9._-]*$"
-
-        if re.search(regex_check, username) is None:
+        if regex_check and re.search(regex_check, username) is None:
             #No need to do the check at the site: this user name is not allowed.
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal User Name Format For This Site!".format(social_network))
             continue
