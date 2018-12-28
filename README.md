@@ -2,7 +2,7 @@
 > Find usernames across over 75 social networks 
 
 <p align="center">
-<img src="sherlock_preview.png">
+<img src="preview.png">
 </a>
 </p>
 

@@ -8,6 +8,9 @@ import json
 import os
 import sys
 import re
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
+import platform
+
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.1.0"
@@ -19,11 +22,13 @@ def write_to_file(url, fname):
 	with open(fname, "a") as f:
 		f.write(url+"\n")
 
+
 def print_error(err, errstr, var, debug = False):
     if debug:
-        print (f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err}")
+        print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err}")
     else:
-        print (f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
+        print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
+
 
 def make_request(url, headers, error_type, social_network, verbose=False):
     try:
@@ -39,6 +44,7 @@ def make_request(url, headers, error_type, social_network, verbose=False):
     except requests.exceptions.RequestException as err:
         print_error(err, "Unknown error:", social_network, verbose)
     return None, ""
+
 
 def sherlock(username, verbose=False):
     fname = username+".txt"
@@ -65,7 +71,7 @@ def sherlock(username, verbose=False):
 
         if regex_check and re.search(regex_check, username) is None:
             #No need to do the check at the site: this user name is not allowed.
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal User Name Format For This Site!".format(social_network))
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
             continue
 
         r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose)
@@ -105,10 +111,8 @@ def sherlock(username, verbose=False):
 
     return
 
-if __name__ == "__main__":
-    from argparse import ArgumentParser, RawDescriptionHelpFormatter
-    import platform
 
+def main():
     version_string = f"%(prog)s {__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
@@ -136,7 +140,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    #Banner
+    # Banner
     print(
 """\033[37;1m                                              .\"\"\"-.
 \033[37;1m                                             /      \\
@@ -148,7 +152,12 @@ if __name__ == "__main__":
 \033[37;1m                                           .'`-._ `.\    | J /
 \033[37;1m                                          /      `--.|   \__/\033[0m""")
 
-    #Run report on all specified users.
+    # Run report on all specified users.
     for username in args.username:
         print()
         sherlock(username, verbose=args.verbose)
+
+
+
+if __name__ == "__main__":
+    main()
