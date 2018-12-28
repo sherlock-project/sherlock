@@ -21,7 +21,7 @@
   "Blogger": {
     "url": "https://{}.blogspot.com",
     "errorType": "status_code",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Google Plus": {
     "url": "https://plus.google.com/+{}",
@@ -40,7 +40,7 @@
   "GitHub": {
     "url": "https://www.github.com/{}",
     "errorType": "status_code",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
   },
   "Steam": {
     "url": "https://steamcommunity.com/id/{}",
@@ -67,7 +67,7 @@
   "DeviantART": {
     "url": "https://{}.deviantart.com",
     "errorType": "status_code",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "VK": {
     "url": "https://vk.com/{}",
@@ -165,13 +165,13 @@
     "url": "https://www.kongregate.com/accounts/{}",
     "errorType": "message",
     "errorMsg": "Sorry, no account with that name was found.",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "LiveJournal": {
     "url": "https://{}.livejournal.com",
     "errorType": "message",
     "errorMsg": "Unknown Journal",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "VSCO": {
     "url": "https://vsco.co/{}",
@@ -191,7 +191,7 @@
     "url": "https://dribbble.com/{}",
     "errorType": "message",
     "errorMsg": "Whoops, that page is gone.",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Codecademy": {
     "url": "https://www.codecademy.com/{}",
@@ -215,7 +215,7 @@
   "Newgrounds": {
     "url": "https://{}.newgrounds.com",
     "errorType": "status_code",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Wattpad": {
     "url": "https://www.wattpad.com/user/{}",
@@ -251,7 +251,7 @@
     "url": "https://{}.contently.com/",
     "errorType": "message",
     "errorMsg": "We can't find that page!",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Houzz": {
     "url": "https://houzz.com/user/{}",
@@ -306,7 +306,7 @@
   "Slack": {
     "url": "https://{}.slack.com",
     "errorType": "status_code",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Trip": {
     "url": "https://www.trip.skyscanner.com/user/{}",
@@ -341,7 +341,7 @@
     "url": "https://{}.wordpress.com",
     "errorType": "response_url",
     "errorUrl": "wordpress.com/typo/?subdomain=",
-    "noPeriod": "True"
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$"
   },
   "Unsplash": {
     "url": "https://unsplash.com/@{}",
