@@ -2,7 +2,7 @@
 > Find usernames across social networks 
 
 <p align="center">
-<img src="preview.png">
+<img src="docs/preview.png">
 </a>
 </p>
 
