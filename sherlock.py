@@ -20,7 +20,7 @@ __version__ = "0.1.0"
 # TODO: fix tumblr
 
 def unique_list(seq):
-    return list(dict.fromkeys(seq)) 
+    return list(dict.fromkeys(seq))
 
 
 def write_to_file(url, fname):
