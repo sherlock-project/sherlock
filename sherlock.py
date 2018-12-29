@@ -164,7 +164,7 @@ def main():
     if args.tor or args.unique_tor:
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
-    # Run report on     all specified users.
+    # Run report on all specified users.
     for username in args.username:
         print()
         sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
