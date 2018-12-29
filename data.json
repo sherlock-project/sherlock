@@ -453,5 +453,10 @@
     "urlMain": "https://www.meetme.com/",
     "errorType": "response_url",
     "errorUrl": "https://www.meetme.com/"
+  },
+  "Quora": {
+    "url": "https://www.quora.com/profile/{}",
+    "urlMain": "https://www.quora.com/",
+    "errorType": "status_code"
   }
 }
