@@ -13,9 +13,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
 from torrequest import TorRequest
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.1.0"
-
+from sherlock import __version__, module_name
 
 # TODO: fix tumblr
 
@@ -81,7 +79,9 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     	print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
-    raw = open("data.json", "r", encoding="utf-8")
+    base = os.path.dirname(__file__)
+    data_file = os.path.join(base, "data.json")
+    raw = open(data_file, "r", encoding="utf-8")
     data = json.load(raw)
 
     # User agent is needed because some sites does not

@@ -8,3 +8,6 @@
 
 # Comma-Separated Values (CSV) Reports
 *.csv
+
+# Python Cache
+__pycache__/

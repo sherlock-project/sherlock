@@ -17,8 +17,8 @@ $ git clone https://github.com/sdushantha/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install the requirements
-$ pip3 install -r requirements.txt
+# install the package
+$ pip3 install .
 ```
 
 ## Usage
