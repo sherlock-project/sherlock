@@ -7,7 +7,6 @@ networks.
 import requests
 import json
 import os
-import sys
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
@@ -24,7 +23,7 @@ def write_to_file(url, fname):
         f.write(url+"\n")
 
 
-def print_error(err, errstr, var, debug = False):
+def print_error(err, errstr, var, debug=False):
     if debug:
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err}")
     else:
@@ -47,8 +46,11 @@ def make_request(url, headers, error_type, social_network, verbose=False):
     return None
 
 
-def get_social_network_result(username, headers, social_network, info, verbose =
-        False):
+def get_social_network_result(username,
+                              headers,
+                              social_network,
+                              info,
+                              verbose=False):
     _result = {}
     _result["username"] = username
     _result["social_network"] = social_network
@@ -68,7 +70,7 @@ def get_social_network_result(username, headers, social_network, info, verbose =
     if error_type == "message" and r:
         error = info["errorMsg"]
         # Checks if the error message is in the HTML
-        if not error in r.text:
+        if error not in r.text:
             _result["success"] = True
         else:
             _result["success"] = False
@@ -83,7 +85,7 @@ def get_social_network_result(username, headers, social_network, info, verbose =
     elif error_type == "response_url" and r:
         error = info["errorUrl"]
         # Checks if the redirect url is the same as the one defined in data.json
-        if not error in r.url:
+        if error not in r.url:
             _result["success"] = True
         else:
             _result["success"] = False
@@ -95,7 +97,7 @@ def get_social_network_result(username, headers, social_network, info, verbose =
     return _result
 
 
-def get_username_results(username, verbose = False):
+def get_username_results(username, verbose=False):
     with open("data.json", "r", encoding="utf-8") as raw:
         data = json.load(raw)
 
@@ -124,7 +126,7 @@ def sherlock(username, verbose=False):
             print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
                   format(result["social_network"]), result["url"])
             write_to_file(result["url"], fname)
-        elif not "http" in result["url"]:
+        elif "http" not in result["url"]:
             print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
                   format(result["social_network"]), result["url"])
         else:
@@ -143,32 +145,32 @@ def main():
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
-                           )
+                            )
     parser.add_argument("--version",
                         action="version",  version=version_string,
                         help="Display version information and dependencies."
-                       )
+                        )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information."
-                       )
+                        )
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
-                       )
+                        )
     parser.add_argument("--input", "-i",
                         action="store", dest="input", default="",
                         help="Input CSV file with one or more usernames to check with social networks."
-                       )
+                        )
     parser.add_argument("--output", "-o",
                         action="store", dest="output", default="",
                         help="Output CSV file with one or more usernames to check with social networks."
-                       )
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
                         help="One or more usernames to check with social networks."
-                       )
+                        )
 
     args = parser.parse_args()
 
@@ -188,7 +190,6 @@ def main():
     for username in args.username:
         print()
         sherlock(username, verbose=args.verbose)
-
 
 
 if __name__ == "__main__":
