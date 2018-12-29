@@ -10,7 +10,7 @@ import sys
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
-
+from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.1.0"
@@ -30,9 +30,10 @@ def print_error(err, errstr, var, debug = False):
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
 
 
-def make_request(url, headers, error_type, social_network, verbose=False):
+def make_request(url, headers, error_type, social_network, verbose=False, tor=False):
+    r = TorRequest() if tor else requests
     try:
-        r = requests.get(url, headers=headers)
+        r = r.get(url, headers=headers)
         if r.status_code:
             return r, error_type
     except requests.exceptions.HTTPError as errh:
@@ -46,7 +47,7 @@ def make_request(url, headers, error_type, social_network, verbose=False):
     return None, ""
 
 
-def sherlock(username, verbose=False):
+def sherlock(username, verbose=False, tor=False):
     fname = username+".txt"
 
     if os.path.isfile(fname):
@@ -74,7 +75,7 @@ def sherlock(username, verbose=False):
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
             continue
 
-        r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose)
+        r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose, tor=tor)
 
         if error_type == "message":
             error = data.get(social_network).get("errorMsg")
@@ -132,6 +133,9 @@ def main():
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
                        )
+    parser.add_argument("--tor", "-t",
+                        action="store_true", dest="tor", default=False,
+                        help="Make requests over TOR; requires TOR to be installed and in system path.")
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -152,10 +156,13 @@ def main():
 \033[37;1m                                           .'`-._ `.\    | J /
 \033[37;1m                                          /      `--.|   \__/\033[0m""")
 
-    # Run report on all specified users.
+    if args.tor:
+        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
+
+    # Run report on     all specified users.
     for username in args.username:
         print()
-        sherlock(username, verbose=args.verbose)
+        sherlock(username, verbose=args.verbose, tor=args.tor)
 
 
 
