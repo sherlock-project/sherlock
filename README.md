@@ -8,7 +8,7 @@
 
 ## Installation
 
-**NOTE**: Python 3.6 is required.
+**NOTE**: Python 3.6 or higher is required.
 
 ```bash
 # clone the repo
