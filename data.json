@@ -1,4 +1,10 @@
 {
+  "Tumblr": {
+    "url": "https://{}.tumblr.com/",
+    "urlMain": "https://www.tumblr.com/",
+    "errorType": "message",
+    "errorMsg": "There's nothing here."
+  },
   "Instagram": {
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
