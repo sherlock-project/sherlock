@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import re
+import csv
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
 
@@ -192,6 +193,10 @@ def main():
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
                        )
+    parser.add_argument("--csv",
+                        action="store_true",  dest="csv", default=False,
+                        help="Create Comma-Separated Values (CSV) File."
+                       )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -216,6 +221,27 @@ def main():
     for username in args.username:
         print()
         results = sherlock(username, verbose=args.verbose)
+
+        if args.csv == True:
+            with open(username + ".csv", "w", newline='') as csv_report:
+                writer = csv.writer(csv_report)
+                writer.writerow(['username',
+                                 'name',
+                                 'url_main',
+                                 'url_user',
+                                 'exists',
+                                 'http_status'
+                                ]
+                               )
+                for site in results:
+                    writer.writerow([username,
+                                     site,
+                                     results[site]['url_main'],
+                                     results[site]['url_user'],
+                                     results[site]['exists'],
+                                     results[site]['http_status']
+                                    ]
+                                   )
 
 if __name__ == "__main__":
     main()
