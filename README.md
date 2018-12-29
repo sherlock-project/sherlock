@@ -8,6 +8,8 @@
 
 ## Installation
 
+**NOTE**: Python 3.6 or higher is required.
+
 ```bash
 # clone the repo
 $ git clone https://github.com/sdushantha/sherlock.git
