@@ -23,7 +23,7 @@ $ pip3 install -r requirements.txt
 
 ```bash
 $ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--quiet]
+usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--tor] [--unique-tor]
                    USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.1.0)
@@ -37,6 +37,8 @@ optional arguments:
   --verbose, -v, -d, --debug
                         Display extra debugging information.
   --quiet, -q           Disable debugging information (Default Option).
+  --tor, -t             Make requests over TOR; increases runtime; requires TOR to be installed and in system path.
+  --unique-tor, -u      Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
