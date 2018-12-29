@@ -11,7 +11,7 @@ import re
 import csv
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
-
+from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.1.0"
@@ -31,11 +31,14 @@ def print_error(err, errstr, var, debug = False):
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
 
 
-def make_request(url, headers, error_type, social_network, verbose=False):
+def make_request(url, headers, error_type, social_network, verbose=False, tor=False, unique_tor=False):
+    r = TorRequest() if (tor or unique_tor) else requests
     try:
-        r = requests.get(url, headers=headers)
-        if r.status_code:
-            return r, error_type
+        rsp = r.get(url, headers=headers)
+        if unique_tor:
+            r.reset_identity()
+        if rsp.status_code:
+            return rsp, error_type
     except requests.exceptions.HTTPError as errh:
         print_error(errh, "HTTP Error:", social_network, verbose)
     except requests.exceptions.ConnectionError as errc:
@@ -47,14 +50,17 @@ def make_request(url, headers, error_type, social_network, verbose=False):
     return None, ""
 
 
-def sherlock(username, verbose=False):
+def sherlock(username, verbose=False, tor=False, unique_tor=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
-
+    
     Keyword Arguments:
     username               -- String indicating username that report
                               should be created against.
+    verbose                -- Boolean indicating whether to give verbose output.
+    tor                    -- Boolean indicating whether to use a tor circuit for the requests.
+    unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
 
     Return Value:
     Dictionary containing results from report.  Key of dictionary is the name
@@ -108,13 +114,13 @@ def sherlock(username, verbose=False):
         if regex_check and re.search(regex_check, username) is None:
             #No need to do the check at the site: this user name is not allowed.
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
-            exists        = "illegal"
+            exists = "illegal"
         else:
-            r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose)
+            r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose, tor=tor, unique_tor=unique_tor)
 
             # Attempt to get request information
             try:
-                http_status   = r.status_code
+                http_status = r.status_code
             except:
                 pass
             try:
@@ -193,6 +199,12 @@ def main():
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
                        )
+    parser.add_argument("--tor", "-t",
+                        action="store_true", dest="tor", default=False,
+                        help="Make requests over TOR; increases runtime; requires TOR to be installed and in system path.")
+    parser.add_argument("--unique-tor", "-u",
+                        action="store_true", dest="unique_tor", default=False,
+                        help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.")
     parser.add_argument("--csv",
                         action="store_true",  dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
@@ -217,10 +229,13 @@ def main():
 \033[37;1m                                           .'`-._ `.\    | J /
 \033[37;1m                                          /      `--.|   \__/\033[0m""")
 
+    if args.tor or args.unique_tor:
+        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
+
     # Run report on all specified users.
     for username in args.username:
         print()
-        results = sherlock(username, verbose=args.verbose)
+        results = sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='') as csv_report:
