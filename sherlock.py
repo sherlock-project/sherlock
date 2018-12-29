@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import re
+import csv
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
 from torrequest import TorRequest
@@ -50,6 +51,29 @@ def make_request(url, headers, error_type, social_network, verbose=False, tor=Fa
 
 
 def sherlock(username, verbose=False, tor=False, unique_tor=False):
+    """Run Sherlock Analysis.
+
+    Checks for existence of username on various social media sites.
+    
+    Keyword Arguments:
+    username               -- String indicating username that report
+                              should be created against.
+    verbose                -- Boolean indicating whether to give verbose output.
+    tor                    -- Boolean indicating whether to use a tor circuit for the requests.
+    unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
+
+    Return Value:
+    Dictionary containing results from report.  Key of dictionary is the name
+    of the social network site, and the value is another dictionary with
+    the following keys:
+        url_main:      URL of main site.
+        url_user:      URL of user on site (if account exists).
+        exists:        String indicating results of test for account existence.
+        http_status:   HTTP status code of query which checked for existence on
+                       site.
+        response_text: Text that came back from request.  May be None if
+                       there was an HTTP error when checking for existence.
+    """
     fname = username+".txt"
 
     if os.path.isfile(fname):
@@ -67,52 +91,92 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
+    # Results from analysis of all sites
+    results_total = {}
     for social_network in data:
+        # Results from analysis of this specific site
+        results_site = {}
+
+        # Record URL of main site
+        results_site['url_main'] = data.get(social_network).get("urlMain")
+
+        # URL of user on site (if it exists)
         url = data.get(social_network).get("url").format(username)
+        results_site['url_user'] = url
+
         error_type = data.get(social_network).get("errorType")
         regex_check = data.get(social_network).get("regexCheck")
+
+        # Default data in case there are any failures in doing a request.
+        http_status   = "?"
+        response_text = ""
 
         if regex_check and re.search(regex_check, username) is None:
             #No need to do the check at the site: this user name is not allowed.
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
-            continue
+            exists = "illegal"
+        else:
+            r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose, tor=tor, unique_tor=unique_tor)
 
-        r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose, tor=tor, unique_tor=unique_tor)
+            # Attempt to get request information
+            try:
+                http_status = r.status_code
+            except:
+                pass
+            try:
+                response_text = r.text.encode(r.encoding)
+            except:
+                pass
 
-        if error_type == "message":
-            error = data.get(social_network).get("errorMsg")
-            # Checks if the error message is in the HTML
-            if not error in r.text:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
+            if error_type == "message":
+                error = data.get(social_network).get("errorMsg")
+                # Checks if the error message is in the HTML
+                if not error in r.text:
+                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                    write_to_file(url, fname)
+                    exists = "yes"
+                else:
+                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                    exists = "no"
 
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+            elif error_type == "status_code":
+                # Checks if the status code of the response is 404
+                if not r.status_code == 404:
+                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                    write_to_file(url, fname)
+                    exists = "yes"
+                else:
+                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                    exists = "no"
 
-        elif error_type == "status_code":
-            # Checks if the status code of the repsonse is 404
-            if not r.status_code == 404:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
+            elif error_type == "response_url":
+                error = data.get(social_network).get("errorUrl")
+                # Checks if the redirect url is the same as the one defined in data.json
+                if not error in r.url:
+                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                    write_to_file(url, fname)
+                    exists = "yes"
+                else:
+                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                    exists = "no"
 
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+            elif error_type == "":
+                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
+                exists = "error"
 
-        elif error_type == "response_url":
-            error = data.get(social_network).get("errorUrl")
-            # Checks if the redirect url is the same as the one defined in data.json
-            if not error in r.url:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+        # Save exists flag
+        results_site['exists']        = exists
 
-        elif error_type == "":
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
+        # Save results from request
+        results_site['http_status']   = http_status
+        results_site['response_text'] = response_text
+
+        # Add this site's results into final dictionary with all of the other results.
+        results_total[social_network] = results_site
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
 
-    return
+    return results_total
 
 
 def main():
@@ -141,6 +205,10 @@ def main():
     parser.add_argument("--unique-tor", "-u",
                         action="store_true", dest="unique_tor", default=False,
                         help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.")
+    parser.add_argument("--csv",
+                        action="store_true",  dest="csv", default=False,
+                        help="Create Comma-Separated Values (CSV) File."
+                       )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -167,9 +235,28 @@ def main():
     # Run report on all specified users.
     for username in args.username:
         print()
-        sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
+        results = sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
 
-
+        if args.csv == True:
+            with open(username + ".csv", "w", newline='') as csv_report:
+                writer = csv.writer(csv_report)
+                writer.writerow(['username',
+                                 'name',
+                                 'url_main',
+                                 'url_user',
+                                 'exists',
+                                 'http_status'
+                                ]
+                               )
+                for site in results:
+                    writer.writerow([username,
+                                     site,
+                                     results[site]['url_main'],
+                                     results[site]['url_user'],
+                                     results[site]['exists'],
+                                     results[site]['http_status']
+                                    ]
+                                   )
 
 if __name__ == "__main__":
     main()
