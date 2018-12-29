@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """Sherlock: Find Usernames Across Social Networks Module
 
 This module contains the main logic to search for usernames at social
@@ -19,8 +20,8 @@ __version__ = "0.1.0"
 # TODO: fix tumblr
 
 def write_to_file(url, fname):
-	with open(fname, "a") as f:
-		f.write(url+"\n")
+    with open(fname, "a") as f:
+        f.write(url+"\n")
 
 
 def print_error(err, errstr, var, debug = False):
@@ -34,7 +35,7 @@ def make_request(url, headers, error_type, social_network, verbose=False):
     try:
         r = requests.get(url, headers=headers)
         if r.status_code:
-            return r, error_type
+            return r
     except requests.exceptions.HTTPError as errh:
         print_error(errh, "HTTP Error:", social_network, verbose)
     except requests.exceptions.ConnectionError as errc:
@@ -43,19 +44,60 @@ def make_request(url, headers, error_type, social_network, verbose=False):
         print_error(errt, "Timeout Error:", social_network, verbose)
     except requests.exceptions.RequestException as err:
         print_error(err, "Unknown error:", social_network, verbose)
-    return None, ""
+    return None
 
 
-def sherlock(username, verbose=False):
-    fname = username+".txt"
+def get_social_network_result(username, headers, social_network, info, verbose =
+        False):
+    _result = {}
+    _result["username"] = username
+    _result["social_network"] = social_network
+    _result["success"] = False
+    _result["url"] = info["url"].format(username)
+    error_type = info["errorType"]
 
-    if os.path.isfile(fname):
-    	os.remove(fname)
-    	print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
+    if "regexCheck" in info:
+        if re.search(info["regexCheck"], username) is None:
+            # No need to do the check at the site: this user name is not allowed.
+            _result["success"] = False
+            _result["url"] = "Illegal Username Format For This Site!"
+            return _result
 
-    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
-    raw = open("data.json", "r", encoding="utf-8")
-    data = json.load(raw)
+    r = make_request(_result["url"], headers, error_type, social_network, verbose)
+
+    if error_type == "message" and r:
+        error = info["errorMsg"]
+        # Checks if the error message is in the HTML
+        if not error in r.text:
+            _result["success"] = True
+        else:
+            _result["success"] = False
+            _result["url"] = ""
+    elif error_type == "status_code" and r:
+        # Checks if the status code of the repsonse is 404
+        if not r.status_code == 404:
+            _result["success"] = True
+        else:
+            _result["success"] = False
+            _result["url"] = ""
+    elif error_type == "response_url" and r:
+        error = info["errorUrl"]
+        # Checks if the redirect url is the same as the one defined in data.json
+        if not error in r.url:
+            _result["success"] = True
+        else:
+            _result["success"] = False
+            _result["url"] = ""
+    elif not r:
+        _result["success"] = False
+        _result["url"] = "Error"
+
+    return _result
+
+
+def get_username_results(username, verbose = False):
+    with open("data.json", "r", encoding="utf-8") as raw:
+        data = json.load(raw)
 
     # User agent is needed because some sites does not
     # return the correct information because it thinks that
@@ -64,48 +106,30 @@ def sherlock(username, verbose=False):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
-    for social_network in data:
-        url = data.get(social_network).get("url").format(username)
-        error_type = data.get(social_network).get("errorType")
-        regex_check = data.get(social_network).get("regexCheck")
+    for social_network, info in data.items():
+        yield get_social_network_result(username, headers, social_network, info, verbose)
 
-        if regex_check and re.search(regex_check, username) is None:
-            #No need to do the check at the site: this user name is not allowed.
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
-            continue
 
-        r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose)
+def sherlock(username, verbose=False):
+    fname = username+".txt"
 
-        if error_type == "message":
-            error = data.get(social_network).get("errorMsg")
-            # Checks if the error message is in the HTML
-            if not error in r.text:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
+    if os.path.isfile(fname):
+        os.remove(fname)
+        print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
 
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
 
-        elif error_type == "status_code":
-            # Checks if the status code of the repsonse is 404
-            if not r.status_code == 404:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
-
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
-
-        elif error_type == "response_url":
-            error = data.get(social_network).get("errorUrl")
-            # Checks if the redirect url is the same as the one defined in data.json
-            if not error in r.url:
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                write_to_file(url, fname)
-            else:
-            	print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
-
-        elif error_type == "":
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
+    for result in get_username_results(username, verbose):
+        if result["success"]:
+            print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
+                  format(result["social_network"]), result["url"])
+            write_to_file(result["url"], fname)
+        elif not "http" in result["url"]:
+            print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
+                  format(result["social_network"]), result["url"])
+        else:
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".
+                  format(result["social_network"]))
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
 
@@ -131,6 +155,14 @@ def main():
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
+                       )
+    parser.add_argument("--input", "-i",
+                        action="store", dest="input", default="",
+                        help="Input CSV file with one or more usernames to check with social networks."
+                       )
+    parser.add_argument("--output", "-o",
+                        action="store", dest="output", default="",
+                        help="Output CSV file with one or more usernames to check with social networks."
                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
