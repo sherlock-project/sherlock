@@ -25,7 +25,7 @@ $ pip3 install -r requirements.txt
 
 ```bash
 $ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--quiet]
+usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--csv]
                    USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.1.0)
@@ -39,6 +39,7 @@ optional arguments:
   --verbose, -v, -d, --debug
                         Display extra debugging information.
   --quiet, -q           Disable debugging information (Default Option).
+  --csv                 Create Comma-Separated Values (CSV) File.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
