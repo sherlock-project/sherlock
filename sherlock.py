@@ -5,6 +5,7 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 import requests
+import csv
 import json
 import os
 import re
@@ -18,6 +19,10 @@ __version__ = "0.1.0"
 
 # TODO: fix tumblr
 
+def unique_list(seq):
+    return list(dict.fromkeys(seq)) 
+
+
 def write_to_file(url, fname):
     with open(fname, "a") as f:
         f.write(url+"\n")
@@ -30,7 +35,7 @@ def print_error(err, errstr, var, debug=False):
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
 
 
-def make_request(url, headers, error_type, social_network, verbose=False):
+def make_request(url, headers, social_network, verbose=False):
     try:
         r = requests.get(url, headers=headers)
         if r.status_code:
@@ -65,34 +70,34 @@ def get_social_network_result(username,
             _result["url"] = "Illegal Username Format For This Site!"
             return _result
 
-    r = make_request(_result["url"], headers, error_type, social_network, verbose)
+    r = make_request(_result["url"], headers, social_network, verbose)
 
-    if error_type == "message" and r:
+    if r is None:
+        _result["success"] = False
+        _result["url"] = "Error"
+    elif error_type == "message" and r.status_code:
         error = info["errorMsg"]
         # Checks if the error message is in the HTML
         if error not in r.text:
             _result["success"] = True
         else:
             _result["success"] = False
-            _result["url"] = ""
-    elif error_type == "status_code" and r:
+            _result["url"] = "Not Found"
+    elif error_type == "status_code" and r.status_code:
         # Checks if the status code of the repsonse is 404
         if not r.status_code == 404:
             _result["success"] = True
         else:
             _result["success"] = False
-            _result["url"] = ""
-    elif error_type == "response_url" and r:
+            _result["url"] = "Not Found"
+    elif error_type == "response_url" and r.status_code:
         error = info["errorUrl"]
         # Checks if the redirect url is the same as the one defined in data.json
         if error not in r.url:
             _result["success"] = True
         else:
             _result["success"] = False
-            _result["url"] = ""
-    elif not r:
-        _result["success"] = False
-        _result["url"] = "Error"
+            _result["url"] = "Not Found"
 
     return _result
 
@@ -112,6 +117,38 @@ def get_username_results(username, verbose=False):
         yield get_social_network_result(username, headers, social_network, info, verbose)
 
 
+def csv_output(usernames, filename, verbose):
+    if os.path.isfile(filename):
+        os.remove(filename)
+        print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(filename))
+    with open("data.json", "r", encoding="utf-8") as raw:
+        data = json.load(raw)
+    fieldnames = []
+    fieldnames += ["username"]
+    for social_network, info in data.items():
+        fieldnames += [social_network]
+    with open(filename, 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for username in usernames:
+            print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
+            row = {}
+            row["username"] = username
+            for result in get_username_results(username, verbose):
+                row[result["social_network"]] = result["url"]
+                if result["success"]:
+                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
+                          format(result["social_network"]), result["url"])
+                elif "http" not in result["url"]:
+                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[0m".
+                          format(result["social_network"]), result["url"])
+                else:
+                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".
+                          format(result["social_network"]))
+            writer.writerow(row)
+    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(filename))
+
+
 def sherlock(username, verbose=False):
     fname = username+".txt"
 
@@ -127,7 +164,7 @@ def sherlock(username, verbose=False):
                   format(result["social_network"]), result["url"])
             write_to_file(result["url"], fname)
         elif "http" not in result["url"]:
-            print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[0m".
                   format(result["social_network"]), result["url"])
         else:
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".
@@ -159,12 +196,12 @@ def main():
                         help="Disable debugging information (Default Option)."
                         )
     parser.add_argument("--input", "-i",
-                        action="store", dest="input", default="",
-                        help="Input CSV file with one or more usernames to check with social networks."
+                        action="store", dest="infile", default="",
+                        help="Input file with one username per line to check with social networks."
                         )
     parser.add_argument("--output", "-o",
                         action="store", dest="output", default="",
-                        help="Output CSV file with one or more usernames to check with social networks."
+                        help="Output CSV file."
                         )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
@@ -186,10 +223,22 @@ def main():
 \033[37;1m                                           .'`-._ `.\    | J /
 \033[37;1m                                          /      `--.|   \__/\033[0m""")
 
-    # Run report on all specified users.
+    # Get usernames from command line
+    usernames = []
     for username in args.username:
-        print()
-        sherlock(username, verbose=args.verbose)
+        usernames += [username]
+    # Get usernames from input file
+    if args.infile:
+        with open(args.infile, "r") as fh:
+            for username in fh:
+                usernames += [username.strip()]
+    if not args.output:
+        # Run report on all specified users and display to screen
+        for username in unique_list(usernames):
+            print()
+            sherlock(username, args.verbose)
+    else:
+        csv_output(usernames, args.output, args.verbose)
 
 
 if __name__ == "__main__":
