@@ -360,5 +360,19 @@
   "MyAnimeList": {
     "url": "https://myanimelist.net/profile/{}",
     "errorType": "status_code"
+  },
+  "ImageShack": {
+    "url": "https://imageshack.us/user/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://imageshack.us/"
+  },
+  "Badoo": {
+    "url": "https://badoo.com/profile/{}",
+    "errorType": "status_code"
+  },
+  "MeetMe": {
+    "url": "https://www.meetme.com/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://www.meetme.com/"
   }
 }
