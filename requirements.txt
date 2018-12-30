@@ -1,2 +1,3 @@
 requests
+requests_futures
 torrequest

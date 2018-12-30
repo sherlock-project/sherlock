@@ -3,10 +3,12 @@
 This module contains the main logic to search for usernames at social
 networks.
 """
+
 import requests
+from concurrent.futures import ThreadPoolExecutor
+from requests_futures.sessions import FuturesSession
 import json
 import os
-import sys
 import re
 import csv
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
@@ -16,27 +18,24 @@ from torrequest import TorRequest
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.1.0"
 
-
 # TODO: fix tumblr
 
+
 def write_to_file(url, fname):
-	with open(fname, "a") as f:
-		f.write(url+"\n")
+    with open(fname, "a") as f:
+        f.write(url + "\n")
 
 
-def print_error(err, errstr, var, debug = False):
+def print_error(err, errstr, var, debug=False):
     if debug:
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err}")
     else:
         print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {var}")
 
 
-def make_request(url, headers, error_type, social_network, verbose=False, tor=False, unique_tor=False):
-    r = TorRequest() if (tor or unique_tor) else requests
+def get_response(request_future, error_type, social_network, verbose=False):
     try:
-        rsp = r.get(url, headers=headers)
-        if unique_tor:
-            r.reset_identity()
+        rsp = request_future.result()
         if rsp.status_code:
             return rsp, error_type
     except requests.exceptions.HTTPError as errh:
@@ -74,95 +73,146 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
-    fname = username+".txt"
+    fname = username + ".txt"
 
     if os.path.isfile(fname):
-    	os.remove(fname)
-    	print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
+        os.remove(fname)
+        print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
-    raw = open("data.json", "r", encoding="utf-8")
-    data = json.load(raw)
 
-    # User agent is needed because some sites does not
+    # User agent is needed because some sites do not
     # return the correct information because it thinks that
     # we are bot
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
+    # Load the data
+    raw = open("data.json", "r")
+    data = json.load(raw)
+
+    # Allow 1 thread for each external service, so `len(data)` threads total
+    executor = ThreadPoolExecutor(max_workers=len(data))
+
+    # Create session based on request methodology
+    underlying_session = requests.session()
+    underlying_request = requests.Request()
+    if tor or unique_tor:
+        underlying_request = TorRequest()
+        underlying_session = underlying_request.session()
+
+    # Create multi-threaded session for all requests
+    session = FuturesSession(executor=executor, session=underlying_session)
+
     # Results from analysis of all sites
     results_total = {}
+
+    # First create futures for all requests. This allows for the requests to run in parallel
     for social_network in data:
+
         # Results from analysis of this specific site
         results_site = {}
 
         # Record URL of main site
         results_site['url_main'] = data.get(social_network).get("urlMain")
 
-        # URL of user on site (if it exists)
-        url = data.get(social_network).get("url").format(username)
-        results_site['url_user'] = url
-
-        error_type = data.get(social_network).get("errorType")
+        # Don't make request if username is invalid for the site
         regex_check = data.get(social_network).get("regexCheck")
+        if regex_check and re.search(regex_check, username) is None:
+            # No need to do the check at the site: this user name is not allowed.
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
+            results_site["exists"] = "illegal"
+        else:
+            # URL of user on site (if it exists)
+            url = data.get(social_network).get("url").format(username)
+            results_site["url_user"] = url
+
+            # This future starts running the request in a new thread, doesn't block the main thread
+            future = session.get(url=url, headers=headers)
+
+            # Store future in data for access later
+            data.get(social_network)["request_future"] = future
+
+            # Reset identify for tor (if needed)
+            if unique_tor:
+                underlying_request.reset_identity()
+
+        # Add this site's results into final dictionary with all of the other results.
+        results_total[social_network] = results_site
+
+    # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
+    for social_network in data:
+
+        # Retrieve results again
+        results_site = results_total.get(social_network)
+
+        # Retrieve other site information again
+        url = results_site.get("url_user")
+        exists = results_site.get("exists")
+        if exists is not None:
+            # We have already determined the user doesn't exist here
+            continue
+
+        # Get the expected error type
+        error_type = data.get(social_network).get("errorType")
 
         # Default data in case there are any failures in doing a request.
         http_status   = "?"
         response_text = ""
 
-        if regex_check and re.search(regex_check, username) is None:
-            #No need to do the check at the site: this user name is not allowed.
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
-            exists = "illegal"
-        else:
-            r, error_type = make_request(url=url, headers=headers, error_type=error_type, social_network=social_network, verbose=verbose, tor=tor, unique_tor=unique_tor)
+        # Retrieve future and ensure it has finished
+        future = data.get(social_network).get("request_future")
+        r, error_type = get_response(request_future=future,
+                                     error_type=error_type,
+                                     social_network=social_network,
+                                     verbose=verbose)
 
-            # Attempt to get request information
-            try:
-                http_status = r.status_code
-            except:
-                pass
-            try:
-                response_text = r.text.encode(r.encoding)
-            except:
-                pass
+        # Attempt to get request information
+        try:
+            http_status = r.status_code
+        except:
+            pass
+        try:
+            response_text = r.text.encode(r.encoding)
+        except:
+            pass
 
-            if error_type == "message":
-                error = data.get(social_network).get("errorMsg")
-                # Checks if the error message is in the HTML
-                if not error in r.text:
-                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                    write_to_file(url, fname)
-                    exists = "yes"
-                else:
-                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
-                    exists = "no"
+        if error_type == "message":
+            error = data.get(social_network).get("errorMsg")
+            # Checks if the error message is in the HTML
+            if not error in r.text:
+                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                write_to_file(url, fname)
+                exists = "yes"
+            else:
+                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                exists = "no"
 
-            elif error_type == "status_code":
-                # Checks if the status code of the response is 404
-                if not r.status_code == 404:
-                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                    write_to_file(url, fname)
-                    exists = "yes"
-                else:
-                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
-                    exists = "no"
+        elif error_type == "status_code":
+            # Checks if the status code of the response is 404
+            if not r.status_code == 404:
+                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                write_to_file(url, fname)
+                exists = "yes"
+            else:
+                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                exists = "no"
 
-            elif error_type == "response_url":
-                error = data.get(social_network).get("errorUrl")
-                # Checks if the redirect url is the same as the one defined in data.json
-                if not error in r.url:
-                    print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
-                    write_to_file(url, fname)
-                    exists = "yes"
-                else:
-                    print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
-                    exists = "no"
+        elif error_type == "response_url":
+            error = data.get(social_network).get("errorUrl")
+            # Checks if the redirect url is the same as the one defined in data.json
+            if not error in r.url:
+                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                write_to_file(url, fname)
+                exists = "yes"
+            else:
+                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                exists = "no"
 
-            elif error_type == "":
-                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
-                exists = "error"
+        elif error_type == "":
+            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
+            exists = "error"
 
         # Save exists flag
         results_site['exists']        = exists
