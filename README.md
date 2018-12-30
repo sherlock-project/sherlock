@@ -28,7 +28,7 @@ $ python3 sherlock.py --help
 usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--csv] [--tor] [--unique-tor]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.1.0)
+Sherlock: Find Usernames Across Social Networks (Version 2018.12.30)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
