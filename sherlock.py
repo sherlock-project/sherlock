@@ -119,7 +119,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         results_site['url_main'] = data.get(social_network).get("urlMain")
 
         # Don't make request if username is invalid for the site
-        regex_check = net_info["regexCheck"]
+        regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
@@ -180,7 +180,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             pass
 
         if error_type == "message":
-            error = net_info["errorMsg"]
+            error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
@@ -201,7 +201,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                 exists = "no"
 
         elif error_type == "response_url":
-            error = net_info["errorUrl"]
+            error = net_info.get("errorUrl")
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
