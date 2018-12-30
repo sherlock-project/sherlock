@@ -1,4 +1,5 @@
-"""Sherlock: Find Usernames Across Social Networks Module
+"""
+Sherlock: Find Usernames Across Social Networks Module
 
 This module contains the main logic to search for usernames at social
 networks.
@@ -81,9 +82,9 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
 
-    # User agent is needed because some sites do not
-    # return the correct information because it thinks that
-    # we are bot
+    # A user agent is needed because some sites don't
+    # return the correct information since they think that
+    # we are bots
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
