@@ -1,5 +1,13 @@
-# User files
-*.txt
-
 # Virtual Environment
 venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Output files, except requirements.txt
+*.txt
+!requirements.txt
+
+# Comma-Separated Values (CSV) Reports
+*.csv

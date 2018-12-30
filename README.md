@@ -1,12 +1,14 @@
 # Sherlock
-> Find usernames across over 75 social networks 
+> Find usernames across social networks 
 
 <p align="center">
-<img src="sherlock_preview.png">
+<img src="preview.png">
 </a>
 </p>
 
 ## Installation
+
+**NOTE**: Python 3.6 or higher is required.
 
 ```bash
 # clone the repo
@@ -20,10 +22,30 @@ $ pip3 install -r requirements.txt
 ```
 
 ## Usage
-Just run ```python3 sherlock.py```
 
-All of the accounts found will be stored in a text file with their usename (e.g ```user123.txt```)
+```bash
+$ python3 sherlock.py --help
+usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--csv] [--tor] [--unique-tor]
+                   USERNAMES [USERNAMES ...]
 
+Sherlock: Find Usernames Across Social Networks (Version 0.1.0)
+
+positional arguments:
+  USERNAMES             One or more usernames to check with social networks.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             Display version information and dependencies.
+  --verbose, -v, -d, --debug
+                        Display extra debugging information.
+  --quiet, -q           Disable debugging information (Default Option).
+  --csv                 Create Comma-Separated Values (CSV) File.
+  --tor, -t             Make requests over TOR; increases runtime; requires TOR to be installed and in system path.
+  --unique-tor, -u      Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.
+```
+
+For example, run ```python3 sherlock.py user123```, and all of the accounts
+found will be stored in a text file with the username (e.g ```user123.txt```).
 
 ## License
 MIT License
