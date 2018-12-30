@@ -54,7 +54,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
-    
+
     Keyword Arguments:
     username               -- String indicating username that report
                               should be created against.
@@ -90,8 +90,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     }
 
     # Load the data
-    raw = open("data.json", "r", encoding="utf-8")
-    data = json.load(raw)
+    with open("data.json", "r", encoding="utf-8") as raw:
+        data = json.load(raw)
 
     # Allow 1 thread for each external service, so `len(data)` threads total
     executor = ThreadPoolExecutor(max_workers=len(data))
