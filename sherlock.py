@@ -17,7 +17,7 @@ import platform
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.1.0"
+__version__ = "2018.12.30"
 
 # TODO: fix tumblr
 
