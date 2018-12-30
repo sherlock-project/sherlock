@@ -1,5 +1,5 @@
 # Sherlock
-> Find usernames across social networks 
+> Find usernames across [social networks](https://github.com/sdushantha/sherlock/blob/master/sites.md) 
 
 <p align="center">
 <img src="preview.png">
