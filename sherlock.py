@@ -110,30 +110,30 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     results_total = {}
 
     # First create futures for all requests. This allows for the requests to run in parallel
-    for social_network in data:
+    for social_network, net_info in data.items():
 
         # Results from analysis of this specific site
         results_site = {}
 
         # Record URL of main site
-        results_site['url_main'] = data.get(social_network).get("urlMain")
+        results_site['url_main'] = net_info.get("urlMain")
 
         # Don't make request if username is invalid for the site
-        regex_check = data.get(social_network).get("regexCheck")
+        regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
             print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
             results_site["exists"] = "illegal"
         else:
             # URL of user on site (if it exists)
-            url = data.get(social_network).get("url").format(username)
+            url = net_info["url"].format(username)
             results_site["url_user"] = url
 
             # This future starts running the request in a new thread, doesn't block the main thread
             future = session.get(url=url, headers=headers)
 
             # Store future in data for access later
-            data.get(social_network)["request_future"] = future
+            net_info["request_future"] = future
 
             # Reset identify for tor (if needed)
             if unique_tor:
@@ -156,14 +156,14 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             continue
 
         # Get the expected error type
-        error_type = data.get(social_network).get("errorType")
+        error_type = net_info["errorType"]
 
         # Default data in case there are any failures in doing a request.
         http_status   = "?"
         response_text = ""
 
         # Retrieve future and ensure it has finished
-        future = data.get(social_network).get("request_future")
+        future = net_info["request_future"]
         r, error_type = get_response(request_future=future,
                                      error_type=error_type,
                                      social_network=social_network,
@@ -180,7 +180,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             pass
 
         if error_type == "message":
-            error = data.get(social_network).get("errorMsg")
+            error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
@@ -201,7 +201,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                 exists = "no"
 
         elif error_type == "response_url":
-            error = data.get(social_network).get("errorUrl")
+            error = net_info.get("errorUrl")
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
