@@ -90,7 +90,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     }
 
     # Load the data
-    with open("data.json", "r", encoding="utf-8") as raw:
+    script_directory = os.path.dirname(os.path.realpath(__file__))
+    with open(script_directory + "/data.json", "r", encoding="utf-8") as raw:
         data = json.load(raw)
 
     # Allow 1 thread for each external service, so `len(data)` threads total
