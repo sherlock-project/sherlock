@@ -143,7 +143,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         results_total[social_network] = results_site
 
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
-    for social_network in data:
+    for social_network, net_info in data.items():
 
         # Retrieve results again
         results_site = results_total.get(social_network)
