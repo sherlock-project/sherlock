@@ -28,8 +28,7 @@ def write_to_file(url, fname):
 
 
 def print_error(err, errstr, var, debug=False):
-    err_or_var = err if debug else var
-    print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err_or_var}")
+    print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err if debug else var}")
 
 
 def get_response(request_future, error_type, social_network, verbose=False):
