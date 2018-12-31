@@ -5,15 +5,17 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
-import requests
-from concurrent.futures import ThreadPoolExecutor
-from requests_futures.sessions import FuturesSession
+import csv
 import json
 import os
-import re
-import csv
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
+import re
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from concurrent.futures import ThreadPoolExecutor
+
+import requests
+
+from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
