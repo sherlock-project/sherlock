@@ -39,6 +39,12 @@
     "errorType": "message",
     "errorMsg":"page not found"
   },
+  "9GAG": {
+    "url": "https://9gag.com/u/{}",
+    "urlMain": "https://9gag.com/",
+    "errorType": "message",
+    "errorMsg":"There's nothing here."
+  },
   "Pinterest": {
     "url": "https://www.pinterest.com/{}",
     "urlMain": "https://www.pinterest.com/",
