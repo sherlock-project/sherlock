@@ -14,6 +14,7 @@ import platform
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
+from huepy import *
 
 import requests
 
