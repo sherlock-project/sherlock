@@ -99,6 +99,11 @@
     "urlMain": "https://imgur.com/",
     "errorType": "status_code"
   },
+  "9GAG": {
+    "url": "https://9gag.com/u/{}",
+    "urlMain": "https://9gag.com/",
+    "errorType": "status_code"
+  },
   "Flipboard": {
     "url": "https://flipboard.com/@{}",
     "urlMain": "https://flipboard.com/",
