@@ -537,5 +537,11 @@
     "url": "https://issuu.com/{}",
     "urlMain": "https://issuu.com/",
     "errorType": "status_code"
+  },
+  "YouPic": {
+    "url": "https://youpic.com/photographer/{}",
+    "urlMain": "https://youpic.com/",
+    "errorType": "message",
+    "errorMsg": "404"
   }
 }
