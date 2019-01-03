@@ -1,6 +1,12 @@
 # Virtual Environment
 venv/
 
+# vscode
+.vscode/
+
+# Python
+__pycache__/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb
