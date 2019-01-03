@@ -80,7 +80,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        there was an HTTP error when checking for existence.
     """
     global amount
-    fname = username + ".txt"
+    fname = username.lower() + ".txt"
 
     if os.path.isfile(fname):
         os.remove(fname)
