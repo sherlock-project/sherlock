@@ -16,7 +16,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
 
 import requests
-
+from colorama import Back, Fore, Style, init
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
@@ -190,7 +190,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
-                
+
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
@@ -202,7 +202,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         elif error_type == "status_code":
             # Checks if the status code of the response is 404
             if not r.status_code == 404:
-                
+
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
@@ -215,7 +215,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             error = net_info.get("errorUrl")
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
-                
+
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
@@ -239,12 +239,15 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         results_total[social_network] = results_site
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
-    
+
     final_score(amount, fname)
     return results_total
 
 
 def main():
+    # Colorama module's initialization.
+    init()
+
     version_string = f"%(prog)s {__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
