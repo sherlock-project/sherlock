@@ -14,10 +14,9 @@ import platform
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
-from colorama import Fore,Back,Style,init
 
 import requests
-
+from colorama import Back, Fore, Style, init
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
