@@ -22,6 +22,7 @@ from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "2018.12.30"
+amount=0
 
 # TODO: fix tumblr
 
@@ -30,6 +31,9 @@ def write_to_file(url, fname):
     with open(fname, "a") as f:
         f.write(url + "\n")
 
+def final_score(amount, fname):
+    with open(fname, "a") as f:
+        f.write("Total: "+str(amount) + "\n")
 
 def print_error(err, errstr, var, debug=False):
     print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err if debug else var}")
@@ -75,6 +79,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
+    global amount
     fname = username + ".txt"
 
     if os.path.isfile(fname):
@@ -185,9 +190,11 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
+                
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
+                amount=amount+1
             else:
                 print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
                 exists = "no"
@@ -195,9 +202,11 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         elif error_type == "status_code":
             # Checks if the status code of the response is 404
             if not r.status_code == 404:
+                
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
+                amount=amount+1
             else:
                 print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
                 exists = "no"
@@ -206,9 +215,11 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             error = net_info.get("errorUrl")
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
+                
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
+                amount=amount+1
             else:
                 print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
                 exists = "no"
@@ -228,7 +239,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         results_total[social_network] = results_site
 
     print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
-
+    
+    final_score(amount, fname)
     return results_total
 
 
