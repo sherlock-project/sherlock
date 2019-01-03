@@ -130,8 +130,14 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             url = net_info["url"].format(username)
             results_site["url_user"] = url
 
+            # If only the status_code is needed don't download the body
+            if net_info["errorType"] == 'status_code':
+                request_method = session.head
+            else:
+                request_method = session.get
+
             # This future starts running the request in a new thread, doesn't block the main thread
-            future = session.get(url=url, headers=headers)
+            future = request_method(url=url, headers=headers)
 
             # Store future in data for access later
             net_info["request_future"] = future
