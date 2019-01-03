@@ -548,5 +548,17 @@
     "urlMain": "https://www.house-mixes.com/",
     "errorType": "message",
     "errorMsg": "Profile Not Found"
+  },
+  "Letterboxd": {
+    "url": "https://letterboxd.com/{}",
+    "urlMain": "https://letterboxd.com/",
+    "errorType": "message",
+    "errorMsg": "Sorry, we can’t find the page you’ve requested."
+  },
+  "Coderwall": {
+    "url": "https://coderwall.com/{}",
+    "urlMain": "https://coderwall.com/",
+    "errorType": "message",
+    "errorMsg": "404! Our feels when that url is used"
   }
 }
