@@ -21,7 +21,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "2018.12.30"
+__version__ = "2018.01.03"
 amount=0
 
 # TODO: fix tumblr
