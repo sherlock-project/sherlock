@@ -167,8 +167,7 @@
   "DailyMotion": {
     "url": "https://www.dailymotion.com/{}",
     "urlMain": "https://www.dailymotion.com/",
-    "errorType": "message",
-    "errorMsg": "Page not found"
+    "errorType": "status_code"
   },
   "Etsy": {
     "url": "https://www.etsy.com/shop/{}",
