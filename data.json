@@ -628,5 +628,10 @@
     "urlMain": "https://namemc.com/",
     "errorType": "message",
     "errorMsg": "Profiles: 0 results"
+  },
+  "Plug.DJ": {
+    "url": "https://plug.dj/@/{}",
+    "urlMain": "https://plug.dj/",
+    "errorType": "status_code"
   }
 }
