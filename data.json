@@ -1,4 +1,4 @@
-{
+﻿{
   "Instagram": {
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
@@ -536,8 +536,7 @@
   "Issuu": {
     "url": "https://issuu.com/{}",
     "urlMain": "https://issuu.com/",
-    "errorType": "message",
-    "errorMsg": "Sorry, the page you've requested isn't here."
+    "errorType": "status_code"
   },
   "YouPic": {
     "url": "https://youpic.com/photographer/{}",
