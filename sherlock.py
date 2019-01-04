@@ -36,7 +36,11 @@ def final_score(amount, fname):
         f.write("Total: "+str(amount) + "\n")
 
 def print_error(err, errstr, var, debug=False):
-    print(f"\033[37;1m[\033[91;1m-\033[37;1m]\033[91;1m {errstr}\033[93;1m {err if debug else var}")
+    print(Style.BRIGHT + Fore.WHITE + "[" +
+          Fore.RED + "-" +
+          Fore.WHITE + "]" +
+          Fore.RED + f" {errstr}" +
+          Fore.YELLOW + f" {err if debug else var}")
 
 
 def get_response(request_future, error_type, social_network, verbose=False):
@@ -84,9 +88,16 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
 
     if os.path.isfile(fname):
         os.remove(fname)
-        print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Removing previous file:\033[1;37m {}\033[0m".format(fname))
+        print((Style.BRIGHT + Fore.GREEN + "[" +
+               Fore.YELLOW + "*" +
+               Fore.GREEN + "] Removing previous file:" +
+               Fore.WHITE + " {}").format(fname))
 
-    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Checking username\033[0m\033[1;37m {}\033[0m\033[1;92m on: \033[0m".format(username))
+    print((Style.BRIGHT + Fore.GREEN + "[" +
+           Fore.YELLOW + "*" +
+           Fore.GREEN + "] Checking username" +
+           Fore.WHITE + " {}" +
+           Fore.GREEN + " on:").format(username))
 
     # A user agent is needed because some sites don't
     # return the correct information since they think that
@@ -129,7 +140,11 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Illegal Username Format For This Site!".format(social_network))
+            print((Style.BRIGHT + Fore.WHITE + "[" +
+                   Fore.RED + "-" +
+                   Fore.WHITE + "]" +
+                   Fore.GREEN + " {}:" +
+                   Fore.YELLOW + " Illegal Username Format For This Site!").format(social_network))
             results_site["exists"] = "illegal"
         else:
             # URL of user on site (if it exists)
@@ -197,24 +212,38 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             # Checks if the error message is in the HTML
             if not error in r.text:
 
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.GREEN + "+" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
                 amount=amount+1
             else:
-                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.RED + "-" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:" +
+                       Fore.YELLOW + " Not Found!").format(social_network))
                 exists = "no"
 
         elif error_type == "status_code":
             # Checks if the status code of the response is 404
             if not r.status_code == 404:
 
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.GREEN + "+" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
                 amount=amount+1
             else:
-                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.RED + "-" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:" +
+                       Fore.YELLOW + " Not Found!").format(social_network))
                 exists = "no"
 
         elif error_type == "response_url":
@@ -222,16 +251,27 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             # Checks if the redirect url is the same as the one defined in data.json
             if not error in r.url:
 
-                print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.GREEN + "+" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, fname)
                 exists = "yes"
                 amount=amount+1
             else:
-                print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Not Found!".format(social_network))
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                       Fore.RED + "-" +
+                       Fore.WHITE + "]" +
+                       Fore.GREEN + " {}:" +
+                       Fore.YELLOW + " Not Found!").format(social_network))
                 exists = "no"
 
         elif error_type == "":
-            print("\033[37;1m[\033[91;1m-\033[37;1m]\033[92;1m {}:\033[93;1m Error!".format(social_network))
+            print((Style.BRIGHT + Fore.WHITE + "[" +
+                   Fore.RED + "-" +
+                   Fore.WHITE + "]" +
+                   Fore.GREEN + " {}:" +
+                   Fore.YELLOW + " Error!").format(social_network))
             exists = "error"
 
         # Save exists flag
@@ -244,7 +284,10 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
-    print("\033[1;92m[\033[0m\033[1;77m*\033[0m\033[1;92m] Saved: \033[37;1m{}\033[0m".format(username+".txt"))
+    print((Style.BRIGHT + Fore.GREEN + "[" +
+           Fore.YELLOW + "*" +
+           Fore.GREEN + "] Saved: " +
+           Fore.WHITE + "{}").format(username+".txt"))
 
     final_score(amount, fname)
     return results_total
@@ -252,7 +295,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
 
 def main():
     # Colorama module's initialization.
-    init()
+    init(autoreset=True)
 
     version_string = f"%(prog)s {__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -292,16 +335,16 @@ def main():
     args = parser.parse_args()
 
     # Banner
-    print(
-"""\033[37;1m                                              .\"\"\"-.
-\033[37;1m                                             /      \\
-\033[37;1m ____  _               _            _        |  _..--'-.
-\033[37;1m/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
-\033[37;1m\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\
-\033[37;1m ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
-\033[37;1m|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
-\033[37;1m                                           .'`-._ `.\    | J /
-\033[37;1m                                          /      `--.|   \__/\033[0m""")
+    print(Fore.WHITE + Style.BRIGHT +
+"""                                              .\"\"\"-.
+                                             /      \\
+ ____  _               _            _        |  _..--'-.
+/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
+\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\
+ ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
+|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
+                                           .'`-._ `.\    | J /
+                                          /      `--.|   \__/""")
 
     if args.tor or args.unique_tor:
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
