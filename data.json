@@ -15,7 +15,7 @@
     "url": "https://www.facebook.com/{}",
     "urlMain": "https://www.facebook.com/",
     "errorType": "status_code",
-    "regexCheck": "^([a-zA-Z0-9.]){5,}$"
+    "regexCheck": "^a-zA-Z0-9{4,49}(?<!.com|.org|.net)$"
   },
   "YouTube": {
     "url": "https://www.youtube.com/{}",
