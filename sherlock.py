@@ -21,7 +21,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 amount=0
 
 # TODO: fix tumblr
@@ -80,7 +80,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        there was an HTTP error when checking for existence.
     """
     global amount
-    fname = username + ".txt"
+    fname = username.lower() + ".txt"
 
     if os.path.isfile(fname):
         os.remove(fname)
@@ -206,8 +206,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                 exists = "no"
 
         elif error_type == "status_code":
-            # Checks if the status code of the response is 404
-            if not r.status_code == 404:
+            # Checks if the status code of the response is 2XX
+            if not r.status_code >= 300 or r.status_code < 200:
 
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
