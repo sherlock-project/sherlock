@@ -536,7 +536,8 @@
   "Issuu": {
     "url": "https://issuu.com/{}",
     "urlMain": "https://issuu.com/",
-    "errorType": "status_code"
+    "errorType": "message",
+    "errorMsg": "Sorry, the page you've requested isn't here."
   },
   "YouPic": {
     "url": "https://youpic.com/photographer/{}",
@@ -560,5 +561,72 @@
     "urlMain": "https://coderwall.com/",
     "errorType": "message",
     "errorMsg": "404! Our feels when that url is used"
+  },
+  "Zhihu": {
+    "url": "https://www.zhihu.com/people/{}",
+    "urlMain": "https://www.zhihu.com/",
+    "errorType": "message",
+    "errorMsg": "404"
+  },
+  "Gitee": {
+    "url": "https://gitee.com/{}",
+    "urlMain": "https://gitee.com/",
+    "errorType": "status_code"
+  },
+  "Academia.edu": {
+    "url": "https://independent.academia.edu/{}",
+    "urlMain": "https://www.academia.edu/",
+    "errorType": "message",
+    "errorMsg": "Page Not Found"
+  },
+  "BlackPlanet": {
+    "url": "http://blackplanet.com/{}",
+    "urlMain": "http://blackplanet.com/",
+    "errorType": "message",
+    "errorMsg": "My Hits"
+  },
+  "Cloob": {
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
+    "errorType": "status_code"
+  },
+  "Crunchyroll": {
+    "url": "https://www.crunchyroll.com/user/{}",
+    "urlMain": "https://www.crunchyroll.com/",
+    "errorType": "status_code"
+  },
+  "Rajče.net": {
+    "url": "https://{}.rajce.idnes.cz/",
+    "urlMain": "https://www.rajce.idnes.cz/",
+    "errorType": "message",
+    "errorMsg": "410"
+  },
+  "VirusTotal": {
+    "url": "https://www.virustotal.com/#/user/{}",
+    "urlMain": "https://www.virustotal.com/",
+    "errorType": "status_code"
+  },
+  "WebNode": {
+    "url": "https://{}.webnode.cz/",
+    "urlMain": "https://www.webnode.cz/",
+    "errorType": "message",
+    "errorMsg": "Ztratili jste se?"
+  },
+  "Aptoide": {
+    "url": "https://{}.en.aptoide.com/",
+    "urlMain": "https://en.aptoide.com/",
+    "errorType": "status_code"
+  },
+  "GitLab": {
+    "url": "https://gitlab.com/{}",
+    "urlMain": "https://gitlab.com/",
+    "errorType": "message",
+    "errorMsg": "You need to sign in or sign up before continuing."
+  },
+  "NameMC (Minecraft.net skins)": {
+    "url": "https://namemc.com/profile/{}",
+    "urlMain": "https://namemc.com/",
+    "errorType": "message",
+    "errorMsg": "Profiles: 0 results"
   }
 }
