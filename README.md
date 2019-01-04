@@ -64,6 +64,12 @@ The ```--rm``` flag is optional.  It removes the container filesystem after runn
 
 One caveat is the text file that is created will only exist in the container so you will not be able to get at that.
 
+
+Or you can simply use docker to run `sherlock`:
+```
+docker run theyahya/sherlock user123
+```
+
 ## License
 MIT License
 
