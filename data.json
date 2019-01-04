@@ -167,8 +167,7 @@
   "DailyMotion": {
     "url": "https://www.dailymotion.com/{}",
     "urlMain": "https://www.dailymotion.com/",
-    "errorType": "message",
-    "errorMsg": "Page not found"
+    "errorType": "status_code"
   },
   "Etsy": {
     "url": "https://www.etsy.com/shop/{}",
@@ -632,5 +631,11 @@
     "url": "https://plug.dj/@/{}",
     "urlMain": "https://plug.dj/",
     "errorType": "status_code"
+  },
+  "Wikipedia": {
+    "url": "https://www.wikipedia.org/wiki/User:{}",
+    "urlMain": "https://www.wikipedia.org/",
+    "errorType": "message",
+    "errorMsg": "If a page was recently created here, it may not be visible yet because of a delay in updating the database"
   }
 }
