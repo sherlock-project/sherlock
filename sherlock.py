@@ -206,8 +206,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                 exists = "no"
 
         elif error_type == "status_code":
-            # Checks if the status code of the response is 404
-            if not r.status_code == 404:
+            # Checks if the status code of the response is 2XX
+            if not r.status_code >= 300 or r.status_code < 200:
 
                 print("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m {}:\033[0m".format(social_network), url)
                 write_to_file(url, fname)
