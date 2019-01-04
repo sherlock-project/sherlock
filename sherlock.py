@@ -287,7 +287,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     print((Style.BRIGHT + Fore.GREEN + "[" +
            Fore.YELLOW + "*" +
            Fore.GREEN + "] Saved: " +
-           Fore.WHITE + "{}").format(username+".txt"))
+           Fore.WHITE + "{}").format(fname))
 
     final_score(amount, fname)
     return results_total
