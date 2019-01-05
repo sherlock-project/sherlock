@@ -1,4 +1,4 @@
-## List Of Supported Sites (113 Sites In Total!)
+## List Of Supported Sites (115 Sites In Total!)
 1. [Instagram](https://www.instagram.com/)
 2. [Twitter](https://www.twitter.com/)
 3. [Facebook](https://www.facebook.com/)
@@ -112,3 +112,5 @@
 111. [NameMC (Minecraft.net skins)](https://namemc.com/)
 112. [Plug.DJ](https://plug.dj/)
 113. [Wikipedia](https://www.wikipedia.org/)
+114. [Wikipedia](https://www.wikipedia.org/)
+115. [Mastodon](https://mstdn.io/)

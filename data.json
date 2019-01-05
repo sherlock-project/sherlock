@@ -14,7 +14,8 @@
   "Facebook": {
     "url": "https://www.facebook.com/{}",
     "urlMain": "https://www.facebook.com/",
-    "errorType": "status_code"
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$"
   },
   "YouTube": {
     "url": "https://www.youtube.com/{}",
@@ -108,7 +109,8 @@
     "url": "https://flipboard.com/@{}",
     "urlMain": "https://flipboard.com/",
     "errorType": "message",
-    "errorMsg": "loading"
+    "errorMsg": "loading",
+    "regexCheck": "^([a-zA-Z0-9_]){1,15}$"
   },
   "SlideShare": {
     "url": "https://slideshare.net/{}",
@@ -637,5 +639,10 @@
     "urlMain": "https://www.wikipedia.org/",
     "errorType": "message",
     "errorMsg": "If a page was recently created here, it may not be visible yet because of a delay in updating the database"
+  },
+  "Mastodon": {
+    "url": "https://mstdn.io/@{}",
+    "urlMain": "https://mstdn.io/",
+    "errorType": "status_code"
   }
 }
