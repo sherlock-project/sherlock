@@ -1,0 +1,4 @@
+.git/
+.vscode/
+*.txt
+!/requirements.txt
