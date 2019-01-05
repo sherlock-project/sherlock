@@ -24,7 +24,7 @@ elif [ ${#ZYPPER} -gt 0 ]; then
     sudo zypper install python3
     sudo zypper install python3-pip
 else
-    echo "Unknown packge manager. Download one of the following:"
+    echo "Unknown package manager. Download one of the following:"
     echo "  apt, pacman, dnf, yum or zypper"
     echo ""
     echo "or use README.md for instructions."
