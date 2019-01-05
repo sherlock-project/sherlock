@@ -99,3 +99,4 @@
 98. [Letterboxd](https://letterboxd.com/)
 99. [Coderwall](https://coderwall.com/)
 100. [Wikipedia](https://www.wikipedia.org/)
+101. [Mastodon](https://mstdn.io/)
