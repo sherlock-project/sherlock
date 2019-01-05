@@ -12,7 +12,6 @@ if [ ${#APT} -gt 0 ]; then
     sudo apt-get install python3
     sudo apt-get install python3-pip
 elif [ ${#PACMAN} -gt 0 ]; then
-    echo bla
     sudo pacman -S python3
     sudo pacman -S python3-pip
 elif [ ${#DNF} -gt 0 ]; then
