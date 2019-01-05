@@ -117,7 +117,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
 
     # Create session based on request methodology
     underlying_session = requests.session()
-    underlying_request = requests.Request('GET')
+    underlying_request = requests.Request()
     if tor or unique_tor:
         underlying_request = TorRequest()
         underlying_session = underlying_request.session()
@@ -152,12 +152,11 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             url = net_info["url"].format(username)
             results_site["url_user"] = url
 
-            # # If only the status_code is needed don't download the body
-            # if net_info["errorType"] == 'status_code':
-            #     request_method = session.head
-            # else:
-            #     request_method = session.get
             request_method = session.get
+            if social_network != "GitHub":
+                # If only the status_code is needed don't download the body
+                if net_info["errorType"] == 'status_code':
+                    request_method = session.head
 
             # This future starts running the request in a new thread, doesn't block the main thread
             future = request_method(url=url, headers=headers)
