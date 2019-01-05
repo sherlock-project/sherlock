@@ -31,8 +31,21 @@ else
     exit 1
 fi
 
-
+    
 # install the all the necessery packages and requirements
-sudo pip3 install --upgrade setuptools
-sudo pip3 install -r requirements.txt
+echo ''
+echo ''
+while true; do
+    echo 'Do you want dependencies to be installed globally (or locally) [Y/n]?'
+    read ans
+    if [[ ${#ans} -eq 0 || $ans = "Y" || $ans = "y" ]]; then
+        sudo pip3 install --upgrade setuptools
+        sudo pip3 install -r requirements.txt
+    elif [[ $ans = "N" || $ans = "n" ]]; then
+        sudo pip3 install --user --upgrade setuptools
+        sudo pip3 install --user -r requirements.txt
+    fi
+
+    [[ ${#ans} -eq 0 || $ans = "Y" || $ans = "y" || $ans = "N" || $ans = "n" ]] && break;
+done
 
