@@ -567,5 +567,10 @@
     "urlMain": "https://www.wikipedia.org/",
     "errorType": "message",
     "errorMsg": "If a page was recently created here, it may not be visible yet because of a delay in updating the database"
+  },
+  "Mastodon": {
+    "url": "https://mstdn.io/@{}",
+    "urlMain": "https://mstdn.io/",
+    "errorType": "status_code"
   }
 }
