@@ -3,7 +3,6 @@
 
 <p align="center">
 <img src="./screenshot/preview.png">
-</a>
 </p>
 
 ## Installation
