@@ -27,13 +27,14 @@ amount=0
 # TODO: fix tumblr
 
 
-def write_to_file(url, fname):
-    with open(fname, "a") as f:
-        f.write(url + "\n")
+def open_file(fname):
+    return open(fname, "a")
 
-def final_score(amount, fname):
-    with open(fname, "a") as f:
-        f.write("Total: "+str(amount) + "\n")
+def write_to_file(url, f):
+    f.write(url + "\n")
+
+def final_score(amount, f):
+    f.write("Total: "+str(amount) + "\n")
 
 def print_error(err, errstr, var, debug=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
@@ -170,6 +171,9 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
+    # Open the file containing account links
+    f = open_file(fname)
+
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
     for social_network, net_info in data.items():
 
@@ -216,7 +220,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + "+" +
                        Fore.WHITE + "]" +
                        Fore.GREEN + " {}:").format(social_network), url)
-                write_to_file(url, fname)
+                write_to_file(url, f)
                 exists = "yes"
                 amount=amount+1
             else:
@@ -235,7 +239,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + "+" +
                        Fore.WHITE + "]" +
                        Fore.GREEN + " {}:").format(social_network), url)
-                write_to_file(url, fname)
+                write_to_file(url, f)
                 exists = "yes"
                 amount=amount+1
             else:
@@ -255,7 +259,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + "+" +
                        Fore.WHITE + "]" +
                        Fore.GREEN + " {}:").format(social_network), url)
-                write_to_file(url, fname)
+                write_to_file(url, f)
                 exists = "yes"
                 amount=amount+1
             else:
@@ -289,7 +293,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
            Fore.GREEN + "] Saved: " +
            Fore.WHITE + "{}").format(fname))
 
-    final_score(amount, fname)
+    final_score(amount, f)
     return results_total
 
 
