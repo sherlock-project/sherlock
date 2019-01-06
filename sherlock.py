@@ -22,7 +22,8 @@ from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.1.9"
-amount=0
+amount = 0
+
 
 # TODO: fix tumblr
 
@@ -30,11 +31,14 @@ amount=0
 def open_file(fname):
     return open(fname, "a")
 
+
 def write_to_file(url, f):
     f.write(url + "\n")
 
+
 def final_score(amount, f):
-    f.write("Total: "+str(amount) + "\n")
+    f.write("Total: " + str(amount) + "\n")
+
 
 def print_error(err, errstr, var, debug=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
@@ -132,7 +136,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     for social_network, net_info in data.items():
 
         # Results from analysis of this specific site
-        results_site = {}
+        results_site = dict()
 
         # Record URL of main site
         results_site['url_main'] = net_info.get("urlMain")
@@ -191,7 +195,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         error_type = net_info["errorType"]
 
         # Default data in case there are any failures in doing a request.
-        http_status   = "?"
+        http_status = "?"
         response_text = ""
 
         # Retrieve future and ensure it has finished
@@ -214,7 +218,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         if error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
-            if not error in r.text:
+            if error not in r.text:
 
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                        Fore.GREEN + "+" +
@@ -222,7 +226,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount + 1
             else:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                        Fore.RED + "-" +
@@ -241,7 +245,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount + 1
             else:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                        Fore.RED + "-" +
@@ -253,7 +257,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         elif error_type == "response_url":
             error = net_info.get("errorUrl")
             # Checks if the redirect url is the same as the one defined in data.json
-            if not error in r.url:
+            if error not in r.url:
 
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                        Fore.GREEN + "+" +
@@ -261,7 +265,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
                        Fore.GREEN + " {}:").format(social_network), url)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount + 1
             else:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                        Fore.RED + "-" +
@@ -279,10 +283,10 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
             exists = "error"
 
         # Save exists flag
-        results_site['exists']        = exists
+        results_site['exists'] = exists
 
         # Save results from request
-        results_site['http_status']   = http_status
+        results_site['http_status'] = http_status
         results_site['response_text'] = response_text
 
         # Add this site's results into final dictionary with all of the other results.
@@ -301,46 +305,48 @@ def main():
     # Colorama module's initialization.
     init(autoreset=True)
 
-    version_string = f"%(prog)s {__version__}\n" +  \
+    version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
-                           )
+                            )
     parser.add_argument("--version",
-                        action="version",  version=version_string,
+                        action="version", version=version_string,
                         help="Display version information and dependencies."
-                       )
+                        )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
-                        action="store_true",  dest="verbose", default=False,
+                        action="store_true", dest="verbose", default=False,
                         help="Display extra debugging information."
-                       )
+                        )
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
-                       )
+                        )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
-                        help="Make requests over TOR; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over TOR; increases runtime; requires TOR to be installed and in system "
+                             "path.")
     parser.add_argument("--unique-tor", "-u",
                         action="store_true", dest="unique_tor", default=False,
-                        help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over TOR with new TOR circuit after each request; increases runtime; "
+                             "requires TOR to be installed and in system path.")
     parser.add_argument("--csv",
-                        action="store_true",  dest="csv", default=False,
+                        action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
-                       )
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
                         help="One or more usernames to check with social networks."
-                       )
+                        )
 
     args = parser.parse_args()
 
     # Banner
     print(Fore.WHITE + Style.BRIGHT +
-"""                                              .\"\"\"-.
+          """                                              .\"\"\"-.
                                              /      \\
  ____  _               _            _        |  _..--'-.
 / ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
@@ -348,17 +354,18 @@ def main():
  ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
 |____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
                                            .'`-._ `.\    | J /
-                                          /      `--.|   \__/""")
+                                          /      `--.|   \\__/""")
 
     if args.tor or args.unique_tor:
-        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
+        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase "
+              "connection errors.")
 
     # Run report on all specified users.
     for username in args.username:
         print()
         results = sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
 
-        if args.csv == True:
+        if args.csv:
             with open(username + ".csv", "w", newline='') as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',
@@ -367,8 +374,8 @@ def main():
                                  'url_user',
                                  'exists',
                                  'http_status'
-                                ]
-                               )
+                                 ]
+                                )
                 for site in results:
                     writer.writerow([username,
                                      site,
@@ -376,8 +383,9 @@ def main():
                                      results[site]['url_user'],
                                      results[site]['exists'],
                                      results[site]['http_status']
-                                    ]
-                                   )
+                                     ]
+                                    )
+
 
 if __name__ == "__main__":
     main()
