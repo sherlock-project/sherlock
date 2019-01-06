@@ -25,9 +25,6 @@ __version__ = "0.1.9"
 amount = 0
 
 
-# TODO: fix tumblr
-
-
 def open_file(fname):
     return open(fname, "a")
 
