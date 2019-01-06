@@ -595,7 +595,7 @@
     "urlMain": "https://www.crunchyroll.com/",
     "errorType": "status_code"
   },
-  "Rajče.net": {
+  "Rajce.net": {
     "url": "https://{}.rajce.idnes.cz/",
     "urlMain": "https://www.rajce.idnes.cz/",
     "errorType": "message",
