@@ -12,11 +12,9 @@ import logging
 import requests
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from colorama import Back, Fore, Style, init
-import sherlock
+from sherlock.find import sherlock
 
-module_name = "Sherlock Test: Test Finding Of Usernames Across Social Networks"
-__version__ = "0.1.0"
-
+from sherlock import module_name, __version__
 
 
 def sherlock_test(username_exist_list, username_unknown_list, site_data_all, verbose=False, tor=False, unique_tor=False):
@@ -42,7 +40,7 @@ def sherlock_test(username_exist_list, username_unknown_list, site_data_all, ver
 
     #Run test to ensure that usernames which exist are detected to exist.
     for username in username_exist_list:
-        results = sherlock.sherlock(username,
+        results = sherlock(username,
                                     site_data_all,
                                     verbose=verbose,
                                     tor=tor,
@@ -63,7 +61,7 @@ def sherlock_test(username_exist_list, username_unknown_list, site_data_all, ver
     #Run test to ensure that usernames which do not exist are detected to
     #not exist.
     for username in username_unknown_list:
-        results = sherlock.sherlock(username,
+        results = sherlock(username,
                                     site_data_all,
                                     verbose=verbose,
                                     tor=tor,

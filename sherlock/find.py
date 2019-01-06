@@ -21,8 +21,8 @@ from colorama import Back, Fore, Style, init
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.2.2"
+from sherlock import __version__, module_name
+
 amount=0
 
 # TODO: fix tumblr
@@ -356,7 +356,7 @@ def main():
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
     # Load the data
-    data_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")
+    data_file_path = os.path.join(os.path.dirname(__file__), "data.json")
     with open(data_file_path, "r", encoding="utf-8") as raw:
         site_data_all = json.load(raw)
 
