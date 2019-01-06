@@ -359,7 +359,7 @@ def main():
         results = sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
 
         if args.csv == True:
-            with open(username + ".csv", "w", newline='') as csv_report:
+            with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',
                                  'name',
