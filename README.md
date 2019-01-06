@@ -11,7 +11,7 @@
 
 ```bash
 # clone the repo
-$ git clone https://github.com/sdushantha/sherlock.git
+$ git clone https://github.com/TheYahya/sherlock.git
 
 # change the working directory to sherlock
 $ cd sherlock
@@ -24,10 +24,11 @@ $ pip3 install -r requirements.txt
 
 ```bash
 $ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--csv] [--tor] [--unique-tor]
+usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--tor]
+                   [--unique-tor] [--csv] [--site SITE_NAME]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 2018.12.30)
+Sherlock: Find Usernames Across Social Networks (Version 0.2.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -38,9 +39,14 @@ optional arguments:
   --verbose, -v, -d, --debug
                         Display extra debugging information.
   --quiet, -q           Disable debugging information (Default Option).
+  --tor, -t             Make requests over TOR; increases runtime; requires
+                        TOR to be installed and in system path.
+  --unique-tor, -u      Make requests over TOR with new TOR circuit after each
+                        request; increases runtime; requires TOR to be
+                        installed and in system path.
   --csv                 Create Comma-Separated Values (CSV) File.
-  --tor, -t             Make requests over TOR; increases runtime; requires TOR to be installed and in system path.
-  --unique-tor, -u      Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.
+  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
+                        options to specify more than one site.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
