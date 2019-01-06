@@ -10,6 +10,7 @@ networks.
 import csv
 import json
 import os
+import sys
 import platform
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
@@ -21,7 +22,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.1.10"
+__version__ = "0.2.1"
 amount=0
 
 # TODO: fix tumblr
@@ -60,7 +61,7 @@ def get_response(request_future, error_type, social_network, verbose=False):
     return None, ""
 
 
-def sherlock(username, verbose=False, tor=False, unique_tor=False):
+def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -68,6 +69,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     Keyword Arguments:
     username               -- String indicating username that report
                               should be created against.
+    site_data              -- Dictionary containing all of the site data.
     verbose                -- Boolean indicating whether to give verbose output.
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
@@ -107,13 +109,8 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
     }
 
-    # Load the data
-    data_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")
-    with open(data_file_path, "r", encoding="utf-8") as raw:
-        data = json.load(raw)
-
-    # Allow 1 thread for each external service, so `len(data)` threads total
-    executor = ThreadPoolExecutor(max_workers=len(data))
+    # Allow 1 thread for each external service, so `len(site_data)` threads total
+    executor = ThreadPoolExecutor(max_workers=len(site_data))
 
     # Create session based on request methodology
     underlying_session = requests.session()
@@ -129,7 +126,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     results_total = {}
 
     # First create futures for all requests. This allows for the requests to run in parallel
-    for social_network, net_info in data.items():
+    for social_network, net_info in site_data.items():
 
         # Results from analysis of this specific site
         results_site = {}
@@ -175,7 +172,7 @@ def sherlock(username, verbose=False, tor=False, unique_tor=False):
     f = open_file(fname)
 
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
-    for social_network, net_info in data.items():
+    for social_network, net_info in site_data.items():
 
         # Retrieve results again
         results_site = results_total.get(social_network)
@@ -330,6 +327,11 @@ def main():
                         action="store_true",  dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                        )
+    parser.add_argument("--site",
+                        action="append", metavar='SITE_NAME',
+                        dest="site_list", default=None,
+                        help="Limit analysis to just the listed sites.  Add multiple options to specify more than one site."
+                       )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -353,13 +355,38 @@ def main():
     if args.tor or args.unique_tor:
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
+    # Load the data
+    data_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")
+    with open(data_file_path, "r", encoding="utf-8") as raw:
+        site_data_all = json.load(raw)
+
+    if args.site_list is None:
+        # Not desired to look at a sub-set of sites
+        site_data = site_data_all
+    else:
+        # User desires to selectively run queries on a sub-set of the site list.
+
+        # Make sure that the sites are supported & build up pruned site database.
+        site_data = {}
+        site_missing = []
+        for site in args.site_list:
+            if site in site_data_all:
+                site_data[site] = site_data_all[site]
+            else:
+                # Build up list of sites not supported for future error message.
+                site_missing.append(f"'{site}'")
+
+        if site_missing != []:
+            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            sys.exit(1)
+
     # Run report on all specified users.
     for username in args.username:
         print()
-        results = sherlock(username, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
+        results = sherlock(username, site_data, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
 
         if args.csv == True:
-            with open(username + ".csv", "w", newline='') as csv_report:
+            with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',
                                  'name',

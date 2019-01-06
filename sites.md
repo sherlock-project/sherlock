@@ -104,7 +104,7 @@
 103. [BlackPlanet](http://blackplanet.com/)
 104. [Cloob](https://www.cloob.com/)
 105. [Crunchyroll](https://www.crunchyroll.com/)
-106. [Rajče.net](https://www.rajce.idnes.cz/)
+106. [Rajce.net](https://www.rajce.idnes.cz/)
 107. [VirusTotal](https://www.virustotal.com/)
 108. [WebNode](https://www.webnode.cz/)
 109. [Aptoide](https://en.aptoide.com/)
