@@ -644,5 +644,11 @@
     "url": "https://mstdn.io/@{}",
     "urlMain": "https://mstdn.io/",
     "errorType": "status_code"
+  },
+  "Telegram": {
+    "url": "https://t.me/{}",
+    "urlMain": "https://t.me/",
+    "errorType": "message",
+    "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact"
   }
 }
