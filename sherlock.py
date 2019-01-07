@@ -29,9 +29,12 @@ amount=0
 # TODO: fix tumblr
 
 
-# Extends FutureSession to add response time metric
-# This is taken (almost) directly from here: https://github.com/ross/requests-futures#working-in-the-background
 class ElapsedFuturesSession(FuturesSession):
+    """
+    Extends FutureSession to add a response time metric to each request.
+
+    This is taken (almost) directly from here: https://github.com/ross/requests-futures#working-in-the-background
+    """
 
     def request(self, method, url, hooks={}, *args, **kwargs):
         start = time()
@@ -72,7 +75,7 @@ def print_error(err, errstr, var, verbose=False):
           Fore.YELLOW + f" {err if verbose else var}")
 
 
-def create_response_time(response_time, verbose):
+def format_response_time(response_time, verbose):
     return " [{} ms]".format(response_time) if verbose else ""
 
 
@@ -80,7 +83,7 @@ def print_found(social_network, url, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.GREEN + "+" +
            Fore.WHITE + "]" +
-           create_response_time(response_time, verbose) +
+           format_response_time(response_time, verbose) +
            Fore.GREEN + " {}:").format(social_network), url)
 
 
@@ -88,7 +91,7 @@ def print_not_found(social_network, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
            Fore.WHITE + "]" +
-           create_response_time(response_time, verbose) +
+           format_response_time(response_time, verbose) +
            Fore.GREEN + " {}:" +
            Fore.YELLOW + " Not Found!").format(social_network))
 
@@ -336,7 +339,7 @@ def main():
                        )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
                         action="store_true",  dest="verbose", default=False,
-                        help="Display extra debugging information."
+                        help="Display extra debugging information and metrics."
                        )
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
