@@ -1,15 +1,16 @@
 import json
 
 class SherlockData:
-    def __init__(self, data={})
-        self._data = {}
+    def __init__(self, data={}):
+        self._data = data
         self._data_keys = self._data.keys()
+     
+    @staticmethod   
+    def fromFile(
+        filename, 
+        t="json"):
         
-    def fromFile(self, 
-        filename="", 
-        type="json"):
-        
-        if type=="json":
+        if t=="json":
             f = open(filename, "r")
             d = json.loads(f.read())
             f.close()

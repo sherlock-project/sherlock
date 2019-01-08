@@ -5,14 +5,15 @@ class SherlockLog:
         debug=False):
         pass
 
-    def getLogger(self):
+    @staticmethod
+    def getLogger():
         """
             Get a SherlockLog object instance.
             Return: (SherlockLog); SherlockLog instance.
         """
         return SherlockLog()
 
-    def dprint(self, 
+    def eprint(self, 
         status: str,
         message:str,
         status_color: Fore=Fore.WHITE,
@@ -30,10 +31,10 @@ class SherlockLog:
             
         """
         
-        print(  style + 
+        print(  (style + 
                 status_frame + "[" +
                 status_color + "%s" +
-                message_color + "] %s" )
+                message_color + "] %s.") % (status, message))
     
     def log(self,
         message: str):
