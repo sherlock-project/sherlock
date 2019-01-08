@@ -32,10 +32,37 @@ class SherlockService:
         return self.url
     
     def _response(self, response, *args, **kwargs):
+        is_found = False
+        config = self._config
+        
+        # Get the error type
+        error_type = "status_code"
+        if "errorType" in config: error_type = config["errorType"]
+        
+        # Depends on error type
+        if error_type == "message" and "errorMsg" in config:
+            error = config["errorMsg"]
+            is_found = not error in response.text
+                    
+                    
+        # Based on error code
+        elif error_type == "status_code":
+            is_found = not response.status_code >= 300 or response.status_code < 200
+
+        # Based on response url
+        elif error_type == "response_url" and "errorUrl" in config:
+            error = config["errorUrl"]
+            is_found = not error in response.url
+                
+        # Anything else
+        else:
+            self._logger.error("Error, no error type for %s" % (self._config))
+
+
         if not self._on_recv == None:
             self._logger.lock()
             self._config["code"] = response.status_code
-            res = self._on_recv(self, self.results(), self._logger)
+            res = self._on_recv(self, is_found)
             self._logger.unlock()
             return res
         return 0
@@ -52,15 +79,6 @@ class SherlockService:
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
         }, hooks={
             'response': self._response
-        }, timeout=10))
+        }, timeout=5))
         
         return 200
-            
-
-    def results(self):
-        config = self._config
-        return {
-            "url": config["url"],
-            "found":  config["code"] == 200,
-            "code": config["code"]
-        }

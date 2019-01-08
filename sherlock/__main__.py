@@ -9,13 +9,13 @@ from sherlockservice import SherlockService
 logger = None
 
 # Reponse handler
-def response(service, results, logger):
-    
-    if results["found"]:
-        logger.error("%s User Not Found" % results["url"])
+def response(service, found):
+
+    if found:
+        logger.error("%s User Not Found" % service.url)
     else:
-        logger.info("%s User Found" % results["url"])
-    
+        logger.info("%s User Found" % service.url)
+
 def response_error(req, exception):
     global logger
 
@@ -33,8 +33,8 @@ def response_error(req, exception):
 
 # Main function for the logger
 def main(username: str, data: SherlockData):
-        
     global logger
+    
     log = logger
     
     # Map requests
@@ -73,7 +73,7 @@ if __name__ == "__main__":
                                            .'`-._ `.\    | J /
 
 """)
-    global logger
+    
     logger = SherlockLog.getLogger()
     main(
         "penguin",

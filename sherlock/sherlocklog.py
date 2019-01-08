@@ -42,7 +42,7 @@ class SherlockLog:
         print(  (style + 
                 status_frame + "[" +
                 status_color + "%s" +
-                status_frame + "]"+
+                status_frame + "] "+
                 message_color +"%s.") % (status, message))
     
     def log(self,

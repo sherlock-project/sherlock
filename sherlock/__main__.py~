@@ -9,13 +9,13 @@ from sherlockservice import SherlockService
 logger = None
 
 # Reponse handler
-def response(service, results, logger):
-    
-    if results["found"]:
-        logger.error("%s User Not Found" % results["url"])
+def response(service, found):
+
+    if found:
+        logger.error("%s User Not Found" % service.url)
     else:
-        logger.ok("%s User Found" % results["url"])
-    
+        logger.info("%s User Found" % service.url)
+
 def response_error(req, exception):
     global logger
 
@@ -32,28 +32,30 @@ def response_error(req, exception):
         logger.error(str(err) + " Unknown error" )
 
 # Main function for the logger
-def main(
-        data: SherlockData):
-        
+def main(username: str, data: SherlockData):
     global logger
-    log = logger
-        
-    # Reduction for safe
-    data_keys = [key for key in data.keys()]
     
-    # The request map
+    log = logger
+    
+    # Map requests
     requestmap = []
     
     # Create all the sherlock services.
-    services = [SherlockService(config=data[key], logger=log, on_recv=response, mapper=requestmap) for key in data_keys]
+    services = [SherlockService(
+        username, 
+        config=data[key], 
+        logger=log, 
+        on_recv=response, 
+        mapper=requestmap) for key in data.keys()]
 
-    log.info("Services reqesting %i testing username" % len(data_keys))
+    # Tell the user of the start
+    log.log("Finding username %s under %i different services" % (username, len(data.keys())))
 
     # Scan thorugh each service and send an unset request
     for service in services:
         service.request()
     
-    log.info("Waiting for responses")
+    log.log("Waiting for responses")
     
     # Process all requests
     grequests.map(requestmap, exception_handler=response_error)
@@ -71,9 +73,10 @@ if __name__ == "__main__":
                                            .'`-._ `.\    | J /
 
 """)
-    global logger
+    
     logger = SherlockLog.getLogger()
     main(
+        "user123",
         SherlockData.fromFile(filename="../local/data.json",t="json"))
     
     
