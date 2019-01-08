@@ -1,8 +1,9 @@
 import json
 
 class SherlockData:
-    def __init__(self, data={}):
+    def __init__(self, name="example", data={}):
         self._data = data
+        self._name = name
         self._data_keys = self._data.keys()
      
     @staticmethod   
@@ -16,13 +17,16 @@ class SherlockData:
             f.close()
             return SherlockData(data=d)
         return SherlockData(data={})
-        
-    
+      
+    def keys(self):
+        return self._data_keys
+
     def __len__(self):
         return len(self._data_keys)
         
     def __getitem__(self, i):
-        return  self._data[i]
+        d = self._data[i]
+        return  d
         
     def byindex(self, i):
         if len(self._data_keys)>i:

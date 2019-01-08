@@ -3,7 +3,7 @@ from colorama import Back, Fore, Style, init
 class SherlockLog:
     def __init__(self,
         debug=False):
-        pass
+        self.locked = False
 
     @staticmethod
     def getLogger():
@@ -12,6 +12,14 @@ class SherlockLog:
             Return: (SherlockLog); SherlockLog instance.
         """
         return SherlockLog()
+
+    def lock(self):
+        while self.locked:
+            pass
+        self.locked = True
+
+    def unlock(self):
+        self.locked = False
 
     def eprint(self, 
         status: str,
@@ -34,7 +42,8 @@ class SherlockLog:
         print(  (style + 
                 status_frame + "[" +
                 status_color + "%s" +
-                message_color + "] %s.") % (status, message))
+                status_frame + "]"+
+                message_color +"%s.") % (status, message))
     
     def log(self,
         message: str):
