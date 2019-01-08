@@ -44,7 +44,6 @@ def print_error(err, errstr, var, debug=False):
           Fore.RED + f" {errstr}" +
           Fore.YELLOW + f" {err if debug else var}")
 
-
 def get_response(request_future, error_type, social_network, verbose=False):
     try:
         rsp = request_future.result()
@@ -88,6 +87,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
     """
     global amount
     fname = username.lower() + ".txt"
+
+    
 
     if os.path.isfile(fname):
         os.remove(fname)

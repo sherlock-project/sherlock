@@ -1,6 +1,7 @@
 class SherlockFinder:
-    def __init__(self):
-        pass
+    def __init__(self, 
+            logger: SherlockLog=SherlockLog.getLogger()):
+        self._logger = logger
 
 
 
@@ -8,19 +9,19 @@ class SherlockFinder:
     request_future, 
     error_type, 
     social_network, 
-    verbose=False,
-    logger=):
+    verbose=False):
+    logger = self._logger
     
     try:
         rsp = request_future.result()
         if rsp.status_code:
             return rsp, error_type
     except requests.exceptions.HTTPError as errh:
-        print_error(errh, "HTTP Error:", social_network, verbose)
+        logger.error(str(errh) + " HTTP Error:" + str(social_network))
     except requests.exceptions.ConnectionError as errc:
-        print_error(errc, "Error Connecting:", social_network, verbose)
+        logger.error(str(errc) + " Error Connecting:" + str(social_network))
     except requests.exceptions.Timeout as errt:
-        print_error(errt, "Timeout Error:", social_network, verbose)
+        logger.error(str(errt) + " Timeout Error:" + str(social_network))
     except requests.exceptions.RequestException as err:
-        print_error(err, "Unknown error:", social_network, verbose)
+        logger.error(str(err) + " Unknown error:" + str(social_network))
     return None, ""

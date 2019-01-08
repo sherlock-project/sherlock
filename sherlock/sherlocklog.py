@@ -1,30 +1,81 @@
+from colorama import Back, Fore, Style, init
+
 class SherlockLog:
-    def __init__(self):
+    def __init__(self,
+        debug=False):
         pass
 
-    def _message(self, status: str, message:str):
-        pass
+    def getLogger(self):
+        """
+            Get a SherlockLog object instance.
+            Return: (SherlockLog); SherlockLog instance.
+        """
+        return SherlockLog()
+
+    def dprint(self, 
+        status: str,
+        message:str,
+        status_color: Fore=Fore.WHITE,
+        status_frame: Fore=Fore.WHITE,
+        message_color: Fore=Fore.WHITE,
+        style: Style =Style.BRIGHT):
+        
+        """
+            Prints a message to the screen using colorama,
+            
+            Required Parameters:
+                status: (str);  The status of the message.
+                message: (str); The actual description of the error
+            
+            
+        """
+        
+        print(  style + 
+                status_frame + "[" +
+                status_color + "%s" +
+                message_color + "] %s" )
     
-    def info(
-        err: str, 
-        var: str, 
-        debug=False):
-        
-        
-        print((Style.BRIGHT + Fore.GREEN + "[" +
-           Fore.YELLOW + "*" +
-           Fore.GREEN + "] Checking username" +
-           Fore.WHITE + " {}" +
-           Fore.GREEN + " on:").format(username))
-        
-    @SherlockLog.message    
+    def log(self,
+        message: str):
+        """
+            General logging with no errors.
+            Required Parameters:
+                message: (str);  The log message.
+        """
+        self.eprint(
+            "*", 
+            message,
+            status_color=Fore.WHITE,
+            status_frame=Fore.GREEN,
+            message_color=Fore.WHITE)
+          
     def error(self,
-        err: str, 
-        errstr: str, 
-        var: str, 
-        debug=False):
-        print(Style.BRIGHT + Fore.WHITE + "[" +
-              Fore.RED + "-" +
-              Fore.WHITE + "]" +
-              Fore.RED + f" {errstr}" +
-              Fore.YELLOW + f" {err if debug else var}")
+        message: str):
+        """
+            Error logging.
+            Required Parameters:
+                message: (str);  The error message.
+        """
+        self.eprint(
+            "-", 
+            message,
+            status_color=Fore.RED,
+            status_frame=Fore.WHITE,
+            message_color=Fore.WHITE)
+
+    def info(self,
+        message: str):
+        
+        """
+            Info logging.
+            Required Parameters:
+                message: (str);  The info message.
+        """
+        
+        self.eprint(
+            "+", 
+            message,
+            status_color=Fore.GREEN,
+            status_frame=Fore.WHITE,
+            message_color=Fore.WHITE)
+
