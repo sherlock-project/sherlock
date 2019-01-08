@@ -1,9 +1,7 @@
 class SherlockFinder:
     def __init__(self):
         pass
-        
-        
-    
+
    def get_response(self, 
     request_future, 
     error_type, 
