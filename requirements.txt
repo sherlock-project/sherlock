@@ -1,4 +1,5 @@
 requests
+grequests
 requests_futures
 torrequest
 colorama
