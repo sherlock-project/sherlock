@@ -17,7 +17,7 @@ class SherlockService:
         self._username = username
 
         # Call stage 2
-        if self._stage2():
+        if not self._stage2():
             logger.error("Test for %s has become initiate" % str(self._config["url"]))
 
     @property
