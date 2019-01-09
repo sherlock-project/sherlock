@@ -650,5 +650,11 @@
     "urlMain": "https://t.me/",
     "errorType": "message",
     "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact"
+  },
+  "TradingView": {
+    "url": "https://www.tradingview.com/u/{}",
+    "urlMain": "https://www.tradingview.com/",
+    "errorType": "message",
+    "errorMsg": "404"
   }
 }

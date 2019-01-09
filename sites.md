@@ -114,3 +114,4 @@
 113. [Wikipedia](https://www.wikipedia.org/)
 114. [Mastodon](https://mstdn.io/)
 115. [Telegram](https://t.me/)
+116. [TradingView] (https://www.tradingview.com/)
