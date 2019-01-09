@@ -1,4 +1,3 @@
-from sherlock.sherlockdata import SherlockData
-from sherlock.sherlockfinder import SherlockFinder
-from sherlock.sherlocklog import SherlockLog
-from sherlock.sherlockservice import SherlockService
+from sherlock.data import SherlockData
+from sherlock.log import SherlockLog
+from sherlock.service import SherlockService

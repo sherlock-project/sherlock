@@ -1,68 +1,70 @@
+# requests and grequests
 import requests
 import grequests
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
-from sherlockdata import SherlockData
-from sherlockfinder import SherlockFinder
-from sherlocklog import SherlockLog
-from sherlockservice import SherlockService
+# Import all the services
+from data import SherlockData
+from log import SherlockLog
+from service import SherlockService
 
-logger = None
-
-# Reponse handler
-def response(service, found):
+# Response header and changes
+def response(service, found, logger):
 
     if found:
         logger.error("%s User Not Found" % service.url)
     else:
         logger.info("%s User Found" % service.url)
 
-def response_error(req, exception):
-    global logger
 
-    logger.error("Request Failed %s" % req.url) 
-    try:
-        raise exception
-    except requests.exceptions.HTTPError as errh:
+# Response alteration
+def response_error(req, exception, logger):
+    logger.error("Request Failed %s" % req.url)
+    if exception is requests.exceptions.HTTPError:
         logger.error(str(errh) + " HTTP Error")
-    except requests.exceptions.ConnectionError as errc:
+    elif exception is requests.exceptions.ConnectionError:
         logger.error(str(errc) + " Error Connecting")
-    except requests.exceptions.Timeout as errt:
+    elif exception is requests.exceptions.Timeout:
         logger.error(str(errt) + " Timeout Error")
-    except requests.exceptions.RequestException as err:
-        logger.error(str(err) + " Unknown error" )
+    elif exception is requests.exceptions.RequestException:
+        logger.error(str(err) + " Unknown error")
+
 
 # Main function for the logger
-def main(username: str, data: SherlockData):
-    global logger
-    
-    log = logger
-    
+def main(
+    username: str, data: SherlockData, logger: SherlockLog = SherlockLog.getLogger()
+):
+
     # Map requests
     requestmap = []
-    
+
     # Create all the sherlock services.
-    services = [SherlockService(
-        username, 
-        config=data[key], 
-        logger=log, 
-        on_recv=response, 
-        mapper=requestmap) for key in data.keys()]
+    services = [
+        SherlockService(
+            username, config=data[key], logger=log, on_recv=response, mapper=requestmap
+        )
+        for key in data.keys()
+    ]
 
     # Tell the user of the start
-    log.log("Finding username %s under %i different services" % (username, len(data.keys())))
+    log.log(
+        "Finding username %s under %i different services" % (username, len(data.keys()))
+    )
 
     # Scan thorugh each service and send an unset request
     for service in services:
         service.request()
-    
+
     log.log("Waiting for responses")
-    
+
     # Process all requests
     grequests.map(requestmap, exception_handler=response_error)
 
+
 if __name__ == "__main__":
-    
-    print("""
+
+    print(
+        """
                                               .\"\"\"-.
                                              /      \\
  ____  _               _            _        |  _..--'-.
@@ -72,11 +74,8 @@ if __name__ == "__main__":
 |____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
                                            .'`-._ `.\    | J /
 
-""")
-    
+"""
+    )
+
     logger = SherlockLog.getLogger()
-    main(
-        "penguin",
-        SherlockData.fromFile(filename="../local/data.json",t="json"))
-    
-    
+    main("penguin", SherlockData.fromFile(filename="data.json", t="json"), logger)

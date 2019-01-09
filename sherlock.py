@@ -56,7 +56,7 @@ class ElapsedFuturesSession(FuturesSession):
 
 
 def open_file(fname):
-    return open(fname, "a")
+    retun open(fname, "a")
 
 
 def write_to_file(url, f):

@@ -1,14 +1,13 @@
 import requests
 import grequests
 
-from sherlockdata import SherlockData
-from sherlockfinder import SherlockFinder
-from sherlocklog import SherlockLog
-from sherlockservice import SherlockService
+from data import SherlockData
+from log import SherlockLog
+from service import SherlockService
 
 logger = None
 
-# Reponse handler
+# Response header and changes
 def response(service, found):
 
     if found:
@@ -16,6 +15,7 @@ def response(service, found):
     else:
         logger.info("%s User Found" % service.url)
 
+# Response alteration
 def response_error(req, exception):
     global logger
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     
     logger = SherlockLog.getLogger()
     main(
-        "user123",
+        "penguin",
         SherlockData.fromFile(filename="../local/data.json",t="json"))
     
     
