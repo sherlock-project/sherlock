@@ -660,5 +660,10 @@
     "url": "https://www.kaggle.com/{}",
     "urlMain": "https://www.kaggle.com/",
     "errorType": "status_code"
+  },
+  "Itch.io": {
+    "url": "https://{}.itch.io/",
+    "urlMain": "https://itch.io/",
+    "errorType": "status_code"
   }
 }
