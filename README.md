@@ -37,7 +37,7 @@ optional arguments:
   -h, --help            show this help message and exit
   --version             Display version information and dependencies.
   --verbose, -v, -d, --debug
-                        Display extra debugging information.
+                        Display extra debugging information and metrics.
   --quiet, -q           Disable debugging information (Default Option).
   --tor, -t             Make requests over TOR; increases runtime; requires
                         TOR to be installed and in system path.
