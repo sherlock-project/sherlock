@@ -655,6 +655,6 @@
     "url": "https://www.tradingview.com/u/{}",
     "urlMain": "https://www.tradingview.com/",
     "errorType": "message",
-    "errorMsg": "404"
+    "errorMsg": "tv-http-error-icon__error-code"
   }
 }
