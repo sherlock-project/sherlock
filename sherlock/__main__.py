@@ -20,7 +20,7 @@ def response(service, found, logger):
 # Response alteration
 def response_error(req, exception, logger):
     logger.error("Request Failed %s" % req.url)
-    if exception is requests.exceptions.HTTPError:
+    if exception is requests.exceptions.HTTPError:git 
         logger.error(str(errh) + " HTTP Error")
     elif exception is requests.exceptions.ConnectionError:
         logger.error(str(errc) + " Error Connecting")
@@ -35,30 +35,25 @@ def main(
     username: str, data: SherlockData, logger: SherlockLog = SherlockLog.getLogger()
 ):
 
-    # Map requests
-    requestmap = []
-
     # Create all the sherlock services.
     services = [
         SherlockService(
-            username, config=data[key], logger=log, on_recv=response, mapper=requestmap
-        )
+            username, config=data[key], logger=logger, on_recv=response
+        ).grequest
         for key in data.keys()
     ]
 
     # Tell the user of the start
-    log.log(
-        "Finding username %s under %i different services" % (username, len(data.keys()))
-    )
-
-    # Scan thorugh each service and send an unset request
-    for service in services:
-        service.request()
-
-    log.log("Waiting for responses")
+    logger.log("Finding username %s under %i different services" % (username, len(data.keys())))
+    logger.log("Waiting for responses")
 
     # Process all requests
-    grequests.map(requestmap, exception_handler=response_error)
+    grequests.map(
+        services,
+        exception_handler=lambda request, exception: response_error(
+            request, exception, logger
+        ),
+    )
 
 
 if __name__ == "__main__":
