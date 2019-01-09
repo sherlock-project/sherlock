@@ -652,9 +652,13 @@
     "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact"
   },
   "TradingView": {
-    "url": "https://www.tradingview.com/u/{}",
+    "url": "https://www.tradingview.com/u/{}/",
     "urlMain": "https://www.tradingview.com/",
-    "errorType": "message",
-    "errorMsg": "tv-http-error-icon__error-code"
+    "errorType": "status_code"
+  },
+  "Kaggle": {
+    "url": "https://www.kaggle.com/{}",
+    "urlMain": "https://www.kaggle.com/",
+    "errorType": "status_code"
   }
 }
