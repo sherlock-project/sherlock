@@ -605,7 +605,7 @@
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
     "urlMain": "https://www.virustotal.com/",
     "errorType": "message",
-    "errorMsg": "error"
+    "errorMsg": "not found"
   },
   "WebNode": {
     "url": "https://{}.webnode.cz/",
