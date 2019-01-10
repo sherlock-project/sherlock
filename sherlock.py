@@ -398,13 +398,14 @@ def main():
         site_data = {}
         site_missing = []
         for site in args.site_list:
-            if site in site_data_all:
-                site_data[site] = site_data_all[site]
-            else:
+            for existing_site in site_data_all:
+                if site.lower() == existing_site.lower():
+                    site_data[existing_site] = site_data_all[existing_site]
+            if not site_data:
                 # Build up list of sites not supported for future error message.
                 site_missing.append(f"'{site}'")
 
-        if site_missing != []:
+        if site_missing:
             print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
 
