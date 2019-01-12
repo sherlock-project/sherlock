@@ -24,7 +24,7 @@ from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.2.5"
-amount=0
+amount = 0
 
 # TODO: fix tumblr
 
@@ -112,7 +112,7 @@ def get_response(request_future, error_type, social_network, verbose=False):
     return None, "", -1
 
 
-def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
+def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -124,6 +124,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
     verbose                -- Boolean indicating whether to give verbose output.
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
+    proxy                  -- String indicating the proxy URL
 
     Return Value:
     Dictionary containing results from report.  Key of dictionary is the name
@@ -168,10 +169,11 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
     underlying_request = requests.Request()
     if tor or unique_tor:
         underlying_request = TorRequest()
-        underlying_session = underlying_request.session()
+        underlying_session = underlying_request.session
 
     # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
-    session = ElapsedFuturesSession(executor=executor, session=underlying_session)
+    session = ElapsedFuturesSession(
+        executor=executor, session=underlying_session)
 
     # Results from analysis of all sites
     results_total = {}
@@ -207,7 +209,12 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
                     request_method = session.head
 
             # This future starts running the request in a new thread, doesn't block the main thread
-            future = request_method(url=url, headers=headers)
+            if proxy != None:
+                proxies = {"http": proxy, "https": proxy}
+                future = request_method(
+                    url=url, headers=headers, proxies=proxies)
+            else:
+                future = request_method(url=url, headers=headers)
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -239,7 +246,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
         error_type = net_info["errorType"]
 
         # Default data in case there are any failures in doing a request.
-        http_status   = "?"
+        http_status = "?"
         response_text = ""
 
         # Retrieve future and ensure it has finished
@@ -266,7 +273,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
                 print_found(social_network, url, response_time, verbose)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount+1
             else:
                 print_not_found(social_network, response_time, verbose)
                 exists = "no"
@@ -277,7 +284,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
                 print_found(social_network, url, response_time, verbose)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount+1
             else:
                 print_not_found(social_network, response_time, verbose)
                 exists = "no"
@@ -289,7 +296,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False):
                 print_found(social_network, url, response_time, verbose)
                 write_to_file(url, f)
                 exists = "yes"
-                amount=amount+1
+                amount = amount+1
             else:
                 print_not_found(social_network, response_time, verbose)
                 exists = "no"
@@ -332,19 +339,19 @@ def main():
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
-                           )
+                            )
     parser.add_argument("--version",
                         action="version",  version=version_string,
                         help="Display version information and dependencies."
-                       )
+                        )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
-                       )
+                        )
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
-                       )
+                        )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
                         help="Make requests over TOR; increases runtime; requires TOR to be installed and in system path.")
@@ -354,23 +361,27 @@ def main():
     parser.add_argument("--csv",
                         action="store_true",  dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
-                       )
+                        )
     parser.add_argument("--site",
                         action="append", metavar='SITE_NAME',
                         dest="site_list", default=None,
                         help="Limit analysis to just the listed sites.  Add multiple options to specify more than one site."
-                       )
+                        )
+    parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
+                        action="store", dest="proxy", default=None,
+                        help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
                         help="One or more usernames to check with social networks."
-                       )
+                        )
 
     args = parser.parse_args()
 
     # Banner
     print(Fore.WHITE + Style.BRIGHT +
-"""                                              .\"\"\"-.
+          """                                              .\"\"\"-.
                                              /      \\
  ____  _               _            _        |  _..--'-.
 / ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
@@ -380,11 +391,21 @@ def main():
                                            .'`-._ `.\    | J /
                                           /      `--.|   \__/""")
 
+    # Argument check
+    # TODO regex check on args.proxy
+    if args.tor and args.proxy != None:
+        raise Exception("TOR and Proxy cannot be set in the meantime.")
+
+    # Make prompts
+    if args.proxy != None:
+        print("Using the proxy: " + args.proxy)
     if args.tor or args.unique_tor:
+        print("Using TOR to make requests")
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
     # Load the data
-    data_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")
+    data_file_path = os.path.join(os.path.dirname(
+        os.path.realpath(__file__)), "data.json")
     with open(data_file_path, "r", encoding="utf-8") as raw:
         site_data_all = json.load(raw)
 
@@ -406,13 +427,16 @@ def main():
                 site_missing.append(f"'{site}'")
 
         if site_missing:
-            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            print(
+                f"Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
 
     # Run report on all specified users.
     for username in args.username:
         print()
-        results = sherlock(username, site_data, verbose=args.verbose, tor=args.tor, unique_tor=args.unique_tor)
+        results = {}
+        results = sherlock(username, site_data, verbose=args.verbose,
+                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
@@ -424,8 +448,8 @@ def main():
                                  'exists',
                                  'http_status',
                                  'response_time_ms'
-                                ]
-                               )
+                                 ]
+                                )
                 for site in results:
                     writer.writerow([username,
                                      site,
@@ -434,8 +458,8 @@ def main():
                                      results[site]['exists'],
                                      results[site]['http_status'],
                                      results[site]['response_time_ms']
-                                    ]
-                                   )
+                                     ]
+                                    )
 
 
 if __name__ == "__main__":
