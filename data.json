@@ -602,9 +602,10 @@
     "errorMsg": "410"
   },
   "VirusTotal": {
-    "url": "https://www.virustotal.com/#/user/{}",
+    "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
     "urlMain": "https://www.virustotal.com/",
-    "errorType": "status_code"
+    "errorType": "message",
+    "errorMsg": "not found"
   },
   "WebNode": {
     "url": "https://{}.webnode.cz/",
