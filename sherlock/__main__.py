@@ -10,7 +10,7 @@ from colorama import init as coloramainit
 # Import all the services
 from data import SherlockData
 from log import SherlockLog
-from service import SherlockService
+from service import Service
 
 # Version info
 __description__ = "Sherlock: Find Usernames Across Social Networks"
@@ -55,8 +55,8 @@ def main(
 
     # Create all the sherlock services.
     services = [
-        SherlockService(
-            username, config=data[key], logger=logger, on_recv=response
+        Service(
+            username, config=data[key], logger=logger, recv=response
         ).grequest
         for key in data.keys()
     ]

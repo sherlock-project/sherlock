@@ -7,7 +7,7 @@ venv/
 # Python
 __pycache__/
 *.egg-info/
-
+*~
 
 # Jupyter Notebook
 .ipynb_checkpoints

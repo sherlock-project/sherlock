@@ -4,51 +4,79 @@ import re
 
 from log import SherlockLog
 
-
-class SherlockService:
+class Service:
     def __init__(
-        self, username, config={}, on_recv=None, logger=SherlockLog.getLogger()
+        self, username: str, config: dict=None, recv =None, logger: SherlockLog=SherlockLog.getLogger(), regex: str=None
     ):
+
         # Standard Initiasation
-        self._config = config
+        self._url = ""
         self._logger = logger
         self._serv = None
-        self._on_recv = on_recv
+        self._recv = recv
         self._username = username
+        self._regex = regex
+        self._config = config
+        
+        if not config is None:
+            if "url" in config: self._url = config["url"]
+            if "errorType" in config: self._error_type = config["errorType"]
+            if "regexCheck" in config: self._regex = config["regexCheck"]
+            
+            
+            
+            
+        # Dict Initiasation
+        self._header = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0"
+        }
+        self._hooks = {
+            "response": self._recv_event
+        }
+        self._request = grequests.get(
+            self.url,
+            headers=self._header,
+            hooks=self._hooks
+        )
 
-        # Call stage 2
-        if not self._stage2():
-            logger.error("Test for %s has become initiate" % str(self._config["url"]))
-
-    @property
-    def url(self):
-        if "url" in self._config:
-            return self._config["url"]
-        return ""
-
-    @property
-    def url_main(self):
-        if "urlMain" in self._config:
-            return self._config["urlMain"]
-        return self.url
 
     @property
     def grequest(self):
-        return self._grequest
+        return self._request
 
-    def _response(self, response, *args, **kwargs):
+    @property
+    def valid(self):
+        if (
+            not self._regex is None
+            and re.search(self._regex, self._username) is None
+        ):
+            return False
+        return True
+        
+    @property
+    def url(self):
+        url = self._url.replace("{}", self._username)
+        return url
+        
+    @property
+    def host(self):
+        host = re.find(r"([a-z]*:[/]+[a-z0-1.]*)", self.url)
+        if len(host)>0:
+            return host.group(1)
+        else:
+            return ""
+    
+    def _recv_event(self, response, *args, **kwargs):
         is_found = False
         config = self._config
 
         # Get the error type
         error_type = "status_code"
-        if "errorType" in config:
-            error_type = config["errorType"]
+        if "errorType" in config: error_type = config["errorType"]
 
         # Depends on error type
         if error_type == "message" and "errorMsg" in config:
-            error = config["errorMsg"]
-            is_found = not error in response.text
+            is_found = not config["errorMsg"] in response.text
 
         # Based on error code
         elif error_type == "status_code":
@@ -56,40 +84,27 @@ class SherlockService:
 
         # Based on response url
         elif error_type == "response_url" and "errorUrl" in config:
-            error = config["errorUrl"]
-            is_found = not error in response.url
+            is_found = not config["errorUrl"] in response.url
 
         # Anything else
         else:
             self._logger.error("Error, no error type for %s" % (self._config))
 
-        if not self._on_recv == None:
+        # Trigger event
+        if not self._recv == None:
             self._logger.lock()
             self._config["code"] = response.status_code
-            res = self._on_recv(self, is_found)
+            res = self._recv(self, is_found)
             self._logger.unlock()
             return res
         return 0
 
-    def _stage2(self):
-        logger = self._logger
-        config = self._config
-        if (
-            "regexCheck" in config
-            and re.search(config["regexCheck"], self._username) is None
-        ):
-            return None
 
-        if "url" in config:
-            config["url"] = config["url"].replace("{}", self._username)
-
-        self._grequest = grequests.get(
-            config["url"],
-            headers={
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0"
-            },
-            hooks={"response": self._response},
-            timeout=5,
-        )
-
-        return 200
+    @property
+    def url(self):
+        url = self._url.replace("{}", self._username)
+        return url
+        
+    @property
+    def host(self):
+        host = re.fin
