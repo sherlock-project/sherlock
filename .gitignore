@@ -6,6 +6,8 @@ venv/
 
 # Python
 __pycache__/
+*.egg-info/
+*~
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -17,3 +19,9 @@ __pycache__/
 
 # Comma-Separated Values (CSV) Reports
 *.csv
+
+# Idea
+.idea/
+
+# Tox
+.tox/
