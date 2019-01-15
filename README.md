@@ -1,9 +1,7 @@
 # Sherlock
 > Find usernames across [social networks](https://github.com/sdushantha/sherlock/blob/master/sites.md) 
 
-<p align="center">
-<img src="./screenshot/preview.png">
-</p>
+[![asciicast](https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb.svg)](https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb)
 
 ## Installation
 
