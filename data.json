@@ -720,10 +720,27 @@
     "url": "https://venmo.com/{}",
     "urlMain": "https://venmo.com/",
     "errorType": "status_code"
-    },
+  },
   "HubPages":{
     "url": "https://hubpages.com/@{}",
     "urlMain": "https://hubpages.com/",
     "errorType": "status_code"
-  }  
+  },
+  "StreamMe":{
+    "url": "https://www.stream.me/{}",
+    "urlMain": "https://www.stream.me/",
+    "errorType": "status_code"
+  },
+  "Ello":{
+    "url": "https://ello.co/{}",
+    "urlMain": "https://ello.co/",
+    "errorType": "message",
+    "errorMsg": "If all else fails you can try checking out our"
+    },
+  "Kik":{
+    "url": "https://ws2.kik.com/user/{}",
+    "urlMain": "http://kik.me/",
+    "errorType": "message",
+    "errorMsg": "The page you requested was not found"
+  }
 }
