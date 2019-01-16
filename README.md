@@ -16,6 +16,8 @@ $ git clone https://github.com/TheYahya/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
+# install python3 and python3-pip if not exist
+
 # install the requirements
 $ pip3 install -r requirements.txt
 ```
