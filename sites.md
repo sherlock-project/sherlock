@@ -128,3 +128,6 @@
 127. [CreativeMarket](https://creativemarket.com/)
 128. [Venmo](https://venmo.com/)
 129. [HubPages](https://hubpages.com/)
+130. [StreamMe](https://www.stream.me/)
+131. [Ello](https://ello.co/)
+132. [Kik](http://kik.me/)
