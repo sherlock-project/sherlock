@@ -67,7 +67,7 @@ Once the image is built sherlock can be invoked by running the following:
 docker run --rm mysherlock-image user123
 ```
 
-The ```--rm``` flag is optional.  It removes the container filesystem after running so you do not have a bunch of leftover container filesystem cruft.  See https://docs.docker.com/engine/reference/run/#clean-up---rm
+The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up.  See https://docs.docker.com/engine/reference/run/#clean-up---rm
 
 One caveat is the text file that is created will only exist in the container so you will not be able to get at that.
 
