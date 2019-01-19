@@ -78,6 +78,5 @@ docker run theyahya/sherlock user123
 ```
 
 ## License
-MIT License
 
-Copyright (c) 2018 Yahya SayadArbabi
+MIT © [Yahya SayadArbabi](https://theyahya.com)
