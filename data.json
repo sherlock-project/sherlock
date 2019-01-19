@@ -666,5 +666,81 @@
     "url": "https://{}.itch.io/",
     "urlMain": "https://itch.io/",
     "errorType": "status_code"
+  },
+  "Basecamp":{
+    "url": "https://{}.basecamphq.com",
+    "urlMain": "https://basecamp.com/",
+    "errorType": "message",
+    "errorMsg": "The account you were looking for doesn't exist"
+  },
+  "ProductHunt":{
+    "url": "https://www.producthunt.com/@{}",
+    "urlMain": "https://www.producthunt.com/",
+    "errorType": "message",
+    "errorMsg": "Product Hunt is a curation of the best new products"
+  },
+  "Younow":{
+    "url": "https://www.younow.com/{}",
+    "urlMain": "https://www.younow.com/",
+    "errorType": "message",
+    "errorMsg": "pageTitle || 'YouNow - Broadcast Live"
+  },
+  "Smashcast":{
+    "url": "https://www.smashcast.tv/api/media/live/{}",
+    "urlMain": "https://www.smashcast.tv/",
+    "errorType": "status_code"
+  },
+  "AskFM":{
+    "url": "https://ask.fm/{}",
+    "urlMain": "https://ask.fm/",
+    "errorType": "status_code"
+  },
+  "KanoWorld":{
+    "url": "https://api.kano.me/progress/user/{}",
+    "urlMain": "https://world.kano.me/",
+    "errorType": "status_code"
+  },
+  "EyeEm":{
+    "url": "https://www.eyeem.com/u/{}",
+    "urlMain": "https://www.eyeem.com/",
+    "errorType": "status_code"
+  },
+  "Wikia":{
+    "url": "https://wikia.com/wiki/User:{}",
+    "urlMain": "http://www.wikia.com/",
+    "errorType": "message",
+    "errorMsg": "does not exist"
+  },
+  "CreativeMarket":{
+    "url": "https://creativemarket.com/{}",
+    "urlMain": "https://creativemarket.com/",
+    "errorType": "status_code"
+  },
+  "Venmo":{
+    "url": "https://venmo.com/{}",
+    "urlMain": "https://venmo.com/",
+    "errorType": "status_code"
+  },
+  "HubPages":{
+    "url": "https://hubpages.com/@{}",
+    "urlMain": "https://hubpages.com/",
+    "errorType": "status_code"
+  },
+  "StreamMe":{
+    "url": "https://www.stream.me/{}",
+    "urlMain": "https://www.stream.me/",
+    "errorType": "status_code"
+  },
+  "Ello":{
+    "url": "https://ello.co/{}",
+    "urlMain": "https://ello.co/",
+    "errorType": "message",
+    "errorMsg": "If all else fails you can try checking out our"
+    },
+  "Kik":{
+    "url": "https://ws2.kik.com/user/{}",
+    "urlMain": "http://kik.me/",
+    "errorType": "message",
+    "errorMsg": "The page you requested was not found"
   }
 }

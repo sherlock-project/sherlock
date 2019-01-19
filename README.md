@@ -1,5 +1,5 @@
 # Sherlock
-> Find usernames across [social networks](https://github.com/sdushantha/sherlock/blob/master/sites.md) 
+> Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md) 
 
 <p align="center">
 <img src="./screenshot/preview.png">
@@ -80,4 +80,4 @@ docker run theyahya/sherlock user123
 ## License
 MIT License
 
-Copyright (c) 2018 Siddharth Dushantha
+Copyright (c) 2018 Yahya SayadArbabi
