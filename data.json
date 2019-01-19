@@ -666,5 +666,17 @@
     "url": "https://{}.itch.io/",
     "urlMain": "https://itch.io/",
     "errorType": "status_code"
+  },
+  "Star Citizen": {
+    "url": "https://robertsspaceindustries.com/citizens/{}",
+    "urlMain": "https://robertsspaceindustries.com/",
+    "errorType": "status_code"
+  },
+  "EVE Online": {
+    "url": "https://evewho.com/search/{}",
+    "urlMain": "https://eveonline.com",
+    "errorType": "message",
+    "errorMsg": "No results found with your search..."
   }
 }
+ 
