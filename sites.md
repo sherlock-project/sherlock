@@ -117,3 +117,5 @@
 116. [TradingView] (https://www.tradingview.com/)
 117. [Kaggle] (https://www.kaggle.com/)
 118. [Itch.io] (https://itch.io/)
+119. [EVE Online](https://eveonline.com)
+120. [Star Citizen](https://robertsspaceindustries.com)
