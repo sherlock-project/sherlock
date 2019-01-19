@@ -114,7 +114,7 @@
 113. [Wikipedia](https://www.wikipedia.org/)
 114. [Mastodon](https://mstdn.io/)
 115. [Telegram](https://t.me/)
-116. [TradingView] (https://www.tradingview.com/)
+116. [TradingView](https://www.tradingview.com/)
 117. [Kaggle](https://www.kaggle.com/)
 118. [Itch.io](https://itch.io/)
 119. [Basecamp](https://basecamp.com/)
