@@ -99,13 +99,28 @@ def print_not_found(social_network, response_time, verbose=False):
            Fore.YELLOW + " Not Found!").format(social_network))
 
 
-def get_response(request_future, error_type, social_network, verbose=False):
+def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
+    
+    global proxy_list
+
     try:
         rsp = request_future.result()
         if rsp.status_code:
             return rsp, error_type, rsp.elapsed
     except requests.exceptions.HTTPError as errh:
         print_error(errh, "HTTP Error:", social_network, verbose)
+
+    # In case our proxy fails, we retry with another proxy.
+    except requests.exceptions.ProxyError as errp:
+        if retry_no>0 and len(proxy_list)>0:
+            #Selecting the new proxy.
+            new_proxy = random.choice(proxy_list)
+            new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
+            print(f'Retrying with {new_proxy}')
+            request_future.proxy = {'http':new_proxy,'https':new_proxy}
+            get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1)
+        else:
+            print_error(errp, "Proxy error:", social_network, verbose)
     except requests.exceptions.ConnectionError as errc:
         print_error(errc, "Error Connecting:", social_network, verbose)
     except requests.exceptions.Timeout as errt:
