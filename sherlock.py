@@ -415,6 +415,18 @@ def main():
     # Make prompts
     if args.proxy != None:
         print("Using the proxy: " + args.proxy)
+
+    global proxy_list
+
+    if args.proxy_list != None:
+        print((Style.BRIGHT + Fore.GREEN + "[" +
+               Fore.YELLOW + "*" +
+               Fore.GREEN + "] Checking username" +
+               Fore.WHITE + " {}" +
+               Fore.GREEN + " on:").format(args.proxy_list))
+
+        proxy_list = load_proxies_from_csv(args.proxy_list)
+
     if args.tor or args.unique_tor:
         print("Using TOR to make requests")
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
