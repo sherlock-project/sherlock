@@ -405,6 +405,13 @@ def main():
     if args.tor and (args.proxy != None or args.proxy_list != None):
         raise Exception("TOR and Proxy cannot be set in the meantime.")
 
+    # Proxy argument check.
+    # Does not necessarily need to throw an error,
+    # since we could join the single proxy with the ones generated from the .csv,
+    # but it seems unnecessarily complex at this time.
+    if args.proxy != None and args.proxy_list != None:
+        raise Exception("A single proxy cannot be used along with proxy list.")
+
     # Make prompts
     if args.proxy != None:
         print("Using the proxy: " + args.proxy)
