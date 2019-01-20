@@ -431,6 +431,19 @@ def main():
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
+    # Checking if proxies should be checked for anonymity.
+    if args.check_prox != None and args.proxy_list != None:
+        try:
+            limit = int(args.check_prox)
+            if limit == 0:
+                proxy_list = check_proxy_list(proxy_list)
+            elif limit > 0:
+                proxy_list = check_proxy_list(proxy_list, limit)
+            else:
+                raise ValueError
+        except ValueError:
+            raise Exception("Prameter --check_proxies/-cp must be a positive intiger.")
+
     if args.tor or args.unique_tor:
         print("Using TOR to make requests")
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
