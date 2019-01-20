@@ -20,3 +20,26 @@ def load_proxies_from_csv(path_to_list):
         proxies = [Proxy(line['ip'],line['port'],line['protocol']) for line in csv_reader]
 
     return proxies
+
+
+"""
+A function which test the proxy by attempting 
+to make a request to the designated website.
+
+We use 'wikipedia.org' as a test, since we can test the proxy anonymity 
+by check if the returning 'X-Client-IP' header matches the proxy ip.
+"""
+
+
+def check_proxy(proxy_ip, proxy_port, protocol):
+    full_proxy = f'{protocol}://{proxy_ip}:{proxy_port}'
+    proxies = {'http': full_proxy, 'https': full_proxy}
+    try:
+        r = requests.get('https://www.wikipedia.org',proxies=proxies, timeout=4)
+        return_proxy = r.headers['X-Client-IP']
+        if proxy_ip==return_proxy:
+            return True
+        else:
+            return False
+    except Exception:
+        return False
