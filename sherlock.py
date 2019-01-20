@@ -406,7 +406,7 @@ def main():
 
     # Argument check
     # TODO regex check on args.proxy
-    if args.tor and args.proxy != None:
+    if args.tor and (args.proxy != None or args.proxy_list != None):
         raise Exception("TOR and Proxy cannot be set in the meantime.")
 
     # Make prompts
