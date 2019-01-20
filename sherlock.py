@@ -28,6 +28,9 @@ amount = 0
 
 # TODO: fix tumblr
 
+global proxy_list
+
+proxy_list = []
 
 class ElapsedFuturesSession(FuturesSession):
     """
