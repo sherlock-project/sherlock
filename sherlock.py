@@ -380,6 +380,16 @@ def main():
     parser.add_argument("--json", "-j", metavar="JSON_FILE",
                         dest="json_file", default="data.json",
                         help="Load data from a JSON file or an online, valid, JSON file.")
+    parser.add_argument("--proxy_list", "-pl", metavar='PROXY_LIST',
+                        action="store", dest="proxy_list", default=None,
+                        help="Make requests over a proxy randomly chosen from a list generated from a .csv file."
+                        )
+    parser.add_argument("--check_proxies", "-cp", metavar='CHECK_PROXY',
+                        action="store", dest="check_prox", default=None,
+                        help="To be used with the '--proxy_list' parameter. "
+                             "The script will check if the proxies supplied in the .csv file are working and anonymous."
+                             "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
