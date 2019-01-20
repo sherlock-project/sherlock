@@ -40,6 +40,9 @@ BANNER = r'''
 
 # TODO: fix tumblr
 
+global proxy_list
+
+proxy_list = []
 
 class ElapsedFuturesSession(FuturesSession):
     """
