@@ -442,9 +442,9 @@ def main():
     if args.proxy_list != None:
         print((Style.BRIGHT + Fore.GREEN + "[" +
                Fore.YELLOW + "*" +
-               Fore.GREEN + "] Checking username" +
+               Fore.GREEN + "] Loading proxies from" +
                Fore.WHITE + " {}" +
-               Fore.GREEN + " on:").format(args.proxy_list))
+               Fore.GREEN + " :").format(args.proxy_list))
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
