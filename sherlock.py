@@ -261,7 +261,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         r, error_type, response_time = get_response(request_future=future,
                                                     error_type=error_type,
                                                     social_network=social_network,
-                                                    verbose=verbose)
+                                                    verbose=verbose,
+                                                    retry_no=3)
 
         # Attempt to get request information
         try:
