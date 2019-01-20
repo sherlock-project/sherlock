@@ -534,6 +534,15 @@ def main():
                                      username + ".txt"), "w", encoding="utf-8")
         else:
             file = open(username + ".txt", "w", encoding="utf-8")
+
+        # We try to ad a random member of the 'proxy_list' var as the proxy of the request.
+        # If we can't access the list or it is empty, we proceed with args.proxy as the proxy.
+        try:
+            random_proxy = random.choice(proxy_list)
+            proxy = f'{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
+        except (NameError, IndexError):
+            proxy = args.proxy
+
         results = {}
         results = sherlock(username, site_data, verbose=args.verbose,
                            tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
