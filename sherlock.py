@@ -326,6 +326,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
            Fore.WHITE + "{}").format(fname))
 
     final_score(amount, f)
+    f.close()
     return results_total
 
 
