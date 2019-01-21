@@ -2,7 +2,7 @@ from setuptools import setup
 
 # Current version of setup
 def _get_version():
-    return "%i.%i.%i" % (2, 3, 1)
+    return "%i.%i.%i" % (0, 2, 6)
 
 # Requirements for the pypi
 _requirements = [
@@ -20,7 +20,7 @@ _packages = [
 
 # Setup for the project
 setup(
-    name="sherlock",
+    name="thesherlock",
     version=_get_version(),
     description="Sherlock the username detective",
     long_description="""
