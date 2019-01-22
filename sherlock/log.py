@@ -1,24 +1,43 @@
-from colorama import Back, Fore, Style, init
-
+from colorama import Fore, Style
 
 class Log:
-    def __init__(self, debug=False):
+    def __init__(self, debug=False):#
+        """
+        A logger object
+
+        Parameters
+        ----------
+        debug, boolean, optional, default = Flase
+            Is the logger debugging the application.
+        """
+        self._debugging = debug
         self.locked = False
 
     @staticmethod
     def getLogger():
         """
-            Get a SherlockLog object instance.
-            Return: (SherlockLog); SherlockLog instance.
+        Get a SherlockLog object instance.
+
+        Parameters
+        ----------
+        return : Sherlock.Log, return
+            logger instance.
         """
         return Log()
 
     def lock(self):
+        """
+        Locks the logger to a single thread, use to lock the logger if using some particular data on a thread.
+        Please ensure once your complete, call the unlock method.
+        """
         while self.locked:
             pass
         self.locked = True
 
     def unlock(self):
+        """
+        Unlocks the logger, relinquishes resources to all threads.
+        """
         self.locked = False
 
     def eprint(
@@ -30,15 +49,17 @@ class Log:
         message_color: Fore = Fore.WHITE,
         style: Style = Style.BRIGHT,
     ):
-
         """
-            Prints a message to the screen using colorama,
-            
-            Required Parameters:
-                status: (str);  The status of the message.
-                message: (str); The actual description of the error
-            
-            
+        Prints a message to the screen using colorama,
+
+        Parameters
+        ----------
+        status : str, optional
+            The status of the message.
+
+        message : str, optional
+            The actual description of the error
+
         """
 
         print(
@@ -58,9 +79,12 @@ class Log:
 
     def log(self, message: str):
         """
-            General logging with no errors.
-            Required Parameters:
-                message: (str);  The log message.
+        General logging with no errors.
+
+        Parameters
+        ----------
+        message: str
+            The log message.
         """
         self.eprint(
             "*",
@@ -72,9 +96,12 @@ class Log:
 
     def error(self, message: str):
         """
-            Error logging.
-            Required Parameters:
-                message: (str);  The error message.
+        Error logging.
+
+        Parameters
+        ----------
+        message: str
+            The error message.
         """
         self.eprint(
             "-",
@@ -87,9 +114,12 @@ class Log:
     def info(self, message: str):
 
         """
-            Info logging.
-            Required Parameters:
-                message: (str);  The info message.
+        Info logging.
+
+        Parameters
+        ----------
+        message: str
+            The info message.
         """
 
         self.eprint(

@@ -1,4 +1,4 @@
-import json
+import json,yaml
 
 
 class Data:
@@ -9,13 +9,17 @@ class Data:
 
     @staticmethod
     def fromFile(filename, t="json"):
-
         if t == "json":
-            f = open(filename, "r")
-            d = json.loads(f.read())
-            f.close()
+            with open(filename, "r") as f:
+                d = json.loads(f.read())
+                f.close()
             return Data(data=d)
-        return Data(data={})
+        if t == "yaml":
+            with open(filename, "r") as f:
+                d = yaml.loads(f.read())
+                f.close()
+            return Data(data=d)
+
 
     def keys(self):
         return self._data_keys

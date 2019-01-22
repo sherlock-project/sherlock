@@ -1,5 +1,6 @@
 requests
 grequests
+pyyaml
 requests_futures
 torrequest
 colorama

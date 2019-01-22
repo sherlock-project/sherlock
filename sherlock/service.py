@@ -1,17 +1,18 @@
-import requests
+# grequests and re imports
 import grequests
 import re
 
-from log import Log
+# Sherlock.Log import
+from sherlock import Log
 
+# Sherlock.Service
 class Service:
     """
-
+    Represents a service to verify if a username exists.
     """
     def __init__(
         self,
             username: str,
-            config: dict=None,
             recv =None, logger: Log=Log.getLogger(),
             regex: str=None,
             error_type="status_code",
@@ -42,7 +43,7 @@ class Service:
 
         """
 
-        # Standard Initiasation
+        # Initialisation of private variables
         self._url = ""
         self._logger = logger
         self._serv = None
@@ -50,9 +51,8 @@ class Service:
         self._username = username
         self._regex = regex
         self._error_type = error_type
-        self._config = config
 
-        
+        # Make adjustments according to kargs
         if not kargs is None:
             if "url" in kargs: self._url = kargs["url"]
             if "errorType" in kargs: self._error_type = kargs["errorType"]
@@ -82,7 +82,7 @@ class Service:
 
         Parameters
         ----------
-        return: return, object
+        return : return, object
             grequest Object
         """
         return self._request
@@ -94,7 +94,7 @@ class Service:
 
         Parameters
         ----------
-        :return:
+        return :
         """
         if (
             not self._regex is None
@@ -108,7 +108,8 @@ class Service:
         """
         Parameters
         ----------
-        :return:
+        return : str, return
+            Returns a string object representing the url to be request.
         """
         url = self._url.replace("{}", self._username)
         return url
@@ -118,7 +119,8 @@ class Service:
         """
         Parameters
         ----------
-        :return:
+        return : str, request
+            The where the request will be sent too.
         """
         host = re.find(r"([a-z]*:[/]+[a-z0-1.]*)", self.url)
         if len(host)>0:
@@ -127,14 +129,6 @@ class Service:
             return ""
     
     def _recv_event(self, response, *args, **kwargs):
-        """
-        Parameters
-        ----------
-        :param response:
-        :param args:
-        :param kwargs:
-        :return:
-        """
         is_found = False
         config = self._config
 
@@ -166,23 +160,3 @@ class Service:
             self._logger.unlock()
             return res
         return 0
-
-
-    @property
-    def url(self):
-        """
-        Parameters
-        ----------
-        :return:
-        """
-        url = self._url.replace("{}", self._username)
-        return url
-        
-    @property
-    def host(self):
-        """
-        Parameters
-        ----------
-        :return:
-        """
-        host = re.fin
