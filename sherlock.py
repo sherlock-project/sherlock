@@ -10,21 +10,33 @@ networks.
 import csv
 import json
 import os
-import sys
 import platform
 import re
+import sys
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from concurrent.futures import ThreadPoolExecutor
 from time import time
 
 import requests
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from concurrent.futures import ThreadPoolExecutor
 from colorama import Fore, Style, init
+
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.3.0"
 amount = 0
+
+BANNER = r"""
+                                              ."'"-.
+                                             /      \
+ ____  _               _            _        |  _..--'-.
+/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-""\;"`
+\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\
+ ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
+|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
+                                           .'`-._ `.\    | J /
+                                          /      `--.|   \__/"""
 
 # TODO: fix tumblr
 
@@ -380,17 +392,7 @@ def main():
 
     args = parser.parse_args()
 
-    # Banner
-    print(Fore.WHITE + Style.BRIGHT +
-          """                                              .\"\"\"-.
-                                             /      \\
- ____  _               _            _        |  _..--'-.
-/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
-\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\
- ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
-|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
-                                           .'`-._ `.\    | J /
-                                          /      `--.|   \__/""")
+    print(Fore.WHITE + Style.BRIGHT + BANNER)
 
     # Argument check
     # TODO regex check on args.proxy
