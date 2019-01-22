@@ -2,12 +2,45 @@ import requests
 import grequests
 import re
 
-from log import SherlockLog
+from log import Log
 
 class Service:
+    """
+
+    """
     def __init__(
-        self, username: str, config: dict=None, recv =None, logger: SherlockLog=SherlockLog.getLogger(), regex: str=None
+        self,
+            username: str,
+            config: dict=None,
+            recv =None, logger: Log=Log.getLogger(),
+            regex: str=None,
+            error_type="status_code",
+            **kargs
     ):
+        """
+        Creates a service object which retries data though a asynchronous HTTP or HTTPs request.
+
+        Parameters
+        ----------
+        username : str
+            The username to search for.
+
+        recv : func, optional, default = None
+            The event handler which is called when response is received.
+
+        logger : sherlock.Log, optional, default = new Log()
+            The logger object to callback events occuring during requests or errors that may occur.
+
+        regex/regexCheck : str, optional, default = None
+            The regex filter for the username.
+
+        url : str, optional, default = None
+            Url for HTTP or HTTPS request.
+
+        error_type/errorType : str, optional, default = "status_code"
+            The error type expected from the response.
+
+        """
 
         # Standard Initiasation
         self._url = ""
@@ -16,12 +49,14 @@ class Service:
         self._recv = recv
         self._username = username
         self._regex = regex
+        self._error_type = error_type
         self._config = config
+
         
-        if not config is None:
-            if "url" in config: self._url = config["url"]
-            if "errorType" in config: self._error_type = config["errorType"]
-            if "regexCheck" in config: self._regex = config["regexCheck"]
+        if not kargs is None:
+            if "url" in kargs: self._url = kargs["url"]
+            if "errorType" in kargs: self._error_type = kargs["errorType"]
+            if "regexCheck" in kargs: self._regex = kargs["regexCheck"]
             
             
             
@@ -42,10 +77,25 @@ class Service:
 
     @property
     def grequest(self):
+        """
+        Gets the grequest object associated with this Object.
+
+        Parameters
+        ----------
+        return: return, object
+            grequest Object
+        """
         return self._request
 
     @property
     def valid(self):
+        """
+        Returns
+
+        Parameters
+        ----------
+        :return:
+        """
         if (
             not self._regex is None
             and re.search(self._regex, self._username) is None
@@ -55,11 +105,21 @@ class Service:
         
     @property
     def url(self):
+        """
+        Parameters
+        ----------
+        :return:
+        """
         url = self._url.replace("{}", self._username)
         return url
         
     @property
     def host(self):
+        """
+        Parameters
+        ----------
+        :return:
+        """
         host = re.find(r"([a-z]*:[/]+[a-z0-1.]*)", self.url)
         if len(host)>0:
             return host.group(1)
@@ -67,6 +127,14 @@ class Service:
             return ""
     
     def _recv_event(self, response, *args, **kwargs):
+        """
+        Parameters
+        ----------
+        :param response:
+        :param args:
+        :param kwargs:
+        :return:
+        """
         is_found = False
         config = self._config
 
@@ -93,7 +161,7 @@ class Service:
         # Trigger event
         if not self._recv == None:
             self._logger.lock()
-            self._config["code"] = response.status_code
+            self._code = response.status_code
             res = self._recv(self, is_found)
             self._logger.unlock()
             return res
@@ -102,9 +170,19 @@ class Service:
 
     @property
     def url(self):
+        """
+        Parameters
+        ----------
+        :return:
+        """
         url = self._url.replace("{}", self._username)
         return url
         
     @property
     def host(self):
+        """
+        Parameters
+        ----------
+        :return:
+        """
         host = re.fin

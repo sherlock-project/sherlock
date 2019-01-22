@@ -1,7 +1,7 @@
 import json
 
 
-class SherlockData:
+class Data:
     def __init__(self, name="example", data={}):
         self._data = data
         self._name = name
@@ -14,8 +14,8 @@ class SherlockData:
             f = open(filename, "r")
             d = json.loads(f.read())
             f.close()
-            return SherlockData(data=d)
-        return SherlockData(data={})
+            return Data(data=d)
+        return Data(data={})
 
     def keys(self):
         return self._data_keys

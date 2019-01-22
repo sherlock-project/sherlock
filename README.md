@@ -20,6 +20,25 @@ $ cd sherlock
 $ pip3 install -r requirements.txt
 ```
 
+# API Documentation
+Classes:
+- sherlock.Data
+- sherlock.Log
+- sherlock.Service
+
+### _class_ Data
+This class 
+
+
+
+## Testing using tox
+**NOTE**: Tox is required to perform tests on sherlock, for installation instructions for tox,
+please visit https://tox.readthedocs.io/en/latest/install.html. Once installed, all that's required is to navigate to the root of the project and type:
+    
+    $ tox
+    
+    
+
 ## Usage
 
 ```bash

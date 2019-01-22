@@ -1,7 +1,7 @@
 from colorama import Back, Fore, Style, init
 
 
-class SherlockLog:
+class Log:
     def __init__(self, debug=False):
         self.locked = False
 
@@ -11,7 +11,7 @@ class SherlockLog:
             Get a SherlockLog object instance.
             Return: (SherlockLog); SherlockLog instance.
         """
-        return SherlockLog()
+        return Log()
 
     def lock(self):
         while self.locked:
