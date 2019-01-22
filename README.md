@@ -1,4 +1,4 @@
-# Sherlock
+# Sherlock [![Build Status](https://travis-ci.com/TheYahya/sherlock.svg?branch=master)](https://travis-ci.com/TheYahya/sherlock)
 > Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md)
 
 <p align="center">
