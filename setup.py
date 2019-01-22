@@ -2,12 +2,13 @@ from setuptools import setup
 
 # Current version of setup
 def _get_version():
-    return "%i.%i.%i" % (0, 2, 6)
+    return "%i.%i.%i" % (0, 3, 0)
 
 # Requirements for the pypi
 _requirements = [
     "requests",
     "grequests",
+    "pyyaml",
     "requests_futures",
     "torrequest",
     "colorama"

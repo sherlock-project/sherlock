@@ -1,14 +1,32 @@
-import json,yaml
+import json, yaml
 
+from sherlock.exception import SLException
+from sherlock.exception import SLUnsupportedTypeException
 
 class Data:
-    def __init__(self, name="example", data={}):
+    def __init__(self, data={}):
+        """
+
+        :param name:
+        :param data:
+        """
         self._data = data
-        self._name = name
         self._data_keys = self._data.keys()
 
     @staticmethod
     def fromFile(filename, t="json"):
+        """
+        Creates a Data object from a file.
+
+        Parameters
+        ----------
+        filename : str
+            The file, which you would like to load from.
+
+        t : str, optional, default = "json"
+            The file time of which you're loading.  Supported formats are "json" and "yaml".
+
+        """
         if t == "json":
             with open(filename, "r") as f:
                 d = json.loads(f.read())
@@ -20,9 +38,18 @@ class Data:
                 f.close()
             return Data(data=d)
 
+        raise SLUnsupportedTypeException("Unsupported type '%s'" % t)
 
     def keys(self):
-        return self._data_keys
+        """
+        Gets the keys within the directory
+
+        Parameters
+        ----------
+        return : list
+            A list of keys are return.
+        """
+        return list(self._data_keys)
 
     def __len__(self):
         return len(self._data_keys)
@@ -31,7 +58,18 @@ class Data:
         d = self._data[i]
         return d
 
-    def byindex(self, i):
+    def byindex(self, i: int):
+        """
+
+        Gets an entry by index instead of key.
+
+        Parameters
+        ----------
+        i : int
+            returns a tuple of key and data associated with the index i.
+        """
         if len(self._data_keys) > i:
             key = self._data_keys[i]
             return (key, self._data[key])
+
+        raise SLException("Out of index %i >= %i" % (i, len(self._data_keys)))

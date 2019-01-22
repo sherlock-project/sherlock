@@ -8,9 +8,9 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from colorama import init as coloramainit
 
 # Import all the services
-from data import SherlockData
-from log import SherlockLog
-from service import Service
+from sherlock import Data
+from sherlock import Log
+from sherlock import Service
 
 # Version info
 __description__ = "Sherlock: Find Usernames Across Social Networks"
