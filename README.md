@@ -1,5 +1,5 @@
 # Sherlock
-> Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md) 
+> Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md)
 
 <p align="center">
 <img src="./screenshot/preview.png">
@@ -76,6 +76,26 @@ Or you can simply use "Docker Hub" to run `sherlock`:
 ```
 docker run theyahya/sherlock user123
 ```
+
+## Tests
+If you are contributing to Sherlock, then Thank You!
+
+Before creating a pull request with new development, please run the tests
+to ensure that all is well.  It would also be a good idea to run the tests
+before starting development to distinguish problems between your
+environment and the Sherlock software.
+
+The following is an example of the command line to run all the tests for
+Sherlock.  This invocation hides the progress text that Sherlock normally
+outputs, and instead shows the verbose output of the tests.
+
+```
+% python3 -m unittest tests.all --buffer --verbose
+```
+
+Note that the tests are very much a work in progress.  Significant work is
+required to get full test coverage.  But, the current tests are working
+properly, and will be expanded as time goes by.
 
 ## License
 
