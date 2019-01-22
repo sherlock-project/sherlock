@@ -1,7 +1,9 @@
-class SLException(Exception):
+
+class SLException (Exception):
     """
         SherlockException, to alert the user of any issues.
     """
+
     def __init__(self, message):
         """
         Initialises a new SherlockException
@@ -18,12 +20,10 @@ class SLException(Exception):
         return self._message
 
 
-
-class SLUnsupportedTypeException(SLException):
+class SLUnsupportedTypeException (SLException):
     """
         SLUnsupportedTypeException, a type format wasn't supported
     """
+
     def __init__(self, message):
         super(SLUnsupportedTypeException).__init__(message)
-
-

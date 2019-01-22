@@ -1,13 +1,14 @@
 from colorama import Fore, Style
 
+
 class Log:
-    def __init__(self, debug=False):#
+    def __init__(self, debug=False):  #
         """
         A logger object
 
         Parameters
         ----------
-        debug, boolean, optional, default = Flase
+        debug, boolean, option, default = Flase
             Is the logger debugging the application.
         """
         self._debugging = debug
@@ -40,25 +41,30 @@ class Log:
         """
         self.locked = False
 
-    def eprint(
-        self,
-        status: str,
-        message: str,
-        status_color: Fore = Fore.WHITE,
-        status_frame: Fore = Fore.WHITE,
-        message_color: Fore = Fore.WHITE,
-        style: Style = Style.BRIGHT,
-    ):
+    def eprint(self, status: str, message: str, status_color: Fore = Fore.WHITE, status_frame: Fore = Fore.WHITE, message_color: Fore = Fore.WHITE, style: Style = Style.BRIGHT):
         """
         Prints a message to the screen using colorama,
 
         Parameters
         ----------
-        status : str, optional
+        status : str, option
             The status of the message.
 
-        message : str, optional
+        message : str, option
             The actual description of the error
+
+        status_color : Fore, option, default = Fore.WHITE
+            The color of the status.
+
+        status_frame : Fore, option, default  = Fore.WHITE
+            The color of the brackets that surround the status.
+
+        message_color : Fore, option, default  = Fore.WHITE
+            The message color.
+
+        style : Style, option, default = Style.BRIGHT
+            The brightness style of the whole message.
+
 
         """
 
@@ -83,7 +89,7 @@ class Log:
 
         Parameters
         ----------
-        message: str
+        message : str
             The log message.
         """
         self.eprint(
@@ -100,7 +106,7 @@ class Log:
 
         Parameters
         ----------
-        message: str
+        message : str
             The error message.
         """
         self.eprint(
@@ -112,13 +118,12 @@ class Log:
         )
 
     def info(self, message: str):
-
         """
         Info logging.
 
         Parameters
         ----------
-        message: str
+        message : str
             The info message.
         """
 

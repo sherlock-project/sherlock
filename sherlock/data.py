@@ -1,14 +1,19 @@
-import json, yaml
+import json
+import yaml
 
 from sherlock.exception import SLException
 from sherlock.exception import SLUnsupportedTypeException
 
-class Data:
-    def __init__(self, data={}):
-        """
 
-        :param name:
-        :param data:
+class Data:
+    def __init__(self, data):
+        """
+        Initialise the Data object with data.
+
+        Parameters
+        ----------
+        data : dict
+            The data loaded into the Data Object.
         """
         self._data = data
         self._data_keys = self._data.keys()

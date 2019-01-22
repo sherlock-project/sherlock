@@ -10,13 +10,15 @@ class Service:
     """
     Represents a service to verify if a username exists.
     """
+
     def __init__(
         self,
-            username: str,
-            recv =None, logger: Log=Log.getLogger(),
-            regex: str=None,
-            error_type="status_code",
-            **kargs
+        username: str,
+        recv=None,
+        logger: Log = Log.getLogger(),
+        regex: str = None,
+        error_type="status_code",
+        **kargs
     ):
         """
         Creates a service object which retries data though a asynchronous HTTP or HTTPs request.
@@ -54,26 +56,19 @@ class Service:
 
         # Make adjustments according to kargs
         if not kargs is None:
-            if "url" in kargs: self._url = kargs["url"]
-            if "errorType" in kargs: self._error_type = kargs["errorType"]
-            if "regexCheck" in kargs: self._regex = kargs["regexCheck"]
-            
-            
-            
-            
+            if "url" in kargs:
+                self._url = kargs["url"]
+            if "errorType" in kargs:
+                self._error_type = kargs["errorType"]
+            if "regexCheck" in kargs:
+                self._regex = kargs["regexCheck"]
+
         # Dict Initiasation
         self._header = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0"
         }
-        self._hooks = {
-            "response": self._recv_event
-        }
-        self._request = grequests.get(
-            self.url,
-            headers=self._header,
-            hooks=self._hooks
-        )
-
+        self._hooks = {"response": self._recv_event}
+        self._request = grequests.get(self.url, headers=self._header, hooks=self._hooks)
 
     @property
     def grequest(self):
@@ -96,13 +91,10 @@ class Service:
         ----------
         return :
         """
-        if (
-            not self._regex is None
-            and re.search(self._regex, self._username) is None
-        ):
+        if not self._regex is None and re.search(self._regex, self._username) is None:
             return False
         return True
-        
+
     @property
     def url(self):
         """
@@ -113,7 +105,7 @@ class Service:
         """
         url = self._url.replace("{}", self._username)
         return url
-        
+
     @property
     def host(self):
         """
@@ -123,18 +115,19 @@ class Service:
             The where the request will be sent too.
         """
         host = re.find(r"([a-z]*:[/]+[a-z0-1.]*)", self.url)
-        if len(host)>0:
+        if len(host) > 0:
             return host.group(1)
         else:
             return ""
-    
+
     def _recv_event(self, response, *args, **kwargs):
         is_found = False
         config = self._config
 
         # Get the error type
         error_type = "status_code"
-        if "errorType" in config: error_type = config["errorType"]
+        if "errorType" in config:
+            error_type = config["errorType"]
 
         # Depends on error type
         if error_type == "message" and "errorMsg" in config:
