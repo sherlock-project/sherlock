@@ -20,8 +20,6 @@ before_script:
   - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 script:
   - python3 -m unittest tests.all --buffer --verbose
-  - pip install pytest
-  - pytest
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down
