@@ -16,7 +16,8 @@ _requirements = [
 
 # Packages part of setup
 _packages = [
-    "sherlock"
+    "sherlock",
+    "sherlock.exception"
 ]
 
 # Setup for the project
