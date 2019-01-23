@@ -23,7 +23,7 @@ class SherlockDetectTests(SherlockBaseTest):
         """
 
         self.username_check(['jack'],  ['Twitter'],   exist_check=True)
-        #self.username_check(['dfox'],  ['devRant'],   exist_check=True)
+        self.username_check(['dfox'],  ['devRant'],   exist_check=True)
         self.username_check(['blue'],  ['Pinterest'], exist_check=True)
         self.username_check(['kevin'], ['Instagram'], exist_check=True)
         self.username_check(['zuck'],  ['Facebook'],  exist_check=True)
@@ -89,6 +89,54 @@ class SherlockDetectTests(SherlockBaseTest):
         self.username_check(['jackkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'],
                             ['Pinterest'],
                             exist_check=False
+                           )
+
+        return
+
+
+class SherlockSiteCoverageTests(SherlockBaseTest):
+    def test_coverage_false_via_response_url(self):
+        """Test Username Does Not Exist Site Coverage (Via Response URL).
+
+        This test checks all sites with the "response URL" detection mechanism
+        to ensure that a Username that does not exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['noonewouldeverusethis7'],
+                            ["Pinterest", "iMGSRC.RU", "Pastebin",
+                             "WordPress", "devRant", "ImageShack", "MeetMe"
+                            ],
+                            exist_check=False
+                           )
+
+        return
+
+    def test_coverage_true_via_response_url(self):
+        """Test Username Does Exist Site Coverage (Via Response URL).
+
+        This test checks all sites with the "response URL" detection mechanism
+        to ensure that a Username that does exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['blue'],
+                            ["Pinterest", "iMGSRC.RU", "Pastebin",
+                             "WordPress", "devRant", "ImageShack", "MeetMe"
+                            ],
+                            exist_check=True
                            )
 
         return
