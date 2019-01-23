@@ -208,13 +208,27 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 if net_info["errorType"] == 'status_code':
                     request_method = session.head
 
+            if net_info["errorType"] == "response_url":
+                #Site forwards request to a different URL if username not
+                #found.  Disallow the redirect so we can capture the
+                #http status from the original URL request.
+                allow_redirects = False
+            else:
+                #Allow whatever redirect that the site wants to do.
+                #The final result of the request will be what is available.
+                allow_redirects = True
+
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy != None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(
-                    url=url, headers=headers, proxies=proxies)
+                future = request_method(url=url, headers=headers,
+                                        proxies=proxies,
+                                        allow_redirects=allow_redirects
+                                       )
             else:
-                future = request_method(url=url, headers=headers)
+                future = request_method(url=url, headers=headers,
+                                        allow_redirects=allow_redirects
+                                       )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -290,9 +304,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "no"
 
         elif error_type == "response_url":
-            error = net_info.get("errorUrl")
-            # Checks if the redirect url is the same as the one defined in data.json
-            if not error in r.url:
+            # For this detection method, we have turned off the redirect.
+            # So, there is no need to check the response URL: it will always
+            # match the request.  Instead, we will ensure that the response
+            # code indicates that the request was successful (i.e. no 404, or
+            # forward to some odd redirect).
+            if (r.status_code >= 200) and (r.status_code < 300):
+                #
                 print_found(social_network, url, response_time, verbose)
                 write_to_file(url, f)
                 exists = "yes"
