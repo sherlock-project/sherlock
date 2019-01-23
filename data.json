@@ -41,7 +41,7 @@
     "errorMsg":"page not found"
   },
   "Pinterest": {
-    "url": "https://www.pinterest.com/{}",
+    "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
     "errorType": "response_url",
     "errorUrl": "https://www.pinterest.com/?show_error=true"
@@ -415,7 +415,7 @@
     "errorType": "status_code"
   },
   "WordPress": {
-    "url": "https://{}.wordpress.com",
+    "url": "https://{}.wordpress.com/",
     "urlMain": "https://wordpress.com",
     "errorType": "response_url",
     "errorUrl": "wordpress.com/typo/?subdomain=",
