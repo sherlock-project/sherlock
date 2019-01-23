@@ -1,5 +1,5 @@
 from unittest import TestCase
-
+from sherlock import Service
 
 class TestService(TestCase):
     def test_grequest(self):
