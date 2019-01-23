@@ -26,9 +26,10 @@ $ pip3 install -r requirements.txt
 $ python3 sherlock.py --help
 usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--tor]
                    [--unique-tor] [--csv] [--site SITE_NAME]
+                   [--proxy PROXY_URL]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.2.0)
+Sherlock: Find Usernames Across Social Networks (Version 0.4.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -47,6 +48,9 @@ optional arguments:
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
+  --proxy PROXY_URL, -p PROXY_URL
+                        Make requests over a proxy. e.g.
+                        socks5://127.0.0.1:1080
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
