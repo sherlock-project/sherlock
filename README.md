@@ -26,6 +26,8 @@ Classes:
 - sherlock.Data
 - sherlock.Log
 - sherlock.Service
+- sherlock.SLException
+- sherlock.SLUnsupportedTypeException
 
 #### __Class__ sherlock.Log
 
