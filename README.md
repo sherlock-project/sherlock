@@ -92,7 +92,7 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```
-% python3 -m unittest tests.all --buffer --verbose
+$ python3 -m unittest tests.all --buffer --verbose
 ```
 
 Note that the tests are very much a work in progress.  Significant work is
