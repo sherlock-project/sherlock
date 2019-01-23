@@ -1,7 +1,11 @@
 # Sherlock [![Build Status](https://travis-ci.com/TheYahya/sherlock.svg?branch=master)](https://travis-ci.com/TheYahya/sherlock)
 > Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md)
 
-[![asciicast](https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb.svg)](https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb)
+<p align="center">
+<a href="https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb">
+<img src="https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb.svg">
+</a>
+</p>
 
 ## Installation
 
