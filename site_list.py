@@ -21,7 +21,4 @@ with open("sites.md", "w") as site_file:
         site_file.write(f'{index}. [{social_network}]({url_main})\n')
         index = index + 1
 
-for social_network in data.items():
-	print(social_network)
-
 print("Finished updating supported site listing!")
