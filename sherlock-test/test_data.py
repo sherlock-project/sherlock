@@ -1,7 +1,7 @@
 from unittest import TestCase
+from sherlock import Data
 
-
-class TestSherlockData(TestCase):
+class TestData(TestCase):
     def test_fromFile(self):
         # TODO Write test code
         self.fail()

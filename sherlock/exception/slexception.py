@@ -1,6 +1,3 @@
-
-
-
 class SLException(Exception):
     def __init__(self, message):
         """

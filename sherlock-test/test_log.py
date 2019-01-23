@@ -1,7 +1,7 @@
 from unittest import TestCase
+from sherlock import Log
 
-
-class TestSherlockLog(TestCase):
+class TestLog(TestCase):
     def test_getLogger(self):
         # TODO Write test code
         self.fail()
