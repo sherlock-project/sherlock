@@ -26,8 +26,8 @@ Classes:
 - sherlock.Data
 - sherlock.Log
 - sherlock.Service
-- sherlock.SLException
-- sherlock.SLUnsupportedTypeException
+- sherlock.exception.SLException
+- sherlock.exception.SLUnsupportedTypeException
 
 #### __Class__ sherlock.Log
 
@@ -111,7 +111,7 @@ Gets the keys within the directory
 - **`return`** `list`
 
    A list of keys are return.
-#### __Class__ sherlock.SLException
+#### __Class__ sherlock.exception.SLException
 
 #### `get_message()`
 
@@ -121,7 +121,7 @@ The exception message associated with the SLException object
 
    The message of the SLException object.
 
-#### __Class__ sherlock.SLUnsupportedTypeException
+#### __Class__ sherlock.exception.SLUnsupportedTypeException
 
 #### `get_message()`
 
