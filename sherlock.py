@@ -10,21 +10,33 @@ networks.
 import csv
 import json
 import os
-import sys
 import platform
 import re
+import sys
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from concurrent.futures import ThreadPoolExecutor
 from time import time
 
 import requests
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from concurrent.futures import ThreadPoolExecutor
 from colorama import Fore, Style, init
+
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.2.7"
+__version__ = "0.4.1"
 amount = 0
+
+BANNER = r'''
+                                              ."""-.
+                                             /      \
+ ____  _               _            _        |  _..--'-.
+/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-""\;"`
+\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\
+ ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
+|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
+                                           .'`-._ `.\    | J /
+                                          /      `--.|   \__/'''[1:]
 
 # TODO: fix tumblr
 
@@ -208,13 +220,27 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 if net_info["errorType"] == 'status_code':
                     request_method = session.head
 
+            if net_info["errorType"] == "response_url":
+                #Site forwards request to a different URL if username not
+                #found.  Disallow the redirect so we can capture the
+                #http status from the original URL request.
+                allow_redirects = False
+            else:
+                #Allow whatever redirect that the site wants to do.
+                #The final result of the request will be what is available.
+                allow_redirects = True
+
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy != None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(
-                    url=url, headers=headers, proxies=proxies)
+                future = request_method(url=url, headers=headers,
+                                        proxies=proxies,
+                                        allow_redirects=allow_redirects
+                                       )
             else:
-                future = request_method(url=url, headers=headers)
+                future = request_method(url=url, headers=headers,
+                                        allow_redirects=allow_redirects
+                                       )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -290,9 +316,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "no"
 
         elif error_type == "response_url":
-            error = net_info.get("errorUrl")
-            # Checks if the redirect url is the same as the one defined in data.json
-            if not error in r.url:
+            # For this detection method, we have turned off the redirect.
+            # So, there is no need to check the response URL: it will always
+            # match the request.  Instead, we will ensure that the response
+            # code indicates that the request was successful (i.e. no 404, or
+            # forward to some odd redirect).
+            if (r.status_code >= 200) and (r.status_code < 300):
+                #
                 print_found(social_network, url, response_time, verbose)
                 write_to_file(url, f)
                 exists = "yes"
@@ -326,6 +356,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
            Fore.WHITE + "{}").format(fname))
 
     final_score(amount, f)
+    f.close()
     return results_total
 
 
@@ -379,17 +410,7 @@ def main():
 
     args = parser.parse_args()
 
-    # Banner
-    print(Fore.WHITE + Style.BRIGHT +
-          """                                              .\"\"\"-.
-                                             /      \\
- ____  _               _            _        |  _..--'-.
-/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-\"\"\;\"`
-\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\\
- ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
-|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
-                                           .'`-._ `.\    | J /
-                                          /      `--.|   \__/""")
+    print(Fore.WHITE + Style.BRIGHT + BANNER)
 
     # Argument check
     # TODO regex check on args.proxy
