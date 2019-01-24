@@ -67,18 +67,6 @@ class ElapsedFuturesSession(FuturesSession):
         return super(ElapsedFuturesSession, self).request(method, url, hooks=hooks, *args, **kwargs)
 
 
-def open_file(fname):
-    return open(fname, "a")
-
-
-def write_to_file(url, f):
-    f.write(url + "\n")
-
-
-def final_score(amount, f):
-    f.write("Total: "+str(amount) + "\n")
-
-
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
@@ -151,14 +139,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                        there was an HTTP error when checking for existence.
     """
     global amount
-    fname = username.lower() + ".txt"
-
-    if os.path.isfile(fname):
-        os.remove(fname)
-        print((Style.BRIGHT + Fore.GREEN + "[" +
-               Fore.YELLOW + "*" +
-               Fore.GREEN + "] Removing previous file:" +
-               Fore.WHITE + " {}").format(fname))
 
     print((Style.BRIGHT + Fore.GREEN + "[" +
            Fore.YELLOW + "*" +
@@ -221,13 +201,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                     request_method = session.head
 
             if net_info["errorType"] == "response_url":
-                #Site forwards request to a different URL if username not
-                #found.  Disallow the redirect so we can capture the
-                #http status from the original URL request.
+                # Site forwards request to a different URL if username not
+                # found.  Disallow the redirect so we can capture the
+                # http status from the original URL request.
                 allow_redirects = False
             else:
-                #Allow whatever redirect that the site wants to do.
-                #The final result of the request will be what is available.
+                # Allow whatever redirect that the site wants to do.
+                # The final result of the request will be what is available.
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
@@ -236,11 +216,11 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 future = request_method(url=url, headers=headers,
                                         proxies=proxies,
                                         allow_redirects=allow_redirects
-                                       )
+                                        )
             else:
                 future = request_method(url=url, headers=headers,
                                         allow_redirects=allow_redirects
-                                       )
+                                        )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -253,8 +233,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         results_total[social_network] = results_site
 
     # Open the file containing account links
-    f = open_file(fname)
-
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
     for social_network, net_info in site_data.items():
 
@@ -297,7 +275,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # Checks if the error message is in the HTML
             if not error in r.text:
                 print_found(social_network, url, response_time, verbose)
-                write_to_file(url, f)
                 exists = "yes"
                 amount = amount+1
             else:
@@ -308,7 +285,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
                 print_found(social_network, url, response_time, verbose)
-                write_to_file(url, f)
                 exists = "yes"
                 amount = amount+1
             else:
@@ -324,7 +300,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             if (r.status_code >= 200) and (r.status_code < 300):
                 #
                 print_found(social_network, url, response_time, verbose)
-                write_to_file(url, f)
                 exists = "yes"
                 amount = amount+1
             else:
@@ -349,14 +324,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
-
-    print((Style.BRIGHT + Fore.GREEN + "[" +
-           Fore.YELLOW + "*" +
-           Fore.GREEN + "] Saved: " +
-           Fore.WHITE + "{}").format(fname))
-
-    final_score(amount, f)
-    f.close()
     return results_total
 
 
@@ -379,9 +346,11 @@ def main():
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
-    parser.add_argument("--quiet", "-q",
-                        action="store_false", dest="verbose",
-                        help="Disable debugging information (Default Option)."
+    parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
+                        help="If using multiple usernames, the output of the results will be saved at this folder."
+                        )
+    parser.add_argument("--output", "-o", dest="output",
+                        help="If using single username, the output of the result will be saved at this file."
                         )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
@@ -402,6 +371,9 @@ def main():
                         action="store", dest="proxy", default=None,
                         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
                         )
+    parser.add_argument("--json", "-j", metavar="JSON_FILE",
+                        dest="json_file", default="data.json",
+                        help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -424,11 +396,51 @@ def main():
         print("Using TOR to make requests")
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
-    # Load the data
+    # Check if both output methods are entered as input.
+    if args.output is not None and args.folderoutput is not None:
+        print("You can only use one of the output methods.")
+        sys.exit(1)
+
+    # Check validity for single username output.
+    if args.output is not None and len(args.username) != 1:
+        print("You can only use --output with a single username")
+        sys.exit(1)
+
+    response_json_online = None
+    site_data_all = None
+
+    # Try to load json from website.
+    try:
+        response_json_online = requests.get(url=args.json_file)
+    except requests.exceptions.MissingSchema:  # In case the schema is wrong it's because it may not be a website
+        pass
+
+    # Check if the response is appropriate.
+    if response_json_online is not None and response_json_online.status_code == 200:
+        # Since we got data from a website, try to load json and exit if parsing fails.
+        try:
+            site_data_all = response_json_online.json()
+        except ValueError:
+            print("Invalid JSON from website!")
+            sys.exit(1)
+            pass
+
     data_file_path = os.path.join(os.path.dirname(
-        os.path.realpath(__file__)), "data.json")
-    with open(data_file_path, "r", encoding="utf-8") as raw:
-        site_data_all = json.load(raw)
+        os.path.realpath(__file__)), args.json_file)
+    # This will be none if the request had a missing schema
+    if site_data_all is None:
+        # Check if the file exists otherwise exit.
+        if not os.path.exists(data_file_path):
+            print("JSON file at doesn't exist.")
+            print(
+                "If this is not a file but a website, make sure you have appended http:// or https://.")
+            sys.exit(1)
+        else:
+            raw = open(data_file_path, "r", encoding="utf-8")
+            try:
+                site_data_all = json.load(raw)
+            except:
+                print("Invalid JSON loaded from file.")
 
     if args.site_list is None:
         # Not desired to look at a sub-set of sites
@@ -455,9 +467,29 @@ def main():
     # Run report on all specified users.
     for username in args.username:
         print()
+
+        if args.output:
+            file = open(args.output, "w", encoding="utf-8")
+        elif args.folderoutput:  # In case we handle multiple usernames at a targetted folder.
+            # If the folder doesnt exist, create it first
+            if not os.path.isdir(args.folderoutput):
+                os.mkdir(args.folderoutput)
+            file = open(os.path.join(args.folderoutput,
+                                     username + ".txt"), "w", encoding="utf-8")
+        else:
+            file = open(username + ".txt", "w", encoding="utf-8")
         results = {}
         results = sherlock(username, site_data, verbose=args.verbose,
                            tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
+
+        exists_counter = 0
+        for website_name in results:
+            dictionary = results[website_name]
+            if dictionary.get("exists") == "yes":
+                exists_counter += 1
+                file.write(dictionary["url_user"] + "\n")
+        file.write("Total Websites : {}".format(exists_counter))
+        file.close()
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
