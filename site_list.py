@@ -5,6 +5,7 @@ This module generates the listing of supported sites.
 import json
 import sys
 import requests
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
 from collections import OrderedDict
@@ -15,13 +16,21 @@ def get_rank(domain_to_query):
     page = requests.get(url).text
     soup = bs(page, features="lxml")
     for span in soup.find_all('span'):
-        if span.has_attr("class"):
+    	if span.has_attr("class"):
             if "globleRank" in span["class"]:
                 for strong in span.find_all("strong"):
                     if strong.has_attr("class"):
                         if "metrics-data" in strong["class"]:
                             result = int(strong.text.strip().replace(',', ''))
     return result
+
+parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter
+                        )
+parser.add_argument("--rank","-r",
+                    action="store_true",  dest="rank", default=False,
+                    help="Update all website ranks (not recommended)."
+                    )
+args = parser.parse_args()
 
 with open("data.json", "r", encoding="utf-8") as data_file:
     data = json.load(data_file)
@@ -34,12 +43,11 @@ with open("sites.md", "w") as site_file:
 	for social_network in data:
 		url_main = data.get(social_network).get("urlMain")
 		site_file.write(f'{index}. [{social_network}]({url_main})\n')
-		sys.stdout.write("\r{0}".format(f"Updated {index} out of {data_length} entries"))
-		sys.stdout.flush()
-		data.get(social_network)["rank"] = get_rank(url_main)
+		if args.rank == True:
+			data.get(social_network)["rank"] = get_rank(url_main)
+			sys.stdout.write("\r{0}".format(f"Updated {index} out of {data_length} entries"))
+			sys.stdout.flush()
 		index = index + 1
-
-	site_file.write(f'\nAlexa.com rank data fetched at {datetime.utcnow()} UTC\n')
 
 sorted_json_data = json.dumps(data, indent=2, sort_keys=True)
 
