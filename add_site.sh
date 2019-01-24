@@ -141,6 +141,14 @@ TESTwriteFormat () {
 	printf "	}"
 }
 
+WRITEtoDataJson () {
+	sed "/{data}
+   }
+/i thing" test.json
+}
+
+WRITEtoDataJson
+exit
 printf "$INFOFORMAT add_site.sh - a simple script for adding sites to Sherlock\n"
 printf "$INFOFORMAT Please enter a name of the site you want to add\n$INFOFORMAT (e.g. \e[1mGoogle\e[0m)\n"
 READsiteName
