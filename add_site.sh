@@ -60,7 +60,6 @@ READerrorType () {
 			echo
 			errorType=status_code
 			printf "$INFOFORMAT You've selected 'status_code' as errorType.\n"
-			TESTerrorType
 	elif [[ $REPLY = 2 ]];
 		#message
 		then
@@ -102,10 +101,7 @@ READresponse_url () {
 
 TESTerrorType () {
 	printf "\e[1mERROR TYPE (errorType): \e[4m$errorType\e[24m\e[0m\n"
-	if [[ $errorType == status_code ]];
-		then
-			TESTwriteFormat
-	elif [[ $errorType == message ]];
+	if [[ $errorType == message ]];
 		then
 			printf "\e[1mERROR MESSAGE (errorMsg): \e[4m$errorMsg\e[24m\e[0m\n"
 	elif [[ $errorType == errorUrl ]];
@@ -147,9 +143,9 @@ WRITEtoDataJson () {
 /i thing" test.json
 }
 
-#WRITEtoDataJson
-exit
+#WRITEtoDataJson #this is here just for testing purposes, do not uncomment
 printf "$INFOFORMAT add_site.sh - a simple script for adding sites to Sherlock\n"
+printf "TODO: Make the script automatically add the created site to data.json\n"
 printf "$INFOFORMAT Please enter a name of the site you want to add\n$INFOFORMAT (e.g. \e[1mGoogle\e[0m)\n"
 READsiteName
 
@@ -169,8 +165,8 @@ printf "Example: https://www.buzzfeed.com/invalidurl - the error message here is
 printf "[3] '\e[1mresponse_url\e[0m' - this is the least used method. It defines a URL, which is a redirect, when trying to visit a non-existent user.\n"
 printf "Example: https://pastebin.com/u/invalidurl - when you visit this link, it will redirect you to https://pastebin.com/index\nSo in this case, the 'errorUrl' is \e[1mhttps://pastebin.com/index\e[0m\n"
 READerrorType
-printf "$INFOFORMAT Please verify the site details you entered:\n"
 
+printf "$INFOFORMAT Please verify the site details you entered:\n"
 printf "\e[1mNAME: \e[4m$siteName\e[24m\nMAIN URL (urlMain): \e[4m$urlMain\e[24m\nPROFILE URL (url): \e[4m$url\e[24m\e[0m\n"
 TESTerrorType
 printf "Do you want to add a site with these informations? Y/N\n"
@@ -181,4 +177,9 @@ if [[ $REPLY =~ ^[Yy]$ ]];
 	else
 		exit
 fi
+printf "$OKFORMAT Copy the following to data.json:\n"
+printf "____________________________________________________________\n\n"
 TESTwriteFormat
+printf "\n____________________________________________________________"
+printf "\n\n$WARNINGFORMAT Don't forget to run 'python site_list.py' after modifying data.json, to add $siteName in SITES.md so you can make a proper pull request.\n"
+printf "$OKFORMAT Script finished succesfully.\n"
