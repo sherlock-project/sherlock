@@ -151,7 +151,12 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                        there was an HTTP error when checking for existence.
     """
     global amount
-    fname = username.lower() + ".txt"
+    dirname = "output/"  # Directory name to save all the searched results.
+    fname = dirname + username.lower() + ".txt"
+
+    # Safe create the `output` directory.
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
 
     if os.path.isfile(fname):
         os.remove(fname)
