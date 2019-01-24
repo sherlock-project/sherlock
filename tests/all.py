@@ -111,7 +111,8 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
 
         self.username_check(['noonewouldeverusethis7'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
-                             "WordPress", "devRant", "ImageShack", "MeetMe"
+                             "WordPress", "devRant", "ImageShack", "MeetMe",
+                             "EyeEm", "CreativeMarket", "EVE Online"
                             ],
                             exist_check=False
                            )
@@ -134,7 +135,8 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
 
         self.username_check(['blue'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
-                             "WordPress", "devRant", "ImageShack", "MeetMe"
+                             "WordPress", "devRant", "ImageShack", "MeetMe",
+                             "EyeEm", "CreativeMarket", "EVE Online"
                             ],
                             exist_check=True
                            )
