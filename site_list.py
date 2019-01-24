@@ -54,4 +54,5 @@ sorted_json_data = json.dumps(data, indent=2, sort_keys=True)
 with open("data.json", "w") as data_file:
     data_file.write(sorted_json_data)
 
-print("\nFinished updating supported site listing!")
+sys.stdout.write("\r{0}".format(f"Finished updating supported site listing!\n"))
+sys.stdout.flush()
