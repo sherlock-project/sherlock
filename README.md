@@ -2,8 +2,8 @@
 > Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md)
 
 <p align="center">
-<a href="https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb">
-<img src="https://asciinema.org/a/IMRMmbAxFGUgd2SJN0rkAfaPb.svg">
+<a href="https://asciinema.org/a/223115">
+<img src="https://asciinema.org/a/223115.svg">
 </a>
 </p>
 

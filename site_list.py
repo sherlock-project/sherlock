@@ -7,6 +7,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
+from collections import OrderedDict
 
 def get_rank(domain_to_query):
     result = -1
@@ -46,4 +47,3 @@ with open("data.json", "w") as data_file:
     data_file.write(sorted_json_data)
 
 print("\nFinished updating supported site listing!")
-

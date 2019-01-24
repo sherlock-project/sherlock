@@ -180,7 +180,8 @@
     "urlMain": "https://coroflot.com/"
   },
   "CreativeMarket": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.creativemarket.com/",
     "rank": 1790,
     "url": "https://creativemarket.com/{}",
     "urlMain": "https://creativemarket.com/"
@@ -232,10 +233,10 @@
     "urlMain": "https://dribbble.com/"
   },
   "EVE Online": {
-    "errorMsg": "No results found with your search...",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://eveonline.com",
     "rank": 11655,
-    "url": "https://evewho.com/search/{}",
+    "url": "https://evewho.com/pilot/{}/",
     "urlMain": "https://eveonline.com"
   },
   "Ebay": {
@@ -259,7 +260,8 @@
     "urlMain": "https://www.etsy.com/"
   },
   "EyeEm": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.eyeem.com/",
     "rank": 33189,
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/"
