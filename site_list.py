@@ -39,7 +39,7 @@ with open("sites.md", "w") as site_file:
 		data.get(social_network)["rank"] = get_rank(url_main)
 		index = index + 1
 
-	site_file.write(f'\nAlexa.com rank data fetched at ({datetime.utcnow()} UTC)\n')
+	site_file.write(f'\nAlexa.com rank data fetched at {datetime.utcnow()} UTC\n')
 
 sorted_json_data = json.dumps(data, indent=2, sort_keys=True)
 

@@ -133,4 +133,4 @@
 132. [iMGSRC.RU](https://imgsrc.ru/)
 133. [last.fm](https://last.fm/)
 
-Alexa.com rank data fetched at (2019-01-24 10:58:49.318475 UTC)
+Alexa.com rank data fetched at 2019-01-24 10:58:49.318475 UTC
