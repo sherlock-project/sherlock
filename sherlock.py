@@ -348,7 +348,7 @@ def main():
                         )
     parser.add_argument("--rank", "-r",
                         action="store_true", dest="rank", default=False,
-                        help="Present websites ordered by their Alexa.com rank in popularity.")
+                        help="Present websites ordered by their Alexa.com global rank in popularity.")
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
                         help="If using multiple usernames, the output of the results will be saved at this folder."
                         )
