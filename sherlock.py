@@ -470,9 +470,9 @@ def main():
     if args.rank:
         # Sort data by rank 
         site_dataCpy = dict(site_data)
-        ranked_site_data = sorted(site_data, key=lambda k: site_data[k]['rank'])
+        ranked_sites = sorted(site_data, key=lambda k: ("rank" not in k, site_data[k].get("rank", sys.maxsize)))
         site_data = {}
-        for site in ranked_site_data:
+        for site in ranked_sites:
             site_data[site] = site_dataCpy.get(site)
 
     # Run report on all specified users.
