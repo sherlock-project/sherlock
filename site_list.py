@@ -7,7 +7,6 @@ import sys
 import requests
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from bs4 import BeautifulSoup as bs
-from collections import OrderedDict
 
 def get_rank(domain_to_query):
     result = -1
