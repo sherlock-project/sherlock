@@ -1,9 +1,9 @@
 #!/bin/bash
 #add_site.sh
-OKFORMAT="[\e[32mOK\e[0m   ]"
+OKFORMAT="[\e[32mOK\e[0m]"
 ERRORFORMAT="[\e[38;5;196mERROR\e[0m]"
-INFOFORMAT="[\e[38;5;44mINFO\e[0m ]"
-QUESTIONFORMAT="[?    ]"
+INFOFORMAT="[\e[38;5;44mINFO\e[0m]"
+QUESTIONFORMAT="[?]"
 WARNINGFORMAT="[\e[33mWARNING\e[0m]"
 
 READsiteName () {
