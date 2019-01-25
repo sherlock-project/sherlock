@@ -1,2 +1,3 @@
 from sherlock.exception.slexception import SLException
 from sherlock.exception.slunsupportedtypeexception import SLUnsupportedTypeException
+from sherlock.exception.sldataexception import SLDataException
