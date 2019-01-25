@@ -181,5 +181,5 @@ printf "$OKFORMAT Copy the following to data.json:\n"
 printf "____________________________________________________________\n\n"
 TESTwriteFormat
 printf "\n____________________________________________________________"
-printf "\n\n$WARNINGFORMAT Don't forget to run 'python site_list.py' after modifying data.json, to add $siteName in SITES.md so you can make a proper pull request.\n"
+printf "\n\n$WARNINGFORMAT Don't forget to run 'python3 site_list.py' after modifying data.json, to add $siteName in SITES.md so you can make a proper pull request.\n"
 printf "$OKFORMAT Script finished succesfully.\n"
