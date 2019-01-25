@@ -1,5 +1,6 @@
-from sherlock import sherlock
-
+import sherlock
+from sherlock import _sherlock
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
 def main():
     print(
@@ -16,37 +17,20 @@ def main():
 """
     )
 
-    # Load all the parameters
-    # Colorama module's initialization.
-    python_version = platform.python_version_tuple()
-    version_string = ""
-
-    # Check version
-    if not int(python_version[0]) == 3 and int(python_version[1]) >= 1:
-        print(
-            "Sherlock can't use his magnifying glass on python version %s yet."
-            % platform.python_version()
-        )
-        exit()
-
-    version_string = (
-            "sherlock %s, %s.\n" % (__version__, __description__)
-            + "requests: %s, %s.\n" % (requests.__version__, requests.__description__)
-            + "python: %s." % platform.python_version()
-    )
-
-    coloramainit(autoreset=True)
+    _sherlock.colorset(autoreset=True)
 
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
         description="%s (Version %s)" % (__description__, __version__),
     )
+
     parser.add_argument(
         "--version",
         action="version",
-        version=version_string,
+        version=sherlock.__version__,
         help="Display version information and dependencies.",
     )
+
     parser.add_argument(
         "--verbose",
         "-v",
@@ -57,6 +41,7 @@ def main():
         default=False,
         help="Display extra debugging information and metrics.",
     )
+
     parser.add_argument(
         "--quiet",
         "-q",
@@ -64,6 +49,7 @@ def main():
         dest="verbose",
         help="Disable debugging information (Default Option).",
     )
+
     parser.add_argument(
         "--tor",
         "-t",
@@ -80,6 +66,7 @@ def main():
         default=False,
         help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.",
     )
+
     parser.add_argument(
         "--csv",
         action="store_true",
@@ -87,6 +74,7 @@ def main():
         default=False,
         help="Create Comma-Separated Values (CSV) File.",
     )
+
     parser.add_argument(
         "--site",
         action="append",
@@ -95,6 +83,7 @@ def main():
         default=None,
         help="Limit analysis to just the listed sites.  Add multiple options to specify more than one site.",
     )
+
     parser.add_argument(
         "username",
         nargs="+",
@@ -104,10 +93,5 @@ def main():
     )
 
     args = parser.parse_args()
-    logger = Log.getLogger()
 
-    sherlock.main(
-        args.username[0],
-        Data.fromFile(filename="data.json", t="json"),
-        logger=logger,
-    )
+    _sherlock.main(args.username[0], data_file="data.json", data_type="json")

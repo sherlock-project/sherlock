@@ -1,16 +1,15 @@
-# requests, grequests and platform
+# requests, grequests and colorama
 import requests
 import grequests
-import platform
-
-# argparse and colorama
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from colorama import init as coloramainit
 
-# Import all the services
+# Import Data, Log and Service from sherlock core.
 from sherlock.core import Data
 from sherlock.core import Log
 from sherlock.core import Service
+
+def colorset(autoreset=True):
+    coloramainit(autoreset=autoreset)
 
 # Response header and changes
 def response(service, found, logger):
