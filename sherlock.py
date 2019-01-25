@@ -346,6 +346,9 @@ def main():
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
+    parser.add_argument("--rank", "-r",
+                        action="store_true", dest="rank", default=False,
+                        help="Present websites ordered by their Alexa.com rank in popularity.")
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
                         help="If using multiple usernames, the output of the results will be saved at this folder."
                         )
@@ -463,6 +466,14 @@ def main():
             print(
                 f"Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
+
+    if args.rank:
+        # Sort data by rank 
+        site_dataCpy = dict(site_data)
+        ranked_site_data = sorted(site_data, key=lambda k: site_data[k]['rank'])
+        site_data = {}
+        for site in ranked_site_data:
+            site_data[site] = site_dataCpy.get(site)
 
     # Run report on all specified users.
     for username in args.username:
