@@ -1,76 +1,7 @@
-# requests, grequests and platform
-import requests
-import grequests
-import platform
-
-# argparse and colorama
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from colorama import init as coloramainit
-
-# Import all the services
-from sherlock import Data
-from sherlock import Log
-from sherlock import Service
-
-# Version info
-__description__ = "Sherlock: Find Usernames Across Social Networks"
-__version__ = ".".join([str(v) for v in [0, 2, 3, 0]])
-
-# Response header and changes
-def response(service, found, logger):
-
-    if found:
-        logger.error("%s User Not Found" % service.url)
-    else:
-        logger.info("%s User Found" % service.url)
-
-# Response alteration
-def response_error(req, exception, logger):
-    logger.error("Request Failed %s" % req.url)
-    if exception is requests.exceptions.HTTPError:
-        logger.error(str(errh) + " HTTP Error")
-    elif exception is requests.exceptions.ConnectionError:
-        logger.error(str(errc) + " Error Connecting")
-    elif exception is requests.exceptions.Timeout:
-        logger.error(str(errt) + " Timeout Error")
-    elif exception is Exception:
-        logger.error(str(err) + " Unknown error")
+from sherlock import sherlock
 
 
-# Main function for the logger
-def main(
-    username: str,
-    data: SherlockData,
-    tor: bool = False,
-    new_tor_circuit: bool = False,
-    logger: SherlockLog = SherlockLog.getLogger(),
-):
-
-    # Tell the user of the start
-    logger.log(
-        "Finding username %s under %i different services" % (username, len(data.keys()))
-    )
-    logger.log("Waiting for responses")
-
-    # Create all the sherlock services.
-    services = [
-        Service(
-            username, config=data[key], logger=logger, recv=response
-        ).grequest
-        for key in data.keys()
-    ]
-
-    # Process all requests
-    grequests.map(
-        services,
-        exception_handler=lambda request, exception: response_error(
-            request, exception, logger
-        ),
-    )
-
-
-if __name__ == "__main__":
-
+def main():
     print(
         """
                                               .\"\"\"-.
@@ -99,9 +30,9 @@ if __name__ == "__main__":
         exit()
 
     version_string = (
-        "sherlock %s, %s.\n" % (__version__, __description__)
-        + "requests: %s, %s.\n" % (requests.__version__, requests.__description__)
-        + "python: %s." % platform.python_version()
+            "sherlock %s, %s.\n" % (__version__, __description__)
+            + "requests: %s, %s.\n" % (requests.__version__, requests.__description__)
+            + "python: %s." % platform.python_version()
     )
 
     coloramainit(autoreset=True)
@@ -173,10 +104,10 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    logger = SherlockLog.getLogger()
+    logger = Log.getLogger()
 
-    main(
+    sherlock.main(
         args.username[0],
-        SherlockData.fromFile(filename="data.json", t="json"),
+        Data.fromFile(filename="data.json", t="json"),
         logger=logger,
     )
