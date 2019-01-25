@@ -4,6 +4,7 @@ certifi
 chardet
 colorama
 idna
+lxml
 PySocks
 requests
 requests-futures
