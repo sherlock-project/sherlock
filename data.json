@@ -254,6 +254,12 @@
     "url": "https://foursquare.com/{}",
     "urlMain": "https://foursquare.com/"
   },
+  "FunnyJunk": {
+    "errorMsg": "The user was not found",
+    "errorType": "message",
+    "url": "https://funnyjunk.com/user/{}",
+    "urlMain": "https://funnyjunk.com/"
+  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",
