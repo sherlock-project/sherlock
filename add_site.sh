@@ -47,7 +47,6 @@ READurl () {
 				then
 					printf "$ERRORFORMAT Please enter a URL with the username brackets - {}\n"
 					READurl
-				else
 			fi
 
 	fi
