@@ -1,5 +1,5 @@
 from unittest import TestCase
-from sherlock import Log
+from sherlock.core import Log
 
 class TestLog(TestCase):
     def test_getLogger(self):
