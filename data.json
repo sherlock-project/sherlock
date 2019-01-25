@@ -185,6 +185,11 @@
     "url": "https://{}.deviantart.com",
     "urlMain": "https://deviantart.com"
   },
+  "Discogs": {
+    "errorType": "status_code",
+    "url": "https://www.discogs.com/user/{}",
+    "urlMain": "https://www.discogs.com/"
+  },
   "Disqus": {
     "errorType": "status_code",
     "url": "https://disqus.com/{}",
