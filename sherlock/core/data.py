@@ -1,8 +1,8 @@
 import json
 import yaml
 
-from sherlock.exception import SLException
-from sherlock.exception import SLUnsupportedTypeException
+from sherlock.exception.slexception import SLException
+from sherlock.exception.slunsupportedtypeexception import SLUnsupportedTypeException
 
 
 class Data:

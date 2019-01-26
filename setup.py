@@ -17,6 +17,7 @@ _requirements = [
 # Packages part of setup
 _packages = [
     "sherlock",
+    "sherlock.core",
     "sherlock.exception"
 ]
 
@@ -44,5 +45,8 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3 :: Only"
-    ]
+    ],
+    entry_points={
+        'console_scripts': ['sherlock=sherlock._sherlock_main:main'],
+    }
 )

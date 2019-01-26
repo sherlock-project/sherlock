@@ -3,7 +3,7 @@ import grequests
 import re
 
 # Sherlock.Log import
-from sherlock import Log
+from sherlock.core.log import Log
 
 # Sherlock.Service
 class Service:

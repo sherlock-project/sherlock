@@ -23,13 +23,13 @@ $ pip3 install -r requirements.txt
 # API Documentation
 
 Classes:
-- sherlock.Data
-- sherlock.Log
-- sherlock.Service
-- sherlock.SLException
-- sherlock.SLUnsupportedTypeException
+- sherlock.core.Data
+- sherlock.core.Log
+- sherlock.core.Service
+- sherlock.exception.SLException
+- sherlock.exception.SLUnsupportedTypeException
 
-#### __Class__ sherlock.Log
+#### __Class__ sherlock.core.Log
 
 #### `eprint(status: str, message: str, status_color: Fore = Fore.WHITE, status_frame: Fore = Fore.WHITE, message_color: Fore = Fore.WHITE, style: Style = Style.BRIGHT)`
 
@@ -93,7 +93,7 @@ General logging with no errors.
 #### `unlock()`
 
 Unlocks the logger, relinquishes resources to all threads.
-#### __Class__ sherlock.Data
+#### __Class__ sherlock.core.Data
 
 #### `byindex(i: int)`
 
@@ -111,7 +111,7 @@ Gets the keys within the directory
 - **`return`** `list`
 
    A list of keys are return.
-#### __Class__ sherlock.SLException
+#### __Class__ sherlock.exception.SLException
 
 #### `get_message()`
 
@@ -121,7 +121,7 @@ The exception message associated with the SLException object
 
    The message of the SLException object.
 
-#### __Class__ sherlock.SLUnsupportedTypeException
+#### __Class__ sherlock.exception.SLUnsupportedTypeException
 
 #### `get_message()`
 
