@@ -18,7 +18,7 @@ import requests
 from colorama import Fore, Style, init
 from torrequest import TorRequest
 
-from .watson import *
+from watson import *
 
 # TODO: fix tumblr
 
