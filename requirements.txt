@@ -1,4 +1,14 @@
-requests
-requests_futures
-torrequest
+beautifulsoup4
+bs4
+certifi
+chardet
 colorama
+idna
+lxml
+PySocks
+requests
+requests-futures
+soupsieve
+stem
+torrequest
+urllib3
