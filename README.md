@@ -18,7 +18,7 @@ $ git clone https://github.com/TheYahya/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install python3 and python3-pip if not exist
+# install python3 and python3-pip if you don't have it already
 
 # install the requirements
 $ pip3 install -r requirements.txt
@@ -27,11 +27,10 @@ $ pip3 install -r requirements.txt
 ## Usage
 
 ```bash
-$ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--rank]
-                   [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
+$ python3 sherlock --help
+usage: sherlock [-h] [--version] [--verbose] [--tor]
                    [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL] [--json JSON_FILE]
+                   [--proxy PROXY_URL] [--output OUTPUT]
                    USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.4.0)
@@ -44,32 +43,38 @@ optional arguments:
   --version             Display version information and dependencies.
   --verbose, -v, -d, --debug
                         Display extra debugging information and metrics.
-  --rank, -r            Present websites ordered by their Alexa.com global
-                        rank in popularity.
-  --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
-                        If using multiple usernames, the output of the results
-                        will be saved at this folder.
-  --output OUTPUT, -o OUTPUT
-                        If using single username, the output of the result
-                        will be saved at this file.
   --tor, -t             Make requests over TOR; increases runtime; requires
                         TOR to be installed and in system path.
   --unique-tor, -u      Make requests over TOR with new TOR circuit after each
                         request; increases runtime; requires TOR to be
                         installed and in system path.
+  --output OUTPUT, -o OUTPUT
+                        If using single username, the output of the result
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
-  --json JSON_FILE, -j JSON_FILE
-                        Load data from a JSON file or an online, valid, JSON
-                        file.
 ```
 
-For example, run ```python3 sherlock.py user123```, and all of the accounts
-found will be stored in a text file with the username (e.g ```user123.txt```).
+For example, run ```python sherlock user123```, and all of the accounts
+found will be printed on the terminal.
+
+You can also use it within other scripts once Sherlock is registerd on PyPI as a package.
+
+```python
+from sherlock import Sherlock
+sherlock = Sherlock('user')
+r = sherlock.check('facebook') # will check only facebook
+if r['Facebook']['exists'] == 'yes':
+    # 'user' exists on Facebook
+
+r2 = sherlock.check() # will check all supported sites
+for site in r2:
+  if r2[site]['exists'] == 'yes':
+    # do whatever
+```
 
 ## Docker Notes
 If you have docker installed you can build an image and run this as a container.
@@ -108,6 +113,12 @@ outputs, and instead shows the verbose output of the tests.
 
 ```
 $ python3 -m unittest tests.all --buffer --verbose
+```
+
+You can also use nose by running
+
+```
+$ nosetests tests/* -vv
 ```
 
 Note that the tests are very much a work in progress.  Significant work is

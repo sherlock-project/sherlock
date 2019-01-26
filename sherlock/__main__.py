@@ -2,6 +2,7 @@
 import platform
 import requests
 import json
+import csv
 from time import time
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from colorama import init, Fore, Style
@@ -59,6 +60,9 @@ if __name__ == "__main__":
                         action="store",
                         help="One or more usernames to check with social networks."
                         )
+    parser.add_argument("--output", "-o", dest="output",
+                        help="If using single username, the output of the result will be saved at this file."
+                        )
 
     args = parser.parse_args()
 
@@ -108,6 +112,17 @@ if __name__ == "__main__":
                     Fore.WHITE + "]" +
                     Fore.GREEN + " {}:" +
                     Fore.YELLOW + " Error!").format(social_network))
+
+        if args.output:
+            file = open(args.output, "w", encoding="utf-8")
+            exists_counter = 0
+            for website_name in results:
+                dictionary = results[website_name]
+                if dictionary.get("exists") == "yes":
+                    exists_counter += 1
+                    file.write(dictionary["url_user"] + "\n")
+            file.write("Total Websites : {}".format(exists_counter))
+            file.close()
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:

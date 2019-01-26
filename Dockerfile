@@ -3,4 +3,4 @@ RUN /sbin/apk add tor
 COPY . /opt/sherlock/
 RUN /usr/local/bin/pip install -r /opt/sherlock/requirements.txt
 
-ENTRYPOINT ["python", "/opt/sherlock/sherlock.py"]
+ENTRYPOINT ["python", "/opt/sherlock/sherlock"]

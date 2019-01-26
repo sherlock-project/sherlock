@@ -18,7 +18,7 @@ import requests
 from colorama import Fore, Style, init
 from torrequest import TorRequest
 
-from watson import *
+from .watson import *
 
 # TODO: fix tumblr
 
@@ -148,6 +148,7 @@ class Sherlock:
                     Fore.WHITE + "]" +
                     Fore.GREEN + " {}:" +
                     Fore.YELLOW + " Illegal Username Format For This Site!").format(social_network))
+                print()
                 results_site["exists"] = "illegal"
             else:
                 # URL of user on site (if it exists)
