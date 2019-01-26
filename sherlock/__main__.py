@@ -1,5 +1,4 @@
 # ==================== Imports ==================== #
-import os
 import platform
 import requests
 import json
@@ -9,13 +8,13 @@ from colorama import init, Fore, Style
 
 import constants
 from sherlock import Sherlock
+import watson
 
 
 # ==================== Main ==================== #
 if __name__ == "__main__":
     # Colorama module's initialization.
     init(autoreset=True)
-    print(constants.__version__)
 
     version_string = f"%(prog)s {constants.__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -65,6 +64,9 @@ if __name__ == "__main__":
 
     print(Fore.WHITE + Style.BRIGHT + constants.__banner__)
 
+    if args.verbose:
+        print(constants.__version__)
+
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and args.proxy != None:
@@ -77,41 +79,35 @@ if __name__ == "__main__":
         print("Using TOR to make requests")
         print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
 
-    # Load the data
-    data_file_path = os.path.join(os.path.dirname(
-        os.path.realpath(__file__)), "data.json")
-    with open(data_file_path, "r", encoding="utf-8") as raw:
-        site_data_all = json.load(raw)
-
-    if args.site_list is None:
-        # Not desired to look at a sub-set of sites
-        site_data = site_data_all
-    else:
-        # User desires to selectively run queries on a sub-set of the site list.
-
-        # Make sure that the sites are supported & build up pruned site database.
-        site_data = {}
-        site_missing = []
-        for site in args.site_list:
-            for existing_site in site_data_all:
-                if site.lower() == existing_site.lower():
-                    site_data[existing_site] = site_data_all[existing_site]
-            if not site_data:
-                # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
-
-        if site_missing:
-            print(
-                f"Error: Desired sites not found: {', '.join(site_missing)}.")
-            sys.exit(1)
-
     # Run report on all specified users.
     for username in args.username:
         print()
+        print((Style.BRIGHT + Fore.GREEN + "[" +
+            Fore.YELLOW + "*" +
+            Fore.GREEN + "] Checking username" +
+            Fore.WHITE + " {}" +
+            Fore.GREEN + " on sites {}").format(username, ' '.join(args.site_list) if args.site_list is not None else ''))
+
+        loader = watson.Loader().start_loader()
+        
         results = {}
-        sherlock = Sherlock()
-        results = sherlock.run(username, site_data, verbose=args.verbose,
+        sherlock = Sherlock(username)
+        results = sherlock.check(args.site_list, verbose=args.verbose,
                            tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
+
+        loader.stop_loader()
+
+        for social_network, result in results.items():
+            if result['exists'] == 'yes':
+                watson.print_found(social_network, result['url_user'], result['response_time_ms'], args.verbose)
+            elif result['exists'] == 'no':
+                watson.print_not_found(social_network, result['response_time_ms'], args.verbose)
+            elif result['exists'] == 'error':
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                    Fore.RED + "-" +
+                    Fore.WHITE + "]" +
+                    Fore.GREEN + " {}:" +
+                    Fore.YELLOW + " Error!").format(social_network))
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
