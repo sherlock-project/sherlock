@@ -108,11 +108,11 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         N/A.
         Will trigger an assert if detection mechanism did not work as expected.
         """
-
-        self.username_check(['noonewouldeverusethis7'],
+        # check eyeem and CreativeMarket
+        self.username_check(['noonewouldeverusethis9'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
                              "WordPress", "devRant", "ImageShack", "MeetMe",
-                             "EyeEm", "CreativeMarket", "EVE Online"
+                             "EVE Online"
                             ],
                             exist_check=False
                            )

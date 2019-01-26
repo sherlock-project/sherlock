@@ -62,11 +62,7 @@ class Sherlock:
             site_missing = []
             for site in sites:
                 for existing_site in site_data_all:
-<<<<<<< HEAD
                     if site.lower() in existing_site.lower():
-=======
-                    if site.lower() == existing_site.lower():
->>>>>>> 0e61f7341ecfec623a66d498ac58fbdacf40c1a6
                         site_data[existing_site] = site_data_all[existing_site]
                         site_data[existing_site]['original_query'] = site
                 if not site_data:
@@ -251,11 +247,7 @@ class Sherlock:
 
             elif error_type == "status_code":
                 # Checks if the status code of the response is 2XX
-<<<<<<< HEAD
                 if not (r.status_code >= 300 or r.status_code < 200):
-=======
-                if not r.status_code >= 300 or r.status_code < 200:
->>>>>>> 0e61f7341ecfec623a66d498ac58fbdacf40c1a6
                     # print_found(social_network, url, response_time, verbose)
                     exists = "yes"
                 else:
@@ -283,11 +275,8 @@ class Sherlock:
 
             # Save results from request
             results_site['http_status'] = http_status
-<<<<<<< HEAD
             results_site['error_type'] = error_type
             results_site['response_object'] = r
-=======
->>>>>>> 0e61f7341ecfec623a66d498ac58fbdacf40c1a6
             results_site['response_text'] = response_text
             results_site['response_time_ms'] = response_time
 

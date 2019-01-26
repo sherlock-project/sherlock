@@ -6,7 +6,7 @@ import json
 import os
 import os.path
 import unittest
-import sherlock
+from sherlock import Sherlock
 import warnings
 
 
@@ -28,7 +28,7 @@ class SherlockBaseTest(unittest.TestCase):
         warnings.simplefilter("ignore", ResourceWarning)
 
         # Load the data file with all site information.
-        data_file_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "data.json")
+        data_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../sherlock/data.json'))
         with open(data_file_path, "r", encoding="utf-8") as raw:
             self.site_data_all = json.load(raw)
 
@@ -92,12 +92,12 @@ class SherlockBaseTest(unittest.TestCase):
             exist_result_desired = "no"
 
         for username in username_list:
-            results = sherlock.sherlock(username,
-                                        site_data,
-                                        verbose=self.verbose,
-                                        tor=self.tor,
-                                        unique_tor=self.unique_tor
-                                       )
+            sherlock = Sherlock(username)
+            results = sherlock.check( site_data,
+                                      verbose=self.verbose,
+                                      tor=self.tor,
+                                      unique_tor=self.unique_tor
+                                    )
             for site, result in results.items():
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
