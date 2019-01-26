@@ -8,7 +8,10 @@ This module contains helper methods for Sherlock.
 
 # ==================== Imports ==================== #
 import requests
-from time import time
+import itertools
+import threading
+import time
+import sys
 from colorama import Fore, Style
 from requests_futures.sessions import FuturesSession
 
@@ -22,10 +25,10 @@ class ElapsedFuturesSession(FuturesSession):
     """
 
     def request(self, method, url, hooks={}, *args, **kwargs):
-        start = time()
+        start = time.time()
 
         def timing(r, *args, **kwargs):
-            elapsed_sec = time() - start
+            elapsed_sec = time.time() - start
             r.elapsed = round(elapsed_sec * 1000)
 
         try:
@@ -48,16 +51,25 @@ def write_to_file(url, f):
     f.write(url + "\n")
 
 
-def final_score(amount, f):
-    f.write("Total: "+str(amount) + "\n")
-
-
 def print_error(err, errstr, var, verbose=False):
-    print(Style.BRIGHT + Fore.WHITE + "[" +
-          Fore.RED + "-" +
-          Fore.WHITE + "]" +
-          Fore.RED + f" {errstr}" +
-          Fore.YELLOW + f" {err if verbose else var}")
+    global error_buf
+    try:
+        error_buf
+    except NameError as e:
+        error_buf = ''
+    error_buf += Style.BRIGHT + Fore.WHITE + "[" + \
+          Fore.RED + "-" + \
+          Fore.WHITE + "]" + \
+          Fore.RED + f" {errstr}" + \
+          Fore.YELLOW + f" {err if verbose else var}" + '\n'
+
+
+def dump_errors():
+    global error_buf
+    try:
+        print(error_buf)
+    except NameError as e:
+        pass
 
 
 def format_response_time(response_time, verbose):
@@ -95,3 +107,29 @@ def get_response(request_future, error_type, social_network, verbose=False):
     except requests.exceptions.RequestException as err:
         print_error(err, "Unknown error:", social_network, verbose)
     return None, "", -1
+
+
+class Loader:
+    def __init__(self):
+        self.done = False
+
+    def animate_loader(self):
+        for c in itertools.cycle(['|', '/', '-', '\\']):
+            if self.done:
+                break
+            sys.stdout.write('\rloading ' + c)
+            sys.stdout.flush()
+            time.sleep(0.1)
+        sys.stdout.write('\rDone!     \n')
+
+
+    def start_loader(self):
+        self.thread = threading.Thread(target=Loader.animate_loader, args=(self,))
+        self.thread.start()
+        return self
+
+    def stop_loader(self):
+        self.done = True
+        self.thread.join()
+        return self
+

@@ -1,16 +1,18 @@
 #! /usr/bin/env python3
 
-"""
+'''
 Sherlock: Find Usernames Across Social Networks Module
 
 This module contains the main logic to search for usernames at social
 networks.
-"""
+'''
 
 # ==================== Imports ==================== #
+import os
+import sys
+import json
 import csv
 import re
-import sys
 from concurrent.futures import ThreadPoolExecutor
 import requests
 from colorama import Fore, Style, init
@@ -23,22 +25,68 @@ from watson import *
 
 # ==================== Main ==================== #
 class Sherlock:
-    def __init__(self):
-        self.amount = 0
+    def __init__(self, username, index_by_original_query=False):
+        '''Create an instance of Sherlock that can be used to look up usernames on social media.
 
-    def run(self, username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None):
-        """Run Sherlock Analysis.
+        Keyword Arguments:
+        username                    -- The username to look up.
+        index_by_original_query     -- Index the results by original query, if false, results are indexed by the actual name of the social media site.
+        '''
+        self.results = dict()
+        self.username = username
+        self.indexed_by_original_query = index_by_original_query
+
+    def __prepare_site_data(sites):
+        '''Prepares a site data dictionary of all the sites that Sherlock will analyze.
+
+        Keyword Arguments:
+        sites   -- a list of sites as strings
+
+        Return Value:
+        Dictionary containing all the site data of the given sites. This site data
+        is used by Sherlock to check if the username exists at those sites.
+        '''
+        # Load the data
+        data_file_path = os.path.join(os.path.dirname(
+            os.path.realpath(__file__)), "data.json")
+        with open(data_file_path, "r", encoding="utf-8") as raw:
+            site_data_all = json.load(raw)
+
+        if sites is None:
+            # Not desired to look at a sub-set of sites
+            site_data = site_data_all
+        else:
+            # User desires to selectively run queries on a sub-set of the site list.
+            # Make sure that the sites are supported & build up pruned site database.
+            site_data = dict()
+            site_missing = []
+            for site in sites:
+                for existing_site in site_data_all:
+                    if site.lower() == existing_site.lower():
+                        site_data[existing_site] = site_data_all[existing_site]
+                        site_data[existing_site]['original_query'] = site
+                if not site_data:
+                    # Build up list of sites not supported for future error message.
+                    site_missing.append(f"'{site}'")
+
+            if site_missing:
+                print(Style.BRIGHT + Fore.RED + f"Error: Desired sites not found: {', '.join(site_missing)}.")
+                sys.exit(1)
+        
+        return site_data
+
+    def check(self, sites, verbose=False, tor=False, unique_tor=False, proxy=None, silent_on_error=False):
+        '''Run Sherlock Analysis.
 
         Checks for existence of username on various social media sites.
 
         Keyword Arguments:
-        username               -- String indicating username that report
-                                should be created against.
         site_data              -- Dictionary containing all of the site data.
         verbose                -- Boolean indicating whether to give verbose output.
         tor                    -- Boolean indicating whether to use a tor circuit for the requests.
         unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
-        proxy                  -- String indicating the proxy URL
+        proxy                  -- String indicating the proxy URL.
+        silent_on_error        -- Will not print errors to STDOUT.
 
         Return Value:
         Dictionary containing results from report.  Key of dictionary is the name
@@ -51,13 +99,12 @@ class Sherlock:
                         site.
             response_text: Text that came back from request.  May be None if
                         there was an HTTP error when checking for existence.
-        """
+        '''
 
-        print((Style.BRIGHT + Fore.GREEN + "[" +
-            Fore.YELLOW + "*" +
-            Fore.GREEN + "] Checking username" +
-            Fore.WHITE + " {}" +
-            Fore.GREEN + " on:").format(username))
+        # Get site data
+        if isinstance(sites, str):
+            sites = [sites]
+        site_data = Sherlock.__prepare_site_data(sites)
 
         # A user agent is needed because some sites don't
         # return the correct information since they think that
@@ -70,18 +117,18 @@ class Sherlock:
         executor = ThreadPoolExecutor(max_workers=len(site_data))
 
         # Create session based on request methodology
-        underlying_session = requests.session()
-        underlying_request = requests.Request()
         if tor or unique_tor:
             underlying_request = TorRequest()
             underlying_session = underlying_request.session
+        else:
+            underlying_session = requests.session()
+            underlying_request = requests.Request()
 
         # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
-        session = ElapsedFuturesSession(
-            executor=executor, session=underlying_session)
+        session = ElapsedFuturesSession(executor=executor, session=underlying_session)
 
         # Results from analysis of all sites
-        results_total = {}
+        results_total = self.results
 
         # First create futures for all requests. This allows for the requests to run in parallel
         for social_network, net_info in site_data.items():
@@ -94,7 +141,7 @@ class Sherlock:
 
             # Don't make request if username is invalid for the site
             regex_check = net_info.get("regexCheck")
-            if regex_check and re.search(regex_check, username) is None:
+            if regex_check and re.search(regex_check, self.username) is None:
                 # No need to do the check at the site: this user name is not allowed.
                 print((Style.BRIGHT + Fore.WHITE + "[" +
                     Fore.RED + "-" +
@@ -104,7 +151,7 @@ class Sherlock:
                 results_site["exists"] = "illegal"
             else:
                 # URL of user on site (if it exists)
-                url = net_info["url"].format(username)
+                url = net_info["url"].format(self.username)
                 results_site["url_user"] = url
 
                 request_method = session.get
@@ -143,7 +190,10 @@ class Sherlock:
                     underlying_request.reset_identity()
 
             # Add this site's results into final dictionary with all of the other results.
-            results_total[social_network] = results_site
+            if self.indexed_by_original_query:
+                results_total[site_data[social_network]['original_query']] = results_site
+            else:
+                results_total[social_network] = results_site
 
         # Open the file containing account links
         # f = open_file(fname)
@@ -189,23 +239,19 @@ class Sherlock:
                 error = net_info.get("errorMsg")
                 # Checks if the error message is in the HTML
                 if not error in r.text:
-                    print_found(social_network, url, response_time, verbose)
-                    # write_to_file(url, f)
+                    # print_found(social_network, url, response_time, verbose)
                     exists = "yes"
-                    self.amount = self.amount+1
                 else:
-                    print_not_found(social_network, response_time, verbose)
+                    # print_not_found(social_network, response_time, verbose)
                     exists = "no"
 
             elif error_type == "status_code":
                 # Checks if the status code of the response is 2XX
                 if not r.status_code >= 300 or r.status_code < 200:
-                    print_found(social_network, url, response_time, verbose)
-                    # write_to_file(url, f)
+                    # print_found(social_network, url, response_time, verbose)
                     exists = "yes"
-                    self.amount = self.amount+1
                 else:
-                    print_not_found(social_network, response_time, verbose)
+                    # print_not_found(social_network, response_time, verbose)
                     exists = "no"
 
             elif error_type == "response_url":
@@ -215,21 +261,13 @@ class Sherlock:
                 # code indicates that the request was successful (i.e. no 404, or
                 # forward to some odd redirect).
                 if (r.status_code >= 200) and (r.status_code < 300):
-                    #
-                    print_found(social_network, url, response_time, verbose)
-                    # write_to_file(url, f)
+                    # print_found(social_network, url, response_time, verbose)
                     exists = "yes"
-                    self.amount = self.amount+1
                 else:
-                    print_not_found(social_network, response_time, verbose)
+                    # print_not_found(social_network, response_time, verbose)
                     exists = "no"
 
             elif error_type == "":
-                print((Style.BRIGHT + Fore.WHITE + "[" +
-                    Fore.RED + "-" +
-                    Fore.WHITE + "]" +
-                    Fore.GREEN + " {}:" +
-                    Fore.YELLOW + " Error!").format(social_network))
                 exists = "error"
 
             # Save exists flag
@@ -243,12 +281,7 @@ class Sherlock:
             # Add this site's results into final dictionary with all of the other results.
             results_total[social_network] = results_site
 
-        # print((Style.BRIGHT + Fore.GREEN + "[" +
-        #     Fore.YELLOW + "*" +
-        #     Fore.GREEN + "] Saved: " +
-        #     Fore.WHITE + "{}").format(fname))
-
-        # final_score(self.amount, f)
-        # f.close()
+        if not silent_on_error:
+            dump_errors()
         return results_total
 
