@@ -28,9 +28,10 @@ $ pip3 install -r requirements.txt
 
 ```bash
 $ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--quiet] [--tor]
+usage: sherlock.py [-h] [--version] [--verbose] [--rank]
+                   [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
                    [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL]
+                   [--proxy PROXY_URL] [--json JSON_FILE]
                    USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.4.0)
@@ -43,7 +44,14 @@ optional arguments:
   --version             Display version information and dependencies.
   --verbose, -v, -d, --debug
                         Display extra debugging information and metrics.
-  --quiet, -q           Disable debugging information (Default Option).
+  --rank, -r            Present websites ordered by their Alexa.com global
+                        rank in popularity.
+  --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
+                        If using multiple usernames, the output of the results
+                        will be saved at this folder.
+  --output OUTPUT, -o OUTPUT
+                        If using single username, the output of the result
+                        will be saved at this file.
   --tor, -t             Make requests over TOR; increases runtime; requires
                         TOR to be installed and in system path.
   --unique-tor, -u      Make requests over TOR with new TOR circuit after each
@@ -55,6 +63,9 @@ optional arguments:
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
+  --json JSON_FILE, -j JSON_FILE
+                        Load data from a JSON file or an online, valid, JSON
+                        file.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts

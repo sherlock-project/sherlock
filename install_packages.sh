@@ -32,7 +32,7 @@ else
 fi
 
     
-# install the all the necessery packages and requirements
+# install the all the necessary packages and requirements
 echo ''
 echo ''
 while true; do
