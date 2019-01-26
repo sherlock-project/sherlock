@@ -109,10 +109,10 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
         # check eyeem and CreativeMarket
-        self.username_check(['noonewouldeverusethis9'],
+        self.username_check(['noonewouldeverusethis7'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
                              "WordPress", "devRant", "ImageShack", "MeetMe",
-                             "EVE Online"
+                             "EVE Online", "CreativeMarket", "EyeEm"
                             ],
                             exist_check=False
                            )

@@ -102,6 +102,10 @@ class SherlockBaseTest(unittest.TestCase):
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
                                  ):
-                    self.assertEqual(result['exists'], exist_result_desired)
+                    try:
+                        self.assertEqual(result['exists'], exist_result_desired)
+                    except AssertionError as e:
+                        print('Testing:', site)
+                        raise e
 
         return
