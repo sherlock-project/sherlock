@@ -234,8 +234,8 @@
   },
   "EVE Online": {
     "errorType": "response_url",
-    "rank": 11689,
     "errorUrl": "https://eveonline.com",
+    "rank": 11689,
     "url": "https://evewho.com/pilot/{}/",
     "urlMain": "https://eveonline.com"
   },
