@@ -27,13 +27,13 @@ $ pip3 install -r requirements.txt
 ## Usage
 
 ```bash
-$ python3 sherlock --help
-usage: sherlock [-h] [--version] [--verbose] [--tor]
-                   [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL] [--output OUTPUT]
-                   USERNAMES [USERNAMES ...]
+usage: python3 sherlock [-h] [--version] [--verbose] [--silent] [--quiet] [--tor]
+                [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
+                [--output OUTPUT] [--rank] [--folderoutput FOLDEROUTPUT]
+                [--json JSON_FILE]
+                USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.4.0)
+__main__ (Version 1.0.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -43,19 +43,32 @@ optional arguments:
   --version             Display version information and dependencies.
   --verbose, -v, -d, --debug
                         Display extra debugging information and metrics.
+  --silent              Do not output anything, ideally used when the output
+                        is saved with --output or --folderoutput
+  --quiet, -q           Disable debugging information (Default Option).
   --tor, -t             Make requests over TOR; increases runtime; requires
                         TOR to be installed and in system path.
   --unique-tor, -u      Make requests over TOR with new TOR circuit after each
                         request; increases runtime; requires TOR to be
                         installed and in system path.
-  --output OUTPUT, -o OUTPUT
-                        If using single username, the output of the result
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
+  --output OUTPUT, -o OUTPUT
+                        If using single username, the output of the result
+                        will be saved at this file.
+  --rank, -r            Present websites ordered by their Alexa.com global
+                        rank in popularity.
+  --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
+                        If using multiple usernames, the output of the results
+                        will be saved at this folder.
+  --json JSON_FILE, -j JSON_FILE
+                        Load data from a JSON file or an online, valid, JSON
+                        file.
+
 ```
 
 For example, run ```python sherlock user123```, and all of the accounts

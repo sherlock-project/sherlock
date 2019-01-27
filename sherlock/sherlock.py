@@ -25,30 +25,54 @@ from watson import *
 
 # ==================== Main ==================== #
 class Sherlock:
-    def __init__(self, username, index_by_original_query=False):
+    def __init__(self, username, index_by_original_query=False, source=os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")):
         '''Create an instance of Sherlock that can be used to look up usernames on social media.
 
         Keyword Arguments:
         username                    -- The username to look up.
         index_by_original_query     -- Index the results by original query, if false, results are indexed by the actual name of the social media site.
+        source                      -- The source of the site data JSON used by Sherlock, can be a URL.
         '''
         self.results = dict()
         self.username = username
         self.indexed_by_original_query = index_by_original_query
+        if source is None:
+            self.source = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data.json")
+        else:
+            self.source = source
 
-    def __prepare_site_data(sites):
+    def __prepare_site_data(self, sites, ranked=False):
         '''Prepares a site data dictionary of all the sites that Sherlock will analyze.
 
         Keyword Arguments:
-        sites   -- a list of sites as strings
+        sites       -- a list of sites as strings
+        ranked      -- rank the sites by their alexa ranking
 
         Return Value:
         Dictionary containing all the site data of the given sites. This site data
         is used by Sherlock to check if the username exists at those sites.
         '''
+        response_json_online = None
+        # Try to load json from website.
+        try:
+            response_json_online = requests.get(url=self.source)
+        except requests.exceptions.MissingSchema:  # In case the schema is wrong it's because it may not be a website
+            pass
+        
+        # Check if the response is appropriate.
+        if response_json_online is not None and response_json_online.status_code == 200:
+            # Since we got data from a website, try to load json and exit if parsing fails.
+            try:
+                site_data_all = response_json_online.json()
+                return site_data_all
+            except ValueError:
+                print(Style.BRIGHT + Fore.RED + "Invalid JSON from website!")
+                Loader.stop_all()
+                sys.exit(1)
+                pass
+
         # Load the data
-        data_file_path = os.path.join(os.path.dirname(
-            os.path.realpath(__file__)), "data.json")
+        data_file_path = self.source
         with open(data_file_path, "r", encoding="utf-8") as raw:
             site_data_all = json.load(raw)
 
@@ -71,11 +95,20 @@ class Sherlock:
 
             if site_missing:
                 print(Style.BRIGHT + Fore.RED + f"Error: Desired sites not found: {', '.join(site_missing)}.")
+                Loader.stop_all()
                 sys.exit(1)
+
+        if ranked:
+            # Sort data by rank 
+            site_dataCpy = dict(site_data)
+            ranked_sites = sorted(site_data, key=lambda k: ("rank" not in k, site_data[k].get("rank", sys.maxsize)))
+            site_data = {}
+            for site in ranked_sites:
+                site_data[site] = site_dataCpy.get(site)
         
         return site_data
 
-    def check(self, sites, verbose=False, tor=False, unique_tor=False, proxy=None, silent_on_error=False):
+    def check(self, sites, verbose=False, tor=False, unique_tor=False, proxy=None, silent_on_error=False, ranked=False):
         '''Run Sherlock Analysis.
 
         Checks for existence of username on various social media sites.
@@ -87,6 +120,7 @@ class Sherlock:
         unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
         proxy                  -- String indicating the proxy URL.
         silent_on_error        -- Will not print errors to STDOUT.
+        ranked                 -- Rank the results by alexa.com rankings.
 
         Return Value:
         Dictionary containing results from report.  Key of dictionary is the name
@@ -104,7 +138,7 @@ class Sherlock:
         # Get site data
         if isinstance(sites, str):
             sites = [sites]
-        site_data = Sherlock.__prepare_site_data(sites)
+        site_data = self.__prepare_site_data(sites, ranked)
 
         # A user agent is needed because some sites don't
         # return the correct information since they think that

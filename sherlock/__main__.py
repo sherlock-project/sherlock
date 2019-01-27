@@ -1,4 +1,5 @@
 # ==================== Imports ==================== #
+import os
 import platform
 import requests
 import json
@@ -32,6 +33,10 @@ if __name__ == "__main__":
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
+    parser.add_argument("--silent",
+                        action="store_true",  dest="silent", default=False,
+                        help="Do not output anything, ideally used when the output is saved with --output or --folderoutput"
+                        )
     parser.add_argument("--quiet", "-q",
                         action="store_false", dest="verbose",
                         help="Disable debugging information (Default Option)."
@@ -63,8 +68,23 @@ if __name__ == "__main__":
     parser.add_argument("--output", "-o", dest="output",
                         help="If using single username, the output of the result will be saved at this file."
                         )
+    parser.add_argument("--rank", "-r",
+                        action="store_true", dest="rank", default=False,
+                        help="Present websites ordered by their Alexa.com global rank in popularity.")
+    parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
+                        help="If using multiple usernames, the output of the results will be saved at this folder."
+                        )
+    parser.add_argument("--json", "-j", metavar="JSON_FILE",
+                        dest="json_file",
+                        help="Load data from a JSON file or an online, valid, JSON file.")
 
     args = parser.parse_args()
+
+    if args.output is not None and len(args.username) != 1:
+        raise ValueError("Only one username can be tested with the 'output' argument!")
+
+    if args.output is not None and args.folderoutput is not None:
+        raise AttributeError('You can only use one of these output methods.')
 
     print(Fore.WHITE + Style.BRIGHT + constants.__banner__)
 
@@ -95,26 +115,34 @@ if __name__ == "__main__":
         loader = watson.Loader().start_loader()
         
         results = {}
-        sherlock = Sherlock(username)
+        sherlock = Sherlock(username, source=args.json_file)
         results = sherlock.check(args.site_list, verbose=args.verbose,
-                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
+                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy, ranked=args.rank)
 
         loader.stop_loader()
 
-        for social_network, result in results.items():
-            if result['exists'] == 'yes':
-                watson.print_found(social_network, result['url_user'], result['response_time_ms'], args.verbose)
-            elif result['exists'] == 'no':
-                watson.print_not_found(social_network, result['response_time_ms'], args.verbose)
-            elif result['exists'] == 'error':
-                print((Style.BRIGHT + Fore.WHITE + "[" +
-                    Fore.RED + "-" +
-                    Fore.WHITE + "]" +
-                    Fore.GREEN + " {}:" +
-                    Fore.YELLOW + " Error!").format(social_network))
+        if not args.silent:
+            for social_network, result in results.items():
+                if result['exists'] == 'yes':
+                    watson.print_found(social_network, result['url_user'], result['response_time_ms'], args.verbose)
+                elif result['exists'] == 'no':
+                    watson.print_not_found(social_network, result['response_time_ms'], args.verbose)
+                elif result['exists'] == 'error':
+                    print((Style.BRIGHT + Fore.WHITE + "[" +
+                        Fore.RED + "-" +
+                        Fore.WHITE + "]" +
+                        Fore.GREEN + " {}:" +
+                        Fore.YELLOW + " Error!").format(social_network))
 
         if args.output:
             file = open(args.output, "w", encoding="utf-8")
+        elif args.folderoutput:  # In case we handle multiple usernames at a targetted folder.
+            # If the folder doesnt exist, create it first
+            if not os.path.isdir(args.folderoutput):
+                os.mkdir(args.folderoutput)
+            file = open(os.path.join(args.folderoutput, username + ".txt"), "w", encoding="utf-8")
+        
+        if args.output or args.folderoutput:
             exists_counter = 0
             for website_name in results:
                 dictionary = results[website_name]

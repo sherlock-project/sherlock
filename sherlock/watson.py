@@ -124,7 +124,12 @@ class Loader:
 
 
     def start_loader(self):
+        global __loaders
         self.thread = threading.Thread(target=Loader.animate_loader, args=(self,))
+        try:
+            __loaders.append(self.thread)
+        except NameError as e:
+            __loaders = [self]
         self.thread.start()
         return self
 
@@ -133,3 +138,8 @@ class Loader:
         self.thread.join()
         return self
 
+    def stop_all():
+        global __loaders
+        for loader in __loaders:
+            loader.done = True
+            loader.thread.join()
