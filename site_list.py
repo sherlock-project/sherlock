@@ -47,7 +47,7 @@ with open("sites.md", "w") as site_file:
 			th = threading.Thread(target=get_rank, args=(url_main, data.get(social_network)))
 		else:
 			th = None
-		pool.append((url_main, url_main, th))
+		pool.append((social_network, url_main, th))
 		if args.rank:
 			th.start()
 
