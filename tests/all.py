@@ -142,3 +142,47 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
                            )
 
         return
+
+    def test_coverage_false_via_status(self):
+        """Test Username Does Not Exist Site Coverage (Via HTTP Status).
+
+        This test checks all sites with the "HTTP Status" detection mechanism
+        to ensure that a Username that does not exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['noonewouldeverusethis7'],
+                            ["Academia.edu", "9GAG", "About.me"
+                            ],
+                            exist_check=False
+                           )
+
+        return
+
+    def test_coverage_true_via_status(self):
+        """Test Username Does Exist Site Coverage (Via HTTP Status).
+
+        This test checks all sites with the "HTTP Status" detection mechanism
+        to ensure that a Username that does exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['blue'],
+                            ["Academia.edu", "9GAG", "About.me"
+                            ],
+                            exist_check=True
+                           )
+
+        return
