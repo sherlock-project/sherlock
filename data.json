@@ -105,9 +105,9 @@
     "url": "https://buzzfeed.com/{}",
     "urlMain": "https://buzzfeed.com/"
   },
-  "Canva": {
-    "errorMsg": "Not found (404)",
-    "errorType": "message",
+  "Canva": { 
+    "errorType": "response_url",
+    "errorUrl": "https://www.canva.com/{}",
     "rank": 215,
     "url": "https://www.canva.com/{}",
     "urlMain": "https://www.canva.com/"
