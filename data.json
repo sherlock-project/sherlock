@@ -55,8 +55,7 @@
     "urlMain": "https://badoo.com/"
   },
   "Bandcamp": {
-    "errorMsg": "Sorry, that something isn\u2019t here",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 573,
     "url": "https://www.bandcamp.com/{}",
     "urlMain": "https://www.bandcamp.com/"
