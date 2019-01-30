@@ -68,8 +68,7 @@
     "urlMain": "https://basecamp.com/"
   },
   "Behance": {
-    "errorMsg": "Oops! We can\u2019t find that page.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 394,
     "url": "https://www.behance.net/{}",
     "urlMain": "https://www.behance.net/"
