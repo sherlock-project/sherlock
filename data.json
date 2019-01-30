@@ -19,8 +19,7 @@
     "urlMain": "https://about.me/"
   },
   "Academia.edu": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 385,
     "url": "https://independent.academia.edu/{}",
     "urlMain": "https://www.academia.edu/"
