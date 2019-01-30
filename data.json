@@ -25,8 +25,7 @@
     "urlMain": "https://www.academia.edu/"
   },
   "AngelList": {
-    "errorMsg": "We couldn't find what you were looking for.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 3469,
     "url": "https://angel.co/{}",
     "urlMain": "https://angel.co/"
