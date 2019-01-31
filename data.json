@@ -132,8 +132,7 @@
     "urlMain": "https://www.codecademy.com/"
   },
   "Codementor": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 12456,
     "url": "https://www.codementor.io/{}",
     "urlMain": "https://www.codementor.io/"
