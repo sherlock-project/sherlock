@@ -94,8 +94,7 @@
     "urlMain": "https://www.blogger.com/"
   },
   "BuzzFeed": {
-    "errorMsg": "We can't find the page you're looking for.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 294,
     "url": "https://buzzfeed.com/{}",
     "urlMain": "https://buzzfeed.com/"
