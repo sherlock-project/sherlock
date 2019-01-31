@@ -190,3 +190,47 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
                            )
 
         return
+
+    def test_coverage_false_via_message(self):
+        """Test Username Does Not Exist Site Coverage (Via Error Message).
+
+        This test checks all sites with the "Error Message" detection mechanism
+        to ensure that a Username that does not exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['noonewouldeverusethis7'],
+                            ["Dribbble"
+                            ],
+                            exist_check=False
+                           )
+
+        return
+
+    def test_coverage_true_via_message(self):
+        """Test Username Does Exist Site Coverage (Via Error Message).
+
+        This test checks all sites with the "Error Message" detection mechanism
+        to ensure that a Username that does exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['blue'],
+                            ["Dribbble"
+                            ],
+                            exist_check=True
+                           )
+
+        return
