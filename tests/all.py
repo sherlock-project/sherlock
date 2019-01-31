@@ -160,7 +160,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.username_check(['noonewouldeverusethis7'],
                             ["Academia.edu", "9GAG", "About.me", "AngelList",
                              "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
-                             "Codecademy", "Codementor"
+                             "Codecademy", "Codementor", "Designspiration"
                             ],
                             exist_check=False
                            )
@@ -184,7 +184,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.username_check(['blue'],
                             ["Academia.edu", "9GAG", "About.me", "AngelList",
                              "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
-                             "Codecademy", "Codementor"
+                             "Codecademy", "Codementor", "Designspiration"
                             ],
                             exist_check=True
                            )

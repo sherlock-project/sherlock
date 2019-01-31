@@ -197,10 +197,9 @@
     "urlMain": "https://www.dailymotion.com/"
   },
   "Designspiration": {
-    "errorMsg": "Content Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 24722,
-    "url": "https://www.designspiration.net/{}",
+    "url": "https://www.designspiration.net/{}/",
     "urlMain": "https://www.designspiration.net/"
   },
   "DeviantART": {
