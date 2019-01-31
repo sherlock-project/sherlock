@@ -126,8 +126,7 @@
     "urlMain": "https://www.cloob.com/"
   },
   "Codecademy": {
-    "errorMsg": "404 error",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 2314,
     "url": "https://www.codecademy.com/{}",
     "urlMain": "https://www.codecademy.com/"
