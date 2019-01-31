@@ -13,6 +13,7 @@ import os
 import platform
 import re
 import sys
+import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
 from time import time
