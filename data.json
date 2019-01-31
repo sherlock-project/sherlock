@@ -19,15 +19,13 @@
     "urlMain": "https://about.me/"
   },
   "Academia.edu": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 385,
     "url": "https://independent.academia.edu/{}",
     "urlMain": "https://www.academia.edu/"
   },
   "AngelList": {
-    "errorMsg": "We couldn't find what you were looking for.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 3469,
     "url": "https://angel.co/{}",
     "urlMain": "https://angel.co/"
@@ -45,8 +43,7 @@
     "urlMain": "https://ask.fm/"
   },
   "BLIP.fm": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 261919,
     "url": "https://blip.fm/{}",
     "urlMain": "https://blip.fm/"
@@ -58,8 +55,7 @@
     "urlMain": "https://badoo.com/"
   },
   "Bandcamp": {
-    "errorMsg": "Sorry, that something isn\u2019t here",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 573,
     "url": "https://www.bandcamp.com/{}",
     "urlMain": "https://www.bandcamp.com/"
@@ -72,8 +68,7 @@
     "urlMain": "https://basecamp.com/"
   },
   "Behance": {
-    "errorMsg": "Oops! We can\u2019t find that page.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 394,
     "url": "https://www.behance.net/{}",
     "urlMain": "https://www.behance.net/"
@@ -99,15 +94,14 @@
     "urlMain": "https://www.blogger.com/"
   },
   "BuzzFeed": {
-    "errorMsg": "We can't find the page you're looking for.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 294,
     "url": "https://buzzfeed.com/{}",
     "urlMain": "https://buzzfeed.com/"
   },
-  "Canva": {
-    "errorMsg": "Not found (404)",
-    "errorType": "message",
+  "Canva": { 
+    "errorType": "response_url",
+    "errorUrl": "https://www.canva.com/{}",
     "rank": 215,
     "url": "https://www.canva.com/{}",
     "urlMain": "https://www.canva.com/"
@@ -132,15 +126,13 @@
     "urlMain": "https://www.cloob.com/"
   },
   "Codecademy": {
-    "errorMsg": "404 error",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 2314,
     "url": "https://www.codecademy.com/{}",
     "urlMain": "https://www.codecademy.com/"
   },
   "Codementor": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 12456,
     "url": "https://www.codementor.io/{}",
     "urlMain": "https://www.codementor.io/"
@@ -205,10 +197,9 @@
     "urlMain": "https://www.dailymotion.com/"
   },
   "Designspiration": {
-    "errorMsg": "Content Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 24722,
-    "url": "https://www.designspiration.net/{}",
+    "url": "https://www.designspiration.net/{}/",
     "urlMain": "https://www.designspiration.net/"
   },
   "DeviantART": {

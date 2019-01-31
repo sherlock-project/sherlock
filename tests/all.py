@@ -112,7 +112,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.username_check(['noonewouldeverusethis7'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
                              "WordPress", "devRant", "ImageShack", "MeetMe",
-                             "EyeEm", "CreativeMarket", "EVE Online"
+                             "EyeEm", "CreativeMarket", "EVE Online", "Canva"
                             ],
                             exist_check=False
                            )
@@ -136,7 +136,99 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.username_check(['blue'],
                             ["Pinterest", "iMGSRC.RU", "Pastebin",
                              "WordPress", "devRant", "ImageShack", "MeetMe",
-                             "EyeEm", "CreativeMarket", "EVE Online"
+                             "EyeEm", "CreativeMarket", "EVE Online", "Canva"
+                            ],
+                            exist_check=True
+                           )
+
+        return
+
+    def test_coverage_false_via_status(self):
+        """Test Username Does Not Exist Site Coverage (Via HTTP Status).
+
+        This test checks all sites with the "HTTP Status" detection mechanism
+        to ensure that a Username that does not exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['noonewouldeverusethis7'],
+                            ["Academia.edu", "9GAG", "About.me", "AngelList",
+                             "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
+                             "Codecademy", "Codementor", "Designspiration"
+                            ],
+                            exist_check=False
+                           )
+
+        return
+
+    def test_coverage_true_via_status(self):
+        """Test Username Does Exist Site Coverage (Via HTTP Status).
+
+        This test checks all sites with the "HTTP Status" detection mechanism
+        to ensure that a Username that does exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['blue'],
+                            ["Academia.edu", "9GAG", "About.me", "AngelList",
+                             "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
+                             "Codecademy", "Codementor", "Designspiration"
+                            ],
+                            exist_check=True
+                           )
+
+        return
+
+    def test_coverage_false_via_message(self):
+        """Test Username Does Not Exist Site Coverage (Via Error Message).
+
+        This test checks all sites with the "Error Message" detection mechanism
+        to ensure that a Username that does not exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['noonewouldeverusethis7'],
+                            ["Dribbble"
+                            ],
+                            exist_check=False
+                           )
+
+        return
+
+    def test_coverage_true_via_message(self):
+        """Test Username Does Exist Site Coverage (Via Error Message).
+
+        This test checks all sites with the "Error Message" detection mechanism
+        to ensure that a Username that does exist is reported that way.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        self.username_check(['blue'],
+                            ["Dribbble"
                             ],
                             exist_check=True
                            )
