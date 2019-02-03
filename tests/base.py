@@ -105,3 +105,50 @@ class SherlockBaseTest(unittest.TestCase):
                     self.assertEqual(result['exists'], exist_result_desired)
 
         return
+
+    def detect_type_check(self, detect_type, exist_check=True):
+        """Username Exist Check.
+
+        Keyword Arguments:
+        self                   -- This object.
+        detect_type            -- String corresponding to detection algorithm
+                                  which is desired to be tested.
+                                  Note that only sites which have documented
+                                  usernames which exist and do not exist
+                                  will be tested.
+        exist_check            -- Boolean which indicates if this should be
+                                  a check for Username existence,
+                                  or non-existence.
+
+        Return Value:
+        N/A.
+        Runs tests on all sites using the indicated detection algorithm
+        and which also has test vectors specified.
+        Will trigger an assert if Username does not have the expected
+        existence state.
+        """
+
+        for site, site_data in self.site_data_all.items():
+            if (
+                 (site_data["errorType"] != detect_type)       or
+                 (site_data.get("username_claimed")   is None) or
+                 (site_data.get("username_unclaimed") is None)
+               ):
+                # This is either not a site we are interested in, or the
+                # site does not contain the required information to do
+                # the tests.
+                pass
+            else:
+                # We should run a test on this site.
+
+                # Figure out which type of user
+                if exist_check:
+                     username_list = [site_data.get("username_claimed")]
+                else:
+                     username_list = [site_data.get("username_unclaimed")]
+                self.username_check(username_list,
+                                    [site],
+                                    exist_check=exist_check
+                                   )
+
+        return

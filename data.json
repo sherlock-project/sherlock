@@ -10,25 +10,33 @@
     "errorType": "status_code",
     "rank": 331,
     "url": "https://9gag.com/u/{}",
-    "urlMain": "https://9gag.com/"
+    "urlMain": "https://9gag.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "About.me": {
     "errorType": "status_code",
     "rank": 12674,
     "url": "https://about.me/{}",
-    "urlMain": "https://about.me/"
+    "urlMain": "https://about.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Academia.edu": {
     "errorType": "status_code",
     "rank": 383,
     "url": "https://independent.academia.edu/{}",
-    "urlMain": "https://www.academia.edu/"
+    "urlMain": "https://www.academia.edu/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "AngelList": {
     "errorType": "status_code",
     "rank": 3371,
     "url": "https://angel.co/{}",
-    "urlMain": "https://angel.co/"
+    "urlMain": "https://angel.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Aptoide": {
     "errorType": "status_code",
@@ -46,7 +54,9 @@
     "errorType": "status_code",
     "rank": 282942,
     "url": "https://blip.fm/{}",
-    "urlMain": "https://blip.fm/"
+    "urlMain": "https://blip.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Badoo": {
     "errorType": "status_code",
@@ -58,7 +68,9 @@
     "errorType": "status_code",
     "rank": 568,
     "url": "https://www.bandcamp.com/{}",
-    "urlMain": "https://www.bandcamp.com/"
+    "urlMain": "https://www.bandcamp.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Basecamp": {
     "errorMsg": "The account you were looking for doesn't exist",
@@ -71,7 +83,9 @@
     "errorType": "status_code",
     "rank": 401,
     "url": "https://www.behance.net/{}",
-    "urlMain": "https://www.behance.net/"
+    "urlMain": "https://www.behance.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BitBucket": {
     "errorType": "status_code",
@@ -97,14 +111,18 @@
     "errorType": "status_code",
     "rank": 294,
     "url": "https://buzzfeed.com/{}",
-    "urlMain": "https://buzzfeed.com/"
+    "urlMain": "https://buzzfeed.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Canva": {
     "errorType": "response_url",
     "errorUrl": "https://www.canva.com/{}",
     "rank": 214,
     "url": "https://www.canva.com/{}",
-    "urlMain": "https://www.canva.com/"
+    "urlMain": "https://www.canva.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Carbonmade": {
     "errorMsg": "You've accidentally stumbled upon Mike's super secret nap grotto.",
@@ -129,13 +147,17 @@
     "errorType": "status_code",
     "rank": 2325,
     "url": "https://www.codecademy.com/{}",
-    "urlMain": "https://www.codecademy.com/"
+    "urlMain": "https://www.codecademy.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codementor": {
     "errorType": "status_code",
     "rank": 12164,
     "url": "https://www.codementor.io/{}",
-    "urlMain": "https://www.codementor.io/"
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codepen": {
     "errorType": "status_code",
@@ -176,7 +198,9 @@
     "errorUrl": "https://www.creativemarket.com/",
     "rank": 1790,
     "url": "https://creativemarket.com/{}",
-    "urlMain": "https://creativemarket.com/"
+    "urlMain": "https://creativemarket.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Crevado": {
     "errorType": "status_code",
@@ -200,7 +224,9 @@
     "errorType": "status_code",
     "rank": 24423,
     "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/"
+    "urlMain": "https://www.designspiration.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "DeviantART": {
     "errorType": "status_code",
@@ -221,14 +247,18 @@
     "rank": 921,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://dribbble.com/{}",
-    "urlMain": "https://dribbble.com/"
+    "urlMain": "https://dribbble.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
     "rank": 11650,
     "url": "https://evewho.com/pilot/{}/",
-    "urlMain": "https://eveonline.com"
+    "urlMain": "https://eveonline.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Ebay": {
     "errorMsg": "The User ID you entered was not found",
@@ -255,7 +285,9 @@
     "errorUrl": "https://www.eyeem.com/",
     "rank": 33324,
     "url": "https://www.eyeem.com/u/{}",
-    "urlMain": "https://www.eyeem.com/"
+    "urlMain": "https://www.eyeem.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Facebook": {
     "errorType": "status_code",
@@ -387,7 +419,9 @@
     "errorUrl": "https://imageshack.us/",
     "rank": 37337,
     "url": "https://imageshack.us/user/{}",
-    "urlMain": "https://imageshack.us/"
+    "urlMain": "https://imageshack.us/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Imgur": {
     "errorType": "status_code",
@@ -505,7 +539,9 @@
     "errorUrl": "https://www.meetme.com/",
     "rank": 14599,
     "url": "https://www.meetme.com/{}",
-    "urlMain": "https://www.meetme.com/"
+    "urlMain": "https://www.meetme.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "MixCloud": {
     "errorMsg": "Page Not Found",
@@ -539,7 +575,9 @@
     "errorUrl": "https://pastebin.com/index",
     "rank": 1044,
     "url": "https://pastebin.com/u/{}",
-    "urlMain": "https://pastebin.com/"
+    "urlMain": "https://pastebin.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Patreon": {
     "errorType": "status_code",
@@ -565,7 +603,9 @@
     "errorUrl": "https://www.pinterest.com/?show_error=true",
     "rank": 73,
     "url": "https://www.pinterest.com/{}/",
-    "urlMain": "https://www.pinterest.com/"
+    "urlMain": "https://www.pinterest.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pixabay": {
     "errorType": "status_code",
@@ -836,7 +876,9 @@
     "rank": 60,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.wordpress.com/",
-    "urlMain": "https://wordpress.com"
+    "urlMain": "https://wordpress.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "YouPic": {
     "errorType": "status_code",
@@ -870,14 +912,18 @@
     "errorUrl": "https://devrant.com/",
     "rank": 146159,
     "url": "https://devrant.com/users/{}",
-    "urlMain": "https://devrant.com/"
+    "urlMain": "https://devrant.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "iMGSRC.RU": {
     "errorType": "response_url",
     "errorUrl": "https://imgsrc.ru/",
     "rank": 3660,
     "url": "https://imgsrc.ru/main/user.php?user={}",
-    "urlMain": "https://imgsrc.ru/"
+    "urlMain": "https://imgsrc.ru/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "last.fm": {
     "errorMsg": "Whoops! Sorry, but this page doesn't exist.",
