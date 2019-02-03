@@ -885,8 +885,10 @@
   "YouPic": {
     "errorType": "status_code",
     "rank": 41827,
-    "url": "https://youpic.com/photographer/{}",
-    "urlMain": "https://youpic.com/"
+    "url": "https://youpic.com/photographer/{}/",
+    "urlMain": "https://youpic.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "YouTube": {
     "errorMsg": "Not Found",
