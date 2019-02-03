@@ -10,25 +10,33 @@
     "errorType": "status_code",
     "rank": 331,
     "url": "https://9gag.com/u/{}",
-    "urlMain": "https://9gag.com/"
+    "urlMain": "https://9gag.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "About.me": {
     "errorType": "status_code",
     "rank": 12674,
     "url": "https://about.me/{}",
-    "urlMain": "https://about.me/"
+    "urlMain": "https://about.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Academia.edu": {
     "errorType": "status_code",
     "rank": 383,
     "url": "https://independent.academia.edu/{}",
-    "urlMain": "https://www.academia.edu/"
+    "urlMain": "https://www.academia.edu/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "AngelList": {
     "errorType": "status_code",
     "rank": 3371,
     "url": "https://angel.co/{}",
-    "urlMain": "https://angel.co/"
+    "urlMain": "https://angel.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Aptoide": {
     "errorType": "status_code",
@@ -46,7 +54,9 @@
     "errorType": "status_code",
     "rank": 282942,
     "url": "https://blip.fm/{}",
-    "urlMain": "https://blip.fm/"
+    "urlMain": "https://blip.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Badoo": {
     "errorType": "status_code",
@@ -58,7 +68,9 @@
     "errorType": "status_code",
     "rank": 568,
     "url": "https://www.bandcamp.com/{}",
-    "urlMain": "https://www.bandcamp.com/"
+    "urlMain": "https://www.bandcamp.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Basecamp": {
     "errorMsg": "The account you were looking for doesn't exist",
@@ -71,7 +83,9 @@
     "errorType": "status_code",
     "rank": 401,
     "url": "https://www.behance.net/{}",
-    "urlMain": "https://www.behance.net/"
+    "urlMain": "https://www.behance.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BitBucket": {
     "errorType": "status_code",
@@ -97,7 +111,9 @@
     "errorType": "status_code",
     "rank": 294,
     "url": "https://buzzfeed.com/{}",
-    "urlMain": "https://buzzfeed.com/"
+    "urlMain": "https://buzzfeed.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Canva": {
     "errorType": "response_url",
@@ -129,13 +145,17 @@
     "errorType": "status_code",
     "rank": 2325,
     "url": "https://www.codecademy.com/{}",
-    "urlMain": "https://www.codecademy.com/"
+    "urlMain": "https://www.codecademy.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codementor": {
     "errorType": "status_code",
     "rank": 12164,
     "url": "https://www.codementor.io/{}",
-    "urlMain": "https://www.codementor.io/"
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codepen": {
     "errorType": "status_code",
@@ -200,7 +220,9 @@
     "errorType": "status_code",
     "rank": 24423,
     "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/"
+    "urlMain": "https://www.designspiration.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "DeviantART": {
     "errorType": "status_code",

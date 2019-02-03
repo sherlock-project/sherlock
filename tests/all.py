@@ -157,13 +157,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['noonewouldeverusethis7'],
-                            ["Academia.edu", "9GAG", "About.me", "AngelList",
-                             "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
-                             "Codecademy", "Codementor", "Designspiration"
-                            ],
-                            exist_check=False
-                           )
+        self.detect_type_check("status_code", exist_check=False)
 
         return
 
@@ -181,13 +175,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['blue'],
-                            ["Academia.edu", "9GAG", "About.me", "AngelList",
-                             "BLIP.fm", "Bandcamp", "Behance", "BuzzFeed",
-                             "Codecademy", "Codementor", "Designspiration"
-                            ],
-                            exist_check=True
-                           )
+        self.detect_type_check("status_code", exist_check=True)
 
         return
 
