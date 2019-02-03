@@ -205,11 +205,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['noonewouldeverusethis7'],
-                            ["Dribbble"
-                            ],
-                            exist_check=False
-                           )
+        self.detect_type_check("message", exist_check=False)
 
         return
 
@@ -227,10 +223,6 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['blue'],
-                            ["Dribbble"
-                            ],
-                            exist_check=True
-                           )
+        self.detect_type_check("message", exist_check=True)
 
         return
