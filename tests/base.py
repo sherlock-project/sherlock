@@ -128,6 +128,10 @@ class SherlockBaseTest(unittest.TestCase):
         existence state.
         """
 
+        #Dictionary of sites that should be tested for having a username.
+        #This will allow us to test sites with a common username in parallel.
+        sites_by_username = {}
+
         for site, site_data in self.site_data_all.items():
             if (
                  (site_data["errorType"] != detect_type)       or
@@ -143,12 +147,22 @@ class SherlockBaseTest(unittest.TestCase):
 
                 # Figure out which type of user
                 if exist_check:
-                     username_list = [site_data.get("username_claimed")]
+                     username = site_data.get("username_claimed")
                 else:
-                     username_list = [site_data.get("username_unclaimed")]
-                self.username_check(username_list,
-                                    [site],
-                                    exist_check=exist_check
-                                   )
+                     username = site_data.get("username_unclaimed")
+
+                # Add this site to the list of sites corresponding to this
+                # username.
+                if username in sites_by_username:
+                    sites_by_username[username].append(site)
+                else:
+                    sites_by_username[username] = [site]
+
+        # Check on the username availability against all of the sites.
+        for username, site_list in sites_by_username.items():
+            self.username_check([username],
+                                site_list,
+                                exist_check=exist_check
+                               )
 
         return

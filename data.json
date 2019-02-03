@@ -91,7 +91,9 @@
     "errorType": "status_code",
     "rank": 839,
     "url": "https://bitbucket.org/{}",
-    "urlMain": "https://bitbucket.org/"
+    "urlMain": "https://bitbucket.org/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BlackPlanet": {
     "errorMsg": "My Hits",
@@ -807,20 +809,25 @@
     "errorType": "status_code",
     "rank": 3373,
     "url": "https://vsco.co/{}",
-    "urlMain": "https://vsco.co/"
+    "urlMain": "https://vsco.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Venmo": {
     "errorType": "status_code",
     "rank": 4868,
     "url": "https://venmo.com/{}",
-    "urlMain": "https://venmo.com/"
+    "urlMain": "https://venmo.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Vimeo": {
-    "errorMsg": "404 Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 139,
     "url": "https://vimeo.com/{}",
-    "urlMain": "https://vimeo.com/"
+    "urlMain": "https://vimeo.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "VirusTotal": {
     "errorMsg": "not found",
@@ -883,8 +890,10 @@
   "YouPic": {
     "errorType": "status_code",
     "rank": 41827,
-    "url": "https://youpic.com/photographer/{}",
-    "urlMain": "https://youpic.com/"
+    "url": "https://youpic.com/photographer/{}/",
+    "urlMain": "https://youpic.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "YouTube": {
     "errorMsg": "Not Found",
