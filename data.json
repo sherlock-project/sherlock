@@ -731,7 +731,9 @@
     "errorType": "message",
     "rank": 162,
     "url": "https://steamcommunity.com/groups/{}",
-    "urlMain": "https://steamcommunity.com/"
+    "urlMain": "https://steamcommunity.com/",
+    "username_claimed": "pony",
+    "username_unclaimed": "nobdywillussethis2235"
   },
   "StreamMe": {
     "errorType": "status_code",
