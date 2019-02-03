@@ -809,7 +809,9 @@
     "errorType": "status_code",
     "rank": 3373,
     "url": "https://vsco.co/{}",
-    "urlMain": "https://vsco.co/"
+    "urlMain": "https://vsco.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Venmo": {
     "errorType": "status_code",
