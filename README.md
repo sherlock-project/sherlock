@@ -34,7 +34,7 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.4.0)
+Sherlock: Find Usernames Across Social Networks (Version 0.5.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -93,6 +93,12 @@ Or you can simply use "Docker Hub" to run `sherlock`:
 ```
 docker run theyahya/sherlock user123
 ```
+
+## Adding New Sites
+
+Please look at the Wiki entry on
+[adding new sites](https://github.com/TheYahya/sherlock/wiki/Adding-Sites-To-Sherlock)
+to understand the issues.
 
 ## Tests
 If you are contributing to Sherlock, then Thank You!
