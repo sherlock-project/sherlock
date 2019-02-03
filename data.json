@@ -815,7 +815,9 @@
     "errorType": "status_code",
     "rank": 4868,
     "url": "https://venmo.com/{}",
-    "urlMain": "https://venmo.com/"
+    "urlMain": "https://venmo.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Vimeo": {
     "errorMsg": "404 Not Found",
