@@ -1,8 +1,9 @@
 # Virtual Environment
 venv/
 
-# vscode
+# Editor Configurations
 .vscode/
+.idea/
 
 # Python
 __pycache__/

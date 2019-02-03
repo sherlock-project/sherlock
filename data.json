@@ -726,6 +726,13 @@
     "url": "https://steamcommunity.com/id/{}",
     "urlMain": "https://steamcommunity.com/"
   },
+  "SteamGroup": {
+    "errorMsg": "No group could be retrieved for the given URL",
+    "errorType": "message",
+    "rank": 162,
+    "url": "https://steamcommunity.com/groups/{}",
+    "urlMain": "https://steamcommunity.com/"
+  },
   "StreamMe": {
     "errorType": "status_code",
     "rank": 20104,
