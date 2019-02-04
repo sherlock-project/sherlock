@@ -806,7 +806,9 @@
     "errorType": "status_code",
     "rank": 590,
     "url": "https://unsplash.com/@{}",
-    "urlMain": "https://unsplash.com/"
+    "urlMain": "https://unsplash.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "VK": {
     "errorType": "status_code",
