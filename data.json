@@ -729,7 +729,9 @@
     "errorType": "status_code",
     "rank": 107,
     "url": "https://open.spotify.com/user/{}",
-    "urlMain": "https://open.spotify.com/"
+    "urlMain": "https://open.spotify.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Star Citizen": {
     "errorType": "status_code",
