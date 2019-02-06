@@ -721,7 +721,9 @@
     "errorType": "status_code",
     "rank": 362,
     "url": "https://sourceforge.net/u/{}",
-    "urlMain": "https://sourceforge.net/"
+    "urlMain": "https://sourceforge.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Spotify": {
     "errorType": "status_code",
