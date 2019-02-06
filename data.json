@@ -4,7 +4,9 @@
     "errorType": "message",
     "rank": 2521,
     "url": "https://500px.com/{}",
-    "urlMain": "https://500px.com/"
+    "urlMain": "https://500px.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "9GAG": {
     "errorType": "status_code",
@@ -42,13 +44,17 @@
     "errorType": "status_code",
     "rank": 6108,
     "url": "https://{}.en.aptoide.com/",
-    "urlMain": "https://en.aptoide.com/"
+    "urlMain": "https://en.aptoide.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "AskFM": {
     "errorType": "status_code",
     "rank": 1121,
     "url": "https://ask.fm/{}",
-    "urlMain": "https://ask.fm/"
+    "urlMain": "https://ask.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BLIP.fm": {
     "errorType": "status_code",
@@ -62,7 +68,9 @@
     "errorType": "status_code",
     "rank": 954,
     "url": "https://badoo.com/profile/{}",
-    "urlMain": "https://badoo.com/"
+    "urlMain": "https://badoo.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Bandcamp": {
     "errorType": "status_code",
@@ -90,7 +98,7 @@
   "BitBucket": {
     "errorType": "status_code",
     "rank": 839,
-    "url": "https://bitbucket.org/{}",
+    "url": "https://bitbucket.org/{}/",
     "urlMain": "https://bitbucket.org/",
     "username_claimed":   "blue",
     "username_unclaimed": "noonewouldeverusethis7"
@@ -115,7 +123,7 @@
     "url": "https://buzzfeed.com/{}",
     "urlMain": "https://buzzfeed.com/",
     "username_claimed":   "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "xgtrq"
   },
   "Canva": {
     "errorType": "response_url",
@@ -124,7 +132,7 @@
     "url": "https://www.canva.com/{}",
     "urlMain": "https://www.canva.com/",
     "username_claimed":   "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "xgtrq"
   },
   "Carbonmade": {
     "errorMsg": "You've accidentally stumbled upon Mike's super secret nap grotto.",
@@ -681,37 +689,49 @@
     "rank": 239,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.slack.com",
-    "urlMain": "https://slack.com"
+    "urlMain": "https://slack.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SlideShare": {
     "errorType": "status_code",
     "rank": 180,
     "url": "https://slideshare.net/{}",
-    "urlMain": "https://slideshare.net/"
+    "urlMain": "https://slideshare.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Smashcast": {
     "errorType": "status_code",
     "rank": 104037,
     "url": "https://www.smashcast.tv/api/media/live/{}",
-    "urlMain": "https://www.smashcast.tv/"
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed":   "hello",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SoundCloud": {
     "errorType": "status_code",
     "rank": 113,
     "url": "https://soundcloud.com/{}",
-    "urlMain": "https://soundcloud.com/"
+    "urlMain": "https://soundcloud.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SourceForge": {
     "errorType": "status_code",
     "rank": 362,
     "url": "https://sourceforge.net/u/{}",
-    "urlMain": "https://sourceforge.net/"
+    "urlMain": "https://sourceforge.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Spotify": {
     "errorType": "status_code",
     "rank": 107,
     "url": "https://open.spotify.com/user/{}",
-    "urlMain": "https://open.spotify.com/"
+    "urlMain": "https://open.spotify.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Star Citizen": {
     "errorType": "status_code",
@@ -766,14 +786,17 @@
     "errorType": "status_code",
     "rank": 592,
     "url": "https://www.tradingview.com/u/{}/",
-    "urlMain": "https://www.tradingview.com/"
+    "urlMain": "https://www.tradingview.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Trakt": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 5933,
     "url": "https://www.trakt.tv/users/{}",
-    "urlMain": "https://www.trakt.tv/"
+    "urlMain": "https://www.trakt.tv/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Trip": {
     "errorMsg": "Page not found",
@@ -787,7 +810,9 @@
     "errorType": "message",
     "rank": 278,
     "url": "https://tripadvisor.com/members/{}",
-    "urlMain": "https://tripadvisor.com/"
+    "urlMain": "https://tripadvisor.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitch": {
     "errorType": "status_code",
@@ -800,13 +825,17 @@
     "errorType": "message",
     "rank": 11,
     "url": "https://www.twitter.com/{}",
-    "urlMain": "https://www.twitter.com/"
+    "urlMain": "https://www.twitter.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Unsplash": {
     "errorType": "status_code",
     "rank": 590,
     "url": "https://unsplash.com/@{}",
-    "urlMain": "https://unsplash.com/"
+    "urlMain": "https://unsplash.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "VK": {
     "errorType": "status_code",
