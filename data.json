@@ -769,11 +769,12 @@
     "urlMain": "https://www.tradingview.com/"
   },
   "Trakt": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 5933,
     "url": "https://www.trakt.tv/users/{}",
-    "urlMain": "https://www.trakt.tv/"
+    "urlMain": "https://www.trakt.tv/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Trip": {
     "errorMsg": "Page not found",
