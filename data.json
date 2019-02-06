@@ -766,7 +766,9 @@
     "errorType": "status_code",
     "rank": 592,
     "url": "https://www.tradingview.com/u/{}/",
-    "urlMain": "https://www.tradingview.com/"
+    "urlMain": "https://www.tradingview.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Trakt": {
     "errorType": "status_code",
