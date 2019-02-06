@@ -705,7 +705,9 @@
     "errorType": "status_code",
     "rank": 104037,
     "url": "https://www.smashcast.tv/api/media/live/{}",
-    "urlMain": "https://www.smashcast.tv/"
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed":   "hello",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SoundCloud": {
     "errorType": "status_code",
