@@ -48,7 +48,9 @@
     "errorType": "status_code",
     "rank": 1121,
     "url": "https://ask.fm/{}",
-    "urlMain": "https://ask.fm/"
+    "urlMain": "https://ask.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BLIP.fm": {
     "errorType": "status_code",
