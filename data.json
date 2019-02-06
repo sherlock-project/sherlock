@@ -800,7 +800,9 @@
     "errorType": "message",
     "rank": 11,
     "url": "https://www.twitter.com/{}",
-    "urlMain": "https://www.twitter.com/"
+    "urlMain": "https://www.twitter.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Unsplash": {
     "errorType": "status_code",
