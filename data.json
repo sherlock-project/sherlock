@@ -713,7 +713,9 @@
     "errorType": "status_code",
     "rank": 113,
     "url": "https://soundcloud.com/{}",
-    "urlMain": "https://soundcloud.com/"
+    "urlMain": "https://soundcloud.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SourceForge": {
     "errorType": "status_code",
