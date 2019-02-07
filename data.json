@@ -973,10 +973,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "last.fm": {
-    "errorMsg": "Whoops! Sorry, but this page doesn't exist.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1194,
     "url": "https://last.fm/user/{}",
-    "urlMain": "https://last.fm/"
+    "urlMain": "https://last.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
