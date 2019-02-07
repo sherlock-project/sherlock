@@ -675,7 +675,9 @@
     "errorType": "message",
     "rank": 106,
     "url": "https://www.roblox.com/user.aspx?username={}",
-    "urlMain": "https://www.roblox.com/"
+    "urlMain": "https://www.roblox.com/",
+    "username_claimed":   "bluewolfekiller",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Scribd": {
     "errorMsg": "Page not found",
