@@ -879,7 +879,9 @@
     "errorType": "message",
     "rank": 508,
     "url": "https://www.wattpad.com/user/{}",
-    "urlMain": "https://www.wattpad.com/"
+    "urlMain": "https://www.wattpad.com/",
+    "username_claimed":   "Dogstho7951",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "We Heart It": {
     "errorMsg": "Oops! You've landed on a moving target!",
