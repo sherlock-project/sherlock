@@ -759,7 +759,9 @@
     "errorType": "status_code",
     "rank": 20104,
     "url": "https://www.stream.me/{}",
-    "urlMain": "https://www.stream.me/"
+    "urlMain": "https://www.stream.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Taringa": {
     "errorMsg": "Lo que est\u00e1s buscando no est\u00e1 por aqu\u00ed.",
