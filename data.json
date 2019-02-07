@@ -647,7 +647,9 @@
     "errorType": "message",
     "rank": 1196,
     "url": "https://{}.rajce.idnes.cz/",
-    "urlMain": "https://www.rajce.idnes.cz/"
+    "urlMain": "https://www.rajce.idnes.cz/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Reddit": {
     "errorMsg": "page not found",
