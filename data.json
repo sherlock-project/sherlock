@@ -668,7 +668,9 @@
     "errorType": "message",
     "rank": 10615,
     "url": "https://www.reverbnation.com/{}",
-    "urlMain": "https://www.reverbnation.com/"
+    "urlMain": "https://www.reverbnation.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Roblox": {
     "errorMsg": "Page cannot be found or no longer exists",
