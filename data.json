@@ -818,7 +818,9 @@
     "errorType": "status_code",
     "rank": 30,
     "url": "https://m.twitch.tv/{}",
-    "urlMain": "https://www.twitch.tv/"
+    "urlMain": "https://www.twitch.tv/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
     "errorMsg": "page doesn\u2019t exist",
