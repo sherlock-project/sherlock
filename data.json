@@ -682,7 +682,9 @@
     "errorType": "message",
     "rank": 211,
     "url": "https://www.scribd.com/{}",
-    "urlMain": "https://www.scribd.com/"
+    "urlMain": "https://www.scribd.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Slack": {
     "errorType": "status_code",
