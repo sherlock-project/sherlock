@@ -886,7 +886,9 @@
     "errorType": "message",
     "rank": 3404,
     "url": "https://weheartit.com/{}",
-    "urlMain": "https://weheartit.com/"
+    "urlMain": "https://weheartit.com/",
+    "username_claimed":   "ventivogue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "WebNode": {
     "errorMsg": "Ztratili jste se?",
