@@ -634,7 +634,9 @@
     "errorType": "message",
     "rank": 3965,
     "url": "https://www.producthunt.com/@{}",
-    "urlMain": "https://www.producthunt.com/"
+    "urlMain": "https://www.producthunt.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Quora": {
     "errorType": "status_code",
