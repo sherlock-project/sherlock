@@ -621,7 +621,9 @@
     "errorType": "status_code",
     "rank": 396,
     "url": "https://pixabay.com/en/users/{}",
-    "urlMain": "https://pixabay.com/"
+    "urlMain": "https://pixabay.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Plug.DJ": {
     "errorType": "status_code",
@@ -634,7 +636,9 @@
     "errorType": "message",
     "rank": 3965,
     "url": "https://www.producthunt.com/@{}",
-    "urlMain": "https://www.producthunt.com/"
+    "urlMain": "https://www.producthunt.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Quora": {
     "errorType": "status_code",
@@ -647,42 +651,54 @@
     "errorType": "message",
     "rank": 1196,
     "url": "https://{}.rajce.idnes.cz/",
-    "urlMain": "https://www.rajce.idnes.cz/"
+    "urlMain": "https://www.rajce.idnes.cz/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Reddit": {
     "errorMsg": "page not found",
     "errorType": "message",
     "rank": 17,
     "url": "https://www.reddit.com/user/{}",
-    "urlMain": "https://www.reddit.com/"
+    "urlMain": "https://www.reddit.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Repl.it": {
     "errorMsg": "404",
     "errorType": "message",
     "rank": 8922,
     "url": "https://repl.it/@{}",
-    "urlMain": "https://repl.it/"
+    "urlMain": "https://repl.it/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ReverbNation": {
     "errorMsg": "Sorry, we couldn't find that page",
     "errorType": "message",
     "rank": 10615,
     "url": "https://www.reverbnation.com/{}",
-    "urlMain": "https://www.reverbnation.com/"
+    "urlMain": "https://www.reverbnation.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Roblox": {
     "errorMsg": "Page cannot be found or no longer exists",
     "errorType": "message",
     "rank": 106,
     "url": "https://www.roblox.com/user.aspx?username={}",
-    "urlMain": "https://www.roblox.com/"
+    "urlMain": "https://www.roblox.com/",
+    "username_claimed":   "bluewolfekiller",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Scribd": {
     "errorMsg": "Page not found",
     "errorType": "message",
     "rank": 211,
     "url": "https://www.scribd.com/{}",
-    "urlMain": "https://www.scribd.com/"
+    "urlMain": "https://www.scribd.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Slack": {
     "errorType": "status_code",
@@ -737,14 +753,18 @@
     "errorType": "status_code",
     "rank": 4661,
     "url": "https://robertsspaceindustries.com/citizens/{}",
-    "urlMain": "https://robertsspaceindustries.com/"
+    "urlMain": "https://robertsspaceindustries.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Steam": {
     "errorMsg": "The specified profile could not be found",
     "errorType": "message",
     "rank": 162,
     "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/"
+    "urlMain": "https://steamcommunity.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "SteamGroup": {
     "errorMsg": "No group could be retrieved for the given URL",
@@ -759,28 +779,36 @@
     "errorType": "status_code",
     "rank": 20104,
     "url": "https://www.stream.me/{}",
-    "urlMain": "https://www.stream.me/"
+    "urlMain": "https://www.stream.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Taringa": {
     "errorMsg": "Lo que est\u00e1s buscando no est\u00e1 por aqu\u00ed.",
     "errorType": "message",
     "rank": 1016,
     "url": "https://www.taringa.net/{}",
-    "urlMain": "https://taringa.net/"
+    "urlMain": "https://taringa.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
     "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact",
     "errorType": "message",
     "rank": 1034,
     "url": "https://t.me/{}",
-    "urlMain": "https://t.me/"
+    "urlMain": "https://t.me/",
+    "username_claimed":   "saman",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Tinder": {
     "errorMsg": "Looking for Someone?",
     "errorType": "message",
     "rank": 1429,
     "url": "https://www.gotinder.com/@{}",
-    "urlMain": "https://tinder.com/"
+    "urlMain": "https://tinder.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "TradingView": {
     "errorType": "status_code",
@@ -803,7 +831,9 @@
     "errorType": "message",
     "rank": 2904,
     "url": "https://www.trip.skyscanner.com/user/{}",
-    "urlMain": "https://www.trip.skyscanner.com/"
+    "urlMain": "https://www.trip.skyscanner.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "TripAdvisor": {
     "errorMsg": "This page is on vacation\u2026",
@@ -818,7 +848,9 @@
     "errorType": "status_code",
     "rank": 30,
     "url": "https://m.twitch.tv/{}",
-    "urlMain": "https://www.twitch.tv/"
+    "urlMain": "https://www.twitch.tv/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
     "errorMsg": "page doesn\u2019t exist",
@@ -872,21 +904,27 @@
     "errorType": "message",
     "rank": 4207,
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
-    "urlMain": "https://www.virustotal.com/"
+    "urlMain": "https://www.virustotal.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wattpad": {
     "errorMsg": "This page seems to be missing...",
     "errorType": "message",
     "rank": 508,
     "url": "https://www.wattpad.com/user/{}",
-    "urlMain": "https://www.wattpad.com/"
+    "urlMain": "https://www.wattpad.com/",
+    "username_claimed":   "Dogstho7951",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "We Heart It": {
     "errorMsg": "Oops! You've landed on a moving target!",
     "errorType": "message",
     "rank": 3404,
     "url": "https://weheartit.com/{}",
-    "urlMain": "https://weheartit.com/"
+    "urlMain": "https://weheartit.com/",
+    "username_claimed":   "ventivogue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "WebNode": {
     "errorMsg": "Ztratili jste se?",
@@ -900,14 +938,18 @@
     "errorType": "message",
     "rank": 75,
     "url": "https://wikia.com/wiki/User:{}",
-    "urlMain": "http://www.wikia.com/"
+    "urlMain": "http://www.wikia.com/",
+    "username_claimed":   "KP_Blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wikipedia": {
     "errorMsg": "If a page was recently created here, it may not be visible yet because of a delay in updating the database",
     "errorType": "message",
     "rank": 5,
     "url": "https://www.wikipedia.org/wiki/User:{}",
-    "urlMain": "https://www.wikipedia.org/"
+    "urlMain": "https://www.wikipedia.org/",
+    "username_claimed":   "Hoadlck",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wix": {
     "errorType": "status_code",
@@ -938,14 +980,18 @@
     "errorType": "message",
     "rank": 2,
     "url": "https://www.youtube.com/{}",
-    "urlMain": "https://www.youtube.com/"
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Younow": {
     "errorMsg": "pageTitle || 'YouNow - Broadcast Live",
     "errorType": "message",
     "rank": 13355,
     "url": "https://www.younow.com/{}",
-    "urlMain": "https://www.younow.com/"
+    "urlMain": "https://www.younow.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",
@@ -973,10 +1019,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "last.fm": {
-    "errorMsg": "Whoops! Sorry, but this page doesn't exist.",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1194,
     "url": "https://last.fm/user/{}",
-    "urlMain": "https://last.fm/"
+    "urlMain": "https://last.fm/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
