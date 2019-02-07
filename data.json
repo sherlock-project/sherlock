@@ -766,7 +766,9 @@
     "errorType": "message",
     "rank": 1016,
     "url": "https://www.taringa.net/{}",
-    "urlMain": "https://taringa.net/"
+    "urlMain": "https://taringa.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
     "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact",
