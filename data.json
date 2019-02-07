@@ -661,7 +661,9 @@
     "errorType": "message",
     "rank": 8922,
     "url": "https://repl.it/@{}",
-    "urlMain": "https://repl.it/"
+    "urlMain": "https://repl.it/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ReverbNation": {
     "errorMsg": "Sorry, we couldn't find that page",
