@@ -900,7 +900,9 @@
     "errorType": "message",
     "rank": 75,
     "url": "https://wikia.com/wiki/User:{}",
-    "urlMain": "http://www.wikia.com/"
+    "urlMain": "http://www.wikia.com/",
+    "username_claimed":   "KP_Blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wikipedia": {
     "errorMsg": "If a page was recently created here, it may not be visible yet because of a delay in updating the database",
