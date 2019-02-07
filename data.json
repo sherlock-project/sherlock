@@ -872,7 +872,9 @@
     "errorType": "message",
     "rank": 4207,
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
-    "urlMain": "https://www.virustotal.com/"
+    "urlMain": "https://www.virustotal.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wattpad": {
     "errorMsg": "This page seems to be missing...",
