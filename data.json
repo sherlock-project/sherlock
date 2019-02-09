@@ -249,7 +249,9 @@
     "errorType": "status_code",
     "rank": 133,
     "url": "https://www.dailymotion.com/{}",
-    "urlMain": "https://www.dailymotion.com/"
+    "urlMain": "https://www.dailymotion.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Designspiration": {
     "errorType": "status_code",
