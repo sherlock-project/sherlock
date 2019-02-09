@@ -521,7 +521,9 @@
     "errorType": "message",
     "rank": 314911,
     "url": "https://ws2.kik.com/user/{}",
-    "urlMain": "http://kik.me/"
+    "urlMain": "http://kik.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kongregate": {
     "errorMsg": "Sorry, no account with that name was found.",
