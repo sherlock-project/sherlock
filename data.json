@@ -369,7 +369,9 @@
     "errorType": "status_code",
     "rank": 2286,
     "url": "https://foursquare.com/{}",
-    "urlMain": "https://foursquare.com/"
+    "urlMain": "https://foursquare.com/",
+    "username_claimed":   "dens",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Giphy": {
     "errorType": "status_code",
