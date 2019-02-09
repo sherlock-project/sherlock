@@ -190,7 +190,9 @@
     "errorType": "message",
     "rank": 17253,
     "url": "https://coderwall.com/{}",
-    "urlMain": "https://coderwall.com/"
+    "urlMain": "https://coderwall.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ColourLovers": {
     "errorMsg": "Page Not Loved",
