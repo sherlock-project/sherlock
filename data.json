@@ -311,7 +311,9 @@
     "errorType": "message",
     "rank": 28550,
     "url": "https://ello.co/{}",
-    "urlMain": "https://ello.co/"
+    "urlMain": "https://ello.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Etsy": {
     "errorType": "status_code",
