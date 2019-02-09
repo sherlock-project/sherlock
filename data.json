@@ -85,7 +85,9 @@
     "errorType": "message",
     "rank": 1544,
     "url": "https://{}.basecamphq.com",
-    "urlMain": "https://basecamp.com/"
+    "urlMain": "https://basecamp.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Behance": {
     "errorType": "status_code",
@@ -115,7 +117,9 @@
     "rank": 192,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.blogspot.com",
-    "urlMain": "https://www.blogger.com/"
+    "urlMain": "https://www.blogger.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BuzzFeed": {
     "errorType": "status_code",
@@ -145,13 +149,17 @@
     "errorType": "status_code",
     "rank": 45615,
     "url": "https://cash.me/{}",
-    "urlMain": "https://cash.me/"
+    "urlMain": "https://cash.me/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Cloob": {
     "errorType": "status_code",
     "rank": 8131,
     "url": "https://www.cloob.com/name/{}",
-    "urlMain": "https://www.cloob.com/"
+    "urlMain": "https://www.cloob.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codecademy": {
     "errorType": "status_code",
@@ -173,21 +181,26 @@
     "errorType": "status_code",
     "rank": 852,
     "url": "https://codepen.io/{}",
-    "urlMain": "https://codepen.io/"
+    "urlMain": "https://codepen.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
     "errorType": "message",
     "rank": 17253,
     "url": "https://coderwall.com/{}",
-    "urlMain": "https://coderwall.com/"
+    "urlMain": "https://coderwall.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ColourLovers": {
-    "errorMsg": "Page Not Loved",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 30873,
-    "url": "https://www.colourlovers.com/love/{}",
-    "urlMain": "https://www.colourlovers.com/"
+    "url": "https://www.colourlovers.com/lover/{}",
+    "urlMain": "https://www.colourlovers.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Contently": {
     "errorMsg": "We can't find that page!",
@@ -195,13 +208,17 @@
     "rank": 57715,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
-    "urlMain": "https://contently.com/"
+    "urlMain": "https://contently.com/",
+    "username_claimed":   "jordanteicher",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Coroflot": {
     "errorType": "status_code",
     "rank": 38626,
     "url": "https://www.coroflot.com/{}",
-    "urlMain": "https://coroflot.com/"
+    "urlMain": "https://coroflot.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "CreativeMarket": {
     "errorType": "response_url",
@@ -216,19 +233,25 @@
     "errorType": "status_code",
     "rank": 170211,
     "url": "https://{}.crevado.com",
-    "urlMain": "https://crevado.com/"
+    "urlMain": "https://crevado.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Crunchyroll": {
     "errorType": "status_code",
     "rank": 447,
     "url": "https://www.crunchyroll.com/user/{}",
-    "urlMain": "https://www.crunchyroll.com/"
+    "urlMain": "https://www.crunchyroll.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "DailyMotion": {
     "errorType": "status_code",
     "rank": 133,
     "url": "https://www.dailymotion.com/{}",
-    "urlMain": "https://www.dailymotion.com/"
+    "urlMain": "https://www.dailymotion.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Designspiration": {
     "errorType": "status_code",
@@ -243,13 +266,17 @@
     "rank": 186,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.deviantart.com",
-    "urlMain": "https://deviantart.com"
+    "urlMain": "https://deviantart.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Disqus": {
     "errorType": "status_code",
     "rank": 1330,
     "url": "https://disqus.com/{}",
-    "urlMain": "https://disqus.com/"
+    "urlMain": "https://disqus.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Dribbble": {
     "errorMsg": "Whoops, that page is gone.",
@@ -275,20 +302,26 @@
     "errorType": "message",
     "rank": 39,
     "url": "https://www.ebay.com/usr/{}",
-    "urlMain": "https://www.ebay.com/"
+    "urlMain": "https://www.ebay.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Ello": {
     "errorMsg": "We couldn't find the page you're looking for",
     "errorType": "message",
     "rank": 28550,
     "url": "https://ello.co/{}",
-    "urlMain": "https://ello.co/"
+    "urlMain": "https://ello.co/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Etsy": {
     "errorType": "status_code",
     "rank": 152,
     "url": "https://www.etsy.com/shop/{}",
-    "urlMain": "https://www.etsy.com/"
+    "urlMain": "https://www.etsy.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
     "errorType": "response_url",
@@ -304,21 +337,27 @@
     "rank": 3,
     "regexCheck": "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
     "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/"
+    "urlMain": "https://www.facebook.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flickr": {
     "errorType": "status_code",
     "rank": 357,
     "url": "https://www.flickr.com/people/{}",
-    "urlMain": "https://www.flickr.com/"
+    "urlMain": "https://www.flickr.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flipboard": {
-    "errorMsg": "loading",
+    "errorMsg": "loading...",
     "errorType": "message",
     "rank": 4502,
     "regexCheck": "^([a-zA-Z0-9_]){1,15}$",
     "url": "https://flipboard.com/@{}",
-    "urlMain": "https://flipboard.com/"
+    "urlMain": "https://flipboard.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "xgtrq"
   },
   "Fotolog": {
     "errorType": "status_code",
@@ -330,99 +369,129 @@
     "errorType": "status_code",
     "rank": 2286,
     "url": "https://foursquare.com/{}",
-    "urlMain": "https://foursquare.com/"
+    "urlMain": "https://foursquare.com/",
+    "username_claimed":   "dens",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Giphy": {
     "errorType": "status_code",
     "rank": 582,
     "url": "https://giphy.com/{}",
-    "urlMain": "https://giphy.com/"
+    "urlMain": "https://giphy.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "GitHub": {
     "errorType": "status_code",
     "rank": 57,
     "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
     "url": "https://www.github.com/{}",
-    "urlMain": "https://www.github.com/"
+    "urlMain": "https://www.github.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "GitLab": {
     "errorMsg": "You need to sign in or sign up before continuing.",
     "errorType": "message",
     "rank": 1721,
     "url": "https://gitlab.com/{}",
-    "urlMain": "https://gitlab.com/"
+    "urlMain": "https://gitlab.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gitee": {
     "errorType": "status_code",
     "rank": 3480,
     "url": "https://gitee.com/{}",
-    "urlMain": "https://gitee.com/"
+    "urlMain": "https://gitee.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "GoodReads": {
     "errorType": "status_code",
     "rank": 379,
     "url": "https://www.goodreads.com/{}",
-    "urlMain": "https://www.goodreads.com/"
+    "urlMain": "https://www.goodreads.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Google Plus": {
     "errorType": "status_code",
     "rank": 1,
     "url": "https://plus.google.com/+{}",
-    "urlMain": "https://plus.google.com/"
+    "urlMain": "https://plus.google.com/",
+    "username_claimed":   "davidbrin1",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gravatar": {
     "errorType": "status_code",
     "rank": 5537,
     "url": "http://en.gravatar.com/{}",
-    "urlMain": "http://en.gravatar.com/"
+    "urlMain": "http://en.gravatar.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gumroad": {
     "errorMsg": "Page not found.",
     "errorType": "message",
     "rank": 3942,
     "url": "https://www.gumroad.com/{}",
-    "urlMain": "https://www.gumroad.com/"
+    "urlMain": "https://www.gumroad.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "HackerNews": {
     "errorMsg": "No such user.",
     "errorType": "message",
     "rank": 3035,
     "url": "https://news.ycombinator.com/user?id={}",
-    "urlMain": "https://news.ycombinator.com/"
+    "urlMain": "https://news.ycombinator.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "HackerOne": {
     "errorMsg": "Page not found",
     "errorType": "message",
     "rank": 39173,
     "url": "https://hackerone.com/{}",
-    "urlMain": "https://hackerone.com/"
+    "urlMain": "https://hackerone.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
     "rank": 130891,
     "url": "https://www.house-mixes.com/profile/{}",
-    "urlMain": "https://www.house-mixes.com/"
+    "urlMain": "https://www.house-mixes.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
     "errorType": "message",
     "rank": 2365,
     "url": "https://houzz.com/user/{}",
-    "urlMain": "https://houzz.com/"
+    "urlMain": "https://houzz.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "HubPages": {
     "errorType": "status_code",
     "rank": 10006,
     "url": "https://hubpages.com/@{}",
-    "urlMain": "https://hubpages.com/"
+    "urlMain": "https://hubpages.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "IFTTT": {
     "errorMsg": "The requested page or file does not exist",
     "errorType": "message",
     "rank": 4418,
     "url": "https://www.ifttt.com/p/{}",
-    "urlMain": "https://www.ifttt.com/"
+    "urlMain": "https://www.ifttt.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ImageShack": {
     "errorType": "response_url",
