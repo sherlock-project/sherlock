@@ -618,7 +618,9 @@
     "errorType": "status_code",
     "rank": 3380,
     "url": "https://photobucket.com/user/{}/library",
-    "urlMain": "https://photobucket.com/"
+    "urlMain": "https://photobucket.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pinterest": {
     "errorType": "response_url",
