@@ -455,7 +455,9 @@
     "errorType": "message",
     "rank": 1009,
     "url": "https://www.instructables.com/member/{}",
-    "urlMain": "https://www.instructables.com/"
+    "urlMain": "https://www.instructables.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Investing.com": {
     "errorType": "status_code",
