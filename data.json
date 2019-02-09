@@ -427,7 +427,9 @@
     "errorType": "status_code",
     "rank": 5537,
     "url": "http://en.gravatar.com/{}",
-    "urlMain": "http://en.gravatar.com/"
+    "urlMain": "http://en.gravatar.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gumroad": {
     "errorMsg": "Page not found.",
