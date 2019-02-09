@@ -480,7 +480,9 @@
     "errorType": "status_code",
     "rank": 10006,
     "url": "https://hubpages.com/@{}",
-    "urlMain": "https://hubpages.com/"
+    "urlMain": "https://hubpages.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "IFTTT": {
     "errorMsg": "The requested page or file does not exist",
