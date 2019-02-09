@@ -558,7 +558,9 @@
     "errorType": "message",
     "rank": 3168,
     "url": "https://www.mixcloud.com/{}",
-    "urlMain": "https://www.mixcloud.com/"
+    "urlMain": "https://www.mixcloud.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "MyAnimeList": {
     "errorType": "status_code",
