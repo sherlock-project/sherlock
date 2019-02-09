@@ -117,7 +117,9 @@
     "rank": 192,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.blogspot.com",
-    "urlMain": "https://www.blogger.com/"
+    "urlMain": "https://www.blogger.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BuzzFeed": {
     "errorType": "status_code",
