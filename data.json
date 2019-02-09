@@ -266,7 +266,9 @@
     "rank": 186,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.deviantart.com",
-    "urlMain": "https://deviantart.com"
+    "urlMain": "https://deviantart.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Disqus": {
     "errorType": "status_code",
