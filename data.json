@@ -610,7 +610,9 @@
     "errorType": "message",
     "rank": 609,
     "url": "https://www.pexels.com/@{}",
-    "urlMain": "https://www.pexels.com/"
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed":   "rawpixel",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Photobucket": {
     "errorType": "status_code",
