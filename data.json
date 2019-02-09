@@ -471,7 +471,9 @@
     "errorType": "status_code",
     "rank": 901,
     "url": "https://issuu.com/{}",
-    "urlMain": "https://issuu.com/"
+    "urlMain": "https://issuu.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Itch.io": {
     "errorType": "status_code",
