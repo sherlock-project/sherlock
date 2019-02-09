@@ -512,7 +512,9 @@
     "errorType": "status_code",
     "rank": 96726,
     "url": "https://keybase.io/{}",
-    "urlMain": "https://keybase.io/"
+    "urlMain": "https://keybase.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kik": {
     "errorMsg": "The page you requested was not found",
