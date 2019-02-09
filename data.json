@@ -395,7 +395,9 @@
     "errorType": "message",
     "rank": 1721,
     "url": "https://gitlab.com/{}",
-    "urlMain": "https://gitlab.com/"
+    "urlMain": "https://gitlab.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gitee": {
     "errorType": "status_code",
