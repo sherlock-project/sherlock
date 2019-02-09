@@ -472,7 +472,9 @@
     "errorType": "message",
     "rank": 2365,
     "url": "https://houzz.com/user/{}",
-    "urlMain": "https://houzz.com/"
+    "urlMain": "https://houzz.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "HubPages": {
     "errorType": "status_code",
