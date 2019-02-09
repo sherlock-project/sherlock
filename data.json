@@ -337,7 +337,9 @@
     "rank": 3,
     "regexCheck": "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
     "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/"
+    "urlMain": "https://www.facebook.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flickr": {
     "errorType": "status_code",
