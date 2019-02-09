@@ -488,7 +488,9 @@
     "noPeriod": "True",
     "rank": 104286,
     "url": "https://{}.jimdosite.com",
-    "urlMain": "https://jimdosite.com/"
+    "urlMain": "https://jimdosite.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kaggle": {
     "errorType": "status_code",
