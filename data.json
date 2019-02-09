@@ -149,7 +149,9 @@
     "errorType": "status_code",
     "rank": 45615,
     "url": "https://cash.me/{}",
-    "urlMain": "https://cash.me/"
+    "urlMain": "https://cash.me/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Cloob": {
     "errorType": "status_code",
