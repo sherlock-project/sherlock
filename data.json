@@ -496,7 +496,9 @@
     "errorType": "status_code",
     "rank": 2732,
     "url": "https://www.kaggle.com/{}",
-    "urlMain": "https://www.kaggle.com/"
+    "urlMain": "https://www.kaggle.com/",
+    "username_claimed":   "dansbecker",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "KanoWorld": {
     "errorType": "status_code",
