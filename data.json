@@ -601,7 +601,9 @@
     "errorType": "status_code",
     "rank": 335,
     "url": "https://www.patreon.com/{}",
-    "urlMain": "https://www.patreon.com/"
+    "urlMain": "https://www.patreon.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pexels": {
     "errorMsg": "Ouch, something went wrong!",
