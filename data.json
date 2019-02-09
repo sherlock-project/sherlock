@@ -564,7 +564,9 @@
     "errorType": "status_code",
     "rank": 1026051,
     "url": "https://mstdn.io/@{}",
-    "urlMain": "https://mstdn.io/"
+    "urlMain": "https://mstdn.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Medium": {
     "errorType": "status_code",
