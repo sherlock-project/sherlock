@@ -437,71 +437,93 @@
     "errorType": "status_code",
     "rank": 63,
     "url": "https://imgur.com/user/{}",
-    "urlMain": "https://imgur.com/"
+    "urlMain": "https://imgur.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instagram": {
     "errorMsg": "The link you followed may be broken",
     "errorType": "message",
     "rank": 16,
     "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/"
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instructables": {
     "errorMsg": "404: We're sorry, things break sometimes",
     "errorType": "message",
     "rank": 1009,
     "url": "https://www.instructables.com/member/{}",
-    "urlMain": "https://www.instructables.com/"
+    "urlMain": "https://www.instructables.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Investing.com": {
     "errorType": "status_code",
     "rank": 534,
     "url": "https://www.investing.com/traders/{}",
-    "urlMain": "https://www.investing.com/"
+    "urlMain": "https://www.investing.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Issuu": {
     "errorType": "status_code",
     "rank": 901,
     "url": "https://issuu.com/{}",
-    "urlMain": "https://issuu.com/"
+    "urlMain": "https://issuu.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Itch.io": {
     "errorType": "status_code",
     "rank": 2280,
     "url": "https://{}.itch.io/",
-    "urlMain": "https://itch.io/"
+    "urlMain": "https://itch.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Jimdo": {
     "errorType": "status_code",
     "noPeriod": "True",
     "rank": 104286,
     "url": "https://{}.jimdosite.com",
-    "urlMain": "https://jimdosite.com/"
+    "urlMain": "https://jimdosite.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kaggle": {
     "errorType": "status_code",
     "rank": 2732,
     "url": "https://www.kaggle.com/{}",
-    "urlMain": "https://www.kaggle.com/"
+    "urlMain": "https://www.kaggle.com/",
+    "username_claimed":   "dansbecker",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "KanoWorld": {
     "errorType": "status_code",
     "rank": 73633,
     "url": "https://api.kano.me/progress/user/{}",
-    "urlMain": "https://world.kano.me/"
+    "urlMain": "https://world.kano.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Keybase": {
     "errorType": "status_code",
     "rank": 96726,
     "url": "https://keybase.io/{}",
-    "urlMain": "https://keybase.io/"
+    "urlMain": "https://keybase.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kik": {
     "errorMsg": "The page you requested was not found",
     "errorType": "message",
     "rank": 314911,
     "url": "https://ws2.kik.com/user/{}",
-    "urlMain": "http://kik.me/"
+    "urlMain": "http://kik.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Kongregate": {
     "errorMsg": "Sorry, no account with that name was found.",
@@ -509,20 +531,26 @@
     "rank": 1943,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
-    "urlMain": "https://www.kongregate.com/"
+    "urlMain": "https://www.kongregate.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Launchpad": {
     "errorType": "status_code",
     "rank": 7343,
     "url": "https://launchpad.net/~{}",
-    "urlMain": "https://launchpad.net/"
+    "urlMain": "https://launchpad.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
     "errorType": "message",
     "rank": 2524,
     "url": "https://letterboxd.com/{}",
-    "urlMain": "https://letterboxd.com/"
+    "urlMain": "https://letterboxd.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "LiveJournal": {
     "errorMsg": "Unknown Journal",
@@ -536,13 +564,17 @@
     "errorType": "status_code",
     "rank": 1026051,
     "url": "https://mstdn.io/@{}",
-    "urlMain": "https://mstdn.io/"
+    "urlMain": "https://mstdn.io/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Medium": {
     "errorType": "status_code",
     "rank": 212,
     "url": "https://medium.com/@{}",
-    "urlMain": "https://medium.com/"
+    "urlMain": "https://medium.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "MeetMe": {
     "errorType": "response_url",
@@ -558,27 +590,35 @@
     "errorType": "message",
     "rank": 3168,
     "url": "https://www.mixcloud.com/{}",
-    "urlMain": "https://www.mixcloud.com/"
+    "urlMain": "https://www.mixcloud.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "MyAnimeList": {
     "errorType": "status_code",
     "rank": 471,
     "url": "https://myanimelist.net/profile/{}",
-    "urlMain": "https://myanimelist.net/"
+    "urlMain": "https://myanimelist.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "NameMC (Minecraft.net skins)": {
     "errorMsg": "Profiles: 0 results",
     "errorType": "message",
     "rank": 5923,
     "url": "https://namemc.com/profile/{}",
-    "urlMain": "https://namemc.com/"
+    "urlMain": "https://namemc.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Newgrounds": {
     "errorType": "status_code",
     "rank": 2408,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.newgrounds.com",
-    "urlMain": "https://newgrounds.com"
+    "urlMain": "https://newgrounds.com",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pastebin": {
     "errorType": "response_url",
@@ -593,20 +633,26 @@
     "errorType": "status_code",
     "rank": 335,
     "url": "https://www.patreon.com/{}",
-    "urlMain": "https://www.patreon.com/"
+    "urlMain": "https://www.patreon.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pexels": {
     "errorMsg": "Ouch, something went wrong!",
     "errorType": "message",
     "rank": 609,
     "url": "https://www.pexels.com/@{}",
-    "urlMain": "https://www.pexels.com/"
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed":   "rawpixel",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Photobucket": {
     "errorType": "status_code",
     "rank": 3380,
     "url": "https://photobucket.com/user/{}/library",
-    "urlMain": "https://photobucket.com/"
+    "urlMain": "https://photobucket.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pinterest": {
     "errorType": "response_url",
