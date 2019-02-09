@@ -539,7 +539,9 @@
     "errorType": "status_code",
     "rank": 7343,
     "url": "https://launchpad.net/~{}",
-    "urlMain": "https://launchpad.net/"
+    "urlMain": "https://launchpad.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
