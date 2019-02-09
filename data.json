@@ -504,7 +504,9 @@
     "errorType": "status_code",
     "rank": 73633,
     "url": "https://api.kano.me/progress/user/{}",
-    "urlMain": "https://world.kano.me/"
+    "urlMain": "https://world.kano.me/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Keybase": {
     "errorType": "status_code",
