@@ -350,12 +350,14 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flipboard": {
-    "errorMsg": "loading",
+    "errorMsg": "loading...",
     "errorType": "message",
     "rank": 4502,
     "regexCheck": "^([a-zA-Z0-9_]){1,15}$",
     "url": "https://flipboard.com/@{}",
-    "urlMain": "https://flipboard.com/"
+    "urlMain": "https://flipboard.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "xgtrq"
   },
   "Fotolog": {
     "errorType": "status_code",
