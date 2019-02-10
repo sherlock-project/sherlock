@@ -993,10 +993,13 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "VK": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.quora.com/profile/{}",
     "rank": 15,
     "url": "https://vk.com/{}",
-    "urlMain": "https://vk.com/"
+    "urlMain": "https://vk.com/",
+    "username_claimed":   "smith",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "VSCO": {
     "errorType": "status_code",
