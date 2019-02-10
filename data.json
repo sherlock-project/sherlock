@@ -1082,7 +1082,9 @@
     "errorType": "status_code",
     "rank": 416,
     "url": "https://{}.wix.com",
-    "urlMain": "https://wix.com/"
+    "urlMain": "https://wix.com/",
+    "username_claimed":   "support",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "WordPress": {
     "errorType": "response_url",
