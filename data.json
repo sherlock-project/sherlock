@@ -361,12 +361,6 @@
     "username_claimed":   "blue",
     "username_unclaimed": "xgtrq"
   },
-  "Fotolog": {
-    "errorType": "status_code",
-    "rank": 47777,
-    "url": "https://fotolog.com/{}",
-    "urlMain": "https://fotolog.com/"
-  },
   "Foursquare": {
     "errorType": "status_code",
     "rank": 2286,
