@@ -624,12 +624,13 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "LiveJournal": {
-    "errorMsg": "Unknown Journal",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 223,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.livejournal.com",
-    "urlMain": "https://www.livejournal.com/"
+    "urlMain": "https://www.livejournal.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Mastodon": {
     "errorType": "status_code",
