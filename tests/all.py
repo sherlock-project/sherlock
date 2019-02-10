@@ -202,3 +202,20 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.detect_type_check("message", exist_check=True)
 
         return
+
+    def test_coverage_total(self):
+        """Test Site Coverage Is Total.
+
+        This test checks that all sites have test data available.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if we do not have total coverage.
+        """
+
+        self.coverage_total_check()
+
+        return
