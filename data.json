@@ -139,11 +139,13 @@
     "username_unclaimed": "xgtrq"
   },
   "Carbonmade": {
-    "errorMsg": "You've accidentally stumbled upon Mike's super secret nap grotto.",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
     "rank": 31911,
     "url": "https://{}.carbonmade.com",
-    "urlMain": "https://carbonmade.com/"
+    "urlMain": "https://carbonmade.com/",
+    "username_claimed":   "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "CashMe": {
     "errorType": "status_code",
