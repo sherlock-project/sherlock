@@ -1123,11 +1123,13 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://www.zhihu.com/people/{}",
     "rank": 81,
     "url": "https://www.zhihu.com/people/{}",
-    "urlMain": "https://www.zhihu.com/"
+    "urlMain": "https://www.zhihu.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "devRant": {
     "errorType": "response_url",
