@@ -166,3 +166,29 @@ class SherlockBaseTest(unittest.TestCase):
                                )
 
         return
+
+    def coverage_total_check(self):
+        """Total Coverage Check.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Counts up all Sites with full test data available.
+        Will trigger an assert if any Site does not have test coverage.
+        """
+
+        site_no_tests_list = []
+
+        for site, site_data in self.site_data_all.items():
+            if (
+                 (site_data.get("username_claimed")   is None) or
+                 (site_data.get("username_unclaimed") is None)
+               ):
+                # Test information not available on this site.
+                site_no_tests_list.append(site)
+
+        self.assertEqual("", ", ".join(site_no_tests_list))
+
+        return
