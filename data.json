@@ -105,13 +105,6 @@
     "username_claimed":   "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "BlackPlanet": {
-    "errorMsg": "My Hits",
-    "errorType": "message",
-    "rank": 110021,
-    "url": "http://blackplanet.com/{}",
-    "urlMain": "http://blackplanet.com/"
-  },
   "Blogger": {
     "errorType": "status_code",
     "rank": 192,
