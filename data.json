@@ -761,10 +761,13 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Quora": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.quora.com/profile/{}",
     "rank": 89,
     "url": "https://www.quora.com/profile/{}",
-    "urlMain": "https://www.quora.com/"
+    "urlMain": "https://www.quora.com/",
+    "username_claimed":   "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Rajce.net": {
     "errorMsg": "410",
