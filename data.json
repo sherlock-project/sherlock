@@ -283,6 +283,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "DEV Community": {
+    "errorType": "status_code",
+    "rank": 10940,
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+    "url": "https://dev.to/{}",
+    "urlMain": "https://dev.to/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
