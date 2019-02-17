@@ -1,6 +1,6 @@
 {
   "500px": {
-    "errorMsg": "Sorry, no such page.",
+    "errorMsg": "Oops! This page doesn’t exist.",
     "errorType": "message",
     "rank": 2566,
     "url": "https://500px.com/{}",
