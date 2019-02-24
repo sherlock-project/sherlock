@@ -123,6 +123,10 @@ properly, and will be expanded as time goes by.
 ## Original creator of Sherlock
 Siddharth Dushantha ([sdushantha](https://github.com/sdushantha))
 
+## Stargazers over time
+
+[![Stargazers over time](https://starcharts.herokuapp.com/TheYahya/sherlock.svg)](https://starcharts.herokuapp.com/TheYahya/sherlock)
+
 ## License
 
 MIT © [Yahya SayadArbabi](https://theyahya.com)
