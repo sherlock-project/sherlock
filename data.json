@@ -333,7 +333,7 @@
     "rank": 148,
     "url": "https://www.etsy.com/shop/{}",
     "urlMain": "https://www.etsy.com/",
-    "username_claimed": "blue",
+    "username_claimed": "user",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
@@ -733,7 +733,7 @@
   },
   "Pinterest": {
     "errorType": "response_url",
-    "errorUrl": "https://www.pinterest.com/?show_error=true",
+    "errorUrl": "https://www.pintrest.com/{}/",
     "rank": 71,
     "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
