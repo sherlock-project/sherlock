@@ -66,6 +66,9 @@ optional arguments:
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
+  --nonotfound
+			Removes all 'Not Found!' messages from the terminal.
+			Helpful for reducing redundant output.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
