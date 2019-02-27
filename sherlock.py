@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.5.3"
+__version__ = "0.5.4"
 amount = 0
 
 BANNER = r'''
@@ -132,7 +132,7 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
     return None, "", -1
 
 
-def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None):
+def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None, print_found_only=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -299,7 +299,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "status_code":
@@ -309,7 +310,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "response_url":
@@ -324,7 +326,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "":
@@ -407,6 +410,10 @@ def main():
                         help="To be used with the '--proxy_list' parameter. "
                              "The script will check if the proxies supplied in the .csv file are working and anonymous."
                              "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
+                        )
+    parser.add_argument("--print-found",
+                        action="store_true", dest="print_found_only", default=False,
+                        help="Do not output sites where the username was not found."
                         )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
@@ -563,7 +570,7 @@ def main():
 
         results = {}
         results = sherlock(username, site_data, verbose=args.verbose,
-                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
+                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy, print_found_only=args.print_found_only)
 
         exists_counter = 0
         for website_name in results:

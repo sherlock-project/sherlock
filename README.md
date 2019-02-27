@@ -66,6 +66,9 @@ optional arguments:
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
+  --print-found
+			Prints only found messages. Errors, and invalid
+			username errors will not appear.
 ```
 
 For example, run ```python3 sherlock.py user123```, and all of the accounts
