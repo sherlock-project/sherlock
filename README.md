@@ -1,4 +1,4 @@
-# Sherlock [![Build Status](https://travis-ci.com/TheYahya/sherlock.svg?branch=master)](https://travis-ci.com/TheYahya/sherlock)
+# Sherlock [![Build Status](https://travis-ci.com/TheYahya/sherlock.svg?branch=master)](https://travis-ci.com/TheYahya/sherlock)   [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/TheYahya/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance)
 > Find usernames across [social networks](https://github.com/theyahya/sherlock/blob/master/sites.md)
 
 <p align="center">
