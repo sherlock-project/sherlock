@@ -320,7 +320,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # match the request.  Instead, we will ensure that the response
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
-            if (r.status_code >= 200) and (r.status_code < 300):
+            if 200 <= r.status_code < 300:
                 #
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
