@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.5.4"
+__version__ = "0.5.5"
 amount = 0
 
 BANNER = r'''
@@ -320,7 +320,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # match the request.  Instead, we will ensure that the response
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
-            if (r.status_code >= 200) and (r.status_code < 300):
+            if 200 <= r.status_code < 300:
                 #
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
