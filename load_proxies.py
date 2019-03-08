@@ -22,7 +22,6 @@ def load_proxies_from_csv(path_to_list):
     return proxies
 
 
-
 def check_proxy(proxy_ip, proxy_port, protocol):
     """
     A function which test the proxy by attempting
@@ -42,10 +41,6 @@ def check_proxy(proxy_ip, proxy_port, protocol):
             return False
     except Exception:
         return False
-
-
-
-from colorama import Fore, Style
 
 
 def check_proxy_list(proxy_list, max_proxies=None):
