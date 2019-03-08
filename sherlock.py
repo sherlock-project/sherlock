@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.5.5"
+__version__ = "0.5.6"
 amount = 0
 
 BANNER = r'''
@@ -72,6 +72,13 @@ class ElapsedFuturesSession(FuturesSession):
         return super(ElapsedFuturesSession, self).request(method, url, hooks=hooks, *args, **kwargs)
 
 
+def print_info(title, info):
+    print(Style.BRIGHT + Fore.GREEN + "[" +
+          Fore.YELLOW + "*" +
+          Fore.GREEN + f"] {title}" +
+          Fore.WHITE + f" {info}" +
+          Fore.GREEN + " on:")
+
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
@@ -91,7 +98,6 @@ def print_found(social_network, url, response_time, verbose=False):
            format_response_time(response_time, verbose) +
            Fore.GREEN + " {}:").format(social_network), url)
 
-
 def print_not_found(social_network, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
@@ -100,9 +106,17 @@ def print_not_found(social_network, response_time, verbose=False):
            Fore.GREEN + " {}:" +
            Fore.YELLOW + " Not Found!").format(social_network))
 
+def print_invalid(social_network, msg):
+    """Print invalid search result."""
+    print((Style.BRIGHT + Fore.WHITE + "[" +
+           Fore.RED + "-" +
+           Fore.WHITE + "]" +
+           Fore.GREEN + " {}:" +
+           Fore.YELLOW + f" {msg}").format(social_network))
+
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
-    
+
     global proxy_list
 
     try:
@@ -160,11 +174,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     """
     global amount
 
-    print((Style.BRIGHT + Fore.GREEN + "[" +
-           Fore.YELLOW + "*" +
-           Fore.GREEN + "] Checking username" +
-           Fore.WHITE + " {}" +
-           Fore.GREEN + " on:").format(username))
+    print_info("Checking username", username)
 
     # A user agent is needed because some sites don't
     # return the correct information since they think that
@@ -203,11 +213,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            print((Style.BRIGHT + Fore.WHITE + "[" +
-                   Fore.RED + "-" +
-                   Fore.WHITE + "]" +
-                   Fore.GREEN + " {}:" +
-                   Fore.YELLOW + " Illegal Username Format For This Site!").format(social_network))
+            print_invalid(social_network, "Illegal Username Format For This Site!")
             results_site["exists"] = "illegal"
         else:
             # URL of user on site (if it exists)
@@ -331,11 +337,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "no"
 
         elif error_type == "":
-            print((Style.BRIGHT + Fore.WHITE + "[" +
-                   Fore.RED + "-" +
-                   Fore.WHITE + "]" +
-                   Fore.GREEN + " {}:" +
-                   Fore.YELLOW + " Error!").format(social_network))
+            print_invalid(social_network, "Error!")
             exists = "error"
 
         # Save exists flag
@@ -444,11 +446,7 @@ def main():
     global proxy_list
 
     if args.proxy_list != None:
-        print((Style.BRIGHT + Fore.GREEN + "[" +
-               Fore.YELLOW + "*" +
-               Fore.GREEN + "] Loading proxies from" +
-               Fore.WHITE + " {}" +
-               Fore.GREEN + " :").format(args.proxy_list))
+        print_info("Loading proxies from", args.proxy_list)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
@@ -538,7 +536,7 @@ def main():
             sys.exit(1)
 
     if args.rank:
-        # Sort data by rank 
+        # Sort data by rank
         site_dataCpy = dict(site_data)
         ranked_sites = sorted(site_data, key=lambda k: ("rank" not in k, site_data[k].get("rank", sys.maxsize)))
         site_data = {}
