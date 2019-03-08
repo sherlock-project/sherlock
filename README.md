@@ -131,13 +131,11 @@ Note that the tests are very much a work in progress.  Significant work is
 required to get full test coverage.  But, the current tests are working
 properly, and will be expanded as time goes by.
 
-## Original creator of Sherlock
-Siddharth Dushantha ([sdushantha](https://github.com/sdushantha))
-
 ## Stargazers over time
 
 [![Stargazers over time](https://starcharts.herokuapp.com/TheYahya/sherlock.svg)](https://starcharts.herokuapp.com/TheYahya/sherlock)
 
 ## License
 
-MIT © [Yahya SayadArbabi](https://theyahya.com)
+MIT © [Yahya SayadArbabi](https://theyahya.com)<br/>
+Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
