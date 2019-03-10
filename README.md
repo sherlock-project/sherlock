@@ -23,7 +23,7 @@
 
 ```bash
 # clone the repo
-$ git clone https://github.com/TheYahya/sherlock.git
+$ git clone https://github.com/sherlock-project/sherlock.git
 
 # change the working directory to sherlock
 $ cd sherlock
