@@ -5,24 +5,6 @@ Sherlock is not capable of determining if a given username exists or not.
 They are listed here in the hope that things may change in the future
 so they may be re-included.
 
-## Younow
-
-Younow has changed their website (sometime before 2019-03-10) such that you
-cannot see any user's profile unless you log in. So, it is now impossible to
-probe for the existence of a username using the current strategy.
-
-```
-  "Younow": {
-    "errorMsg": "pageTitle || 'YouNow - Broadcast Live",
-    "errorType": "message",
-    "rank": 13248,
-    "url": "https://www.younow.com/{}",
-    "urlMain": "https://www.younow.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ## BlackPlanet
 
 This site has always returned a false positive.  The site returns the exact
