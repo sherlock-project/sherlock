@@ -1105,7 +1105,8 @@
     "errorMsg": "No users found",
     "errorType": "message",
     "rank": 13879,
-    "url": "https://api.younow.com/php/api/broadcast/info/user={}/",
+    "urlProbe": "https://api.younow.com/php/api/broadcast/info/user={}/",
+    "url": "https://www.younow.com/{}/",
     "urlMain": "https://www.younow.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"

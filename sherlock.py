@@ -219,6 +219,14 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
             results_site["url_user"] = url
+            url_probe = net_info.get("urlProbe")
+            if url_probe is None:
+                #Probe URL is normal one seen by people out on the web.
+                url_probe = url
+            else:
+                #There is a special URL for probing existence separate
+                #from where the user profile normally can be found.
+                url_probe = url_probe.format(username)
 
             request_method = session.get
             if social_network != "GitHub":
@@ -239,12 +247,12 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy != None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(url=url, headers=headers,
+                future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
                                         allow_redirects=allow_redirects
                                         )
             else:
-                future = request_method(url=url, headers=headers,
+                future = request_method(url=url_probe, headers=headers,
                                         allow_redirects=allow_redirects
                                         )
 
