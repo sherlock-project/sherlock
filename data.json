@@ -755,6 +755,16 @@
     "urlMain": "https://plug.dj/",
     "username_claimed": "plug-dj-rock",
     "username_unclaimed": "noonewouldeverusethis7"
+   }
+   "pornhub": {
+    "errorMsg": "Error Page Not Found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.pornhub.com/model/{}",
+    "urlMain": "https://www.pornhub.com",
+    "username_claimed": "yeoyeo",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   },
   "ProductHunt": {
     "errorMsg": "Product Hunt is a curation of the best new products",
@@ -1162,5 +1172,23 @@
     "urlMain": "https://last.fm/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  }
+  },
+  "xhamster": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://xhamster.com/users/{}",
+    "urlMain": "https://xhamster.com",
+    "username_claimed": "mirukucocoa",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "xvideos": {
+    "errorMsg": "THIS PROFILE DOESN'T EXIST !",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.xvideos.com/profiles/{}",
+    "urlMain": "https://www.xvideos.com",
+    "username_claimed": "pennypouter",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 }
