@@ -1,7 +1,7 @@
 <p align=center>
- 
+
 <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
- 
+
 <br>
 <span>Find usernames across <a href="https://github.com/theyahya/sherlock/blob/master/sites.md">social networks</a></span>
 <br>
@@ -44,7 +44,7 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.5.8)
+Sherlock: Find Usernames Across Social Networks (Version 0.5.9)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -129,9 +129,9 @@ outputs, and instead shows the verbose output of the tests.
 $ python3 -m unittest tests.all --buffer --verbose
 ```
 
-Note that the tests are very much a work in progress.  Significant work is
-required to get full test coverage.  But, the current tests are working
-properly, and will be expanded as time goes by.
+Note that we do currently have 100% test coverage.  Unfortunately, some of
+the sites that Sherlock checks are not always reliable, so it is not uncommon
+to get response errors.
 
 ## Stargazers over time
 
