@@ -828,7 +828,16 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Slack": {
+  "Signal": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://community.signalusers.org/u/{}",
+    "urlMain": "https://community.signalusers.org",
+    "username_claimed": "jlund",
+    "username_unclaimed": "noonewouldeverusethis7"
+ },
+ "Slack": {
     "errorType": "status_code",
     "rank": 205,
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
