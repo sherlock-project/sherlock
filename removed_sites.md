@@ -58,3 +58,23 @@ Sherlock.
     "urlMain": "https://fotolog.com/"
   },
 ```
+
+## Google Plus
+
+On 2019-04-02, Google shutdown Google Plus.  While the content for some
+users is available after that point, it is going away.  And, no one will
+be able to create a new account.  So, there is no value is keeping it in
+Sherlock.
+
+Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
+
+```
+  "Google Plus": {
+    "errorType": "status_code",
+    "rank": 1,
+    "url": "https://plus.google.com/+{}",
+    "urlMain": "https://plus.google.com/",
+    "username_claimed": "davidbrin1",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

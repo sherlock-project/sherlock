@@ -422,14 +422,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Google Plus": {
-    "errorType": "status_code",
-    "rank": 1,
-    "url": "https://plus.google.com/+{}",
-    "urlMain": "https://plus.google.com/",
-    "username_claimed": "davidbrin1",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Gravatar": {
     "errorType": "status_code",
     "rank": 5359,
