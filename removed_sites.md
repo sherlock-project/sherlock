@@ -5,6 +5,26 @@ Sherlock is not capable of determining if a given username exists or not.
 They are listed here in the hope that things may change in the future
 so they may be re-included.
 
+## StreamMe
+
+On 2019-04-07, I get a Timed Out message from the website.  It has not
+been working earlier either (for some weeks).  It takes about 21s before
+the site finally times out, so it really makes getting the results from
+Sherlock a pain.
+
+If the site becomes available in the future, we can put it back in.
+
+```
+  "StreamMe": {
+    "errorType": "status_code",
+    "rank": 31702,
+    "url": "https://www.stream.me/{}",
+    "urlMain": "https://www.stream.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## BlackPlanet
 
 This site has always returned a false positive.  The site returns the exact
