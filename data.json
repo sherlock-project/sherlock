@@ -422,14 +422,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Google Plus": {
-    "errorType": "status_code",
-    "rank": 1,
-    "url": "https://plus.google.com/+{}",
-    "urlMain": "https://plus.google.com/",
-    "username_claimed": "davidbrin1",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Gravatar": {
     "errorType": "status_code",
     "rank": 5359,
@@ -909,14 +901,6 @@
     "rank": 146,
     "url": "https://steamcommunity.com/groups/{}",
     "urlMain": "https://steamcommunity.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "StreamMe": {
-    "errorType": "status_code",
-    "rank": 31702,
-    "url": "https://www.stream.me/{}",
-    "urlMain": "https://www.stream.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
