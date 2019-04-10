@@ -75,16 +75,16 @@ class ElapsedFuturesSession(FuturesSession):
 def print_info(title, info):
     print(Style.BRIGHT + Fore.GREEN + "[" +
           Fore.YELLOW + "*" +
-          Fore.GREEN + f"] {title}" +
-          Fore.WHITE + f" {info}" +
+          Fore.GREEN + " {title}" +
+          Fore.WHITE + " {info}" +
           Fore.GREEN + " on:")
 
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
           Fore.WHITE + "]" +
-          Fore.RED + f" {errstr}" +
-          Fore.YELLOW + f" {err if verbose else var}")
+          Fore.RED + " {errstr}" +
+          Fore.YELLOW + " {err if verbose else var}")
 
 
 def format_response_time(response_time, verbose):
@@ -112,7 +112,7 @@ def print_invalid(social_network, msg):
            Fore.RED + "-" +
            Fore.WHITE + "]" +
            Fore.GREEN + " {}:" +
-           Fore.YELLOW + f" {msg}").format(social_network))
+           Fore.YELLOW + " {msg}").format(social_network))
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
@@ -131,8 +131,8 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
         if retry_no>0 and len(proxy_list)>0:
             #Selecting the new proxy.
             new_proxy = random.choice(proxy_list)
-            new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
-            print(f'Retrying with {new_proxy}')
+            new_proxy = '{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
+            print('Retrying with {new_proxy}')
             request_future.proxy = {'http':new_proxy,'https':new_proxy}
             get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1)
         else:
@@ -365,12 +365,12 @@ def main():
     # Colorama module's initialization.
     init(autoreset=True)
 
-    version_string = f"%(prog)s {__version__}\n" +  \
-                     f"{requests.__description__}:  {requests.__version__}\n" + \
-                     f"Python:  {platform.python_version()}"
+    version_string = "%(prog)s {__version__}\n" +  \
+                     "{requests.__description__}:  {requests.__version__}\n" + \
+                     "Python:  {platform.python_version()}"
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description=f"{module_name} (Version {__version__})"
+                            description="{module_name} (Version {__version__})"
                             )
     parser.add_argument("--version",
                         action="version",  version=version_string,
@@ -391,10 +391,10 @@ def main():
                         )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
-                        help="Make requests over TOR; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over Tor; increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--unique-tor", "-u",
                         action="store_true", dest="unique_tor", default=False,
-                        help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--csv",
                         action="store_true",  dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
@@ -438,7 +438,7 @@ def main():
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy != None or args.proxy_list != None):
-        raise Exception("TOR and Proxy cannot be set in the meantime.")
+        raise Exception("Tor and Proxy cannot be set in the meantime.")
 
     # Proxy argument check.
     # Does not necessarily need to throw an error,
@@ -472,8 +472,8 @@ def main():
             raise Exception("Prameter --check_proxies/-cp must be a positive intiger.")
 
     if args.tor or args.unique_tor:
-        print("Using TOR to make requests")
-        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
+        print("Using Tor to make requests")
+        print("Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
@@ -536,11 +536,11 @@ def main():
                     site_data[existing_site] = site_data_all[existing_site]
             if not site_data:
                 # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
+                site_missing.append("'{site}'")
 
         if site_missing:
             print(
-                f"Error: Desired sites not found: {', '.join(site_missing)}.")
+                "Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
 
     if args.rank:
@@ -570,7 +570,7 @@ def main():
         # If we can't access the list or it is empty, we proceed with args.proxy as the proxy.
         try:
             random_proxy = random.choice(proxy_list)
-            proxy = f'{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
+            proxy = '{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
         except (NameError, IndexError):
             proxy = args.proxy
 
