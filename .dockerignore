@@ -2,3 +2,4 @@
 .vscode/
 *.txt
 !/requirements.txt
+venv/
