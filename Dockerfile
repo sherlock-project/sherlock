@@ -12,4 +12,9 @@ RUN pip3 install -r requirements.txt -f /wheels \
   && rm -rf /wheels \
   && rm -rf /root/.cache/pip/*
 
+ARG VCS_REF
+ARG VCS_URL="https://github.com/sherlock-project/sherlock"
+LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url=$VCS_URL
+
 ENTRYPOINT ["python", "sherlock.py"]
