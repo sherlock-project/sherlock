@@ -83,8 +83,8 @@ def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
           Fore.WHITE + "]" +
-          Fore.RED + " {errstr}" +
-          Fore.YELLOW + " {err if verbose else var}")
+          Fore.RED + f" {errstr}" +
+          Fore.WHITE + f" {var}")
 
 
 def format_response_time(response_time, verbose):
@@ -111,8 +111,8 @@ def print_invalid(social_network, msg):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
            Fore.WHITE + "]" +
-           Fore.GREEN + " {}:" +
-           Fore.YELLOW + " {msg}").format(social_network))
+           Fore.GREEN + f" {social_network}:" +
+           Fore.YELLOW + f" {msg}"))
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
