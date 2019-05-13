@@ -84,7 +84,7 @@ def print_error(err, errstr, var, verbose=False):
           Fore.RED + "-" +
           Fore.WHITE + "]" +
           Fore.RED + f" {errstr}" +
-          Fore.WHITE + f" {var}")
+          Fore.WHITE + f" {err if verbose else var}")
 
 
 def format_response_time(response_time, verbose):
