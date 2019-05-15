@@ -30,7 +30,7 @@ def check_proxy(proxy_ip, proxy_port, protocol):
     We use 'wikipedia.org' as a test, since we can test the proxy anonymity
     by check if the returning 'X-Client-IP' header matches the proxy ip.
     """
-    full_proxy = '{protocol}://{proxy_ip}:{proxy_port}'
+    full_proxy = f'{protocol}://{proxy_ip}:{proxy_port}'
     proxies = {'http': full_proxy, 'https': full_proxy}
     try:
         r = requests.get('https://www.wikipedia.org',proxies=proxies, timeout=4)

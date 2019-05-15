@@ -75,16 +75,16 @@ class ElapsedFuturesSession(FuturesSession):
 def print_info(title, info):
     print(Style.BRIGHT + Fore.GREEN + "[" +
           Fore.YELLOW + "*" +
-          Fore.GREEN + " {title}" +
-          Fore.WHITE + " {info}" +
+          Fore.GREEN + f"] {title}" +
+          Fore.WHITE + f" {info}" +
           Fore.GREEN + " on:")
 
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
           Fore.WHITE + "]" +
-          Fore.RED + " {errstr}" +
-          Fore.YELLOW + " {err if verbose else var}")
+          Fore.RED + f" {errstr}" +
+          Fore.YELLOW + f" {err if verbose else var}")
 
 
 def format_response_time(response_time, verbose):
@@ -96,23 +96,23 @@ def print_found(social_network, url, response_time, verbose=False):
            Fore.GREEN + "+" +
            Fore.WHITE + "]" +
            format_response_time(response_time, verbose) +
-           Fore.GREEN + " {}:").format(social_network), url)
+           Fore.GREEN + f" {social_network}:"), url)
 
 def print_not_found(social_network, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
            Fore.WHITE + "]" +
            format_response_time(response_time, verbose) +
-           Fore.GREEN + " {}:" +
-           Fore.YELLOW + " Not Found!").format(social_network))
+           Fore.GREEN + f" {social_network}:" +
+           Fore.YELLOW + " Not Found!"))
 
 def print_invalid(social_network, msg):
     """Print invalid search result."""
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
            Fore.WHITE + "]" +
-           Fore.GREEN + " {}:" +
-           Fore.YELLOW + " {msg}").format(social_network))
+           Fore.GREEN + f" {social_network}:" +
+           Fore.YELLOW + f" {msg}"))
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
@@ -131,8 +131,8 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
         if retry_no>0 and len(proxy_list)>0:
             #Selecting the new proxy.
             new_proxy = random.choice(proxy_list)
-            new_proxy = '{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
-            print('Retrying with {new_proxy}')
+            new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
+            print(f'Retrying with {new_proxy}')
             request_future.proxy = {'http':new_proxy,'https':new_proxy}
             get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1)
         else:
@@ -365,12 +365,12 @@ def main():
     # Colorama module's initialization.
     init(autoreset=True)
 
-    version_string = "%(prog)s {__version__}\n" +  \
-                     "{requests.__description__}:  {requests.__version__}\n" + \
-                     "Python:  {platform.python_version()}"
+    version_string = f"%(prog)s {__version__}\n" +  \
+                     f"{requests.__description__}:  {requests.__version__}\n" + \
+                     f"Python:  {platform.python_version()}"
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description="{module_name} (Version {__version__})"
+                            description=f"{module_name} (Version {__version__})"
                             )
     parser.add_argument("--version",
                         action="version",  version=version_string,
@@ -536,11 +536,11 @@ def main():
                     site_data[existing_site] = site_data_all[existing_site]
             if not site_data:
                 # Build up list of sites not supported for future error message.
-                site_missing.append("'{site}'")
+                site_missing.append(f"'{site}'")
 
         if site_missing:
             print(
-                "Error: Desired sites not found: {', '.join(site_missing)}.")
+                f"Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
 
     if args.rank:
@@ -570,7 +570,7 @@ def main():
         # If we can't access the list or it is empty, we proceed with args.proxy as the proxy.
         try:
             random_proxy = random.choice(proxy_list)
-            proxy = '{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
+            proxy = f'{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
         except (NameError, IndexError):
             proxy = args.proxy
 
