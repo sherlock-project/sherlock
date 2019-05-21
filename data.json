@@ -294,8 +294,9 @@
   "Docker Hub": {
     "errorType": "status_code",
     "rank": 1905,
-    "url": "https://hub.docker.com/v2/users/{}/",
+    "url": "https://hub.docker.com/u/{}/",
     "urlMain": "https://hub.docker.com/",
+    "urlProbe": "https://hub.docker.com/v2/users/{}/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
