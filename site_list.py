@@ -5,7 +5,7 @@ import json
 import sys
 import requests
 import threading
-from bs4 import BeautifulSoup as bs
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
@@ -13,17 +13,20 @@ pool = list()
 
 def get_rank(domain_to_query, dest):
     result = -1
-    url = "http://www.alexa.com/siteinfo/" + domain_to_query
-    page = requests.get(url).text
-    soup = bs(page, features="lxml")
-    for span in soup.find_all('span'):
-        if span.has_attr("class"):
-            if "globleRank" in span["class"]:
-                for strong in span.find_all("strong"):
-                    if strong.has_attr("class"):
-                        if "metrics-data" in strong["class"]:
-                            result = int(strong.text.strip().replace(',', ''))
-                            dest['rank'] = result
+
+    #Retrieve ranking data via alexa API
+    url = f"http://data.alexa.com/data?cli=10&url={domain_to_query}"
+    xml_data = requests.get(url).text
+    root = ET.fromstring(xml_data)
+    try:
+        #Get ranking for this site.
+        dest['rank'] = int(root.find(".//REACH").attrib["RANK"])
+    except:
+        #We did not find the rank for some reason.
+        print(f"Error retrieving rank information for '{domain_to_query}'")
+        print(f"     Returned XML is |{xml_data}|")
+
+    return
 
 parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter
                         )
