@@ -1073,13 +1073,12 @@
     "username_claimed": "radkabalcarova",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Wikia": {
-    "errorMsg": "does not exist",
-    "errorType": "message",
+  "Fandom": {
+    "errorType": "status_code",
     "rank": 6540,
-    "url": "https://wikia.com/wiki/User:{}",
-    "urlMain": "http://www.wikia.com/",
-    "username_claimed": "KP_Blue",
+    "url": "https://www.fandom.com/u/{}",
+    "urlMain": "https://www.fandom.com/",
+    "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wikipedia": {
