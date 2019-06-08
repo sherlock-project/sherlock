@@ -125,7 +125,7 @@
 124. [Wattpad](https://www.wattpad.com/)
 125. [We Heart It](https://weheartit.com/)
 126. [WebNode](https://www.webnode.cz/)
-127. [Wikia](http://www.wikia.com/)
+127. [Fandom](https://www.fandom.com/)
 128. [Wikipedia](https://www.wikipedia.org/)
 129. [Wix](https://wix.com/)
 130. [WordPress](https://wordpress.com)
@@ -137,4 +137,4 @@
 136. [iMGSRC.RU](https://imgsrc.ru/)
 137. [last.fm](https://last.fm/)
 
-Alexa.com rank data fetched at (2019-05-28 12:24:44.944984 UTC)
+Alexa.com rank data fetched at (2019-06-08 14:24:33.626484 UTC)

@@ -45,7 +45,7 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.6.2)
+Sherlock: Find Usernames Across Social Networks (Version 0.6.3)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
