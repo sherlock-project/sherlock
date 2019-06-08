@@ -372,8 +372,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flipboard": {
-    "errorMsg": "loading...",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 3859,
     "regexCheck": "^([a-zA-Z0-9_]){1,15}$",
     "url": "https://flipboard.com/@{}",
