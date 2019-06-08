@@ -792,8 +792,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Reddit": {
-    "errorMsg": "page not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 24,
     "url": "https://www.reddit.com/user/{}",
     "urlMain": "https://www.reddit.com/",
