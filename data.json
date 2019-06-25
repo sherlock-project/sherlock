@@ -816,6 +816,16 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ResearchGate": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.researchgate.net/directory/profiles",
+    "rank": 124,
+    "regexCheck": "\\w+_\\w+",
+    "url": "https://www.researchgate.net/profile/{}",
+    "urlMain": "https://www.researchgate.net/",
+    "username_claimed": "John_Smith",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ReverbNation": {
     "errorMsg": "Sorry, we couldn't find that page",
     "errorType": "message",
