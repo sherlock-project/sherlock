@@ -283,6 +283,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Discogs": {
+    "errorType": "status_code",
+    "url": "https://www.discogs.com/user/{}",
+    "urlMain": "https://www.discogs.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Disqus": {
     "errorType": "status_code",
     "rank": 1346,
@@ -796,6 +803,13 @@
     "rank": 1488,
     "url": "https://{}.rajce.idnes.cz/",
     "urlMain": "https://www.rajce.idnes.cz/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Rate Your Music": {
+    "errorType": "status_code",
+    "url": "https://rateyourmusic.com/~{}",
+    "urlMain": "https://rateyourmusic.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
