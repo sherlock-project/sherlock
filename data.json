@@ -722,8 +722,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "osu!": {
-    "errorMsg": "User not found! ;_;",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1017,
     "url": "https://osu.ppy.sh/users/{}",
     "urlMain": "https://osu.ppy.sh/",
