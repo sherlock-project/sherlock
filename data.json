@@ -780,6 +780,14 @@
     "username_claimed": "plug-dj-rock",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Pornhub": {
+    "errorType": "status_code",
+    "rank": 27,
+    "url": "https://www.pornhub.com/users/{}",
+    "urlMain": "https://www.pornhub.com/",
+    "username_claimed": "pornhub",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ProductHunt": {
     "errorMsg": "Product Hunt is a curation of the best new products",
     "errorType": "message",
