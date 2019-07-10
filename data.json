@@ -721,6 +721,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "osu!": {
+    "errorMsg": "User not found! ;_;",
+    "errorType": "message",
+    "rank": 1017,
+    "url": "https://osu.ppy.sh/users/{}",
+    "urlMain": "https://osu.ppy.sh/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Pastebin": {
     "errorType": "response_url",
     "errorUrl": "https://pastebin.com/index",
