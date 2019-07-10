@@ -1194,5 +1194,12 @@
     "urlMain": "https://last.fm/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "gfycat": {
+    "errorType": "status_code",
+    "url": "https://gfycat.com/@{}",
+    "urlMain": "https://gfycat.com/",
+    "username_claimed": "Test",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
