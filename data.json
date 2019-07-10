@@ -1198,7 +1198,7 @@
   "mixer.com":
   {
     "errorType": "status_code",
-    "url": "https://mixer.com/{}",
+    "url": "https://mixer.com/api/v1/channels/{}",
     "urlMain": "https://mixer.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
