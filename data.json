@@ -1226,5 +1226,13 @@
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Codechef": {
+    "errorType": "status_code",
+    "rank": 10000,
+    "url": "https://www.codechef.com/users/{}",
+    "urlMain": "https://www.codechef.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
