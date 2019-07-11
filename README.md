@@ -114,6 +114,8 @@ Please look at the Wiki entry on
 [adding new sites](https://github.com/TheYahya/sherlock/wiki/Adding-Sites-To-Sherlock)
 to understand the issues.
 
+**NOTE**: Sherlock is not accepting adult sites in the standard list.
+
 ## Tests
 If you are contributing to Sherlock, then Thank You!
 
