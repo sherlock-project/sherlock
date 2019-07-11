@@ -45,7 +45,7 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.6.4)
+Sherlock: Find Usernames Across Social Networks (Version 0.6.5)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -113,6 +113,8 @@ docker run theyahya/sherlock user123
 Please look at the Wiki entry on
 [adding new sites](https://github.com/TheYahya/sherlock/wiki/Adding-Sites-To-Sherlock)
 to understand the issues.
+
+**NOTE**: Sherlock is not accepting adult sites in the standard list.
 
 ## Tests
 If you are contributing to Sherlock, then Thank You!
