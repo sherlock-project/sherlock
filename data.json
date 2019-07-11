@@ -1202,5 +1202,12 @@
     "urlMain": "https://last.fm/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "boingboing.net": {
+    "errorType": "status_code",
+    "urlMain": "https://boingboing.net/",
+    "url": "https://bbs.boingboing.net/u/{}",
+    "username_claimed": "boingboing",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
