@@ -1096,6 +1096,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "Virgool": {
+    "errorType": "status_code",
+    "rank": 7981,
+    "url": "https://virgool.io/@{}",
+    "urlMain": "https://virgool.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "VirusTotal": {
     "errorMsg": "not found",
     "errorType": "message",
