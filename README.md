@@ -74,16 +74,24 @@ optional arguments:
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
-  --json JSON_FILE, -j JSON_FILE
+  --json JSON_FILE, -j  JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --print-found
-			Prints only found messages. Errors, and invalid
-			username errors will not appear.
+  --print-found         Prints only found messages. Errors, and invalid
+                        username errors will not appear.
 ```
 
-For example, run ```python3 sherlock.py user123```, and all of the accounts
-found will be stored in a text file with the username (e.g ```user123.txt```).
+For example to search for user:
+```
+python3 sherlock.py user123
+
+``` 
+All of the accounts found will be stored in a text file with the username (e.g ```user123.txt```).
+
+To search for more that user:
+```
+python3 sherlock.py user1 user2 user3
+```
 
 ## Docker Notes
 If you have docker installed you can build an image and run this as a container.
