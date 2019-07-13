@@ -721,6 +721,16 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "OK": {
+    "errorType": "message",
+    "errorMsg": "This page does not exist on OK",
+    "rank": 1,
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-.]*$",
+    "url": "https://ok.ru/{}",
+    "urlMain": "https://ok.ru/",
+    "username_claimed": "ok",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Pastebin": {
     "errorType": "response_url",
     "errorUrl": "https://pastebin.com/index",
