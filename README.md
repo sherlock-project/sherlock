@@ -103,13 +103,22 @@ docker build -t mysherlock-image .
 Once the image is built sherlock can be invoked by running the following:
 
 ```
-docker run --rm mysherlock-image user123
+docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up.  See https://docs.docker.com/engine/reference/run/#clean-up---rm
+The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See https://docs.docker.com/engine/reference/run/#clean-up---rm
 
-One caveat is the text file that is created will only exist in the container so you will not be able to get at that.
+The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See https://docs.docker.com/engine/reference/run/#foreground
 
+It is possible to use the following command to access the saved results:
+
+```
+docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
+```
+
+The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker create (or use) the folder `results` in the
+present working directory and to mount it at `/opt/sherlock/results` on the docker container.
+The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result
 
 Or you can simply use "Docker Hub" to run `sherlock`:
 ```
