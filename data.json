@@ -781,8 +781,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pinterest": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.pinterest.com/?show_error=true",
+    "errorType": "status_code",
     "rank": 73,
     "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
