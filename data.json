@@ -645,7 +645,7 @@
   },
   "LeetCode": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 2834,
     "url": "https://leetcode.com/{}",
     "urlMain": "https://leetcode.com/",
     "username_claimed": "blue",
@@ -1104,9 +1104,9 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-    "Virgool": {
+  "Virgool": {
     "errorType": "status_code",
-    "rank": 7981,
+    "rank": 8175,
     "url": "https://virgool.io/@{}",
     "urlMain": "https://virgool.io/",
     "username_claimed": "blue",
