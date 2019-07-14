@@ -430,11 +430,12 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "GitLab": {
-    "errorMsg": "You need to sign in or sign up before continuing.",
+    "errorMsg": "[]",
     "errorType": "message",
     "rank": 1874,
     "url": "https://gitlab.com/{}",
     "urlMain": "https://gitlab.com/",
+    "urlProbe": "https://gitlab.com/api/v4/users?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
