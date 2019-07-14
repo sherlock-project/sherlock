@@ -489,6 +489,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "HackerRank": {
+    "errorMsg": "Something went wrong",
+    "errorType": "message",
+    "rank": 3715,
+    "url": "https://hackerrank.com/{}",
+    "urlMain": "https://hackerrank.com/",
+    "username_claimed": "satznova",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
@@ -1266,15 +1275,6 @@
     "url": "https://osu.ppy.sh/users/{}",
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "HackerRank": {
-    "errorMsg": "Something went wrong",
-    "errorType": "message",
-    "rank": 3386,
-    "url": "https://hackerrank.com/{}",
-    "urlMain": "https://hackerrank.com/",
-    "username_claimed": "satznova",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
