@@ -1122,7 +1122,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wattpad": {
-    "errorMsg": "This page seems to be missing...",
+    "errorMsg": "userError-404",
     "errorType": "message",
     "rank": 495,
     "url": "https://www.wattpad.com/user/{}",
