@@ -643,6 +643,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "LeetCode": {
+    "errorType": "status_code",
+    "rank": 2834,
+    "url": "https://leetcode.com/{}",
+    "urlMain": "https://leetcode.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
     "errorType": "message",
@@ -1096,9 +1104,9 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-    "Virgool": {
+  "Virgool": {
     "errorType": "status_code",
-    "rank": 7981,
+    "rank": 8175,
     "url": "https://virgool.io/@{}",
     "urlMain": "https://virgool.io/",
     "username_claimed": "blue",
