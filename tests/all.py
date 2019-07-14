@@ -7,26 +7,30 @@ import unittest
 
 
 class SherlockDetectTests(SherlockBaseTest):
-    def test_detect_true(self):
-        """Test Username Existence Detection.
+    def test_detect_true_via_message(self):
+        """Test Username Does Exist (Via Message).
 
-        This test ensures that the mechanism of ensuring that a Username
-        exists works properly.
+        This test ensures that the "message" detection mechanism of
+        ensuring that a Username does exist works properly.
 
         Keyword Arguments:
         self                   -- This object.
 
         Return Value:
         N/A.
-        Will trigger an assert if Usernames which are known to exist are
-        not detected.
+        Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['jack'],  ['Twitter'],   exist_check=True)
-        self.username_check(['dfox'],  ['devRant'],   exist_check=True)
-        self.username_check(['blue'],  ['Pinterest'], exist_check=True)
-        self.username_check(['kevin'], ['Instagram'], exist_check=True)
-        self.username_check(['zuck'],  ['Facebook'],  exist_check=True)
+        site = 'Instagram'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("message", site_data["errorType"])
+
+        self.username_check([site_data["username_claimed"]],
+                            [site],
+                            exist_check=True
+                           )
 
         return
 
@@ -44,9 +48,42 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['jackkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'],
-                            ['Instagram'],
+        site = 'Instagram'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("message", site_data["errorType"])
+
+        self.username_check([site_data["username_unclaimed"]],
+                            [site],
                             exist_check=False
+                           )
+
+        return
+
+    def test_detect_true_via_status_code(self):
+        """Test Username Does Exist (Via Status Code).
+
+        This test ensures that the "status code" detection mechanism of
+        ensuring that a Username does exist works properly.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        site = 'Facebook'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("status_code", site_data["errorType"])
+
+        self.username_check([site_data["username_claimed"]],
+                            [site],
+                            exist_check=True
                            )
 
         return
@@ -65,9 +102,42 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['jackkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'],
-                            ['Facebook'],
+        site = 'Facebook'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("status_code", site_data["errorType"])
+
+        self.username_check([site_data["username_unclaimed"]],
+                            [site],
                             exist_check=False
+                           )
+
+        return
+
+    def test_detect_true_via_response_url(self):
+        """Test Username Does Exist (Via Response URL).
+
+        This test ensures that the "response URL" detection mechanism of
+        ensuring that a Username does exist works properly.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        N/A.
+        Will trigger an assert if detection mechanism did not work as expected.
+        """
+
+        site = 'Quora'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("response_url", site_data["errorType"])
+
+        self.username_check([site_data["username_claimed"]],
+                            [site],
+                            exist_check=True
                            )
 
         return
@@ -86,8 +156,14 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        self.username_check(['jackkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'],
-                            ['Pinterest'],
+        site = 'Quora'
+        site_data = self.site_data_all[site]
+
+        #Ensure that the site's detection method has not changed.
+        self.assertEqual("response_url", site_data["errorType"])
+
+        self.username_check([site_data["username_unclaimed"]],
+                            [site],
                             exist_check=False
                            )
 
