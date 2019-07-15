@@ -6,6 +6,7 @@ matrix:
   allow_failures:
     - python: nightly
     - name: "Sherlock Site Coverage Tests"
+  fast_finish: true
   include:
     - python: 3.6
     - python: 3.7
