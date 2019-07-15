@@ -5,6 +5,7 @@ cache: pip
 matrix:
   allow_failures:
     - python: nightly
+    - name: "Sherlock Site Coverage Tests"
   include:
     - python: 3.6
     - python: 3.7
@@ -12,7 +13,7 @@ matrix:
     - python: 3.7
       before_script: true  # override the flake8 tests
       name: "Sherlock Site Coverage Tests"
-      script: python -m unittest tests.all.SherlockSiteCoverageTests --buffer --verbose || true
+      script: python -m unittest tests.all.SherlockSiteCoverageTests --buffer --verbose
 install:
   - pip install flake8 -r requirements.txt
 before_script:
