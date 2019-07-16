@@ -349,7 +349,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "no"
 
         elif error_type == "":
-            print_invalid(social_network, "Error!")
+            if not print_found_only:
+                print_invalid(social_network, "Error!")
             exists = "error"
 
         # Save exists flag
