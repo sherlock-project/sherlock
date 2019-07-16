@@ -832,8 +832,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Quora": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.quora.com/profile/{}",
+    "errorType": "status_code",
     "rank": 69,
     "url": "https://www.quora.com/profile/{}",
     "urlMain": "https://www.quora.com/",
@@ -1081,8 +1080,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "VK": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.quora.com/profile/{}",
+    "errorType": "status_code",
     "rank": 19,
     "url": "https://vk.com/{}",
     "urlMain": "https://vk.com/",
