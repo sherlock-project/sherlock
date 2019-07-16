@@ -215,6 +215,10 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # No need to do the check at the site: this user name is not allowed.
             print_invalid(social_network, "Illegal Username Format For This Site!")
             results_site["exists"] = "illegal"
+            results_site["url_user"] = ""
+            results_site['http_status'] = ""
+            results_site['response_text'] = ""
+            results_site['response_time_ms'] = ""
         else:
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
