@@ -1278,5 +1278,12 @@
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Zomato": {
+    "errorType": "status_code",
+    "url": "https://www.zomato.com/{}/foodjourney",
+    "urlMain": "https://www.zomato.com/",
+    "username_claimed": "deepigoyal",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
