@@ -29,18 +29,6 @@ module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.7.0"
 amount = 0
 
-BANNER = r'''
-                                              ."""-.
-                                             /      \
- ____  _               _            _        |  _..--'-.
-/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-""\;"`
-\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\
- ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
-|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
-                                           .'`-._ `.\    | J /
-                                          /      `--.|   \__/'''[1:]
-
-# TODO: fix tumblr
 
 global proxy_list
 
@@ -438,7 +426,6 @@ def main():
 
     args = parser.parse_args()
 
-    print(Fore.WHITE + Style.BRIGHT + BANNER)
 
     # Argument check
     # TODO regex check on args.proxy
