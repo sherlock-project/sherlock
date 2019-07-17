@@ -991,6 +991,13 @@
     "username_claimed": "3Tau",
     "username_unclaimed": "noonewould"
   },
+  "Splits.io": {
+    "errorType": "status_code",
+    "url": "https://splits.io/users/{}",
+    "urlMain": "https://splits.io",
+    "username_claimed": "cambosteve",
+    "username_unclaimed": "noonewould"
+  },
   "Spotify": {
     "errorType": "status_code",
     "rank": 101,
