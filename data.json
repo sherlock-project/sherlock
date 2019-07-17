@@ -56,6 +56,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Archive.org": {
+    "errorMsg": "cannot find account",
+    "errorType": "message",
+    "url": "https://archive.org/details/@{}",
+    "urlMain": "https://archive.org",
+    "username_claimed": "KennethSweezy",
+    "username_unclaimed": "noonewould"
+  },
   "AskFM": {
     "errorType": "status_code",
     "rank": 1167,
