@@ -705,10 +705,10 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "MixCloud": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 2436,
-    "url": "https://www.mixcloud.com/{}",
+    "url": "https://www.mixcloud.com/{}/",
+    "urlProbe": "https://api.mixcloud.com/{}/",
     "urlMain": "https://www.mixcloud.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
