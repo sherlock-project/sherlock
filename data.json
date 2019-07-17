@@ -760,6 +760,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "NationStates Nation": {
+    "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
+    "errorType": "message",
+    "url": "https://nationstates.net/nation={}",
+    "urlMain": "https://nationstates.net",
+    "username_claimed": "the_holy_principality_of_saint_mark",
+    "username_unclaimed": "noonewould"
+  },
   "Newgrounds": {
     "errorType": "status_code",
     "rank": 3449,
