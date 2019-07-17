@@ -948,6 +948,13 @@
     "username_claimed": "bluewolfekiller",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Scratch": {
+    "errorType": "status_code",
+    "url": "https://scratch.mit.edu/users/{}",
+    "urlMain": "https://scratch.mit.edu/",
+    "username_claimed": "griffpatch",
+    "username_unclaimed": "noonewould"
+  },
   "Scribd": {
     "errorMsg": "Page not found",
     "errorType": "message",
