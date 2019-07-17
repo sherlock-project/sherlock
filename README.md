@@ -35,6 +35,11 @@ $ cd sherlock
 $ pip3 install -r requirements.txt
 ```
 
+## Demonstration
+
+You can use this link to test Sherlock directly in your browser:
+https://elody.com/scenario/plan/16/
+
 ## Usage
 
 ```bash
@@ -85,7 +90,7 @@ For example to search for user:
 ```
 python3 sherlock.py user123
 
-``` 
+```
 All of the accounts found will be stored in a text file with the username (e.g ```user123.txt```).
 
 To search for more that user:
