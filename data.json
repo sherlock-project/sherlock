@@ -402,6 +402,13 @@
     "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "Filmogs": {
+    "errorType": "status_code",
+    "url": "https://www.filmo.gs/users/{}",
+    "urlMain": "https://www.filmo.gs/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Flickr": {
     "errorType": "status_code",
     "rank": 454,
