@@ -172,6 +172,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Cent": {
+    "errorType": "message",
+    "errorMsg": "<title>Cent</title>",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Cloob": {
     "errorType": "status_code",
     "rank": 9161,
