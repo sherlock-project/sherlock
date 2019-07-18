@@ -158,6 +158,11 @@ Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is not uncommon
 to get response errors.
 
+## Alternative Implementations
+
+- [mesuutt/sherlock](https://github.com/mesuutt/sherlock): Written in Go.
+
+
 ## Stargazers over time
 
 [![Stargazers over time](https://starcharts.herokuapp.com/TheYahya/sherlock.svg)](https://starcharts.herokuapp.com/TheYahya/sherlock)
@@ -166,3 +171,4 @@ to get response errors.
 
 MIT © [Yahya SayadArbabi](https://theyahya.com)<br/>
 Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
+
