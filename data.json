@@ -2,7 +2,7 @@
   "500px": {
     "errorMsg": "Oops! This page doesn\u2019t exist.",
     "errorType": "message",
-    "rank": 0,
+    "rank": 3201,
     "url": "https://500px.com/{}",
     "urlMain": "https://500px.com/",
     "username_claimed": "blue",
@@ -83,7 +83,7 @@
   },
   "Badoo": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 1278,
     "url": "https://badoo.com/profile/{}",
     "urlMain": "https://badoo.com/",
     "username_claimed": "blue",
@@ -100,7 +100,7 @@
   "Basecamp": {
     "errorMsg": "The account you were looking for doesn't exist",
     "errorType": "message",
-    "rank": 0,
+    "rank": 1791,
     "url": "https://{}.basecamphq.com",
     "urlMain": "https://basecamp.com/",
     "username_claimed": "blue",
@@ -108,7 +108,7 @@
   },
   "Behance": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 383,
     "url": "https://www.behance.net/{}",
     "urlMain": "https://www.behance.net/",
     "username_claimed": "blue",
@@ -116,7 +116,7 @@
   },
   "BitBucket": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 1011,
     "url": "https://bitbucket.org/{}/",
     "urlMain": "https://bitbucket.org/",
     "username_claimed": "white",
@@ -168,7 +168,7 @@
   },
   "CashMe": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 12351551,
     "url": "https://cash.me/{}",
     "urlMain": "https://cash.me/",
     "username_claimed": "jenny",

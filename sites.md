@@ -160,4 +160,4 @@
 159. [mixer.com](https://mixer.com/)
 160. [osu!](https://osu.ppy.sh/)
 
-Alexa.com rank data fetched at (2019-07-17 20:01:43.992642 UTC)
+Alexa.com rank data fetched at (2019-07-18 03:32:48.554540 UTC)
