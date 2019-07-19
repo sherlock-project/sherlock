@@ -34,7 +34,7 @@ $ git clone https://github.com/sherlock-project/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install python3 and python3-pip if not exist
+# install python3 and python3-pip if they are not installed
 
 # install the requirements
 $ pip3 install -r requirements.txt
@@ -56,44 +56,64 @@ positional arguments:
   USERNAMES             One or more usernames to check with social networks.
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --version             Display version information and dependencies.
+  -h, --help            
+                        Show this help message and exit
+  
+  --version             
+                        Display version information and dependencies.
+  
   --verbose, -v, -d, --debug
                         Display extra debugging information and metrics.
-  --rank, -r            Present websites ordered by their Alexa.com global
+                        
+  --rank, -r            
+                        Present websites ordered by their Alexa.com global
                         rank in popularity.
+                        
   --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
                         If using multiple usernames, the output of the results
                         will be saved at this folder.
+                        
   --output OUTPUT, -o OUTPUT
                         If using single username, the output of the result
                         will be saved at this file.
-  --tor, -t             Make requests over TOR; increases runtime; requires
+                        
+  --tor, -t             
+                        Make requests over TOR; increases runtime; requires
                         TOR to be installed and in system path.
-  --unique-tor, -u      Make requests over TOR with new TOR circuit after each
+                        
+  --unique-tor, -u      
+                        Make requests over TOR with new TOR circuit after each
                         request; increases runtime; requires TOR to be
                         installed and in system path.
-  --csv                 Create Comma-Separated Values (CSV) File.
-  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
+                        
+  --csv                 
+                        Create Comma-Separated Values (CSV) File.
+                        
+  --site SITE_NAME      
+                        Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
+                        
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
+                        
   --json JSON_FILE, -j  JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --print-found         Prints only found messages. Errors, and invalid
+                        
+  --print-found         
+                        Prints only found messages. Errors, and invalid
                         username errors will not appear.
 ```
 
-For example to search for user:
+For example to search for only one user:
 ```
 python3 sherlock.py user123
 
 ```
 All of the accounts found will be stored in a text file with the username (e.g ```user123.txt```).
 
-To search for more that user:
+To search for more than one user:
 ```
 python3 sherlock.py user1 user2 user3
 ```
@@ -105,15 +125,15 @@ If you have docker installed you can build an image and run this as a container.
 docker build -t mysherlock-image .
 ```
 
-Once the image is built sherlock can be invoked by running the following:
+Once the image is built, sherlock can be invoked by running the following:
 
 ```
 docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See https://docs.docker.com/engine/reference/run/#clean-up---rm
+The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: https://docs.docker.com/engine/reference/run/#clean-up---rm
 
-The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See https://docs.docker.com/engine/reference/run/#foreground
+The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
 
 It is possible to use the following command to access the saved results:
 
@@ -121,9 +141,9 @@ It is possible to use the following command to access the saved results:
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker create (or use) the folder `results` in the
+The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker to create (or use) the folder `results` in the
 present working directory and to mount it at `/opt/sherlock/results` on the docker container.
-The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result
+The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
 Or you can simply use "Docker Hub" to run `sherlock`:
 ```
@@ -142,7 +162,7 @@ to understand the issues.
 If you are contributing to Sherlock, then Thank You!
 
 Before creating a pull request with new development, please run the tests
-to ensure that all is well.  It would also be a good idea to run the tests
+to ensure that everything is working great.  It would also be a good idea to run the tests
 before starting development to distinguish problems between your
 environment and the Sherlock software.
 
@@ -155,7 +175,7 @@ $ python3 -m unittest tests.all --buffer --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
-the sites that Sherlock checks are not always reliable, so it is not uncommon
+the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
 
 ## Stargazers over time
