@@ -18,6 +18,11 @@
 </a>
 </p>
 
+## Demonstration
+
+You can use this link to test Sherlock directly in your browser:
+https://elody.com/scenario/plan/16/
+
 ## Installation
 
 **NOTE**: Python 3.6 or higher is required.
@@ -34,11 +39,6 @@ $ cd sherlock
 # install the requirements
 $ pip3 install -r requirements.txt
 ```
-
-## Demonstration
-
-You can use this link to test Sherlock directly in your browser:
-https://elody.com/scenario/plan/16/
 
 ## Usage
 
