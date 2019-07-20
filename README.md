@@ -48,9 +48,11 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
                    [--unique-tor] [--csv] [--site SITE_NAME]
                    [--proxy PROXY_URL] [--json JSON_FILE]
+                   [--proxy_list PROXY_LIST] [--check_proxies CHECK_PROXY]
+                   [--print-found]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.7.4)
+Sherlock: Find Usernames Across Social Networks (Version 0.7.5)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -68,10 +70,10 @@ optional arguments:
   --output OUTPUT, -o OUTPUT
                         If using single username, the output of the result
                         will be saved at this file.
-  --tor, -t             Make requests over TOR; increases runtime; requires
-                        TOR to be installed and in system path.
-  --unique-tor, -u      Make requests over TOR with new TOR circuit after each
-                        request; increases runtime; requires TOR to be
+  --tor, -t             Make requests over Tor; increases runtime; requires
+                        Tor to be installed and in system path.
+  --unique-tor, -u      Make requests over Tor with new Tor circuit after each
+                        request; increases runtime; requires Tor to be
                         installed and in system path.
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
@@ -79,11 +81,20 @@ optional arguments:
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
                         socks5://127.0.0.1:1080
-  --json JSON_FILE, -j  JSON_FILE
+  --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --print-found         Prints only found messages. Errors, and invalid
-                        username errors will not appear.
+  --proxy_list PROXY_LIST, -pl PROXY_LIST
+                        Make requests over a proxy randomly chosen from a list
+                        generated from a .csv file.
+  --check_proxies CHECK_PROXY, -cp CHECK_PROXY
+                        To be used with the '--proxy_list' parameter. The
+                        script will check if the proxies supplied in the .csv
+                        file are working and anonymous.Put 0 for no limit on
+                        successfully checked proxies, or another number to
+                        institute a limit.
+  --print-found         Do not output sites where the username was not found.
+
 ```
 
 For example to search for user:
