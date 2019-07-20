@@ -97,17 +97,18 @@ optional arguments:
 
 ```
 
-For example to search for user:
+For example to search for an user:
 ```
 python3 sherlock.py user123
 
 ```
-All of the accounts found will be stored in a text file with the username (e.g ```user123.txt```).
 
-To search for more that user:
+To search for more than one user:
 ```
 python3 sherlock.py user1 user2 user3
 ```
+
+All of the accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ## Docker Notes
 If you have docker installed you can build an image and run this as a container.
