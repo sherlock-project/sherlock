@@ -764,13 +764,19 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "NPM": {
-    "errorMsg": "Scope not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1887,
-    "url": "https://npmjs.com/~{}",
-    "urlMain": "https://npmjs.com/",
+    "url": "https://www.npmjs.com/~{}",
+    "urlMain": "https://www.npmjs.com/",
     "username_claimed": "kennethsweezy",
     "username_unclaimed": "noonewould"
+  },
+  "NPM-Package": {
+    "errorType": "status_code",
+    "url": "https://www.npmjs.com/package/{}",
+    "urlMain": "https://www.npmjs.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "NameMC (Minecraft.net skins)": {
     "errorMsg": "Profiles: 0 results",
