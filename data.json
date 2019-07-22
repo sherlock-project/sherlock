@@ -834,6 +834,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PayPal": {
+    "errorType": "message",
+    "errorMsg": "name=\"twitter:title\" content=\"Get your very own PayPal.Me link\"",
+    "url": "https://www.paypal.me/{}",
+    "urlMain": "https://www.paypal.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
+  },
   "Pexels": {
     "errorMsg": "Ouch, something went wrong!",
     "errorType": "message",
