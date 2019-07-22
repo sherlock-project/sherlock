@@ -817,6 +817,14 @@
     "username_claimed": "ok",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Packagist": {
+    "errorType": "response_url",
+    "errorUrl": "https://packagist.org/search/?q={}&reason=vendor_not_found",
+    "url": "https://packagist.org/packages/{}/",
+    "urlMain": "https://packagist.org/",
+    "username_claimed": "psr",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Pastebin": {
     "errorType": "response_url",
     "errorUrl": "https://pastebin.com/index",
