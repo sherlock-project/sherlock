@@ -808,6 +808,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "OpenCollective": {
+    "errorType": "message",
+    "errorMsg": "Open Collective - open your finances to your community",
+    "url": "https://opencollective.com/{}",
+    "urlMain": "https://opencollective.com/",
+    "username_claimed": "sindresorhus",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OK": {
     "errorType": "status_code",
     "rank": 66,
