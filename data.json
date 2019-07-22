@@ -1098,6 +1098,14 @@
     "username_claimed": "saman",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "TikTok": {
+    "errorType": "message",
+    "errorMsg": "Couldn&#x27;t find this account",
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Tinder": {
     "errorMsg": "Looking for Someone?",
     "errorType": "message",
