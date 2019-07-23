@@ -140,6 +140,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Brew": {
+    "errorType": "status_code",
+    "url": "https://www.brew.com/{}",
+    "urlProbe": "https://api.brew.com/api/public/podcast/{}",
+    "urlMain": "https://www.brew.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "BuzzFeed": {
     "errorType": "status_code",
     "rank": 291,
