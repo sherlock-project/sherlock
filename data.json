@@ -867,6 +867,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PlayStore": {
+    "errorType": "status_code",
+    "url": "https://play.google.com/store/apps/developer?id={}",
+    "urlMain": "https://play.google.com/store",
+    "username_claimed": "Facebook",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Plug.DJ": {
     "errorType": "status_code",
     "rank": 32278,
