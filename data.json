@@ -1277,6 +1277,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "WordPressOrg": {
+    "errorType": "response_url",
+    "errorUrl": "https://wordpress.org",
+    "url": "https://profiles.wordpress.org/{}/",
+    "urlMain": "https://wordpress.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "YouNow": {
     "errorMsg": "No users found",
     "errorType": "message",
