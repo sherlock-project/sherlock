@@ -220,7 +220,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 url_probe = url_probe.format(username)
 
             request_method = session.get
-            if social_network is not "GitHub":
+            if social_network != "GitHub":
                 # If only the status_code is needed don't download the body
                 if net_info["errorType"] == 'status_code':
                     request_method = session.head
@@ -475,7 +475,7 @@ def main():
         sys.exit(1)
 
     # Check validity for single username output.
-    if args.output is not None and len(args.username) is not 1:
+    if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
         sys.exit(1)
 
