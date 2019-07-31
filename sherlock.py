@@ -11,28 +11,26 @@ import csv
 import json
 import os
 import platform
+import random
 import re
 import sys
-import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
 from time import time
 
 import requests
 from colorama import Fore, Style, init
-
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
+
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.7.8"
 amount = 0
 
-
-global proxy_list
-
 proxy_list = []
+
 
 class ElapsedFuturesSession(FuturesSession):
     """
@@ -41,10 +39,13 @@ class ElapsedFuturesSession(FuturesSession):
     This is taken (almost) directly from here: https://github.com/ross/requests-futures#working-in-the-background
     """
 
-    def request(self, method, url, hooks={}, *args, **kwargs):
+    def request(self, method, url, hooks=None, *args, **kwargs):
+        if hooks is None:
+            hooks = {}
+
         start = time()
 
-        def timing(r, *args, **kwargs):
+        def timing(r, *_, **__):
             elapsed_sec = time() - start
             r.elapsed = round(elapsed_sec * 1000)
 
@@ -67,6 +68,7 @@ def print_info(title, info):
           Fore.WHITE + f" {info}" +
           Fore.GREEN + " on:")
 
+
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
@@ -86,6 +88,7 @@ def print_found(social_network, url, response_time, verbose=False):
            format_response_time(response_time, verbose) +
            Fore.GREEN + f" {social_network}:"), url)
 
+
 def print_not_found(social_network, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
@@ -93,6 +96,7 @@ def print_not_found(social_network, response_time, verbose=False):
            format_response_time(response_time, verbose) +
            Fore.GREEN + f" {social_network}:" +
            Fore.YELLOW + " Not Found!"))
+
 
 def print_invalid(social_network, msg):
     """Print invalid search result."""
@@ -104,7 +108,6 @@ def print_invalid(social_network, msg):
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
-
     global proxy_list
 
     try:
@@ -116,13 +119,13 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
 
     # In case our proxy fails, we retry with another proxy.
     except requests.exceptions.ProxyError as errp:
-        if retry_no>0 and len(proxy_list)>0:
-            #Selecting the new proxy.
+        if retry_no > 0 and len(proxy_list) > 0:
+            # Selecting the new proxy.
             new_proxy = random.choice(proxy_list)
             new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
             print(f'Retrying with {new_proxy}')
-            request_future.proxy = {'http':new_proxy,'https':new_proxy}
-            get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1)
+            request_future.proxy = {'http': new_proxy, 'https': new_proxy}
+            get_response(request_future, error_type, social_network, verbose, retry_no=retry_no - 1)
         else:
             print_error(errp, "Proxy error:", social_network, verbose)
     except requests.exceptions.ConnectionError as errc:
@@ -182,8 +185,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         underlying_session = underlying_request.session
 
     # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
-    session = ElapsedFuturesSession(
-        executor=executor, session=underlying_session)
+    session = ElapsedFuturesSession(executor=executor, session=underlying_session)
 
     # Results from analysis of all sites
     results_total = {}
@@ -192,10 +194,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     for social_network, net_info in site_data.items():
 
         # Results from analysis of this specific site
-        results_site = {}
-
-        # Record URL of main site
-        results_site['url_main'] = net_info.get("urlMain")
+        results_site = {'url_main': net_info.get("urlMain")}  # Record URL of main site
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -213,15 +212,15 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             results_site["url_user"] = url
             url_probe = net_info.get("urlProbe")
             if url_probe is None:
-                #Probe URL is normal one seen by people out on the web.
+                # Probe URL is normal one seen by people out on the web.
                 url_probe = url
             else:
-                #There is a special URL for probing existence separate
-                #from where the user profile normally can be found.
+                # There is a special URL for probing existence separate
+                # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
             request_method = session.get
-            if social_network != "GitHub":
+            if social_network is not "GitHub":
                 # If only the status_code is needed don't download the body
                 if net_info["errorType"] == 'status_code':
                     request_method = session.head
@@ -237,15 +236,15 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
-            if proxy != None:
+            if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
                 future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
                                         )
             else:
                 future = request_method(url=url_probe, headers=headers,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
                                         )
 
             # Store future in data for access later
@@ -303,7 +302,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             if not error in r.text:
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
+                amount = amount + 1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
@@ -314,7 +313,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             if not r.status_code >= 300 or r.status_code < 200:
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
+                amount = amount + 1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
@@ -330,7 +329,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 #
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
+                amount = amount + 1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
@@ -358,7 +357,7 @@ def main():
     # Colorama module's initialization.
     init(autoreset=True)
 
-    version_string = f"%(prog)s {__version__}\n" +  \
+    version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
 
@@ -366,11 +365,11 @@ def main():
                             description=f"{module_name} (Version {__version__})"
                             )
     parser.add_argument("--version",
-                        action="version",  version=version_string,
+                        action="version", version=version_string,
                         help="Display version information and dependencies."
                         )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
-                        action="store_true",  dest="verbose", default=False,
+                        action="store_true", dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
     parser.add_argument("--rank", "-r",
@@ -384,18 +383,21 @@ def main():
                         )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
-                        help="Make requests over Tor; increases runtime; requires Tor to be installed and in system path.")
+                        help="Make requests over Tor; "
+                             "increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--unique-tor", "-u",
                         action="store_true", dest="unique_tor", default=False,
-                        help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.")
+                        help="Make requests over Tor with new Tor circuit after each request; "
+                             "increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--csv",
-                        action="store_true",  dest="csv", default=False,
+                        action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                         )
     parser.add_argument("--site",
                         action="append", metavar='SITE_NAME',
                         dest="site_list", default=None,
-                        help="Limit analysis to just the listed sites.  Add multiple options to specify more than one site."
+                        help="Limit analysis to just the listed sites. "
+                             "Add multiple options to specify more than one site."
                         )
     parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
                         action="store", dest="proxy", default=None,
@@ -410,9 +412,9 @@ def main():
                         )
     parser.add_argument("--check_proxies", "-cp", metavar='CHECK_PROXY',
                         action="store", dest="check_prox", default=None,
-                        help="To be used with the '--proxy_list' parameter. "
-                             "The script will check if the proxies supplied in the .csv file are working and anonymous."
-                             "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
+                        help="To be used with the '--proxy_list' parameter. The script will check "
+                             "if the proxies supplied in the .csv file are working and anonymous. Put 0 "
+                             "for no limit on successfully checked proxies, or another number to institute a limit."
                         )
     parser.add_argument("--print-found",
                         action="store_true", dest="print_found_only", default=False,
@@ -426,32 +428,31 @@ def main():
 
     args = parser.parse_args()
 
-
     # Argument check
     # TODO regex check on args.proxy
-    if args.tor and (args.proxy != None or args.proxy_list != None):
-        raise Exception("Tor and Proxy cannot be set in the meantime.")
+    if args.tor and (args.proxy is not None or args.proxy_list is not None):
+        raise Exception("Tor and Proxy cannot be set at the same time.")
 
     # Proxy argument check.
     # Does not necessarily need to throw an error,
     # since we could join the single proxy with the ones generated from the .csv,
     # but it seems unnecessarily complex at this time.
-    if args.proxy != None and args.proxy_list != None:
+    if args.proxy is not None and args.proxy_list is not None:
         raise Exception("A single proxy cannot be used along with proxy list.")
 
     # Make prompts
-    if args.proxy != None:
+    if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
 
     global proxy_list
 
-    if args.proxy_list != None:
+    if args.proxy_list is not None:
         print_info("Loading proxies from", args.proxy_list)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
     # Checking if proxies should be checked for anonymity.
-    if args.check_prox != None and args.proxy_list != None:
+    if args.check_prox is not None and args.proxy_list is not None:
         try:
             limit = int(args.check_prox)
             if limit == 0:
@@ -465,7 +466,8 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
-        print("Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
+        print("Warning: some websites might refuse connecting over Tor, "
+              "so note that using this option might increase connection errors.")
 
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
@@ -473,7 +475,7 @@ def main():
         sys.exit(1)
 
     # Check validity for single username output.
-    if args.output is not None and len(args.username) != 1:
+    if args.output is not None and len(args.username) is not 1:
         print("You can only use --output with a single username")
         sys.exit(1)
 
@@ -496,15 +498,13 @@ def main():
             sys.exit(1)
             pass
 
-    data_file_path = os.path.join(os.path.dirname(
-        os.path.realpath(__file__)), args.json_file)
+    data_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), args.json_file)
     # This will be none if the request had a missing schema
     if site_data_all is None:
         # Check if the file exists otherwise exit.
         if not os.path.exists(data_file_path):
             print("JSON file at doesn't exist.")
-            print(
-                "If this is not a file but a website, make sure you have appended http:// or https://.")
+            print("If this is not a file but a website, make sure you have appended http:// or https://.")
             sys.exit(1)
         else:
             raw = open(data_file_path, "r", encoding="utf-8")
@@ -566,9 +566,9 @@ def main():
         except (NameError, IndexError):
             proxy = args.proxy
 
-        results = {}
         results = sherlock(username, site_data, verbose=args.verbose,
-                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy, print_found_only=args.print_found_only)
+                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy,
+                           print_found_only=args.print_found_only)
 
         exists_counter = 0
         for website_name in results:
@@ -579,7 +579,7 @@ def main():
         file.write("Total Websites : {}".format(exists_counter))
         file.close()
 
-        if args.csv == True:
+        if args.csv:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',
