@@ -1,7 +1,8 @@
 import csv
-import requests
 import time
 from collections import namedtuple
+
+import requests
 from colorama import Fore, Style
 
 
@@ -17,7 +18,7 @@ def load_proxies_from_csv(path_to_list):
 
     with open(path_to_list, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        proxies = [Proxy(line['ip'],line['port'],line['protocol']) for line in csv_reader]
+        proxies = [Proxy(line['ip'], line['port'], line['protocol']) for line in csv_reader]
 
     return proxies
 
@@ -33,9 +34,9 @@ def check_proxy(proxy_ip, proxy_port, protocol):
     full_proxy = f'{protocol}://{proxy_ip}:{proxy_port}'
     proxies = {'http': full_proxy, 'https': full_proxy}
     try:
-        r = requests.get('https://www.wikipedia.org',proxies=proxies, timeout=4)
+        r = requests.get('https://www.wikipedia.org', proxies=proxies, timeout=4)
         return_proxy = r.headers['X-Client-IP']
-        if proxy_ip==return_proxy:
+        if proxy_ip == return_proxy:
             return True
         else:
             return False
@@ -65,18 +66,18 @@ def check_proxy_list(proxy_list, max_proxies=None):
     # If the user has limited the number of proxies we need,
     # the function will stop when the working_proxies
     # loads the max number of requested proxies.
-    if max_proxies != None:
+    if max_proxies is not None:
         for proxy in proxy_list:
             if len(working_proxies) < max_proxies:
                 time.sleep(1)
-                if check_proxy(proxy.ip,proxy.port,proxy.protocol) == True:
+                if check_proxy(proxy.ip, proxy.port, proxy.protocol):
                     working_proxies.append(proxy)
             else:
                 break
     else:
         for proxy in proxy_list:
             time.sleep(1)
-            if check_proxy(proxy.ip,proxy.port,proxy.protocol) == True:
+            if check_proxy(proxy.ip, proxy.port, proxy.protocol):
                 working_proxies.append(proxy)
 
     if len(working_proxies) > 0:
