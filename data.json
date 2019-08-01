@@ -1,4 +1,12 @@
 {
+  "Hackerrank.com": {
+    "errorType": "status_code",
+    "rank": 282,
+    "url": "https://www.hackerrank.com/{}",
+    "urlMain": "https://www.hackerrank.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis27"
+  },
   "500px": {
     "errorMsg": "Oops! This page doesn\u2019t exist.",
     "errorType": "message",
