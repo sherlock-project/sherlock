@@ -429,6 +429,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Flightradar24": {
+    "errorType": "status_code",
+    "url": "https://my.flightradar24.com/{}",
+    "urlMain": "https://www.flightradar24.com/",
+    "username_claimed": "jebbrooks",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Flipboard": {
     "errorType": "status_code",
     "rank": 3728,
