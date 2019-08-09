@@ -4,7 +4,7 @@ certifi
 colorama
 lxml
 PySocks
-requests
+requests>=2.22.0
 requests-futures
 soupsieve
 stem
