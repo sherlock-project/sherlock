@@ -34,7 +34,7 @@ $ git clone https://github.com/sherlock-project/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install python3 and python3-pip if not exist
+# install python3 and python3-pip if they are not installed
 
 # install the requirements
 $ pip3 install -r requirements.txt
@@ -97,7 +97,7 @@ optional arguments:
 
 ```
 
-For example to search for an user:
+For example to search for only one user:
 ```
 python3 sherlock.py user123
 
@@ -117,15 +117,15 @@ If you have docker installed you can build an image and run this as a container.
 docker build -t mysherlock-image .
 ```
 
-Once the image is built sherlock can be invoked by running the following:
+Once the image is built, sherlock can be invoked by running the following:
 
 ```
 docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See https://docs.docker.com/engine/reference/run/#clean-up---rm
+The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: https://docs.docker.com/engine/reference/run/#clean-up---rm
 
-The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See https://docs.docker.com/engine/reference/run/#foreground
+The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
 
 It is possible to use the following command to access the saved results:
 
@@ -133,9 +133,9 @@ It is possible to use the following command to access the saved results:
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker create (or use) the folder `results` in the
+The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker to create (or use) the folder `results` in the
 present working directory and to mount it at `/opt/sherlock/results` on the docker container.
-The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result
+The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
 Or you can simply use "Docker Hub" to run `sherlock`:
 ```
@@ -154,7 +154,7 @@ to understand the issues.
 If you are contributing to Sherlock, then Thank You!
 
 Before creating a pull request with new development, please run the tests
-to ensure that all is well.  It would also be a good idea to run the tests
+to ensure that everything is working great.  It would also be a good idea to run the tests
 before starting development to distinguish problems between your
 environment and the Sherlock software.
 
@@ -167,7 +167,7 @@ $ python3 -m unittest tests.all --buffer --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
-the sites that Sherlock checks are not always reliable, so it is not uncommon
+the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
 
 ## Stargazers over time
