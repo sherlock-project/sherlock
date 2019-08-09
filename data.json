@@ -140,6 +140,23 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Brew": {
+    "errorType": "status_code",
+    "url": "https://www.brew.com/{}",
+    "urlProbe": "https://api.brew.com/api/public/podcast/{}",
+    "urlMain": "https://www.brew.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "BuyMeACoffee": {
+    "errorType": "message",
+    "errorMsg": "It returned a 404 error",
+    "url": "https://buymeacoff.ee/{}",
+    "urlProbe": "https://www.buymeacoffee.com/{}",
+    "urlMain": "https://www.buymeacoffee.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "BuzzFeed": {
     "errorType": "status_code",
     "rank": 291,
