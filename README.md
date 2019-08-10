@@ -2,8 +2,9 @@
 
 <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
 
+
 <br>
-<span>Find usernames across <a href="https://github.com/theyahya/sherlock/blob/master/sites.md">social networks</a></span>
+<span>Hunt down social media accounts by username across <a href="https://github.com/theyahya/sherlock/blob/master/sites.md">social networks</a></span>
 <br>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
@@ -12,13 +13,21 @@
 <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
 <a target="_blank" href="https://microbadger.com/images/theyahya/sherlock"><img alt="docker image" src="https://images.microbadger.com/badges/version/theyahya/sherlock.svg"></a>
 </p>
+
+<p align="center">
+  <a href="#demo">Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#docker-notes">Docker Notes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#adding-new-sites">Adding New Sites</a>
+</p>
+
 <p align="center">
 <a href="https://asciinema.org/a/223115">
 <img src="./images/sherlock_preview.gif"/>
 </a>
 </p>
+  
 
-## Demonstration
+
+
+## Demo
 
 You can use this link to test Sherlock directly in your browser:
 https://elody.com/scenario/plan/16/
