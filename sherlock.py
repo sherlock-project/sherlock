@@ -25,7 +25,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
+module_name = "Sherlock: Look For Usernames Across Social Networks"
 __version__ = "0.8.0"
 amount = 0
 
@@ -92,7 +92,7 @@ def print_not_found(social_network, response_time, verbose=False):
            Fore.WHITE + "]" +
            format_response_time(response_time, verbose) +
            Fore.GREEN + f" {social_network}:" +
-           Fore.YELLOW + " Not Found!"))
+           Fore.BLUE + " Was Not Found!"))
 
 def print_invalid(social_network, msg):
     """Print invalid search result."""
@@ -100,7 +100,7 @@ def print_invalid(social_network, msg):
            Fore.RED + "-" +
            Fore.WHITE + "]" +
            Fore.GREEN + f" {social_network}:" +
-           Fore.YELLOW + f" {msg}"))
+           Fore.BLUE + f" {msg}"))
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
@@ -112,7 +112,7 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
         if rsp.status_code:
             return rsp, error_type, rsp.elapsed
     except requests.exceptions.HTTPError as errh:
-        print_error(errh, "HTTP Error:", social_network, verbose)
+        print_error(errh, "HTTP Was Incorrect:", social_network, verbose)
 
     # In case our proxy fails, we retry with another proxy.
     except requests.exceptions.ProxyError as errp:
