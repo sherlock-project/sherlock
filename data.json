@@ -251,6 +251,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codewars": {
+    "errorType": "status_code",
+    "rank": 0,
+    "url": "https://www.codewars.com/users/{}",
+    "urlMain": "https://www.codewars.com",
+    "username_claimed": "example",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ColourLovers": {
     "errorType": "status_code",
     "rank": 0,
