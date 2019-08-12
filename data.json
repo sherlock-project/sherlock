@@ -379,6 +379,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Duolingo": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.duolingo.com/errors/404.html",
+    "rank": 0,
+    "url": "https://www.duolingo.com/{}",
+    "urlMain": "https://www.duolingo.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
