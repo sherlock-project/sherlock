@@ -1486,5 +1486,13 @@
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "segmentfault": {
+    "errorType": "status_code",
+    "rank": 0,
+    "url": "https://segmentfault.com/u/{}",
+    "urlMain": "https://segmentfault.com/",
+    "username_claimed": "bule",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
