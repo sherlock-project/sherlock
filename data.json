@@ -1486,5 +1486,13 @@
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Tellonym.me": {
+    "errorType": "status_code",
+    "rank": 20809,
+    "url": "https://tellonym.me/{}",
+    "urlMain": "https://tellonym.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
