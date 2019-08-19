@@ -748,7 +748,7 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-    "linkedin.com": {
+  "linkedin.com": {
     "errorMsg": "This profile is not available",
     "errorType": "message",
     "rank": 0,
