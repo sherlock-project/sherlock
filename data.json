@@ -748,6 +748,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "linkedin.com": {
+    "errorMsg": "This profile is not available",
+    "errorType": "message",
+    "rank": 0,
+    "url":  "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com/",
+    "username_claimed": "alex",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "LiveJournal": {
     "errorType": "status_code",
     "rank": 0,
@@ -1485,15 +1494,6 @@
     "url": "https://osu.ppy.sh/users/{}",
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "linkedin.com": {
-    "errorMsg": "This profile is not available",
-    "errorType": "message",
-    "rank": 0,
-    "url":  "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
