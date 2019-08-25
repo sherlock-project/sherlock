@@ -913,8 +913,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "PayPal": {
-    "errorMsg": "name=\"twitter:title\" content=\"Get your very own PayPal.Me link\"",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://www.paypal.com/paypalme2/404",
     "rank": 9041,
     "url": "https://www.paypal.me/{}",
     "urlMain": "https://www.paypal.me/",
