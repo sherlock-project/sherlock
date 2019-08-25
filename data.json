@@ -1491,7 +1491,7 @@
     "errorMsg": "Fatal system error",
     "errorType": "message",
     "rank": 0,
-    "url": "http://www.furaffinity.net/user/{}",
+    "url": "https://www.furaffinity.net/user/{}",
     "urlMain": "http://www.furaffinity.net",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
