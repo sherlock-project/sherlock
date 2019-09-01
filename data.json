@@ -435,7 +435,7 @@
   "Facebook": {
     "errorType": "status_code",
     "rank": 3,
-    "regexCheck": "^[a-zA-Z0-9]{4,49}(?<!.com|.org|.net)$",
+    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
     "url": "https://www.facebook.com/{}",
     "urlMain": "https://www.facebook.com/",
     "username_claimed": "blue",
