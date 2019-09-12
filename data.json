@@ -352,6 +352,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "Discuss.Elastic.co": {
+    "errorType": "status_code",
+    "rank": 9999,
+    "url": "https://discuss.elastic.co/u/{}",
+    "urlMain": "https://discuss.elastic.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Disqus": {
     "errorType": "status_code",
     "rank": 1046,
