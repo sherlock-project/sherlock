@@ -26,21 +26,9 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.5.0"
+__version__ = "0.8.5"
 amount = 0
 
-BANNER = r'''
-                                              ."""-.
-                                             /      \
- ____  _               _            _        |  _..--'-.
-/ ___|| |__   ___ _ __| | ___   ___| |__    >.`__.-""\;"`
-\___ \| '_ \ / _ \ '__| |/ _ \ / __| |/ /   / /(     ^\
- ___) | | | |  __/ |  | | (_) | (__|   <    '-`)     =|-.
-|____/|_| |_|\___|_|  |_|\___/ \___|_|\_\    /`--.'--'   \ .-.
-                                           .'`-._ `.\    | J /
-                                          /      `--.|   \__/'''[1:]
-
-# TODO: fix tumblr
 
 global proxy_list
 
@@ -72,6 +60,13 @@ class ElapsedFuturesSession(FuturesSession):
         return super(ElapsedFuturesSession, self).request(method, url, hooks=hooks, *args, **kwargs)
 
 
+def print_info(title, info):
+    print(Style.BRIGHT + Fore.GREEN + "[" +
+          Fore.YELLOW + "*" +
+          Fore.GREEN + f"] {title}" +
+          Fore.WHITE + f" {info}" +
+          Fore.GREEN + " on:")
+
 def print_error(err, errstr, var, verbose=False):
     print(Style.BRIGHT + Fore.WHITE + "[" +
           Fore.RED + "-" +
@@ -89,20 +84,27 @@ def print_found(social_network, url, response_time, verbose=False):
            Fore.GREEN + "+" +
            Fore.WHITE + "]" +
            format_response_time(response_time, verbose) +
-           Fore.GREEN + " {}:").format(social_network), url)
-
+           Fore.GREEN + f" {social_network}:"), url)
 
 def print_not_found(social_network, response_time, verbose=False):
     print((Style.BRIGHT + Fore.WHITE + "[" +
            Fore.RED + "-" +
            Fore.WHITE + "]" +
            format_response_time(response_time, verbose) +
-           Fore.GREEN + " {}:" +
-           Fore.YELLOW + " Not Found!").format(social_network))
+           Fore.GREEN + f" {social_network}:" +
+           Fore.YELLOW + " Not Found!"))
+
+def print_invalid(social_network, msg):
+    """Print invalid search result."""
+    print((Style.BRIGHT + Fore.WHITE + "[" +
+           Fore.RED + "-" +
+           Fore.WHITE + "]" +
+           Fore.GREEN + f" {social_network}:" +
+           Fore.YELLOW + f" {msg}"))
 
 
 def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
-    
+
     global proxy_list
 
     try:
@@ -132,7 +134,7 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
     return None, "", -1
 
 
-def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None):
+def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None, print_found_only=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -160,11 +162,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     """
     global amount
 
-    print((Style.BRIGHT + Fore.GREEN + "[" +
-           Fore.YELLOW + "*" +
-           Fore.GREEN + "] Checking username" +
-           Fore.WHITE + " {}" +
-           Fore.GREEN + " on:").format(username))
+    print_info("Checking username", username)
 
     # A user agent is needed because some sites don't
     # return the correct information since they think that
@@ -203,16 +201,24 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            print((Style.BRIGHT + Fore.WHITE + "[" +
-                   Fore.RED + "-" +
-                   Fore.WHITE + "]" +
-                   Fore.GREEN + " {}:" +
-                   Fore.YELLOW + " Illegal Username Format For This Site!").format(social_network))
+            print_invalid(social_network, "Illegal Username Format For This Site!")
             results_site["exists"] = "illegal"
+            results_site["url_user"] = ""
+            results_site['http_status'] = ""
+            results_site['response_text'] = ""
+            results_site['response_time_ms'] = ""
         else:
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
             results_site["url_user"] = url
+            url_probe = net_info.get("urlProbe")
+            if url_probe is None:
+                #Probe URL is normal one seen by people out on the web.
+                url_probe = url
+            else:
+                #There is a special URL for probing existence separate
+                #from where the user profile normally can be found.
+                url_probe = url_probe.format(username)
 
             request_method = session.get
             if social_network != "GitHub":
@@ -233,12 +239,12 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy != None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(url=url, headers=headers,
+                future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
                                         allow_redirects=allow_redirects
                                         )
             else:
-                future = request_method(url=url, headers=headers,
+                future = request_method(url=url_probe, headers=headers,
                                         allow_redirects=allow_redirects
                                         )
 
@@ -299,7 +305,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "status_code":
@@ -309,7 +316,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "response_url":
@@ -318,21 +326,19 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             # match the request.  Instead, we will ensure that the response
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
-            if (r.status_code >= 200) and (r.status_code < 300):
+            if 200 <= r.status_code < 300:
                 #
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
                 amount = amount+1
             else:
-                print_not_found(social_network, response_time, verbose)
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose)
                 exists = "no"
 
         elif error_type == "":
-            print((Style.BRIGHT + Fore.WHITE + "[" +
-                   Fore.RED + "-" +
-                   Fore.WHITE + "]" +
-                   Fore.GREEN + " {}:" +
-                   Fore.YELLOW + " Error!").format(social_network))
+            if not print_found_only:
+                print_invalid(social_network, "Error!")
             exists = "error"
 
         # Save exists flag
@@ -378,10 +384,10 @@ def main():
                         )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
-                        help="Make requests over TOR; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over Tor; increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--unique-tor", "-u",
                         action="store_true", dest="unique_tor", default=False,
-                        help="Make requests over TOR with new TOR circuit after each request; increases runtime; requires TOR to be installed and in system path.")
+                        help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--csv",
                         action="store_true",  dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
@@ -408,6 +414,10 @@ def main():
                              "The script will check if the proxies supplied in the .csv file are working and anonymous."
                              "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
                         )
+    parser.add_argument("--print-found",
+                        action="store_true", dest="print_found_only", default=False,
+                        help="Do not output sites where the username was not found."
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -416,12 +426,11 @@ def main():
 
     args = parser.parse_args()
 
-    print(Fore.WHITE + Style.BRIGHT + BANNER)
 
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy != None or args.proxy_list != None):
-        raise Exception("TOR and Proxy cannot be set in the meantime.")
+        raise Exception("Tor and Proxy cannot be set in the meantime.")
 
     # Proxy argument check.
     # Does not necessarily need to throw an error,
@@ -437,11 +446,7 @@ def main():
     global proxy_list
 
     if args.proxy_list != None:
-        print((Style.BRIGHT + Fore.GREEN + "[" +
-               Fore.YELLOW + "*" +
-               Fore.GREEN + "] Loading proxies from" +
-               Fore.WHITE + " {}" +
-               Fore.GREEN + " :").format(args.proxy_list))
+        print_info("Loading proxies from", args.proxy_list)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
@@ -459,8 +464,8 @@ def main():
             raise Exception("Prameter --check_proxies/-cp must be a positive intiger.")
 
     if args.tor or args.unique_tor:
-        print("Using TOR to make requests")
-        print("Warning: some websites might refuse connecting over TOR, so note that using this option might increase connection errors.")
+        print("Using Tor to make requests")
+        print("Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
@@ -531,7 +536,7 @@ def main():
             sys.exit(1)
 
     if args.rank:
-        # Sort data by rank 
+        # Sort data by rank
         site_dataCpy = dict(site_data)
         ranked_sites = sorted(site_data, key=lambda k: ("rank" not in k, site_data[k].get("rank", sys.maxsize)))
         site_data = {}
@@ -563,7 +568,7 @@ def main():
 
         results = {}
         results = sherlock(username, site_data, verbose=args.verbose,
-                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy)
+                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy, print_found_only=args.print_found_only)
 
         exists_counter = 0
         for website_name in results:
