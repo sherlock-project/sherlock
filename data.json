@@ -1254,8 +1254,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Trip": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 2558,
     "url": "https://www.trip.skyscanner.com/user/{}",
     "urlMain": "https://www.trip.skyscanner.com/",
