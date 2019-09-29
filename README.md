@@ -116,7 +116,6 @@ optional arguments:
 For example to search for only one user:
 ```
 python3 sherlock.py user123
-
 ```
 
 To search for more than one user:
