@@ -1,7 +1,6 @@
 import requests
 import json
 import os
-import sys
 import argparse
 
 DEBUG = False
@@ -9,8 +8,8 @@ DEBUG = False
 # TODO: fix tumblr
 
 def write_to_file(url, fname):
-	with open(fname, "a") as f:
-		f.write(url+"\n")
+    with open(fname, "a") as f:
+        f.write(url+"\n")
 
 def print_error(err, errstr, var, debug = False):
     if debug:
