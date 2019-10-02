@@ -7,18 +7,11 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
-import csv
-import json
-import os
-import platform
-import re
-import sys
-import random
+import csv, json, os, platfor, re, sys, random, requests
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
 from time import time
 
-import requests
 from colorama import Fore, Style, init
 
 from requests_futures.sessions import FuturesSession
