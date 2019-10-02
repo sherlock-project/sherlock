@@ -1,7 +1,7 @@
 <p align=center>
-  
+
   <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
-  
+
   <br>
   <span>Hunt down social media accounts by username across <a href="https://github.com/theyahya/sherlock/blob/master/sites.md">social networks</a></span>
   <br>
@@ -30,7 +30,7 @@
 <img src="./images/sherlock_preview.gif"/>
 </a>
 </p>
-  
+
 
 
 
@@ -155,6 +155,14 @@ The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the re
 Or you can simply use "Docker Hub" to run `sherlock`:
 ```
 docker run theyahya/sherlock user123
+```
+
+### Using `docker-compose`
+
+You can also use the `docker-compose.yml` file from the repository and use this command
+
+```
+docker-compose run sherlok -o /opt/sherlock/results/text.txt user123
 ```
 
 ## Adding New Sites
