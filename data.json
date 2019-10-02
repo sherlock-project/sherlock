@@ -986,6 +986,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PowerShell Gallery": {
+    "errorType": "status_code",
+    "rank": 9999,
+    "url": "https://www.powershellgallery.com/profiles/{}",
+    "urlMain": "https://www.powershellgallery.com",
+    "username_claimed": "powershellteam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ProductHunt": {
     "errorMsg": "Product Hunt is a curation of the best new products",
     "errorType": "message",
