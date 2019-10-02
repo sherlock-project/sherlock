@@ -1,10 +1,7 @@
 """Sherlock: Supported Site Listing
 This module generates the listing of supported sites.
 """
-import json
-import sys
-import requests
-import threading
+import json, sys, requests, threading
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
