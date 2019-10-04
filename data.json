@@ -1192,6 +1192,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Teknik": {
+    "errorMsg": "The user does not exist",
+    "errorType": "message",
+    "url": "https://user.teknik.io/{}",
+    "urlMain": "https://teknik.io/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Telegram": {
     "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact",
     "errorType": "message",
