@@ -705,6 +705,14 @@
     "username_claimed": "dansbecker",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Khan Academy": {
+    "errorType": "status_code",
+    "rank": 111,
+    "url": "https://www.khanacademy.org/profile/{}",
+    "urlMain": "https://www.khanacademy.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "KanoWorld": {
     "errorType": "status_code",
     "rank": 206672,
