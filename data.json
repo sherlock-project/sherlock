@@ -1274,8 +1274,9 @@
   "Twitch": {
     "errorType": "status_code",
     "rank": 32,
-    "url": "https://m.twitch.tv/{}",
+    "url": "https://www.twitch.tv/{}",
     "urlMain": "https://www.twitch.tv/",
+    "urlProbe": "https://m.twitch.tv/{}",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
