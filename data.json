@@ -252,6 +252,14 @@
     "username_claimed": "example",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codingninjas": {
+    "errorType": "status_code",
+    "rank": 2111,
+    "url": "https://www.codingninjas.com/profiles/{}",
+    "urlMain": "https://www.codingninjas.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ColourLovers": {
     "errorType": "status_code",
     "rank": 23143,
