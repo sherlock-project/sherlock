@@ -1,4 +1,4 @@
-## List Of Supported Sites (176 Sites In Total!)
+## List Of Supported Sites (177 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 2. [500px](https://500px.com/)
 3. [9GAG](https://9gag.com/)
@@ -175,5 +175,6 @@
 174. [mixer.com](https://mixer.com/)
 175. [osu!](https://osu.ppy.sh/)
 176. [segmentfault](https://segmentfault.com/)
+177. [Zomato](https://www.zomato.com/)
 
-Alexa.com rank data fetched at (2019-10-20 03:22:41.959468 UTC)
+Alexa.com rank data fetched at (2019-10-20 15:46:29.998108 UTC)
