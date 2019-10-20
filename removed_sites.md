@@ -6,6 +6,22 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## EVE Online
+
+Usernames that exists are not detected.
+
+```
+  "EVE Online": {
+    "errorType": "response_url",
+    "errorUrl": "https://eveonline.com",
+    "rank": 15347,
+    "url": "https://evewho.com/pilot/{}/",
+    "urlMain": "https://eveonline.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## AngelList
 
 Username that exists is not detected.

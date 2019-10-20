@@ -389,15 +389,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewoulduse"
   },
-  "EVE Online": {
-    "errorType": "response_url",
-    "errorUrl": "https://eveonline.com",
-    "rank": 15347,
-    "url": "https://evewho.com/pilot/{}/",
-    "urlMain": "https://eveonline.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Ebay": {
     "errorMsg": "The User ID you entered was not found",
     "errorType": "message",
