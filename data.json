@@ -221,7 +221,7 @@
   "Codecademy": {
     "errorType": "status_code",
     "rank": 2553,
-    "url": "https://www.codecademy.com/{}",
+    "url": "https://www.codecademy.com/profiles/{}",
     "urlMain": "https://www.codecademy.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
