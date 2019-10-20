@@ -164,13 +164,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
 
     print_info("Checking username", username)
 
-    # A user agent is needed because some sites don't
-    # return the correct information since they think that
-    # we are bots
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0'
-    }
-
     # Allow 1 thread for each external service, so `len(site_data)` threads total
     executor = ThreadPoolExecutor(max_workers=len(site_data))
 
@@ -196,6 +189,14 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
 
         # Record URL of main site
         results_site['url_main'] = net_info.get("urlMain")
+        
+        # A user agent is needed because some sites don't return the correct information since they think that
+        # we are bots
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
+        }
+        if "headers" in net_info:
+            headers.update(net_info["headers"])
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
