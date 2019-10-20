@@ -905,12 +905,11 @@
     "username_unclaimed": "noneownsthisusername"
   },
   "Pexels": {
-    "errorMsg": "Ouch, something went wrong!",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 483,
     "url": "https://www.pexels.com/@{}",
     "urlMain": "https://www.pexels.com/",
-    "username_claimed": "rawpixel",
+    "username_claimed": "bruno",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Photobucket": {
