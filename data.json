@@ -40,14 +40,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "AngelList": {
-    "errorType": "status_code",
-    "rank": 5767,
-    "url": "https://angel.co/{}",
-    "urlMain": "https://angel.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Anobii": {
     "errorType": "response_url",
     "rank": 61501,
@@ -74,7 +66,8 @@
     "username_unclaimed": "noonewould"
   },
   "AskFM": {
-    "errorType": "status_code",
+    "errorMsg": "Well, apparently not anymore.",
+    "errorType": "message",
     "rank": 1646,
     "url": "https://ask.fm/{}",
     "urlMain": "https://ask.fm/",
@@ -242,14 +235,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Codepen": {
-    "errorType": "status_code",
-    "rank": 1359,
-    "url": "https://codepen.io/{}",
-    "urlMain": "https://codepen.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
     "errorType": "message",
@@ -395,25 +380,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Duolingo": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.duolingo.com/errors/404.html",
-    "rank": 538,
-    "regexCheck": "^[a-zA-Z0-9_-]{3,16}$",
-    "url": "https://www.duolingo.com/{}",
-    "urlMain": "https://www.duolingo.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewoulduse"
-  },
-  "EVE Online": {
-    "errorType": "response_url",
-    "errorUrl": "https://eveonline.com",
-    "rank": 15347,
-    "url": "https://evewho.com/pilot/{}/",
-    "urlMain": "https://eveonline.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Ebay": {
     "errorMsg": "The User ID you entered was not found",
     "errorType": "message",
@@ -505,15 +471,6 @@
     "url": "https://foursquare.com/{}",
     "urlMain": "https://foursquare.com/",
     "username_claimed": "dens",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Furaffinity": {
-    "errorMsg": "Fatal system error",
-    "errorType": "message",
-    "rank": 4278,
-    "url": "https://www.furaffinity.net/user/{}",
-    "urlMain": "https://www.furaffinity.net",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Giphy": {
@@ -644,14 +601,6 @@
     "rank": 37500,
     "url": "https://imageshack.us/user/{}",
     "urlMain": "https://imageshack.us/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Imgur": {
-    "errorType": "status_code",
-    "rank": 74,
-    "url": "https://imgur.com/user/{}",
-    "urlMain": "https://imgur.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -822,7 +771,7 @@
     "url": "https://www.mixcloud.com/{}/",
     "urlMain": "https://www.mixcloud.com/",
     "urlProbe": "https://api.mixcloud.com/{}/",
-    "username_claimed": "blue",
+    "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "MyAnimeList": {
@@ -937,22 +886,12 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "PayPal": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.paypal.com/paypalme2/404",
-    "rank": 18441,
-    "url": "https://www.paypal.me/{}",
-    "urlMain": "https://www.paypal.me/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noneownsthisusername"
-  },
   "Pexels": {
-    "errorMsg": "Ouch, something went wrong!",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 483,
     "url": "https://www.pexels.com/@{}",
     "urlMain": "https://www.pexels.com/",
-    "username_claimed": "rawpixel",
+    "username_claimed": "bruno",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Photobucket": {
