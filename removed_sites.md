@@ -5,6 +5,22 @@ Sherlock is not capable of determining if a given username exists or not.
 They are listed here in the hope that things may change in the future
 so they may be re-included.
 
+## PowerShell Gallery
+
+Accidentally merged even though the original pull request showed that all
+user names were available.
+
+```
+  "PowerShell Gallery": {
+    "errorType": "status_code",
+    "rank": 163562,
+    "url": "https://www.powershellgallery.com/profiles/{}",
+    "urlMain": "https://www.powershellgallery.com",
+    "username_claimed": "powershellteam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## LinkedIn
 
 This was attempted to be added around 2019-08-26, but the pull request was never merged.
