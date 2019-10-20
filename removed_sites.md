@@ -6,6 +6,22 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## PayPal
+
+Usernames that don't exist are detected.
+
+```
+  "PayPal": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.paypal.com/paypalme2/404",
+    "rank": 18441,
+    "url": "https://www.paypal.com/paypalme2/{}",
+    "urlMain": "https://www.paypal.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
+  },
+```
+
 ## Furaffinity
 
 Usernames that don't exist are detected.
