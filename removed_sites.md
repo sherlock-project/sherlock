@@ -5,6 +5,23 @@ Sherlock is not capable of determining if a given username exists or not.
 They are listed here in the hope that things may change in the future
 so they may be re-included.
 
+
+## Imgur
+
+Looks like they made some changes to the site.  Sherlock says that all
+usernames are available.
+
+```
+  "Imgur": {
+    "errorType": "status_code",
+    "rank": 74,
+    "url": "https://imgur.com/user/{}",
+    "urlMain": "https://imgur.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## PowerShell Gallery
 
 Accidentally merged even though the original pull request showed that all
@@ -25,7 +42,7 @@ user names were available.
 
 This was attempted to be added around 2019-08-26, but the pull request was never merged.
 It turns out that LinkedIn requires that you have an account before they will let you
-check for other account.  So, this site will not work with the current design of 
+check for other account.  So, this site will not work with the current design of
 Sherlock.
 
 ## StreamMe
