@@ -66,8 +66,8 @@
     "username_unclaimed": "noonewould"
   },
   "AskFM": {
-    "errorType": "message",
     "errorMsg": "Well, apparently not anymore.",
+    "errorType": "message",
     "rank": 1646,
     "url": "https://ask.fm/{}",
     "urlMain": "https://ask.fm/",
