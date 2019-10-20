@@ -9,6 +9,7 @@ matrix:
   include:
     - python: 3.6
     - python: 3.7
+    - python: 3.8
     - python: nightly
     - python: 3.7
       before_script: true  # override the flake8 tests
