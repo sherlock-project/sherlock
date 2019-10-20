@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Codepen
+
+Username that exists is not detected.
+
+```
+  "Codepen": {
+    "errorType": "status_code",
+    "rank": 1359,
+    "url": "https://codepen.io/{}",
+    "urlMain": "https://codepen.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## Imgur
 
 Looks like they made some changes to the site.  Sherlock says that all
