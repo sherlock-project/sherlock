@@ -20,8 +20,11 @@ It is not required that a contributer run the
 [site_list.py](https://github.com/sherlock-project/sherlock/blob/master/site_list.py)
 script.
 
-If there are performance problems with a site (e.g. slow to repond, unrealiable uptime, ...), then
-the site may be removed from the list.
+If there are performance problems with a site (e.g. slow to respond, unreliable uptime, ...), then
+the site may be removed from the list.  The 
+[removed_sites.md](https://github.com/sherlock-project/sherlock/blob/master/removed_sites.md)
+file contains sites that were included at one time in Sherlock, but had to be removed for
+one reason or another.
 
 In regards to adult sites (e.g. PornHub), we have agreed to not include them in Sherlock.  
 However, we do understand that some users desires this support.  The data.json file is easy to add to, 
