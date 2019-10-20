@@ -1259,6 +1259,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "T-MobileSupport": {
+    "errorType": "status_code",
+    "rank": 9999,
+    "url": "https://support.t-mobile.com/people/{}",
+    "urlMain": "https://support.t-mobile.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "TradingView": {
     "errorType": "status_code",
     "rank": 362,
