@@ -189,13 +189,15 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
 
         # Record URL of main site
         results_site['url_main'] = net_info.get("urlMain")
-        
-        # A user agent is needed because some sites don't return the correct information since they think that
-        # we are bots
+
+        # A user agent is needed because some sites don't return the correct
+        # information since they think that we are bots (Which we actually are...)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
         }
+
         if "headers" in net_info:
+            #Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
         # Don't make request if username is invalid for the site
