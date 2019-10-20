@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## AngelList
+
+Username that exists is not detected.
+
+```
+  "AngelList": {
+    "errorType": "status_code",
+    "rank": 5767,
+    "url": "https://angel.co/{}",
+    "urlMain": "https://angel.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## Codepen
 
 Username that exists is not detected.

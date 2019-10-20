@@ -40,14 +40,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "AngelList": {
-    "errorType": "status_code",
-    "rank": 5767,
-    "url": "https://angel.co/{}",
-    "urlMain": "https://angel.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Anobii": {
     "errorType": "response_url",
     "rank": 61501,
