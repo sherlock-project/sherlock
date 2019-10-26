@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Khan Academy
+
+Usernames that don't exist are detected.  First noticed 2019-10-25.
+
+```
+  "Khan Academy": {
+    "errorType": "status_code",
+    "rank": 377,
+    "url": "https://www.khanacademy.org/profile/{}",
+    "urlMain": "https://www.khanacademy.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## PayPal
 
 Usernames that don't exist are detected.

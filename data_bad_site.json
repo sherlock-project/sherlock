@@ -64,6 +64,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Khan Academy": {
+    "errorType": "status_code",
+    "rank": 377,
+    "url": "https://www.khanacademy.org/profile/{}",
+    "urlMain": "https://www.khanacademy.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "linkedin.com": {
     "errorMsg": "This profile is not available",
     "errorType": "message",
