@@ -28,7 +28,7 @@ class SherlockBaseTest(unittest.TestCase):
         warnings.simplefilter("ignore", ResourceWarning)
 
         # Load the data file with all site information.
-        data_file_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "data.json")
+        data_file_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "resources/data.json")
         with open(data_file_path, "r", encoding="utf-8") as raw:
             self.site_data_all = json.load(raw)
 

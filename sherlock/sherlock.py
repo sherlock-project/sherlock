@@ -405,7 +405,7 @@ def main():
                         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
                         )
     parser.add_argument("--json", "-j", metavar="JSON_FILE",
-                        dest="json_file", default="data.json",
+                        dest="json_file", default="resources/data.json",
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--proxy_list", "-pl", metavar='PROXY_LIST',
                         action="store", dest="proxy_list", default=None,
