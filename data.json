@@ -1521,5 +1521,13 @@
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Lobsters": {
+    "errorType": "status_code",
+    "url": "https://lobste.rs/u/{}",
+    "regexCheck": "[A-Za-z0-9][A-Za-z0-9_-]{0,24}",
+    "urlMain": "https://lobste.rs/",
+    "username_claimed": "jcs",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
