@@ -1,6 +1,6 @@
 version: '2'
 services:
-  sherlok:
+  sherlock:
     build: .
     volumes:
       - "./results:/opt/sherlock/results"
