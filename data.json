@@ -1538,5 +1538,14 @@
     "urlMain": "https://www.polygon.com/",
     "username_claimed": "swiftstickler",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Wikidot": {
+    "errorMsg": "User does not exist.",
+    "errorType": "message",
+    "rank": 2823,
+    "url": "http://www.wikidot.com/user:info/{}",
+    "urlMain": "http://www.wikidot.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
