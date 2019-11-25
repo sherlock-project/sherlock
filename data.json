@@ -1580,5 +1580,13 @@
     "urlMain": "https://www.alik.cz/",
     "username_claimed": "julian",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Sbazar.cz": {
+    "errorType": "status_code",
+    "rank": 11621,
+    "url": "https://www.sbazar.cz/{}",
+    "urlMain": "https://www.sbazar.cz/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
