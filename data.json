@@ -1572,5 +1572,13 @@
     "urlMain": "https://imgup.cz/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Alík.cz": {
+    "errorType": "status_code",
+    "rank": 315044,
+    "url": "https://www.alik.cz/u/{}",
+    "urlMain": "https://www.alik.cz/",
+    "username_claimed": "julian",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
