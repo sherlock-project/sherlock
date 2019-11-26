@@ -149,7 +149,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     proxy                  -- String indicating the proxy URL
 
     Return Value:
-    Dictionary containing results from report.  Key of dictionary is the name
+    Dictionary containing results from report. Key of dictionary is the name
     of the social network site, and the value is another dictionary with
     the following keys:
         url_main:      URL of main site.
@@ -197,7 +197,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         }
 
         if "headers" in net_info:
-            #Override/append any extra headers required by a given site.
+            # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
         # Don't make request if username is invalid for the site
@@ -216,11 +216,11 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             results_site["url_user"] = url
             url_probe = net_info.get("urlProbe")
             if url_probe is None:
-                #Probe URL is normal one seen by people out on the web.
+                # Probe URL is normal one seen by people out on the web.
                 url_probe = url
             else:
-                #There is a special URL for probing existence separate
-                #from where the user profile normally can be found.
+                # There is a special URL for probing existence separate
+                # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
             request_method = session.get
@@ -380,10 +380,10 @@ def main():
                         action="store_true", dest="rank", default=False,
                         help="Present websites ordered by their Alexa.com global rank in popularity.")
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
-                        help="If using multiple usernames, the output of the results will be saved at this folder."
+                        help="If using multiple usernames, the output of the results will be saved to this folder."
                         )
     parser.add_argument("--output", "-o", dest="output",
-                        help="If using single username, the output of the result will be saved at this file."
+                        help="If using single username, the output of the result will be saved to this file."
                         )
     parser.add_argument("--tor", "-t",
                         action="store_true", dest="tor", default=False,
@@ -398,7 +398,7 @@ def main():
     parser.add_argument("--site",
                         action="append", metavar='SITE_NAME',
                         dest="site_list", default=None,
-                        help="Limit analysis to just the listed sites.  Add multiple options to specify more than one site."
+                        help="Limit analysis to just the listed sites. Add multiple options to specify more than one site."
                         )
     parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
                         action="store", dest="proxy", default=None,
@@ -464,7 +464,7 @@ def main():
             else:
                 raise ValueError
         except ValueError:
-            raise Exception("Prameter --check_proxies/-cp must be a positive intiger.")
+            raise Exception("Parameter --check_proxies/-cp must be a positive integer.")
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
@@ -505,7 +505,7 @@ def main():
     if site_data_all is None:
         # Check if the file exists otherwise exit.
         if not os.path.exists(data_file_path):
-            print("JSON file at doesn't exist.")
+            print("JSON file doesn't exist.")
             print(
                 "If this is not a file but a website, make sure you have appended http:// or https://.")
             sys.exit(1)
