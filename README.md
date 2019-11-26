@@ -83,10 +83,10 @@ optional arguments:
                         rank in popularity.
   --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
                         If using multiple usernames, the output of the results
-                        will be saved at this folder.
+                        will be saved to this folder.
   --output OUTPUT, -o OUTPUT
                         If using single username, the output of the result
-                        will be saved at this file.
+                        will be saved to this file.
   --tor, -t             Make requests over Tor; increases runtime; requires
                         Tor to be installed and in system path.
   --unique-tor, -u      Make requests over Tor with new Tor circuit after each
