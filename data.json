@@ -1621,5 +1621,14 @@
     "urlMain": "https://chatujme.cz/",
     "username_claimed": "david",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Avízo.cz": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.avizo.cz/",
+    "rank": 183652,
+    "url": "https://www.avizo.cz/{}/",
+    "urlMain": "https://www.avizo.cz/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
