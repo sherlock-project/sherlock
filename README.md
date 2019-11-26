@@ -36,7 +36,7 @@
 
 ## Demo
 
-You can use this link to test Sherlock directly in your browser:
+Use this link to test Sherlock directly in your browser:
 https://elody.com/scenario/plan/16/
 
 ## Installation
@@ -114,7 +114,7 @@ optional arguments:
 
 ```
 
-For example to search for only one user:
+To search for only one user:
 ```
 python3 sherlock.py user123
 ```
@@ -124,10 +124,10 @@ To search for more than one user:
 python3 sherlock.py user1 user2 user3
 ```
 
-All of the accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ## Docker Notes
-If you have docker installed you can build an image and run this as a container.
+If docker is installed you can build an image and run this as a container.
 
 ```
 docker build -t mysherlock-image .
@@ -143,7 +143,7 @@ The optional ```--rm``` flag removes the container filesystem on completion to p
 
 The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
 
-It is possible to use the following command to access the saved results:
+Use the following command to access the saved results:
 
 ```
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
@@ -153,14 +153,14 @@ The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker to create 
 present working directory and to mount it at `/opt/sherlock/results` on the docker container.
 The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
-Or you can simply use "Docker Hub" to run `sherlock`:
+Or you can use "Docker Hub" to run `sherlock`:
 ```
 docker run theyahya/sherlock user123
 ```
 
 ### Using `docker-compose`
 
-You can also use the `docker-compose.yml` file from the repository and use this command
+You can use the `docker-compose.yml` file from the repository and use this command:
 
 ```
 docker-compose run sherlok -o /opt/sherlock/results/text.txt user123
@@ -175,7 +175,7 @@ to understand the issues.
 **NOTE**: Sherlock is not accepting adult sites in the standard list.
 
 ## Tests
-If you are contributing to Sherlock, then Thank You!
+Thank you for contributing to Sherlock!
 
 Before creating a pull request with new development, please run the tests
 to ensure that everything is working great.  It would also be a good idea to run the tests
