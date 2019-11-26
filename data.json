@@ -1613,5 +1613,13 @@
     "urlMain": "https://www.bazar.cz/",
     "username_claimed": "pianina",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Chatujme.cz": {
+    "errorType": "message",
+    "errorMsg": "Neexistujicí profil",
+    "url": "https://profil.chatujme.cz/{}",
+    "urlMain": "https://chatujme.cz/",
+    "username_claimed": "david",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
