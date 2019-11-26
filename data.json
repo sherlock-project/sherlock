@@ -1604,5 +1604,14 @@
     "urlMain": "https://gdprofiles.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Bazar.cz": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.bazar.cz/error404.aspx",
+    "rank": 597773,
+    "url": "https://www.bazar.cz/{}/",
+    "urlMain": "https://www.bazar.cz/",
+    "username_claimed": "pianina",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
