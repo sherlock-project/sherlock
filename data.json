@@ -480,14 +480,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "xgtrq"
   },
-  "Foursquare": {
-    "errorType": "status_code",
-    "rank": 1843,
-    "url": "https://foursquare.com/{}",
-    "urlMain": "https://foursquare.com/",
-    "username_claimed": "dens",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Giphy": {
     "errorType": "status_code",
     "rank": 384,

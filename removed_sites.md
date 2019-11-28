@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Foursquare
+
+Usernames that exist are not detected.
+
+```
+  "Foursquare": {
+    "errorType": "status_code",
+    "rank": 1843,
+    "url": "https://foursquare.com/{}",
+    "urlMain": "https://foursquare.com/",
+    "username_claimed": "dens",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## Khan Academy
 
 Usernames that don't exist are detected.  First noticed 2019-10-25.

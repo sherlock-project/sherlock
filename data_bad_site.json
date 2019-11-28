@@ -47,6 +47,14 @@
     "url": "https://fotolog.com/{}",
     "urlMain": "https://fotolog.com/"
   },
+  "Foursquare": {
+    "errorType": "status_code",
+    "rank": 1843,
+    "url": "https://foursquare.com/{}",
+    "urlMain": "https://foursquare.com/",
+    "username_claimed": "dens",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Furaffinity": {
     "errorMsg": "Fatal system error",
     "errorType": "message",
