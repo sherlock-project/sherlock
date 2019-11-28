@@ -1670,5 +1670,13 @@
     "urlMain": "https://noonewould.jimdo.com/",
     "username_claimed": "hahaha",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "HubPages": {
+    "errorType": "status_code",
+    "rank": 3863,
+    "url": "https://hubpages.com/@{}",
+    "urlMain": "https://hubpages.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
