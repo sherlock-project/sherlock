@@ -1663,14 +1663,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Jimdo": {
-    "errorType": "status_code",
-    "rank": 912,
-    "url": "https://{}.jimdo.com/",
-    "urlMain": "https://noonewould.jimdo.com/",
-    "username_claimed": "hahaha",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "HubPages": {
     "errorType": "status_code",
     "rank": 3863,
