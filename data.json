@@ -1637,5 +1637,30 @@
     "urlMain": "https://www.avizo.cz/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "CNET": {
+    "errorType": "status_code",
+    "rank": 128,
+    "url": "https://www.cnet.com/profiles/{}/",
+    "urlMain": "https://www.cnet.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "CapFriendly": {
+    "errorType": "message",
+    "errorMsg": "No User Found",
+    "rank": 32185,
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Fiverr": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.fiverr.com/",
+    "rank": 147,
+    "url": "https://www.fiverr.com/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
