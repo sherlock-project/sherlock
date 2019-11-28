@@ -1695,5 +1695,14 @@
     "urlMain": "https://www.gamespot.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Cracked": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.cracked.com/",
+    "rank": 4383,
+    "url": "https://www.cracked.com/members/{}/",
+    "urlMain": "https://www.cracked.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
