@@ -47,6 +47,14 @@
     "url": "https://fotolog.com/{}",
     "urlMain": "https://fotolog.com/"
   },
+  "Foursquare": {
+    "errorType": "status_code",
+    "rank": 1843,
+    "url": "https://foursquare.com/{}",
+    "urlMain": "https://foursquare.com/",
+    "username_claimed": "dens",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Furaffinity": {
     "errorMsg": "Fatal system error",
     "errorType": "message",
@@ -97,6 +105,15 @@
     "urlMain": "https://www.powershellgallery.com",
     "username_claimed": "powershellteam",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Shockwave": {
+    "errorMsg": "Oh no! You just finished all of the games on the internet!",
+    "errorType": "message",
+    "rank": 35916,
+    "url": "http://www.shockwave.com/member/profiles/{}.jsp",
+    "urlMain": "http://www.shockwave.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "StreamMe": {
     "errorType": "status_code",
