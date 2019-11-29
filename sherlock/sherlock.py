@@ -27,7 +27,6 @@ from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.9.7"
-amount = 0
 
 
 global proxy_list
@@ -197,8 +196,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
-    global amount
-
     print_info("Checking username", username)
 
     # Allow 1 thread for each external service, so `len(site_data)` threads total
@@ -349,7 +346,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             if not error in r.text:
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
@@ -360,7 +356,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             if not r.status_code >= 300 or r.status_code < 200:
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
@@ -376,7 +371,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 #
                 print_found(social_network, url, response_time, verbose)
                 exists = "yes"
-                amount = amount+1
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose)
