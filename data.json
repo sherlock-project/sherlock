@@ -1682,5 +1682,13 @@
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Codepen": {
+    "errorType": "status_code",
+    "rank": 1248,
+    "url": "https://codepen.io/{}",
+    "urlMain": "https://codepen.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
