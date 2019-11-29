@@ -59,8 +59,19 @@ class SherlockFuturesSession(FuturesSession):
         start = monotonic()
 
         def response_time(resp, *args, **kwargs):
-            elapsed_sec = monotonic() - start
-            resp.elapsed = round(elapsed_sec * 1000)
+            """Response Time Hook.
+
+            Keyword Arguments:
+            resp                   -- Response object.
+            args                   -- Arguments.
+            kwargs                 -- Keyword arguments.
+
+            Return Value:
+            N/A
+            """
+            resp.elapsed = monotonic() - start
+
+            return
 
         #Install hook to execute when response completes.
         #Make sure that the time measurement hook is first, so we will not
@@ -102,7 +113,7 @@ def print_error(err, errstr, var, verbose=False):
 
 
 def format_response_time(response_time, verbose):
-    return " [{} ms]".format(response_time) if verbose else ""
+    return f" [{round(response_time * 1000)} ms]" if verbose else ""
 
 
 def print_found(social_network, url, response_time, verbose=False):
@@ -239,7 +250,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
             results_site["url_user"] = ""
             results_site['http_status'] = ""
             results_site['response_text'] = ""
-            results_site['response_time_ms'] = ""
+            results_site['response_time_s'] = ""
         else:
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
@@ -380,7 +391,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         # Save results from request
         results_site['http_status'] = http_status
         results_site['response_text'] = response_text
-        results_site['response_time_ms'] = response_time
+        results_site['response_time_s'] = response_time
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -621,7 +632,7 @@ def main():
                                  'url_user',
                                  'exists',
                                  'http_status',
-                                 'response_time_ms'
+                                 'response_time_s'
                                  ]
                                 )
                 for site in results:
@@ -631,7 +642,7 @@ def main():
                                      results[site]['url_user'],
                                      results[site]['exists'],
                                      results[site]['http_status'],
-                                     results[site]['response_time_ms']
+                                     results[site]['response_time_s']
                                      ]
                                     )
 
