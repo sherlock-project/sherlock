@@ -606,9 +606,13 @@ def main():
         except (NameError, IndexError):
             proxy = args.proxy
 
-        results = {}
-        results = sherlock(username, site_data, verbose=args.verbose,
-                           tor=args.tor, unique_tor=args.unique_tor, proxy=args.proxy, print_found_only=args.print_found_only)
+        results = sherlock(username,
+                           site_data,
+                           verbose=args.verbose,
+                           tor=args.tor,
+                           unique_tor=args.unique_tor,
+                           proxy=args.proxy,
+                           print_found_only=args.print_found_only)
 
         exists_counter = 0
         for website_name in results:
