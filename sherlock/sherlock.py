@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.9.6"
+__version__ = "0.9.7"
 amount = 0
 
 
@@ -245,7 +245,9 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            print_invalid(social_network, "Illegal Username Format For This Site!")
+            if not print_found_only:
+                print_invalid(social_network, "Illegal Username Format For This Site!")
+
             results_site["exists"] = "illegal"
             results_site["url_user"] = ""
             results_site['http_status'] = ""
