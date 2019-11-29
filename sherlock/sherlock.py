@@ -16,7 +16,7 @@ import sys
 import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
-from time import time
+from time import monotonic
 
 import requests
 from colorama import Fore, Style, init
@@ -56,10 +56,10 @@ class SherlockFuturesSession(FuturesSession):
         Return Value:
         Request object.
         """
-        start = time()
+        start = monotonic()
 
         def response_time(resp, *args, **kwargs):
-            elapsed_sec = time() - start
+            elapsed_sec = monotonic() - start
             resp.elapsed = round(elapsed_sec * 1000)
 
         #Install hook to execute when response completes.
