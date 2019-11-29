@@ -1690,5 +1690,13 @@
     "urlMain": "https://codepen.io/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "FortniteTracker": {
+    "errorType": "status_code",
+    "rank": 4435,
+    "url": "https://fortnitetracker.com/profile/all/{}",
+    "urlMain": "https://fortnitetracker.com/challenges",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
