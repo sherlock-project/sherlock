@@ -1682,5 +1682,31 @@
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "FortniteTracker": {
+    "errorType": "status_code",
+    "rank": 4435,
+    "url": "https://fortnitetracker.com/profile/all/{}",
+    "urlMain": "https://fortnitetracker.com/challenges",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "PSNProfiles.com": {
+    "errorType": "response_url",
+    "errorUrl": "https://psnprofiles.com/?psnId={}",
+    "rank": 11651,
+    "url": "https://psnprofiles.com/{}",
+    "urlMain": "https://psnprofiles.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "TrackmaniaLadder": {
+    "errorType": "message",
+    "errorMsg": "player unknown or invalid",
+    "rank": 5225985,
+    "url": "http://en.tm-ladder.com/{}_rech.php",
+    "urlMain": "http://en.tm-ladder.com/index.php",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
