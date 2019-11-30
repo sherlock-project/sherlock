@@ -1708,5 +1708,21 @@
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "OpenStreetMap": {
+    "errorType": "status_code",
+    "rank": 6537,
+    "url": "https://www.openstreetmap.org/user/{}",
+    "urlMain": "https://www.openstreetmap.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pikabu": {
+    "errorType": "status_code",
+    "rank": 760,
+    "url": "https://pikabu.ru/@{}",
+    "urlMain": "https://pikabu.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
