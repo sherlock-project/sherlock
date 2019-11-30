@@ -1428,6 +1428,7 @@
     "errorMsg": "page doesn\u2019t exist",
     "errorType": "message",
     "rank": 42,
+    "regexCheck": "^(\w){1,15}$",
     "url": "https://www.twitter.com/{}",
     "urlMain": "https://www.twitter.com/",
     "username_claimed": "blue",
