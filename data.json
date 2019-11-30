@@ -1690,5 +1690,14 @@
     "urlMain": "https://fortnitetracker.com/challenges",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "PSNProfiles.com": {
+    "errorType": "response_url",
+    "errorUrl": "https://psnprofiles.com/?psnId={}",
+    "rank": 11651,
+    "url": "https://psnprofiles.com/{}",
+    "urlMain": "https://psnprofiles.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
