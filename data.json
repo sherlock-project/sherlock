@@ -1699,5 +1699,14 @@
     "urlMain": "https://psnprofiles.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "TrackmaniaLadder": {
+    "errorType": "message",
+    "errorMsg": "player unknown or invalid",
+    "rank": 5225985,
+    "url": "http://en.tm-ladder.com/{}_rech.php",
+    "urlMain": "http://en.tm-ladder.com/index.php",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
