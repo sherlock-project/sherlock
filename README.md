@@ -166,7 +166,7 @@ docker run theyahya/sherlock user123
 You can use the `docker-compose.yml` file from the repository and use this command:
 
 ```
-docker-compose run sherlok -o /opt/sherlock/results/text.txt user123
+docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
 ## Adding New Sites
