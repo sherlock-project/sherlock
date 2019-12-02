@@ -18,3 +18,5 @@ __pycache__/
 
 # Comma-Separated Values (CSV) Reports
 *.csv
+
+.DS_Store
