@@ -1049,9 +1049,8 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "PCPartPicker": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+  "PCPartPicker": { 
+    "errorType": "status_code",
     "rank": 2649,
     "url": "https://pcpartpicker.com/user/{}",
     "urlMain": "https://pcpartpicker.com",
