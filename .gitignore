@@ -19,4 +19,5 @@ __pycache__/
 # Comma-Separated Values (CSV) Reports
 *.csv
 
+# MacOS Folder Metadata File
 .DS_Store
