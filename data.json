@@ -1740,5 +1740,13 @@
     "urlMain": "http://promodj.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "SublimeForum": {
+    "errorType": "status_code",
+    "rank": 8499,
+    "url": "https://forum.sublimetext.com/u/{}",
+    "urlMain": "https://forum.sublimetext.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
