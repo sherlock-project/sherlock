@@ -1748,5 +1748,14 @@
     "urlMain": "https://forum.sublimetext.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Pling": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.pling.com/",
+    "rank": 127407,
+    "url": "https://www.pling.com/u/{}/",
+    "urlMain": "https://www.pling.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
