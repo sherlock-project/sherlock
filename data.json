@@ -1765,5 +1765,13 @@
     "urlMain": "https://egpu.io/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "ShitpostBot5000": {
+    "errorType": "status_code",
+    "rank": 437160,
+    "url": "https://www.shitpostbot.com/user/{}",
+    "urlMain": "https://www.shitpostbot.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
