@@ -1732,5 +1732,13 @@
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "PromoDJ": {
+    "errorType": "status_code",
+    "rank": 29009,
+    "url": "http://promodj.com/{}",
+    "urlMain": "http://promodj.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
