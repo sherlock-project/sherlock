@@ -1,0 +1,13 @@
+name: run_tests
+on: [push, pull_request]
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+      - run: pip install flake8 -r requirements.txt
+      - run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - run: python -m unittest tests.all.SherlockSiteCoverageTests --buffer --verbose
+      - run: python -m unittest tests.all.SherlockDetectTests --buffer --verbose || true
+      
