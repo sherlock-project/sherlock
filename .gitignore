@@ -8,6 +8,9 @@ venv/
 # Python
 __pycache__/
 
+# Pip
+src/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb
