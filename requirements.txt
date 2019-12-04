@@ -7,5 +7,7 @@ PySocks>=1.7.0
 requests>=2.22.0
 requests-futures>=1.0.0
 soupsieve>=1.9.2
+# install from git to fix RuntimeError: dictionary keys changed during iteration
+# change to stem>=1.7.2 or greater when available
 -e git+https://git.torproject.org/stem.git@b5aecb7#egg=stem
 torrequest>=0.1.0
