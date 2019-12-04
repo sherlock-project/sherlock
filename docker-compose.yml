@@ -1,6 +1,8 @@
 version: '2'
+
 services:
   sherlock:
     build: .
+    image: theyahya/sherlock
     volumes:
       - "./results:/opt/sherlock/results"

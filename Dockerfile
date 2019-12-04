@@ -1,7 +1,6 @@
 FROM python:3.7-alpine as build
 WORKDIR /wheels
-RUN apk update --no-cache \
-  && apk add --no-cache \
+RUN apk add --no-cache \
     g++ \
     gcc \
     libxml2 \
