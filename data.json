@@ -1781,5 +1781,96 @@
     "urlMain": "https://www.shitpostbot.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Chess": {
+    "errorMsg": "Missing page... somebody made a wrong move.",
+    "errorType": "message",
+    "rank": 539,
+    "url": "https://www.chess.com/ru/member/{}",
+    "urlMain": "https://www.chess.com/ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YandexMarket": {
+    "errorMsg": "Тут ничего нет",
+    "errorType": "message",
+    "rank": 50,
+    "url": "https://market.yandex.ru/user/{}/achievements",
+    "urlMain": "https://market.yandex.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "irecommend": {
+    "errorType": "status_code",
+    "rank": 1753,
+    "url": "https://irecommend.ru/users/{}",
+    "urlMain": "https://irecommend.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Otzovik": {
+    "errorType": "status_code",
+    "rank": 1806,
+    "url": "https://otzovik.com/profile/{}",
+    "urlMain": "https://otzovik.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "fl": {
+    "errorType": "status_code",
+    "rank": 36983,
+    "url": "https://www.fl.ru/users/{}",
+    "urlMain": "https://www.fl.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "kwork": {
+    "errorType": "status_code",
+    "rank": 8452,
+    "url": "https://kwork.ru/user/{}",
+    "urlMain": "https://www.kwork.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "LOR": {
+    "errorType": "status_code",
+    "rank": 36086,
+    "url": "https://www.linux.org.ru/people/{}/profile",
+    "urlMain": "https://linux.org.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "geocaching": {
+    "errorType": "status_code",
+    "rank": 6886,
+    "url": "https://www.geocaching.com/profile/?u={}",
+    "urlMain": "https://www.geocaching.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Football": {
+    "errorMsg": "Пользователь с таким именем не найден",
+    "errorType": "message",
+    "rank": 46304,
+    "url": "https://www.rusfootball.info/user/{}/",
+    "urlMain": "https://www.rusfootball.info/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "livelib": {
+    "errorType": "status_code",
+    "rank": 3930,
+    "url": "https://www.livelib.ru/reader/{}",
+    "urlMain": "https://www.livelib.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "couchsurfing": {
+    "errorType": "status_code",
+    "rank": 3656,
+    "url": "https://www.couchsurfing.com/people/{}",
+    "urlMain": "https://www.couchsurfing.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
