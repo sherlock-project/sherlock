@@ -1959,5 +1959,13 @@
     "urlMain": "https://www.periscope.tv/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Smule": {
+    "errorType": "status_code",
+    "rank": 7245,
+    "url": "https://www.smule.com/{}",
+    "urlMain": "https://www.smule.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
