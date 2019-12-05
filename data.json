@@ -1992,20 +1992,20 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Audiojungle": {
-    "errorType": "status_code",
-    "rank": 4533,
-    "url": "https://audiojungle.net/user/{}",
-    "urlMain": "https://audiojungle.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "GipsysTeam": {
     "errorType": "status_code",
     "rank": 68360,
     "url": "https://site.gipsyteam.ru/profile/{}",
     "urlMain": "https://site.gipsyteam.ru/",
     "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "Audiojungle": {
+    "errorType": "status_code",
+    "rank": 4533,
+    "url": "https://audiojungle.net/user/{}",
+    "urlMain": "https://audiojungle.net/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
