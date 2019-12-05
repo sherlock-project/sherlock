@@ -2016,5 +2016,14 @@
   	"urlMain": "https://ourdjtalk.com/",
   	"username_claimed": "steve",
   	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "NICommunityForum": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 7957,
+  	"url": "https://www.native-instruments.com/forum/members?username={}",
+  	"urlMain": "https://www.native-instruments.com/forum/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
   }
 }
