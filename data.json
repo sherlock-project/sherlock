@@ -2007,5 +2007,14 @@
     "urlMain": "https://audiojungle.net/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "OurDJTalk": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 1740723,
+  	"url": "https://ourdjtalk.com/members?username={}",
+  	"urlMain": "https://ourdjtalk.com/",
+  	"username_claimed": "steve",
+  	"username_unclaimed": "noonewouldeverusethis"
   }
 }
