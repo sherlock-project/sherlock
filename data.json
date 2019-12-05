@@ -1882,5 +1882,57 @@
     "urlMain": "https://www.couchsurfing.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pedsovet": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 7054,
+    "url": "http://pedsovet.su/index/8-0-{}",
+    "urlMain": "http://pedsovet.su/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "easyen": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 9122,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "opennet": {
+    "errorMsg": "Имя участника не найдено",
+    "errorType": "message",
+    "rank": 54055,
+    "url": "https://www.opennet.ru/~{}",
+    "urlMain": "https://www.opennet.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
+  },
+  "toster": {
+    "errorType": "status_code",
+    "rank": 9706,
+    "url": "https://www.toster.ru/user/{}/answers",
+    "urlMain": "https://www.toster.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "moikrug": {
+    "errorType": "status_code",
+    "rank": 54345,
+    "url": "https://moikrug.ru/{}",
+    "urlMain": "https://moikrug.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "TamTam": {
+    "errorType": "response_url",
+    "errorUrl": "https://tamtam.chat/",
+    "rank": 134591,
+    "url": "https://tamtam.chat/{}",
+    "urlMain": "https://tamtam.chat/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
