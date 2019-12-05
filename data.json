@@ -1293,6 +1293,16 @@
     "username_claimed": "cambosteve",
     "username_unclaimed": "noonewould"
   },
+  "SportsTracker": {
+    "errorType": "message",
+    "errorMsg": "\"code\":\"404\"",
+    "rank": 102150,
+    "urlProbe": "https://www.sports-tracker.com/apiserver/v1/user/name/{}",
+    "url": "https://www.sports-tracker.com/view_profile/{}",
+    "urlMain": "https://www.sports-tracker.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveruse"
+  },
   "Spotify": {
     "errorType": "status_code",
     "rank": 74,
