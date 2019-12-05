@@ -1975,5 +1975,13 @@
   	"urlMain": "https://redsun.tf/",
   	"username_claimed": "dan",
   	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "KiwiFarms": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"url": "https://kiwifarms.net/members/?username={}",
+  	"urlMain": "https://kiwifarms.net/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
   }
 }
