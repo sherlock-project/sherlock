@@ -1951,5 +1951,13 @@
     "urlMain": "https://f3.cool/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Periscope": {
+    "errorType": "status_code",
+    "rank": 29237,
+    "url": "https://www.periscope.tv/{}/",
+    "urlMain": "https://www.periscope.tv/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
