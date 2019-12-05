@@ -1943,5 +1943,13 @@
     "urlMain": "insanejournal.com",
     "username_claimed": "blue",
     "username_unclaimed": "noneownsthisusername"
+  },
+  "F3.cool": {
+    "errorType": "status_code",
+    "rank": 38436,
+    "url": "https://f3.cool/{}/",
+    "urlMain": "https://f3.cool/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
