@@ -1967,5 +1967,45 @@
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Redsun.tf": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"url": "https://forum.redsun.tf/members/?username={}",
+  	"urlMain": "https://redsun.tf/",
+  	"username_claimed": "dan",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "KiwiFarms": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"url": "https://kiwifarms.net/members/?username={}",
+  	"urlMain": "https://kiwifarms.net/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+   "drive2": {
+    "errorType": "status_code",
+    "rank": 1170,
+    "url": "https://www.drive2.ru/users/{}",
+    "urlMain": "https://www.drive2.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "GipsysTeam": {
+    "errorType": "status_code",
+    "rank": 68360,
+    "url": "https://site.gipsyteam.ru/profile/{}",
+    "urlMain": "https://site.gipsyteam.ru/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "Audiojungle": {
+    "errorType": "status_code",
+    "rank": 4533,
+    "url": "https://audiojungle.net/user/{}",
+    "urlMain": "https://audiojungle.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
