@@ -2007,5 +2007,71 @@
     "urlMain": "https://audiojungle.net/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "rank": 1722,
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
+  },
+  "Championat": {
+    "errorType": "status_code",
+    "rank": 1165,
+    "url": "https://www.championat.com/user/{}",
+    "urlMain": "https://www.championat.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Sporcle": {
+    "errorType": "status_code",
+    "rank": 2677,
+    "url": "https://www.sporcle.com/user/{}/people",
+    "urlMain": "https://www.sporcle.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "interpals": {
+    "errorMsg": "User not found.",
+    "errorType": "message",
+    "rank": 4322,
+    "url": "https://www.interpals.net/{}",
+    "urlMain": "https://www.interpals.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
+  },
+  "Pinkbike": {
+    "errorType": "status_code",
+    "rank": 8743,
+    "url": "https://www.pinkbike.com/u/{}/",
+    "urlMain": "https://www.pinkbike.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "SportsRU": {
+    "errorType": "status_code",
+    "rank": 1361,
+    "url": "https://www.sports.ru/profile/{}/",
+    "urlMain": "https://www.sports.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YandexCollection": {
+    "errorType": "status_code",
+    "url": "https://yandex.ru/collections/user/{}/",
+    "urlMain": "https://yandex.ru/collections/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "RamblerDating": {
+    "errorType": "response_url",
+    "errorUrl": "https://dating.rambler.ru/page/{}",
+    "rank": 311,
+    "url": "https://dating.rambler.ru/page/{}",
+    "urlMain": "https://dating.rambler.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
