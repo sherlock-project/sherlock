@@ -501,6 +501,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Facenama": {
+    "errorType": "response_url",
+    "errorUrl": "https://facenama.com/404.html",
+    "url": "https://facenama.com/{}",
+    "urlMain": "https://facenama.com/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Fandom": {
     "errorType": "status_code",
     "rank": 85,
