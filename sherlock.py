@@ -616,7 +616,7 @@ def main():
             if dictionary.get("exists") == "yes":
                 exists_counter += 1
                 file.write(dictionary["url_user"] + "\n")
-        file.write("Total Websites : {}".format(exists_counter))
+        file.write(f"Total Websites Username Detected On : {exists_counter}")
         file.close()
 
         if args.csv == True:
