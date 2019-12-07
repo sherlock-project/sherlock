@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.9.11"
+__version__ = "0.9.13"
 
 
 global proxy_list
@@ -170,7 +170,8 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
     return None, "", -1
 
 
-def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, proxy=None, print_found_only=False):
+def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
+             proxy=None, print_found_only=False, timeout=None):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -183,6 +184,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
+    timeout                -- Time in seconds to wait before timing out request.
+                              Default is no timeout.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -284,11 +287,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 proxies = {"http": proxy, "https": proxy}
                 future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
+                                        timeout=timeout
                                         )
             else:
                 future = request_method(url=url_probe, headers=headers,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
+                                        timeout=timeout
                                         )
 
             # Store future in data for access later
@@ -394,6 +399,31 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
     return results_total
 
 
+def timeout_check(value):
+    """Check Timeout Argument.
+
+    Checks timeout for validity.
+
+    Keyword Arguments:
+    value                  -- Time in seconds to wait before timing out request.
+
+    Return Value:
+    Floating point number representing the time (in seconds) that should be
+    used for the timeout.
+
+    NOTE:  Will raise an exception if the timeout in invalid.
+    """
+    from argparse import ArgumentTypeError
+
+    try:
+        timeout = float(value)
+    except:
+        raise ArgumentTypeError(f"Timeout '{value}' must be a number.")
+    if timeout <= 0:
+        raise ArgumentTypeError(f"Timeout '{value}' must be greater than 0.0s.")
+    return timeout
+
+
 def main():
     # Colorama module's initialization.
     init(autoreset=True)
@@ -453,6 +483,14 @@ def main():
                         help="To be used with the '--proxy_list' parameter. "
                              "The script will check if the proxies supplied in the .csv file are working and anonymous."
                              "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
+                        )
+    parser.add_argument("--timeout",
+                        action="store", metavar='TIMEOUT',
+                        dest="timeout", type=timeout_check, default=None,
+                        help="Time (in seconds) to wait for response to requests. "
+                             "Default timeout of 60.0s."
+                             "A longer timeout will be more likely to get results from slow sites."
+                             "On the other hand, this may cause a long delay to gather all results."
                         )
     parser.add_argument("--print-found",
                         action="store_true", dest="print_found_only", default=False,
@@ -612,7 +650,8 @@ def main():
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
-                           print_found_only=args.print_found_only)
+                           print_found_only=args.print_found_only,
+                           timeout=args.timeout)
 
         exists_counter = 0
         for website_name in results:

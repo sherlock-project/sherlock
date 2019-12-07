@@ -32,9 +32,18 @@ class SherlockBaseTest(unittest.TestCase):
         with open(data_file_path, "r", encoding="utf-8") as raw:
             self.site_data_all = json.load(raw)
 
+        # Load excluded sites list, if any
+        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
+        try:
+          with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
+            self.excluded_sites = excluded_sites_file.read().splitlines()
+        except FileNotFoundError:
+          self.excluded_sites = []
+
         self.verbose=False
         self.tor=False
         self.unique_tor=False
+        self.timeout=None
 
         return
 
@@ -96,7 +105,8 @@ class SherlockBaseTest(unittest.TestCase):
                                         site_data,
                                         verbose=self.verbose,
                                         tor=self.tor,
-                                        unique_tor=self.unique_tor
+                                        unique_tor=self.unique_tor,
+                                        timeout=self.timeout
                                        )
             for site, result in results.items():
                 with self.subTest(f"Checking Username '{username}' "
@@ -134,6 +144,7 @@ class SherlockBaseTest(unittest.TestCase):
 
         for site, site_data in self.site_data_all.items():
             if (
+                 (site in self.excluded_sites)                 or
                  (site_data["errorType"] != detect_type)       or
                  (site_data.get("username_claimed")   is None) or
                  (site_data.get("username_unclaimed") is None)

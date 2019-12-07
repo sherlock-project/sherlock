@@ -8,6 +8,9 @@ venv/
 # Python
 __pycache__/
 
+# Pip
+src/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb
@@ -18,3 +21,9 @@ __pycache__/
 
 # Comma-Separated Values (CSV) Reports
 *.csv
+
+# Excluded sites list
+tests/.excluded_sites
+
+# MacOS Folder Metadata File
+.DS_Store

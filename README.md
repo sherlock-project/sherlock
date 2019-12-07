@@ -8,7 +8,7 @@
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
   <a target="_blank" href="https://travis-ci.com/TheYahya/sherlock/" title="Build Status"><img src="https://travis-ci.com/TheYahya/sherlock.svg?branch=master"></a>
-  <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/TheYahya/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
+  <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/sherlock-project/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
   <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
   <a target="_blank" href="https://microbadger.com/images/theyahya/sherlock"><img alt="docker image" src="https://images.microbadger.com/badges/version/theyahya/sherlock.svg"></a>
 </p>
@@ -66,10 +66,10 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--unique-tor] [--csv] [--site SITE_NAME]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    [--proxy_list PROXY_LIST] [--check_proxies CHECK_PROXY]
-                   [--print-found]
+                   [--timeout TIMEOUT] [--print-found]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.9.11)
+Sherlock: Find Usernames Across Social Networks (Version 0.9.13)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -110,8 +110,12 @@ optional arguments:
                         file are working and anonymous.Put 0 for no limit on
                         successfully checked proxies, or another number to
                         institute a limit.
+  --timeout TIMEOUT     Time (in seconds) to wait for response to requests.
+                        Default timeout of 60.0s.A longer timeout will be more
+                        likely to get results from slow sites.On the other
+                        hand, this may cause a long delay to gather all
+                        results.
   --print-found         Do not output sites where the username was not found.
-
 ```
 
 To search for only one user:
@@ -166,7 +170,7 @@ docker run theyahya/sherlock user123
 You can use the `docker-compose.yml` file from the repository and use this command:
 
 ```
-docker-compose run sherlok -o /opt/sherlock/results/text.txt user123
+docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
 ## Adding New Sites
@@ -196,6 +200,10 @@ $ python3 -m unittest tests.all --buffer --verbose
 Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
+
+If some sites are failing due to conection problems (site is down, in maintainence, etc)
+you can exclude them from tests by creating a `tests/.excluded_sites` file with a
+list of sites to ignore (one site name per line).
 
 ## Stargazers over time
 
