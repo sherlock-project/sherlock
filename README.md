@@ -66,10 +66,10 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--unique-tor] [--csv] [--site SITE_NAME]
                    [--proxy PROXY_URL] [--json JSON_FILE]
                    [--proxy_list PROXY_LIST] [--check_proxies CHECK_PROXY]
-                   [--print-found]
+                   [--timeout TIMEOUT] [--print-found]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.9.11)
+Sherlock: Find Usernames Across Social Networks (Version 0.9.13)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -110,8 +110,12 @@ optional arguments:
                         file are working and anonymous.Put 0 for no limit on
                         successfully checked proxies, or another number to
                         institute a limit.
+  --timeout TIMEOUT     Time (in seconds) to wait for response to requests.
+                        Default timeout of 60.0s.A longer timeout will be more
+                        likely to get results from slow sites.On the other
+                        hand, this may cause a long delay to gather all
+                        results.
   --print-found         Do not output sites where the username was not found.
-
 ```
 
 To search for only one user:
