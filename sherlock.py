@@ -225,11 +225,11 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
                 # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
-            request_method = session.get
-            if social_network != "GitHub":
-                # If only the status_code is needed don't download the body
-                if net_info["errorType"] == 'status_code':
-                    request_method = session.head
+            #If only the status_code is needed don't download the body
+            if net_info["errorType"] == 'status_code':
+                request_method = session.head
+            else:
+                request_method = session.get
 
             if net_info["errorType"] == "response_url":
                 # Site forwards request to a different URL if username not
