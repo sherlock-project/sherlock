@@ -197,6 +197,10 @@ Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
 
+If some sites are failing due to conection problems (site is down, in maintainence, etc)
+you can exclude them from tests by creating a `tests/.excluded_sites` file with a
+list of sites to ignore (one site name per line).
+
 ## Stargazers over time
 
 [![Stargazers over time](https://starcharts.herokuapp.com/TheYahya/sherlock.svg)](https://starcharts.herokuapp.com/TheYahya/sherlock)

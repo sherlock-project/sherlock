@@ -30,9 +30,10 @@ __version__ = "0.9.12"
 amount = 0
 
 
-global proxy_list
+global proxy_list, timeout_limit
 
 proxy_list = []
+timeout_limit = 10
 
 class ElapsedFuturesSession(FuturesSession):
     """
@@ -246,11 +247,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False, pr
                 proxies = {"http": proxy, "https": proxy}
                 future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
+                                        timeout=timeout_limit
                                         )
             else:
                 future = request_method(url=url_probe, headers=headers,
-                                        allow_redirects=allow_redirects
+                                        allow_redirects=allow_redirects,
+                                        timeout=timeout_limit
                                         )
 
             # Store future in data for access later
