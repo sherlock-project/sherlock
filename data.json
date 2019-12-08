@@ -2085,5 +2085,13 @@
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "spletnik": {
+    "errorType": "status_code",
+    "rank": 6944,
+    "url": "https://spletnik.ru/user/{}",
+    "urlMain": "https://spletnik.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
