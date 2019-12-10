@@ -1,3 +1,5 @@
+[![Run on Repl.it](https://repl.it/badge/github/sherlock-project/sherlock)](https://repl.it/github/sherlock-project/sherlock)
+
 <p align=center>
 
   <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
