@@ -2119,5 +2119,22 @@
   	"urlMain": "https://community.cloudflare.com/",
   	"username_claimed": "blue",
   	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyRU": {
+    "errorMsg": "Упс, страница, которую вы искали, не существует",
+    " errorType": "message",
+    "rank": 9328,
+    "url": "https://www.baby.ru/u/{}/",
+    "urlMain": "https://www.baby.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyblogRU": {
+    "errorType": "status_code",
+    "rank": 10867,
+    "url": "https://www.babyblog.ru/user/info/{}",
+    "urlMain": "https://www.babyblog.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
