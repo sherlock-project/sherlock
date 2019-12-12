@@ -2119,5 +2119,63 @@
   	"urlMain": "https://community.cloudflare.com/",
   	"username_claimed": "blue",
   	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyRU": {
+    "errorMsg": "Упс, страница, которую вы искали, не существует",
+    " errorType": "message",
+    "rank": 9328,
+    "url": "https://www.baby.ru/u/{}/",
+    "urlMain": "https://www.baby.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyblogRU": {
+    "errorType": "status_code",
+    "rank": 10867,
+    "url": "https://www.babyblog.ru/user/info/{}",
+    "urlMain": "https://www.babyblog.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "TrashboxRU": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 17945,
+    "url": "https://trashbox.ru/users/{}",
+    "urlMain": "https://trashbox.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "HackTheBox": {
+    "errorType": "status_code",
+    "rank": 39236,
+    "url": "https://forum.hackthebox.eu/profile/{}",
+    "urlMain": "https://forum.hackthebox.eu/",
+    "username_claimed": "angar",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "leasehackr": {
+    "errorType": "status_code",
+    "rank": 41594,
+    "url": "https://forum.leasehackr.com/u/{}/summary/",
+    "urlMain": "https://forum.leasehackr.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "akniga": {
+    "errorType": "status_code",
+    "rank": 25616,
+    "url": "https://akniga.org/profile/{}",
+    "urlMain": "https://akniga.org/profile/blue/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "rank": 212975,
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
