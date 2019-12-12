@@ -2093,5 +2093,31 @@
     "urlMain": "https://spletnik.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "OurDJTalk": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 1740723,
+  	"url": "https://ourdjtalk.com/members?username={}",
+  	"urlMain": "https://ourdjtalk.com/",
+  	"username_claimed": "steve",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "NICommunityForum": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 7957,
+  	"url": "https://www.native-instruments.com/forum/members?username={}",
+  	"urlMain": "https://www.native-instruments.com/forum/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "CloudflareCommunity": {
+  	"errorType": "status_code",
+  	"rank": 1107,
+  	"url": "https://community.cloudflare.com/u/{}",
+  	"urlMain": "https://community.cloudflare.com/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
   }
 }
