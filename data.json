@@ -2153,5 +2153,13 @@
     "urlMain": "https://forum.hackthebox.eu/",
     "username_claimed": "angar",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "leasehackr": {
+    "errorType": "status_code",
+    "rank": 41594,
+    "url": "https://forum.leasehackr.com/u/{}/summary/",
+    "urlMain": "https://forum.leasehackr.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
