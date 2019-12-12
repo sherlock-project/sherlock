@@ -2145,5 +2145,13 @@
     "urlMain": "https://trashbox.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "HackTheBox": {
+    "errorType": "status_code",
+    "rank": 39236,
+    "url": "https://forum.hackthebox.eu/profile/{}",
+    "urlMain": "https://forum.hackthebox.eu/",
+    "username_claimed": "angar",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
