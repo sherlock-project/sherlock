@@ -2136,5 +2136,14 @@
     "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "TrashboxRU": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 17945,
+    "url": "https://trashbox.ru/users/{}",
+    "urlMain": "https://trashbox.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
