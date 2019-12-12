@@ -2169,5 +2169,13 @@
     "urlMain": "https://akniga.org/profile/blue/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "rank": 212975,
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
