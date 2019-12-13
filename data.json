@@ -2122,7 +2122,7 @@
   },
   "babyRU": {
     "errorMsg": "Упс, страница, которую вы искали, не существует",
-    " errorType": "message",
+    "errorType": "message",
     "rank": 9328,
     "url": "https://www.baby.ru/u/{}/",
     "urlMain": "https://www.baby.ru/",
