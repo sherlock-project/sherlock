@@ -2186,5 +2186,71 @@
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "Redbubble": {
+    "errorType": "status_code",
+    "rank": 1469,
+    "url": "https://www.redbubble.com/people/{}",
+    "urlMain": "https://www.redbubble.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "warriorforum": {
+    "errorType": "status_code",
+    "rank": 4678,
+    "url": "https://www.warriorforum.com/members/{}.html",
+    "urlMain": "https://www.warriorforum.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "AdobeForums": {
+    "errorType": "status_code",
+    "rank": 53,
+    "url": "https://forums.adobe.com/people/{}",
+    "urlMain": "https://forums.adobe.com/",
+    "username_claimed": "jack",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "radio_echo_msk": {
+    "errorType": "status_code",
+    "rank": 2164,
+    "url": "https://echo.msk.ru/users/{}",
+    "urlMain": "https://echo.msk.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "dailykos": {
+    "errorType": "status_code",
+    "rank": 5890,
+    "url": "https://www.dailykos.com/user/{}",
+    "urlMain": "https://www.dailykos.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "travellerspoint": {
+    "errorMsg": "Wooops. Sorry!",
+    "errorType": "message",
+    "rank": 45696,
+    "url": "https://www.travellerspoint.com/users/{}",
+    "urlMain": "https://www.travellerspoint.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "sparkpeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "rank": 16130,
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "fixya": {
+    "errorType": "status_code",
+    "rank": 3824,
+    "url": "https://www.fixya.com/users/{}",
+    "urlMain": "https://www.fixya.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
