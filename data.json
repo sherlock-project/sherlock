@@ -2186,5 +2186,29 @@
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Redbubble": {
+    "errorType": "status_code",
+    "rank": 1469,
+    "url": "https://www.redbubble.com/people/{}",
+    "urlMain": "https://www.redbubble.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "Adobeforum": {
+    "errorType": "status_code",
+    "rank": 53,
+    "url": "https://forums.adobe.com/people/{}",
+    "urlMain": "https://forums.adobe.com/",
+    "username_claimed": "jack",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "warriorforum": {
+    "errorType": "status_code",
+    "rank": 4678,
+    "url": "https://www.warriorforum.com/members/{}.html",
+    "urlMain": "https://www.warriorforum.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
   }
 }
