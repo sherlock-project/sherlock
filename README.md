@@ -211,5 +211,5 @@ list of sites to ignore (one site name per line).
 
 ## License
 
-MIT © [Yahya SayadArbabi](https://theyahya.com)<br/>
+MIT © Sherlock Project<br/>
 Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
