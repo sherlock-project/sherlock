@@ -59,50 +59,65 @@ class ElapsedFuturesSession(FuturesSession):
         return super(ElapsedFuturesSession, self).request(method, url, hooks=hooks, *args, **kwargs)
 
 
-def print_info(title, info):
-    print(Style.BRIGHT + Fore.GREEN + "[" +
-          Fore.YELLOW + "*" +
-          Fore.GREEN + f"] {title}" +
-          Fore.WHITE + f" {info}" +
-          Fore.GREEN + " on:")
+def print_info(title, info, color=True):
+    if color:
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+            Fore.YELLOW + "*" +
+            Fore.GREEN + f"] {title}" +
+            Fore.WHITE + f" {info}" +
+            Fore.GREEN + " on:")
+    else:
+        print(f"[*] {title} {info} on:")
 
-def print_error(err, errstr, var, verbose=False):
-    print(Style.BRIGHT + Fore.WHITE + "[" +
-          Fore.RED + "-" +
-          Fore.WHITE + "]" +
-          Fore.RED + f" {errstr}" +
-          Fore.YELLOW + f" {err if verbose else var}")
+def print_error(err, errstr, var, verbose=False, color=True):
+    if color:
+        print(Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            Fore.RED + f" {errstr}" +
+            Fore.YELLOW + f" {err if verbose else var}")
+    else:
+        print(f"[-] {errstr} {err if verbose else var}")
 
 
 def format_response_time(response_time, verbose):
     return " [{} ms]".format(response_time) if verbose else ""
 
 
-def print_found(social_network, url, response_time, verbose=False):
-    print((Style.BRIGHT + Fore.WHITE + "[" +
-           Fore.GREEN + "+" +
-           Fore.WHITE + "]" +
-           format_response_time(response_time, verbose) +
-           Fore.GREEN + f" {social_network}:"), url)
+def print_found(social_network, url, response_time, verbose=False, color=True):
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.GREEN + "+" +
+            Fore.WHITE + "]" +
+            format_response_time(response_time, verbose) +
+            Fore.GREEN + f" {social_network}:"), url)
+    else:
+        print(f"[+]{format_response_time(response_time, verbose)} {social_network}: {url}")
 
-def print_not_found(social_network, response_time, verbose=False):
-    print((Style.BRIGHT + Fore.WHITE + "[" +
-           Fore.RED + "-" +
-           Fore.WHITE + "]" +
-           format_response_time(response_time, verbose) +
-           Fore.GREEN + f" {social_network}:" +
-           Fore.YELLOW + " Not Found!"))
+def print_not_found(social_network, response_time, verbose=False, color=True):
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            format_response_time(response_time, verbose) +
+            Fore.GREEN + f" {social_network}:" +
+            Fore.YELLOW + " Not Found!"))
+    else:
+        print(f"[-]{format_response_time(response_time, verbose)} {social_network}: Not Found!")
 
-def print_invalid(social_network, msg):
+def print_invalid(social_network, msg, color=True):
     """Print invalid search result."""
-    print((Style.BRIGHT + Fore.WHITE + "[" +
-           Fore.RED + "-" +
-           Fore.WHITE + "]" +
-           Fore.GREEN + f" {social_network}:" +
-           Fore.YELLOW + f" {msg}"))
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            Fore.GREEN + f" {social_network}:" +
+            Fore.YELLOW + f" {msg}"))
+    else:
+        print(f"[-] {social_network} {msg}")
 
 
-def get_response(request_future, error_type, social_network, verbose=False, retry_no=None):
+def get_response(request_future, error_type, social_network, verbose=False, retry_no=None, color=True):
 
     global proxy_list
 
@@ -111,7 +126,7 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
         if rsp.status_code:
             return rsp, error_type, rsp.elapsed
     except requests.exceptions.HTTPError as errh:
-        print_error(errh, "HTTP Error:", social_network, verbose)
+        print_error(errh, "HTTP Error:", social_network, verbose, color)
 
     # In case our proxy fails, we retry with another proxy.
     except requests.exceptions.ProxyError as errp:
@@ -121,20 +136,20 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
             new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
             print(f'Retrying with {new_proxy}')
             request_future.proxy = {'http':new_proxy,'https':new_proxy}
-            get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1)
+            get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1, color=color)
         else:
-            print_error(errp, "Proxy error:", social_network, verbose)
+            print_error(errp, "Proxy error:", social_network, verbose, color)
     except requests.exceptions.ConnectionError as errc:
-        print_error(errc, "Error Connecting:", social_network, verbose)
+        print_error(errc, "Error Connecting:", social_network, verbose, color)
     except requests.exceptions.Timeout as errt:
-        print_error(errt, "Timeout Error:", social_network, verbose)
+        print_error(errt, "Timeout Error:", social_network, verbose, color)
     except requests.exceptions.RequestException as err:
-        print_error(err, "Unknown error:", social_network, verbose)
+        print_error(err, "Unknown error:", social_network, verbose, color)
     return None, "", -1
 
 
 def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
-             proxy=None, print_found_only=False, timeout=None):
+             proxy=None, print_found_only=False, timeout=None, color=True):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -149,6 +164,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is no timeout.
+    color                  -- Boolean indicating whether to color terminal output
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -162,7 +178,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
-    print_info("Checking username", username)
+    print_info("Checking username", username, color)
 
     # Allow 1 thread for each external service, so `len(site_data)` threads total
     executor = ThreadPoolExecutor(max_workers=len(site_data))
@@ -205,7 +221,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
             if not print_found_only:
-                print_invalid(social_network, "Illegal Username Format For This Site!")
+                print_invalid(social_network, "Illegal Username Format For This Site!", color)
 
             results_site["exists"] = "illegal"
             results_site["url_user"] = ""
@@ -292,7 +308,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
                                                     error_type=error_type,
                                                     social_network=social_network,
                                                     verbose=verbose,
-                                                    retry_no=3)
+                                                    retry_no=3,
+                                                    color=color)
 
         # Attempt to get request information
         try:
@@ -308,21 +325,21 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
-                print_found(social_network, url, response_time, verbose)
+                print_found(social_network, url, response_time, verbose, color)
                 exists = "yes"
             else:
                 if not print_found_only:
-                    print_not_found(social_network, response_time, verbose)
+                    print_not_found(social_network, response_time, verbose, color)
                 exists = "no"
 
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
-                print_found(social_network, url, response_time, verbose)
+                print_found(social_network, url, response_time, verbose, color)
                 exists = "yes"
             else:
                 if not print_found_only:
-                    print_not_found(social_network, response_time, verbose)
+                    print_not_found(social_network, response_time, verbose, color)
                 exists = "no"
 
         elif error_type == "response_url":
@@ -333,16 +350,16 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             # forward to some odd redirect).
             if 200 <= r.status_code < 300:
                 #
-                print_found(social_network, url, response_time, verbose)
+                print_found(social_network, url, response_time, verbose, color)
                 exists = "yes"
             else:
                 if not print_found_only:
-                    print_not_found(social_network, response_time, verbose)
+                    print_not_found(social_network, response_time, verbose, color)
                 exists = "no"
 
         elif error_type == "":
             if not print_found_only:
-                print_invalid(social_network, "Error!")
+                print_invalid(social_network, "Error!", color)
             exists = "error"
 
         # Save exists flag
@@ -455,6 +472,10 @@ def main():
                         action="store_true", dest="print_found_only", default=False,
                         help="Do not output sites where the username was not found."
                         )
+    parser.add_argument("--no-color",
+                        action="store_true", dest="no_color", default=False,
+                        help="Don't color terminal output"
+                        )
     parser.add_argument("username",
                         nargs='+', metavar='USERNAMES',
                         action="store",
@@ -483,7 +504,7 @@ def main():
     global proxy_list
 
     if args.proxy_list != None:
-        print_info("Loading proxies from", args.proxy_list)
+        print_info("Loading proxies from", args.proxy_list, not args.color)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
 
@@ -610,7 +631,8 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            print_found_only=args.print_found_only,
-                           timeout=args.timeout)
+                           timeout=args.timeout,
+                           color=not args.no_color)
 
         exists_counter = 0
         for website_name in results:
