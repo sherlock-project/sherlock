@@ -2268,5 +2268,14 @@
     "urlMain": "http://dating.ru",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "labpentestit": {
+    "errorType": "response_url",
+    "errorUrl": "https://lab.pentestit.ru/{}",
+    "rank": 1087542,
+    "url": "https://lab.pentestit.ru/profile/{}",
+    "urlMain": "https://lab.pentestit.ru/",
+    "username_claimed": "csv",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
