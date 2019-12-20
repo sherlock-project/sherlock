@@ -2260,5 +2260,13 @@
     "urlMain": "https://www.hackster.io",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "datingRU": {
+    "errorType": "status_code",
+    "rank": 35986,
+    "url": "http://dating.ru/{}",
+    "urlMain": "http://dating.ru",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
