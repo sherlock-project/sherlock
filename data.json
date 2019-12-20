@@ -2252,5 +2252,13 @@
     "urlMain": "https://www.fixya.com",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "hackster": {
+    "errorType": "status_code",
+    "rank": 12035,
+    "url": "https://www.hackster.io/{}",
+    "urlMain": "https://www.hackster.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
