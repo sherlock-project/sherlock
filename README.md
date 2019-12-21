@@ -69,7 +69,7 @@ usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--timeout TIMEOUT] [--print-found]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.9.13)
+Sherlock: Find Usernames Across Social Networks (Version 0.9.14)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -211,5 +211,5 @@ list of sites to ignore (one site name per line).
 
 ## License
 
-MIT © [Yahya SayadArbabi](https://theyahya.com)<br/>
+MIT © Sherlock Project<br/>
 Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)

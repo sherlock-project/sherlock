@@ -183,6 +183,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "BodyBuilding": {
+    "errorType": "response_url",
+    "errorUrl": "https://bodyspace.bodybuilding.com/",
+    "rank": 2134,
+    "url": "https://bodyspace.bodybuilding.com/{}",
+    "urlMain": "https://bodyspace.bodybuilding.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Bookcrossing": {
     "errorType": "status_code",
     "rank": 52645,
@@ -256,9 +265,9 @@
   "CashMe": {
     "errorType": "status_code",
     "rank": 6238340,
-    "url": "https://cash.me/{}",
+    "url": "https://cash.me/${}",
     "urlMain": "https://cash.me/",
-    "username_claimed": "jenny",
+    "username_claimed": "Jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Cent": {
@@ -2084,6 +2093,189 @@
     "url": "https://www.toster.ru/user/{}/answers",
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "spletnik": {
+    "errorType": "status_code",
+    "rank": 6944,
+    "url": "https://spletnik.ru/user/{}",
+    "urlMain": "https://spletnik.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "OurDJTalk": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 1740723,
+  	"url": "https://ourdjtalk.com/members?username={}",
+  	"urlMain": "https://ourdjtalk.com/",
+  	"username_claimed": "steve",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "NICommunityForum": {
+  	"errorType": "message",
+  	"errorMsg": "The specified member cannot be found",
+  	"rank": 7957,
+  	"url": "https://www.native-instruments.com/forum/members?username={}",
+  	"urlMain": "https://www.native-instruments.com/forum/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "CloudflareCommunity": {
+  	"errorType": "status_code",
+  	"rank": 1107,
+  	"url": "https://community.cloudflare.com/u/{}",
+  	"urlMain": "https://community.cloudflare.com/",
+  	"username_claimed": "blue",
+  	"username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyRU": {
+    "errorMsg": "Упс, страница, которую вы искали, не существует",
+    "errorType": "message",
+    "rank": 9328,
+    "url": "https://www.baby.ru/u/{}/",
+    "urlMain": "https://www.baby.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "babyblogRU": {
+    "errorType": "status_code",
+    "rank": 10867,
+    "url": "https://www.babyblog.ru/user/info/{}",
+    "urlMain": "https://www.babyblog.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "TrashboxRU": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 17945,
+    "url": "https://trashbox.ru/users/{}",
+    "urlMain": "https://trashbox.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "HackTheBox": {
+    "errorType": "status_code",
+    "rank": 39236,
+    "url": "https://forum.hackthebox.eu/profile/{}",
+    "urlMain": "https://forum.hackthebox.eu/",
+    "username_claimed": "angar",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "leasehackr": {
+    "errorType": "status_code",
+    "rank": 41594,
+    "url": "https://forum.leasehackr.com/u/{}/summary/",
+    "urlMain": "https://forum.leasehackr.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "akniga": {
+    "errorType": "status_code",
+    "rank": 25616,
+    "url": "https://akniga.org/profile/{}",
+    "urlMain": "https://akniga.org/profile/blue/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "rank": 212975,
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "Redbubble": {
+    "errorType": "status_code",
+    "rank": 1469,
+    "url": "https://www.redbubble.com/people/{}",
+    "urlMain": "https://www.redbubble.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "warriorforum": {
+    "errorType": "status_code",
+    "rank": 4678,
+    "url": "https://www.warriorforum.com/members/{}.html",
+    "urlMain": "https://www.warriorforum.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "AdobeForums": {
+    "errorType": "status_code",
+    "rank": 53,
+    "url": "https://forums.adobe.com/people/{}",
+    "urlMain": "https://forums.adobe.com/",
+    "username_claimed": "jack",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "radio_echo_msk": {
+    "errorType": "status_code",
+    "rank": 2164,
+    "url": "https://echo.msk.ru/users/{}",
+    "urlMain": "https://echo.msk.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "dailykos": {
+    "errorType": "status_code",
+    "rank": 5890,
+    "url": "https://www.dailykos.com/user/{}",
+    "urlMain": "https://www.dailykos.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "travellerspoint": {
+    "errorMsg": "Wooops. Sorry!",
+    "errorType": "message",
+    "rank": 45696,
+    "url": "https://www.travellerspoint.com/users/{}",
+    "urlMain": "https://www.travellerspoint.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "sparkpeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "rank": 16130,
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "fixya": {
+    "errorType": "status_code",
+    "rank": 3824,
+    "url": "https://www.fixya.com/users/{}",
+    "urlMain": "https://www.fixya.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "hackster": {
+    "errorType": "status_code",
+    "rank": 12035,
+    "url": "https://www.hackster.io/{}",
+    "urlMain": "https://www.hackster.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "datingRU": {
+    "errorType": "status_code",
+    "rank": 35986,
+    "url": "http://dating.ru/{}",
+    "urlMain": "http://dating.ru",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "labpentestit": {
+    "errorType": "response_url",
+    "errorUrl": "https://lab.pentestit.ru/{}",
+    "rank": 1087542,
+    "url": "https://lab.pentestit.ru/profile/{}",
+    "urlMain": "https://lab.pentestit.ru/",
+    "username_claimed": "CSV",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
