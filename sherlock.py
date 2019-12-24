@@ -184,11 +184,14 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     executor = ThreadPoolExecutor(max_workers=len(site_data))
 
     # Create session based on request methodology
-    underlying_session = requests.session()
-    underlying_request = requests.Request()
     if tor or unique_tor:
+        #Requests using Tor obfuscation
         underlying_request = TorRequest()
         underlying_session = underlying_request.session
+    else:
+        #Normal requests
+        underlying_session = requests.session()
+        underlying_request = requests.Request()
 
     # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
     session = ElapsedFuturesSession(
