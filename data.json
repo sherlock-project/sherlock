@@ -2277,5 +2277,13 @@
     "urlMain": "https://lab.pentestit.ru/",
     "username_claimed": "CSV",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "d3RU": {
+    "errorType": "status_code",
+    "rank": 23178,
+    "url": "https://d3.ru/user/{}/posts",
+    "urlMain": "https://d3.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
