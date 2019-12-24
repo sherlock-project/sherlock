@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.9.16"
+__version__ = "0.10.0"
 
 
 global proxy_list
@@ -180,19 +180,26 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     """
     print_info("Checking username", username, color)
 
-    # Allow 1 thread for each external service, so `len(site_data)` threads total
-    executor = ThreadPoolExecutor(max_workers=len(site_data))
-
     # Create session based on request methodology
-    underlying_session = requests.session()
-    underlying_request = requests.Request()
     if tor or unique_tor:
+        #Requests using Tor obfuscation
         underlying_request = TorRequest()
         underlying_session = underlying_request.session
+    else:
+        #Normal requests
+        underlying_session = requests.session()
+        underlying_request = requests.Request()
 
-    # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
-    session = ElapsedFuturesSession(
-        executor=executor, session=underlying_session)
+    #Limit number of workers to 20.
+    #This is probably vastly overkill.
+    if len(site_data) >= 20:
+        max_workers=20
+    else:
+        max_workers=len(site_data)
+
+    #Create multi-threaded session for all requests.
+    session = ElapsedFuturesSession(max_workers=max_workers,
+                                    session=underlying_session)
 
     # Results from analysis of all sites
     results_total = {}
