@@ -180,9 +180,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     """
     print_info("Checking username", username, color)
 
-    # Allow 1 thread for each external service, so `len(site_data)` threads total
-    executor = ThreadPoolExecutor(max_workers=len(site_data))
-
     # Create session based on request methodology
     if tor or unique_tor:
         #Requests using Tor obfuscation
@@ -193,9 +190,16 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         underlying_session = requests.session()
         underlying_request = requests.Request()
 
-    # Create multi-threaded session for all requests. Use our custom FuturesSession that exposes response time
-    session = ElapsedFuturesSession(
-        executor=executor, session=underlying_session)
+    #Limit number of workers to 20.
+    #This is probably vastly overkill.
+    if len(site_data) >= 20:
+        max_workers=20
+    else:
+        max_workers=len(site_data)
+
+    #Create multi-threaded session for all requests.
+    session = ElapsedFuturesSession(max_workers=max_workers,
+                                    session=underlying_session)
 
     # Results from analysis of all sites
     results_total = {}
