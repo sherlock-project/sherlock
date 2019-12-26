@@ -23,15 +23,11 @@ from colorama import Fore, Style, init
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
-from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.10.0"
 
 
-global proxy_list
-
-proxy_list = []
 
 class SherlockFuturesSession(FuturesSession):
     def request(self, method, url, hooks={}, *args, **kwargs):
@@ -154,9 +150,8 @@ def print_invalid(social_network, msg, color=True):
         print(f"[-] {social_network} {msg}")
 
 
-def get_response(request_future, error_type, social_network, verbose=False, retry_no=None, color=True):
+def get_response(request_future, error_type, social_network, verbose=False, color=True):
 
-    global proxy_list
 
     try:
         rsp = request_future.result()
@@ -164,18 +159,8 @@ def get_response(request_future, error_type, social_network, verbose=False, retr
             return rsp, error_type, rsp.elapsed
     except requests.exceptions.HTTPError as errh:
         print_error(errh, "HTTP Error:", social_network, verbose, color)
-
-    # In case our proxy fails, we retry with another proxy.
     except requests.exceptions.ProxyError as errp:
-        if retry_no>0 and len(proxy_list)>0:
-            #Selecting the new proxy.
-            new_proxy = random.choice(proxy_list)
-            new_proxy = f'{new_proxy.protocol}://{new_proxy.ip}:{new_proxy.port}'
-            print(f'Retrying with {new_proxy}')
-            request_future.proxy = {'http':new_proxy,'https':new_proxy}
-            get_response(request_future,error_type, social_network, verbose,retry_no=retry_no-1, color=color)
-        else:
-            print_error(errp, "Proxy error:", social_network, verbose, color)
+        print_error(errp, "Proxy error:", social_network, verbose, color)
     except requests.exceptions.ConnectionError as errc:
         print_error(errc, "Error Connecting:", social_network, verbose, color)
     except requests.exceptions.Timeout as errt:
@@ -353,7 +338,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
                                                     error_type=error_type,
                                                     social_network=social_network,
                                                     verbose=verbose,
-                                                    retry_no=3,
                                                     color=color)
 
         # Attempt to get request information
@@ -495,16 +479,6 @@ def main():
     parser.add_argument("--json", "-j", metavar="JSON_FILE",
                         dest="json_file", default="resources/data.json",
                         help="Load data from a JSON file or an online, valid, JSON file.")
-    parser.add_argument("--proxy_list", "-pl", metavar='PROXY_LIST',
-                        action="store", dest="proxy_list", default=None,
-                        help="Make requests over a proxy randomly chosen from a list generated from a .csv file."
-                        )
-    parser.add_argument("--check_proxies", "-cp", metavar='CHECK_PROXY',
-                        action="store", dest="check_prox", default=None,
-                        help="To be used with the '--proxy_list' parameter. "
-                             "The script will check if the proxies supplied in the .csv file are working and anonymous."
-                             "Put 0 for no limit on successfully checked proxies, or another number to institute a limit."
-                        )
     parser.add_argument("--timeout",
                         action="store", metavar='TIMEOUT',
                         dest="timeout", type=timeout_check, default=None,
@@ -532,39 +506,12 @@ def main():
 
     # Argument check
     # TODO regex check on args.proxy
-    if args.tor and (args.proxy != None or args.proxy_list != None):
-        raise Exception("Tor and Proxy cannot be set in the meantime.")
-
-    # Proxy argument check.
-    # Does not necessarily need to throw an error,
-    # since we could join the single proxy with the ones generated from the .csv,
-    # but it seems unnecessarily complex at this time.
-    if args.proxy != None and args.proxy_list != None:
-        raise Exception("A single proxy cannot be used along with proxy list.")
+    if args.tor and (args.proxy != None):
+        raise Exception("Tor and Proxy cannot be set at the same time.")
 
     # Make prompts
     if args.proxy != None:
         print("Using the proxy: " + args.proxy)
-
-    global proxy_list
-
-    if args.proxy_list != None:
-        print_info("Loading proxies from", args.proxy_list, not args.color)
-
-        proxy_list = load_proxies_from_csv(args.proxy_list)
-
-    # Checking if proxies should be checked for anonymity.
-    if args.check_prox != None and args.proxy_list != None:
-        try:
-            limit = int(args.check_prox)
-            if limit == 0:
-                proxy_list = check_proxy_list(proxy_list)
-            elif limit > 0:
-                proxy_list = check_proxy_list(proxy_list, limit)
-            else:
-                raise ValueError
-        except ValueError:
-            raise Exception("Parameter --check_proxies/-cp must be a positive integer.")
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
@@ -660,14 +607,6 @@ def main():
                                      username + ".txt"), "w", encoding="utf-8")
         else:
             file = open(username + ".txt", "w", encoding="utf-8")
-
-        # We try to ad a random member of the 'proxy_list' var as the proxy of the request.
-        # If we can't access the list or it is empty, we proceed with args.proxy as the proxy.
-        try:
-            random_proxy = random.choice(proxy_list)
-            proxy = f'{random_proxy.protocol}://{random_proxy.ip}:{random_proxy.port}'
-        except (NameError, IndexError):
-            proxy = args.proxy
 
         results = sherlock(username,
                            site_data,
