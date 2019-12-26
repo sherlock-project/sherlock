@@ -102,15 +102,16 @@ def print_info(title, info, color=True):
     else:
         print(f"[*] {title} {info} on:")
 
-def print_error(err, errstr, var, verbose=False, color=True):
+def print_error(social_network, err, errstr, var, verbose=False, color=True):
     if color:
         print(Style.BRIGHT + Fore.WHITE + "[" +
             Fore.RED + "-" +
             Fore.WHITE + "]" +
+            Fore.GREEN + f" {social_network}:" +
             Fore.RED + f" {errstr}" +
             Fore.YELLOW + f" {err if verbose else var}")
     else:
-        print(f"[-] {errstr} {err if verbose else var}")
+        print(f"[-] {social_network}: {errstr} {err if verbose else var}")
 
 
 def format_response_time(response_time, verbose):
@@ -152,22 +153,33 @@ def print_invalid(social_network, msg, color=True):
 
 def get_response(request_future, error_type, social_network, verbose=False, color=True):
 
+    #Default for Response object if some failure occurs.
+    response = None
 
+    error_context = "General Unknown Error"
+    expection_text = None
     try:
-        rsp = request_future.result()
-        if rsp.status_code:
-            return rsp, error_type, rsp.elapsed
+        response = request_future.result()
+        if response.status_code:
+            #status code exists in response object
+            error_context = None
     except requests.exceptions.HTTPError as errh:
-        print_error(errh, "HTTP Error:", social_network, verbose, color)
+        error_context = "HTTP Error"
+        expection_text = str(errh)
     except requests.exceptions.ProxyError as errp:
-        print_error(errp, "Proxy error:", social_network, verbose, color)
+        error_context = "Proxy Error"
+        expection_text = str(errp)
     except requests.exceptions.ConnectionError as errc:
-        print_error(errc, "Error Connecting:", social_network, verbose, color)
+        error_context = "Error Connecting"
+        expection_text = str(errc)
     except requests.exceptions.Timeout as errt:
-        print_error(errt, "Timeout Error:", social_network, verbose, color)
+        error_context = "Timeout Error"
+        expection_text = str(errt)
     except requests.exceptions.RequestException as err:
-        print_error(err, "Unknown error:", social_network, verbose, color)
-    return None, "", -1
+        error_context = "Unknown Error"
+        expection_text = str(err)
+
+    return response, error_context, expection_text
 
 
 def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
@@ -334,11 +346,17 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
-        r, error_type, response_time = get_response(request_future=future,
-                                                    error_type=error_type,
-                                                    social_network=social_network,
-                                                    verbose=verbose,
-                                                    color=color)
+        r, error_text, expection_text = get_response(request_future=future,
+                                                     error_type=error_type,
+                                                     social_network=social_network,
+                                                     verbose=verbose,
+                                                     color=color)
+
+        #Get response time for response of our request.
+        try:
+            response_time = r.elapsed
+        except AttributeError:
+            response_time = None
 
         # Attempt to get request information
         try:
@@ -350,7 +368,10 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         except:
             pass
 
-        if error_type == "message":
+        if error_text is not None:
+            print_error(social_network, expection_text, error_text, "", verbose, color)
+            exists = "error"
+        elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
