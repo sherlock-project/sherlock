@@ -13,9 +13,7 @@ import os
 import platform
 import re
 import sys
-import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from concurrent.futures import ThreadPoolExecutor
 from time import monotonic
 
 import requests
@@ -53,6 +51,7 @@ class SherlockFuturesSession(FuturesSession):
         Return Value:
         Request object.
         """
+        #Record the start time for the request.
         start = monotonic()
 
         def response_time(resp, *args, **kwargs):
