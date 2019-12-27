@@ -7,6 +7,8 @@ import os
 import os.path
 import unittest
 import sherlock
+from result import QueryStatus
+from result import QueryResult
 import warnings
 
 
@@ -95,10 +97,10 @@ class SherlockBaseTest(unittest.TestCase):
 
         if exist_check:
             check_type_text = "exists"
-            exist_result_desired = "yes"
+            exist_result_desired = QueryStatus.CLAIMED
         else:
             check_type_text = "does not exist"
-            exist_result_desired = "no"
+            exist_result_desired = QueryStatus.AVAILABLE
 
         for username in username_list:
             results = sherlock.sherlock(username,
@@ -112,7 +114,8 @@ class SherlockBaseTest(unittest.TestCase):
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
                                  ):
-                    self.assertEqual(result['exists'], exist_result_desired)
+                    self.assertEqual(result['status'].status, 
+                                     exist_result_desired)
 
         return
 

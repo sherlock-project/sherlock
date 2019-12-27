@@ -23,6 +23,8 @@ from colorama import Fore, Style, init
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
+from result import QueryStatus
+from result import QueryResult
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.10.0"
@@ -206,7 +208,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     the following keys:
         url_main:      URL of main site.
         url_user:      URL of user on site (if account exists).
-        exists:        String indicating results of test for account existence.
+        status:        QueryResult() object indicating results of test for 
+                       account existence.
         http_status:   HTTP status code of query which checked for existence on
                        site.
         response_text: Text that came back from request.  May be None if
@@ -265,7 +268,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             if not print_found_only:
                 print_invalid(social_network, "Illegal Username Format For This Site!", color)
 
-            results_site["exists"] = "illegal"
+            results_site['status'] = QueryResult(QueryStatus.ILLEGAL)
             results_site["url_user"] = ""
             results_site['http_status'] = ""
             results_site['response_text'] = ""
@@ -332,17 +335,13 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
 
         # Retrieve other site information again
         url = results_site.get("url_user")
-        exists = results_site.get("exists")
-        if exists is not None:
+        status = results_site.get("status")
+        if status is not None:
             # We have already determined the user doesn't exist here
             continue
 
         # Get the expected error type
         error_type = net_info["errorType"]
-
-        # Default data in case there are any failures in doing a request.
-        http_status = "?"
-        response_text = ""
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -362,35 +361,35 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         try:
             http_status = r.status_code
         except:
-            pass
+            http_status = "?"
         try:
             response_text = r.text.encode(r.encoding)
         except:
-            pass
+            response_text = ""
 
         if error_text is not None:
             print_error(social_network, expection_text, error_text, "", verbose, color)
-            exists = "error"
+            result = QueryResult(QueryStatus.UNKNOWN, error_text)
         elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
                 print_found(social_network, url, response_time, verbose, color)
-                exists = "yes"
+                result = QueryResult(QueryStatus.CLAIMED)
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose, color)
-                exists = "no"
+                result = QueryResult(QueryStatus.AVAILABLE)
 
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
                 print_found(social_network, url, response_time, verbose, color)
-                exists = "yes"
+                result = QueryResult(QueryStatus.CLAIMED)
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose, color)
-                exists = "no"
+                result = QueryResult(QueryStatus.AVAILABLE)
 
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
@@ -401,19 +400,14 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             if 200 <= r.status_code < 300:
                 #
                 print_found(social_network, url, response_time, verbose, color)
-                exists = "yes"
+                result = QueryResult(QueryStatus.CLAIMED)
             else:
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose, color)
-                exists = "no"
+                result = QueryResult(QueryStatus.AVAILABLE)
 
-        elif error_type == "":
-            if not print_found_only:
-                print_invalid(social_network, "Error!", color)
-            exists = "error"
-
-        # Save exists flag
-        results_site['exists'] = exists
+        # Save status of request
+        results_site['status'] = result
 
         # Save results from request
         results_site['http_status'] = http_status
@@ -642,7 +636,7 @@ def main():
         exists_counter = 0
         for website_name in results:
             dictionary = results[website_name]
-            if dictionary.get("exists") == "yes":
+            if dictionary.get("status").status == QueryStatus.CLAIMED:
                 exists_counter += 1
                 file.write(dictionary["url_user"] + "\n")
         file.write(f"Total Websites Username Detected On : {exists_counter}")
@@ -665,7 +659,7 @@ def main():
                                      site,
                                      results[site]['url_main'],
                                      results[site]['url_user'],
-                                     results[site]['exists'],
+                                     str(results[site]['status'].status),
                                      results[site]['http_status'],
                                      results[site]['response_time_s']
                                      ]
