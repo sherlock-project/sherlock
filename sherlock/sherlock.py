@@ -207,7 +207,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     the following keys:
         url_main:      URL of main site.
         url_user:      URL of user on site (if account exists).
-        status:        QueryResult() object indicating results of test for 
+        status:        QueryResult() object indicating results of test for
                        account existence.
         http_status:   HTTP status code of query which checked for existence on
                        site.
@@ -404,6 +404,10 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
                 if not print_found_only:
                     print_not_found(social_network, response_time, verbose, color)
                 result = QueryResult(QueryStatus.AVAILABLE)
+        else:
+            #It should be impossible to ever get here...
+            raise ValueError(f"Unknown Error Type '{error_type}' for "
+                             f"site '{social_network}'")
 
         # Save status of request
         results_site['status'] = result
