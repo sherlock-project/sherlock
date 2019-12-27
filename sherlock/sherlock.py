@@ -367,29 +367,20 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             response_text = ""
 
         if error_text is not None:
-            print_error(social_network, expection_text, error_text, "", verbose, color)
             result = QueryResult(QueryStatus.UNKNOWN, error_text)
         elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
-                print_found(social_network, url, response_time, verbose, color)
                 result = QueryResult(QueryStatus.CLAIMED)
             else:
-                if not print_found_only:
-                    print_not_found(social_network, response_time, verbose, color)
                 result = QueryResult(QueryStatus.AVAILABLE)
-
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
-                print_found(social_network, url, response_time, verbose, color)
                 result = QueryResult(QueryStatus.CLAIMED)
             else:
-                if not print_found_only:
-                    print_not_found(social_network, response_time, verbose, color)
                 result = QueryResult(QueryStatus.AVAILABLE)
-
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
@@ -397,17 +388,30 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
             if 200 <= r.status_code < 300:
-                #
-                print_found(social_network, url, response_time, verbose, color)
                 result = QueryResult(QueryStatus.CLAIMED)
             else:
-                if not print_found_only:
-                    print_not_found(social_network, response_time, verbose, color)
                 result = QueryResult(QueryStatus.AVAILABLE)
         else:
             #It should be impossible to ever get here...
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
+
+
+        if result.status == QueryStatus.CLAIMED:
+            print_found(social_network, url, response_time, verbose, color)
+        elif result.status == QueryStatus.AVAILABLE:
+            if not print_found_only:
+                print_not_found(social_network, response_time, verbose, color)
+        elif result.status == QueryStatus.UNKNOWN:
+            print_error(social_network, expection_text, error_text, "", verbose, color)
+        elif result.status == QueryStatus.ILLEGAL:
+            if not print_found_only:
+                print_invalid(social_network, "Illegal Username Format For This Site!", color)
+        else:
+            #It should be impossible to ever get here...
+            raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
+                             f"site '{social_network}'")
+
 
         # Save status of request
         results_site['status'] = result
