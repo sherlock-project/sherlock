@@ -23,6 +23,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
+from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.10.0"
@@ -499,7 +500,7 @@ def main():
                         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
                         )
     parser.add_argument("--json", "-j", metavar="JSON_FILE",
-                        dest="json_file", default="resources/data.json",
+                        dest="json_file", default=None,
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--timeout",
                         action="store", metavar='TIMEOUT',
@@ -549,41 +550,20 @@ def main():
         print("You can only use --output with a single username")
         sys.exit(1)
 
-    response_json_online = None
-    site_data_all = None
 
-    # Try to load json from website.
+    #Create object with all information about sites we are aware of.
     try:
-        response_json_online = requests.get(url=args.json_file)
-    except requests.exceptions.MissingSchema:  # In case the schema is wrong it's because it may not be a website
-        pass
+        sites = SitesInformation(args.json_file)
+    except Exception as error:
+        print(f"ERROR:  {error}")
+        sys.exit(1)
 
-    # Check if the response is appropriate.
-    if response_json_online is not None and response_json_online.status_code == 200:
-        # Since we got data from a website, try to load json and exit if parsing fails.
-        try:
-            site_data_all = response_json_online.json()
-        except ValueError:
-            print("Invalid JSON from website!")
-            sys.exit(1)
-            pass
-
-    data_file_path = os.path.join(os.path.dirname(
-        os.path.realpath(__file__)), args.json_file)
-    # This will be none if the request had a missing schema
-    if site_data_all is None:
-        # Check if the file exists otherwise exit.
-        if not os.path.exists(data_file_path):
-            print("JSON file doesn't exist.")
-            print(
-                "If this is not a file but a website, make sure you have appended http:// or https://.")
-            sys.exit(1)
-        else:
-            raw = open(data_file_path, "r", encoding="utf-8")
-            try:
-                site_data_all = json.load(raw)
-            except:
-                print("Invalid JSON loaded from file.")
+    #Create original dictionary from SitesInformation() object.
+    #Eventually, the rest of the code will be updated to use the new object
+    #directly, but this will glue the two pieces together.
+    site_data_all = {}
+    for site in sites:
+        site_data_all[site.name] = site.information
 
     if args.site_list is None:
         # Not desired to look at a sub-set of sites
