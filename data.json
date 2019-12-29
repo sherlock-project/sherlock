@@ -2294,5 +2294,13 @@
     "urlMain": "https://www.warriorforum.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "windy": {
+    "errorType": "status_code",
+    "rank": 1948,
+    "url": "https://community.windy.com/user/{}",
+    "urlMain": "https://windy.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
