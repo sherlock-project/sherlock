@@ -2295,6 +2295,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "uid": {
+    "errorType": "status_code",
+    "rank": 31733,
+    "url": "http://uid.me/{}",
+    "urlMain": "https://uid.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "warriorforum": {
     "errorType": "status_code",
     "rank": 3936,
