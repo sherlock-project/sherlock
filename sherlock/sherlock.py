@@ -26,7 +26,7 @@ from result import QueryResult
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.10.0"
+__version__ = "0.10.1"
 
 
 
