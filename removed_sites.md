@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Codementor
+
+As of 2019-12-31, usernames that exist are not detected.
+
+```
+  "Codementor": {
+    "errorType": "status_code",
+    "rank": 10252,
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## KiwiFarms
 
 As of 2019-12-31, the site gives a 403 for all usernames.  You have to

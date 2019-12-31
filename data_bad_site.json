@@ -14,6 +14,14 @@
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
+  "Codementor": {
+    "errorType": "status_code",
+    "rank": 10252,
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codepen": {
     "errorType": "status_code",
     "rank": 1359,

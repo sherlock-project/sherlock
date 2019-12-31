@@ -344,14 +344,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Codementor": {
-    "errorType": "status_code",
-    "rank": 10252,
-    "url": "https://www.codementor.io/{}",
-    "urlMain": "https://www.codementor.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
     "errorType": "message",
