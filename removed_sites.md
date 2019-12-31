@@ -38,23 +38,6 @@ As of 2019-12-31, all usernames are reported as existing.
   },
 ```
 
-## easyen
-
-As of 2019-12-31, usernames appear to redirect to an internal index.
-So, there is no way to query with the normal username text.
-
-```
-  "easyen": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
-    "rank": 9789,
-    "url": "https://easyen.ru/index/8-0-{}",
-    "urlMain": "https://easyen.ru/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Codementor
 
 As of 2019-12-31, usernames that exist are not detected.
