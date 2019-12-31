@@ -6,6 +6,22 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## YandexMarket
+
+As of 2019-12-31, all usernames are reported as existing.
+
+```
+  "YandexMarket": {
+    "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
+    "errorType": "message",
+    "rank": 47,
+    "url": "https://market.yandex.ru/user/{}/achievements",
+    "urlMain": "https://market.yandex.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## easyen
 
 As of 2019-12-31, usernames appear to redirect to an internal index.

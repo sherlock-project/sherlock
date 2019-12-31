@@ -157,5 +157,14 @@
     "urlMain": "https://teknik.io/",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YandexMarket": {
+    "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
+    "errorType": "message",
+    "rank": 47,
+    "url": "https://market.yandex.ru/user/{}/achievements",
+    "urlMain": "https://market.yandex.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
