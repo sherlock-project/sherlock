@@ -1149,6 +1149,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "nnRU": {
+    "errorType": "status_code",
+    "rank": 12176,
+    "url": "https://{}.www.nn.ru/",
+    "urlMain": "https://https://www.nn.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OK": {
     "errorType": "status_code",
     "rank": 62,
