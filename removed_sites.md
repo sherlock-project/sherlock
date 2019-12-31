@@ -6,6 +6,22 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## RamblerDating
+
+As of 2019-12-31, site always times out.
+
+```
+  "RamblerDating": {
+    "errorType": "response_url",
+    "errorUrl": "https://dating.rambler.ru/page/{}",
+    "rank": 322,
+    "url": "https://dating.rambler.ru/page/{}",
+    "urlMain": "https://dating.rambler.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## YandexMarket
 
 As of 2019-12-31, all usernames are reported as existing.

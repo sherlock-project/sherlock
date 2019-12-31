@@ -132,6 +132,15 @@
     "username_claimed": "powershellteam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "RamblerDating": {
+    "errorType": "response_url",
+    "errorUrl": "https://dating.rambler.ru/page/{}",
+    "rank": 322,
+    "url": "https://dating.rambler.ru/page/{}",
+    "urlMain": "https://dating.rambler.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Shockwave": {
     "errorMsg": "Oh no! You just finished all of the games on the internet!",
     "errorType": "message",

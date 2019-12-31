@@ -1315,15 +1315,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "RamblerDating": {
-    "errorType": "response_url",
-    "errorUrl": "https://dating.rambler.ru/page/{}",
-    "rank": 322,
-    "url": "https://dating.rambler.ru/page/{}",
-    "urlMain": "https://dating.rambler.ru/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Rate Your Music": {
     "errorType": "status_code",
     "rank": 5062,
