@@ -2059,6 +2059,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "easyen": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 10005,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "wd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "eintracht": {
     "errorType": "status_code",
     "rank": 69990,
@@ -2178,6 +2187,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ingvarr.net.ru": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 132521,
+    "url": "http://ingvarr.net.ru/index/8-0-{}",
+    "urlMain": "http://ingvarr.net.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "interpals": {
     "errorMsg": "The requested user does not exist or is inactive",
     "errorType": "message",
@@ -2271,6 +2289,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "nnRU": {
+    "errorType": "status_code",
+    "rank": 0,
+    "url": "https://{}.www.nn.ru/",
+    "urlMain": "https://https://www.nn.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "opennet": {
     "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
     "errorType": "message",
@@ -2311,7 +2337,7 @@
     "rank": 149928,
     "url": "https://php.ru/forum/members/?username={}",
     "urlMain": "https://php.ru/forum/",
-    "username_claimed": "blue",
+    "username_claimed": "apple",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "pikabu": {
