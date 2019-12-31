@@ -866,6 +866,15 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "ingvarr.net.ru": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 165229,
+    "url": "http://ingvarr.net.ru/index/8-0-{}",
+    "urlMain": "http://ingvarr.net.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Insanejournal": {
     "errorMsg": "Unknown user",
     "errorType": "message",
