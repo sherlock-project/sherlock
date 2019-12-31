@@ -6,11 +6,13 @@ This is the raw data that will be used to search for usernames.
 import logging
 import os
 import json
+import operator
 import requests
+import sys
 
 
 class SiteInformation():
-    def __init__(self, name, url_home, url_username_format,
+    def __init__(self, name, url_home, url_username_format, popularity_rank,
                  username_claimed, username_unclaimed,
                  information):
         """Create Site Information Object.
@@ -31,6 +33,10 @@ class SiteInformation():
                                          usernames would show up under the
                                          "https://somesite.com/users/" area of
                                          the web site.
+        popularity_rank        -- Integer indicating popularity of site.
+                                  In general, smaller numbers mean more
+                                  popular ("0" or None means ranking
+                                  information not available).
         username_claimed       -- String containing username which is known
                                   to be claimed on web site.
         username_unclaimed     -- String containing username which is known
@@ -52,6 +58,12 @@ class SiteInformation():
         self.name                = name
         self.url_home            = url_home
         self.url_username_format = url_username_format
+
+        if (popularity_rank is None) or (popularity_rank == 0):
+            #We do not know the popularity, so make site go to bottom of list.
+            popularity_rank = sys.maxsize
+        self.popularity_rank     = popularity_rank
+
         self.username_claimed    = username_claimed
         self.username_unclaimed  = username_unclaimed
         self.information         = information
@@ -161,10 +173,14 @@ class SitesInformation():
         #Add all of site information from the json file to internal site list.
         for site_name in site_data:
             try:
+                #If popularity unknown, make site be at bottom of list.
+                popularity_rank = site_data[site_name].get("rank", sys.maxsize)
+
                 self.sites[site_name] = \
                     SiteInformation(site_name,
                                     site_data[site_name]["urlMain"],
                                     site_data[site_name]["url"],
+                                    popularity_rank,
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name]["username_unclaimed"],
                                     site_data[site_name]
@@ -179,6 +195,35 @@ class SitesInformation():
         self.__iteration_index = 0
 
         return
+
+    def site_name_list(self, popularity_rank=False):
+        """Get Site Name List.
+
+        Keyword Arguments:
+        self                   -- This object.
+        popularity_rank        -- Boolean indicating if list should be sorted
+                                  by popularity rank.
+                                  Default value is False.
+                                  NOTE:  List is sorted in ascending
+                                         alphabetical order is popularity rank
+                                         is not requested.
+
+        Return Value:
+        List of strings containing names of sites.
+        """
+
+        if popularity_rank == True:
+            #Sort in ascending popularity rank order.
+            site_rank_name = \
+                sorted([(site.popularity_rank,site.name) for site in self],
+                       key=operator.itemgetter(0)
+                      )
+            site_names = [name for _,name in site_rank_name]
+        else:
+            #Sort in ascending alphabetical order.
+            site_names = sorted([site.name for site in self], key=str.lower)
+
+        return site_names
 
     def __iter__(self):
         """Iterator For Object.
