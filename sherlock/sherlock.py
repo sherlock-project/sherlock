@@ -599,17 +599,6 @@ def main():
     for username in args.username:
         print()
 
-        if args.output:
-            file = open(args.output, "w", encoding="utf-8")
-        elif args.folderoutput:  # In case we handle multiple usernames at a targetted folder.
-            # If the folder doesnt exist, create it first
-            if not os.path.isdir(args.folderoutput):
-                os.mkdir(args.folderoutput)
-            file = open(os.path.join(args.folderoutput,
-                                     username + ".txt"), "w", encoding="utf-8")
-        else:
-            file = open(username + ".txt", "w", encoding="utf-8")
-
         results = sherlock(username,
                            site_data,
                            verbose=args.verbose,
@@ -620,14 +609,28 @@ def main():
                            timeout=args.timeout,
                            color=not args.no_color)
 
-        exists_counter = 0
-        for website_name in results:
-            dictionary = results[website_name]
-            if dictionary.get("status").status == QueryStatus.CLAIMED:
-                exists_counter += 1
-                file.write(dictionary["url_user"] + "\n")
-        file.write(f"Total Websites Username Detected On : {exists_counter}")
-        file.close()
+        if args.output:
+            result_file = args.output
+        elif args.folderoutput:
+            # The usernames results should be stored in a targeted folder.
+            # If the folder doesnt exist, create it first
+            try:
+                os.mkdir(args.folderoutput)
+            except FileExistsError:
+                #directory already exists
+                pass
+            result_file = os.path.join(args.folderoutput, f"{username}.txt")
+        else:
+            result_file = f"{username}.txt"
+
+        with open(result_file, "w", encoding="utf-8") as file:
+            exists_counter = 0
+            for website_name in results:
+                dictionary = results[website_name]
+                if dictionary.get("status").status == QueryStatus.CLAIMED:
+                    exists_counter += 1
+                    file.write(dictionary["url_user"] + "\n")
+            file.write(f"Total Websites Username Detected On : {exists_counter}")
 
         if args.csv == True:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
