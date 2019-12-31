@@ -6,6 +6,23 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## KiwiFarms
+
+As of 2019-12-31, the site gives a 403 for all usernames.  You have to
+be logged into see a profile.
+
+```
+  "KiwiFarms": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 38737,
+    "url": "https://kiwifarms.net/members/?username={}",
+    "urlMain": "https://kiwifarms.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
 ## Teknik
 
 As of 2019-11-30, the site causes Sherlock to just hang.

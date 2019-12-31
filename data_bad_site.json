@@ -80,6 +80,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "KiwiFarms": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 38737,
+    "url": "https://kiwifarms.net/members/?username={}",
+    "urlMain": "https://kiwifarms.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "linkedin.com": {
     "errorMsg": "This profile is not available",
     "errorType": "message",
