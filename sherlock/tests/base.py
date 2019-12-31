@@ -9,6 +9,7 @@ import unittest
 import sherlock
 from result import QueryStatus
 from result import QueryResult
+from sites  import SitesInformation
 import warnings
 
 
@@ -29,10 +30,16 @@ class SherlockBaseTest(unittest.TestCase):
         #TODO: Figure out how to fix the code so this is not needed.
         warnings.simplefilter("ignore", ResourceWarning)
 
-        # Load the data file with all site information.
-        data_file_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "resources/data.json")
-        with open(data_file_path, "r", encoding="utf-8") as raw:
-            self.site_data_all = json.load(raw)
+        #Create object with all information about sites we are aware of.
+        sites = SitesInformation()
+
+        #Create original dictionary from SitesInformation() object.
+        #Eventually, the rest of the code will be updated to use the new object
+        #directly, but this will glue the two pieces together.
+        site_data_all = {}
+        for site in sites:
+            site_data_all[site.name] = site.information
+        self.site_data_all = site_data_all
 
         # Load excluded sites list, if any
         excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
@@ -116,7 +123,7 @@ class SherlockBaseTest(unittest.TestCase):
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
                                  ):
-                    self.assertEqual(result['status'].status, 
+                    self.assertEqual(result['status'].status,
                                      exist_result_desired)
 
         return
