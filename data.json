@@ -2318,5 +2318,152 @@
     "urlMain": "https://windy.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  }
+  },
+  "satsisRU": {
+    "errorType": "status_code",
+    "rank": 242319,
+    "url": "https://satsis.info/user/{}",
+    "urlMain": "https://satsis.info/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "eintracht": {
+    "errorType": "status_code",
+    "rank": 61165,
+    "url": "https://community.eintracht.de/fans/{}",
+    "urlMain": "https://eintracht.de",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "jeuxvideo": {
+    "errorMsg": "Vous êtes",
+    "errorType": "message",
+    "rank": 1054,
+    "url": "http://www.jeuxvideo.com/profil/{}?mode=infos",
+    "urlMain": "http://www.jeuxvideo.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Ask Fedora": {
+    "errorType": "status_code",
+    "rank": 30500,
+    "url": "https://ask.fedoraproject.org/u/{}",
+    "urlMain": "https://ask.fedoraproject.org/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Oracle Community": {
+    "errorType": "status_code",
+    "rank": 486,
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Whonix Forum": {
+    "errorType": "status_code",
+    "rank": 260909,
+    "url": "https://forums.whonix.org/u/{}",
+    "urlMain": "https://forums.whonix.org/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Velomania": {
+    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorType": "message",
+    "rank": 174926,
+    "url": "https://forum.velomania.ru/member.php?username={}",
+    "urlMain": "https://forum.velomania.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "hunting": {
+    "errorMsg": "Указанный пользователь не найден. Пожалуйста, введите другое имя.",
+    "errorType": "message",
+    "rank": 107166,
+    "url": "https://www.hunting.ru/forum/members/?username={}",
+    "urlMain": "https://www.hunting.ru/forum/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "forumhouseRU": {
+    "errorMsg": "Указанный пользователь не найден. Пожалуйста, введите другое имя.",
+    "errorType": "message",
+    "rank": 15202,
+    "url": "https://www.forumhouse.ru/members/?username={}",
+    "urlMain": "https://www.forumhouse.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "radioskot": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 115045,
+    "url": "https://radioskot.ru/index/8-0-{}",
+    "urlMain": "https://radioskot.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "elwoRU": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",
+    "rank": 291921,
+    "url": "https://elwo.ru/index/8-0-{}",
+    "urlMain": "https://elwo.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "forum_guns": {
+    "errorMsg": "action=https://forum.guns.ru/forummisc/blog/search",
+    "errorType": "message",    
+    "rank": 12599,
+    "url": "https://forum.guns.ru/forummisc/blog/{}",
+    "urlMain": "https://forum.guns.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pvpru": {
+    "errorType": "status_code",
+    "rank": 429023,
+    "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
+    "urlMain": "https://pvpru.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "igromania": {
+    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorType": "message",    
+    "rank": 13874,
+    "url": "http://forum.igromania.ru/member.php?username={}",
+    "urlMain": "http://forum.igromania.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "3dnews": {
+    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorType": "message",  
+    "rank": 9482,
+    "url": "http://forum.3dnews.ru/member.php?username={}",
+    "urlMain": "http://forum.3dnews.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "phpRU": {
+    "errorMsg": "Указанный пользователь не найден. Пожалуйста, введите другое имя.",
+    "errorType": "message",  
+    "rank": 175260,
+    "url": "https://php.ru/forum/members/?username={}",
+    "urlMain": "https://php.ru/forum/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "4pda": {
+    "errorMsg": "К сожалению, Ваш поиск не дал никаких результатов.",
+    "errorType": "message", 
+    "rank": 1786,
+    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
+    "urlMain": "https://4pda.ru/",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
+   }
 }
