@@ -185,7 +185,8 @@ def get_response(request_future, error_type, social_network, verbose=False, colo
 
 
 def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
-             proxy=None, print_found_only=False, timeout=None, color=True):
+             proxy=None, print_found_only=False, timeout=None, color=True,
+             print_output=True):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -198,9 +199,12 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
+    print_found_only       -- Boolean indicating whether to only print found sites.
     timeout                -- Time in seconds to wait before timing out request.
                               Default is no timeout.
     color                  -- Boolean indicating whether to color terminal output
+    print_output           -- Boolean indicating whether the output should be
+                              printed.  Default is True.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -215,7 +219,8 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
-    print_info("Checking username", username, color)
+    if print_output == True:
+        print_info("Checking username", username, color)
 
     # Create session based on request methodology
     if tor or unique_tor:
@@ -265,7 +270,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            if not print_found_only:
+            if (print_output == True) and not print_found_only:
                 print_invalid(social_network, "Illegal Username Format For This Site!", color)
 
             results_site['status'] = QueryResult(QueryStatus.ILLEGAL)
@@ -398,20 +403,22 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
                              f"site '{social_network}'")
 
 
-        if result.status == QueryStatus.CLAIMED:
-            print_found(social_network, url, response_time, verbose, color)
-        elif result.status == QueryStatus.AVAILABLE:
-            if not print_found_only:
-                print_not_found(social_network, response_time, verbose, color)
-        elif result.status == QueryStatus.UNKNOWN:
-            print_error(social_network, expection_text, error_text, "", verbose, color)
-        elif result.status == QueryStatus.ILLEGAL:
-            if not print_found_only:
-                print_invalid(social_network, "Illegal Username Format For This Site!", color)
-        else:
-            #It should be impossible to ever get here...
-            raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
-                             f"site '{social_network}'")
+        if print_output == True:
+            #Output to the terminal is desired.
+            if result.status == QueryStatus.CLAIMED:
+                print_found(social_network, url, response_time, verbose, color)
+            elif result.status == QueryStatus.AVAILABLE:
+                if not print_found_only:
+                    print_not_found(social_network, response_time, verbose, color)
+            elif result.status == QueryStatus.UNKNOWN:
+                print_error(social_network, expection_text, error_text, "", verbose, color)
+            elif result.status == QueryStatus.ILLEGAL:
+                if not print_found_only:
+                    print_invalid(social_network, "Illegal Username Format For This Site!", color)
+            else:
+                #It should be impossible to ever get here...
+                raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
+                                 f"site '{social_network}'")
 
 
         # Save status of request

@@ -108,7 +108,9 @@ class SherlockBaseTest(unittest.TestCase):
                                         verbose=self.verbose,
                                         tor=self.tor,
                                         unique_tor=self.unique_tor,
-                                        timeout=self.timeout
+                                        timeout=self.timeout,
+                                        color=False,
+                                        print_output=False
                                        )
             for site, result in results.items():
                 with self.subTest(f"Checking Username '{username}' "
