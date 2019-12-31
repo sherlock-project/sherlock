@@ -6,6 +6,87 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## RamblerDating
+
+As of 2019-12-31, site always times out.
+
+```
+  "RamblerDating": {
+    "errorType": "response_url",
+    "errorUrl": "https://dating.rambler.ru/page/{}",
+    "rank": 322,
+    "url": "https://dating.rambler.ru/page/{}",
+    "urlMain": "https://dating.rambler.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## YandexMarket
+
+As of 2019-12-31, all usernames are reported as existing.
+
+```
+  "YandexMarket": {
+    "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
+    "errorType": "message",
+    "rank": 47,
+    "url": "https://market.yandex.ru/user/{}/achievements",
+    "urlMain": "https://market.yandex.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## easyen
+
+As of 2019-12-31, usernames appear to redirect to an internal index.
+So, there is no way to query with the normal username text.
+
+```
+  "easyen": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 9789,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Codementor
+
+As of 2019-12-31, usernames that exist are not detected.
+
+```
+  "Codementor": {
+    "errorType": "status_code",
+    "rank": 10252,
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## KiwiFarms
+
+As of 2019-12-31, the site gives a 403 for all usernames.  You have to
+be logged into see a profile.
+
+```
+  "KiwiFarms": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 38737,
+    "url": "https://kiwifarms.net/members/?username={}",
+    "urlMain": "https://kiwifarms.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
 ## Teknik
 
 As of 2019-11-30, the site causes Sherlock to just hang.

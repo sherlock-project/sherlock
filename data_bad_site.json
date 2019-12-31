@@ -14,6 +14,14 @@
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
+  "Codementor": {
+    "errorType": "status_code",
+    "rank": 10252,
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codepen": {
     "errorType": "status_code",
     "rank": 1359,
@@ -31,6 +39,15 @@
     "urlMain": "https://www.duolingo.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewoulduse"
+  },
+  "easyen": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 9789,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "EVE Online": {
     "errorType": "response_url",
@@ -80,6 +97,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "KiwiFarms": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 38737,
+    "url": "https://kiwifarms.net/members/?username={}",
+    "urlMain": "https://kiwifarms.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "linkedin.com": {
     "errorMsg": "This profile is not available",
     "errorType": "message",
@@ -106,6 +132,15 @@
     "username_claimed": "powershellteam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "RamblerDating": {
+    "errorType": "response_url",
+    "errorUrl": "https://dating.rambler.ru/page/{}",
+    "rank": 322,
+    "url": "https://dating.rambler.ru/page/{}",
+    "urlMain": "https://dating.rambler.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Shockwave": {
     "errorMsg": "Oh no! You just finished all of the games on the internet!",
     "errorType": "message",
@@ -130,6 +165,15 @@
     "url": "https://user.teknik.io/{}",
     "urlMain": "https://teknik.io/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YandexMarket": {
+    "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
+    "errorType": "message",
+    "rank": 47,
+    "url": "https://market.yandex.ru/user/{}/achievements",
+    "urlMain": "https://market.yandex.ru/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
