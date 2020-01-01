@@ -3,6 +3,7 @@ WORKDIR /wheels
 RUN apk add --no-cache \
     g++ \
     gcc \
+    git \
     libxml2 \
     libxml2-dev \
     libxslt-dev \
