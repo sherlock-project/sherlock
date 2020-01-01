@@ -191,9 +191,6 @@ class SitesInformation():
                                  f"Missing attribute {str(error)}."
                                 )
 
-        #Initialize state if anyone iterates over this object.
-        self.__iteration_index = 0
-
         return
 
     def site_name_list(self, popularity_rank=False):
@@ -234,30 +231,9 @@ class SitesInformation():
         Return Value:
         Iterator for sites object.
         """
-        return self
 
-    def __next__(self):
-        """Next Method For Object.
-
-        Keyword Arguments:
-        self                   -- This object.
-
-        Return Value:
-        Returns individual site from beginning of self.sites dictionary
-        to the end.
-        Raises StopIteration when all sites have been passed.
-        """
-
-        if self.__iteration_index >= len(self.sites):
-            #Finished with iteration.
-            self.__iteration_index = 0
-            raise StopIteration
-        else:
-            #Retrieve the next site from the ordered dictionary.
-            site = self.sites[list(self.sites)[self.__iteration_index]]
-            self.__iteration_index += 1
-
-        return site
+        for site_name in self.sites:
+            yield self.sites[site_name]
 
     def __len__(self):
         """Length For Object.
