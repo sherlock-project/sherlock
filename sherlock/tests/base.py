@@ -53,6 +53,7 @@ class SherlockBaseTest(unittest.TestCase):
         self.tor=False
         self.unique_tor=False
         self.timeout=None
+        self.skip_error_sites=True
 
         return
 
@@ -123,6 +124,16 @@ class SherlockBaseTest(unittest.TestCase):
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
                                  ):
+                    if (
+                         (self.skip_error_sites == True) and
+                         (result['status'].status == QueryStatus.UNKNOWN)
+                       ):
+                        #Some error connecting to site.
+                        self.skipTest(f"Skipping Username '{username}' "
+                                      f"{check_type_text} on Site '{site}':  "
+                                      f"Site returned error status."
+                                     )
+
                     self.assertEqual(result['status'].status,
                                      exist_result_desired)
 
