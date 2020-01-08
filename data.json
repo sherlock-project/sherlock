@@ -917,6 +917,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "kali": {
+    "errorType": "status_code",
+    "rank": 10313,
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Kaggle": {
     "errorType": "status_code",
     "rank": 3463,
