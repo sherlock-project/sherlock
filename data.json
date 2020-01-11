@@ -528,8 +528,9 @@
     "errorType": "message",
     "errorMsg": "{\"users\":[]}",
     "rank": 550,
-    "url": "https://www.duolingo.com/2017-06-30/users?username={}",
+    "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
+    "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
