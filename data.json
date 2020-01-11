@@ -107,6 +107,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
   },
+  "Asciinema": {
+    "errorType": "status_code",
+    "rank": 88514,
+    "url": "https://asciinema.org/~{}",
+    "urlMain": "https://asciinema.org",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Ask Fedora": {
     "errorType": "status_code",
     "rank": 28458,
