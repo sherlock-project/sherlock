@@ -1419,6 +1419,14 @@
     "username_claimed": "bluewolfekiller",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "RubyGems": {
+    "errorType": "status_code",
+    "rank": 38409,
+    "url": "https://rubygems.org/profiles/{}",
+    "urlMain": "https://rubygems.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Sbazar.cz": {
     "errorType": "status_code",
     "rank": 11778,
