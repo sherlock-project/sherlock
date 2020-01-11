@@ -354,6 +354,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Clozemaster": {
+    "errorType": "status_code",
+    "rank": 105275 ,
+    "url": "https://www.clozemaster.com/players/{}",
+    "urlMain": "https://www.clozemaster.com",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codecademy": {
     "errorType": "status_code",
     "rank": 2882,
