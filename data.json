@@ -338,6 +338,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Lichess": {
+    "errorType": "message",
+    "errorMsg": "Page not found!",
+    "rank": 2591,
+    "url": "https://lichess.org/@/{}",
+    "urlMain": "https://lichess.org",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Cloob": {
     "errorType": "status_code",
     "rank": 7498,
