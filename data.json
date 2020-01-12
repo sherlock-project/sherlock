@@ -2293,7 +2293,7 @@
     "errorType": "status_code",
     "rank": 167801,
     "url": "https://notabug.org/{}",
-    "urlMain": "https://notabug.org/{}",
+    "urlMain": "https://notabug.org/",
     "urlProbe": "https://notabug.org/{}/followers",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
