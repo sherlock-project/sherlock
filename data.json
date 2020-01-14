@@ -328,6 +328,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "chaos.social": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://chaos.social/@{}",
+    "urlMain": "https://chaos.social/",
+    "username_claimed": "rixx",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Chatujme.cz": {
     "errorMsg": "Neexistujic\u00ed profil",
     "errorType": "message",
@@ -1045,7 +1053,39 @@
     "username_claimed": "jcs",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Mastodon": {
+    "mastodon.cloud": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://mastodon.cloud/@{}",
+    "urlMain": "https://mastodon.cloud/",
+    "username_claimed": "TheAdmin",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "mastodon.social": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://mastodon.social/@{}",
+    "urlMain": "https://chaos.social/",
+    "username_claimed": "Gargron",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "mastodon.technology": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://mastodon.technology/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "mastodon.xyz": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://mastodon.xyz/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "TheKinrar",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "mstdn.io": {
     "errorType": "status_code",
     "rank": 792347,
     "url": "https://mstdn.io/@{}",
@@ -1517,6 +1557,14 @@
     "url": "https://www.smule.com/{}",
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "social.tchncs.de": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://social.tchncs.de/@{}",
+    "urlMain": "https://social.tchncs.de/",
+    "username_claimed": "Milan",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "SoundCloud": {
@@ -2390,6 +2438,14 @@
     "urlMain": "https://pikabu.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+    "pr0gramm": {
+    "errorType": "status_code",
+    "rank": 1655,
+    "url": "https://pr0gramm.com/api/profile/info?name={}",
+    "urlMain": "https://pr0gramm.com/",
+    "username_claimed": "cha0s",
+    "username_unclaimed": "noonewouldeverusethis123123123123123123"
   },
   "pvpru": {
     "errorType": "status_code",
