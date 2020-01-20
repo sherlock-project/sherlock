@@ -2554,5 +2554,14 @@
     "urlMain": "https://www.alltrails.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "dis.cool": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://dis.cool/users/1/{}",
+    "urlMain": "https://dis.cool/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
