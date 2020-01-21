@@ -459,7 +459,7 @@
     "errorType": "response_url",
     "errorUrl": "https://www.creativemarket.com/",
     "rank": 1763,
-    "url": "https://creativemarket.com/{}",
+    "url": "https://creativemarket.com/users/{}",
     "urlMain": "https://creativemarket.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
