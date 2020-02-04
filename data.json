@@ -1363,6 +1363,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PokerStrategy": {
+    "errorType": "status_code",
+    "rank": 11226535,
+    "url": "http://www.pokerstrategy.net/user/{}/profile/",
+    "urlMain": "http://www.pokerstrategy.net",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Polygon": {
     "errorType": "status_code",
     "rank": 1056,
