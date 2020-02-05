@@ -2571,5 +2571,13 @@
     "urlMain": "https://dis.cool/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "svidbook": {
+    "errorType": "status_code",
+    "rank": 3897309,   
+    "url": "https://www.svidbook.ru/user/{}",
+    "urlMain": "https://www.svidbook.ru/",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
