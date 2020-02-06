@@ -1807,8 +1807,10 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorMsg": "page doesn\u2019t exist",
-    "errorType": "message",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": ""
+    },
     "rank": 42,
     "url": "https://www.twitter.com/{}",
     "urlMain": "https://www.twitter.com/",
