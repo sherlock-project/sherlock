@@ -883,8 +883,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Insanejournal": {
-    "errorMsg": "Unknown user",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 29889,
     "url": "http://{}.insanejournal.com/profile",
     "urlMain": "insanejournal.com",
