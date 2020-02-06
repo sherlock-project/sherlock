@@ -396,7 +396,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codechef": {
-    "errorType": "status_code",
+    "errorMsg": "https://www.codechef.com",
+    "errorType": "response_url",
     "rank": 11558,
     "url": "https://www.codechef.com/users/{}",
     "urlMain": "https://www.codechef.com/",
