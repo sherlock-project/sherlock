@@ -26,7 +26,7 @@ from torrequest import TorRequest
 from load_proxies import load_proxies_from_csv, check_proxy_list
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.10.4"
+__version__ = "0.10.5"
 
 
 global proxy_list
