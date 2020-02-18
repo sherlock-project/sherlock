@@ -668,6 +668,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "FourSquare": {
+    "errorType": "status_code",
+    "rank": 0,
+    "url": "https://foursquare.com/user/{}",
+    "urlMain": "https://foursquare.com/",
+    "username_claimed": "577056517",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "GDProfiles": {
     "errorType": "status_code",
     "rank": 2391615,
