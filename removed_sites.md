@@ -149,22 +149,6 @@ Usernames that don't exist are detected.
   },
 ```
 
-## Furaffinity
-
-Usernames that don't exist are detected.
-
-```
-  "Furaffinity": {
-    "errorMsg": "Fatal system error",
-    "errorType": "message",
-    "rank": 4278,
-    "url": "https://www.furaffinity.net/user/{}",
-    "urlMain": "https://www.furaffinity.net",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Duolingo
 
 Usernames that don't exist are detected.
