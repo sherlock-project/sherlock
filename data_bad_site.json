@@ -72,15 +72,6 @@
     "username_claimed": "dens",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Furaffinity": {
-    "errorMsg": "Fatal system error",
-    "errorType": "message",
-    "rank": 4278,
-    "url": "https://www.furaffinity.net/user/{}",
-    "urlMain": "https://www.furaffinity.net",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Imgur": {
     "errorType": "status_code",
     "rank": 74,
