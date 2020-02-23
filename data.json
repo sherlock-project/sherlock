@@ -637,6 +637,7 @@
   },
   "Flightradar24": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{3,20}$",
     "rank": 1633,
     "url": "https://my.flightradar24.com/{}",
     "urlMain": "https://www.flightradar24.com/",
