@@ -149,23 +149,6 @@ Usernames that don't exist are detected.
   },
 ```
 
-## Duolingo
-
-Usernames that don't exist are detected.
-
-```
-  "Duolingo": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.duolingo.com/errors/404.html",
-    "rank": 538,
-    "regexCheck": "^[a-zA-Z0-9_-]{3,16}$",
-    "url": "https://www.duolingo.com/{}",
-    "urlMain": "https://www.duolingo.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewoulduse"
-  },
-```
-
 ## EVE Online
 
 Usernames that exist are not detected.
