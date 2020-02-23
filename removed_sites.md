@@ -340,3 +340,21 @@ As of 2020-02-17, CapFriendly returns fake profile pages for non-existing users,
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+
+## Furaffinity
+
+As of 2020-02-23, Furaffinity returns false postives because they are now using Cloudflair, which prevents Sherlock from checking if the user
+exists or not.
+
+```
+  "furaffinity": {
+    "errorMsg": "user cannot be found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.furaffinity.net/user/{}",
+    "urlMain": "https://www.furaffinity.net",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis777777"
+  },
+```
