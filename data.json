@@ -809,6 +809,7 @@
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]$",
     "rank": 1102481,
     "url": "https://www.house-mixes.com/profile/{}",
     "urlMain": "https://www.house-mixes.com/",
