@@ -1647,7 +1647,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
-    "errorType": "status_code",
+    "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact",
+    "errorType": "message",
     "rank": 364,
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
