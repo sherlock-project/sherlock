@@ -844,6 +844,7 @@
   "IFTTT": {
     "errorMsg": "The requested page or file does not exist",
     "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "rank": 8887,
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
