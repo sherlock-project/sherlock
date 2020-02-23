@@ -1719,6 +1719,7 @@
   "TrashboxRU": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9_-]{3,16}$",
     "rank": 17658,
     "url": "https://trashbox.ru/users/{}",
     "urlMain": "https://trashbox.ru/",
