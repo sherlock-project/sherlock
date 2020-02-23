@@ -358,3 +358,21 @@ exists or not.
     "username_unclaimed": "noonewouldeverusethis777777"
   },
 ```
+
+
+## InsaneJournal 
+
+As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
+Since we were not able to find the critera for a valid username, the best thing to do now is to remove it.
+
+```
+  "InsaneJournal": {
+    "errorMsg": "Unknown user",
+    "errorType": "message",
+    "rank": 29728,
+    "url": "http://{}.insanejournal.com/profile",
+    "urlMain": "insanejournal.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "dlyr6cd"
+  },
+```
