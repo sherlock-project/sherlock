@@ -135,6 +135,7 @@
   "AskFM": {
     "errorMsg": "Well, apparently not anymore.",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{3,40}$",
     "rank": 2291,
     "url": "https://ask.fm/{}",
     "urlMain": "https://ask.fm/",
@@ -1646,8 +1647,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
-    "errorMsg": "<meta property=\"twitter:title\" content=\"Telegram: Contact",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 364,
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
@@ -1754,7 +1754,7 @@
     "errorMsg": "page doesn\u2019t exist",
     "errorType": "message",
     "rank": 43,
-    "url": "https://www.twitter.com/{}",
+    "url": "https://www.twitter.com/{}?lang=en",
     "urlMain": "https://www.twitter.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
