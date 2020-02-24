@@ -680,6 +680,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Freesound": {
+    "errorType": "status_code",
+    "rank": 9016,
+    "url": "https://freesound.org/people/{}/",
+    "urlMain": "https://freesound.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "GDProfiles": {
     "errorType": "status_code",
     "rank": 2443843,
@@ -2522,7 +2530,7 @@
   },
   "segmentfault": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 854,
     "url": "https://segmentfault.com/u/{}",
     "urlMain": "https://segmentfault.com/",
     "username_claimed": "bule",
@@ -2539,7 +2547,7 @@
   "sparkpeople": {
     "errorMsg": "We couldn't find that user",
     "errorType": "message",
-    "rank": 16178,
+    "rank": 16278,
     "url": "https://www.sparkpeople.com/mypage.asp?id={}",
     "urlMain": "https://www.sparkpeople.com",
     "username_claimed": "adam",
@@ -2555,7 +2563,7 @@
   },
   "svidbook": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 3134232,
     "url": "https://www.svidbook.ru/user/{}",
     "urlMain": "https://www.svidbook.ru/",
     "username_claimed": "green",
@@ -2563,7 +2571,7 @@
   },
   "toster": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 32941,
     "url": "https://www.toster.ru/user/{}/answers",
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "adam",
@@ -2572,7 +2580,7 @@
   "travellerspoint": {
     "errorMsg": "Wooops. Sorry!",
     "errorType": "message",
-    "rank": 0,
+    "rank": 39089,
     "url": "https://www.travellerspoint.com/users/{}",
     "urlMain": "https://www.travellerspoint.com",
     "username_claimed": "blue",
@@ -2580,7 +2588,7 @@
   },
   "uid": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 25689,
     "url": "http://uid.me/{}",
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
@@ -2588,7 +2596,7 @@
   },
   "warriorforum": {
     "errorType": "status_code",
-    "rank": 0,
+    "rank": 3426,
     "url": "https://www.warriorforum.com/members/{}.html",
     "urlMain": "https://www.warriorforum.com/",
     "username_claimed": "blue",
