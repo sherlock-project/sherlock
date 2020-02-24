@@ -6,6 +6,24 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Basecamp
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+Why was this ever added?  It does not look like a social network.
+
+```
+  "Basecamp": {
+    "errorMsg": "The account you were looking for doesn't exist",
+    "errorType": "message",
+    "rank": 4914,
+    "url": "https://{}.basecamphq.com",
+    "urlMain": "https://basecamp.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## Fanpop
 
 As of 2020-02-23, all usernames are reported as not existing.

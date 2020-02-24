@@ -183,15 +183,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Basecamp": {
-    "errorMsg": "The account you were looking for doesn't exist",
-    "errorType": "message",
-    "rank": 4914,
-    "url": "https://{}.basecamphq.com",
-    "urlMain": "https://basecamp.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Bazar.cz": {
     "errorType": "response_url",
     "errorUrl": "https://www.bazar.cz/error404.aspx",
