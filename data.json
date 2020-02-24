@@ -253,8 +253,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "BuyMeACoffee": {
-    "errorMsg": "It returned a 404 error",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 23804,
     "url": "https://buymeacoff.ee/{}",
     "urlMain": "https://www.buymeacoffee.com/",
