@@ -1346,8 +1346,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Rajce.net": {
-    "errorMsg": "410",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1703,
     "url": "https://{}.rajce.idnes.cz/",
     "urlMain": "https://www.rajce.idnes.cz/",
