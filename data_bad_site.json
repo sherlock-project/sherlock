@@ -14,6 +14,15 @@
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
+  "CapFriendly": {
+    "errorMsg": "No User Found",
+    "errorType": "message",
+    "rank": 64100,
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Codementor": {
     "errorType": "status_code",
     "rank": 10252,
@@ -29,16 +38,6 @@
     "urlMain": "https://codepen.io/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Duolingo": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.duolingo.com/errors/404.html",
-    "rank": 538,
-    "regexCheck": "^[a-zA-Z0-9_-]{3,16}$",
-    "url": "https://www.duolingo.com/{}",
-    "urlMain": "https://www.duolingo.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewoulduse"
   },
   "EVE Online": {
     "errorType": "response_url",
@@ -63,14 +62,14 @@
     "username_claimed": "dens",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Furaffinity": {
-    "errorMsg": "Fatal system error",
+  "furaffinity": {
+    "errorMsg": "user cannot be found",
     "errorType": "message",
-    "rank": 4278,
+    "rank": 0,
     "url": "https://www.furaffinity.net/user/{}",
     "urlMain": "https://www.furaffinity.net",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis777777"
   },
   "Imgur": {
     "errorType": "status_code",
@@ -166,5 +165,15 @@
     "urlMain": "https://market.yandex.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Insanejournal": {
+    "errorMsg": "Unknown user",
+    "errorType": "message",
+    "rank": 29728,
+    "url": "http://{}.insanejournal.com/profile",
+    "urlMain": "insanejournal.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "dlyr6cd"
   }
 }
+

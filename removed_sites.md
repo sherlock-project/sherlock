@@ -149,39 +149,6 @@ Usernames that don't exist are detected.
   },
 ```
 
-## Furaffinity
-
-Usernames that don't exist are detected.
-
-```
-  "Furaffinity": {
-    "errorMsg": "Fatal system error",
-    "errorType": "message",
-    "rank": 4278,
-    "url": "https://www.furaffinity.net/user/{}",
-    "urlMain": "https://www.furaffinity.net",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## Duolingo
-
-Usernames that don't exist are detected.
-
-```
-  "Duolingo": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.duolingo.com/errors/404.html",
-    "rank": 538,
-    "regexCheck": "^[a-zA-Z0-9_-]{3,16}$",
-    "url": "https://www.duolingo.com/{}",
-    "urlMain": "https://www.duolingo.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewoulduse"
-  },
-```
-
 ## EVE Online
 
 Usernames that exist are not detected.
@@ -338,5 +305,57 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
     "urlMain": "https://plus.google.com/",
     "username_claimed": "davidbrin1",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## CapFriendly
+
+As of 2020-02-17, CapFriendly returns fake profile pages for non-existing users, what seems to distinguish between the pages is the Sign-up date, for non-existing users, the web application returns a date before 2000-01-01.
+
+```
+  "CapFriendly": {
+    "errorMsg": "No User Found",
+    "errorType": "message",
+    "rank": 64100,
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "user",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+
+## Furaffinity
+
+As of 2020-02-23, Furaffinity returns false postives because they are now using Cloudflair, which prevents Sherlock from checking if the user
+exists or not.
+
+```
+  "furaffinity": {
+    "errorMsg": "user cannot be found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.furaffinity.net/user/{}",
+    "urlMain": "https://www.furaffinity.net",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis777777"
+  },
+```
+
+
+## InsaneJournal 
+
+As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
+Since we were not able to find the critera for a valid username, the best thing to do now is to remove it.
+
+```
+  "InsaneJournal": {
+    "errorMsg": "Unknown user",
+    "errorType": "message",
+    "rank": 29728,
+    "url": "http://{}.insanejournal.com/profile",
+    "urlMain": "insanejournal.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "dlyr6cd"
   },
 ```
