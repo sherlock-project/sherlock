@@ -1264,14 +1264,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Pexels": {
-    "errorType": "status_code",
-    "rank": 745,
-    "url": "https://www.pexels.com/@{}",
-    "urlMain": "https://www.pexels.com/",
-    "username_claimed": "bruno",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Photobucket": {
     "errorType": "status_code",
     "rank": 3200,
@@ -1293,14 +1285,6 @@
     "rank": 170,
     "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Pixabay": {
-    "errorType": "status_code",
-    "rank": 378,
-    "url": "https://pixabay.com/en/users/{}",
-    "urlMain": "https://pixabay.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },

@@ -6,6 +6,36 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Pixabay
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pixabay": {
+    "errorType": "status_code",
+    "rank": 378,
+    "url": "https://pixabay.com/en/users/{}",
+    "urlMain": "https://pixabay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Pexels
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pexels": {
+    "errorType": "status_code",
+    "rank": 745,
+    "url": "https://www.pexels.com/@{}",
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed": "bruno",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## RamblerDating
 
 As of 2019-12-31, site always times out.
