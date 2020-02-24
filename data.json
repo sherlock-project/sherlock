@@ -277,15 +277,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Canva": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.canva.com/{}",
-    "rank": 128,
-    "url": "https://www.canva.com/{}",
-    "urlMain": "https://www.canva.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "xgtrq"
-  },
   "Carbonmade": {
     "errorType": "response_url",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",

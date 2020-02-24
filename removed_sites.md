@@ -6,6 +6,22 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Canva
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+```
+  "Canva": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.canva.com/{}",
+    "rank": 128,
+    "url": "https://www.canva.com/{}",
+    "urlMain": "https://www.canva.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "xgtrq"
+  },
+```
+
 ## Pixabay
 
 As of 2020-01-21, all usernames are reported as not existing.
