@@ -183,15 +183,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Basecamp": {
-    "errorMsg": "The account you were looking for doesn't exist",
-    "errorType": "message",
-    "rank": 4914,
-    "url": "https://{}.basecamphq.com",
-    "urlMain": "https://basecamp.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Bazar.cz": {
     "errorType": "response_url",
     "errorUrl": "https://www.bazar.cz/error404.aspx",
@@ -252,17 +243,8 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Brew": {
-    "errorType": "status_code",
-    "rank": 679130,
-    "url": "https://www.brew.com/{}",
-    "urlMain": "https://www.brew.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "BuyMeACoffee": {
-    "errorMsg": "It returned a 404 error",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 23804,
     "url": "https://buymeacoff.ee/{}",
     "urlMain": "https://www.buymeacoffee.com/",
@@ -285,15 +267,6 @@
     "urlMain": "https://www.cnet.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
-  },
-  "Canva": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.canva.com/{}",
-    "rank": 128,
-    "url": "https://www.canva.com/{}",
-    "urlMain": "https://www.canva.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "xgtrq"
   },
   "Carbonmade": {
     "errorType": "response_url",
@@ -380,7 +353,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codechef": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.codechef.com/",
     "rank": 11813,
     "url": "https://www.codechef.com/users/{}",
     "urlMain": "https://www.codechef.com/",
@@ -1264,14 +1238,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Pexels": {
-    "errorType": "status_code",
-    "rank": 745,
-    "url": "https://www.pexels.com/@{}",
-    "urlMain": "https://www.pexels.com/",
-    "username_claimed": "bruno",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Photobucket": {
     "errorType": "status_code",
     "rank": 3200,
@@ -1293,14 +1259,6 @@
     "rank": 170,
     "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Pixabay": {
-    "errorType": "status_code",
-    "rank": 378,
-    "url": "https://pixabay.com/en/users/{}",
-    "urlMain": "https://pixabay.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1380,8 +1338,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Rajce.net": {
-    "errorMsg": "410",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 1703,
     "url": "https://{}.rajce.idnes.cz/",
     "urlMain": "https://www.rajce.idnes.cz/",
@@ -2158,15 +2115,6 @@
     "urlMain": "https://elwo.ru/",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "fanpop": {
-    "errorType": "response_url",
-    "errorUrl": "http://www.fanpop.com/",
-    "rank": 9454,
-    "url": "http://www.fanpop.com/fans/{}",
-    "urlMain": "http://www.fanpop.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewould_everusethis7"
   },
   "fixya": {
     "errorType": "status_code",

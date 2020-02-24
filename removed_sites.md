@@ -6,6 +6,86 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Basecamp
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+Why was this ever added?  It does not look like a social network.
+
+```
+  "Basecamp": {
+    "errorMsg": "The account you were looking for doesn't exist",
+    "errorType": "message",
+    "rank": 4914,
+    "url": "https://{}.basecamphq.com",
+    "urlMain": "https://basecamp.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Fanpop
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+```
+  "fanpop": {
+    "errorType": "response_url",
+    "errorUrl": "http://www.fanpop.com/",
+    "rank": 9454,
+    "url": "http://www.fanpop.com/fans/{}",
+    "urlMain": "http://www.fanpop.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould_everusethis7"
+  },
+```
+
+## Canva
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+```
+  "Canva": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.canva.com/{}",
+    "rank": 128,
+    "url": "https://www.canva.com/{}",
+    "urlMain": "https://www.canva.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "xgtrq"
+  },
+```
+
+## Pixabay
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pixabay": {
+    "errorType": "status_code",
+    "rank": 378,
+    "url": "https://pixabay.com/en/users/{}",
+    "urlMain": "https://pixabay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Pexels
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pexels": {
+    "errorType": "status_code",
+    "rank": 745,
+    "url": "https://www.pexels.com/@{}",
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed": "bruno",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## RamblerDating
 
 As of 2019-12-31, site always times out.
