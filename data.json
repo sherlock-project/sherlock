@@ -1071,6 +1071,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "nightbot": {
+    "errorType": "status_code",
+    "rank": 12972,
+    "url": "https://nightbot.tv/t/{}/commands",
+    "urlMain": "https://nightbot.tv/",
+    "urlProbe": "https://api.nightbot.tv/1/channels/t/{}",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "NPM": {
     "errorType": "status_code",
     "rank": 4297,
