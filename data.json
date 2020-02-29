@@ -396,7 +396,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codechef": {
-    "errorMsg": "https://www.codechef.com",
+    "errorUrl": "https://www.codechef.com",
     "errorType": "response_url",
     "rank": 11558,
     "url": "https://www.codechef.com/users/{}",
@@ -1702,7 +1702,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
-    "errorMsg": "https://telegram.org",
+    "errorUrl": "https://telegram.org",
     "errorType": "response_url",
     "rank": 385,
     "url": "https://t.me/{}",
