@@ -167,6 +167,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "BOOTH": {
+    "errorType": "response_url",
+    "errorUrl": "https://booth.pm/",
+    "rank": 7305,
+    "url": "https://{}.booth.pm/",
+    "urlMain": "https://booth.pm/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Badoo": {
     "errorType": "status_code",
     "rank": 1700,
