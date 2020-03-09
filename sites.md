@@ -241,7 +241,7 @@
 240. [dailykos](https://www.dailykos.com)
 241. [datingRU](http://dating.ru)
 242. [devRant](https://devrant.com/)
-243. [dis.cool](https://dis.cool/)
+243. [tracr.co](https://tracr.co/)
 244. [drive2](https://www.drive2.ru/)
 245. [eGPU](https://egpu.io/)
 246. [easyen](https://easyen.ru/)

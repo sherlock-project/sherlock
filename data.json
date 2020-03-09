@@ -2093,12 +2093,12 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "dis.cool": {
+  "tracr.co": {
     "errorMsg": "No search results",
     "errorType": "message",
     "rank": 343837,
-    "url": "https://dis.cool/users/1/{}",
-    "urlMain": "https://dis.cool/",
+    "url": "https://tracr.co/users/1/{}",
+    "urlMain": "https://tracr.co/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
