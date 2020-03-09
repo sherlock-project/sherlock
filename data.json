@@ -1213,6 +1213,15 @@
     "username_claimed": "steve",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "PCGamer": {
+    "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
+    "errorType": "message", 
+    "rank": 1481,   
+    "url": "https://forums.pcgamer.com/members/?username={}",
+    "urlMain": "https://pcgamer.com",
+    "username_claimed": "admin",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "PCPartPicker": {
     "errorType": "status_code",
     "rank": 3376,
