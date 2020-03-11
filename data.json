@@ -2366,6 +2366,7 @@
   "metacritic": {
     "errorMsg": "User not found",
     "errorType": "message",
+    "regexCheck": "^(?![-_])[A-Za-z0-9-_]{3,15}$",
     "rank": 2207,
     "url": "https://www.metacritic.com/user/{}",
     "urlMain": "https://www.metacritic.com/",
