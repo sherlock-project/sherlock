@@ -17,6 +17,7 @@ import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from concurrent.futures import ThreadPoolExecutor
 from time import time
+import webbrowser
 
 import requests
 from colorama import Fore, Style, init
@@ -488,6 +489,9 @@ def main():
                         action="store",
                         help="One or more usernames to check with social networks."
                         )
+    parser.add_argument("--browse", "-b",
+                        action="store_true", dest="browse", default=False,
+                        help="Browse to all results on default bowser.")
 
     args = parser.parse_args()
 
@@ -647,6 +651,8 @@ def main():
             if dictionary.get("exists") == "yes":
                 exists_counter += 1
                 file.write(dictionary["url_user"] + "\n")
+                if args.browse :
+                    webbrowser.open(dictionary["url_user"])
         file.write(f"Total Websites Username Detected On : {exists_counter}")
         file.close()
 
