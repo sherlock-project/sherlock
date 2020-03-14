@@ -116,6 +116,8 @@ optional arguments:
                         hand, this may cause a long delay to gather all
                         results.
   --print-found         Do not output sites where the username was not found.
+  --no-color            Don't color terminal output
+  --browse, -b          Browse to all results on default bowser.
 ```
 
 To search for only one user:
