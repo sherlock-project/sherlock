@@ -286,6 +286,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Career.habr": {
+    "errorMsg": "<h1>Ошибка 404</h1>",
+    "errorType": "message",
+    "url": "https://career.habr.com/{}",
+    "urlMain": "https://career.habr.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "CashMe": {
     "errorType": "status_code",
     "rank": 0,
@@ -543,6 +551,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Euw": {
+    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
+    "errorType": "message", 
+    "rank": 450,
+    "url": "https://euw.op.gg/summoner/userName={}",
+    "urlMain": "https://euw.op.gg/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Ello": {
     "errorMsg": "We couldn't find the page you're looking for",
     "errorType": "message",
@@ -662,6 +679,15 @@
     "urlMain": "https://fortnitetracker.com/challenges",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Freelance.habr": {
+    "errorMsg": "<div class=\"icon_user_locked\"></div>",
+    "errorType": "message",
+    "rank": 1911,
+    "url": "https://freelance.habr.com/freelancers/{}",
+    "urlMain": "https://freelance.habr.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Freesound": {
     "errorType": "status_code",
@@ -937,6 +963,15 @@
     "username_claimed": "dansbecker",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "rank": 10313,
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "KanoWorld": {
     "errorType": "status_code",
     "rank": 136722,
@@ -969,6 +1004,15 @@
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
     "urlMain": "https://www.kongregate.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Lolchess": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "rank": 5851,
+    "url": "https://lolchess.gg/profile/na/{}",
+    "urlMain": "https://lolchess.gg/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1372,6 +1416,15 @@
     "username_claimed": "Matt-Riggsby",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Raidforums": {
+    "errorMsg": "The member you specified is either invalid or doesn't exist.",
+    "errorType": "message",
+    "rank": 28869,
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Rajce.net": {
     "errorType": "status_code",
     "rank": 1703,
@@ -1385,6 +1438,15 @@
     "rank": 5120,
     "url": "https://rateyourmusic.com/~{}",
     "urlMain": "https://rateyourmusic.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Realmeye": {
+    "errorMsg": "Sorry, but we either:",
+    "errorType": "message",
+    "rank": 66567,
+    "url": "https://www.realmeye.com/player/{}",
+    "urlMain": "https://www.realmeye.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1626,6 +1688,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Steamid": {
+    "errorMsg": "<div class=\"alert alert-warning\">Profile not found</div>",
+    "errorType": "message",
+    "rank": 133492,
+    "url": "https://steamid.uk/profile/{}",
+    "urlMain": "https://steamid.uk/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+    },
   "SublimeForum": {
     "errorType": "status_code",
     "rank": 7588,
