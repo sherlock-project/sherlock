@@ -1,6 +1,7 @@
 import csv
 import requests
 import time
+import re
 from collections import namedtuple
 from colorama import Fore, Style
 
@@ -87,3 +88,16 @@ def check_proxy_list(proxy_list, max_proxies=None):
 
     else:
         raise Exception("Found no working proxies.")
+
+def proxy_check(proxy):
+    """
+    proxy_check is a function whitch checks the syntax of a proxy
+    based on regex.
+
+    Outputs: boolean if the proxy is in valid syntax
+    """
+    # Regex for a valid proxy with port, e.g.: https://79.125.163.225:30677
+    regex_proxy = r"(http|https|socks5|socks4)://([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}):[0-9]{1,5}"
+
+    return (proxy and re.search(regex_proxy, proxy) is not None)
+

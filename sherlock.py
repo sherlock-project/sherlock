@@ -24,7 +24,7 @@ from colorama import Fore, Style, init
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
-from load_proxies import load_proxies_from_csv, check_proxy_list
+from load_proxies import load_proxies_from_csv, check_proxy_list, proxy_check
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.10.9"
@@ -407,7 +407,6 @@ def timeout_check(value):
         raise ArgumentTypeError(f"Timeout '{value}' must be greater than 0.0s.")
     return timeout
 
-
 def main():
     # Colorama module's initialization.
     init(autoreset=True)
@@ -495,11 +494,13 @@ def main():
 
     args = parser.parse_args()
 
-
     # Argument check
-    # TODO regex check on args.proxy
     if args.tor and (args.proxy != None or args.proxy_list != None):
         raise Exception("Tor and Proxy cannot be set in the meantime.")
+
+    # Checks if given proxy is in the correct syntax
+    if args.proxy and proxy_check(args.proxy) == False:
+        raise Exception("Proxy is not in the right format. Example: https://14.139.56.16:80")
 
     # Proxy argument check.
     # Does not necessarily need to throw an error,
@@ -515,9 +516,11 @@ def main():
     global proxy_list
 
     if args.proxy_list != None:
-        print_info("Loading proxies from", args.proxy_list, not args.color)
+        print_info("Loading proxies from", args.proxy_list)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
+
+        print(proxy_list)
 
     # Checking if proxies should be checked for anonymity.
     if args.check_prox != None and args.proxy_list != None:
