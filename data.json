@@ -2676,5 +2676,14 @@
     "urlMain": "https://soylentnews.org",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "swimming_forum": {
+    "errorMsg": "Пользователь не найден",
+    "errorType": "message",    
+    "rank": 1000000,
+    "url": "http://forumswimming.ru/index/8-0-{}",
+    "urlMain": "http://forumswimming.ru/",
+    "username_claimed": "irina",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
