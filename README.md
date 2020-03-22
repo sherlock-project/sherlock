@@ -50,7 +50,7 @@ $ git clone https://github.com/sherlock-project/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install python3, python3-pip and setuptools through pip3 if they are not installed
+# install python3 and python3-pip if they are not installed
 
 # install the requirements
 $ python3 -m pip install -r requirements.txt
