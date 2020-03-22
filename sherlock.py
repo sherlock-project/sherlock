@@ -499,7 +499,7 @@ def main():
         raise Exception("Tor and Proxy cannot be set in the meantime.")
 
     # Checks if given proxy is in the correct syntax
-    if args.proxy and proxy_check(args.proxy) == False:
+    if args.proxy and not proxy_check(args.proxy):
         raise Exception("Proxy is not in the right format.")
 
     # Proxy argument check.
