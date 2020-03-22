@@ -91,10 +91,8 @@ def check_proxy_list(proxy_list, max_proxies=None):
 
 def proxy_check(proxy):
     """
-    proxy_check is a function whitch checks the syntax of a proxy
-    based on regex.
-
-    Outputs: boolean if the proxy is in valid syntax
+    proxy_check is a function which checks if the syntax of a proxy
+    is correct based on a regex pattern.
     """
     # Regex for a valid proxy with port, e.g.: https://79.125.163.225:30677
     regex_proxy = r"(http|https|socks5|socks4)://([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}):[0-9]{1,5}"

@@ -500,7 +500,7 @@ def main():
 
     # Checks if given proxy is in the correct syntax
     if args.proxy and proxy_check(args.proxy) == False:
-        raise Exception("Proxy is not in the right format. Example: https://14.139.56.16:80")
+        raise Exception("Proxy is not in the right format.")
 
     # Proxy argument check.
     # Does not necessarily need to throw an error,
@@ -519,8 +519,6 @@ def main():
         print_info("Loading proxies from", args.proxy_list)
 
         proxy_list = load_proxies_from_csv(args.proxy_list)
-
-        print(proxy_list)
 
     # Checking if proxies should be checked for anonymity.
     if args.check_prox != None and args.proxy_list != None:
