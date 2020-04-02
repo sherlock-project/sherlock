@@ -439,3 +439,20 @@ Since we were not able to find the critera for a valid username, the best thing 
     "username_unclaimed": "dlyr6cd"
   },
 ```
+
+## Sports Tracker
+
+As of 2020-03-02, Sports Tracker returns false positives. Checking with `errorMsg` and `response_url`
+did not seem to work.
+
+```
+   "SportsTracker": {
+     "errorUrl": "https://www.sports-tracker.com/page-not-found",
+     "errorType": "response_url",
+     "rank": 93950,
+     "url": "https://www.sports-tracker.com/view_profile/{}",
+     "urlMain": "https://www.sports-tracker.com/",
+     "username_claimed": "blue",
+     "username_unclaimed": "noonewouldeveruse"
+   },
+```

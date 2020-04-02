@@ -896,15 +896,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Insanejournal": {
-    "errorMsg": "Unknown user",
-    "errorType": "message",
-    "rank": 29889,
-    "url": "http://{}.insanejournal.com/profile",
-    "urlMain": "insanejournal.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "dlyr6cd"
-  },
   "Instagram": {
     "errorMsg": "The link you followed may be broken",
     "errorType": "message",
@@ -1644,16 +1635,6 @@
     "urlMain": "https://www.sports.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "SportsTracker": {
-    "errorMsg": "\"code\":\"404\"",
-    "errorType": "message",
-    "rank": 93950,
-    "url": "https://www.sports-tracker.com/view_profile/{}",
-    "urlMain": "https://www.sports-tracker.com/",
-    "urlProbe": "https://www.sports-tracker.com/apiserver/v1/user/name/{}",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeveruse"
   },
   "Spotify": {
     "errorType": "status_code",
