@@ -705,12 +705,12 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "GPSies": {
-    "errorMsg": "<title>GPSies",
+  "AllTrails": {
+    "errorMsg": "User could not be found.",
     "errorType": "message",
     "rank": 118891,
-    "url": "https://www.gpsies.com/mapUser.do?username={}",
-    "urlMain": "https://www.gpsies.com/",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
