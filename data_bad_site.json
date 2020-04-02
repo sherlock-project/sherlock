@@ -242,6 +242,15 @@
      "urlMain": "https://boingboing.net/",
      "username_claimed": "admin",
      "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Telegram": {
+     "errorType": "response_url",
+     "errorUrl": "https://telegram.org",
+     "rank": 385,
+     "url": "https://t.me/{}",
+     "urlMain": "https://t.me/",
+     "username_claimed": "saman",
+     "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
   }
 }
 

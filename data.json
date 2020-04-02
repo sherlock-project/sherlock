@@ -1712,15 +1712,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Telegram": {
-    "errorType": "response_url",
-    "errorUrl": "https://telegram.org",
-    "rank": 385,
-    "url": "https://t.me/{}",
-    "urlMain": "https://t.me/",
-    "username_claimed": "saman",
-    "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
-  },
   "Tellonym.me": {
     "errorType": "status_code",
     "rank": 31869,
