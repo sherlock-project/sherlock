@@ -234,6 +234,14 @@
      "urlMain": "https://www.sports-tracker.com/",
      "username_claimed": "blue",
      "username_unclaimed": "noonewouldeveruse"
+  },
+  "boingboing.net": {
+     "errorType": "status_code",
+     "rank": 5821,
+     "url": "https://bbs.boingboing.net/u/{}",
+     "urlMain": "https://boingboing.net/",
+     "username_claimed": "admin",
+     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
 
