@@ -456,3 +456,20 @@ did not seem to work.
      "username_unclaimed": "noonewouldeveruse"
    },
 ```
+
+## Trip
+
+As of 2020-03-02, Trip by Skyscanner seems to not work beceause it keeps on
+redirecting to skyscanner.com whether the username exists or not.
+
+```
+  "Trip": {
+      "errorType": "status_code",
+      "rank": 2847,
+      "url": "https://www.trip.skyscanner.com/user/{}",
+      "urlMain": "https://www.trip.skyscanner.com/",
+      "username_claimed": "blue",
+      "username_unclaimed": "noonewouldeverusethis7"
+  },
+
+```
