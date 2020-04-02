@@ -59,7 +59,7 @@ $ python3 -m pip install -r requirements.txt
 
 ## Usage
 
-```bash
+```
 $ python3 sherlock.py --help
 usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
