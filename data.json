@@ -897,8 +897,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Instagram": {
-    "errorMsg": "The link you followed may be broken",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 32,
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
