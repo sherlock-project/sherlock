@@ -442,7 +442,7 @@ Since we were not able to find the critera for a valid username, the best thing 
 
 ## Sports Tracker
 
-As of 2020-03-02, Sports Tracker returns false positives. Checking with `errorMsg` and `response_url`
+As of 2020-04-02, Sports Tracker returns false positives. Checking with `errorMsg` and `response_url`
 did not seem to work.
 
 ```
@@ -459,7 +459,7 @@ did not seem to work.
 
 ## Trip
 
-As of 2020-03-02, Trip by Skyscanner seems to not work beceause it keeps on
+As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
 redirecting to skyscanner.com whether the username exists or not.
 
 ```
@@ -476,7 +476,7 @@ redirecting to skyscanner.com whether the username exists or not.
 
 ## boingboing.net
 
-As of 2020-03-02, boingboing.net requires a login to check if a user exits or not.
+As of 2020-04-02, boingboing.net requires a login to check if a user exits or not.
 
 ```
    "boingboing.net": {
@@ -491,7 +491,7 @@ As of 2020-03-02, boingboing.net requires a login to check if a user exits or no
 
 ## Telegram
 
-As of 2020-03-02 Telegram always returns true even though an username is non-existant
+As of 2020-04-02 Telegram always returns true even though an username is non-existant
 
 ´´´
    "Telegram": {
@@ -503,3 +503,19 @@ As of 2020-03-02 Telegram always returns true even though an username is non-exi
      "username_claimed": "saman",
      "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
 ´´´
+
+## elwoRU
+As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
+downforeveryoneorjustme.com that the website is down.
+
+```
+  "elwoRU": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 254810,
+    "url": "https://elwo.ru/index/8-0-{}",
+    "urlMain": "https://elwo.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
