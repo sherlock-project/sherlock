@@ -502,6 +502,7 @@ As of 2020-04-02 Telegram always returns true even though an username is non-exi
      "urlMain": "https://t.me/",
      "username_claimed": "saman",
      "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
+  },
 ´´´
 
 ## elwoRU
@@ -519,3 +520,21 @@ downforeveryoneorjustme.com that the website is down.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## ingvarr.net.ru
+
+As of 2020-04-04, ingvarr.net.ru does not exist anymore. I confirmed using
+downforeveryoneorjustme.com that the website is down.
+
+```
+  "ingvarr.net.ru": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 107721,
+    "url": "http://ingvarr.net.ru/index/8-0-{}",
+    "urlMain": "http://ingvarr.net.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
