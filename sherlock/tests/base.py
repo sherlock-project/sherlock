@@ -104,10 +104,10 @@ class SherlockBaseTest(unittest.TestCase):
         site_data = self.site_data_filter(site_list)
 
         if exist_check:
-            check_type_text = "exists"
+            check_type_text = "claimed"
             exist_result_desired = QueryStatus.CLAIMED
         else:
-            check_type_text = "does not exist"
+            check_type_text = "available"
             exist_result_desired = QueryStatus.AVAILABLE
 
         for username in username_list:
@@ -134,8 +134,8 @@ class SherlockBaseTest(unittest.TestCase):
                                       f"Site returned error status."
                                      )
 
-                    self.assertEqual(result['status'].status,
-                                     exist_result_desired)
+                    self.assertEqual(exist_result_desired,
+                                     result['status'].status)
 
         return
 
