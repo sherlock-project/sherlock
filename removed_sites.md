@@ -6,6 +6,29 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## AdobeForums
+
+As of 2020-04-12, all usernames are reported as available.
+
+When I went to the site to see what was going on, usernames that I know
+existed were redirecting to the main page.
+
+I was able to see user profiles without logging in, but the URL was not
+related to their user name.  For example, user "tomke" went to
+https://community.adobe.com/t5/user/viewprofilepage/user-id/10882613.
+This can be detected, but it requires a different detection method.
+
+```
+  "AdobeForums": {
+    "errorType": "status_code",
+    "rank": 59,
+    "url": "https://forums.adobe.com/people/{}",
+    "urlMain": "https://forums.adobe.com/",
+    "username_claimed": "jack",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+```
+
 ## Basecamp
 
 As of 2020-02-23, all usernames are reported as not existing.
@@ -423,7 +446,7 @@ exists or not.
 ```
 
 
-## InsaneJournal 
+## InsaneJournal
 
 As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
 Since we were not able to find the critera for a valid username, the best thing to do now is to remove it.

@@ -66,14 +66,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "AdobeForums": {
-    "errorType": "status_code",
-    "rank": 59,
-    "url": "https://forums.adobe.com/people/{}",
-    "urlMain": "https://forums.adobe.com/",
-    "username_claimed": "jack",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
   "Alik.cz": {
     "errorType": "status_code",
     "rank": 624805,
