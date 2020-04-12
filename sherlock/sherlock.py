@@ -15,6 +15,9 @@ import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
+from concurrent.futures import ThreadPoolExecutor
+from time import time
+import webbrowser
 
 import requests
 from colorama import Fore, Style, init
@@ -26,7 +29,7 @@ from result import QueryResult
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.10.7"
+__version__ = "0.11.0"
 
 
 
@@ -530,6 +533,9 @@ def main():
                         action="store",
                         help="One or more usernames to check with social networks."
                         )
+    parser.add_argument("--browse", "-b",
+                        action="store_true", dest="browse", default=False,
+                        help="Browse to all results on default bowser.")
 
     args = parser.parse_args()
 

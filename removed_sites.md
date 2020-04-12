@@ -6,6 +6,86 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Basecamp
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+Why was this ever added?  It does not look like a social network.
+
+```
+  "Basecamp": {
+    "errorMsg": "The account you were looking for doesn't exist",
+    "errorType": "message",
+    "rank": 4914,
+    "url": "https://{}.basecamphq.com",
+    "urlMain": "https://basecamp.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Fanpop
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+```
+  "fanpop": {
+    "errorType": "response_url",
+    "errorUrl": "http://www.fanpop.com/",
+    "rank": 9454,
+    "url": "http://www.fanpop.com/fans/{}",
+    "urlMain": "http://www.fanpop.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould_everusethis7"
+  },
+```
+
+## Canva
+
+As of 2020-02-23, all usernames are reported as not existing.
+
+```
+  "Canva": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.canva.com/{}",
+    "rank": 128,
+    "url": "https://www.canva.com/{}",
+    "urlMain": "https://www.canva.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "xgtrq"
+  },
+```
+
+## Pixabay
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pixabay": {
+    "errorType": "status_code",
+    "rank": 378,
+    "url": "https://pixabay.com/en/users/{}",
+    "urlMain": "https://pixabay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Pexels
+
+As of 2020-01-21, all usernames are reported as not existing.
+
+```
+  "Pexels": {
+    "errorType": "status_code",
+    "rank": 745,
+    "url": "https://www.pexels.com/@{}",
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed": "bruno",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## RamblerDating
 
 As of 2019-12-31, site always times out.
@@ -359,3 +439,102 @@ Since we were not able to find the critera for a valid username, the best thing 
     "username_unclaimed": "dlyr6cd"
   },
 ```
+
+## Sports Tracker
+
+As of 2020-04-02, Sports Tracker returns false positives. Checking with `errorMsg` and `response_url`
+did not seem to work.
+
+```
+   "SportsTracker": {
+     "errorUrl": "https://www.sports-tracker.com/page-not-found",
+     "errorType": "response_url",
+     "rank": 93950,
+     "url": "https://www.sports-tracker.com/view_profile/{}",
+     "urlMain": "https://www.sports-tracker.com/",
+     "username_claimed": "blue",
+     "username_unclaimed": "noonewouldeveruse"
+   },
+```
+
+## Trip
+
+As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
+redirecting to skyscanner.com whether the username exists or not.
+
+```
+  "Trip": {
+      "errorType": "status_code",
+      "rank": 2847,
+      "url": "https://www.trip.skyscanner.com/user/{}",
+      "urlMain": "https://www.trip.skyscanner.com/",
+      "username_claimed": "blue",
+      "username_unclaimed": "noonewouldeverusethis7"
+  },
+
+```
+
+## boingboing.net
+
+As of 2020-04-02, boingboing.net requires a login to check if a user exits or not.
+
+```
+   "boingboing.net": {
+     "errorType": "status_code",
+     "rank": 5821,
+     "url": "https://bbs.boingboing.net/u/{}",
+     "urlMain": "https://boingboing.net/",
+     "username_claimed": "admin",
+     "username_unclaimed": "noonewouldeverusethis7"
+   },
+```
+
+## Telegram
+
+As of 2020-04-02 Telegram always returns true even though an username is non-existant
+
+´´´
+   "Telegram": {
+     "errorType": "response_url",
+     "errorUrl": "https://telegram.org",
+     "rank": 385,
+     "url": "https://t.me/{}",
+     "urlMain": "https://t.me/",
+     "username_claimed": "saman",
+     "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
+  },
+´´´
+
+## elwoRU
+As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
+downforeveryoneorjustme.com that the website is down.
+
+```
+  "elwoRU": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 254810,
+    "url": "https://elwo.ru/index/8-0-{}",
+    "urlMain": "https://elwo.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## ingvarr.net.ru
+
+As of 2020-04-04, ingvarr.net.ru does not exist anymore. I confirmed using
+downforeveryoneorjustme.com that the website is down.
+
+```
+  "ingvarr.net.ru": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 107721,
+    "url": "http://ingvarr.net.ru/index/8-0-{}",
+    "urlMain": "http://ingvarr.net.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+

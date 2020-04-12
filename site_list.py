@@ -12,7 +12,6 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 pool = list()
 
 def get_rank(domain_to_query, dest):
-    result = -1
 
     #Retrieve ranking data via alexa API
     url = f"http://data.alexa.com/data?cli=10&url={domain_to_query}"

@@ -64,12 +64,11 @@ $ python3 -m sherlock --help
 usage: sherlock.py [-h] [--version] [--verbose] [--rank]
                    [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
                    [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL] [--json JSON_FILE]
-                   [--proxy_list PROXY_LIST] [--check_proxies CHECK_PROXY]
-                   [--timeout TIMEOUT] [--print-found]
+                   [--proxy PROXY_URL] [--json JSON_FILE] [--timeout TIMEOUT]
+                   [--print-found] [--no-color] [--browse]
                    USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.10.7)
+Sherlock: Find Usernames Across Social Networks (Version 0.11.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -101,21 +100,14 @@ optional arguments:
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --proxy_list PROXY_LIST, -pl PROXY_LIST
-                        Make requests over a proxy randomly chosen from a list
-                        generated from a .csv file.
-  --check_proxies CHECK_PROXY, -cp CHECK_PROXY
-                        To be used with the '--proxy_list' parameter. The
-                        script will check if the proxies supplied in the .csv
-                        file are working and anonymous.Put 0 for no limit on
-                        successfully checked proxies, or another number to
-                        institute a limit.
   --timeout TIMEOUT     Time (in seconds) to wait for response to requests.
                         Default timeout of 60.0s.A longer timeout will be more
                         likely to get results from slow sites.On the other
                         hand, this may cause a long delay to gather all
                         results.
   --print-found         Do not output sites where the username was not found.
+  --no-color            Don't color terminal output
+  --browse, -b          Browse to all results on default bowser.
 ```
 
 To search for only one user:
