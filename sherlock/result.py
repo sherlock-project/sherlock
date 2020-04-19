@@ -31,7 +31,8 @@ class QueryResult():
 
     Describes result of query about a given username.
     """
-    def __init__(self, status, query_time=None, context=None):
+    def __init__(self, username, site_name, site_url_user, status,
+                 query_time=None, context=None):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
@@ -39,6 +40,13 @@ class QueryResult():
 
         Keyword Arguments:
         self                   -- This object.
+        username               -- String indicating username that query result
+                                  was about.
+        site_name              -- String which identifies site.
+        site_url_user          -- String containing URL for username on site.
+                                  NOTE:  The site may or may not exist:  this
+                                         just indicates what the name would
+                                         be, if it existed.
         status                 -- Enumeration of type QueryStatus() indicating
                                   the status of the query.
         query_time             -- Time (in seconds) required to perform query.
@@ -53,9 +61,12 @@ class QueryResult():
         Nothing.
         """
 
-        self.status      = status
-        self.query_time  = query_time
-        self.context     = context
+        self.username      = username
+        self.site_name     = site_name
+        self.site_url_user = site_url_user
+        self.status        = status
+        self.query_time    = query_time
+        self.context       = context
 
         return
 

@@ -274,6 +274,9 @@ def sherlock(username, site_data, query_notify, verbose=False,
             # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
+        # URL of user on site (if it exists)
+        url = net_info["url"].format(username)
+
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
@@ -281,14 +284,16 @@ def sherlock(username, site_data, query_notify, verbose=False,
             if (print_output == True) and not print_found_only:
                 print_invalid(social_network, "Illegal Username Format For This Site!", color)
 
-            results_site['status'] = QueryResult(QueryStatus.ILLEGAL)
+            results_site['status'] = QueryResult(username,
+                                                 social_network,
+                                                 url,
+                                                 QueryStatus.ILLEGAL)
             results_site["url_user"] = ""
             results_site['http_status'] = ""
             results_site['response_text'] = ""
             query_notify.update(results_site['status'])
         else:
             # URL of user on site (if it exists)
-            url = net_info["url"].format(username)
             results_site["url_user"] = url
             url_probe = net_info.get("urlProbe")
             if url_probe is None:
@@ -381,25 +386,40 @@ def sherlock(username, site_data, query_notify, verbose=False,
             response_text = ""
 
         if error_text is not None:
-            result = QueryResult(QueryStatus.UNKNOWN,
+            result = QueryResult(username,
+                                 social_network,
+                                 url,
+                                 QueryStatus.UNKNOWN,
                                  query_time=response_time,
                                  context=error_text)
         elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
-                result = QueryResult(QueryStatus.CLAIMED,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
-                result = QueryResult(QueryStatus.CLAIMED,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
@@ -408,10 +428,16 @@ def sherlock(username, site_data, query_notify, verbose=False,
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
             if 200 <= r.status_code < 300:
-                result = QueryResult(QueryStatus.CLAIMED,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE,
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
                                      query_time=response_time)
         else:
             #It should be impossible to ever get here...
