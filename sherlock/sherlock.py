@@ -26,6 +26,7 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
+from notify import QueryNotify
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
@@ -187,7 +188,8 @@ def get_response(request_future, error_type, social_network, verbose=False, colo
     return response, error_context, expection_text
 
 
-def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
+def sherlock(username, site_data, query_notify, verbose=False,
+             tor=False, unique_tor=False,
              proxy=None, print_found_only=False, timeout=None, color=True,
              print_output=True):
     """Run Sherlock Analysis.
@@ -198,6 +200,9 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
     username               -- String indicating username that report
                               should be created against.
     site_data              -- Dictionary containing all of the site data.
+    query_notify           -- Object with base type of QueryNotify().
+                              This will be used to notify the caller about
+                              query results.
     verbose                -- Boolean indicating whether to give verbose output.
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
@@ -280,6 +285,7 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             results_site["url_user"] = ""
             results_site['http_status'] = ""
             results_site['response_text'] = ""
+            query_notify.update(results_site['status'])
         else:
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
@@ -412,6 +418,9 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
 
+
+        #Notify caller about results of query.
+        query_notify.update(result)
 
         if print_output == True:
             #Output to the terminal is desired.
@@ -614,12 +623,17 @@ def main():
         for site in ranked_sites:
             site_data[site] = site_dataCpy.get(site)
 
+
+    #Create notify object for query results.
+    query_notify = QueryNotify()
+
     # Run report on all specified users.
     for username in args.username:
         print()
 
         results = sherlock(username,
                            site_data,
+                           query_notify,
                            verbose=args.verbose,
                            tor=args.tor,
                            unique_tor=args.unique_tor,

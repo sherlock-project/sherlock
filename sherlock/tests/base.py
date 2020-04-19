@@ -9,6 +9,7 @@ import unittest
 import sherlock
 from result import QueryStatus
 from result import QueryResult
+from notify import QueryNotify
 from sites  import SitesInformation
 import warnings
 
@@ -48,6 +49,9 @@ class SherlockBaseTest(unittest.TestCase):
             self.excluded_sites = excluded_sites_file.read().splitlines()
         except FileNotFoundError:
           self.excluded_sites = []
+
+        #Create notify object for query results.
+        self.query_notify = QueryNotify()
 
         self.verbose=False
         self.tor=False
@@ -113,6 +117,7 @@ class SherlockBaseTest(unittest.TestCase):
         for username in username_list:
             results = sherlock.sherlock(username,
                                         site_data,
+                                        self.query_notify,
                                         verbose=self.verbose,
                                         tor=self.tor,
                                         unique_tor=self.unique_tor,
