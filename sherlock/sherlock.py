@@ -280,7 +280,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             results_site["url_user"] = ""
             results_site['http_status'] = ""
             results_site['response_text'] = ""
-            results_site['response_time_s'] = ""
         else:
             # URL of user on site (if it exists)
             url = net_info["url"].format(username)
@@ -376,20 +375,26 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             response_text = ""
 
         if error_text is not None:
-            result = QueryResult(QueryStatus.UNKNOWN, error_text)
+            result = QueryResult(QueryStatus.UNKNOWN,
+                                 query_time=response_time,
+                                 context=error_text)
         elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
             if not error in r.text:
-                result = QueryResult(QueryStatus.CLAIMED)
+                result = QueryResult(QueryStatus.CLAIMED,
+                                     query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE)
+                result = QueryResult(QueryStatus.AVAILABLE,
+                                     query_time=response_time)
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
-                result = QueryResult(QueryStatus.CLAIMED)
+                result = QueryResult(QueryStatus.CLAIMED,
+                                     query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE)
+                result = QueryResult(QueryStatus.AVAILABLE,
+                                     query_time=response_time)
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
@@ -397,9 +402,11 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
             if 200 <= r.status_code < 300:
-                result = QueryResult(QueryStatus.CLAIMED)
+                result = QueryResult(QueryStatus.CLAIMED,
+                                     query_time=response_time)
             else:
-                result = QueryResult(QueryStatus.AVAILABLE)
+                result = QueryResult(QueryStatus.AVAILABLE,
+                                     query_time=response_time)
         else:
             #It should be impossible to ever get here...
             raise ValueError(f"Unknown Error Type '{error_type}' for "
@@ -430,7 +437,6 @@ def sherlock(username, site_data, verbose=False, tor=False, unique_tor=False,
         # Save results from request
         results_site['http_status'] = http_status
         results_site['response_text'] = response_text
-        results_site['response_time_s'] = response_time
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -654,13 +660,16 @@ def main():
                                  ]
                                 )
                 for site in results:
+                    response_time_s = results[site]['status'].query_time
+                    if response_time_s is None:
+                        response_time_s = ""
                     writer.writerow([username,
                                      site,
                                      results[site]['url_main'],
                                      results[site]['url_user'],
                                      str(results[site]['status'].status),
                                      results[site]['http_status'],
-                                     results[site]['response_time_s']
+                                     response_time_s
                                      ]
                                     )
 

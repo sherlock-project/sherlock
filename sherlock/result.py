@@ -31,7 +31,7 @@ class QueryResult():
 
     Describes result of query about a given username.
     """
-    def __init__(self, status, context=None):
+    def __init__(self, status, query_time=None, context=None):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
@@ -41,6 +41,8 @@ class QueryResult():
         self                   -- This object.
         status                 -- Enumeration of type QueryStatus() indicating
                                   the status of the query.
+        query_time             -- Time (in seconds) required to perform query.
+                                  Default of None.
         context                -- String indicating any additional context
                                   about the query.  For example, if there was
                                   an error, this might indicate the type of
@@ -51,8 +53,9 @@ class QueryResult():
         Nothing.
         """
 
-        self.status  = status
-        self.context = context
+        self.status      = status
+        self.query_time  = query_time
+        self.context     = context
 
         return
 
