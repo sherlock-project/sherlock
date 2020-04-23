@@ -4,6 +4,7 @@ This module defines the objects for notifying the caller about the
 results of queries.
 """
 from result import QueryStatus
+from colorama import Fore, Style, init
 
 
 class QueryNotify():
@@ -33,6 +34,25 @@ class QueryNotify():
 
         return
 
+    def start(self, message=None):
+        """Notify Start.
+
+        Notify method for start of query.  This method will be called before
+        any queries are performed.  This method will typically be
+        overridden by higher level classes that will inherit from it.
+
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- Object that is used to give context to start
+                                  of query.
+                                  Default is None.
+
+        Return Value:
+        Nothing.
+        """
+
+        return
+
     def update(self, result):
         """Notify Update.
 
@@ -52,6 +72,25 @@ class QueryNotify():
 
         return
 
+    def finish(self, message=None):
+        """Notify Finish.
+
+        Notify method for finish of query.  This method will be called after
+        all queries have been performed.  This method will typically be
+        overridden by higher level classes that will inherit from it.
+
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- Object that is used to give context to start
+                                  of query.
+                                  Default is None.
+
+        Return Value:
+        Nothing.
+        """
+
+        return
+
     def __str__(self):
         """Convert Object To String.
 
@@ -65,3 +104,159 @@ class QueryNotify():
 
         return result
 
+
+def print_error(social_network, err, errstr, var, verbose=False, color=True):
+    if color:
+        print(Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            Fore.GREEN + f" {social_network}:" +
+            Fore.RED + f" {errstr}" +
+            Fore.YELLOW + f" {err if verbose else var}")
+    else:
+        print(f"[-] {social_network}: {errstr} {err if verbose else var}")
+
+
+def format_response_time(response_time, verbose):
+    return f" [{round(response_time * 1000)} ms]" if verbose else ""
+
+
+def print_found(social_network, url, response_time, verbose=False, color=True):
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.GREEN + "+" +
+            Fore.WHITE + "]" +
+            format_response_time(response_time, verbose) +
+            Fore.GREEN + f" {social_network}:"), url)
+    else:
+        print(f"[+]{format_response_time(response_time, verbose)} {social_network}: {url}")
+
+def print_not_found(social_network, response_time, verbose=False, color=True):
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            format_response_time(response_time, verbose) +
+            Fore.GREEN + f" {social_network}:" +
+            Fore.YELLOW + " Not Found!"))
+    else:
+        print(f"[-]{format_response_time(response_time, verbose)} {social_network}: Not Found!")
+
+def print_invalid(social_network, msg, color=True):
+    """Print invalid search result."""
+    if color:
+        print((Style.BRIGHT + Fore.WHITE + "[" +
+            Fore.RED + "-" +
+            Fore.WHITE + "]" +
+            Fore.GREEN + f" {social_network}:" +
+            Fore.YELLOW + f" {msg}"))
+    else:
+        print(f"[-] {social_network} {msg}")
+
+
+class QueryNotifyPrint(QueryNotify):
+    """Query Notify Print Object.
+
+    Query notify class that prints results.
+    """
+    def __init__(self, result=None, verbose=False, print_found_only=False,
+                 color=True):
+        """Create Query Notify Print Object.
+
+        Contains information about a specific method of notifying the results
+        of a query.
+
+        Keyword Arguments:
+        self                   -- This object.
+        result                 -- Object of type QueryResult() containing
+                                  results for this query.
+        verbose                -- Boolean indicating whether to give verbose output.
+        print_found_only       -- Boolean indicating whether to only print found sites.
+        color                  -- Boolean indicating whether to color terminal output
+
+        Return Value:
+        Nothing.
+        """
+
+        # Colorama module's initialization.
+        init(autoreset=True)
+
+        super().__init__(result)
+        self.verbose = verbose
+        self.print_found_only = print_found_only
+        self.color = color
+
+        return
+
+    def start(self, message):
+        """Notify Start.
+
+        Will print the title to the standard output.
+
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- String containing username that the series
+                                  of queries are about.
+
+        Return Value:
+        Nothing.
+        """
+
+        title = "Checking username"
+        if self.color:
+            print(Style.BRIGHT + Fore.GREEN + "[" +
+                Fore.YELLOW + "*" +
+                Fore.GREEN + f"] {title}" +
+                Fore.WHITE + f" {message}" +
+                Fore.GREEN + " on:")
+        else:
+            print(f"[*] {title} {message} on:")
+
+        return
+
+    def update(self, result):
+        """Notify Update.
+
+        Will print the query result to the standard output.
+
+        Keyword Arguments:
+        self                   -- This object.
+        result                 -- Object of type QueryResult() containing
+                                  results for this query.
+
+        Return Value:
+        Nothing.
+        """
+
+        self.result = result
+
+        #Output to the terminal is desired.
+        if result.status == QueryStatus.CLAIMED:
+            print_found(self.result.site_name, self.result.site_url_user, self.result.query_time, self.verbose, self.color)
+        elif result.status == QueryStatus.AVAILABLE:
+            if not self.print_found_only:
+                print_not_found(self.result.site_name, self.result.query_time, self.verbose, self.color)
+        elif result.status == QueryStatus.UNKNOWN:
+            print_error(self.result.site_name, "Exception Text", self.result.context, "", self.verbose, self.color)
+        elif result.status == QueryStatus.ILLEGAL:
+            if self.print_found_only == False:
+                print_invalid(self.result.site_name, "Illegal Username Format For This Site!", self.color)
+        else:
+            #It should be impossible to ever get here...
+            raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
+                             f"site '{self.result.site_name}'")
+
+        return
+
+    def __str__(self):
+        """Convert Object To String.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        Nicely formatted string to get information about this object.
+        """
+        result = str(self.result)
+
+        return result

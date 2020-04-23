@@ -20,13 +20,13 @@ from time import time
 import webbrowser
 
 import requests
-from colorama import Fore, Style, init
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotify
+from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
@@ -98,66 +98,7 @@ class SherlockFuturesSession(FuturesSession):
                                                            *args, **kwargs)
 
 
-def print_info(title, info, color=True):
-    if color:
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-            Fore.YELLOW + "*" +
-            Fore.GREEN + f"] {title}" +
-            Fore.WHITE + f" {info}" +
-            Fore.GREEN + " on:")
-    else:
-        print(f"[*] {title} {info} on:")
-
-def print_error(social_network, err, errstr, var, verbose=False, color=True):
-    if color:
-        print(Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.RED + f" {errstr}" +
-            Fore.YELLOW + f" {err if verbose else var}")
-    else:
-        print(f"[-] {social_network}: {errstr} {err if verbose else var}")
-
-
-def format_response_time(response_time, verbose):
-    return f" [{round(response_time * 1000)} ms]" if verbose else ""
-
-
-def print_found(social_network, url, response_time, verbose=False, color=True):
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.GREEN + "+" +
-            Fore.WHITE + "]" +
-            format_response_time(response_time, verbose) +
-            Fore.GREEN + f" {social_network}:"), url)
-    else:
-        print(f"[+]{format_response_time(response_time, verbose)} {social_network}: {url}")
-
-def print_not_found(social_network, response_time, verbose=False, color=True):
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            format_response_time(response_time, verbose) +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.YELLOW + " Not Found!"))
-    else:
-        print(f"[-]{format_response_time(response_time, verbose)} {social_network}: Not Found!")
-
-def print_invalid(social_network, msg, color=True):
-    """Print invalid search result."""
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.YELLOW + f" {msg}"))
-    else:
-        print(f"[-] {social_network} {msg}")
-
-
-def get_response(request_future, error_type, social_network, verbose=False, color=True):
+def get_response(request_future, error_type, social_network):
 
     #Default for Response object if some failure occurs.
     response = None
@@ -188,10 +129,9 @@ def get_response(request_future, error_type, social_network, verbose=False, colo
     return response, error_context, expection_text
 
 
-def sherlock(username, site_data, query_notify, verbose=False,
+def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, print_found_only=False, timeout=None, color=True,
-             print_output=True):
+             proxy=None, timeout=None):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -203,16 +143,11 @@ def sherlock(username, site_data, query_notify, verbose=False,
     query_notify           -- Object with base type of QueryNotify().
                               This will be used to notify the caller about
                               query results.
-    verbose                -- Boolean indicating whether to give verbose output.
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
-    print_found_only       -- Boolean indicating whether to only print found sites.
     timeout                -- Time in seconds to wait before timing out request.
                               Default is no timeout.
-    color                  -- Boolean indicating whether to color terminal output
-    print_output           -- Boolean indicating whether the output should be
-                              printed.  Default is True.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -227,8 +162,9 @@ def sherlock(username, site_data, query_notify, verbose=False,
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
     """
-    if print_output == True:
-        print_info("Checking username", username, color)
+
+    #Notify caller that we are starting the query.
+    query_notify.start(username)
 
     # Create session based on request methodology
     if tor or unique_tor:
@@ -281,9 +217,6 @@ def sherlock(username, site_data, query_notify, verbose=False,
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            if (print_output == True) and not print_found_only:
-                print_invalid(social_network, "Illegal Username Format For This Site!", color)
-
             results_site['status'] = QueryResult(username,
                                                  social_network,
                                                  url,
@@ -365,9 +298,7 @@ def sherlock(username, site_data, query_notify, verbose=False,
         future = net_info["request_future"]
         r, error_text, expection_text = get_response(request_future=future,
                                                      error_type=error_type,
-                                                     social_network=social_network,
-                                                     verbose=verbose,
-                                                     color=color)
+                                                     social_network=social_network)
 
         #Get response time for response of our request.
         try:
@@ -448,24 +379,6 @@ def sherlock(username, site_data, query_notify, verbose=False,
         #Notify caller about results of query.
         query_notify.update(result)
 
-        if print_output == True:
-            #Output to the terminal is desired.
-            if result.status == QueryStatus.CLAIMED:
-                print_found(social_network, url, response_time, verbose, color)
-            elif result.status == QueryStatus.AVAILABLE:
-                if not print_found_only:
-                    print_not_found(social_network, response_time, verbose, color)
-            elif result.status == QueryStatus.UNKNOWN:
-                print_error(social_network, expection_text, error_text, "", verbose, color)
-            elif result.status == QueryStatus.ILLEGAL:
-                if not print_found_only:
-                    print_invalid(social_network, "Illegal Username Format For This Site!", color)
-            else:
-                #It should be impossible to ever get here...
-                raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
-                                 f"site '{social_network}'")
-
-
         # Save status of request
         results_site['status'] = result
 
@@ -475,6 +388,10 @@ def sherlock(username, site_data, query_notify, verbose=False,
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
+
+    #Notify caller that all queries are finished.
+    query_notify.finish()
+
     return results_total
 
 
@@ -504,8 +421,6 @@ def timeout_check(value):
 
 
 def main():
-    # Colorama module's initialization.
-    init(autoreset=True)
 
     version_string = f"%(prog)s {__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -651,7 +566,10 @@ def main():
 
 
     #Create notify object for query results.
-    query_notify = QueryNotify()
+    query_notify = QueryNotifyPrint(result=None,
+                                    verbose=args.verbose,
+                                    print_found_only=args.print_found_only,
+                                    color=not args.no_color)
 
     # Run report on all specified users.
     for username in args.username:
@@ -660,13 +578,10 @@ def main():
         results = sherlock(username,
                            site_data,
                            query_notify,
-                           verbose=args.verbose,
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
-                           print_found_only=args.print_found_only,
-                           timeout=args.timeout,
-                           color=not args.no_color)
+                           timeout=args.timeout)
 
         if args.output:
             result_file = args.output
