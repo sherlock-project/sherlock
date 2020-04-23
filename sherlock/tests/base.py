@@ -53,7 +53,6 @@ class SherlockBaseTest(unittest.TestCase):
         #Create notify object for query results.
         self.query_notify = QueryNotify()
 
-        self.verbose=False
         self.tor=False
         self.unique_tor=False
         self.timeout=None
