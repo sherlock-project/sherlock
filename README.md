@@ -60,13 +60,13 @@ $ python3 -m pip install -r requirements.txt
 ## Usage
 
 ```bash
-$ python3 -m sherlock --help
-usage: sherlock.py [-h] [--version] [--verbose] [--rank]
-                   [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
-                   [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL] [--json JSON_FILE] [--timeout TIMEOUT]
-                   [--print-found] [--no-color] [--browse]
-                   USERNAMES [USERNAMES ...]
+$ python3 sherlock --help
+usage: sherlock [-h] [--version] [--verbose] [--rank]
+                [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
+                [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
+                [--json JSON_FILE] [--timeout TIMEOUT] [--print-found]
+                [--no-color] [--browse]
+                USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.11.0)
 
@@ -112,12 +112,12 @@ optional arguments:
 
 To search for only one user:
 ```
-python3 sherlock.py user123
+python3 sherlock user123
 ```
 
 To search for more than one user:
 ```
-python3 sherlock.py user1 user2 user3
+python3 sherlock user1 user2 user3
 ```
 
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
@@ -186,6 +186,7 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```
+$ cd sherlock
 $ python3 -m unittest tests.all --buffer --verbose
 ```
 
@@ -193,7 +194,7 @@ Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
 
-If some sites are failing due to conection problems (site is down, in maintainence, etc)
+If some sites are failing due to connection problems (site is down, in maintenance, etc)
 you can exclude them from tests by creating a `tests/.excluded_sites` file with a
 list of sites to ignore (one site name per line).
 
