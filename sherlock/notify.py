@@ -178,40 +178,43 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        def format_response_time(response_time, verbose):
-            return f" [{round(response_time * 1000)} ms]" if verbose else ""
-
         self.result = result
+
+        if self.verbose == False or self.result.query_time is None:
+            response_time_text = ""
+        else:
+            response_time_text = f" [{round(self.result.query_time * 1000)} ms]"
 
         #Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             if self.color:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
-                    Fore.GREEN + "+" +
-                    Fore.WHITE + "]" +
-                    format_response_time(self.result.query_time, self.verbose) +
-                    Fore.GREEN + f" {self.result.site_name}:"), self.result.site_url_user)
+                       Fore.GREEN + "+" +
+                       Fore.WHITE + "]" +
+                       response_time_text +
+                       Fore.GREEN +
+                       f" {self.result.site_name}: {self.result.site_url_user}"))
             else:
-                print(f"[+]{format_response_time(self.result.query_time, self.verbose)} {self.result.site_name}: {self.result.site_url_user}")
+                print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
         elif result.status == QueryStatus.AVAILABLE:
             if not self.print_found_only:
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
-                        Fore.RED + "-" +
-                        Fore.WHITE + "]" +
-                        format_response_time(self.result.query_time, self.verbose) +
-                        Fore.GREEN + f" {self.result.site_name}:" +
-                        Fore.YELLOW + " Not Found!"))
+                           Fore.RED + "-" +
+                           Fore.WHITE + "]" +
+                           response_time_text +
+                           Fore.GREEN + f" {self.result.site_name}:" +
+                           Fore.YELLOW + " Not Found!"))
                 else:
-                    print(f"[-]{format_response_time(self.result.query_time, self.verbose)} {self.result.site_name}: Not Found!")
+                    print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
         elif result.status == QueryStatus.UNKNOWN:
             if self.color:
                 print(Style.BRIGHT + Fore.WHITE + "[" +
-                    Fore.RED + "-" +
-                    Fore.WHITE + "]" +
-                    Fore.GREEN + f" {self.result.site_name}:" +
-                    Fore.RED + f" {self.result.context}" +
-                    Fore.YELLOW + f" ")
+                      Fore.RED + "-" +
+                      Fore.WHITE + "]" +
+                      Fore.GREEN + f" {self.result.site_name}:" +
+                      Fore.RED + f" {self.result.context}" +
+                      Fore.YELLOW + f" ")
             else:
                 print(f"[-] {self.result.site_name}: {self.result.context} ")
         elif result.status == QueryStatus.ILLEGAL:
@@ -219,10 +222,10 @@ class QueryNotifyPrint(QueryNotify):
                 msg = "Illegal Username Format For This Site!"
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
-                        Fore.RED + "-" +
-                        Fore.WHITE + "]" +
-                        Fore.GREEN + f" {self.result.site_name}:" +
-                        Fore.YELLOW + f" {msg}"))
+                           Fore.RED + "-" +
+                           Fore.WHITE + "]" +
+                           Fore.GREEN + f" {self.result.site_name}:" +
+                           Fore.YELLOW + f" {msg}"))
                 else:
                     print(f"[-] {self.result.site_name} {msg}")
         else:
