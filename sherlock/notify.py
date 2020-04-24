@@ -105,55 +105,6 @@ class QueryNotify():
         return result
 
 
-def print_error(social_network, err, errstr, var, verbose=False, color=True):
-    if color:
-        print(Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.RED + f" {errstr}" +
-            Fore.YELLOW + f" {err if verbose else var}")
-    else:
-        print(f"[-] {social_network}: {errstr} {err if verbose else var}")
-
-
-def format_response_time(response_time, verbose):
-    return f" [{round(response_time * 1000)} ms]" if verbose else ""
-
-
-def print_found(social_network, url, response_time, verbose=False, color=True):
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.GREEN + "+" +
-            Fore.WHITE + "]" +
-            format_response_time(response_time, verbose) +
-            Fore.GREEN + f" {social_network}:"), url)
-    else:
-        print(f"[+]{format_response_time(response_time, verbose)} {social_network}: {url}")
-
-def print_not_found(social_network, response_time, verbose=False, color=True):
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            format_response_time(response_time, verbose) +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.YELLOW + " Not Found!"))
-    else:
-        print(f"[-]{format_response_time(response_time, verbose)} {social_network}: Not Found!")
-
-def print_invalid(social_network, msg, color=True):
-    """Print invalid search result."""
-    if color:
-        print((Style.BRIGHT + Fore.WHITE + "[" +
-            Fore.RED + "-" +
-            Fore.WHITE + "]" +
-            Fore.GREEN + f" {social_network}:" +
-            Fore.YELLOW + f" {msg}"))
-    else:
-        print(f"[-] {social_network} {msg}")
-
-
 class QueryNotifyPrint(QueryNotify):
     """Query Notify Print Object.
 
@@ -227,20 +178,53 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
+        def format_response_time(response_time, verbose):
+            return f" [{round(response_time * 1000)} ms]" if verbose else ""
 
         self.result = result
 
         #Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
-            print_found(self.result.site_name, self.result.site_url_user, self.result.query_time, self.verbose, self.color)
+            if self.color:
+                print((Style.BRIGHT + Fore.WHITE + "[" +
+                    Fore.GREEN + "+" +
+                    Fore.WHITE + "]" +
+                    format_response_time(self.result.query_time, self.verbose) +
+                    Fore.GREEN + f" {self.result.site_name}:"), self.result.site_url_user)
+            else:
+                print(f"[+]{format_response_time(self.result.query_time, self.verbose)} {self.result.site_name}: {self.result.site_url_user}")
         elif result.status == QueryStatus.AVAILABLE:
             if not self.print_found_only:
-                print_not_found(self.result.site_name, self.result.query_time, self.verbose, self.color)
+                if self.color:
+                    print((Style.BRIGHT + Fore.WHITE + "[" +
+                        Fore.RED + "-" +
+                        Fore.WHITE + "]" +
+                        format_response_time(self.result.query_time, self.verbose) +
+                        Fore.GREEN + f" {self.result.site_name}:" +
+                        Fore.YELLOW + " Not Found!"))
+                else:
+                    print(f"[-]{format_response_time(self.result.query_time, self.verbose)} {self.result.site_name}: Not Found!")
         elif result.status == QueryStatus.UNKNOWN:
-            print_error(self.result.site_name, "Exception Text", self.result.context, "", self.verbose, self.color)
+            if self.color:
+                print(Style.BRIGHT + Fore.WHITE + "[" +
+                    Fore.RED + "-" +
+                    Fore.WHITE + "]" +
+                    Fore.GREEN + f" {self.result.site_name}:" +
+                    Fore.RED + f" {self.result.context}" +
+                    Fore.YELLOW + f" ")
+            else:
+                print(f"[-] {self.result.site_name}: {self.result.context} ")
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_found_only == False:
-                print_invalid(self.result.site_name, "Illegal Username Format For This Site!", self.color)
+                msg = "Illegal Username Format For This Site!"
+                if self.color:
+                    print((Style.BRIGHT + Fore.WHITE + "[" +
+                        Fore.RED + "-" +
+                        Fore.WHITE + "]" +
+                        Fore.GREEN + f" {self.result.site_name}:" +
+                        Fore.YELLOW + f" {msg}"))
+                else:
+                    print(f"[-] {self.result.site_name} {msg}")
         else:
             #It should be impossible to ever get here...
             raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
