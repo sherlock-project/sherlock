@@ -553,7 +553,7 @@
   },
   "Euw": {
     "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
-    "errorType": "message", 
+    "errorType": "message",
     "rank": 450,
     "url": "https://euw.op.gg/summoner/userName={}",
     "urlMain": "https://euw.op.gg/",
@@ -897,7 +897,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Instagram": {
-    "errorType": "status_code",
+    "errorType": "method_not_allowed",
     "rank": 32,
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
@@ -1250,8 +1250,8 @@
   },
   "PCGamer": {
     "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
-    "errorType": "message", 
-    "rank": 1481,   
+    "errorType": "message",
+    "rank": 1481,
     "url": "https://forums.pcgamer.com/members/?username={}",
     "urlMain": "https://pcgamer.com",
     "username_claimed": "admin",
@@ -1677,7 +1677,7 @@
     "urlMain": "https://steamid.uk/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-    },
+  },
   "SublimeForum": {
     "errorType": "status_code",
     "rank": 7588,
@@ -2608,7 +2608,7 @@
   },
   "soylentnews": {
     "errorMsg": "The user you requested does not exist, no matter how much you wish this might be the case.",
-    "errorType": "message",    
+    "errorType": "message",
     "rank": 1312907,
     "url": "https://soylentnews.org/~{}",
     "urlMain": "https://soylentnews.org",
