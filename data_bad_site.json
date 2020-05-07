@@ -1,4 +1,12 @@
 {
+  "AdobeForums": {
+    "errorType": "status_code",
+    "rank": 59,
+    "url": "https://forums.adobe.com/people/{}",
+    "urlMain": "https://forums.adobe.com/",
+    "username_claimed": "jack",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "AngelList": {
     "errorType": "status_code",
     "rank": 5767,

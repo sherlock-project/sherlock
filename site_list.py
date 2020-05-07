@@ -35,7 +35,7 @@ parser.add_argument("--rank","-r",
                     )
 args = parser.parse_args()
 
-with open("data.json", "r", encoding="utf-8") as data_file:
+with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
     data = json.load(data_file)
 
 with open("sites.md", "w") as site_file:

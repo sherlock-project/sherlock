@@ -7,6 +7,10 @@ import os
 import os.path
 import unittest
 import sherlock
+from result import QueryStatus
+from result import QueryResult
+from notify import QueryNotify
+from sites  import SitesInformation
 import warnings
 
 
@@ -27,10 +31,16 @@ class SherlockBaseTest(unittest.TestCase):
         #TODO: Figure out how to fix the code so this is not needed.
         warnings.simplefilter("ignore", ResourceWarning)
 
-        # Load the data file with all site information.
-        data_file_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "data.json")
-        with open(data_file_path, "r", encoding="utf-8") as raw:
-            self.site_data_all = json.load(raw)
+        #Create object with all information about sites we are aware of.
+        sites = SitesInformation()
+
+        #Create original dictionary from SitesInformation() object.
+        #Eventually, the rest of the code will be updated to use the new object
+        #directly, but this will glue the two pieces together.
+        site_data_all = {}
+        for site in sites:
+            site_data_all[site.name] = site.information
+        self.site_data_all = site_data_all
 
         # Load excluded sites list, if any
         excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
@@ -40,10 +50,13 @@ class SherlockBaseTest(unittest.TestCase):
         except FileNotFoundError:
           self.excluded_sites = []
 
-        self.verbose=False
+        #Create notify object for query results.
+        self.query_notify = QueryNotify()
+
         self.tor=False
         self.unique_tor=False
         self.timeout=None
+        self.skip_error_sites=True
 
         return
 
@@ -94,16 +107,16 @@ class SherlockBaseTest(unittest.TestCase):
         site_data = self.site_data_filter(site_list)
 
         if exist_check:
-            check_type_text = "exists"
-            exist_result_desired = "yes"
+            check_type_text = "claimed"
+            exist_result_desired = QueryStatus.CLAIMED
         else:
-            check_type_text = "does not exist"
-            exist_result_desired = "no"
+            check_type_text = "available"
+            exist_result_desired = QueryStatus.AVAILABLE
 
         for username in username_list:
             results = sherlock.sherlock(username,
                                         site_data,
-                                        verbose=self.verbose,
+                                        self.query_notify,
                                         tor=self.tor,
                                         unique_tor=self.unique_tor,
                                         timeout=self.timeout
@@ -112,7 +125,18 @@ class SherlockBaseTest(unittest.TestCase):
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
                                  ):
-                    self.assertEqual(result['exists'], exist_result_desired)
+                    if (
+                         (self.skip_error_sites == True) and
+                         (result['status'].status == QueryStatus.UNKNOWN)
+                       ):
+                        #Some error connecting to site.
+                        self.skipTest(f"Skipping Username '{username}' "
+                                      f"{check_type_text} on Site '{site}':  "
+                                      f"Site returned error status."
+                                     )
+
+                    self.assertEqual(exist_result_desired,
+                                     result['status'].status)
 
         return
 

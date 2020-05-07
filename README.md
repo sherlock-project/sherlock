@@ -59,17 +59,16 @@ $ python3 -m pip install -r requirements.txt
 
 ## Usage
 
-```
-$ python3 sherlock.py --help
-usage: sherlock.py [-h] [--version] [--verbose] [--rank]
-                   [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
-                   [--unique-tor] [--csv] [--site SITE_NAME]
-                   [--proxy PROXY_URL] [--json JSON_FILE]
-                   [--proxy_list PROXY_LIST] [--check_proxies CHECK_PROXY]
-                   [--timeout TIMEOUT] [--print-found]
-                   USERNAMES [USERNAMES ...]
+```bash
+$ python3 sherlock --help
+usage: sherlock [-h] [--version] [--verbose] [--rank]
+                [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--tor]
+                [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
+                [--json JSON_FILE] [--timeout TIMEOUT] [--print-found]
+                [--no-color] [--browse]
+                USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.10.7)
+Sherlock: Find Usernames Across Social Networks (Version 0.11.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -101,15 +100,6 @@ optional arguments:
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --proxy_list PROXY_LIST, -pl PROXY_LIST
-                        Make requests over a proxy randomly chosen from a list
-                        generated from a .csv file.
-  --check_proxies CHECK_PROXY, -cp CHECK_PROXY
-                        To be used with the '--proxy_list' parameter. The
-                        script will check if the proxies supplied in the .csv
-                        file are working and anonymous.Put 0 for no limit on
-                        successfully checked proxies, or another number to
-                        institute a limit.
   --timeout TIMEOUT     Time (in seconds) to wait for response to requests.
                         Default timeout of 60.0s.A longer timeout will be more
                         likely to get results from slow sites.On the other
@@ -122,12 +112,12 @@ optional arguments:
 
 To search for only one user:
 ```
-python3 sherlock.py user123
+python3 sherlock user123
 ```
 
 To search for more than one user:
 ```
-python3 sherlock.py user1 user2 user3
+python3 sherlock user1 user2 user3
 ```
 
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
@@ -196,6 +186,7 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```
+$ cd sherlock
 $ python3 -m unittest tests.all --buffer --verbose
 ```
 
@@ -203,7 +194,7 @@ Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is common
 to get response errors.
 
-If some sites are failing due to conection problems (site is down, in maintainence, etc)
+If some sites are failing due to connection problems (site is down, in maintenance, etc)
 you can exclude them from tests by creating a `tests/.excluded_sites` file with a
 list of sites to ignore (one site name per line).
 
