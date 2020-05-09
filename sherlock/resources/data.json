@@ -882,6 +882,7 @@
   },
   "Instagram": {
     "errorType": "status_code",
+    "request_head_only": false,
     "rank": 35,
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",

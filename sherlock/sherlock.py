@@ -30,7 +30,7 @@ from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.11.1"
+__version__ = "0.12.0"
 
 
 
@@ -237,10 +237,16 @@ def sherlock(username, site_data, query_notify,
                 # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
-            #If only the status_code is needed don't download the body
-            if net_info["errorType"] == 'status_code':
+            if (net_info["errorType"] == 'status_code' and 
+                net_info.get("request_head_only", True) == True):
+                #In most cases when we are detecting by status code,
+                #it is not necessary to get the entire body:  we can
+                #detect fine with just the HEAD response.
                 request_method = session.head
             else:
+                #Either this detect method needs the content associated
+                #with the GET response, or this specific website will
+                #not respond properly unless we request the whole page.
                 request_method = session.get
 
             if net_info["errorType"] == "response_url":
