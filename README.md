@@ -68,7 +68,7 @@ usage: sherlock [-h] [--version] [--verbose] [--rank]
                 [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.11.0)
+Sherlock: Find Usernames Across Social Networks (Version 0.11.1)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
