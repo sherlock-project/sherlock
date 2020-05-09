@@ -187,12 +187,13 @@ outputs, and instead shows the verbose output of the tests.
 
 ```
 $ cd sherlock
-$ python3 -m unittest tests.all --buffer --verbose
+$ python3 -m unittest tests.all --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
 the sites that Sherlock checks are not always reliable, so it is common
-to get response errors.
+to get response problems.  Any problems in connection will show up as
+warnings in the tests instead of true errors.
 
 If some sites are failing due to connection problems (site is down, in maintenance, etc)
 you can exclude them from tests by creating a `tests/.excluded_sites` file with a
