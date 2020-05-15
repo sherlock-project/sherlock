@@ -22,18 +22,17 @@ jobs:
             echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.6\" },{\"python\":\"3.7\"},{\"python\":\"3.8\"}]}"
           fi
   build:
-    needs: getchange
+    needs: [getchange]
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        python-version: ${{fromJson(needs.getchange.outputs.matrix)}}
+      matrix: ${{ fromJson(needs.getchange.outputs.matrix) }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: ${{ matrix.python }}
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
