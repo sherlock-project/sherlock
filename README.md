@@ -7,7 +7,7 @@
   <br>
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
-  <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Test Status"><img src="https://github.com/sherlock-project/sherlock/workflows/Tests/badge.svg?branch=master"></a>
+  <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Test Status"><img src="https://github.com/sherlock-project/sherlock/workflows/main/badge.svg?branch=master"></a>
   <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/sherlock-project/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
   <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
   <a target="_blank" href="https://microbadger.com/images/theyahya/sherlock"><img alt="docker image" src="https://images.microbadger.com/badges/version/theyahya/sherlock.svg"></a>
@@ -31,13 +31,10 @@
 </a>
 </p>
 
-
-
-
 ## Demo
 
 Use this link to test Sherlock directly in your browser:
-https://elody.com/scenario/plan/16/
+<https://elody.com/scenario/plan/16/>
 
 ## Installation
 
@@ -55,6 +52,7 @@ $ cd sherlock
 # install the requirements
 $ python3 -m pip install -r requirements.txt
 ```
+
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/sherlock-project/sherlock&tutorial=README.md)
 
 ## Usage
@@ -111,11 +109,13 @@ optional arguments:
 ```
 
 To search for only one user:
+
 ```
 python3 sherlock user123
 ```
 
 To search for more than one user:
+
 ```
 python3 sherlock user1 user2 user3
 ```
@@ -123,9 +123,11 @@ python3 sherlock user1 user2 user3
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ## Anaconda (Windows) Notes
+
 If you are using Anaconda in Windows, using 'python3' might not work. Use 'python' instead.
 
 ## Docker Notes
+
 If docker is installed you can build an image and run this as a container.
 
 ```
@@ -138,9 +140,9 @@ Once the image is built, sherlock can be invoked by running the following:
 docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: https://docs.docker.com/engine/reference/run/#clean-up---rm
+The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: <https://docs.docker.com/engine/reference/run/#clean-up---rm>
 
-The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
+The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: <https://docs.docker.com/engine/reference/run/#foreground>
 
 Use the following command to access the saved results:
 
@@ -153,6 +155,7 @@ present working directory and to mount it at `/opt/sherlock/results` on the dock
 The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
 Or you can use "Docker Hub" to run `sherlock`:
+
 ```
 docker run theyahya/sherlock user123
 ```
@@ -174,6 +177,7 @@ to understand the issues.
 **NOTE**: Sherlock is not accepting adult sites in the standard list.
 
 ## Tests
+
 Thank you for contributing to Sherlock!
 
 Before creating a pull request with new development, please run the tests
@@ -186,8 +190,8 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```
-$ cd sherlock
-$ python3 -m unittest tests.all --verbose
+cd sherlock
+python3 -m unittest tests.all --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
