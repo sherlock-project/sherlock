@@ -2598,5 +2598,12 @@
     "urlMain": "https://windy.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Xbox Gamertag": {
+    "errorType": "status_code",
+    "url": "https://xboxgamertag.com/search/{}",
+    "urlMain": "https://xboxgamertag.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
