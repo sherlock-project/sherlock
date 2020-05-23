@@ -8,16 +8,12 @@ networks.
 """
 
 import csv
-import json
 import os
 import platform
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
-from concurrent.futures import ThreadPoolExecutor
-from time import time
-import webbrowser
 
 import requests
 
@@ -25,7 +21,6 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
-from notify import QueryNotify
 from notify import QueryNotifyPrint
 from sites  import SitesInformation
 

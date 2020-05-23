@@ -2,7 +2,6 @@
 
 This module contains various utilities for running tests.
 """
-import json
 import os
 import os.path
 import unittest
