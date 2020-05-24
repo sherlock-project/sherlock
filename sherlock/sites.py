@@ -208,7 +208,7 @@ class SitesInformation():
         List of strings containing names of sites.
         """
 
-        if popularity_rank == True:
+        if popularity_rank:
             #Sort in ascending popularity rank order.
             site_rank_name = \
                 sorted([(site.popularity_rank,site.name) for site in self],
