@@ -2145,14 +2145,6 @@
     "username_claimed": "Test",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "gpodder.net": {
-    "errorType": "status_code",
-    "rank": 2013984,
-    "url": "https://gpodder.net/user/{}",
-    "urlMain": "https://gpodder.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "habr": {
     "errorType": "status_code",
     "rank": 1335,
