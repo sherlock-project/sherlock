@@ -216,6 +216,14 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "TikTok": {
+    "errorType": "status_code",
+    "rank": 260,
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "YandexMarket": {
     "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
     "errorType": "message",

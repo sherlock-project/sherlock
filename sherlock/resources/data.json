@@ -1687,14 +1687,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "TikTok": {
-    "errorType": "status_code",
-    "rank": 260,
-    "url": "https://www.tiktok.com/@{}",
-    "urlMain": "https://www.tiktok.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Tinder": {
     "errorMsg": "Looking for Someone?",
     "errorType": "message",

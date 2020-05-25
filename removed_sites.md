@@ -6,6 +6,21 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## TikTok
+
+As of 2020-05-25, all usernames are reported as claimed.
+
+```
+  "TikTok": {
+    "errorType": "status_code",
+    "rank": 260,
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## ColourLovers
 
 As of 2020-05-24, all usernames are reported as claimed.
