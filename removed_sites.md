@@ -6,6 +6,25 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Investing.com
+
+As of 2020-05-25, all usernames are reported as claimed.
+
+Any query against a user seems to be redirecting to a general
+information page at https://www.investing.com/brokers/.  Probably
+required login before access.
+
+```
+  "Investing.com": {
+    "errorType": "status_code",
+    "rank": 196,
+    "url": "https://www.investing.com/traders/{}",
+    "urlMain": "https://www.investing.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
 ## TikTok
 
 As of 2020-05-25, all usernames are reported as claimed.

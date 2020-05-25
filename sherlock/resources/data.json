@@ -890,14 +890,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Investing.com": {
-    "errorType": "status_code",
-    "rank": 196,
-    "url": "https://www.investing.com/traders/{}",
-    "urlMain": "https://www.investing.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Issuu": {
     "errorType": "status_code",
     "rank": 542,
