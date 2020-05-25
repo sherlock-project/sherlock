@@ -1175,8 +1175,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "OpenCollective": {
-    "errorMsg": "Not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "rank": 39777,
     "url": "https://opencollective.com/{}",
     "urlMain": "https://opencollective.com/",
