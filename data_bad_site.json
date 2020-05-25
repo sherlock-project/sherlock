@@ -65,6 +65,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ColourLovers": {
+    "errorType": "status_code",
+    "rank": 21271,
+    "url": "https://www.colourlovers.com/lover/{}",
+    "urlMain": "https://www.colourlovers.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
