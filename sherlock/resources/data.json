@@ -1358,15 +1358,6 @@
     "username_claimed": "Matt-Riggsby",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Raidforums": {
-    "errorMsg": "The member you specified is either invalid or doesn't exist.",
-    "errorType": "message",
-    "rank": 32435,
-    "url": "https://raidforums.com/User-{}",
-    "urlMain": "https://raidforums.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Rajce.net": {
     "errorType": "status_code",
     "rank": 1654,

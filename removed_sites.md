@@ -6,6 +6,23 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Raidforums
+
+As of 2020-05-25, all usernames are reported as claimed.
+The site will not let the query proceed unless Javascript is
+turned on.
+
+```
+  "Raidforums": {
+    "errorMsg": "The member you specified is either invalid or doesn't exist.",
+    "errorType": "message",
+    "rank": 32435,
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
 ## 9GAG
 
 As of 2020-05-25, all usernames are reported as available.
