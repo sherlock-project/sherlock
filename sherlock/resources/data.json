@@ -666,6 +666,15 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Freelancer.com": {
+   "errorMsg": "\"users\":{}",
+   "errorType": "message",
+    "rank": 576,
+    "url": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D={}&compact=true",
+    "urlMain": "https://www.freelancer.com/",
+    "username_claimed": "red0xff",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Freesound": {
     "errorType": "status_code",
     "rank": 6938,
