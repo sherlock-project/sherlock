@@ -2331,6 +2331,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "nairaland.com": {
+    "errorType": "status_code",
+    "rank": 808,
+    "url": "https://www.nairaland.com/{}",
+    "urlMain": "https://www.nairaland.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "nightbot": {
     "errorType": "status_code",
     "rank": 10776,
