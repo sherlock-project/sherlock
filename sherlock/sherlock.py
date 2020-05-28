@@ -8,16 +8,12 @@ networks.
 """
 
 import csv
-import json
 import os
 import platform
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
-from concurrent.futures import ThreadPoolExecutor
-from time import time
-import webbrowser
 
 import requests
 
@@ -25,12 +21,11 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
-from notify import QueryNotify
 from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.12.0"
+__version__ = "0.12.2"
 
 
 
@@ -260,7 +255,7 @@ def sherlock(username, site_data, query_notify,
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
-            if proxy != None:
+            if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
                 future = request_method(url=url_probe, headers=headers,
                                         proxies=proxies,
@@ -504,11 +499,11 @@ def main():
 
     # Argument check
     # TODO regex check on args.proxy
-    if args.tor and (args.proxy != None):
+    if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
     # Make prompts
-    if args.proxy != None:
+    if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
 
     if args.tor or args.unique_tor:
@@ -608,7 +603,7 @@ def main():
                     file.write(dictionary["url_user"] + "\n")
             file.write(f"Total Websites Username Detected On : {exists_counter}")
 
-        if args.csv == True:
+        if args.csv:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',

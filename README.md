@@ -8,7 +8,8 @@
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
   <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Test Status"><img src="https://github.com/sherlock-project/sherlock/workflows/Tests/badge.svg?branch=master"></a>
-  <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/sherlock-project/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
+  <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Nightly Tests"><img src="https://github.com/sherlock-project/sherlock/workflows/Nightly/badge.svg?branch=master"></a>
+  <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/sherlock-project/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Twitter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
   <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
   <a target="_blank" href="https://microbadger.com/images/theyahya/sherlock"><img alt="docker image" src="https://images.microbadger.com/badges/version/theyahya/sherlock.svg"></a>
 </p>
@@ -31,9 +32,6 @@
 </a>
 </p>
 
-
-
-
 ## Demo
 
 Use this link to test Sherlock directly in your browser:
@@ -55,6 +53,7 @@ $ cd sherlock
 # install the requirements
 $ python3 -m pip install -r requirements.txt
 ```
+
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/sherlock-project/sherlock&tutorial=README.md)
 
 ## Usage
@@ -68,7 +67,7 @@ usage: sherlock [-h] [--version] [--verbose] [--rank]
                 [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.12.0)
+Sherlock: Find Usernames Across Social Networks (Version 0.12.2)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -123,9 +122,11 @@ python3 sherlock user1 user2 user3
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ## Anaconda (Windows) Notes
+
 If you are using Anaconda in Windows, using 'python3' might not work. Use 'python' instead.
 
 ## Docker Notes
+
 If docker is installed you can build an image and run this as a container.
 
 ```
@@ -174,6 +175,7 @@ to understand the issues.
 **NOTE**: Sherlock is not accepting adult sites in the standard list.
 
 ## Tests
+
 Thank you for contributing to Sherlock!
 
 Before creating a pull request with new development, please run the tests

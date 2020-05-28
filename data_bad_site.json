@@ -1,4 +1,12 @@
 {
+  "9GAG": {
+    "errorType": "status_code",
+    "rank": 389,
+    "url": "https://9gag.com/u/{}",
+    "urlMain": "https://9gag.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "AdobeForums": {
     "errorType": "status_code",
     "rank": 59,
@@ -65,6 +73,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ColourLovers": {
+    "errorType": "status_code",
+    "rank": 21271,
+    "url": "https://www.colourlovers.com/lover/{}",
+    "urlMain": "https://www.colourlovers.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
@@ -106,12 +122,28 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis777777"
   },
+  "gpodder.net": {
+    "errorType": "status_code",
+    "rank": 2013984,
+    "url": "https://gpodder.net/user/{}",
+    "urlMain": "https://gpodder.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Imgur": {
     "errorType": "status_code",
     "rank": 74,
     "url": "https://imgur.com/user/{}",
     "urlMain": "https://imgur.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Investing.com": {
+    "errorType": "status_code",
+    "rank": 196,
+    "url": "https://www.investing.com/traders/{}",
+    "urlMain": "https://www.investing.com/",
+    "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Khan Academy": {
@@ -173,6 +205,15 @@
     "username_claimed": "powershellteam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Raidforums": {
+    "errorMsg": "The member you specified is either invalid or doesn't exist.",
+    "errorType": "message",
+    "rank": 32435,
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "RamblerDating": {
     "errorType": "response_url",
     "errorUrl": "https://dating.rambler.ru/page/{}",
@@ -205,6 +246,14 @@
     "rank": 357163,
     "url": "https://user.teknik.io/{}",
     "urlMain": "https://teknik.io/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "TikTok": {
+    "errorType": "status_code",
+    "rank": 260,
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },

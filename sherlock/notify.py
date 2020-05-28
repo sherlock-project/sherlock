@@ -218,7 +218,7 @@ class QueryNotifyPrint(QueryNotify):
             else:
                 print(f"[-] {self.result.site_name}: {self.result.context} ")
         elif result.status == QueryStatus.ILLEGAL:
-            if self.print_found_only == False:
+            if not self.print_found_only:
                 msg = "Illegal Username Format For This Site!"
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
