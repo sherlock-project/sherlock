@@ -392,6 +392,7 @@
     "errorType": "status_code",
     "rank": 21271,
     "url": "https://www.colourlovers.com/lover/{}",
+    "urlProbe": "https://colourlovers.com/api/lover/{}",
     "urlMain": "https://www.colourlovers.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
