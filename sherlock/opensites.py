@@ -17,7 +17,7 @@ def run():
         try:
             file = open(sys.argv[1] + ".txt", "r")
         except:
-            userWarn(f"No such file {sys.argv[1]}.txt exists!")
+            userError(f"No such file {sys.argv[1]}.txt exists!")
             return True
         lines = file.readlines()
         # removes the last line in the .txt which isnt a url
