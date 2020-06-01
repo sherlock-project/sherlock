@@ -2424,6 +2424,14 @@
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
   },
+  "prog.hu": {
+    "errorType": "response_url",
+    "errorUrl": "https://prog.hu/azonosito/info/{}",
+    "url": "https://prog.hu/azonosito/info/{}",
+    "urlMain": "https://prog.hu/",
+    "username_claimed":   "Sting",
+    "username_unclaimed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
   "pvpru": {
     "errorType": "status_code",
     "rank": 405547,
