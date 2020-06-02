@@ -35,7 +35,7 @@ def run():
                 file = open(f"{username}.html", "w+")
             file.write(htmlHead)
             for i in range(0, len(lines)):
-                file.write(f"<a href=\"{lines[i]}\" target=\"_blank\">{lines[i]}</a><br><br>")
+                file.write(f"<input type=\"checkbox\" /><a href=\"{lines[i]}\" target=\"_blank\">{lines[i]}</a><br /><br />")
             file.write("\n"+htmlFoot)
             userFine("Action completed!")
         except:
