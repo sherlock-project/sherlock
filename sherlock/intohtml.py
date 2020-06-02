@@ -4,9 +4,6 @@ import colorama
 from colorama import Fore, Style
 colorama.init(autoreset=True)
 
-htmlHead = '<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>Sites From sherlock.py</title>\n</head>\n<body>'
-htmlFoot = "</body>\n</html>"
-
 def userError(str):
     print(Fore.RED+str)
 def userWarn(str):
@@ -17,6 +14,8 @@ def userFine(str):
 def run():
     if len(sys.argv) != 1 and len(sys.argv) < 3:
         username = sys.argv[1]
+        htmlHead = f'<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>{username}</title>\n</head>\n<body>\n'
+        htmlFoot = "</body>\n</html>"
         linksFile = None
         try:
             if username.endswith(".txt"):
@@ -35,7 +34,7 @@ def run():
                 file = open(f"{username}.html", "w+")
             file.write(htmlHead)
             for i in range(0, len(lines)):
-                file.write(f"<input type=\"checkbox\" /><a href=\"{lines[i]}\" target=\"_blank\">{lines[i]}</a><br /><br />")
+                file.write(f"\t<input type=\"checkbox\" /><a href=\"{lines[i]}\" target=\"_blank\">{lines[i]}</a><br /><br />")
             file.write("\n"+htmlFoot)
             userFine("Action completed!")
         except:
