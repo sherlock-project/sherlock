@@ -38,6 +38,9 @@ def run():
             file.write("\n"+htmlFoot)
             userFine("Action completed!")
         except:
+            if username.endswith(".txt"):
+                userError(f"No file with the name \"{username}\"")
+                return
             userError(f"No file with the name \"{username}.txt\"")
     else:
         if len(sys.argv) > 2:
