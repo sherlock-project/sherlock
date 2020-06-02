@@ -10,6 +10,8 @@ def userWarn(str):
     print(f"{Fore.YELLOW}Warning: {str}")
 def userFine(str):
     print(Fore.GREEN+str)
+def userPrompt(str):
+    print(Fore.BLUE+str)
 
 def run():
     if len(sys.argv) != 1 and len(sys.argv) < 3:
@@ -36,7 +38,12 @@ def run():
             for i in range(0, len(lines)):
                 file.write(f"\t<input type=\"checkbox\" /><a href=\"{lines[i]}\" target=\"_blank\">{lines[i]}</a><br /><br />")
             file.write("\n"+htmlFoot)
+            file.close()
             userFine("Action completed!")
+            userPrompt(f"Would you like to open {file.name}? y/n")
+            openFile = input()
+            if openFile == "y":
+                os.system(f'start "" {file.name}')
         except:
             if username.endswith(".txt"):
                 userError(f"No file with the name \"{username}\"")
