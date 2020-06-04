@@ -1,4 +1,25 @@
 {
+  "F6S": {
+    "errorType": "status_code",
+    "url": "https://https://www.f6s.com/{}",
+    "urlMain": "https://f6s.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "getmyuni": {
+    "errorType": "status_code",
+    "url": "https://https://www.getmyuni.com/user/{}",
+    "urlMain": "https://getmyuni.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "polarsteps": {
+    "errorType": "status_code",
+    "url": "https://https://www.polarsteps.com/{}",
+    "urlMain": "https://polarsteps.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "rank": 664639,
