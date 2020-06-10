@@ -2559,10 +2559,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "tiktok": {
-  "errorType":"status_code",
-  "url":"https://ttonlineviewer.com/user/{}",
-  "urlMain":"https://ttonlineviewer.com/",
-  "username_claimed":"blue",
-  "username_unclaimed":"noonewouldeverusethis77777"
+    "errorType":"message", 
+    "errorMsg":"Page Not Found",
+    "url":"https://ttonlineviewer.com/user/{}",
+    "urlMain":"https://ttonlineviewer.com/",
+    "username_claimed":"blue",
+    "username_unclaimed":"noonewouldeverusethis77777"
   }
 }
