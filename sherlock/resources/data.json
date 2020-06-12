@@ -657,14 +657,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Freehostin_endora":{
-    "errorType":"response_url",
-    "errorUrl":"https://{}.8u.cz/",
-    "url":"https://{}.8u.cz",
-    "urlMain":"https://www.endora.cz/",
-    "username_claimed":"pevo",
-    "username_unclaimed":"noonewouldeverusethis123123123123123123"
-  },
   "Freelance.habr": {
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
