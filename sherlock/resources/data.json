@@ -1408,15 +1408,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Redsun.tf": {
-    "errorMsg": "The specified member cannot be found",
-    "errorType": "message",
-    "rank": 3796657,
-    "url": "https://forum.redsun.tf/members/?username={}",
-    "urlMain": "https://redsun.tf/",
-    "username_claimed": "dan",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Repl.it": {
     "errorMsg": "404",
     "errorType": "message",

@@ -664,3 +664,19 @@ downforeveryoneorjustme.com that the website is down.
   },
 ```
 
+## Redsun.tf
+
+As of 2020-06-20, Redsun.tf seems to be adding random digits to the end of the usernames which makes it pretty much impossible
+for Sherlock to check for usernames on this particular website.
+
+```
+  "Redsun.tf": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 3796657,
+    "url": "https://forum.redsun.tf/members/?username={}",
+    "urlMain": "https://redsun.tf/",
+    "username_claimed": "dan",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
