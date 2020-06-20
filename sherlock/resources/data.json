@@ -2406,14 +2406,6 @@
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
   },
-  "pvpru": {
-    "errorType": "status_code",
-    "rank": 405547,
-    "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
-    "urlMain": "https://pvpru.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "radio_echo_msk": {
     "errorType": "status_code",
     "rank": 1578,
