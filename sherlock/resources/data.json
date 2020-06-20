@@ -2573,5 +2573,13 @@
     "urlMain": "https://onlyfans.com",
     "username_claimed": "theemilylynne",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "kofi": {
+    "errorType": "status_code",
+    "rank": 89891,
+    "url": "https://ko-fi.com/{}",
+    "urlMain": "https://ko-fi.com",
+    "username_claimed": "yeahkenny",
+    "username_unclaimed": "noonewouldeverusethis77777"
   }
 }
