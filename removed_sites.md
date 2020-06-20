@@ -680,3 +680,20 @@ for Sherlock to check for usernames on this particular website.
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+## Creative Market
+
+As of 2020-06-20, Creative Market has a captcha to prove that you are a human, and because of this
+Sherlock is unable to check for username on this site because we will always get  a page which asks
+us to prove that we are not a robot.
+
+```
+  "CreativeMarket": {
+    "errorType": "status_code",
+    "rank": 1896,
+    "url": "https://creativemarket.com/users/{}",
+    "urlMain": "https://creativemarket.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
