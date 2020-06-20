@@ -2565,5 +2565,13 @@
     "urlMain": "https://www.mercadolivre.com.br",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "onlyfans": {
+    "errorType": "status_code",
+    "rank": 6969,
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com",
+    "username_claimed": "theemilylynne",
+    "username_unclaimed": "noonewouldeverusethis77777"
   }
 }
