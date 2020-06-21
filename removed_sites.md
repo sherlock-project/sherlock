@@ -727,3 +727,54 @@ we try to check for a username.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## easyen
+As of 2020-06-21, easyen returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+
+```
+  "easyen": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 11564,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "wd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## pedsovet
+As of 2020-06-21, pedsovet returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+
+```
+  "pedsovet": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 6776,
+    "url": "http://pedsovet.su/index/8-0-{}",
+    "urlMain": "http://pedsovet.su/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+
+## radioskot
+As of 2020-06-21, radioskot returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+```
+  "radioskot": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 105878,
+    "url": "https://radioskot.ru/index/8-0-{}",
+    "urlMain": "https://radioskot.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
