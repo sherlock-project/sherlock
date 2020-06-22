@@ -2566,14 +2566,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
-  "onlyfans": {
-    "errorType": "status_code",
-    "rank": 6969,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com",
-    "username_claimed": "theemilylynne",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
   "kofi": {
     "errorType": "status_code",
     "rank": 89891,
@@ -2589,21 +2581,4 @@
     "urlMain": "https://aminoapps.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "pornhub": {
-    "errorType": "status_code",
-    "rank": 925,
-    "url": "https://pornhub.com/users/{}",
-    "urlMain": "https://pornhub.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "xvideos": {
-    "errorType": "status_code",
-    "rank": 925,
-    "url": "https://www.xvideos.com/profiles/{}",
-    "urlMain": "https://www.xvideos.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
   }
-}
