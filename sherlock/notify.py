@@ -193,7 +193,9 @@ class QueryNotifyPrint(QueryNotify):
                        Fore.WHITE + "]" +
                        response_time_text +
                        Fore.GREEN +
-                       f" {self.result.site_name}: {self.result.site_url_user}"))
+                       f" {self.result.site_name}: " +
+                       Style.RESET_ALL +
+                       f"{self.result.site_url_user}"))
             else:
                 print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
         elif result.status == QueryStatus.AVAILABLE:
