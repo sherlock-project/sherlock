@@ -1929,6 +1929,7 @@
     "errorType": "status_code",
     "rank": 55,
     "url": "https://yandex.ru/collections/user/{}/",
+    "request_head_only": false,
     "urlMain": "https://yandex.ru/collections/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"

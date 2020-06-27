@@ -16,6 +16,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
 import requests
+from socid_extractor import extract
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
@@ -314,14 +315,18 @@ def sherlock(username, site_data, query_notify,
             http_status = "?"
         try:
             response_text = r.text.encode(r.encoding)
+            # Extract IDs data from page
         except:
             response_text = ""
+
+        extracted_ids_data = extract(r.text) if r else ""
 
         if error_text is not None:
             result = QueryResult(username,
                                  social_network,
                                  url,
                                  QueryStatus.UNKNOWN,
+                                 ids_data=extracted_ids_data,
                                  query_time=response_time,
                                  context=error_text)
         elif error_type == "message":
@@ -332,12 +337,14 @@ def sherlock(username, site_data, query_notify,
                                      social_network,
                                      url,
                                      QueryStatus.CLAIMED,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
                                      url,
                                      QueryStatus.AVAILABLE,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
@@ -346,12 +353,14 @@ def sherlock(username, site_data, query_notify,
                                      social_network,
                                      url,
                                      QueryStatus.CLAIMED,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
                                      url,
                                      QueryStatus.AVAILABLE,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
@@ -364,12 +373,14 @@ def sherlock(username, site_data, query_notify,
                                      social_network,
                                      url,
                                      QueryStatus.CLAIMED,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
                                      url,
                                      QueryStatus.AVAILABLE,
+                                     ids_data=extracted_ids_data,
                                      query_time=response_time)
         else:
             #It should be impossible to ever get here...

@@ -185,7 +185,12 @@ class QueryNotifyPrint(QueryNotify):
         else:
             response_time_text = f" [{round(self.result.query_time * 1000)} ms]"
 
-        #Output to the terminal is desired.
+        if not self.result.ids_data:
+            ids_data_text = ""
+        else:
+            ids_data_text = '\nAdditional ID data: ' + ', '.join([f'{a}: {b}' for a,b in self.result.ids_data.items()])
+
+        # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             if self.color:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
@@ -195,9 +200,10 @@ class QueryNotifyPrint(QueryNotify):
                        Fore.GREEN +
                        f" {self.result.site_name}: " +
                        Style.RESET_ALL +
-                       f"{self.result.site_url_user}"))
+                       f"{self.result.site_url_user}" +
+                       f"{ids_data_text}"))
             else:
-                print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
+                print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user} {ids_data_text}")
         elif result.status == QueryStatus.AVAILABLE:
             if not self.print_found_only:
                 if self.color:
@@ -218,7 +224,7 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.RED + f" {self.result.context}" +
                       Fore.YELLOW + f" ")
             else:
-                print(f"[-] {self.result.site_name}: {self.result.context} ")
+                print(f"[-] {self.result.site_name}: {self.result.context} {ids_data_text}")
         elif result.status == QueryStatus.ILLEGAL:
             if not self.print_found_only:
                 msg = "Illegal Username Format For This Site!"
