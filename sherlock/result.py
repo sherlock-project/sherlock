@@ -56,6 +56,8 @@ class QueryResult():
                                   an error, this might indicate the type of
                                   error that occurred.
                                   Default of None.
+        ids_data               -- Extracted from website page info about other
+                                  usernames and inner ids.
 
         Return Value:
         Nothing.

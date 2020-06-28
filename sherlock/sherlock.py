@@ -128,7 +128,7 @@ def get_response(request_future, error_type, social_network):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=None, ids_search=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -145,6 +145,7 @@ def sherlock(username, site_data, query_notify,
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is no timeout.
+    ids_search             -- Search for other usernames in website pages & recursive search by them.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -321,15 +322,18 @@ def sherlock(username, site_data, query_notify,
         except:
             response_text = ""
 
-        extracted_ids_data = extract(r.text) if r else ""
+        extracted_ids_data = ""
 
-        if extracted_ids_data:
-            new_usernames = []
-            for k,v in extracted_ids_data.items():
-                if 'username' in k:
-                    new_usernames.append(v)
+        if ids_search and r:
+            extracted_ids_data = extract(r.text)
 
-            results_total['ids_usernames'] += new_usernames
+            if extracted_ids_data:
+                new_usernames = []
+                for k,v in extracted_ids_data.items():
+                    if 'username' in k:
+                        new_usernames.append(v)
+
+                results_total['ids_usernames'] += new_usernames
 
         if error_text is not None:
             result = QueryResult(username,
@@ -514,6 +518,9 @@ def main():
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
                         help="Browse to all results on default bowser.")
+    parser.add_argument("--ids", "-i",
+                        action="store_true", dest="ids_search", default=False,
+                        help="Make scan of pages for other usernames and recursive search by them.")
 
     args = parser.parse_args()
 
@@ -611,11 +618,11 @@ def main():
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
-                           timeout=args.timeout)
+                           timeout=args.timeout,
+                           ids_search=args.ids_search)
 
         if results.get('ids_usernames'):
             usernames += results['ids_usernames']
-            del results['ids_usernames']
 
         if args.output:
             result_file = args.output
@@ -631,7 +638,7 @@ def main():
             exists_counter = 0
             for website_name in results:
                 dictionary = results[website_name]
-                if type(dictionary) == list:
+                if type(dictionary) == list:  # skip non-sites info
                     continue
                 if dictionary.get("status").status == QueryStatus.CLAIMED:
                     exists_counter += 1

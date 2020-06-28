@@ -106,7 +106,9 @@ optional arguments:
                         results.
   --print-found         Do not output sites where the username was not found.
   --no-color            Don't color terminal output
-  --browse, -b          Browse to all results on default bowser.
+  --browse, -b          Browse to all results on default browser.
+  --ids, -i             Search for other usernames in website pages and make
+                        recursive search by them.
 ```
 
 To search for only one user:
