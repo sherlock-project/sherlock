@@ -281,7 +281,6 @@ def sherlock(username, site_data, query_notify,
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
-    results_total['ids_usernames'] = []
     # Open the file containing account links
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
     for social_network, net_info in site_data.items():
@@ -333,7 +332,7 @@ def sherlock(username, site_data, query_notify,
                     if 'username' in k:
                         new_usernames.append(v)
 
-                results_total['ids_usernames'] += new_usernames
+                results_site['ids_usernames'] = new_usernames
 
         if error_text is not None:
             result = QueryResult(username,
@@ -621,8 +620,6 @@ def main():
                            timeout=args.timeout,
                            ids_search=args.ids_search)
 
-        if results.get('ids_usernames'):
-            usernames += results['ids_usernames']
 
         if args.output:
             result_file = args.output
@@ -638,8 +635,10 @@ def main():
             exists_counter = 0
             for website_name in results:
                 dictionary = results[website_name]
-                if type(dictionary) == list:  # skip non-sites info
-                    continue
+
+                if dictionary.get('ids_usernames'):
+                    usernames += dictionary['ids_usernames']
+
                 if dictionary.get("status").status == QueryStatus.CLAIMED:
                     exists_counter += 1
                     file.write(dictionary["url_user"] + "\n")
