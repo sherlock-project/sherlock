@@ -105,7 +105,7 @@ optional arguments:
                         hand, this may cause a long delay to gather all
                         results.
   --print-found         Do not output sites where the username was not found.
-  --no-color            Don\'t color terminal output
+  --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --ids, -i             Search for other usernames in website pages and make
                         recursive search by them.
