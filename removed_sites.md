@@ -700,20 +700,6 @@ us to prove that we are not a robot.
 
 ## pvpru
 
-As of 2020-06-20, pvpru uses CloudFlair, and because of thisjjj
-```
-  "pvpru": {
-    "errorType": "status_code",
-    "rank": 405547,
-    "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
-    "urlMain": "https://pvpru.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## pvpru
-
 As of 2020-06-20, pvpru uses CloudFlair, and because of this we get a "Access denied" error whenever
 we try to check for a username.
 
