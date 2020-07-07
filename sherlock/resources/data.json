@@ -1652,6 +1652,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "TikTok": {
+    "errorType": "status_code",
+    "rank": 193,
+    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "charlidamelio",
+    "username_unclaimed": "daflklgdfgkdlafjkkhhkgjhk8"
+  },
   "Tinder": {
     "errorMsg": "Looking for Someone?",
     "errorType": "message",
