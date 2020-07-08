@@ -2514,7 +2514,8 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "kofi": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://ko-fi.com/art?=redirect",
     "rank": 89891,
     "url": "https://ko-fi.com/{}",
     "urlMain": "https://ko-fi.com",
