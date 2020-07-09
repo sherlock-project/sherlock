@@ -764,3 +764,21 @@ removed
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+
+
+## Coderwall
+As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
+I have tried to find out what Coderwall's criteria is for a valid username, but unfortunetly I have not been able to 
+find it and because of this, the best thing we can do now is to remove it.
+```
+  "Coderwall": {
+    "errorMsg": "404! Our feels when that url is used",
+    "errorType": "message",
+    "rank": 11256,
+    "url": "https://coderwall.com/{}",
+    "urlMain": "https://coderwall.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```

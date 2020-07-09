@@ -363,15 +363,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Coderwall": {
-    "errorMsg": "404! Our feels when that url is used",
-    "errorType": "message",
-    "rank": 11256,
-    "url": "https://coderwall.com/{}",
-    "urlMain": "https://coderwall.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Codewars": {
     "errorType": "status_code",
     "rank": 19606,
