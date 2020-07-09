@@ -616,7 +616,6 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
 ```
 
 ## Telegram
-
 As of 2020-04-02 Telegram always returns true even though an username is non-existant
 
 ´´´
@@ -781,4 +780,19 @@ find it and because of this, the best thing we can do now is to remove it.
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+```
+
+
+## TamTam
+As of 2020-07-06, TamTam returns false positives when given a username which contains a period
+```
+  "TamTam": {
+    "errorType": "response_url",
+    "errorUrl": "https://tamtam.chat/",
+    "rank": 87903,
+    "url": "https://tamtam.chat/{}",
+    "urlMain": "https://tamtam.chat/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 ```

@@ -387,6 +387,15 @@
     "urlMain": "https://coderwall.com/",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "TamTam": {
+    "errorType": "response_url",
+    "errorUrl": "https://tamtam.chat/",
+    "rank": 87903,
+    "url": "https://tamtam.chat/{}",
+    "urlMain": "https://tamtam.chat/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
 
