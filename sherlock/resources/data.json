@@ -307,6 +307,7 @@
   "Chatujme.cz": {
     "errorMsg": "Neexistujic\u00ed profil",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "rank": 9812219,
     "url": "https://profil.chatujme.cz/{}",
     "urlMain": "https://chatujme.cz/",
