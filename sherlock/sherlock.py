@@ -492,7 +492,7 @@ def main():
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
-                        help="Browse to all results on default bowser.")
+                        help="Browse to all results on default browser.")
 
     args = parser.parse_args()
 
