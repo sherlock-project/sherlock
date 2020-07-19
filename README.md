@@ -106,7 +106,7 @@ optional arguments:
                         results.
   --print-found         Do not output sites where the username was not found.
   --no-color            Don't color terminal output
-  --browse, -b          Browse to all results on default bowser.
+  --browse, -b          Browse to all results on default browser.
 ```
 
 To search for only one user:
