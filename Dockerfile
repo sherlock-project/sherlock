@@ -23,5 +23,6 @@ COPY . /opt/sherlock/
 RUN pip3 install -r requirements.txt -f /wheels \
   && rm -rf /wheels \
   && rm -rf /root/.cache/pip/*
+WORKDIR /opt/sherlock/sherlock
 
 ENTRYPOINT ["python", "sherlock.py"]
