@@ -796,3 +796,19 @@ As of 2020-07-06, TamTam returns false positives when given a username which con
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Zomato
+As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato takes a very long time to respond.
+```
+  "Zomato": {
+    "errorType": "status_code",
+    "headers": {
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "rank": 1920,
+    "url": "https://www.zomato.com/pl/{}/foodjourney",
+    "urlMain": "https://www.zomato.com/",
+    "username_claimed": "deepigoyal",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
