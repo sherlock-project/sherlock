@@ -25,7 +25,7 @@ from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.12.2"
+__version__ = "0.12.3"
 
 
 
