@@ -407,6 +407,15 @@
     "urlMain": "https://www.zomato.com/",
     "username_claimed": "deepigoyal",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "mixer.com": { 
+    "errorType": "status_code", 
+    "rank": 1544, 
+    "url": "https://mixer.com/{}", 
+    "urlMain": "https://mixer.com/", 
+    "urlProbe": "https://mixer.com/api/v1/channels/{}", 
+    "username_claimed": "blue", 
+    "username_unclaimed": "noonewouldeverusethis7" 
   }
 }
 
