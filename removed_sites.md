@@ -826,3 +826,18 @@ As of 2020-07-22, the Mixer service has closed down.
     "username_unclaimed": "noonewouldeverusethis7" 
   }, 
 ```
+
+
+## KanoWorld
+As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us check for usernames.
+If an alternative way to check for usernames is found then it will added.
+```
+  "KanoWorld": {
+    "errorType": "status_code",
+    "rank": 181933,
+    "url": "https://api.kano.me/progress/user/{}",
+    "urlMain": "https://world.kano.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
