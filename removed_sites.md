@@ -812,3 +812,16 @@ As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato take
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+## mixer.com
+On 2020-07-22, Mixer was shut down and replaced with Facebook Gaming.
+```
+  "mixer.com": {
+    "errorType": "status_code",
+    "rank": 1544,
+    "url": "https://mixer.com/{}",
+    "urlMain": "https://mixer.com/",
+    "urlProbe": "https://mixer.com/api/v1/channels/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
