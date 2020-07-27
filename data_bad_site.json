@@ -416,6 +416,14 @@
     "urlProbe": "https://mixer.com/api/v1/channels/{}", 
     "username_claimed": "blue", 
     "username_unclaimed": "noonewouldeverusethis7" 
+  },
+  "KanoWorld": {
+    "errorType": "status_code",
+    "rank": 181933,
+    "url": "https://api.kano.me/progress/user/{}",
+    "urlMain": "https://world.kano.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
 
