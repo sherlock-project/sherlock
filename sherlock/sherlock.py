@@ -327,7 +327,7 @@ def sherlock(username, site_data, query_notify,
         elif error_type == "message":
             error = net_info.get("errorMsg")
             # Checks if the error message is in the HTML
-            if not error in r.text:
+            if not error.lower() in r.text.lower():
                 result = QueryResult(username,
                                      social_network,
                                      url,
