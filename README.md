@@ -32,10 +32,6 @@
 </a>
 </p>
 
-## Demo
-
-Use this link to test Sherlock directly in your browser:
-https://elody.com/scenario/plan/16/
 
 ## Installation
 
