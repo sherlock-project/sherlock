@@ -2528,5 +2528,13 @@
     "urlMain": "https://xboxgamertag.com/",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "prog.hu": {
+    "errorType": "response_url",
+    "errorUrl": "https://prog.hu/azonosito/info/{}",
+    "url": "https://prog.hu/azonosito/info/{}",
+    "urlMain": "https://prog.hu/",
+    "username_claimed":   "Sting",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
