@@ -28,14 +28,10 @@
 
 <p align="center">
 <a href="https://asciinema.org/a/223115">
-<img src="./images/sherlock_preview.gif"/>
+<img src="./images/sherlock_demo.gif"/>
 </a>
 </p>
 
-## Demo
-
-Use this link to test Sherlock directly in your browser:
-https://elody.com/scenario/plan/16/
 
 ## Installation
 
@@ -106,7 +102,7 @@ optional arguments:
                         results.
   --print-found         Do not output sites where the username was not found.
   --no-color            Don't color terminal output
-  --browse, -b          Browse to all results on default bowser.
+  --browse, -b          Browse to all results on default browser.
 ```
 
 To search for only one user:
@@ -188,7 +184,7 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```
-$ cd sherlock
+$ cd sherlock/sherlock
 $ python3 -m unittest tests.all --verbose
 ```
 

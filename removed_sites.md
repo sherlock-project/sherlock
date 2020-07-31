@@ -616,7 +616,6 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
 ```
 
 ## Telegram
-
 As of 2020-04-02 Telegram always returns true even though an username is non-existant
 
 ´´´
@@ -664,3 +663,181 @@ downforeveryoneorjustme.com that the website is down.
   },
 ```
 
+## Redsun.tf
+
+As of 2020-06-20, Redsun.tf seems to be adding random digits to the end of the usernames which makes it pretty much impossible
+for Sherlock to check for usernames on this particular website.
+
+```
+  "Redsun.tf": {
+    "errorMsg": "The specified member cannot be found",
+    "errorType": "message",
+    "rank": 3796657,
+    "url": "https://forum.redsun.tf/members/?username={}",
+    "urlMain": "https://redsun.tf/",
+    "username_claimed": "dan",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## Creative Market
+
+As of 2020-06-20, Creative Market has a captcha to prove that you are a human, and because of this
+Sherlock is unable to check for username on this site because we will always get  a page which asks
+us to prove that we are not a robot.
+
+```
+  "CreativeMarket": {
+    "errorType": "status_code",
+    "rank": 1896,
+    "url": "https://creativemarket.com/users/{}",
+    "urlMain": "https://creativemarket.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## pvpru
+
+As of 2020-06-20, pvpru uses CloudFlair, and because of this we get a "Access denied" error whenever
+we try to check for a username.
+
+```
+  "pvpru": {
+    "errorType": "status_code",
+    "rank": 405547,
+    "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
+    "urlMain": "https://pvpru.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## easyen
+As of 2020-06-21, easyen returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+
+```
+  "easyen": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 11564,
+    "url": "https://easyen.ru/index/8-0-{}",
+    "urlMain": "https://easyen.ru/",
+    "username_claimed": "wd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## pedsovet
+As of 2020-06-21, pedsovet returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+
+```
+  "pedsovet": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 6776,
+    "url": "http://pedsovet.su/index/8-0-{}",
+    "urlMain": "http://pedsovet.su/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+
+## radioskot
+As of 2020-06-21, radioskot returns false positives when using a username which contains
+a period. Since we could not find the criteria for the usernames for this site, it will be
+removed
+```
+  "radioskot": {
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
+    "errorType": "message",
+    "rank": 105878,
+    "url": "https://radioskot.ru/index/8-0-{}",
+    "urlMain": "https://radioskot.ru/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+
+
+## Coderwall
+As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
+I have tried to find out what Coderwall's criteria is for a valid username, but unfortunetly I have not been able to 
+find it and because of this, the best thing we can do now is to remove it.
+```
+  "Coderwall": {
+    "errorMsg": "404! Our feels when that url is used",
+    "errorType": "message",
+    "rank": 11256,
+    "url": "https://coderwall.com/{}",
+    "urlMain": "https://coderwall.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+
+## TamTam
+As of 2020-07-06, TamTam returns false positives when given a username which contains a period
+```
+  "TamTam": {
+    "errorType": "response_url",
+    "errorUrl": "https://tamtam.chat/",
+    "rank": 87903,
+    "url": "https://tamtam.chat/{}",
+    "urlMain": "https://tamtam.chat/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Zomato
+As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato takes a very long time to respond.
+```
+  "Zomato": {
+    "errorType": "status_code",
+    "headers": {
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "rank": 1920,
+    "url": "https://www.zomato.com/pl/{}/foodjourney",
+    "urlMain": "https://www.zomato.com/",
+    "username_claimed": "deepigoyal",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Mixer
+As of 2020-07-22, the Mixer service has closed down.
+```
+  "mixer.com": { 
+    "errorType": "status_code", 
+    "rank": 1544, 
+    "url": "https://mixer.com/{}", 
+    "urlMain": "https://mixer.com/", 
+    "urlProbe": "https://mixer.com/api/v1/channels/{}", 
+    "username_claimed": "blue", 
+    "username_unclaimed": "noonewouldeverusethis7" 
+  }, 
+```
+
+
+## KanoWorld
+As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us check for usernames.
+If an alternative way to check for usernames is found then it will added.
+```
+  "KanoWorld": {
+    "errorType": "status_code",
+    "rank": 181933,
+    "url": "https://api.kano.me/progress/user/{}",
+    "urlMain": "https://world.kano.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
