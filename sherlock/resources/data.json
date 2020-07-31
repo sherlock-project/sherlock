@@ -2521,5 +2521,12 @@
     "urlMain": "https://aminoapps.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "Xbox Gamertag": {
+    "errorType": "status_code",
+    "url": "https://xboxgamertag.com/search/{}",
+    "urlMain": "https://xboxgamertag.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
