@@ -25,7 +25,7 @@ from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.12.2"
+__version__ = "0.12.3"
 
 
 
@@ -492,7 +492,7 @@ def main():
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
-                        help="Browse to all results on default bowser.")
+                        help="Browse to all results on default browser.")
 
     args = parser.parse_args()
 

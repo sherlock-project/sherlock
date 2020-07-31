@@ -1,4 +1,25 @@
 {
+  "F6S": {
+    "errorType": "status_code",
+    "url": "https://www.f6s.com/{}",
+    "urlMain": "https://f6s.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "getmyuni": {
+    "errorType": "status_code",
+    "url": "https://www.getmyuni.com/user/{}",
+    "urlMain": "https://getmyuni.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "polarsteps": {
+    "errorType": "status_code",
+    "url": "https://www.polarsteps.com/{}",
+    "urlMain": "https://polarsteps.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "rank": 664639,
@@ -307,6 +328,7 @@
   "Chatujme.cz": {
     "errorMsg": "Neexistujic\u00ed profil",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "rank": 9812219,
     "url": "https://profil.chatujme.cz/{}",
     "urlMain": "https://chatujme.cz/",
@@ -363,15 +385,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Coderwall": {
-    "errorMsg": "404! Our feels when that url is used",
-    "errorType": "message",
-    "rank": 11256,
-    "url": "https://coderwall.com/{}",
-    "urlMain": "https://coderwall.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Codewars": {
     "errorType": "status_code",
     "rank": 19606,
@@ -398,6 +411,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Countable": {
+    "errorType": "status_code",
+    "rank": 257457,
+    "url": "https://www.countable.us/{}",
+    "urlMain": "https://www.countable.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Cracked": {
     "errorType": "response_url",
     "errorUrl": "https://www.cracked.com/",
@@ -406,15 +427,6 @@
     "urlMain": "https://www.cracked.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
-  },
-  "CreativeMarket": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.creativemarket.com/",
-    "rank": 1896,
-    "url": "https://creativemarket.com/users/{}",
-    "urlMain": "https://creativemarket.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Crevado": {
     "errorType": "status_code",
@@ -933,14 +945,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "KanoWorld": {
-    "errorType": "status_code",
-    "rank": 181933,
-    "url": "https://api.kano.me/progress/user/{}",
-    "urlMain": "https://world.kano.me/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Keybase": {
     "errorType": "status_code",
     "rank": 56712,
@@ -1408,15 +1412,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Redsun.tf": {
-    "errorMsg": "The specified member cannot be found",
-    "errorType": "message",
-    "rank": 3796657,
-    "url": "https://forum.redsun.tf/members/?username={}",
-    "urlMain": "https://redsun.tf/",
-    "username_claimed": "dan",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Repl.it": {
     "errorMsg": "404",
     "errorType": "message",
@@ -1645,15 +1640,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "TamTam": {
-    "errorType": "response_url",
-    "errorUrl": "https://tamtam.chat/",
-    "rank": 87903,
-    "url": "https://tamtam.chat/{}",
-    "urlMain": "https://tamtam.chat/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Taringa": {
     "errorType": "status_code",
     "rank": 1092,
@@ -1748,8 +1734,8 @@
       "User-Agent": ""
     },
     "rank": 59,
-    "url": "https://www.twitter.com/{}",
-    "urlMain": "https://www.twitter.com/",
+    "url": "https://mobile.twitter.com/{}",
+    "urlMain": "https://mobile.twitter.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1969,17 +1955,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Zomato": {
-    "errorType": "status_code",
-    "headers": {
-      "Accept-Language": "en-US,en;q=0.9"
-    },
-    "rank": 1920,
-    "url": "https://www.zomato.com/pl/{}/foodjourney",
-    "urlMain": "https://www.zomato.com/",
-    "username_claimed": "deepigoyal",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "akniga": {
     "errorType": "status_code",
     "rank": 14884,
@@ -2086,15 +2061,6 @@
     "urlMain": "https://egpu.io/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
-  },
-  "easyen": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
-    "rank": 11564,
-    "url": "https://easyen.ru/index/8-0-{}",
-    "urlMain": "https://easyen.ru/",
-    "username_claimed": "wd",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "eintracht": {
     "errorType": "status_code",
@@ -2306,15 +2272,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
   },
-  "mixer.com": {
-    "errorType": "status_code",
-    "rank": 1544,
-    "url": "https://mixer.com/{}",
-    "urlMain": "https://mixer.com/",
-    "urlProbe": "https://mixer.com/api/v1/channels/{}",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "moikrug": {
     "errorType": "status_code",
     "rank": 174869,
@@ -2329,6 +2286,14 @@
     "url": "https://mstdn.io/@{}",
     "urlMain": "https://mstdn.io/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "nairaland.com": {
+    "errorType": "status_code",
+    "rank": 808,
+    "url": "https://www.nairaland.com/{}",
+    "urlMain": "https://www.nairaland.com/",
+    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "nightbot": {
@@ -2390,15 +2355,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "pedsovet": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
-    "rank": 6776,
-    "url": "http://pedsovet.su/index/8-0-{}",
-    "urlMain": "http://pedsovet.su/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "phpRU": {
     "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
     "errorType": "message",
@@ -2424,29 +2380,12 @@
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
   },
-  "pvpru": {
-    "errorType": "status_code",
-    "rank": 405547,
-    "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
-    "urlMain": "https://pvpru.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "radio_echo_msk": {
     "errorType": "status_code",
     "rank": 1578,
     "url": "https://echo.msk.ru/users/{}",
     "urlMain": "https://echo.msk.ru/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "radioskot": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
-    "rank": 105878,
-    "url": "https://radioskot.ru/index/8-0-{}",
-    "urlMain": "https://radioskot.ru/",
-    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "satsisRU": {
@@ -2557,6 +2496,31 @@
     "urlMain": "https://windy.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "mercadolivre": {
+    "errorType": "status_code",
+    "rank": 27839,
+    "url": "https://www.mercadolivre.com.br/perfil/{}",
+    "urlMain": "https://www.mercadolivre.com.br",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "kofi": {
+    "errorType": "response_url",
+    "errorUrl": "https://ko-fi.com/art?=redirect",
+    "rank": 89891,
+    "url": "https://ko-fi.com/{}",
+    "urlMain": "https://ko-fi.com",
+    "username_claimed": "yeahkenny",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "aminoapp": {
+    "errorType": "status_code",
+    "rank": 9125,
+    "url": "https://aminoapps.com/u/{}",
+    "urlMain": "https://aminoapps.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Xbox Gamertag": {
     "errorType": "status_code",
