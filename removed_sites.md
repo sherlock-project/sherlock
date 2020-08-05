@@ -373,13 +373,13 @@ Usernames that exist are not detected.
 
 ## AngelList
 
-Usernames that exist are not detected.
+Usernames that exist are not detected. Forbidden Request 403 Error.
 
 ```
   "AngelList": {
     "errorType": "status_code",
     "rank": 5767,
-    "url": "https://angel.co/{}",
+    "url": "https://angel.co/u/{}",
     "urlMain": "https://angel.co/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
