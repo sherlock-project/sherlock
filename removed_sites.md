@@ -373,13 +373,13 @@ Usernames that exist are not detected.
 
 ## AngelList
 
-Usernames that exist are not detected.
+Usernames that exist are not detected. Forbidden Request 403 Error.
 
 ```
   "AngelList": {
     "errorType": "status_code",
     "rank": 5767,
-    "url": "https://angel.co/{}",
+    "url": "https://angel.co/u/{}",
     "urlMain": "https://angel.co/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
@@ -614,21 +614,6 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
      "username_unclaimed": "noonewouldeverusethis7"
    },
 ```
-
-## Telegram
-As of 2020-04-02 Telegram always returns true even though an username is non-existant
-
-´´´
-   "Telegram": {
-     "errorType": "response_url",
-     "errorUrl": "https://telegram.org",
-     "rank": 385,
-     "url": "https://t.me/{}",
-     "urlMain": "https://t.me/",
-     "username_claimed": "saman",
-     "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
-  },
-´´´
 
 ## elwoRU
 As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
