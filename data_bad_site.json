@@ -300,15 +300,6 @@
      "username_claimed": "admin",
      "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Telegram": {
-     "errorType": "response_url",
-     "errorUrl": "https://telegram.org",
-     "rank": 385,
-     "url": "https://t.me/{}",
-     "urlMain": "https://t.me/",
-     "username_claimed": "saman",
-     "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
-  },
   "elwoRU": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",

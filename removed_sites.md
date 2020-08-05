@@ -615,21 +615,6 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
    },
 ```
 
-## Telegram
-As of 2020-04-02 Telegram always returns true even though an username is non-existant
-
-´´´
-   "Telegram": {
-     "errorType": "response_url",
-     "errorUrl": "https://telegram.org",
-     "rank": 385,
-     "url": "https://t.me/{}",
-     "urlMain": "https://t.me/",
-     "username_claimed": "saman",
-     "username_unclaimed": "i_do_not_believe_this_account_exists_at_all"
-  },
-´´´
-
 ## elwoRU
 As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
 downforeveryoneorjustme.com that the website is down.
