@@ -39,15 +39,6 @@
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
-  "CapFriendly": {
-    "errorMsg": "No User Found",
-    "errorType": "message",
-    "rank": 64100,
-    "url": "https://www.capfriendly.com/users/{}",
-    "urlMain": "https://www.capfriendly.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Canva": {
     "errorType": "response_url",
     "errorUrl": "https://www.canva.com/{}",
