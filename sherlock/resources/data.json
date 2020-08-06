@@ -1697,7 +1697,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Tinder": {
-    "errorMsg": "Looking for Someone?",
+    "errorMsg": "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>",
     "errorType": "message",
     "rank": 1149,
     "url": "https://www.gotinder.com/@{}",
