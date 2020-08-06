@@ -1283,6 +1283,18 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PayPal": {
+    "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
+    "errorType": "message",
+    "headers": {
+      "User-Agent": ""
+    },
+    "rank": 18441,
+    "url": "https://www.paypal.com/paypalme/{}",
+    "urlMain": "https://www.paypal.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername7"
+  },
   "Periscope": {
     "errorType": "status_code",
     "rank": 27375,
