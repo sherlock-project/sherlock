@@ -326,21 +326,6 @@ Usernames that don't exist are detected.  First noticed 2019-10-25.
   },
 ```
 
-## PayPal
-
-Usernames that don't exist are detected.
-
-```
-  "PayPal": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.paypal.com/paypalme2/404",
-    "rank": 18441,
-    "url": "https://www.paypal.com/paypalme2/{}",
-    "urlMain": "https://www.paypal.me/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noneownsthisusername"
-  },
-```
 
 ## EVE Online
 
