@@ -41,20 +41,7 @@ turned on.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
-## 9GAG
 
-As of 2020-05-25, all usernames are reported as available.
-
-```
-  "9GAG": {
-    "errorType": "status_code",
-    "rank": 389,
-    "url": "https://9gag.com/u/{}",
-    "urlMain": "https://9gag.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
 
 ## Investing.com
 
