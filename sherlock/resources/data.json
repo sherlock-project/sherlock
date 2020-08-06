@@ -1916,7 +1916,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wikipedia": {
-    "errorMsg": "is not registered.",
+    "errorMsg": "<b>Wikipedia does not have a <a href=\"/wiki/Wikipedia:User_pages\" title=\"Wikipedia:User pages\">user page</a> with this exact name.</b>",
     "errorType": "message",
     "rank": 10,
     "url": "https://www.wikipedia.org/wiki/User:{}",
