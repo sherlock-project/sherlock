@@ -66,7 +66,7 @@
   "9GAG": {
     "errorType": "status_code",
     "rank": 389,
-    "url": "https://9gag.com/u/{}",
+    "url": "https://www.9gag.com/u/{}",
     "urlMain": "https://www.9gag.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
