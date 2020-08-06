@@ -514,22 +514,6 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
   },
 ```
 
-## CapFriendly
-
-As of 2020-02-17, CapFriendly returns fake profile pages for non-existing users, what seems to distinguish between the pages is the Sign-up date, for non-existing users, the web application returns a date before 2000-01-01.
-
-```
-  "CapFriendly": {
-    "errorMsg": "No User Found",
-    "errorType": "message",
-    "rank": 64100,
-    "url": "https://www.capfriendly.com/users/{}",
-    "urlMain": "https://www.capfriendly.com/",
-    "username_claimed": "user",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
-```
-
 
 ## Furaffinity
 
