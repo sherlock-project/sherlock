@@ -15,9 +15,10 @@
   },
   "polarsteps": {
     "errorType": "status_code",
-    "url": "https://www.polarsteps.com/{}",
+    "url": "https://polarsteps.com/{}",
     "urlMain": "https://polarsteps.com/",
-    "username_claimed": "vidheeshnacode",
+    "urlProbe": "https://api.polarsteps.com/users/byusername/{}",
+    "username_claimed": "james",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "2Dimensions": {
