@@ -2032,8 +2032,9 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "babyblogRU": {
-    "errorType": "status_code",
-    "rank": 15174,
+    "errorType": "message",
+    "errorMsg": "<title>BabyBlog — крупнейшее сообщество родителей</title>",
+    "rank": 14711,
     "url": "https://www.babyblog.ru/user/info/{}",
     "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
