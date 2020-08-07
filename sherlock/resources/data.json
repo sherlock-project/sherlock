@@ -1,26 +1,4 @@
 {
-  "F6S": {
-    "errorType": "status_code",
-    "url": "https://www.f6s.com/{}",
-    "urlMain": "https://f6s.com/",
-    "username_claimed": "vidheeshnacode",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "getmyuni": {
-    "errorType": "status_code",
-    "url": "https://www.getmyuni.com/user/{}",
-    "urlMain": "https://getmyuni.com/",
-    "username_claimed": "vidheeshnacode",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "polarsteps": {
-    "errorType": "status_code",
-    "url": "https://polarsteps.com/{}",
-    "urlMain": "https://polarsteps.com/",
-    "urlProbe": "https://api.polarsteps.com/users/byusername/{}",
-    "username_claimed": "james",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -47,7 +25,7 @@
   "500px": {
     "errorMsg": "Oops! This page doesn\u2019t exist.",
     "errorType": "message",
-    "regexCheck":"^[a-z0-9_]$",
+    "regexCheck": "^[a-z0-9_]$",
     "url": "https://500px.com/{}",
     "urlMain": "https://500px.com/",
     "username_claimed": "blue",
@@ -535,6 +513,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "F6S": {
+    "errorType": "status_code",
+    "url": "https://www.f6s.com/{}",
+    "urlMain": "https://f6s.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Facebook": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
@@ -620,8 +605,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Freelancer.com": {
-   "errorMsg": "\"users\":{}",
-   "errorType": "message",
+    "errorMsg": "\"users\":{}",
+    "errorType": "message",
     "url": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D={}&compact=true",
     "urlMain": "https://www.freelancer.com/",
     "username_claimed": "red0xff",
@@ -1487,14 +1472,14 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
-    "errorMsg":"<meta property=\"og:description\" content=\"\">",
+    "errorMsg": "<meta property=\"og:description\" content=\"\">",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{5,32}$",
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
     "username_claimed": "roopeshvs",
     "username_unclaimed": "noonewouldeverusethis7"
- },
+  },
   "Tellonym.me": {
     "errorType": "status_code",
     "url": "https://tellonym.me/{}",
@@ -1728,6 +1713,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Xbox Gamertag": {
+    "errorType": "status_code",
+    "url": "https://xboxgamertag.com/search/{}",
+    "urlMain": "https://xboxgamertag.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "YandexCollection": {
     "errorType": "status_code",
     "url": "https://yandex.ru/collections/user/{}/",
@@ -1782,6 +1774,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "aminoapp": {
+    "errorType": "status_code",
+    "url": "https://aminoapps.com/u/{}",
+    "urlMain": "https://aminoapps.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "authorSTREAM": {
     "errorType": "status_code",
     "url": "http://www.authorstream.com/{}/",
@@ -1798,8 +1797,8 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "babyblogRU": {
+    "errorMsg": "<title>BabyBlog \u2014 \u043a\u0440\u0443\u043f\u043d\u0435\u0439\u0448\u0435\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439</title>",
     "errorType": "message",
-    "errorMsg": "<title>BabyBlog — крупнейшее сообщество родителей</title>",
     "url": "https://www.babyblog.ru/user/info/{}",
     "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
@@ -1906,6 +1905,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "getmyuni": {
+    "errorType": "status_code",
+    "url": "https://www.getmyuni.com/user/{}",
+    "urlMain": "https://getmyuni.com/",
+    "username_claimed": "vidheeshnacode",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "gfycat": {
     "errorType": "status_code",
     "url": "https://gfycat.com/@{}",
@@ -1974,6 +1980,14 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "kofi": {
+    "errorType": "response_url",
+    "errorUrl": "https://ko-fi.com/art?=redirect",
+    "url": "https://ko-fi.com/{}",
+    "urlMain": "https://ko-fi.com",
+    "username_claimed": "yeahkenny",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "kwork": {
     "errorType": "status_code",
     "url": "https://kwork.ru/user/{}",
@@ -2037,6 +2051,13 @@
     "urlMain": "https://mastodon.xyz/",
     "username_claimed": "TheKinrar",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "mercadolivre": {
+    "errorType": "status_code",
+    "url": "https://www.mercadolivre.com.br/perfil/{}",
+    "urlMain": "https://www.mercadolivre.com.br",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "metacritic": {
     "errorMsg": "User not found",
@@ -2135,12 +2156,28 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "polarsteps": {
+    "errorType": "status_code",
+    "url": "https://polarsteps.com/{}",
+    "urlMain": "https://polarsteps.com/",
+    "urlProbe": "https://api.polarsteps.com/users/byusername/{}",
+    "username_claimed": "james",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "pr0gramm": {
     "errorType": "status_code",
     "url": "https://pr0gramm.com/api/profile/info?name={}",
     "urlMain": "https://pr0gramm.com/",
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
+  },
+  "prog.hu": {
+    "errorType": "response_url",
+    "errorUrl": "https://prog.hu/azonosito/info/{}",
+    "url": "https://prog.hu/azonosito/info/{}",
+    "urlMain": "https://prog.hu/",
+    "username_claimed": "Sting",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "radio_echo_msk": {
     "errorType": "status_code",
@@ -2243,43 +2280,6 @@
     "url": "https://community.windy.com/user/{}",
     "urlMain": "https://windy.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "mercadolivre": {
-    "errorType": "status_code",
-    "url": "https://www.mercadolivre.com.br/perfil/{}",
-    "urlMain": "https://www.mercadolivre.com.br",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "kofi": {
-    "errorType": "response_url",
-    "errorUrl": "https://ko-fi.com/art?=redirect",
-    "url": "https://ko-fi.com/{}",
-    "urlMain": "https://ko-fi.com",
-    "username_claimed": "yeahkenny",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "aminoapp": {
-    "errorType": "status_code",
-    "url": "https://aminoapps.com/u/{}",
-    "urlMain": "https://aminoapps.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "Xbox Gamertag": {
-    "errorType": "status_code",
-    "url": "https://xboxgamertag.com/search/{}",
-    "urlMain": "https://xboxgamertag.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "prog.hu": {
-    "errorType": "response_url",
-    "errorUrl": "https://prog.hu/azonosito/info/{}",
-    "url": "https://prog.hu/azonosito/info/{}",
-    "urlMain": "https://prog.hu/",
-    "username_claimed":   "Sting",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
