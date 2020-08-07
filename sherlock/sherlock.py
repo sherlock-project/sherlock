@@ -438,9 +438,6 @@ def main():
                         action="store_true",  dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
-    parser.add_argument("--rank", "-r",
-                        action="store_true", dest="rank", default=False,
-                        help="Present websites ordered by their Alexa.com global rank in popularity.")
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
                         help="If using multiple usernames, the output of the results will be saved to this folder."
                         )
@@ -556,15 +553,6 @@ def main():
             print(
                 f"Error: Desired sites not found: {', '.join(site_missing)}.")
             sys.exit(1)
-
-    if args.rank:
-        # Sort data by rank
-        site_dataCpy = dict(site_data)
-        ranked_sites = sorted(site_data, key=lambda k: ("rank" not in k, site_data[k].get("rank", sys.maxsize)))
-        site_data = {}
-        for site in ranked_sites:
-            site_data[site] = site_dataCpy.get(site)
-
 
     #Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
