@@ -118,22 +118,19 @@ class SitesInformation():
         """
 
         if data_file_path is None:
-            #Use internal default.
-            data_file_path = \
-                os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                             "resources/data.json"
-                            )
+            # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
+            # this instead of the local one is so that the user has the most up to date data. This prevents
+            # users from creating issue about false positives which has already been fixed or having outdated data
+            data_file_path = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
 
-        #Ensure that specified data file has correct extension.
-        if ".json" != data_file_path[-5:].lower():
+        # Ensure that specified data file has correct extension.
+        if not data_file_path.lower().endswith(".json"):
             raise FileNotFoundError(f"Incorrect JSON file extension for "
                                     f"data file '{data_file_path}'."
                                    )
 
-        if ( ("http://"  == data_file_path[:7].lower()) or
-             ("https://" == data_file_path[:8].lower())
-           ):
-            #Reference is to a URL.
+        if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
+            # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path)
             except Exception as error:
