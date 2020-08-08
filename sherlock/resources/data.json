@@ -1904,11 +1904,11 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "getmyuni": {
+  "GetMyUni": {
     "errorType": "status_code",
     "url": "https://www.getmyuni.com/user/{}",
     "urlMain": "https://getmyuni.com/",
-    "username_claimed": "vidheeshnacode",
+    "username_claimed": "Upneet.Grover17",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "gfycat": {
