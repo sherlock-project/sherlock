@@ -513,13 +513,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "F6S": {
-    "errorType": "status_code",
-    "url": "https://www.f6s.com/{}",
-    "urlMain": "https://f6s.com/",
-    "username_claimed": "vidheeshnacode",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Facebook": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
