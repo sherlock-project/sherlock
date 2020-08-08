@@ -493,6 +493,15 @@ def main():
 
     args = parser.parse_args()
 
+    # Check for newer version of Sherlock. If it exists, let the user know about it
+    r = requests.get("https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+    remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+    local_version = __version__
+
+    if remote_version != local_version:
+        print("Update Available!\n" +
+              f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
+
 
     # Argument check
     # TODO regex check on args.proxy
