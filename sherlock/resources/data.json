@@ -633,6 +633,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "GetMyUni": {
+    "errorType": "status_code",
+    "url": "https://www.getmyuni.com/user/{}",
+    "urlMain": "https://getmyuni.com/",
+    "username_claimed": "Upneet.Grover17",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",
@@ -1031,6 +1038,22 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Nightbot": {
+    "errorType": "status_code",
+    "url": "https://nightbot.tv/t/{}/commands",
+    "urlMain": "https://nightbot.tv/",
+    "urlProbe": "https://api.nightbot.tv/1/channels/t/{}",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "NotABug.org": {
+    "errorType": "status_code",
+    "url": "https://notabug.org/{}",
+    "urlMain": "https://notabug.org/",
+    "urlProbe": "https://notabug.org/{}/followers",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OK": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
@@ -1051,6 +1074,13 @@
     "url": "https://www.openstreetmap.org/user/{}",
     "urlMain": "https://www.openstreetmap.org/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Opensource": {
+    "errorType": "status_code",
+    "url": "https://opensource.com/users/{}",
+    "urlMain": "https://opensource.com/",
+    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Oracle Community": {
@@ -1196,6 +1226,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Polarsteps": {
+    "errorType": "status_code",
+    "url": "https://polarsteps.com/{}",
+    "urlMain": "https://polarsteps.com/",
+    "urlProbe": "https://api.polarsteps.com/users/byusername/{}",
+    "username_claimed": "james",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Polygon": {
     "errorType": "status_code",
     "url": "https://www.polygon.com/users/{}",
@@ -1324,6 +1362,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "SegmentFault": {
+    "errorType": "status_code",
+    "url": "https://segmentfault.com/u/{}",
+    "urlMain": "https://segmentfault.com/",
+    "username_claimed": "bule",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ShitpostBot5000": {
     "errorType": "status_code",
     "url": "https://www.shitpostbot.com/user/{}",
@@ -1380,6 +1425,22 @@
     "url": "https://sourceforge.net/u/{}",
     "urlMain": "https://sourceforge.net/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "SoylentNews": {
+    "errorMsg": "The user you requested does not exist, no matter how much you wish this might be the case.",
+    "errorType": "message",
+    "url": "https://soylentnews.org/~{}",
+    "urlMain": "https://soylentnews.org",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "SparkPeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Speedrun.com": {
@@ -1525,6 +1586,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "never-never-ever"
   },
+  "Travellerspoint": {
+    "errorMsg": "Wooops. Sorry!",
+    "errorType": "message",
+    "url": "https://www.travellerspoint.com/users/{}",
+    "urlMain": "https://www.travellerspoint.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Trello": {
     "errorMsg": "model not found",
     "errorType": "message",
@@ -1642,6 +1711,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Warrior Forum": {
+    "errorType": "status_code",
+    "url": "https://www.warriorforum.com/members/{}.html",
+    "urlMain": "https://www.warriorforum.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "Wattpad": {
     "errorMsg": "userError-404",
     "errorType": "message",
@@ -1686,6 +1762,13 @@
     "url": "https://www.wikipedia.org/wiki/User:{}",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Windy": {
+    "errorType": "status_code",
+    "url": "https://community.windy.com/user/{}",
+    "urlMain": "https://windy.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wix": {
@@ -1904,13 +1987,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "GetMyUni": {
-    "errorType": "status_code",
-    "url": "https://www.getmyuni.com/user/{}",
-    "urlMain": "https://getmyuni.com/",
-    "username_claimed": "Upneet.Grover17",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "gfycat": {
     "errorType": "status_code",
     "url": "https://gfycat.com/@{}",
@@ -2088,27 +2164,11 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "nightbot": {
-    "errorType": "status_code",
-    "url": "https://nightbot.tv/t/{}/commands",
-    "urlMain": "https://nightbot.tv/",
-    "urlProbe": "https://api.nightbot.tv/1/channels/t/{}",
-    "username_claimed": "green",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "nnRU": {
     "errorType": "status_code",
     "url": "https://{}.www.nn.ru/",
     "urlMain": "https://https://www.nn.ru/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "notabug.org": {
-    "errorType": "status_code",
-    "url": "https://notabug.org/{}",
-    "urlMain": "https://notabug.org/",
-    "urlProbe": "https://notabug.org/{}/followers",
-    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "note": {
@@ -2125,13 +2185,6 @@
     "urlMain": "https://www.opennet.ru/",
     "username_claimed": "anonismus",
     "username_unclaimed": "noneownsthisusername"
-  },
-  "opensource": {
-    "errorType": "status_code",
-    "url": "https://opensource.com/users/{}",
-    "urlMain": "https://opensource.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "osu!": {
     "errorType": "status_code",
@@ -2153,14 +2206,6 @@
     "url": "https://pikabu.ru/@{}",
     "urlMain": "https://pikabu.ru/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "polarsteps": {
-    "errorType": "status_code",
-    "url": "https://polarsteps.com/{}",
-    "urlMain": "https://polarsteps.com/",
-    "urlProbe": "https://api.polarsteps.com/users/byusername/{}",
-    "username_claimed": "james",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "pr0gramm": {
@@ -2192,34 +2237,11 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "segmentfault": {
-    "errorType": "status_code",
-    "url": "https://segmentfault.com/u/{}",
-    "urlMain": "https://segmentfault.com/",
-    "username_claimed": "bule",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "social.tchncs.de": {
     "errorType": "status_code",
     "url": "https://social.tchncs.de/@{}",
     "urlMain": "https://social.tchncs.de/",
     "username_claimed": "Milan",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "soylentnews": {
-    "errorMsg": "The user you requested does not exist, no matter how much you wish this might be the case.",
-    "errorType": "message",
-    "url": "https://soylentnews.org/~{}",
-    "urlMain": "https://soylentnews.org",
-    "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "sparkpeople": {
-    "errorMsg": "We couldn't find that user",
-    "errorType": "message",
-    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
-    "urlMain": "https://www.sparkpeople.com",
-    "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "spletnik": {
@@ -2252,32 +2274,10 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "travellerspoint": {
-    "errorMsg": "Wooops. Sorry!",
-    "errorType": "message",
-    "url": "https://www.travellerspoint.com/users/{}",
-    "urlMain": "https://www.travellerspoint.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
     "urlMain": "https://uid.me/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "warriorforum": {
-    "errorType": "status_code",
-    "url": "https://www.warriorforum.com/members/{}.html",
-    "urlMain": "https://www.warriorforum.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "windy": {
-    "errorType": "status_code",
-    "url": "https://community.windy.com/user/{}",
-    "urlMain": "https://windy.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
