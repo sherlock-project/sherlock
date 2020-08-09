@@ -1503,6 +1503,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Strava": {
+    "errorMsg": "Strava | Run and Cycling Tracking on the Social Network for Athletes",
+    "errorType": "message",
+    "url": "https://www.strava.com/athletes/{}",
+    "urlMain": "https://www.strava.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "SublimeForum": {
     "errorType": "status_code",
     "url": "https://forum.sublimetext.com/u/{}",
