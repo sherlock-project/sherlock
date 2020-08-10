@@ -468,7 +468,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Ebay": {
-    "errorMsg": "The User ID you entered was not found",
+    "errorMsg": "<title>eBay Profile - error</title>",
     "errorType": "message",
     "url": "https://www.ebay.com/usr/{}",
     "urlMain": "https://www.ebay.com/",
