@@ -499,8 +499,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.eyeem.com/",
+    "errorType": "message",
+    "errorMsg": "<title>Not Found (404) | EyeEm</title>",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue",
@@ -674,6 +674,7 @@
   "Gravatar": {
     "errorType": "status_code",
     "url": "http://en.gravatar.com/{}",
+    "regexCheck": "^((?!\\.).)*$",
     "urlMain": "http://en.gravatar.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
