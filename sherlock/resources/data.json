@@ -1189,8 +1189,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pling": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.pling.com/",
+    "errorType": "message",
+    "errorMsg": "Resource not found",
     "url": "https://www.pling.com/u/{}/",
     "urlMain": "https://www.pling.com/",
     "username_claimed": "blue",
