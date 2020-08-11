@@ -1803,13 +1803,6 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "YandexCollection": {
-    "errorType": "status_code",
-    "url": "https://yandex.ru/collections/user/{}/",
-    "urlMain": "https://yandex.ru/collections/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "YouNow": {
     "errorMsg": "No users found",
     "errorType": "message",

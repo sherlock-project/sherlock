@@ -782,3 +782,15 @@ If an alternative way to check for usernames is found then it will added.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## YandexCollection
+As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us from checking for usernames
+```
+  "YandexCollection": {
+    "errorType": "status_code",
+    "url": "https://yandex.ru/collections/user/{}/",
+    "urlMain": "https://yandex.ru/collections/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
