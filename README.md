@@ -58,7 +58,7 @@ $ python3 -m pip install -r requirements.txt
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT]
                 [--tor] [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
-                [--json JSON_FILE] [--timeout TIMEOUT] [--print-found] [--no-color] [--browse]
+                [--json JSON_FILE] [--timeout TIMEOUT] [--print-found] [--print-terminal-only] [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.12.3)
@@ -92,6 +92,7 @@ optional arguments:
                         60.0s.A longer timeout will be more likely to get results from slow
                         sites.On the other hand, this may cause a long delay to gather all results.
   --print-found         Do not output sites where the username was not found.
+  --print-terminal-only Do not output results to a text file.
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
 ```

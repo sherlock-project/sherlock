@@ -478,6 +478,10 @@ def main():
                         action="store_true", dest="print_found_only", default=False,
                         help="Do not output sites where the username was not found."
                         )
+    parser.add_argument("--print-terminal-only",
+                        action="store_true", dest="print_terminal_only", default=False,
+                        help="Do not output results to a text file."
+                        )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -513,6 +517,9 @@ def main():
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
+
+    if args.print_terminal_only and (args.folderoutput or args.output is not None):
+        raise Exception("Print terminal only and output file(s) cannot be set at the same time.")
 
     # Make prompts
     if args.proxy is not None:
@@ -586,51 +593,51 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            timeout=args.timeout)
+        if args.print_terminal_only == False:
+            if args.output:
+                result_file = args.output
+            elif args.folderoutput:
+                # The usernames results should be stored in a targeted folder.
+                # If the folder doesn't exist, create it first
+                os.makedirs(args.folderoutput, exist_ok=True)
+                result_file = os.path.join(args.folderoutput, f"{username}.txt")
+            else:
+                result_file = f"{username}.txt"
 
-        if args.output:
-            result_file = args.output
-        elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
-        else:
-            result_file = f"{username}.txt"
+            with open(result_file, "w", encoding="utf-8") as file:
+                exists_counter = 0
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        file.write(dictionary["url_user"] + "\n")
+                file.write(f"Total Websites Username Detected On : {exists_counter}")
 
-        with open(result_file, "w", encoding="utf-8") as file:
-            exists_counter = 0
-            for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
-                    exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
-            file.write(f"Total Websites Username Detected On : {exists_counter}")
-
-        if args.csv:
-            with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(['username',
-                                 'name',
-                                 'url_main',
-                                 'url_user',
-                                 'exists',
-                                 'http_status',
-                                 'response_time_s'
-                                 ]
-                                )
-                for site in results:
-                    response_time_s = results[site]['status'].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow([username,
-                                     site,
-                                     results[site]['url_main'],
-                                     results[site]['url_user'],
-                                     str(results[site]['status'].status),
-                                     results[site]['http_status'],
-                                     response_time_s
-                                     ]
+            if args.csv:
+                with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
+                    writer = csv.writer(csv_report)
+                    writer.writerow(['username',
+                                    'name',
+                                    'url_main',
+                                    'url_user',
+                                    'exists',
+                                    'http_status',
+                                    'response_time_s'
+                                    ]
                                     )
+                    for site in results:
+                        response_time_s = results[site]['status'].query_time
+                        if response_time_s is None:
+                            response_time_s = ""
+                        writer.writerow([username,
+                                        site,
+                                        results[site]['url_main'],
+                                        results[site]['url_user'],
+                                        str(results[site]['status'].status),
+                                        results[site]['http_status'],
+                                        response_time_s
+                                        ]
+                                        )
 
 
 if __name__ == "__main__":
