@@ -1131,8 +1131,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pastebin": {
-    "errorType": "response_url",
-    "errorUrl": "https://pastebin.com/index",
+    "errorType": "message",
+    "errorMsg": "Not Found (#404)",
     "url": "https://pastebin.com/u/{}",
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue",
