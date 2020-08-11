@@ -1145,11 +1145,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "PayPal": {
-    "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
+    "errorMsg": "<title>PayPal</title>",
     "errorType": "message",
-    "headers": {
-      "User-Agent": ""
-    },
     "url": "https://www.paypal.com/paypalme/{}",
     "urlMain": "https://www.paypal.me/",
     "username_claimed": "blue",
