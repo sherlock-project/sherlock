@@ -57,7 +57,7 @@ $ python3 -m pip install -r requirements.txt
 ```bash
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT]
-                [--tor] [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
+                [--tor] [--unique-tor] [--csv] [--site SITE_NAME] [--search SEARCH] [--proxy PROXY_URL]
                 [--json JSON_FILE] [--timeout TIMEOUT] [--print-found] [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
