@@ -1404,6 +1404,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Slashdot": {
+    "errorMsg": "user you requested does not exist",
+    "errorType": "message",
+    "url": "https://slashdot.org/~{}",
+    "urlMain": "https://slashdot.org",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "SlideShare": {
     "errorType": "status_code",
     "url": "https://slideshare.net/{}",
