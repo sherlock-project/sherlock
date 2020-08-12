@@ -232,7 +232,7 @@ def sherlock(username, site_data, query_notify,
                 # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
-            if (net_info["errorType"] == 'status_code' and 
+            if (net_info["errorType"] == 'status_code' and
                 net_info.get("request_head_only", True) == True):
                 #In most cases when we are detecting by status code,
                 #it is not necessary to get the entire body:  we can
@@ -420,6 +420,21 @@ def timeout_check(value):
         raise ArgumentTypeError(f"Timeout '{value}' must be greater than 0.0s.")
     return timeout
 
+def get_specified_sites(sites_all, sites_desired, matcher, error_message):
+    site_data = {}
+    site_missing = []
+    for site in sites_desired:
+        counter = 0
+        for existing_site in sites_all:
+            if matcher(site, existing_site):  #check if user's desired site matches iterated sites from file
+                site_data[existing_site] = sites_all[existing_site]
+                counter += 1
+        if counter == 0:
+            # Build up list of sites not supported for future error message.
+            site_missing.append(f"'{site}'")
+    if site_missing:
+        print(f"Error: {error_message}: {', '.join(site_missing)}.")
+    return site_data
 
 def main():
 
@@ -458,6 +473,10 @@ def main():
                         action="append", metavar='SITE_NAME',
                         dest="site_list", default=None,
                         help="Limit analysis to just the listed sites. Add multiple options to specify more than one site."
+                        )
+    parser.add_argument("--search", metavar="SEARCH",
+                        action="append", dest="search", default=None,
+                        help="Limit analysis to just the sites that contains the specified text"
                         )
     parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
                         action="store", dest="proxy", default=None,
@@ -504,7 +523,7 @@ def main():
         if remote_version != local_version:
             print("Update Available!\n" +
                   f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
-    
+
     except Exception as error:
         print(f"A problem occured while checking for an update: {error}")
 
@@ -547,27 +566,31 @@ def main():
     for site in sites:
         site_data_all[site.name] = site.information
 
-    if args.site_list is None:
+    site_data = {}
+
+    if args.site_list or args.search:
+
+        # desired to select by site name
+        if args.site_list:
+            result = get_specified_sites(site_data_all, args.site_list,
+                                        lambda specified_site, site: specified_site.lower() == site.lower(),
+                                        "Desired sites not found")
+            site_data.update(result)
+
+        # desired to search by site name
+        if args.search:
+            result = get_specified_sites(site_data_all, args.search,
+                                        lambda specified_site, site: specified_site.lower() in site.lower(),
+                                        "Desired queries not found")
+            site_data.update(result)
+    else:
         # Not desired to look at a sub-set of sites
         site_data = site_data_all
-    else:
-        # User desires to selectively run queries on a sub-set of the site list.
 
-        # Make sure that the sites are supported & build up pruned site database.
-        site_data = {}
-        site_missing = []
-        for site in args.site_list:
-            for existing_site in site_data_all:
-                if site.lower() == existing_site.lower():
-                    site_data[existing_site] = site_data_all[existing_site]
-            if not site_data:
-                # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
 
-        if site_missing:
-            print(
-                f"Error: Desired sites not found: {', '.join(site_missing)}.")
-            sys.exit(1)
+
+    if not site_data:
+        sys.exit(1)
 
     #Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
