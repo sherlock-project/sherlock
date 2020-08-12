@@ -429,9 +429,11 @@ def get_specified_sites(sites_all, sites_desired, matcher, error_message):
             if matcher(site, existing_site):  #check if user's desired site matches iterated sites from file
                 site_data[existing_site] = sites_all[existing_site]
                 counter += 1
+
         if counter == 0:
             # Build up list of sites not supported for future error message.
             site_missing.append(f"'{site}'")
+
     if site_missing:
         print(f"Error: {error_message}: {', '.join(site_missing)}.")
     return site_data
@@ -573,14 +575,14 @@ def main():
         # desired to select by site name
         if args.site_list:
             result = get_specified_sites(site_data_all, args.site_list,
-                                        lambda specified_site, site: specified_site.lower() == site.lower(),
+                                        lambda specified_site, site: specified_site.lower() == site.lower(), # checks if user's site IS EXACTLY as the site from file
                                         "Desired sites not found")
             site_data.update(result)
 
         # desired to search by site name
         if args.search:
             result = get_specified_sites(site_data_all, args.search,
-                                        lambda specified_site, site: specified_site.lower() in site.lower(),
+                                        lambda specified_site, site: specified_site.lower() in site.lower(), # checks if user's site MATCHES the site from file
                                         "Desired queries not found")
             site_data.update(result)
     else:
