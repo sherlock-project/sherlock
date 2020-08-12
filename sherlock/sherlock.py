@@ -478,8 +478,8 @@ def main():
                         action="store_true", dest="print_found_only", default=False,
                         help="Do not output sites where the username was not found."
                         )
-    parser.add_argument("--print-terminal-only",
-                        action="store_true", dest="print_terminal_only", default=False,
+    parser.add_argument("--no-output",
+                        action="store_true", dest="no_output", default=False,
                         help="Do not output results to a text file."
                         )
     parser.add_argument("--no-color",
@@ -518,8 +518,8 @@ def main():
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
-    if args.print_terminal_only and (args.folderoutput or args.output is not None):
-        raise Exception("Print terminal only and output file(s) cannot be set at the same time.")
+    if args.no_output and ((args.folderoutput or args.output is not None) or args.csv==True):
+        raise Exception("No output and output file(s) cannot be set at the same time.")
 
     # Make prompts
     if args.proxy is not None:
@@ -593,7 +593,8 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            timeout=args.timeout)
-        if args.print_terminal_only == False:
+                           
+        if args.no_output == False:
             if args.output:
                 result_file = args.output
             elif args.folderoutput:

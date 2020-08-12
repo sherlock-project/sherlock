@@ -92,7 +92,7 @@ optional arguments:
                         60.0s.A longer timeout will be more likely to get results from slow
                         sites.On the other hand, this may cause a long delay to gather all results.
   --print-found         Do not output sites where the username was not found.
-  --print-terminal-only Do not output results to a text file.
+  --no-output           Do not output results to a text file.
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
 ```
