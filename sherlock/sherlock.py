@@ -478,7 +478,7 @@ def main():
                         )
     parser.add_argument("--search", metavar="SEARCH",
                         action="append", dest="search", default=None,
-                        help="Limit analysis to just the sites that contains the specified text"
+                        help="Limit analysis to just the sites that contains the specified text. Add multiple options to specify more than one query."
                         )
     parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
                         action="store", dest="proxy", default=None,

@@ -84,6 +84,8 @@ optional arguments:
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to specify
                         more than one site.
+  --search SEARCH       Limit analysis to just the sites that contains the specified text. 
+                        Add multiple options to specify more than one query.
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g. socks5://127.0.0.1:1080
   --json JSON_FILE, -j JSON_FILE
