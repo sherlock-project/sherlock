@@ -971,10 +971,24 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Munzee": {
+    "errorType": "status_code",
+    "url": "https://www.munzee.com/m/{}",
+    "urlMain": "https://www.munzee.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
     "urlMain": "https://myanimelist.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "MyMiniFactory": {
+    "errorType": "status_code",
+    "url": "https://www.myminifactory.com/users/{}",
+    "urlMain": "https://www.myminifactory.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1387,6 +1401,14 @@
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.slack.com",
     "urlMain": "https://slack.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Slashdot": {
+    "errorMsg": "user you requested does not exist",
+    "errorType": "message",
+    "url": "https://slashdot.org/~{}",
+    "urlMain": "https://slashdot.org",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
