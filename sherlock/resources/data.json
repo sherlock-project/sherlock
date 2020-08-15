@@ -121,6 +121,7 @@
   },
   "Audiojungle": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]+$",
     "url": "https://audiojungle.net/user/{}",
     "urlMain": "https://audiojungle.net/",
     "username_claimed": "blue",
