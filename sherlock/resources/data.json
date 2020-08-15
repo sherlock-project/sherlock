@@ -137,6 +137,7 @@
   },
   "BLIP.fm": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
     "url": "https://blip.fm/{}",
     "urlMain": "https://blip.fm/",
     "username_claimed": "blue",
