@@ -182,6 +182,7 @@
   },
   "BitBucket": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9-_]{1,30}$",
     "url": "https://bitbucket.org/{}/",
     "urlMain": "https://bitbucket.org/",
     "username_claimed": "white",
