@@ -37,7 +37,7 @@
 
 **NOTE**: Python 3.6 or higher is required.
 
-```bash
+```console
 # clone the repo
 $ git clone https://github.com/sherlock-project/sherlock.git
 
@@ -54,7 +54,7 @@ $ python3 -m pip install -r requirements.txt
 
 ## Usage
 
-```bash
+```console
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT]
                 [--tor] [--unique-tor] [--csv] [--site SITE_NAME] [--proxy PROXY_URL]
