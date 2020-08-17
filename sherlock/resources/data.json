@@ -1048,6 +1048,13 @@
     "username_claimed": "the_west_pacific",
     "username_unclaimed": "noonewould"
   },
+  "Naver": {
+    "errorType": "status_code",
+    "url": "https://blog.naver.com/{}",
+    "urlMain": "https://naver.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould"
+  },
   "Newgrounds": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
