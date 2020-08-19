@@ -604,7 +604,7 @@ def main():
                 if dictionary.get("status").status == QueryStatus.CLAIMED:
                     exists_counter += 1
                     file.write(dictionary["url_user"] + "\n")
-            file.write(f"Total Websites Username Detected On : {exists_counter}")
+            file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
             with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
