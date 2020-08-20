@@ -492,7 +492,7 @@ def main():
                         help="Browse to all results on default browser.")
     
     parser.add_argument("--local", "-l",
-                        action='store_true', default=None,
+                        action="store_true", default=None,
                         help="Forces the use of the local data.json file.")
 
     args = parser.parse_args()
