@@ -180,6 +180,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "BinarySearch": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
+    "url":"https://binarysearch.io/api/users/{}/profile",
+    "urlMain": "https://binarysearch.io/",
+    "username_claimed": "Eyes_Wide_Shut",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "BitBucket": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9-_]{1,30}$",
