@@ -794,3 +794,149 @@ As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## 500px
+
+As of 2020-08-24, 500px now returns false positives, which was found when running the tests, but will most likley be added again in the near
+future once we find a better error detecting method.
+```
+  "500px": {
+    "errorMsg": "Oops! This page doesn\u2019t exist.",
+    "errorType": "message",
+    "regexCheck": "^[a-z0-9_]+$",
+    "url": "https://500px.com/{}",
+    "urlMain": "https://500px.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## PayPal
+
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
+future once we find a better error detecting method.
+```
+  "PayPal": {
+    "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
+    "errorType": "message",
+    "url": "https://www.paypal.com/paypalme/{}",
+    "headers": {
+      "User-Agent": ""
+    },
+    "urlMain": "https://www.paypal.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername7"
+  },
+```
+
+## Fiverr
+
+As of 2020-08-24, Fiverr now returns false positives, which was found when running the tests, but will most likley be added again in the near
+future once we find a better error detecting method.
+```
+  "Fiverr": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.fiverr.com/",
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## ImageShack
+
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+```
+  "ImageShack": {
+    "errorType": "response_url",
+    "errorUrl": "https://imageshack.us/",
+    "url": "https://imageshack.us/user/{}",
+    "urlMain": "https://imageshack.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Aptoide
+
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
+future once we find a better error detecting method.
+```
+  "Aptoide": {
+    "errorType": "status_code",
+    "url": "https://{}.en.aptoide.com/",
+    "urlMain": "https://en.aptoide.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Crunchyroll
+
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+
+```
+  "Crunchyroll": {
+    "errorType": "status_code",
+    "url": "https://www.crunchyroll.com/user/{}",
+    "urlMain": "https://www.crunchyroll.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## T-MobileSupport
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+
+```
+  "T-MobileSupport": {
+    "errorType": "status_code",
+    "url": "https://support.t-mobile.com/people/{}",
+    "urlMain": "https://support.t-mobile.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## OpenCollective
+
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+
+```
+  "OpenCollective": {
+    "errorType": "status_code",
+    "url": "https://opencollective.com/{}",
+    "urlMain": "https://opencollective.com/",
+    "username_claimed": "sindresorhus",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## SegmentFault
+
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+
+```
+  "SegmentFault": {
+    "errorType": "status_code",
+    "url": "https://segmentfault.com/u/{}",
+    "urlMain": "https://segmentfault.com/",
+    "username_claimed": "bule",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Viadeo
+
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+
+```
+  "Viadeo": {
+    "errorType": "status_code",
+    "url": "http://fr.viadeo.com/en/profile/{}",
+    "urlMain": "http://fr.viadeo.com/en/",
+    "username_claimed": "franck.patissier",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```

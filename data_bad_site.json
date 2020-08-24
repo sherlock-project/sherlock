@@ -396,6 +396,84 @@
     "urlMain": "https://yandex.ru/collections/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "500px": {
+    "errorMsg": "Oops! This page doesn\u2019t exist.",
+    "errorType": "message",
+    "regexCheck": "^[a-z0-9_]+$",
+    "url": "https://500px.com/{}",
+    "urlMain": "https://500px.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "PayPal": {
+    "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
+    "errorType": "message",
+    "url": "https://www.paypal.com/paypalme/{}",
+    "headers": {
+      "User-Agent": ""
+    },
+    "urlMain": "https://www.paypal.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername7"
+  },
+  "Fiverr": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.fiverr.com/",
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "ImageShack": {
+    "errorType": "response_url",
+    "errorUrl": "https://imageshack.us/",
+    "url": "https://imageshack.us/user/{}",
+    "urlMain": "https://imageshack.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Aptoide": {
+    "errorType": "status_code",
+    "url": "https://{}.en.aptoide.com/",
+    "urlMain": "https://en.aptoide.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Crunchyroll": {
+    "errorType": "status_code",
+    "url": "https://www.crunchyroll.com/user/{}",
+    "urlMain": "https://www.crunchyroll.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "T-MobileSupport": {
+    "errorType": "status_code",
+    "url": "https://support.t-mobile.com/people/{}",
+    "urlMain": "https://support.t-mobile.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "OpenCollective": {
+    "errorType": "status_code",
+    "url": "https://opencollective.com/{}",
+    "urlMain": "https://opencollective.com/",
+    "username_claimed": "sindresorhus",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "SegmentFault": {
+    "errorType": "status_code",
+    "url": "https://segmentfault.com/u/{}",
+    "urlMain": "https://segmentfault.com/",
+    "username_claimed": "bule",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Viadeo": {
+    "errorType": "status_code",
+    "url": "http://fr.viadeo.com/en/profile/{}",
+    "urlMain": "http://fr.viadeo.com/en/",
+    "username_claimed": "franck.patissier",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
 
