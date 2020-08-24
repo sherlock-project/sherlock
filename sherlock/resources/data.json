@@ -527,10 +527,12 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Facebook": {
-    "errorType": "status_code",
+    "errorMsg": "This page isn't available",
+    "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
     "url": "https://www.facebook.com/{}",
     "urlMain": "https://www.facebook.com/",
+    "urlProbe": "https://www.facebook.com/{}/videos/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
