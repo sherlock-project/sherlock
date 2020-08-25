@@ -929,7 +929,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
 
 ```
   "Viadeo": {
