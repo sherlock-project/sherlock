@@ -123,7 +123,6 @@ This can be detected, but it requires a different detection method.
 
 As of 2020-02-23, all usernames are reported as not existing.
 
-Why was this ever added?  It does not look like a social network.
 
 ```
   "Basecamp": {
