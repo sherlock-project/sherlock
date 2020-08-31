@@ -3,7 +3,7 @@
   <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
 
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/theyahya/sherlock/blob/master/sites.md">social networks</a></span>
+  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">social networks</a></span>
   <br>
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
@@ -15,15 +15,13 @@
 </p>
 
 <p align="center">
-  <a href="#demo">Demo</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installation">Installation</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#usage">Usage</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#docker-notes">Docker Notes</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#adding-new-sites">Adding New Sites</a>
+  <a href="#contributing">Contributing</a>
 </p>
 
 <p align="center">
@@ -35,16 +33,12 @@
 
 ## Installation
 
-**NOTE**: Python 3.6 or higher is required.
-
 ```console
 # clone the repo
 $ git clone https://github.com/sherlock-project/sherlock.git
 
 # change the working directory to sherlock
 $ cd sherlock
-
-# install python3 and python3-pip if they are not installed
 
 # install the requirements
 $ python3 -m pip install -r requirements.txt
@@ -153,13 +147,16 @@ You can use the `docker-compose.yml` file from the repository and use this comma
 docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
-## Adding New Sites
+## Contributing
+We would love to have you help us on the development of Sherlock. Each and every contribution is greatly valued!
 
-Please look at the Wiki entry on
-[adding new sites](https://github.com/TheYahya/sherlock/wiki/Adding-Sites-To-Sherlock)
+Here are some things we would appriciate your help on:
+- Addition of new site support ¹
+- Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
+
+
+[1] Please look at the Wiki entry on [adding new sites](https://github.com/sherlock-project/sherlock/wiki/Adding-Sites-To-Sherlock)
 to understand the issues.
-
-**NOTE**: Sherlock is not accepting adult sites in the standard list.
 
 ## Tests
 
