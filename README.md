@@ -55,7 +55,7 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--ou
                 [--json JSON_FILE] [--timeout TIMEOUT] [--print-found] [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.12.3)
+Sherlock: Find Usernames Across Social Networks (Version 0.12.7)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -88,6 +88,7 @@ optional arguments:
   --print-found         Do not output sites where the username was not found.
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
+  --local, -l           Force the use of the local data.json file.
 ```
 
 To search for only one user:
