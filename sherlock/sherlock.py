@@ -29,6 +29,7 @@ __version__ = "0.12.6"
 
 
 
+
 class SherlockFuturesSession(FuturesSession):
     def request(self, method, url, hooks={}, *args, **kwargs):
         """Request URL.
@@ -490,6 +491,10 @@ def main():
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
                         help="Browse to all results on default browser.")
+    
+    parser.add_argument("--local", "-l",
+                        action="store_true", default=False,
+                        help="Force the use of the local data.json file.")
 
     args = parser.parse_args()
 
@@ -535,7 +540,10 @@ def main():
 
     #Create object with all information about sites we are aware of.
     try:
-        sites = SitesInformation(args.json_file)
+        if args.local:
+            sites = SitesInformation(os.path.join(os.path.dirname(__file__), 'resources/data.json'))
+        else:
+            sites = SitesInformation(args.json_file)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
