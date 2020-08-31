@@ -314,7 +314,8 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Clozemaster": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "Oh no! Player not found.",
     "url": "https://www.clozemaster.com/players/{}",
     "urlMain": "https://www.clozemaster.com",
     "username_claimed": "green",
