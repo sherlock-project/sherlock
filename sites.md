@@ -1,4 +1,4 @@
-## List Of Supported Sites (304 Sites In Total!)
+## List Of Supported Sites (305 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 2. [3dnews](http://forum.3dnews.ru/)
 3. [4pda](https://4pda.ru/)
