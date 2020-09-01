@@ -13,7 +13,7 @@
   <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
   <a target="_blank" href="https://microbadger.com/images/theyahya/sherlock"><img alt="docker image" src="https://images.microbadger.com/badges/version/theyahya/sherlock.svg"></a>
 </p>
-
+[![Run on Repl.it](https://repl.it/badge/github/sherlock-project/sherlock)](https://repl.it/github/sherlock-project/sherlock)
 <p align="center">
   <a href="#installation">Installation</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
