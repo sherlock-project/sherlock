@@ -1949,7 +1949,7 @@
   },
   "geocaching": {
     "errorType": "status_code",
-    "url": "https://www.geocaching.com/profile/?u={}",
+    "url": "https://www.geocaching.com/p/default.aspx?u={}",
     "urlMain": "https://www.geocaching.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
