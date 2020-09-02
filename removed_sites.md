@@ -939,3 +939,18 @@ As of 2020-08-24, Viadeo now returns false positives, which was found when runni
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+## MeetMe
+
+As of 2020-09-02, MeetMe returns false positives
+
+```
+  "MeetMe": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.meetme.com/",
+    "url": "https://www.meetme.com/{}",
+    "urlMain": "https://www.meetme.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

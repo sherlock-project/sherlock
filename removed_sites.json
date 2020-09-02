@@ -474,6 +474,14 @@
     "urlMain": "http://fr.viadeo.com/en/",
     "username_claimed": "franck.patissier",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "MeetMe": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.meetme.com/",
+    "url": "https://www.meetme.com/{}",
+    "urlMain": "https://www.meetme.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
 
