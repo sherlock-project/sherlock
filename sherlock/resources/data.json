@@ -1500,6 +1500,7 @@
   },
   "Taringa": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*$",
     "url": "https://www.taringa.net/{}",
     "urlMain": "https://taringa.net/",
     "username_claimed": "blue",
