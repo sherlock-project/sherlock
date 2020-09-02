@@ -939,17 +939,3 @@ As of 2020-08-24, Viadeo now returns false positives, which was found when runni
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
-
-## 4pda
-As of 2020-09-01, it returns false positves for some users. Could be a IP block.
-
-```
-  "4pda": {
-    "errorMsg": "\u041a \u0441\u043e\u0436\u0430\u043b\u0435\u043d\u0438\u044e, \u0412\u0430\u0448 \u043f\u043e\u0438\u0441\u043a \u043d\u0435 \u0434\u0430\u043b \u043d\u0438\u043a\u0430\u043a\u0438\u0445 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u043e\u0432.",
-    "errorType": "message",
-    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
-    "urlMain": "https://4pda.ru/",
-    "username_claimed": "green",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
