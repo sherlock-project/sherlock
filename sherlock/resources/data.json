@@ -14,6 +14,15 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "4pda": {
+    "errorMsg": "[1,false,0]",
+    "errorType": "message",
+    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
+    "urlMain": "https://4pda.ru/",
+    "urlProbe": " https://4pda.ru/forum/index.php?act=auth&action=chkname&login={}",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
@@ -160,9 +169,9 @@
     "errorMsg": "{}",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
-    "url":"https://binarysearch.io/@/{}",
-    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
+    "url": "https://binarysearch.io/@/{}",
     "urlMain": "https://binarysearch.io/",
+    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
     "username_claimed": "Eyes_Wide_Shut",
     "username_unclaimed": "hihowareyou101"
   },
@@ -306,8 +315,8 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Clozemaster": {
-    "errorType": "message",
     "errorMsg": "Oh no! Player not found.",
+    "errorType": "message",
     "url": "https://www.clozemaster.com/players/{}",
     "urlMain": "https://www.clozemaster.com",
     "username_claimed": "green",
@@ -482,8 +491,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
-    "errorType": "message",
     "errorMsg": "<title>Not Found (404) | EyeEm</title>",
+    "errorType": "message",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue",
@@ -649,8 +658,8 @@
   },
   "Gravatar": {
     "errorType": "status_code",
-    "url": "http://en.gravatar.com/{}",
     "regexCheck": "^((?!\\.).)*$",
+    "url": "http://en.gravatar.com/{}",
     "urlMain": "http://en.gravatar.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
@@ -677,18 +686,18 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Hackaday": {
-    "errorType": "status_code",
-    "url": "https://hackaday.io/{}",
-    "urlMain": "https://hackaday.io/",
-    "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "HackTheBox": {
     "errorType": "status_code",
     "url": "https://forum.hackthebox.eu/profile/{}",
     "urlMain": "https://forum.hackthebox.eu/",
     "username_claimed": "angar",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Hackaday": {
+    "errorType": "status_code",
+    "url": "https://hackaday.io/{}",
+    "urlMain": "https://hackaday.io/",
+    "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
   "HackerNews": {
@@ -1112,8 +1121,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pastebin": {
-    "errorType": "message",
     "errorMsg": "Not Found (#404)",
+    "errorType": "message",
     "url": "https://pastebin.com/u/{}",
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue",
@@ -1162,8 +1171,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pling": {
-    "errorType": "message",
     "errorMsg": "Resource not found",
+    "errorType": "message",
     "url": "https://www.pling.com/u/{}/",
     "urlMain": "https://www.pling.com/",
     "username_claimed": "blue",
@@ -2240,15 +2249,6 @@
     "url": "http://uid.me/{}",
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "4pda": {
-    "errorMsg": "[1,false,0]",
-    "errorType": "message",
-    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
-    "urlProbe": " https://4pda.ru/forum/index.php?act=auth&action=chkname&login={}",
-    "urlMain": "https://4pda.ru/",
-    "username_claimed": "green",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
