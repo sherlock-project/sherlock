@@ -46,6 +46,7 @@
   },
   "Academia.edu": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*$",
     "url": "https://independent.academia.edu/{}",
     "urlMain": "https://www.academia.edu/",
     "username_claimed": "blue",
@@ -1548,6 +1549,7 @@
   },
   "Trakt": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*$",
     "url": "https://www.trakt.tv/users/{}",
     "urlMain": "https://www.trakt.tv/",
     "username_claimed": "blue",
