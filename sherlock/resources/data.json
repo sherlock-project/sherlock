@@ -887,6 +887,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Linkedin": {
+    "errorMsg": "could not be found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com/",
+    "username_claimed": "alex",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "LiveJournal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -2251,15 +2260,6 @@
     "url": "http://uid.me/{}",
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Linkedin": {
-    "errorMsg": "could not be found",
-    "errorType": "message",
-    "rank": 0,
-    "url":  "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
