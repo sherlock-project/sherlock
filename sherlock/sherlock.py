@@ -475,10 +475,6 @@ def main():
                              "A longer timeout will be more likely to get results from slow sites."
                              "On the other hand, this may cause a long delay to gather all results."
                         )
-    parser.add_argument("--print-found",
-                        action="store_true", dest="print_found_only", default=False,
-                        help="Do not output sites where the username was not found."
-                        )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -583,13 +579,10 @@ def main():
     #Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_found_only=args.print_found_only,
                                     color=not args.no_color)
 
     # Run report on all specified users.
     for username in args.username:
-        print()
-
         results = sherlock(username,
                            site_data,
                            query_notify,
@@ -642,6 +635,7 @@ def main():
                                      response_time_s
                                      ]
                                     )
+        print()
 
 
 if __name__ == "__main__":
