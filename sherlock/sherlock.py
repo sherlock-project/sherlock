@@ -25,7 +25,7 @@ from notify import QueryNotifyPrint
 from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.12.7"
+__version__ = "0.12.8"
 
 
 
@@ -475,6 +475,10 @@ def main():
                              "A longer timeout will be more likely to get results from slow sites."
                              "On the other hand, this may cause a long delay to gather all results."
                         )
+    parser.add_argument("--print-all",
+                        action="store_true", dest="print_all", default=False,
+                        help="Output sites where the username was not found."
+                        )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -495,7 +499,6 @@ def main():
     args = parser.parse_args()
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
-
     try:
         r = requests.get("https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
 
@@ -579,6 +582,7 @@ def main():
     #Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
+                                    print_all=args.print_all,
                                     color=not args.no_color)
 
     # Run report on all specified users.
