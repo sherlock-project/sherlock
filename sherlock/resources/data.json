@@ -1026,7 +1026,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Linkedin": {
-    "errorMsg": "This profile is not available",
+    "errorMsg": "could not be found",
     "errorType": "message",
     "rank": 0,
     "url":  "https://www.linkedin.com/in/{}",
