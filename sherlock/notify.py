@@ -193,7 +193,9 @@ class QueryNotifyPrint(QueryNotify):
                        Fore.WHITE + "]" +
                        response_time_text +
                        Fore.GREEN +
-                       f" {self.result.site_name}: {self.result.site_url_user}"))
+                       f" {self.result.site_name}: " +
+                       Style.RESET_ALL +
+                       f"{self.result.site_url_user}"))
             else:
                 print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
         elif result.status == QueryStatus.AVAILABLE:
@@ -218,7 +220,7 @@ class QueryNotifyPrint(QueryNotify):
             else:
                 print(f"[-] {self.result.site_name}: {self.result.context} ")
         elif result.status == QueryStatus.ILLEGAL:
-            if self.print_found_only == False:
+            if not self.print_found_only:
                 msg = "Illegal Username Format For This Site!"
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
