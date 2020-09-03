@@ -115,9 +115,7 @@ class SitesInformation():
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
-            raise FileNotFoundError(f"Incorrect JSON file extension for "
-                                    f"data file '{data_file_path}'."
-                                   )
+            raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
 
         if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
             # Reference is to a URL.

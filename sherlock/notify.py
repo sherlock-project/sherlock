@@ -110,8 +110,7 @@ class QueryNotifyPrint(QueryNotify):
 
     Query notify class that prints results.
     """
-    def __init__(self, result=None, verbose=False, print_found_only=False,
-                 color=True):
+    def __init__(self, result=None, verbose=False, color=True):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -122,7 +121,6 @@ class QueryNotifyPrint(QueryNotify):
         result                 -- Object of type QueryResult() containing
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
-        print_found_only       -- Boolean indicating whether to only print found sites.
         color                  -- Boolean indicating whether to color terminal output
 
         Return Value:
@@ -134,7 +132,6 @@ class QueryNotifyPrint(QueryNotify):
 
         super().__init__(result)
         self.verbose = verbose
-        self.print_found_only = print_found_only
         self.color = color
 
         return
@@ -185,7 +182,7 @@ class QueryNotifyPrint(QueryNotify):
         else:
             response_time_text = f" [{round(self.result.query_time * 1000)} ms]"
 
-        #Output to the terminal is desired.
+        # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             if self.color:
                 print((Style.BRIGHT + Fore.WHITE + "[" +
@@ -198,29 +195,33 @@ class QueryNotifyPrint(QueryNotify):
                        f"{self.result.site_url_user}"))
             else:
                 print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
+
         elif result.status == QueryStatus.AVAILABLE:
-            if not self.print_found_only:
+            if self.verbose:
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
-                           Fore.RED + "-" +
-                           Fore.WHITE + "]" +
-                           response_time_text +
-                           Fore.GREEN + f" {self.result.site_name}:" +
-                           Fore.YELLOW + " Not Found!"))
+                        Fore.RED + "-" +
+                        Fore.WHITE + "]" +
+                        response_time_text +
+                        Fore.GREEN + f" {self.result.site_name}:" +
+                        Fore.YELLOW + " Not Found!"))
                 else:
                     print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
+
         elif result.status == QueryStatus.UNKNOWN:
-            if self.color:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + f" ")
-            else:
-                print(f"[-] {self.result.site_name}: {self.result.context} ")
+            if self.verbose:
+                if self.color:
+                    print(Style.BRIGHT + Fore.WHITE + "[" +
+                          Fore.RED + "-" +
+                          Fore.WHITE + "]" +
+                          Fore.GREEN + f" {self.result.site_name}:" +
+                          Fore.RED + f" {self.result.context}" +
+                          Fore.YELLOW + f" ")
+                else:
+                    print(f"[-] {self.result.site_name}: {self.result.context} ")
+
         elif result.status == QueryStatus.ILLEGAL:
-            if not self.print_found_only:
+            if self.verbose:
                 msg = "Illegal Username Format For This Site!"
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
@@ -230,8 +231,9 @@ class QueryNotifyPrint(QueryNotify):
                            Fore.YELLOW + f" {msg}"))
                 else:
                     print(f"[-] {self.result.site_name} {msg}")
+
         else:
-            #It should be impossible to ever get here...
+            # It should be impossible to ever get here...
             raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
                              f"site '{self.result.site_name}'")
 
