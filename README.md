@@ -56,7 +56,7 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--ou
                 [--json JSON_FILE] [--timeout TIMEOUT] [--no-color] [--browse]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.12.7)
+Sherlock: Find Usernames Across Social Networks (Version 0.12.8)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -86,6 +86,7 @@ optional arguments:
   --timeout TIMEOUT     Time (in seconds) to wait for response to requests. Default timeout of
                         60.0s.A longer timeout will be more likely to get results from slow
                         sites.On the other hand, this may cause a long delay to gather all results.
+  --print-all           Output sites where the username was not found.
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
