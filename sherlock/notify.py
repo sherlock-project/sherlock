@@ -110,7 +110,7 @@ class QueryNotifyPrint(QueryNotify):
 
     Query notify class that prints results.
     """
-    def __init__(self, result=None, verbose=False, color=True):
+    def __init__(self, result=None, verbose=False, color=True, print_all=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -121,6 +121,7 @@ class QueryNotifyPrint(QueryNotify):
         result                 -- Object of type QueryResult() containing
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
+        print_all              -- Boolean indicating whether to only print all sites, including not found.
         color                  -- Boolean indicating whether to color terminal output
 
         Return Value:
@@ -132,6 +133,7 @@ class QueryNotifyPrint(QueryNotify):
 
         super().__init__(result)
         self.verbose = verbose
+        self.print_all = print_all
         self.color = color
 
         return
@@ -197,7 +199,7 @@ class QueryNotifyPrint(QueryNotify):
                 print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
 
         elif result.status == QueryStatus.AVAILABLE:
-            if self.verbose:
+            if self.print_all:
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
                         Fore.RED + "-" +
@@ -209,7 +211,7 @@ class QueryNotifyPrint(QueryNotify):
                     print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
 
         elif result.status == QueryStatus.UNKNOWN:
-            if self.verbose:
+            if self.print_all:
                 if self.color:
                     print(Style.BRIGHT + Fore.WHITE + "[" +
                           Fore.RED + "-" +
@@ -221,7 +223,7 @@ class QueryNotifyPrint(QueryNotify):
                     print(f"[-] {self.result.site_name}: {self.result.context} ")
 
         elif result.status == QueryStatus.ILLEGAL:
-            if self.verbose:
+            if self.print_all:
                 msg = "Illegal Username Format For This Site!"
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
