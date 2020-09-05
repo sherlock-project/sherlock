@@ -837,8 +837,8 @@
     "errorMsg": "The page you requested was not found",
     "errorType": "message",
     "url": "https://kik.me/{}",
-    "urlProbe": "https://ws2.kik.com/user/{}",
     "urlMain": "http://kik.me/",
+    "urlProbe": "https://ws2.kik.com/user/{}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -2193,8 +2193,8 @@
   "pr0gramm": {
     "errorType": "status_code",
     "url": "https://pr0gramm.com/user/{}",
-    "urlProbe": "https://pr0gramm.com/api/profile/info?name={}",
     "urlMain": "https://pr0gramm.com/",
+    "urlProbe": "https://pr0gramm.com/api/profile/info?name={}",
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
   },
