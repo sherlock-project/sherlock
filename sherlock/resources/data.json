@@ -2192,7 +2192,8 @@
   },
   "pr0gramm": {
     "errorType": "status_code",
-    "url": "https://pr0gramm.com/api/profile/info?name={}",
+    "url": "https://pr0gramm.com/user/{}",
+    "urlProbe": "https://pr0gramm.com/api/profile/info?name={}",
     "urlMain": "https://pr0gramm.com/",
     "username_claimed": "cha0s",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
