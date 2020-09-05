@@ -836,7 +836,8 @@
   "Kik": {
     "errorMsg": "The page you requested was not found",
     "errorType": "message",
-    "url": "https://ws2.kik.com/user/{}",
+    "url": "https://kik.me/{}",
+    "urlProbe": "https://ws2.kik.com/user/{}",
     "urlMain": "http://kik.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
