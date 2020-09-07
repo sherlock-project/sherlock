@@ -1226,7 +1226,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "ProductHunt": {
-    "errorMsg": "Product Hunt is a curation of the best new products",
+    "errorMsg": "Page Not Found",
     "errorType": "message",
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
