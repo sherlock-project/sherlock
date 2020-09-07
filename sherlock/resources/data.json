@@ -1319,6 +1319,7 @@
   },
   "RubyGems": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]{1,40}",
     "url": "https://rubygems.org/profiles/{}",
     "urlMain": "https://rubygems.org/",
     "username_claimed": "blue",
