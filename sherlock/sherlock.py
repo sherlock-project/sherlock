@@ -471,10 +471,10 @@ def main():
                         action="store", metavar='TIMEOUT',
                         dest="timeout", type=timeout_check, default=None,
                         help="Time (in seconds) to wait for response to requests. "
-                             "Default timeout of 60.0s."
-                             "A longer timeout will be more likely to get results from slow sites."
+                             "Default timeout is infinity. "
+                             "A longer timeout will be more likely to get results from slow sites. "
                              "On the other hand, this may cause a long delay to gather all results."
-                        )
+                       )
     parser.add_argument("--print-all",
                         action="store_true", dest="print_all",
                         help="Output sites where the username was not found."
