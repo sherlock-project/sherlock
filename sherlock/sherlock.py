@@ -233,7 +233,7 @@ def sherlock(username, site_data, query_notify,
                 # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
-            if (net_info["errorType"] == 'status_code' and 
+            if (net_info["errorType"] == 'status_code' and
                 net_info.get("request_head_only", True) == True):
                 #In most cases when we are detecting by status code,
                 #it is not necessary to get the entire body:  we can
@@ -476,9 +476,13 @@ def main():
                              "On the other hand, this may cause a long delay to gather all results."
                         )
     parser.add_argument("--print-all",
-                        action="store_true", dest="print_all", default=False,
+                        action="store_true", dest="print_all",
                         help="Output sites where the username was not found."
-                        )
+                       )
+    parser.add_argument("--print-found",
+                        action="store_false", dest="print_all", default=False,
+                        help="Output sites where the username was found."
+                       )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -491,7 +495,7 @@ def main():
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
                         help="Browse to all results on default browser.")
-    
+
     parser.add_argument("--local", "-l",
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
@@ -508,7 +512,7 @@ def main():
         if remote_version != local_version:
             print("Update Available!\n" +
                   f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
-    
+
     except Exception as error:
         print(f"A problem occured while checking for an update: {error}")
 
