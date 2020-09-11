@@ -1240,6 +1240,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "PyPi": {
+    "errorType": "status_code",
+    "url": "https://pypi.org/user/{}",
+    "urlMain": "https://pypi.org",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Quora": {
     "errorType": "response_url",
     "errorUrl": "https://www.quora.com/profile/{}",
