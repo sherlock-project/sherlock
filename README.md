@@ -160,7 +160,7 @@ docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ## Contributing
 We would love to have you help us on the development of Sherlock. Each and every contribution is greatly valued!
 
-Here are some things we would appriciate your help on:
+Here are some things we would appreciate your help on:
 - Addition of new site support ¹
 - Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
 
