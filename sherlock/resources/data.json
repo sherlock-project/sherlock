@@ -1542,6 +1542,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Tinder": {
     "errorMsg": "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>",
     "errorType": "message",
