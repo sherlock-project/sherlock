@@ -954,3 +954,19 @@ As of 2020-09-02, MeetMe returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Linkdedin
+
+As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
+
+```
+  "Linkedin": {
+    "errorMsg": "could not be found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com/",
+    "username_claimed": "alex",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
