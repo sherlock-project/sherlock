@@ -970,3 +970,17 @@ As of 2020-09-23, Linkedin returns false positives because we are prompted with 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## tracr.co
+As of 2020-09-03, tracr.co returns false positives because the site seems to be shut down.
+```
+  "tracr.co": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{2,32}$",
+    "url": "https://tracr.co/users/1/{}",
+    "urlMain": "https://tracr.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
