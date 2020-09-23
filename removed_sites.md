@@ -954,3 +954,48 @@ As of 2020-09-02, MeetMe returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Linkdedin
+
+As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
+
+```
+  "Linkedin": {
+    "errorMsg": "could not be found",
+    "errorType": "message",
+    "rank": 0,
+    "url": "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com/",
+    "username_claimed": "alex",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## tracr.co
+As of 2020-09-23, tracr.co returns false positives because the site seems to be shut down.
+```
+  "tracr.co": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{2,32}$",
+    "url": "https://tracr.co/users/1/{}",
+    "urlMain": "https://tracr.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Taringa
+
+As of 2020-09-23, Taringa returns false positives.
+
+```
+  "Taringa": {
+    "errorType": "status_code",
+    "regexCheck": "^[^.]*$",
+    "url": "https://www.taringa.net/{}",
+    "urlMain": "https://taringa.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
