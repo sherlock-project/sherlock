@@ -972,7 +972,7 @@ As of 2020-09-23, Linkedin returns false positives because we are prompted with 
 ```
 
 ## tracr.co
-As of 2020-09-03, tracr.co returns false positives because the site seems to be shut down.
+As of 2020-09-23, tracr.co returns false positives because the site seems to be shut down.
 ```
   "tracr.co": {
     "errorMsg": "No search results",
@@ -983,4 +983,19 @@ As of 2020-09-03, tracr.co returns false positives because the site seems to be 
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+```
+
+## Taringa
+
+As of 2020-09-23, Taringa returns false positives.
+
+```
+  "Taringa": {
+    "errorType": "status_code",
+    "regexCheck": "^[^.]*$",
+    "url": "https://www.taringa.net/{}",
+    "urlMain": "https://taringa.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 ```
