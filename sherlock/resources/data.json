@@ -575,6 +575,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Foursquare": {
+    "errorType": "status_code",
+    "url": "https://foursquare.com/{}",
+    "urlMain": "https://foursquare.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Freelance.habr": {
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
