@@ -778,7 +778,7 @@
     "url": "https://www.imgur.com/user/{}",
     "urlMain": "https://www.imgur.com",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Instagram": {
     "errorType": "status_code",
