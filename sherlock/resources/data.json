@@ -774,7 +774,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Imgur": {
-    "errorType": "No search results",
+    "errorType": "No results",
     "url": "https://www.imgur.com/user/{}",
     "urlMain": "https://www.imgur.com",
     "username_claimed": "blue",
