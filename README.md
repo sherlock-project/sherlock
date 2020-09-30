@@ -140,7 +140,7 @@ Use the following command to access the saved results:
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` option tells docker to create (or use) the folder `results` in the
+The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
 present working directory and to mount it at `/opt/sherlock/results` on the docker container.
 The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
@@ -158,7 +158,7 @@ docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
 ## Contributing
-We would love to have you help us on the development of Sherlock. Each and every contribution is greatly valued!
+We would love to have you help us with the development of Sherlock. Each and every contribution is greatly valued!
 
 Here are some things we would appreciate your help on:
 - Addition of new site support ¹
