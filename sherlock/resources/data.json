@@ -702,11 +702,11 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "HackerEarth": {
-  	"errorType": "status_code",
-  	"url": "https://www.hackerearth.com/@{}",
-  	"urlMain": "https://www.hackerearth.com/",
-  	"username_claimed": "jason",
-  	"username_unclaimed": "noonewouldeverusethis"
+    "errorType": "status_code",
+    "url": "https://www.hackerearth.com/@{}",
+    "urlMain": "https://www.hackerearth.com/",
+    "username_claimed": "jason",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "HackerNews": {
     "errorMsg": "No such user.",
