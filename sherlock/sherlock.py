@@ -499,6 +499,29 @@ def main():
     parser.add_argument("--local", "-l",
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
+    #search_features:
+    parser.add_argument("--use-standart-prefixes",
+                        action="store_true", default=False,
+                        help="when searching, a set of standard prefixes is used, the search time is greatly increased")
+    parser.add_argument("--use-custom-prefixes",
+                        action="store_true", default=False,
+                        help="when searching, a set of custom prefixes form custom_prefixes.txt is used, the search time is greatly increased")
+    parser.add_argument("--use-standart-suffixes",
+                        action="store_true", default=False,
+                        help="when searching, a set of suffixes prefixes is used, the search time is greatly increased")
+    parser.add_argument("--use-custom-suffixes",
+                        action="store_true", default=False,
+                        help="when searching, a set of custom suffixes form custom_suffixes.txt is used, the search time is greatly increased")
+    parser.add_argument("--target-year-range",
+                        action="store", default='0-0',
+                        help="year will be used wherever possible. Using like: --target-age-range 1999-2001")
+    parser.add_argument("--use-year-suffixes",
+                        action="store_true", default=False,
+                        help="the list of suffixes includes postscripts like 98 and 1998. Used in conjunction with --target-age-range. Mangles search time")
+    parser.add_argument("--use-numeric-suffixes",
+                        action="store", default=False,
+                        help="the list of suffixes includes numeric suffixes from the range. Using like: --use-numeric-suffixes 0-22. Mangles search time")
+    
 
     args = parser.parse_args()
 
@@ -515,6 +538,27 @@ def main():
 
     except Exception as error:
         print(f"A problem occured while checking for an update: {error}")
+
+    prefs,suffs=set(['']),set([''])
+    if args.use_standart_prefixes:
+        with open('resources/standart-prefixes.txt','rb') as f:
+            prefs.update(str(f.read())[2:-1].split('\\n'))
+    if args.use_custom_prefixes:
+        with open('resources/custom-prefixes.txt','rb') as f:
+            prefs.update(str(f.read())[2:-1].split('\\n'))
+    if args.use_standart_suffixes:
+        with open('resources/standart-suffixes.txt','rb') as f:
+            suffs.update(str(f.read())[2:-1].split('\\n'))
+    if args.use_custom_suffixes:
+        with open('resources/custom-suffixes.txt','rb') as f:
+            suffs.update(str(f.read())[2:-1].split('\\n'))
+    if args.use_year_suffixes:
+        l,r=map(int,args.target_year_range.split('-'))
+        suffs.update(list(map(str,range(l,r+1))))
+        suffs.update(list(map(lambda x: str(x)[2:],range(l,r+1))))
+    if args.use_numeric_suffixes:
+        l,r=map(int,args.use_numeric_suffixes.split('-'))
+        suffs.update(list(map(str,range(l,r+1))))
 
 
     # Argument check
@@ -590,7 +634,14 @@ def main():
                                     color=not args.no_color)
 
     # Run report on all specified users.
+    usernames=set()
     for username in args.username:
+        for pref in prefs:
+            for suff in suffs:
+                usernames.add(pref+username+suff)
+
+    
+    for username in usernames:
         results = sherlock(username,
                            site_data,
                            query_notify,
