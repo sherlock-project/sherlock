@@ -559,9 +559,6 @@ def main():
     if args.use_numeric_suffixes:
         l,r=map(int,args.use_numeric_suffixes.split('-'))
         suffs.update(list(map(str,range(l,r+1))))
-    print('prefix list:',prefs)
-    print('suffix list:',suffs)
-    
 
 
     # Argument check
