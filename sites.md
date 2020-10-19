@@ -1,4 +1,4 @@
-## List Of Supported Sites (297 Sites In Total!)
+## List Of Supported Sites (298 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 2. [3dnews](http://forum.3dnews.ru/)
 3. [4pda](https://4pda.ru/)
@@ -98,6 +98,7 @@
 97. [Houzz](https://houzz.com/)
 98. [HubPages](https://hubpages.com/)
 99. [Hubski](https://hubski.com/)
+    [ICQ](https://icq.com/)
 100. [IFTTT](https://www.ifttt.com/)
 101. [ImgUp.cz](https://imgup.cz/)
 102. [Instagram](https://www.instagram.com/)
