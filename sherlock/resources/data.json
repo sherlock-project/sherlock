@@ -1246,6 +1246,13 @@
     "username_claimed": "Matt-Riggsby",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Quizlet": {
+    "errorType": "Page Unavailable",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Rajce.net": {
     "errorType": "status_code",
     "url": "https://{}.rajce.idnes.cz/",
