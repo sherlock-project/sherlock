@@ -1644,6 +1644,13 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Vero": {
+    "errorType": "status_code",
+    "url": "https://vero.co/{}",
+    "urlMain": "https://vero.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Vimeo": {
     "errorType": "status_code",
     "url": "https://vimeo.com/{}",
