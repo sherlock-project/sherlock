@@ -155,6 +155,13 @@
     "username_claimed": "alex",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "NPM-Package": {
+    "errorType": "status_code",
+    "url": "https://www.npmjs.com/package/{}",
+    "urlMain": "https://www.npmjs.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Pexels": {
     "errorType": "status_code",
     "rank": 745,
