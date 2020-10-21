@@ -983,3 +983,57 @@ As of 2020-09-23, Taringa returns false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Photobucket
+As of 2020-10-21, Photobucket return false positives. This was reported in #785.
+```
+  "Photobucket": {
+    "errorType": "status_code",
+    "url": "https://photobucket.com/user/{}/library",
+    "urlMain": "https://photobucket.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## 4PDA
+As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
+
+```
+  "4pda": {
+    "errorMsg": "[1,false,0]",
+    "errorType": "message",
+    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
+    "urlMain": "https://4pda.ru/",
+    "urlProbe": " https://4pda.ru/forum/index.php?act=auth&action=chkname&login={}",
+    "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## CashMe
+As of 2020-10-21, CashMe returns false positives. This was reported in #777.
+```
+  "CashMe": {
+    "errorType": "status_code",
+    "url": "https://cash.me/${}",
+    "urlMain": "https://cash.me/",
+    "username_claimed": "Jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## PokerStrategy
+As of 2020-10-21, PokerStrategy returns false positives. This was reported in #776.
+```
+  "PokerStrategy": {
+    "errorType": "status_code",
+    "url": "http://www.pokerstrategy.net/user/{}/profile/",
+    "urlMain": "http://www.pokerstrategy.net",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Instagram
+As of 2020-10-21, Instagram return false positives. This was reported in #764
