@@ -14,15 +14,6 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "4pda": {
-    "errorMsg": "[1,false,0]",
-    "errorType": "message",
-    "url": "https://4pda.ru/forum/index.php?act=search&source=pst&noform=1&username={}",
-    "urlMain": "https://4pda.ru/",
-    "urlProbe": " https://4pda.ru/forum/index.php?act=auth&action=chkname&login={}",
-    "username_claimed": "green",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
@@ -260,13 +251,6 @@
     "url": "https://career.habr.com/{}",
     "urlMain": "https://career.habr.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "CashMe": {
-    "errorType": "status_code",
-    "url": "https://cash.me/${}",
-    "urlMain": "https://cash.me/",
-    "username_claimed": "Jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Cent": {
@@ -773,14 +757,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Instagram": {
-    "errorType": "status_code",
-    "request_head_only": false,
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Instructables": {
     "errorMsg": "404: We're sorry, things break sometimes",
     "errorType": "message",
@@ -1130,13 +1106,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Photobucket": {
-    "errorType": "status_code",
-    "url": "https://photobucket.com/user/{}/library",
-    "urlMain": "https://photobucket.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Pinkbike": {
     "errorType": "status_code",
     "url": "https://www.pinkbike.com/u/{}/",
@@ -1177,13 +1146,6 @@
     "errorType": "status_code",
     "url": "https://pokemonshowdown.com/users/{}",
     "urlMain": "https://pokemonshowdown.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "PokerStrategy": {
-    "errorType": "status_code",
-    "url": "http://www.pokerstrategy.net/user/{}/profile/",
-    "urlMain": "http://www.pokerstrategy.net",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1659,6 +1621,13 @@
     "urlMain": "https://venmo.com/",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Vero": {
+    "errorType": "status_code",
+    "url": "https://vero.co/{}",
+    "urlMain": "https://vero.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Vimeo": {
     "errorType": "status_code",
