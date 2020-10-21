@@ -166,6 +166,18 @@ As of 2020-01-21, all usernames are reported as not existing.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+## NPM-Packages
+
+NPM-Packages aren't users.
+```
+  "NPM-Package": {
+    "errorType": "status_code",
+    "url": "https://www.npmjs.com/package/{}",
+    "urlMain": "https://www.npmjs.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
 
 ## Pexels
 
