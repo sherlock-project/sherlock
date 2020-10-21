@@ -253,14 +253,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "CashMe": {
-    "errorMsg": "ss\"",
-    "errorType": "message",
-    "url": "https://cash.me/${}",
-    "urlMain": "https://cash.me/",
-    "username_claimed": "Jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Cent": {
     "errorMsg": "<title>Cent</title>",
     "errorType": "message",
