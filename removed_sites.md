@@ -1011,18 +1011,6 @@ As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
   },
 ```
 
-## CashMe
-As of 2020-10-21, CashMe returns false positives. This was reported in #777.
-```
-  "CashMe": {
-    "errorType": "status_code",
-    "url": "https://cash.me/${}",
-    "urlMain": "https://cash.me/",
-    "username_claimed": "Jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## PokerStrategy
 As of 2020-10-21, PokerStrategy returns false positives. This was reported in #776.
 ```

@@ -508,13 +508,6 @@
     "username_claimed": "green",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "CashMe": {
-    "errorType": "status_code",
-    "url": "https://cash.me/${}",
-    "urlMain": "https://cash.me/",
-    "username_claimed": "Jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "PokerStrategy": {
     "errorType": "status_code",
     "url": "http://www.pokerstrategy.net/user/{}/profile/",
