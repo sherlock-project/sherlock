@@ -1039,3 +1039,13 @@ As of 2020-10-21, PokerStrategy returns false positives. This was reported in #7
 
 ## Instagram
 As of 2020-10-21, Instagram return false positives. This was reported in #764
+```
+  "Instagram": {
+    "errorType": "status_code",
+    "request_head_only": false,
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
