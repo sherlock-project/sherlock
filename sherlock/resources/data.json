@@ -715,11 +715,11 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "HackerNews": {
-    "errorMsg": "No such user.",
-    "errorType": "message",
+    "errorType": "status_code",
+    "request_head_only": false,
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
-    "username_claimed": "blue",
+    "username_claimed": "Impossible",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "HackerOne": {
