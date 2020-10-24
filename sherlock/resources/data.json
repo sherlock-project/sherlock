@@ -58,6 +58,20 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Allegro": {
+    "errorType": "status_code",
+    "url": "https://allegro.pl/uzytkownik/{}",
+    "urlMain": "https://allegro.pl/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Anime-Planet": {
+    "errorType": "response_url",
+    "url": "https://www.anime-planet.com/users/{}",
+    "urlMain": "https://www.anime-planet.com/",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Anobii": {
     "errorType": "response_url",
     "url": "https://www.anobii.com/{}/profile",
@@ -221,6 +235,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "xgtrq"
   },
+  "CDA": {
+    "errorType": "status_code",
+    "request_head_only": false,
+    "url": "https://www.cda.pl/{}",
+    "urlMain": "https://www.cda.pl/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "CNET": {
     "errorType": "status_code",
     "url": "https://www.cnet.com/profiles/{}/",
@@ -282,6 +304,13 @@
     "errorType": "message",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Chomikuj.pl": {
+    "errorType": "status_code",
+    "url": "https://chomikuj.pl/{}",
+    "urlMain": "https://chomikuj.pl/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -476,8 +505,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
-    "errorMsg": "<title>Not Found (404) | EyeEm</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue",
@@ -514,11 +542,12 @@
     "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Filmogs": {
-    "errorType": "status_code",
-    "url": "https://www.filmo.gs/users/{}",
-    "urlMain": "https://www.filmo.gs/",
-    "username_claimed": "cupparober",
+  "Filmweb": {
+    "errorMsg": "location.href='/404'",
+    "errorType": "message",
+    "url": "https://www.filmweb.pl/user/{}",
+    "urlMain": "https://www.filmweb.pl/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Flickr": {
@@ -787,6 +816,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Joe Monster.org": {
+    "errorMsg": "Mo\u017ce by\u0142, mo\u017ce nie by\u0142, mo\u017ce b\u0119dzie",
+    "errorType": "message",
+    "url": "https://joemonster.org/bojownik/{}",
+    "urlMain": "https://joemonster.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Kaggle": {
     "errorType": "status_code",
     "url": "https://www.kaggle.com/{}",
@@ -1035,7 +1072,7 @@
     "errorType": "status_code",
     "url": "https://community.oracle.com/people/{}",
     "urlMain": "https://community.oracle.com",
-    "username_claimed": "blue",
+    "username_claimed": "dev",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Otzovik": {
@@ -1231,8 +1268,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Repl.it": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://repl.it/@{}",
     "urlMain": "https://repl.it/",
     "username_claimed": "blue",
@@ -1624,6 +1660,7 @@
   },
   "Vero": {
     "errorType": "status_code",
+    "request_head_only": false,
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
     "username_claimed": "blue",
@@ -1733,6 +1770,13 @@
     "errorUrl": "https://wordpress.org",
     "url": "https://profiles.wordpress.org/{}/",
     "urlMain": "https://wordpress.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Wykop.pl": {
+    "errorType": "status_code",
+    "url": "https://www.wykop.pl/ludzie/{}/",
+    "urlMain": "https://www.wykop.pl/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },

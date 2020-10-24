@@ -31,7 +31,8 @@ class SherlockBaseTest(unittest.TestCase):
         warnings.simplefilter("ignore", ResourceWarning)
 
         #Create object with all information about sites we are aware of.
-        sites = SitesInformation()
+        local_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "resources/data.json")
+        sites = SitesInformation(local_sites_path)
 
         #Create original dictionary from SitesInformation() object.
         #Eventually, the rest of the code will be updated to use the new object
