@@ -779,6 +779,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "jbzd.com.p": {
+    "errorType": "status_code",
+    "url": "https://jbzd.com.pl/uzytkownik/{}",
+    "urlMain": "https://jbzd.com.pl/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Jimdo": {
     "errorType": "status_code",
     "noPeriod": "True",
