@@ -596,6 +596,22 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "GateOverflow": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url": "https://gateoverflow.in/user/{}",
+    "urlMain": "https://gateoverflow.in/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "GeeksForGeeks": {
+    "errorType": "response_url",
+    "errorUrl": "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php",
+    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "urlMain": "https://www.geeksforgeeks.org/",
+    "username_claimed": "sherlock",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "GetMyUni": {
     "errorType": "status_code",
     "url": "https://www.getmyuni.com/user/{}",
@@ -708,6 +724,13 @@
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Hackerearth": {
+    "errorType": "status_code",
+    "url": "https://www.hackerearth.com/@{}",
+    "urlMain": "https://www.hackerearth.com/",
+    "username_claimed": "sherlock",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
