@@ -715,11 +715,11 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "HackerNews": {
-    "errorType": "status_code",
-    "request_head_only": false,
+    "errorMsg": "No such user",
+    "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
-    "username_claimed": "Impossible",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "HackerOne": {
@@ -1682,9 +1682,10 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "VirusTotal": {
-    "errorMsg": "not found",
-    "errorType": "message",
-    "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
+    "errorType": "status_code",
+    "url": "https://www.virustotal.com/gui/user/{}",
+    "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
+    "request_head_only": false,
     "urlMain": "https://www.virustotal.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
