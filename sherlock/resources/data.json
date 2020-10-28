@@ -1024,6 +1024,14 @@
     "username_claimed": "green",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "NitroType": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.nitrotype.com/",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "NotABug.org": {
     "errorType": "status_code",
     "url": "https://notabug.org/{}",
