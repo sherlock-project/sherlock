@@ -1099,6 +1099,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PayPal": {
+    "errorType": "status_code",
+    "url": "https://www.paypal.com/paypalme/{}",
+    "urlMain": "https://www.paypal.com/",
+    "username_claimed": "sins0113",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Periscope": {
     "errorType": "status_code",
     "url": "https://www.periscope.tv/{}/",
