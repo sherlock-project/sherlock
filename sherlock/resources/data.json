@@ -288,7 +288,7 @@
   "ChessKid": {
     "errorMsg": "",
     "errorType": "message",
-    "url": "https://chesskid.com/user/{}/profile"
+    "url": "https://chesskid.com/user/{}/profile",
     "urlMain": "https://chesskid.com",
     "username_claimed": "AiryCleanCarrot",
     "username_unclaimed": "blue",
