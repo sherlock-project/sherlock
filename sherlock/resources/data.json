@@ -285,6 +285,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ChessKid": {
+    "errorMsg": "",
+    "errorType": "message",
+    "url": "https://chesskid.com/user/{}/profile"
+    "urlMain": "https://chesskid.com",
+    "username_claimed": "AiryCleanCarrot",
+    "username_unclaimed": "blue",
+  },
   "Cloob": {
     "errorType": "status_code",
     "url": "https://www.cloob.com/name/{}",
