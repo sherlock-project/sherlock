@@ -757,6 +757,14 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Instagram": {
+    "errorType": "content_regex",
+    "errorRegex": "<title>[\\r\\n]*Instagram[\\r\\n]*<\\/title>",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Instructables": {
     "errorMsg": "404: We're sorry, things break sometimes",
     "errorType": "message",

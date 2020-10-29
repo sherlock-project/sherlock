@@ -354,6 +354,21 @@ def sherlock(username, site_data, query_notify,
                                      url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
+        elif error_type == "content_regex":
+            error_regex = net_info['errorRegex']
+
+            if error_regex and re.search(error_regex, r.text) is None:
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.CLAIMED,
+                                     query_time=response_time)
+            else:
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
+                                     query_time=response_time)
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
