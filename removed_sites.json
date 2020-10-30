@@ -372,14 +372,14 @@
     "username_claimed": "deepigoyal",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "mixer.com": { 
-    "errorType": "status_code", 
-    "rank": 1544, 
-    "url": "https://mixer.com/{}", 
-    "urlMain": "https://mixer.com/", 
-    "urlProbe": "https://mixer.com/api/v1/channels/{}", 
-    "username_claimed": "blue", 
-    "username_unclaimed": "noonewouldeverusethis7" 
+  "mixer.com": {
+    "errorType": "status_code",
+    "rank": 1544,
+    "url": "https://mixer.com/{}",
+    "urlMain": "https://mixer.com/",
+    "urlProbe": "https://mixer.com/api/v1/channels/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "KanoWorld": {
     "errorType": "status_code",
@@ -521,14 +521,6 @@
     "urlMain": "http://www.pokerstrategy.net",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Instagram": {
-    "errorType": "status_code",
-    "request_head_only": false,
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
+  }
 }
 
