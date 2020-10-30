@@ -61,24 +61,6 @@ required login before access.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
-## ColourLovers
-
-As of 2020-05-24, all usernames are reported as claimed.
-
-There is an API available (https://www.colourlovers.com/api/), but when
-there is no match it returns an empty file.  So, changes would have to
-happen before the lack of a response could be used to detect.
-
-```
-  "ColourLovers": {
-    "errorType": "status_code",
-    "rank": 21271,
-    "url": "https://www.colourlovers.com/lover/{}",
-    "urlMain": "https://www.colourlovers.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
 
 ## AdobeForums
 
@@ -295,7 +277,11 @@ HTTP Status.
 
 ## Foursquare
 
-Usernames that exist are not detected.
+When usage of automated tool is detected. Whole IP is banned from future requests.
+There is an error message:
+
+> Please verify you are a human
+> Access to this page has been denied because we believe you are using automation tools to browse the website.
 
 ```
   "Foursquare": {
@@ -350,37 +336,6 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
     "rank": 5767,
     "url": "https://angel.co/u/{}",
     "urlMain": "https://angel.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## Codepen
-
-Usernames that exist are not detected.
-
-```
-  "Codepen": {
-    "errorType": "status_code",
-    "rank": 1359,
-    "url": "https://codepen.io/{}",
-    "urlMain": "https://codepen.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## Imgur
-
-Looks like they made some changes to the site.  Sherlock says that all
-usernames are available.
-
-```
-  "Imgur": {
-    "errorType": "status_code",
-    "rank": 74,
-    "url": "https://imgur.com/user/{}",
-    "urlMain": "https://imgur.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },

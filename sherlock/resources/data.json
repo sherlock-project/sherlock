@@ -351,11 +351,25 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codepen": {
+    "errorType": "status_code",
+    "url": "https://codepen.io/{}",
+    "urlMain": "https://codepen.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "ColourLovers": {
+    "errorType": "status_code",
+    "url": "https://www.colourlovers.com/lover/{}",
+    "urlMain": "https://www.colourlovers.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Contently": {
@@ -785,6 +799,14 @@
     "urlMain": "https://imgup.cz/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Imgur": {
+    "errorType": "status_code",
+    "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
+    "url": "https://imgur.com/user/{}",
+    "urlMain": "https://imgur.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instructables": {
     "errorMsg": "404: We're sorry, things break sometimes",
@@ -2166,11 +2188,11 @@
   "opennet": {
     "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
     "errorType": "message",
-    "regexCheck": "^[^_]*$",
+    "regexCheck": "^[^-]*$",
     "url": "https://www.opennet.ru/~{}",
     "urlMain": "https://www.opennet.ru/",
-    "username_claimed": "anonismus",
-    "username_unclaimed": "noneownsthisusername"
+    "username_claimed": ["anonismus", "RenamedUser_875743914"],
+    "username_unclaimed": ["noneownsthisusername", "SoulU4o-eUI7n"]
   },
   "osu!": {
     "errorType": "status_code",

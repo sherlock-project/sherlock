@@ -48,22 +48,7 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Codepen": {
-    "errorType": "status_code",
-    "rank": 1359,
-    "url": "https://codepen.io/{}",
-    "urlMain": "https://codepen.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "ColourLovers": {
-    "errorType": "status_code",
-    "rank": 21271,
-    "url": "https://www.colourlovers.com/lover/{}",
-    "urlMain": "https://www.colourlovers.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
+
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
@@ -110,14 +95,6 @@
     "rank": 2013984,
     "url": "https://gpodder.net/user/{}",
     "urlMain": "https://gpodder.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Imgur": {
-    "errorType": "status_code",
-    "rank": 74,
-    "url": "https://imgur.com/user/{}",
-    "urlMain": "https://imgur.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -529,6 +506,6 @@
     "urlMain": "https://www.instagram.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
+  }
 }
 
