@@ -2208,6 +2208,13 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "uid": {
+    "errorType": "status_code",
+    "url": "http://uid.me/{}",
+    "urlMain": "https://uid.me/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
   "TensorFlow": {
     "errorType": "status_code",
     "url": "https://www.tensorflow.org/",
