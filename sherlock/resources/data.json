@@ -2208,11 +2208,53 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "uid": {
+  "TensorFlow": {
     "errorType": "status_code",
-    "url": "http://uid.me/{}",
-    "urlMain": "https://uid.me/",
+    "url": "https://www.tensorflow.org/",
+    "urlMain": "https://www.tensorflow.org/,,
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "Team-BHP": {
+    "errorType": "status_code",
+    "url": "https://www.team-bhp.com/",
+    "urlMain": "https://www.team-bhp.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "ceph": {
+    "errorType": "status_code",
+    "url": "https://ceph.io/discover/",
+    "urlMain": "https://ceph.io/discover/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "GSOC": {
+    "errorType": "status_code",
+    "url": "https://summerofcode.withgoogle.com/archive/",
+    "urlMain": "https://summerofcode.withgoogle.com/archive/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "Blockchain": {
+    "errorType": "status_code",
+    "url": "https://www.blockchain.com/",
+    "urlMain": "https://www.blockchain.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "IBM": {
+    "errorType": "status_code",
+    "url": "https://www.ibm.com/in-en",
+    "urlMain": "https://www.ibm.com/in-en",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
+  },
+  "NVIDIA": {
+    "errorType": "status_code",
+    "url": "https://developer.nvidia.com/cuda-zone",
+    "urlMain": "https://developer.nvidia.com/cuda-zone",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveethis7"
   }
 }
