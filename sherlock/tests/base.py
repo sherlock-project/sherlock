@@ -11,6 +11,7 @@ from result import QueryResult
 from notify import QueryNotify
 from sites  import SitesInformation
 import warnings
+from collections import defaultdict
 
 
 class SherlockBaseTest(unittest.TestCase):
@@ -89,7 +90,7 @@ class SherlockBaseTest(unittest.TestCase):
 
         Keyword Arguments:
         self                   -- This object.
-        username_list          -- List of strings corresponding to usernames
+        username_list          -- Single or List of strings corresponding to usernames
                                   which should exist on *all* of the sites.
         site_list              -- List of strings corresponding to sites which
                                   should be filtered.
@@ -108,10 +109,13 @@ class SherlockBaseTest(unittest.TestCase):
 
         if exist_check:
             check_type_text = "claimed"
-            exist_result_desired = QueryStatus.CLAIMED
+            exist_result_desired = (QueryStatus.CLAIMED, )
         else:
             check_type_text = "available"
-            exist_result_desired = QueryStatus.AVAILABLE
+            exist_result_desired = (QueryStatus.AVAILABLE, QueryStatus.ILLEGAL)
+
+        if isinstance(username_list, str):
+            username_list = [username_list]
 
         for username in username_list:
             results = sherlock.sherlock(username,
@@ -135,10 +139,8 @@ class SherlockBaseTest(unittest.TestCase):
                                       f"Site returned error status."
                                      )
 
-                    self.assertEqual(exist_result_desired,
-                                     result['status'].status)
+                    self.assertIn(result['status'].status, exist_result_desired)
 
-        return
 
     def detect_type_check(self, detect_type, exist_check=True):
         """Username Exist Check.
@@ -164,7 +166,7 @@ class SherlockBaseTest(unittest.TestCase):
 
         #Dictionary of sites that should be tested for having a username.
         #This will allow us to test sites with a common username in parallel.
-        sites_by_username = {}
+        sites_by_username = defaultdict(list)
 
         for site, site_data in self.site_data_all.items():
             if (
@@ -182,20 +184,21 @@ class SherlockBaseTest(unittest.TestCase):
 
                 # Figure out which type of user
                 if exist_check:
-                     username = site_data.get("username_claimed")
+                     usernames = site_data.get("username_claimed")
                 else:
-                     username = site_data.get("username_unclaimed")
+                     usernames = site_data.get("username_unclaimed")
 
                 # Add this site to the list of sites corresponding to this
                 # username.
-                if username in sites_by_username:
+                if isinstance(usernames, str):
+                    usernames = [usernames]
+
+                for username in usernames:
                     sites_by_username[username].append(site)
-                else:
-                    sites_by_username[username] = [site]
 
         # Check on the username availability against all of the sites.
         for username, site_list in sites_by_username.items():
-            self.username_check([username],
+            self.username_check(username,
                                 site_list,
                                 exist_check=exist_check
                                )

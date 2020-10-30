@@ -27,7 +27,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("message", site_data["errorType"])
 
-        self.username_check([site_data["username_claimed"]],
+        self.username_check(site_data["username_claimed"],
                             [site],
                             exist_check=True
                            )
@@ -54,7 +54,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("message", site_data["errorType"])
 
-        self.username_check([site_data["username_unclaimed"]],
+        self.username_check(site_data["username_unclaimed"],
                             [site],
                             exist_check=False
                            )
@@ -81,7 +81,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("status_code", site_data["errorType"])
 
-        self.username_check([site_data["username_claimed"]],
+        self.username_check(site_data["username_claimed"],
                             [site],
                             exist_check=True
                            )
@@ -108,7 +108,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("status_code", site_data["errorType"])
 
-        self.username_check([site_data["username_unclaimed"]],
+        self.username_check(site_data["username_unclaimed"],
                             [site],
                             exist_check=False
                            )
@@ -135,7 +135,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("response_url", site_data["errorType"])
 
-        self.username_check([site_data["username_claimed"]],
+        self.username_check(site_data["username_claimed"],
                             [site],
                             exist_check=True
                            )
@@ -162,7 +162,7 @@ class SherlockDetectTests(SherlockBaseTest):
         #Ensure that the site's detection method has not changed.
         self.assertEqual("response_url", site_data["errorType"])
 
-        self.username_check([site_data["username_unclaimed"]],
+        self.username_check(site_data["username_unclaimed"],
                             [site],
                             exist_check=False
                            )
