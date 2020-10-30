@@ -764,19 +764,7 @@
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-    "headers": {
-      "authority": "www.instagram.com",
-      "pragma": "no-cache",
-      "cache-control": "no-cache",
-      "upgrade-insecure-requests": "1",
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-      "sec-fetch-site": "same-origin",
-      "sec-fetch-mode": "navigate",
-      "sec-fetch-user": "?1",
-      "sec-fetch-dest": "document",
-      "accept-language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7"
-    }
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instructables": {
     "errorMsg": "404: We're sorry, things break sometimes",
