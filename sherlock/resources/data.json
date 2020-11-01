@@ -560,6 +560,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Freelance.habr": {
+    "regexCheck": "^((?!\\.).)*$",
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
     "url": "https://freelance.habr.com/freelancers/{}",
