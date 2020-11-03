@@ -22,10 +22,7 @@ if __name__ == "__main__":
 
     python_version = str(sys.version_info[0])+"."+str(sys.version_info[1])+"."+str(sys.version_info[2])
 
-    if major != 3:
-        print("Sherlock requires Python 3.6+\nYou are using Python %s, which is not supported by Sherlock" % (python_version))
-        sys.exit(1)
-    if minor < 6:
+    if major != 3 or major == 3 and minor < 6:
         print("Sherlock requires Python 3.6+\nYou are using Python %s, which is not supported by Sherlock" % (python_version))
         sys.exit(1)
 
