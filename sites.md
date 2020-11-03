@@ -1,4 +1,4 @@
-## List Of Supported Sites (297 Sites In Total!)
+## List Of Supported Sites (298 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 2. [3dnews](http://forum.3dnews.ru/)
 3. [7Cups](https://www.7cups.com/)
@@ -296,3 +296,4 @@
 295. [svidbook](https://www.svidbook.ru/)
 296. [toster](https://www.toster.ru/)
 297. [uid](https://uid.me/)
+298. [YourQuotes](https://www.yourquote.in/)
