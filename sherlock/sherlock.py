@@ -326,9 +326,27 @@ def sherlock(username, site_data, query_notify,
                                  query_time=response_time,
                                  context=error_text)
         elif error_type == "message":
-            error = net_info.get("errorMsg")
-            # Checks if the error message is in the HTML
-            if not error in r.text:
+            # error_flag True denotes no error found in the HTML
+            # error_flag False denotes error found in the HTML
+            error_flag = True
+            errors=net_info.get("errorMsg")
+            # errors will hold the error message
+            # it can be string or list
+            # by insinstance method we can detect that
+            # and handle the case for strings as normal procedure
+            # and if its list we can iterate the errors
+            if isinstance(errors,str):
+                # Checks if the error message is in the HTML
+                # if error is present we will set flag to False
+                if errors in r.text:
+                    error_flag = False
+            else:
+                # If it's list, it will iterate all the error message
+                for error in errors:
+                    if error in r.text:
+                        error_flag = False
+                        break
+            if error_flag:
                 result = QueryResult(username,
                                      social_network,
                                      url,
