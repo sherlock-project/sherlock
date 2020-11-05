@@ -497,6 +497,13 @@
     "urlMain": "http://www.pokerstrategy.net",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Filmogs": {
+    "errorType": "status_code",
+    "url": "https://www.filmo.gs/users/{}",
+    "urlMain": "https://www.filmo.gs/",
+    "username_claimed": "cupparober",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
 
