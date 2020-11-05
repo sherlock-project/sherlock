@@ -500,6 +500,7 @@
   },
   "Facenama": {
     "errorType": "response_url",
+    "regexCheck": "^[-a-zA-Z0-9_]+$",
     "errorUrl": "https://facenama.com/404.html",
     "url": "https://facenama.com/{}",
     "urlMain": "https://facenama.com/",
