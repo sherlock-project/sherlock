@@ -355,21 +355,6 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
   },
 ```
 
-## Codepen
-
-Usernames that exist are not detected.
-
-```
-  "Codepen": {
-    "errorType": "status_code",
-    "rank": 1359,
-    "url": "https://codepen.io/{}",
-    "urlMain": "https://codepen.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## PowerShell Gallery
 
 Accidentally merged even though the original pull request showed that all
