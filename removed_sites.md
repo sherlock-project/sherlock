@@ -991,3 +991,20 @@ As of 2020-10-21, PokerStrategy returns false positives. This was reported in #7
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Filmogs
+
+Filmogs has closed down.
+
+> **Filmogs is closed**
+> **31-Aug 2020** - We are preparing the last data export and collection of images. It will be published here by 19-Oct 2020. If you have requested an export of your data it will also be emailed to you by 19-Oct 2020.
+
+```
+  "Filmogs": {
+    "errorType": "status_code",
+    "url": "https://www.filmo.gs/users/{}",
+    "urlMain": "https://www.filmo.gs/",
+    "username_claimed": "cupparober",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
