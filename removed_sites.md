@@ -61,24 +61,6 @@ required login before access.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
-## ColourLovers
-
-As of 2020-05-24, all usernames are reported as claimed.
-
-There is an API available (https://www.colourlovers.com/api/), but when
-there is no match it returns an empty file.  So, changes would have to
-happen before the lack of a response could be used to detect.
-
-```
-  "ColourLovers": {
-    "errorType": "status_code",
-    "rank": 21271,
-    "url": "https://www.colourlovers.com/lover/{}",
-    "urlMain": "https://www.colourlovers.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
 
 ## AdobeForums
 
