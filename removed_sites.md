@@ -277,7 +277,11 @@ HTTP Status.
 
 ## Foursquare
 
-Usernames that exist are not detected.
+When usage of automated tool is detected. Whole IP is banned from future requests.
+There is an error message:
+
+> Please verify you are a human
+> Access to this page has been denied because we believe you are using automation tools to browse the website.
 
 ```
   "Foursquare": {
