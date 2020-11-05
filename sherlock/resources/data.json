@@ -476,8 +476,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "EyeEm": {
-    "errorMsg": "<title>Not Found (404) | EyeEm</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue",
