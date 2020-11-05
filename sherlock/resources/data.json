@@ -1676,9 +1676,9 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Wattpad": {
-    "errorMsg": "userError-404",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.wattpad.com/user/{}",
+    "urlProbe": "https://www.wattpad.com/api/v3/users/{}/",
     "urlMain": "https://www.wattpad.com/",
     "username_claimed": "Dogstho7951",
     "username_unclaimed": "noonewouldeverusethis7"
