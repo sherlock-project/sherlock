@@ -1246,8 +1246,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Repl.it": {
-    "errorMsg": "404",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://repl.it/@{}",
     "urlMain": "https://repl.it/",
     "username_claimed": "blue",
