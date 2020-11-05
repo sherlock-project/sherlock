@@ -370,22 +370,6 @@ Usernames that exist are not detected.
   },
 ```
 
-## Imgur
-
-Looks like they made some changes to the site.  Sherlock says that all
-usernames are available.
-
-```
-  "Imgur": {
-    "errorType": "status_code",
-    "rank": 74,
-    "url": "https://imgur.com/user/{}",
-    "urlMain": "https://imgur.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## PowerShell Gallery
 
 Accidentally merged even though the original pull request showed that all

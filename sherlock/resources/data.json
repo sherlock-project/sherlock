@@ -2231,5 +2231,13 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Imgur": {
+    "errorType": "status_code",
+    "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
+    "url": "https://imgur.com/user/{}",
+    "urlMain": "https://imgur.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
