@@ -1660,10 +1660,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "VirusTotal": {
-    "errorMsg": "not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
+    "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
     "urlMain": "https://www.virustotal.com/",
+    "request_head_only": false,
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
