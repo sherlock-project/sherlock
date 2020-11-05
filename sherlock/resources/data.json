@@ -1638,6 +1638,7 @@
   },
   "Vero": {
     "errorType": "status_code",
+    "request_head_only": false,
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
     "username_claimed": "blue",
