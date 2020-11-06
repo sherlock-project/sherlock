@@ -104,6 +104,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Atom Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.atom.io/u/{}/summary",
+    "urlMain": "https://discuss.atom.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
