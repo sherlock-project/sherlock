@@ -58,6 +58,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Apple Discussions": {
+    "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
+    "errorType": "message",
+    "url": "https://discussions.apple.com/profile/{}",
+    "urlMain": "https://discussions.apple.com",
+    "username_claimed": "jason",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Anobii": {
     "errorType": "response_url",
     "url": "https://www.anobii.com/{}/profile",
