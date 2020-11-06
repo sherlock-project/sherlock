@@ -757,6 +757,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ICQ": {
+    "errorMsg": "Profile not found",
+    "errorType": "message",
+    "url": "https://icq.im/{}",
+    "urlMain": "https://icq.com/",
+    "username_claimed": "Micheal",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "IFTTT": {
     "errorMsg": "The requested page or file does not exist",
     "errorType": "message",
