@@ -293,10 +293,6 @@ def sherlock(username, site_data, query_notify,
             # We have already determined the user doesn't exist here
             continue
 
-        url_presentation = url
-        if net_info.get('url_presentation') is not None:
-            url_presentation = net_info.get('url_presentation').format(username)
-
         # Get the expected error type
         error_type = net_info["errorType"]
 
@@ -325,7 +321,7 @@ def sherlock(username, site_data, query_notify,
         if error_text is not None:
             result = QueryResult(username,
                                  social_network,
-                                 url_presentation,
+                                 url,
                                  QueryStatus.UNKNOWN,
                                  query_time=response_time,
                                  context=error_text)
@@ -353,13 +349,13 @@ def sherlock(username, site_data, query_notify,
             if error_flag:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "status_code":
@@ -367,13 +363,13 @@ def sherlock(username, site_data, query_notify,
             if not r.status_code >= 300 or r.status_code < 200:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "response_url":
@@ -385,13 +381,13 @@ def sherlock(username, site_data, query_notify,
             if 200 <= r.status_code < 300:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.CLAIMED,
                                      query_time=response_time)
             else:
                 result = QueryResult(username,
                                      social_network,
-                                     url_presentation,
+                                     url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         else:
