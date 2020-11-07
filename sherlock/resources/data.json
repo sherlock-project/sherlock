@@ -1245,8 +1245,8 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Quora": {
-    "errorMsg": "Page Not Found",
     "errorType": "message",
+    "errorMsg": "Page Not Found",
     "url": "https://www.quora.com/profile/{}",
     "urlMain": "https://www.quora.com/",
     "username_claimed": "Matt-Riggsby",
