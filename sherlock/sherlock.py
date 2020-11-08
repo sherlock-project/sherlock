@@ -16,6 +16,12 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
 import requests
+try:
+    import cloudscraper
+    requests.session = cloudscraper.session
+    requests.Session = cloudscraper.Session
+except:
+    pass
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
