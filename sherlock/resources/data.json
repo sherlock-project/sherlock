@@ -1483,7 +1483,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Steamid": {
-    "errorMsg": "<div class=\"alert alert-warning\">Profile not found</div>",
+    "errorMsg": ["<div class=\"alert alert-warning\">Profile not found</div>", "Server or Network issue"],
     "errorType": "message",
     "url": "https://steamid.uk/profile/{}",
     "urlMain": "https://steamid.uk/",
