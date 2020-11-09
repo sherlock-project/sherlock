@@ -250,6 +250,8 @@ def sherlock(username, site_data, query_notify,
                 # found.  Disallow the redirect so we can capture the
                 # http status from the original URL request.
                 allow_redirects = False
+            elif net_info.get("request_no_follow_redirects", True) == True:
+                allow_redirects = False
             else:
                 # Allow whatever redirect that the site wants to do.
                 # The final result of the request will be what is available.

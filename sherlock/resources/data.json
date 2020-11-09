@@ -536,6 +536,17 @@
     "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Fiverr": {
+    "errorType": "status_code",
+    "request_no_follow_redirects": true,
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "username_claimed": "blue",
+    "headers": {
+      "authority": "fiverr.com"
+    },
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Flickr": {
     "errorType": "status_code",
     "url": "https://www.flickr.com/people/{}",
