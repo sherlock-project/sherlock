@@ -44,7 +44,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Aidungeon.io": {
-    "errorType": "status_code",
+    "errorMsg": "Something went wrong...try logging out and back in again?",
+    "errorType": "message",
     "url": "https://play.aidungeon.io/main/profile?username={}",
     "urlMain": "https://play.aidungeon.io",
     "username_claimed": "adam",
