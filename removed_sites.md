@@ -729,22 +729,6 @@ As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us
   },
 ```
 
-## 500px
-
-As of 2020-08-24, 500px now returns false positives, which was found when running the tests, but will most likley be added again in the near
-future once we find a better error detecting method.
-```
-  "500px": {
-    "errorMsg": "Oops! This page doesn\u2019t exist.",
-    "errorType": "message",
-    "regexCheck": "^[a-z0-9_]+$",
-    "url": "https://500px.com/{}",
-    "urlMain": "https://500px.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## PayPal
 
 As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
