@@ -14,6 +14,15 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "500px": {
+    "errorMsg": "No message available",
+    "errorType": "message",
+    "url": "https://500px.com/p/{}",
+    "urlMain": "https://500px.com/",
+    "urlProbe": "https://api.500px.com/graphql?operationName=ProfileRendererQuery&variables=%7B%22username%22%3A%22{}%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%224d02ff5c13927a3ac73b3eef306490508bc765956940c31051468cf30402a503%22%7D%7D",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
@@ -111,6 +120,14 @@
     "urlMain": "https://ask.fm/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Atom Discussions": {
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.atom.io/u/{}/summary",
+    "urlMain": "https://discuss.atom.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Audiojungle": {
     "errorType": "status_code",
@@ -806,10 +823,10 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instructables": {
-    "errorMsg": "404: We're sorry, things break sometimes",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
     "urlMain": "https://www.instructables.com/",
+    "urlProbe": "https://www.instructables.com/json-api/showAuthorExists?screenName={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1236,9 +1253,17 @@
     "username_claimed": "Blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Quora": {
+  "Quizlet": {
+    "errorMsg": "Page Unavailable",
     "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Quora": {
     "errorMsg": "Page Not Found",
+    "errorType": "message",
     "url": "https://www.quora.com/profile/{}",
     "urlMain": "https://www.quora.com/",
     "username_claimed": "Matt-Riggsby",
