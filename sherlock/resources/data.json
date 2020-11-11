@@ -977,6 +977,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Minecraft Forums": {
+    "errorMsg": "Not found",
+    "errorType": "message",
+    "url": "https://minecraftforum.net/members/{}",
+    "urlMain": "https://minecraftforum.net",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Munzee": {
     "errorType": "status_code",
     "url": "https://www.munzee.com/m/{}",
