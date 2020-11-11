@@ -363,15 +363,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "500px": {
-    "errorMsg": "Oops! This page doesn\u2019t exist.",
-    "errorType": "message",
-    "regexCheck": "^[a-z0-9_]+$",
-    "url": "https://500px.com/{}",
-    "urlMain": "https://500px.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "PayPal": {
     "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
     "errorType": "message",
