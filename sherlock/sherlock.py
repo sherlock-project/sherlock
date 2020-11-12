@@ -235,9 +235,9 @@ def sherlock(username, site_data, query_notify,
 
             request_method_property = net_info.get('request_method', 'GET')
 
-            if (request_method_property == 'POST'):
+            if request_method_property == 'POST':
                 request_method = session.post
-            elif (request_method_property == 'HEAD'):
+            elif request_method_property == 'HEAD':
                 request_method = session.head
             else:
                 request_method = session.get
