@@ -14,15 +14,6 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "500px": {
-    "errorMsg": "No message available",
-    "errorType": "message",
-    "url": "https://500px.com/p/{}",
-    "urlMain": "https://500px.com/",
-    "urlProbe": "https://api.500px.com/graphql?operationName=ProfileRendererQuery&variables=%7B%22username%22%3A%22{}%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%224d02ff5c13927a3ac73b3eef306490508bc765956940c31051468cf30402a503%22%7D%7D",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
@@ -775,7 +766,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "ICQ": {
-    "errorMsg": "Profile not found",
+    "errorMsg": "profileNotFound",
     "errorType": "message",
     "url": "https://icq.im/{}",
     "urlMain": "https://icq.com/",
@@ -1700,7 +1691,6 @@
   },
   "Vero": {
     "errorType": "status_code",
-    "request_head_only": false,
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
     "username_claimed": "blue",
@@ -1723,7 +1713,6 @@
   },
   "VirusTotal": {
     "errorType": "status_code",
-    "request_head_only": false,
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
     "urlMain": "https://www.virustotal.com/",
     "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
