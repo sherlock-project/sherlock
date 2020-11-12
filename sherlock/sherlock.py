@@ -233,16 +233,13 @@ def sherlock(username, site_data, query_notify,
                 # from where the user profile normally can be found.
                 url_probe = url_probe.format(username)
 
-            if (net_info["errorType"] == 'status_code' and
-                net_info.get("request_head_only", True) == True):
-                #In most cases when we are detecting by status code,
-                #it is not necessary to get the entire body:  we can
-                #detect fine with just the HEAD response.
+            request_method_property = net_info.get('request_method', 'GET')
+
+            if (request_method_property == 'POST'):
+                request_method = session.post
+            elif (request_method_property == 'HEAD'):
                 request_method = session.head
             else:
-                #Either this detect method needs the content associated
-                #with the GET response, or this specific website will
-                #not respond properly unless we request the whole page.
                 request_method = session.get
 
             if net_info["errorType"] == "response_url":
