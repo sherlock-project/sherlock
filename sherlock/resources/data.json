@@ -2254,13 +2254,6 @@
     "username_claimed": "Milan",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "spletnik": {
-    "errorType": "status_code",
-    "url": "https://spletnik.ru/user/{}",
-    "urlMain": "https://spletnik.ru/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "svidbook": {
     "errorType": "status_code",
     "url": "https://www.svidbook.ru/user/{}",
