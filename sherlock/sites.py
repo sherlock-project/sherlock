@@ -1,5 +1,4 @@
 """Sherlock Sites Information Module
-
 This module supports storing information about web sites.
 This is the raw data that will be used to search for usernames.
 """
@@ -14,9 +13,7 @@ class SiteInformation():
     def __init__(self, name, url_home, url_username_format, username_claimed,
                  username_unclaimed, information):
         """Create Site Information Object.
-
         Contains information about a specific web site.
-
         Keyword Arguments:
         self                   -- This object.
         name                   -- String which identifies site.
@@ -44,7 +41,6 @@ class SiteInformation():
                                          be needed by the detection method,
                                          but it is only recorded in this
                                          object for future use.
-
         Return Value:
         Nothing.
         """
@@ -61,10 +57,8 @@ class SiteInformation():
 
     def __str__(self):
         """Convert Object To String.
-
         Keyword Arguments:
         self                   -- This object.
-
         Return Value:
         Nicely formatted string to get information about this object.
         """
@@ -75,14 +69,11 @@ class SiteInformation():
 class SitesInformation():
     def __init__(self, data_file_path=None):
         """Create Sites Information Object.
-
         Contains information about all supported web sites.
-
         Keyword Arguments:
         self                   -- This object.
         data_file_path         -- String which indicates path to data file.
                                   The file name must end in ".json".
-
                                   There are 3 possible formats:
                                    * Absolute File Format
                                      For example, "c:/stuff/data.json".
@@ -94,15 +85,12 @@ class SitesInformation():
                                      For example,
                                      "https://example.com/data.json", or
                                      "http://example.com/data.json".
-
                                   An exception will be thrown if the path
                                   to the data file is not in the expected
                                   format, or if there was any problem loading
                                   the file.
-
                                   If this option is not specified, then a
                                   default site list will be used.
-
         Return Value:
         Nothing.
         """
@@ -116,8 +104,10 @@ class SitesInformation():
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
             raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
-
-        if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
+            
+        scheme = data_file_path[:8].lower()
+        
+        if "http://" == scheme[-1] or "https://" == scheme:
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path)
@@ -176,10 +166,8 @@ class SitesInformation():
 
     def site_name_list(self):
         """Get Site Name List.
-
         Keyword Arguments:
         self                   -- This object.
-
         Return Value:
         List of strings containing names of sites.
         """
@@ -190,10 +178,8 @@ class SitesInformation():
 
     def __iter__(self):
         """Iterator For Object.
-
         Keyword Arguments:
         self                   -- This object.
-
         Return Value:
         Iterator for sites object.
         """
@@ -203,10 +189,8 @@ class SitesInformation():
 
     def __len__(self):
         """Length For Object.
-
         Keyword Arguments:
         self                   -- This object.
-
         Return Value:
         Length of sites object.
         """
