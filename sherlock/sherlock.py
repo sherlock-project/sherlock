@@ -261,9 +261,12 @@ def sherlock(username, site_data, query_notify,
                                         timeout=timeout
                                         )
             else:
+                data = net_info.get('request_payload', None)
+
                 future = request_method(url=url_probe, headers=headers,
                                         allow_redirects=allow_redirects,
-                                        timeout=timeout
+                                        timeout=timeout,
+                                        data=data
                                         )
 
             # Store future in data for access later
