@@ -52,7 +52,7 @@ class SherlockFuturesSession(FuturesSession):
         Return Value:
         Request object.
         """
-        #Record the start time for the request.
+        # Record the start time for the request.
         start = monotonic()
 
         def response_time(resp, *args, **kwargs):
@@ -70,22 +70,22 @@ class SherlockFuturesSession(FuturesSession):
 
             return
 
-        #Install hook to execute when response completes.
-        #Make sure that the time measurement hook is first, so we will not
-        #track any later hook's execution time.
+        # Install hook to execute when response completes.
+        # Make sure that the time measurement hook is first, so we will not
+        # track any later hook's execution time.
         try:
             if isinstance(hooks['response'], list):
                 hooks['response'].insert(0, response_time)
             elif isinstance(hooks['response'], tuple):
-                #Convert tuple to list and insert time measurement hook first.
+                # Convert tuple to list and insert time measurement hook first.
                 hooks['response'] = list(hooks['response'])
                 hooks['response'].insert(0, response_time)
             else:
-                #Must have previously contained a single hook function,
-                #so convert to list.
+                # Must have previously contained a single hook function,
+                # so convert to list.
                 hooks['response'] = [response_time, hooks['response']]
         except KeyError:
-            #No response hook was already defined, so install it ourselves.
+            # No response hook was already defined, so install it ourselves.
             hooks['response'] = [response_time]
 
         return super(SherlockFuturesSession, self).request(method,
@@ -96,7 +96,7 @@ class SherlockFuturesSession(FuturesSession):
 
 def get_response(request_future, error_type, social_network):
 
-    #Default for Response object if some failure occurs.
+    # Default for Response object if some failure occurs.
     response = None
 
     error_context = "General Unknown Error"
@@ -104,7 +104,7 @@ def get_response(request_future, error_type, social_network):
     try:
         response = request_future.result()
         if response.status_code:
-            #status code exists in response object
+            # Status code exists in response object
             error_context = None
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
@@ -159,27 +159,27 @@ def sherlock(username, site_data, query_notify,
                        there was an HTTP error when checking for existence.
     """
 
-    #Notify caller that we are starting the query.
+    # Notify caller that we are starting the query.
     query_notify.start(username)
 
     # Create session based on request methodology
     if tor or unique_tor:
-        #Requests using Tor obfuscation
+        # Requests using Tor obfuscation
         underlying_request = TorRequest()
         underlying_session = underlying_request.session
     else:
-        #Normal requests
+        # Normal requests
         underlying_session = requests.session()
         underlying_request = requests.Request()
 
-    #Limit number of workers to 20.
-    #This is probably vastly overkill.
+    # Limit number of workers to 20.
+    # This is probably vastly overkill.
     if len(site_data) >= 20:
         max_workers=20
     else:
         max_workers=len(site_data)
 
-    #Create multi-threaded session for all requests.
+    # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(max_workers=max_workers,
                                      session=underlying_session)
 
@@ -302,7 +302,7 @@ def sherlock(username, site_data, query_notify,
                                                      error_type=error_type,
                                                      social_network=social_network)
 
-        #Get response time for response of our request.
+        # Get response time for response of our request.
         try:
             response_time = r.elapsed
         except AttributeError:
@@ -391,12 +391,12 @@ def sherlock(username, site_data, query_notify,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         else:
-            #It should be impossible to ever get here...
+            # It should be impossible to ever get here...
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
 
 
-        #Notify caller about results of query.
+        # Notify caller about results of query.
         query_notify.update(result)
 
         # Save status of request
@@ -409,7 +409,7 @@ def sherlock(username, site_data, query_notify,
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
-    #Notify caller that all queries are finished.
+    # Notify caller that all queries are finished.
     query_notify.finish()
 
     return results_total
@@ -559,7 +559,7 @@ def main():
         sys.exit(1)
 
 
-    #Create object with all information about sites we are aware of.
+    # Create object with all information about sites we are aware of.
     try:
         if args.local:
             sites = SitesInformation(os.path.join(os.path.dirname(__file__), 'resources/data.json'))
@@ -569,9 +569,9 @@ def main():
         print(f"ERROR:  {error}")
         sys.exit(1)
 
-    #Create original dictionary from SitesInformation() object.
-    #Eventually, the rest of the code will be updated to use the new object
-    #directly, but this will glue the two pieces together.
+    # Create original dictionary from SitesInformation() object.
+    # Eventually, the rest of the code will be updated to use the new object
+    # directly, but this will glue the two pieces together.
     site_data_all = {}
     for site in sites:
         site_data_all[site.name] = site.information
@@ -601,7 +601,7 @@ def main():
         if not site_data:
             sys.exit(1)
 
-    #Create notify object for query results.
+    # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
                                     print_all=args.print_all,

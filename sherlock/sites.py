@@ -138,7 +138,7 @@ class SitesInformation():
                                         f"data file URL '{data_file_path}'."
                                        )
         else:
-            #Reference is to a file.
+            # Reference is to a file.
             try:
                 with open(data_file_path, "r", encoding="utf-8") as file:
                     try:
@@ -154,7 +154,7 @@ class SitesInformation():
 
         self.sites = {}
 
-        #Add all of site information from the json file to internal site list.
+        # Add all of site information from the json file to internal site list.
         for site_name in site_data:
             try:
 
