@@ -261,7 +261,12 @@ def sherlock(username, site_data, query_notify,
                                         timeout=timeout
                                         )
             else:
-                data = net_info.get('request_payload', None)
+                data = None
+                if request_method_property == 'POST':
+                    data = net_info.get('request_payload', None)
+
+                if data is not None:
+                    data = data.format(username)
 
                 future = request_method(url=url_probe, headers=headers,
                                         allow_redirects=allow_redirects,
