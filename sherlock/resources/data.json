@@ -1238,6 +1238,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Python.org Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private."
+    "errorType": "message",
+    "url": "https://discuss.python.org/u/{}/summary",
+    "urlMain": "https://discuss.python.org",
+    "username_claimed": "python",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "PyPi": {
     "errorType": "status_code",
     "url": "https://pypi.org/user/{}",
