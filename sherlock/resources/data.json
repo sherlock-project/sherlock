@@ -1239,7 +1239,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Python.org Discussions": {
-    "errorMsg": "Oops! That page doesn’t exist or is private."
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
     "errorType": "message",
     "url": "https://discuss.python.org/u/{}/summary",
     "urlMain": "https://discuss.python.org",
