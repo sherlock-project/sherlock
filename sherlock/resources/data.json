@@ -1344,6 +1344,14 @@
     "username_claimed": "bluewolfekiller",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Ruby Forums": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://ruby-forum.com/u/{}/summary",
+    "urlMain": "https://ruby-forums.com",
+    "username_claimed": "rishard",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "RubyGems": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]{1,40}",
