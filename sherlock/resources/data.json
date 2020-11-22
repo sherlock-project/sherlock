@@ -845,6 +845,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Jupyter Community Forum": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discourse.jupyter.org/u/{}/summary",
+    "urlMain": "https://discourse.jupyter.org"
+    "username_claimed": "choldgraf",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Kaggle": {
     "errorType": "status_code",
     "url": "https://www.kaggle.com/{}",
