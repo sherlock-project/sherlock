@@ -1533,8 +1533,9 @@
   "TETR.IO": {
     "errorMsg": "No such user!",
     "errorType": "message",
-    "url": "https://ch.tetr.io/api/users/{}",
+    "url": "https://ch.tetr.io/u/{}",
     "urlMain": "https://tetr.io",
+    "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk",
     "username_unclaimed": "noonewouldeverusethis7"
   },
