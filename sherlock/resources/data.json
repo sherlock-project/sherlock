@@ -1530,6 +1530,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "TETR.IO": {
+    "errorMsg": "No such user!",
+    "errorType": "message",
+    "url": "https://ch.tetr.io/api/users/{}",
+    "urlMain": "https://tetr.io",
+    "username_claimed": "osk",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Telegram": {
     "errorMsg": "<meta property=\"og:description\" content=\"\">",
     "errorType": "message",
