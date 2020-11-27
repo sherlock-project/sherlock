@@ -849,7 +849,7 @@
     "errorMsg": "Oops! That page doesn’t exist or is private.",
     "errorType": "message",
     "url": "https://discourse.jupyter.org/u/{}/summary",
-    "urlMain": "https://discourse.jupyter.org"
+    "urlMain": "https://discourse.jupyter.org",
     "username_claimed": "choldgraf",
     "username_unclaimed": "noonewouldeverusethis"
   },
