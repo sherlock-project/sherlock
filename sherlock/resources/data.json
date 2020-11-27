@@ -651,6 +651,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "GitHub Support Community": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://github.community/u/{}/summary",
+    "urlMain": "https://github.community",
+    "username_claimed": "jperl",
+    "username_unclaimed": "noonewouldusethis298"
+  },
   "GitLab": {
     "errorMsg": "[]",
     "errorType": "message",
