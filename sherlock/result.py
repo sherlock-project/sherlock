@@ -31,8 +31,9 @@ class QueryResult():
 
     Describes result of query about a given username.
     """
-    def __init__(self, username, site_name, site_url_user, status,
-                 query_time=None, context=None):
+    def __init__(self, username: str, site_name: str, site_url_user: str,
+                 status: QueryStatus, query_time: int=None,
+                 context: str=None):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
