@@ -127,7 +127,7 @@ def get_response(request_future, error_type, social_network):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=None, workers=20):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -175,7 +175,7 @@ def sherlock(username, site_data, query_notify,
     # Limit number of workers to 20.
     # This is probably vastly overkill.
     if len(site_data) >= 20:
-        max_workers=20
+        max_workers=workers
     else:
         max_workers=len(site_data)
 
@@ -518,6 +518,14 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
+    parser.add_argument("--singleoutput", "-s",
+                        action="store_true", default=False,
+                        help="Store all the outputs into 1 single file")
+
+    parser.add_argument("--workers", "-w",
+                        type=int, default=20,
+                        help="Number of workers")
+
     args = parser.parse_args()
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
@@ -558,6 +566,10 @@ def main():
         print("You can only use --output with a single username")
         sys.exit(1)
 
+    if args.singleoutput:
+        with open("master.csv", "w", newline='', encoding="utf-8") as csv_report:
+            writer = csv.writer(csv_report)
+            writer.writerow(['username', 'name', 'url_user', 'account_count'])
 
     # Create object with all information about sites we are aware of.
     try:
@@ -615,7 +627,8 @@ def main():
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
-                           timeout=args.timeout)
+                           timeout=args.timeout,
+                           workers=args.workers)
 
         if args.output:
             result_file = args.output
@@ -627,40 +640,53 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        with open(result_file, "w", encoding="utf-8") as file:
-            exists_counter = 0
-            for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
-                    exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
-            file.write(f"Total Websites Username Detected On : {exists_counter}\n")
-
-        if args.csv:
-            with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
+        if args.singleoutput:
+            with open("master.csv", "a", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
-                writer.writerow(['username',
-                                 'name',
-                                 'url_main',
-                                 'url_user',
-                                 'exists',
-                                 'http_status',
-                                 'response_time_s'
-                                 ]
-                                )
+                exists_counter = 0
+                csvdata = []
                 for site in results:
-                    response_time_s = results[site]['status'].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow([username,
-                                     site,
-                                     results[site]['url_main'],
-                                     results[site]['url_user'],
-                                     str(results[site]['status'].status),
-                                     results[site]['http_status'],
-                                     response_time_s
-                                     ]
+                    if results[site]['status'].status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        csvdata.append({'site':site,'url': results[site]['url_user']})
+
+                for data in csvdata:
+                    writer.writerow([username, data['site'], data['url'], exists_counter])
+        else:
+            with open(result_file, "w", encoding="utf-8") as file:
+                exists_counter = 0
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        file.write(dictionary["url_user"] + "\n")
+                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+
+            if args.csv:
+                with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
+                    writer = csv.writer(csv_report)
+                    writer.writerow(['username',
+                                    'name',
+                                    'url_main',
+                                    'url_user',
+                                    'exists',
+                                    'http_status',
+                                    'response_time_s'
+                                    ]
                                     )
+                    for site in results:
+                        response_time_s = results[site]['status'].query_time
+                        if response_time_s is None:
+                            response_time_s = ""
+                        writer.writerow([username,
+                                        site,
+                                        results[site]['url_main'],
+                                        results[site]['url_user'],
+                                        str(results[site]['status'].status),
+                                        results[site]['http_status'],
+                                        response_time_s
+                                        ]
+                                        )
         print()
 
 
