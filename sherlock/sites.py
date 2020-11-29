@@ -9,10 +9,12 @@ import operator
 import requests
 import sys
 
+from typing import List
 
 class SiteInformation():
-    def __init__(self, name, url_home, url_username_format, username_claimed,
-                 username_unclaimed, information):
+    def __init__(self, name: str, url_home: str, url_username_format: str,
+                 username_claimed: str, username_unclaimed: str,
+                 information: str):
         """Create Site Information Object.
 
         Contains information about a specific web site.
@@ -73,7 +75,7 @@ class SiteInformation():
 
 
 class SitesInformation():
-    def __init__(self, data_file_path=None):
+    def __init__(self, data_file_path: str=None):
         """Create Sites Information Object.
 
         Contains information about all supported web sites.
@@ -174,7 +176,7 @@ class SitesInformation():
 
         return
 
-    def site_name_list(self):
+    def site_name_list(self) -> List[str]:
         """Get Site Name List.
 
         Keyword Arguments:
