@@ -15,7 +15,7 @@ class QueryNotify():
     It is intended that other classes inherit from this base class and
     override the methods to implement specific functionality.
     """
-    def __init__(self, result=None):
+    def __init__(self, result: QueryResult=None):
         """Create Query Notify Object.
 
         Contains information about a specific method of notifying the results
@@ -34,7 +34,7 @@ class QueryNotify():
 
         return
 
-    def start(self, message=None):
+    def start(self, message: str=None) -> None:
         """Notify Start.
 
         Notify method for start of query.  This method will be called before
@@ -53,7 +53,7 @@ class QueryNotify():
 
         return
 
-    def update(self, result):
+    def update(self, result: QueryResult) -> None:
         """Notify Update.
 
         Notify method for query result.  This method will typically be
@@ -72,7 +72,7 @@ class QueryNotify():
 
         return
 
-    def finish(self, message=None):
+    def finish(self, message: str=None) -> None:
         """Notify Finish.
 
         Notify method for finish of query.  This method will be called after
@@ -110,7 +110,8 @@ class QueryNotifyPrint(QueryNotify):
 
     Query notify class that prints results.
     """
-    def __init__(self, result=None, verbose=False, color=True, print_all=False):
+    def __init__(self, result: QueryResult=None, verbose: bool=False,
+                 color: bool=True, print_all: bool=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -138,7 +139,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def start(self, message):
+    def start(self, message: str) -> None:
         """Notify Start.
 
         Will print the title to the standard output.
@@ -164,7 +165,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def update(self, result):
+    def update(self, result: QueryResult) -> None:
         """Notify Update.
 
         Will print the query result to the standard output.
