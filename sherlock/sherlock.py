@@ -21,8 +21,10 @@ from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
-from notify import QueryNotifyPrint
+from notify import QueryNotifyPrint, QueryNotify
 from sites  import SitesInformation
+
+from concurrent.futures._base import Future
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.13.0"
@@ -31,7 +33,8 @@ __version__ = "0.13.0"
 
 
 class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks={}, *args, **kwargs):
+    def request(self, method: str, url: str, hooks: dict={},
+                *args, **kwargs) -> requests.Request:
         """Request URL.
 
         This extends the FuturesSession request method to calculate a response
@@ -55,7 +58,8 @@ class SherlockFuturesSession(FuturesSession):
         # Record the start time for the request.
         start = monotonic()
 
-        def response_time(resp, *args, **kwargs):
+        def response_time(resp: requests.models.Response,
+                          *args, **kwargs) -> None:
             """Response Time Hook.
 
             Keyword Arguments:
@@ -94,7 +98,8 @@ class SherlockFuturesSession(FuturesSession):
                                                            *args, **kwargs)
 
 
-def get_response(request_future, error_type, social_network):
+def get_response(request_future: Future,
+                 error_type: str, social_network: str) -> tuple:
 
     # Default for Response object if some failure occurs.
     response = None
@@ -125,9 +130,9 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, expection_text
 
 
-def sherlock(username, site_data, query_notify,
-             tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+def sherlock(username: str, site_data: dict, query_notify: QueryNotify,
+             tor: bool=False, unique_tor: bool=False,
+             proxy: str=None, timeout: float=None) -> dict:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -415,7 +420,7 @@ def sherlock(username, site_data, query_notify,
     return results_total
 
 
-def timeout_check(value):
+def timeout_check(value: float) -> float:
     """Check Timeout Argument.
 
     Checks timeout for validity.
@@ -440,7 +445,7 @@ def timeout_check(value):
     return timeout
 
 
-def main():
+def main() -> None:
 
     version_string = f"%(prog)s {__version__}\n" +  \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
