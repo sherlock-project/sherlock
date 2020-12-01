@@ -74,6 +74,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "AntichatForums": {
+    "errorMsg": "The following members could not be found",
+    "errorType": "message",
+    "url": "https://forum.antichat.ru/search/search?users={}",
+    "urlMain": "https://forum.antichat.ru/",
+    "username_claimed": "hacker",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Apple Discussions": {
     "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
     "errorType": "message",
@@ -960,6 +968,14 @@
     "urlMain": "https://lolchess.gg/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "MajorGeeksForums": {
+    "errorMsg": "The following members could not be found",
+    "errorType": "message",
+    "url": "https://forums.majorgeeks.com/search/search?users={}",
+    "urlMain": "https://www.majorgeeks.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Medium": {
     "errorMsg": "<body",
