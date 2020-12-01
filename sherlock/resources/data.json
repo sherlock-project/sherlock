@@ -1563,6 +1563,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Tidal": {
+    "errorType": "status_code",
+    "url": "https://tidal.com/{}",
+    "urlMain": "https://tidal.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "TikTok": {
     "errorType": "status_code",
     "url": "https://tiktok.com/@{}",
