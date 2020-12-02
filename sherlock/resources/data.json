@@ -992,6 +992,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "MusicBrainz": {
+    "errorType": "status_code",
+    "url": "https://musicbrainz.org/user/{}",
+    "urlMain": "https://musicbrainz.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
