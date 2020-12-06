@@ -82,6 +82,14 @@
     "username_claimed": "jason",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Archive Of Our Own": {
+    "errorType": "response_url",
+    "errorUrl": "https://archiveofourown.org/people/search",
+    "url": "https://archiveofourown.org/users/{}",
+    "urlMain": "https://archiveofourown.org",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldprobablyeverusethisusername"
+  },
   "Archive.org": {
     "errorMsg": "cannot find account",
     "errorType": "message",
@@ -89,15 +97,6 @@
     "urlMain": "https://archive.org",
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
-  },
-  "Archive Of Our Own": {
-    "errorMsg": "cannot find account",
-    "errorType": "response_url",
-    "errorUrl": "https://archiveofourown.org/people/search",
-    "url": "https://archiveofourown.org/users/{}",
-    "urlMain": "https://archiveofourown.org",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldprobablyeverusethisusername"
   },
   "Asciinema": {
     "errorType": "status_code",
