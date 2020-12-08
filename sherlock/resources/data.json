@@ -1614,9 +1614,8 @@
     "username_unclaimed": "never-never-ever"
   },
   "Travellerspoint": {
-    "errorMsg": "Wooops. Sorry!",
-    "errorType": "message",
-    "url": "https://www.travellerspoint.com/users/{}",
+    "errorType": "status_code",
+    "url": "https://www.travellerspoint.com/users/{}/",
     "urlMain": "https://www.travellerspoint.com",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
