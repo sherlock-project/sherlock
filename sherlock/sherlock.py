@@ -637,7 +637,14 @@ def main():
             file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            with open(username + ".csv", "w", newline='', encoding="utf-8") as csv_report:
+            result_file = f"{username}.csv"
+            if args.folderoutput:
+                # The usernames results should be stored in a targeted folder.
+                # If the folder doesn't exist, create it first
+                os.makedirs(args.folderoutput, exist_ok=True)
+                result_file = os.path.join(args.folderoutput, result_file)
+
+            with open(result_file, "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
                 writer.writerow(['username',
                                  'name',
