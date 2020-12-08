@@ -1,4 +1,4 @@
-## List Of Supported Sites (305 Sites In Total!)
+## List Of Supported Sites (307 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 2. [3dnews](http://forum.3dnews.ru/)
 3. [500px](https://500px.com/)
@@ -304,3 +304,5 @@
 303. [svidbook](https://www.svidbook.ru/)
 304. [toster](https://www.toster.ru/)
 305. [uid](https://uid.me/)
+306. [AntichatForums](https://forum.antichat.ru/)
+307. [MajorGeeksForums](https://www.majorgeeks.com/)
