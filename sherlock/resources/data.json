@@ -622,6 +622,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Gab": {
+    "errorType": "status_code",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com/",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Gamespot": {
     "errorType": "status_code",
     "url": "https://www.gamespot.com/profile/{}/",
