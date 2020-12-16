@@ -67,6 +67,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "AniList": {
+    "errorType": "status_code",
+    "url": "https://anilist.co/user/{}",
+    "urlMain": "https://anilist.co/",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Anobii": {
     "errorType": "response_url",
     "url": "https://www.anobii.com/{}/profile",
