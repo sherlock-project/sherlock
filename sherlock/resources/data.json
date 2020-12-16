@@ -347,6 +347,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codeforces": {
+    "errorType": "status_code",
+    "errorUrl": "https://www.codeforces.com/",
+    "url": "https://www.codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codepen": {
     "errorType": "status_code",
     "url": "https://codepen.io/{}",
