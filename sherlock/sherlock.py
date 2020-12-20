@@ -12,6 +12,7 @@ import os
 import platform
 import re
 import sys
+import webbrowser
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
@@ -669,6 +670,15 @@ def main():
                                      ]
                                     )
         print()
+        
+        # opening web browser after results are computed
+        if args.browse:
+            with open(result_file, "r", encoding="utf-8") as file:
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        webbrowser.open_new_tab(dictionary["url_user"])
+
 
 
 if __name__ == "__main__":
