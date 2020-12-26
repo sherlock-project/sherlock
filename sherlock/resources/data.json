@@ -1723,19 +1723,19 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "VimGolf": {
+    "errorMsg": "Open VimGolf challenges",
+    "errorType": "message",
+    "url": "http://www.vimgolf.com/{}",
+    "urlMain": "http://www.vimgolf.com/",
+    "username_claimed": "vimgolf",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Vimeo": {
     "errorType": "status_code",
     "url": "https://vimeo.com/{}",
     "urlMain": "https://vimeo.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "VimGolf": {
-    "errorType": "message",
-    "errorMsg": "Open VimGolf challenges",
-    "url": "http://www.vimgolf.com/{}",
-    "urlMain": "http://www.vimgolf.com/",
-    "username_claimed": "vimgolf",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Virgool": {
