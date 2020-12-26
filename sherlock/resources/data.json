@@ -1730,6 +1730,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "VimGolf": {
+    "errorType": "message",
+    "errorMsg": "Open VimGolf challenges",
+    "url": "http://www.vimgolf.com/{}",
+    "urlMain": "http://www.vimgolf.com/",
+    "username_claimed": "vimgolf",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Virgool": {
     "errorMsg": "\u06f4\u06f0\u06f4",
     "errorType": "message",
