@@ -1655,9 +1655,6 @@
   },
   "Twitter": {
     "errorType": "status_code",
-    "headers": {
-      "User-Agent": ""
-    },
     "url": "https://mobile.twitter.com/{}",
     "urlMain": "https://mobile.twitter.com/",
     "username_claimed": "blue",
