@@ -799,6 +799,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "iFunny": {
+	"errorType": "response_url",
+	"errorUrl": "https://www.ifunny.co/user/{}",
+	"url": "https://www.ifunny.co/user/{}",
+	"urlMain": "https://www.ifunny.co/",
+	"username_claimed": "blue",
+	"username_unclaimed": "noonewouldeverusethis"
+  },
   "ImgUp.cz": {
     "errorType": "status_code",
     "url": "https://imgup.cz/{}",
