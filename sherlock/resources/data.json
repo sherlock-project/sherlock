@@ -2316,5 +2316,12 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "ruqqus": {
+    "errorType": "status_code",
+    "url": "https://ruqqus.com/@{}",
+    "urlMain": "https://ruqqus.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7" 
   }
 }
