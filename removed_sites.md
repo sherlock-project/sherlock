@@ -974,3 +974,84 @@ Filmogs has closed down.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## 500px
+As of 2021-01-13, 500px returns false positives. This will hopefully be fixed soon once we add the ability to add different
+request methods.
+
+```
+  "500px": {
+    "errorMsg": "No message available",
+    "errorType": "message",
+    "url": "https://500px.com/p/{}",
+    "urlMain": "https://500px.com/",
+    "urlProbe": "https://api.500px.com/graphql?operationName=ProfileRendererQuery&variables=%7B%22username%22%3A%22{}%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%224d02ff5c13927a3ac73b3eef306490508bc765956940c31051468cf30402a503%22%7D%7D",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Badoo
+As of 2021-01-13, Badoo returns false positives
+```
+  "Badoo": {
+    "errorType": "status_code",
+    "url": "https://badoo.com/profile/{}",
+    "urlMain": "https://badoo.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Instagram
+As of 2021-01-13, Instagram returns false positives. This can be fixed by using their username checking API endpoint, but that requires a POST request which Sherlock currently does not support. 
+
+```
+  "Instagram": {
+    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
+    "errorType": "message",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Pling
+As of 2021-01-13, Pling returns false positives.
+```
+  "Pling": {
+    "errorMsg": "Resource not found",
+    "errorType": "message",
+    "url": "https://www.pling.com/u/{}/",
+    "urlMain": "https://www.pling.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## Realmeye
+As of 2021-01-13, Realmeye returns false positives.
+```
+  "Realmeye": {
+    "errorMsg": "Sorry, but we either:",
+    "errorType": "message",
+    "url": "https://www.realmeye.com/player/{}",
+    "urlMain": "https://www.realmeye.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Travellerspoint
+As of 2021-01-13, Travellerspoint returns false positives
+```
+  "Travellerspoint": {
+    "errorMsg": "Wooops. Sorry!",
+    "errorType": "message",
+    "url": "https://www.travellerspoint.com/users/{}",
+    "urlMain": "https://www.travellerspoint.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
