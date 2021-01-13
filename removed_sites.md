@@ -1002,3 +1002,17 @@ As of 2021-01-13, Badoo returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Instagram
+As of 2021-01-13, Instagram returns false positives. This can be fixed by using their username checking API endpoint, but that requires a POST request which Sherlock currently does not support. 
+
+```
+  "Instagram": {
+    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
+    "errorType": "message",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
