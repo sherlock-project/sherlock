@@ -1016,3 +1016,16 @@ As of 2021-01-13, Instagram returns false positives. This can be fixed by using 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Pling
+As of 2021-01-13, Pling returns false positives.
+```
+  "Pling": {
+    "errorMsg": "Resource not found",
+    "errorType": "message",
+    "url": "https://www.pling.com/u/{}/",
+    "urlMain": "https://www.pling.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
