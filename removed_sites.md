@@ -990,3 +990,15 @@ request methods.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Badoo
+As of 2021-01-13, Badoo returns false positives
+```
+  "Badoo": {
+    "errorType": "status_code",
+    "url": "https://badoo.com/profile/{}",
+    "urlMain": "https://badoo.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
