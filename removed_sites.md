@@ -974,3 +974,19 @@ Filmogs has closed down.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## 500px
+As of 2021-01-13, 500px returns false positives. This will hopefully be fixed soon once we add the ability to add different
+request methods.
+
+```
+  "500px": {
+    "errorMsg": "No message available",
+    "errorType": "message",
+    "url": "https://500px.com/p/{}",
+    "urlMain": "https://500px.com/",
+    "urlProbe": "https://api.500px.com/graphql?operationName=ProfileRendererQuery&variables=%7B%22username%22%3A%22{}%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%224d02ff5c13927a3ac73b3eef306490508bc765956940c31051468cf30402a503%22%7D%7D",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
