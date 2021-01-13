@@ -1029,3 +1029,16 @@ As of 2021-01-13, Pling returns false positives.
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+## Realmeye
+As of 2021-01-13, Realmeye returns false positives.
+```
+  "Realmeye": {
+    "errorMsg": "Sorry, but we either:",
+    "errorType": "message",
+    "url": "https://www.realmeye.com/player/{}",
+    "urlMain": "https://www.realmeye.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

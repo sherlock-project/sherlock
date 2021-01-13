@@ -1258,14 +1258,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Realmeye": {
-    "errorMsg": "Sorry, but we either:",
-    "errorType": "message",
-    "url": "https://www.realmeye.com/player/{}",
-    "urlMain": "https://www.realmeye.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Redbubble": {
     "errorType": "status_code",
     "url": "https://www.redbubble.com/people/{}",
