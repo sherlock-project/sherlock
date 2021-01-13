@@ -1042,3 +1042,16 @@ As of 2021-01-13, Realmeye returns false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Travellerspoint
+As of 2021-01-13, Travellerspoint returns false positives
+```
+  "Travellerspoint": {
+    "errorMsg": "Wooops. Sorry!",
+    "errorType": "message",
+    "url": "https://www.travellerspoint.com/users/{}",
+    "urlMain": "https://www.travellerspoint.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
