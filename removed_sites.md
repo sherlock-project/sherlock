@@ -1055,3 +1055,17 @@ As of 2021-01-13, Travellerspoint returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Ebay
+
+As of 2021-01-15, Ebay seems to be very laggy and take too long to return a response.
+```
+  "Ebay": {
+    "errorMsg": "<title>eBay Profile - error</title>",
+    "errorType": "message",
+    "url": "https://www.ebay.com/usr/{}",
+    "urlMain": "https://www.ebay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
