@@ -1598,7 +1598,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorType": "status_code",
+    "errorMsg": "This account doesn’t exist",
+    "errorType": "message",
     "headers": {
       "User-Agent": ""
     },
