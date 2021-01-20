@@ -929,6 +929,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "linktree": {
+    "errorType": "status_code",
+    "url": "https://linktr.ee/{}",
+    "urlMain": "https://linktr.ee/",
+    "username_claimed": "hey",
+    "username_unclaimed": "noonewouldusethis420"
+  },
   "Medium": {
     "errorMsg": "<body",
     "errorType": "message",
