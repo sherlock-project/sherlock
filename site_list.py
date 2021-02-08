@@ -5,7 +5,7 @@ It also organizes all the sites in alphanumeric order
 """
 import json
 
-pool = list()
+pool = []
 
 with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
     data = json.load(data_file)

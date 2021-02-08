@@ -34,7 +34,8 @@ class QueryNotify():
 
         return
 
-    def start(self, message=None):
+    @staticmethod
+    def start(message=None):
         """Notify Start.
 
         Notify method for start of query.  This method will be called before
@@ -72,7 +73,8 @@ class QueryNotify():
 
         return
 
-    def finish(self, message=None):
+    @staticmethod
+    def finish(message=None):
         """Notify Finish.
 
         Notify method for finish of query.  This method will be called after

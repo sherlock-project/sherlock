@@ -31,7 +31,7 @@ __version__ = "0.14.0"
 
 
 class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks={}, *args, **kwargs):
+    def request(self, method, url, hooks=None, *args, **kwargs):
         """Request URL.
 
         This extends the FuturesSession request method to calculate a response
@@ -52,6 +52,9 @@ class SherlockFuturesSession(FuturesSession):
         Return Value:
         Request object.
         """
+        if hooks is None:
+            hooks = {}
+            
         # Record the start time for the request.
         start = monotonic()
 
