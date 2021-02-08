@@ -1,0 +1,10 @@
+version = 1
+
+test_patterns = ["sherlock/tests/**"]
+
+[[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
