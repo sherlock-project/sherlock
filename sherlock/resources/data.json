@@ -427,6 +427,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "discord.bio": {
+    "errorMsg": "Profile not found.",
+    "errorType": "message",
+    "url": "https://discord.bio/p/{}",
+    "urlMain": "https://discord.bio/",
+    "username_claimed": "sin",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Discuss.Elastic.co": {
     "errorType": "status_code",
     "url": "https://discuss.elastic.co/u/{}",
