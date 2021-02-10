@@ -55,6 +55,7 @@
 1. [Designspiration](https://www.designspiration.net/)
 1. [DeviantART](https://deviantart.com)
 1. [Discogs](https://www.discogs.com/)
+1. [Discord.bio](https://discord.bio/)
 1. [Discuss.Elastic.co](https://discuss.elastic.co/)
 1. [Disqus](https://disqus.com/)
 1. [Docker Hub](https://hub.docker.com/)
