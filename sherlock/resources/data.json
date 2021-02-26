@@ -287,8 +287,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Chess": {
-    "errorMsg": "Missing page... somebody made a wrong move.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
     "username_claimed": "blue",
