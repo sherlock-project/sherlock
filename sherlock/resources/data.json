@@ -990,9 +990,9 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "NameMC (Minecraft.net skins)": {
-    "errorMsg": "Profiles: 0 results",
+    "errorMsg": "Available",
     "errorType": "message",
-    "url": "https://namemc.com/profile/{}",
+    "url": "https://namemc.com/name/{}",
     "urlMain": "https://namemc.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
