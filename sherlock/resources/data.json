@@ -2260,5 +2260,54 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.social": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.social/{}",
+    "urlMain": "https://pixelfed.social",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.de": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.de/{}",
+    "urlMain": "https://pixelfed.de",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.tokyo": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.tokyo/{}",
+    "urlMain": "https://pixelfed.tokyo",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.se": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.se/{}",
+    "urlMain": "https://pixelfed.se",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.uno": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.uno/{}",
+    "urlMain": "https://pixelfed.uno",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.nz": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.nz/{}",
+    "urlMain": "https://pixelfed.nz",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "pixelfed.uk": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.uk/{}",
+    "urlMain": "https://pixelfed.uk",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
