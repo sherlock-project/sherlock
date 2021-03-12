@@ -383,6 +383,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "CraftRise": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.craftrise.com.tr/",
+    "url": "https://www.craftrise.com.tr/oyuncu/{}",
+    "urlMain": "https://www.craftrise.com.tr/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Crevado": {
     "errorType": "status_code",
     "url": "https://{}.crevado.com",
