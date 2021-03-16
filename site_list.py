@@ -18,8 +18,8 @@ with open("sites.md", "w") as site_file:
         url_main = data.get(social_network).get("urlMain")
         pool.append((social_network, url_main))
 
-    for social_network, url_main in pool:
-        site_file.write(f'1. [{social_network}]({url_main})\n')
+    for idx, (social_network, url_main) in enumerate(pool):
+        site_file.write(f'{idx + 1}. [{social_network}]({url_main})\n')
 
 sorted_json_data = json.dumps(data, indent=2, sort_keys=True)
 
