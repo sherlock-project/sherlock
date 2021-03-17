@@ -1,4 +1,11 @@
 {
+   "minds.com": {
+    "errorType": "status_code",
+    "url": "https://minds.com/{}",
+    "urlMain": "https://minds.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
