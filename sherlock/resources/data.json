@@ -629,6 +629,7 @@
   },
   "GitHub.io": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
     "url": "https://{}.github.io/",
     "urlMain": "https://github.io/",
     "username_claimed": "blue",
