@@ -629,7 +629,7 @@
   },
   "GitHub.io": {
     "errorType": "status_code",
-    "url": "https://{}.github.io",
+    "url": "https://{}.github.io/",
     "urlMain": "https://github.io/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
