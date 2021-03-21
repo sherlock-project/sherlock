@@ -775,6 +775,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+   "Ifunny": {
+    "errorType":"status_code",
+    "url":"https://ifunny.co/user/{}",
+    "urlMain":"https://ifunny.co/",
+    "username_claimed":"agua",
+    "username_unclaimed":"noonewouldeverusethis213"
+  },
   "ImgUp.cz": {
     "errorType": "status_code",
     "url": "https://imgup.cz/{}",
