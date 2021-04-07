@@ -464,7 +464,7 @@ def main():
                         help="If using single username, the output of the result will be saved to this file."
                         )
     parser.add_argument("--no-output", "-no",
-                        action="store_true", dest="no_output", default=True,
+                        action="store_true", dest="no_output", default=False,
                         help="Do not output any file"
                         )
     parser.add_argument("--tor", "-t",
@@ -620,7 +620,7 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            timeout=args.timeout)
-        
+
         if not args.no_output:
             if args.output:
                 result_file = args.output
