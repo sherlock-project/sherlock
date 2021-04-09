@@ -2115,7 +2115,7 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "metacritic": {
-    "errorMsg": "User not found",
+    "errorMsg": "<title>Sign up to get your own profile - Metacritic</title>",
     "errorType": "message",
     "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
     "url": "https://www.metacritic.com/user/{}",
