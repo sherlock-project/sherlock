@@ -1599,6 +1599,7 @@
   },
   "Twitter": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{0,15}$",
     "headers": {
       "User-Agent": ""
     },
