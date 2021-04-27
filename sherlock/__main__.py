@@ -11,7 +11,7 @@ import sys
 
 
 if __name__ == "__main__":
-    """Check if the user is using the correct version of Python"""
+    # Check if the user is using the correct version of Python
     python_version = sys.version.split()[0]
 
     if sys.version_info < (3, 6):
