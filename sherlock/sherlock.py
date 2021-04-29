@@ -9,14 +9,13 @@ networks.
 
 import csv
 import os
-import platform
 import re
 import sys
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from time import monotonic
-
 import requests
+import platform
 
+from time import monotonic
+from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
@@ -26,8 +25,6 @@ from sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.0"
-
-
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -76,14 +73,17 @@ class SherlockFuturesSession(FuturesSession):
         try:
             if isinstance(hooks['response'], list):
                 hooks['response'].insert(0, response_time)
+
             elif isinstance(hooks['response'], tuple):
                 # Convert tuple to list and insert time measurement hook first.
                 hooks['response'] = list(hooks['response'])
                 hooks['response'].insert(0, response_time)
+
             else:
                 # Must have previously contained a single hook function,
                 # so convert to list.
                 hooks['response'] = [response_time, hooks['response']]
+
         except KeyError:
             # No response hook was already defined, so install it ourselves.
             hooks['response'] = [response_time]
@@ -101,23 +101,29 @@ def get_response(request_future, error_type, social_network):
 
     error_context = "General Unknown Error"
     expection_text = None
+
     try:
         response = request_future.result()
         if response.status_code:
             # Status code exists in response object
             error_context = None
+
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
         expection_text = str(errh)
+
     except requests.exceptions.ProxyError as errp:
         error_context = "Proxy Error"
         expection_text = str(errp)
+
     except requests.exceptions.ConnectionError as errc:
         error_context = "Error Connecting"
         expection_text = str(errc)
+
     except requests.exceptions.Timeout as errt:
         error_context = "Timeout Error"
         expection_text = str(errt)
+
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         expection_text = str(err)
@@ -175,9 +181,9 @@ def sherlock(username, site_data, query_notify,
     # Limit number of workers to 20.
     # This is probably vastly overkill.
     if len(site_data) >= 20:
-        max_workers=20
+        max_workers = 20
     else:
-        max_workers=len(site_data)
+        max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(max_workers=max_workers,
@@ -221,6 +227,7 @@ def sherlock(username, site_data, query_notify,
             results_site['http_status'] = ""
             results_site['response_text'] = ""
             query_notify.update(results_site['status'])
+
         else:
             # URL of user on site (if it exists)
             results_site["url_user"] = url
@@ -298,7 +305,7 @@ def sherlock(username, site_data, query_notify,
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
-        r, error_text, expection_text = get_response(request_future=future,
+        r, error_text, _ = get_response(request_future=future,
                                                      error_type=error_type,
                                                      social_network=social_network)
 
@@ -325,6 +332,7 @@ def sherlock(username, site_data, query_notify,
                                  QueryStatus.UNKNOWN,
                                  query_time=response_time,
                                  context=error_text)
+
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
@@ -335,7 +343,7 @@ def sherlock(username, site_data, query_notify,
             # by insinstance method we can detect that
             # and handle the case for strings as normal procedure
             # and if its list we can iterate the errors
-            if isinstance(errors,str):
+            if isinstance(errors, str):
                 # Checks if the error message is in the HTML
                 # if error is present we will set flag to False
                 if errors in r.text:
@@ -346,6 +354,7 @@ def sherlock(username, site_data, query_notify,
                     if error in r.text:
                         error_flag = False
                         break
+
             if error_flag:
                 result = QueryResult(username,
                                      social_network,
@@ -358,6 +367,7 @@ def sherlock(username, site_data, query_notify,
                                      url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
+
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
             if not r.status_code >= 300 or r.status_code < 200:
@@ -372,6 +382,7 @@ def sherlock(username, site_data, query_notify,
                                      url,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
+
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
@@ -523,7 +534,6 @@ def main():
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get("https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
-
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
         local_version = __version__
 
