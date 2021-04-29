@@ -3,11 +3,11 @@
 This module supports storing information about web sites.
 This is the raw data that will be used to search for usernames.
 """
-import os
+# import os
 import json
-import operator
+# import operator
 import requests
-import sys
+# import sys
 
 
 class SiteInformation():
@@ -107,7 +107,7 @@ class SitesInformation():
         Nothing.
         """
 
-        if data_file_path is None:
+        if not data_file_path:
             # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
             # this instead of the local one is so that the user has the most up to date data. This prevents
             # users from creating issue about false positives which has already been fixed or having outdated data
@@ -117,7 +117,8 @@ class SitesInformation():
         if not data_file_path.lower().endswith(".json"):
             raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
 
-        if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
+        # if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
+        if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path)
