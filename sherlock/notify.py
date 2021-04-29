@@ -6,7 +6,6 @@ results of queries.
 from result import QueryStatus
 from colorama import Fore, Style, init
 
-
 class QueryNotify():
     """Query Notify Object.
 
@@ -154,13 +153,14 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Checking username"
         if self.color:
-            print(Style.BRIGHT + Fore.GREEN + "[" +
+            print(
+                Style.BRIGHT + Fore.GREEN + "[" +
                 Fore.YELLOW + "*" +
-                Fore.GREEN + f"] {title}" +
+                Fore.GREEN + f"] ({title})" +
                 Fore.WHITE + f" {message}" +
-                Fore.GREEN + " on:")
+                Fore.GREEN + " on:\n")
         else:
-            print(f"[*] {title} {message} on:")
+            print(f"[*] {title} {message} on:\n")
 
         return
 
@@ -177,69 +177,20 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
+
         self.result = result
+        response_time_text = "" if not self.verbose or not self.result.query_time else f" [{round(self.result.query_time * 1000)} ms]"
 
-        if self.verbose == False or self.result.query_time is None:
-            response_time_text = ""
-        else:
-            response_time_text = f" [{round(self.result.query_time * 1000)} ms]"
+        _status = {
+            QueryStatus.CLAIMED: lambda: self._claimed_status(response_time_text),
+            QueryStatus.AVAILABLE: lambda: self._available_status(response_time_text),
+            QueryStatus.UNKNOWN: self._unknow_status,
+            QueryStatus.ILLEGAL: self._illegal_status
+        }
 
-        # Output to the terminal is desired.
-        if result.status == QueryStatus.CLAIMED:
-            if self.color:
-                print((Style.BRIGHT + Fore.WHITE + "[" +
-                       Fore.GREEN + "+" +
-                       Fore.WHITE + "]" +
-                       response_time_text +
-                       Fore.GREEN +
-                       f" {self.result.site_name}: " +
-                       Style.RESET_ALL +
-                       f"{self.result.site_url_user}"))
-            else:
-                print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
+        _status.get(result.status, lambda: self._error_status(result.status))()
 
-        elif result.status == QueryStatus.AVAILABLE:
-            if self.print_all:
-                if self.color:
-                    print((Style.BRIGHT + Fore.WHITE + "[" +
-                        Fore.RED + "-" +
-                        Fore.WHITE + "]" +
-                        response_time_text +
-                        Fore.GREEN + f" {self.result.site_name}:" +
-                        Fore.YELLOW + " Not Found!"))
-                else:
-                    print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
-
-        elif result.status == QueryStatus.UNKNOWN:
-            if self.print_all:
-                if self.color:
-                    print(Style.BRIGHT + Fore.WHITE + "[" +
-                          Fore.RED + "-" +
-                          Fore.WHITE + "]" +
-                          Fore.GREEN + f" {self.result.site_name}:" +
-                          Fore.RED + f" {self.result.context}" +
-                          Fore.YELLOW + f" ")
-                else:
-                    print(f"[-] {self.result.site_name}: {self.result.context} ")
-
-        elif result.status == QueryStatus.ILLEGAL:
-            if self.print_all:
-                msg = "Illegal Username Format For This Site!"
-                if self.color:
-                    print((Style.BRIGHT + Fore.WHITE + "[" +
-                           Fore.RED + "-" +
-                           Fore.WHITE + "]" +
-                           Fore.GREEN + f" {self.result.site_name}:" +
-                           Fore.YELLOW + f" {msg}"))
-                else:
-                    print(f"[-] {self.result.site_name} {msg}")
-
-        else:
-            # It should be impossible to ever get here...
-            raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
-                             f"site '{self.result.site_name}'")
-
-        return
+        return 
 
     def __str__(self):
         """Convert Object To String.
@@ -253,3 +204,62 @@ class QueryNotifyPrint(QueryNotify):
         result = str(self.result)
 
         return result
+
+
+    ############### Status Return Code
+    def _claimed_status(self, resp: str="") -> None:
+        if self.color:
+            print(
+                (Style.BRIGHT + Fore.WHITE + "[" +
+                Fore.GREEN + "+" +
+                Fore.WHITE + "]" +
+                resp +
+                Fore.GREEN +
+                f" {self.result.site_name}: " +
+                Style.RESET_ALL +
+                f"{self.result.site_url_user}"))
+        else:
+            print(f"[+]{resp} {self.result.site_name}: {self.result.site_url_user}")
+
+    def _available_status(self, resp: str="") -> None:
+        if self.print_all:
+            if self.color:
+                print(
+                    (Style.BRIGHT + Fore.WHITE + "[" +
+                    Fore.RED + "-" +
+                    Fore.WHITE + "]" +
+                    resp +
+                    Fore.GREEN + f" {self.result.site_name}:" +
+                    Fore.YELLOW + " Not Found!"))
+            else:
+                print(f"[-]{resp} {self.result.site_name}: Not Found!")
+
+    def _unknow_status(self):
+        if self.print_all:
+            if self.color:
+                print(
+                    Style.BRIGHT + Fore.WHITE + "[" +
+                    Fore.RED + "-" +
+                    Fore.WHITE + "]" +
+                    Fore.GREEN + f" {self.result.site_name}:" +
+                    Fore.RED + f" {self.result.context}" +
+                    Fore.YELLOW + f" ")
+            else:
+                print(f"[-] {self.result.site_name}: {self.result.context} ")
+
+    def _illegal_status(self):
+        if self.print_all:
+            msg = "Illegal Username Format For This Site!"
+            if self.color:
+                print(
+                        (Style.BRIGHT + Fore.WHITE + "[" +
+                        Fore.RED + "-" +
+                        Fore.WHITE + "]" +
+                        Fore.GREEN + f" {self.result.site_name}:" +
+                        Fore.YELLOW + f" {msg}"))
+            else:
+                print(f"[-] {self.result.site_name} {msg}")
+
+    def _error_status(self, res: object):
+        raise ValueError(f"Unknown Query Status '{str(res)}' for "
+                         f"site '{self.result.site_name}'")
