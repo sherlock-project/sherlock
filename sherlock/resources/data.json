@@ -2262,7 +2262,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "zoomit": {
-    "errorType": "status_code",
+    "errorMsg": "متاسفانه صفحه یافت نشد",
+    "errorType": "message",
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
