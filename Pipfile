@@ -15,6 +15,7 @@ soupsieve = ">=1.9.2"
 stem = ">=1.8.0"
 torrequest = ">=0.1.0"
 PySocks = ">=1.7.0"
+pytest = "*"
 
 [dev-packages]
 
@@ -23,3 +24,4 @@ python_version = "3.9"
 
 [scripts]
 sites = "python site_list.py"
+qa = "pytest"

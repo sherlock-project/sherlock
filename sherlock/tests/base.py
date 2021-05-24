@@ -7,9 +7,8 @@ import os.path
 import unittest
 import sherlock
 from result import QueryStatus
-from result import QueryResult
 from notify import QueryNotify
-from sites  import SitesInformation
+from sites import SitesInformation
 import warnings
 
 
