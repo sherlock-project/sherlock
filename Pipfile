@@ -20,10 +20,10 @@ pytest = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3"
 
 [scripts]
 sites = "python site_list.py"
-qa = "pytest --tb=no -m 'not system'"
-qa_main = "pytest --tb=no -m 'system_smoke'"
-qa_night = "pytest --tb=no"
+qa = "pytest -m 'not system'"
+qa_main = "pytest -m 'system_smoke'"
+qa_night = "pytest"
