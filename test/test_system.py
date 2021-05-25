@@ -154,3 +154,117 @@ def test_site_coverage(sites_info, expected):
     else:
         username = value.get('username_claimed', None)
     assert username is not None
+
+
+@pytest.mark.system
+@pytest.mark.system_false
+@pytest.mark.parametrize(
+    'sites_info, username, query_notify, actual',
+    [
+        pytest.param(
+            ['EyeEm'],
+            'user@buggyyaggi.net',
+            None, QueryStatus.CLAIMED,
+            id='issue_1077'
+        ),
+        pytest.param(
+            ['TikTok'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1076'
+        ),
+        pytest.param(
+            ['Steamid'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1075'
+        ),
+        pytest.param(
+            ['ProductHunt'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1073'
+        ),
+        pytest.param(
+            ['NameMC (Minecraft.net skins)'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1072'
+        ),
+        pytest.param(
+            ['LiveLeak'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1071'
+        ),
+        pytest.param(
+            ['Chess'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1070'
+        ),
+        pytest.param(
+            ['Cent'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1069'
+        ),
+        pytest.param(
+            ['Anobii'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1068'
+        ),
+        pytest.param(
+            ['AllTrails'],
+            'adasaaakzzzzzzzzsdsdsdasdadadasqe22aasd',
+            None, QueryStatus.CLAIMED,
+            id='issue_1067'
+        ),
+        pytest.param(
+            ['Twitter'],
+            'adjfhjuefhujrqehfhdbdfjvndfjgre',
+            None, QueryStatus.CLAIMED,
+            id='issue_1034'
+        ),
+        pytest.param(
+            ['ProductHunt'],
+            'uevnfd5m7x6b83j8',
+            None, QueryStatus.CLAIMED,
+            id='issue_988'
+        ),
+        pytest.param(
+            ['PSNProfiles.com'],
+            'Blue',
+            None, QueryStatus.AVAILABLE,
+            id='issue_806_1'
+        ),
+        pytest.param(
+            ['VK'],
+            'Blue',
+            None, QueryStatus.AVAILABLE,
+            id='issue_806_4'
+        ),
+        pytest.param(
+            ['WordPressOrg'],
+            'Blue',
+            None, QueryStatus.AVAILABLE,
+            id='issue_806_5'
+        )
+    ], indirect=['sites_info', 'query_notify']
+)
+def test_specific_sites_for_known_false_response(
+    sites_info,
+    username,
+    query_notify,
+    actual
+):
+    assert len(sites_info) == 1
+    results = sherlock.sherlock(
+        username,
+        sites_info,
+        query_notify
+    )
+    assert len(results) == 1
+    result = list(results.values())[0]
+    assert result['status'].status == actual
