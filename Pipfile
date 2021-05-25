@@ -24,4 +24,6 @@ python_version = "3.9"
 
 [scripts]
 sites = "python site_list.py"
-qa = "pytest"
+qa = "pytest --tb=no -m 'not system'"
+qa_main = "pytest --tb=no -m 'system_smoke'"
+qa_night = "pytest --tb=no"

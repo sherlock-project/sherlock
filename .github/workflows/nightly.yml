@@ -24,4 +24,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sherlock Site Coverage Tests
       run: |
-        cd sherlock && python -m unittest tests.all.SherlockSiteCoverageTests --verbose
+        python -m unittest sherlock.tests.all.SherlockSiteCoverageTests --verbose
