@@ -47,6 +47,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "xgtrq"
   },
+  "Cent": {
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codementor": {
     "errorType": "status_code",
     "rank": 10252,

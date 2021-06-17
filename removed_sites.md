@@ -1104,11 +1104,25 @@ they have their own undefined style of defining user ids unlike majority of othe
 
 As of 2021-06-17, Kali Forums are only allowing registered users. 
 ```
-"Kali community": {
+  "Kali community": {
     "errorMsg": "This user has not registered and therefore does not have a profile to view.",
     "errorType": "message",
     "url": "https://forums.kali.org/member.php?username={}",
     "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+    },
+  ```
+
+  ## Cent
+
+As of 2021-06-17, Cent always returns status code 2XX. 
+```
+  "Cent": {
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
