@@ -1099,3 +1099,17 @@ they have their own undefined style of defining user ids unlike majority of othe
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Kali Community Forum
+
+As of 2021-06-17, Kali Forums are only allowing registered users. 
+```
+"Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  ```
