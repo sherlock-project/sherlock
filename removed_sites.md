@@ -1075,12 +1075,27 @@ As of 2021-01-15, Ebay seems to be very laggy and take too long to return a resp
 As of 2021-06-17, After so many controversies, LiveLeak is shutdown([The Verge Report](https://www.theverge.com/2021/5/7/22424356/liveleak-shock-site-shuts-down-itemfix)).
 It redirects to [ItemFix - Social Video Factory](https://www.itemfix.com/ll).
 ```
-"LiveLeak": {
-"errorMsg": "channel not found",
-"errorType": "message",
-"url": "https://www.liveleak.com/c/{}",
-"urlMain": "https://www.liveleak.com/",
-"username_claimed": "blue",
-"username_unclaimed": "noonewouldeverusethis"
-},
+  "LiveLeak": {
+    "errorMsg": "channel not found",
+    "errorType": "message",
+    "url": "https://www.liveleak.com/c/{}",
+    "urlMain": "https://www.liveleak.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## Anobii
+
+As of 2021-06-17, Anobii always responds with status code 200 or 2XX. Making it impossible to hunt without web scraping.
+Also Anobii doesn't seem to follow regular username standards, like you can try opening random users profile from the home page,
+they have their own undefined style of defining user ids unlike majority of other sites.
+```
+  "Anobii": {
+    "errorType": "response_url",
+    "url": "https://www.anobii.com/{}/profile",
+    "urlMain": "https://www.anobii.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 ```
