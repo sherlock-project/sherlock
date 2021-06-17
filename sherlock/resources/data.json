@@ -1789,8 +1789,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "allmylinks": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://allmylinks.com/{}",
     "urlMain": "https://allmylinks.com/",
     "username_claimed": "blue",
