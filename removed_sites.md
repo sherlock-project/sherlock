@@ -1069,3 +1069,18 @@ As of 2021-01-15, Ebay seems to be very laggy and take too long to return a resp
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Liveleak
+
+As of 2021-06-17, After so many controversies, LiveLeak is shutdown([The Verge Report](https://www.theverge.com/2021/5/7/22424356/liveleak-shock-site-shuts-down-itemfix)).
+It redirects to [ItemFix - Social Video Factory](https://www.itemfix.com/ll).
+```
+"LiveLeak": {
+"errorMsg": "channel not found",
+"errorType": "message",
+"url": "https://www.liveleak.com/c/{}",
+"urlMain": "https://www.liveleak.com/",
+"username_claimed": "blue",
+"username_unclaimed": "noonewouldeverusethis"
+},
+```

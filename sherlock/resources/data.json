@@ -905,14 +905,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "LiveLeak": {
-    "errorMsg": "channel not found",
-    "errorType": "message",
-    "url": "https://www.liveleak.com/c/{}",
-    "urlMain": "https://www.liveleak.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Lobsters": {
     "errorType": "status_code",
     "regexCheck": "[A-Za-z0-9][A-Za-z0-9_-]{0,24}",
