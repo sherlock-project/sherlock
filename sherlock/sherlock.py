@@ -360,7 +360,7 @@ def sherlock(username, site_data, query_notify,
                                      query_time=response_time)
         elif error_type == "status_code":
             # Checks if the status code of the response is 2XX
-            if not r.status_code >= 300 or r.status_code < 200:
+            if 200 <= r.status_code < 300:
                 result = QueryResult(username,
                                      social_network,
                                      url,
