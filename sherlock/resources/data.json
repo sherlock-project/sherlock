@@ -50,21 +50,14 @@
     "username_claimed": "julian",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "AllTrails": {
-    "errorMsg": "User could not be found.",
-    "errorType": "message",
-    "url": "https://www.alltrails.com/members/{}",
-    "urlMain": "https://www.alltrails.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Anobii": {
-    "errorType": "response_url",
+    "errorMsg": "A user matching the specified criteria could not be found.",
+    "errorType": "message",
     "url": "https://www.anobii.com/{}/profile",
     "urlMain": "https://www.anobii.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
+  }, 
   "Apple Discussions": {
     "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
     "errorType": "message",
@@ -262,14 +255,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Cent": {
-    "errorMsg": "<title>Cent</title>",
-    "errorType": "message",
-    "url": "https://beta.cent.co/@{}",
-    "urlMain": "https://cent.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Championat": {
     "errorType": "status_code",
     "url": "https://www.championat.com/user/{}",
@@ -287,7 +272,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Chess": {
-    "errorMsg": "Missing page... somebody made a wrong move.",
+    "errorMsg": "Oops! Something is clearly wrong here...",
     "errorType": "message",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
@@ -702,14 +687,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "HackerNews": {
-    "errorMsg": "No such user.",
-    "errorType": "message",
-    "url": "https://news.ycombinator.com/user?id={}",
-    "urlMain": "https://news.ycombinator.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "HackerOne": {
     "errorMsg": "Page not found",
     "errorType": "message",
@@ -827,14 +804,6 @@
     "username_claimed": "dansbecker",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Kali community": {
-    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
-    "errorType": "message",
-    "url": "https://forums.kali.org/member.php?username={}",
-    "urlMain": "https://forums.kali.org/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Keybase": {
     "errorType": "status_code",
     "url": "https://keybase.io/{}",
@@ -904,14 +873,6 @@
     "urlMain": "https://www.livejournal.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "LiveLeak": {
-    "errorMsg": "channel not found",
-    "errorType": "message",
-    "url": "https://www.liveleak.com/c/{}",
-    "urlMain": "https://www.liveleak.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
   },
   "Lobsters": {
     "errorType": "status_code",
@@ -988,14 +949,6 @@
     "urlMain": "https://www.native-instruments.com/forum/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
-  },
-  "NameMC (Minecraft.net skins)": {
-    "errorMsg": "Profiles: 0 results",
-    "errorType": "message",
-    "url": "https://namemc.com/profile/{}",
-    "urlMain": "https://namemc.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "NationStates Nation": {
     "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
@@ -1192,7 +1145,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "ProductHunt": {
-    "errorMsg": "Page Not Found",
+    "errorMsg": "404",
     "errorType": "message",
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
@@ -1468,7 +1421,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Steamid": {
-    "errorMsg": "<div class=\"alert alert-warning\">Profile not found</div>",
+    "errorMsg": "What",
     "errorType": "message",
     "url": "https://steamid.uk/profile/{}",
     "urlMain": "https://steamid.uk/",
@@ -1595,16 +1548,6 @@
     "urlMain": "https://www.twitch.tv/",
     "urlProbe": "https://m.twitch.tv/{}",
     "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Twitter": {
-    "errorType": "status_code",
-    "headers": {
-      "User-Agent": ""
-    },
-    "url": "https://mobile.twitter.com/{}",
-    "urlMain": "https://mobile.twitter.com/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Typeracer": {
@@ -1821,14 +1764,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "allmylinks": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
-    "url": "https://allmylinks.com/{}",
-    "urlMain": "https://allmylinks.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "aminoapp": {
     "errorType": "status_code",
     "url": "https://aminoapps.com/u/{}",
@@ -1848,14 +1783,6 @@
     "errorType": "message",
     "url": "https://www.baby.ru/u/{}/",
     "urlMain": "https://www.baby.ru/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
-  "babyblogRU": {
-    "errorMsg": "<title>BabyBlog \u2014 \u043a\u0440\u0443\u043f\u043d\u0435\u0439\u0448\u0435\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439</title>",
-    "errorType": "message",
-    "url": "https://www.babyblog.ru/user/info/{}",
-    "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },

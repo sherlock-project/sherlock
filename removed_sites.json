@@ -7,6 +7,14 @@
     "username_claimed": "jack",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "AllTrails": {
+    "errorMsg": "User could not be found.",
+    "errorType": "message",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "AngelList": {
     "errorType": "status_code",
     "rank": 5767,
@@ -39,6 +47,14 @@
     "urlMain": "https://www.canva.com/",
     "username_claimed": "jenny",
     "username_unclaimed": "xgtrq"
+  },
+  "Cent": { 
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codementor": {
     "errorType": "status_code",
@@ -105,6 +121,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Khan Academy": {
     "errorType": "status_code",
     "rank": 377,
@@ -130,6 +154,14 @@
     "urlMain": "https://www.linkedin.com/",
     "username_claimed": "alex",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "NameMC (Minecraft.net skins)": {
+    "errorMsg": "Profiles: 0 results",
+    "errorType": "message",
+    "url": "https://namemc.com/profile/{}",
+    "urlMain": "https://namemc.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7" 
   },
   "NPM-Package": {
     "errorType": "status_code",
@@ -214,6 +246,14 @@
     "urlMain": "insanejournal.com",
     "username_claimed": "blue",
     "username_unclaimed": "dlyr6cd"
+  },
+  "ItemFix": {
+    "errorMsg": "channel not found",
+    "errorType": "message",
+    "url": "https://www.itemfix.com/c/brrrtmn{}",
+    "urlMain": "https://www.itemfix.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Trip": {
       "errorType": "status_code",
@@ -328,6 +368,22 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+   "allmylinks": {
+    "errorMsg": "404",
+    "errorType": "message",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "babyblogRU": {
+    "errorMsg": "<title>BabyBlog \u2014 \u043a\u0440\u0443\u043f\u043d\u0435\u0439\u0448\u0435\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439</title>",
+    "errorType": "message",
+    "url": "https://www.babyblog.ru/user/info/{}",
+    "urlMain": "https://www.babyblog.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Zomato": {
     "errorType": "status_code",
     "headers": {
@@ -337,6 +393,24 @@
     "url": "https://www.zomato.com/pl/{}/foodjourney",
     "urlMain": "https://www.zomato.com/",
     "username_claimed": "deepigoyal",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Twitter": {
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": ""
+    },
+    "url": "https://mobile.twitter.com/{}",
+    "urlMain": "https://mobile.twitter.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "HackerNews": {
+    "errorMsg": "No such user.",
+    "errorType": "message",
+    "url": "https://news.ycombinator.com/user?id={}",
+    "urlMain": "https://news.ycombinator.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "mixer.com": {
@@ -542,6 +616,6 @@
     "urlMain": "https://www.ebay.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
+  }
 }
 
