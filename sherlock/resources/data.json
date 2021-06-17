@@ -1160,8 +1160,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "ProductHunt": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny",
