@@ -1201,3 +1201,17 @@ into this as YouTube is must have site in Sherlock.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## Twitter
+
+As of 2021-06-27, Twitter returns false positives. A solid solution has not been found yet but Twitter is temporarly removed. We will find a solution ASAP.
+```
+  "Twitter": {
+    "errorMsg": "This account doesn’t exist",
+    "errorType": "message",
+    "url": "https://twitter.com/{}",
+    "urlMain": "https://twitter.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
