@@ -1,0 +1,112 @@
+#logo{ 
+	position:fixed; 
+	top:0; 
+	left:0;
+  width: 50%; 
+  height: 50%;
+}
+#github{ 
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+  border-radius: 1000px;
+}
+* {
+    box-sizing: border-box;
+  }
+body{
+    margin: 0%;
+}
+fieldset {
+    margin: 0;
+    padding: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    border: 0;
+  }
+.form1 {
+    min-height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+  }
+  
+  
+  .form1 form legend {
+    font-size: 36px;
+    color: rgb(174, 200, 230);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .form1 form .inner-form {
+    width: 100%;
+    margin-bottom: 17px;
+
+  }
+  
+  .form1 form .inner-form .input-field {
+    width: 100%;
+    position: relative;
+
+  }
+  
+  .form1 form .inner-form .input-field  {
+    min-height: 70px;
+    width: 100%;
+    background: rgb(174, 200, 230);
+    display: block;
+    padding: 10px 70px 6.25px 32px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 100px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-align: center;
+        align-items: center;
+    
+  }
+  
+  .form1 form .inner-form .input-field .btn-search {
+    width: 70px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    align-items: center;
+  }
+  
+  .form1 form .inner-form .input-field .btn-search svg {
+    fill: rgb(255, 255, 255);
+    width: 40px;
+    height: 40px;
+    transition: all .2s ease-out, color .2s ease-out;
+  }
+
