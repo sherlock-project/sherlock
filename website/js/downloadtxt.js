@@ -1,3 +1,5 @@
+//This js method creates and downloads the file with the results
+// @author Miltos Tsichlis
 let saveResults = () => {
     const username = sessionStorage.getItem('USERNAME');
     

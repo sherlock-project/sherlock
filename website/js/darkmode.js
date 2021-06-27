@@ -1,3 +1,4 @@
+//This js file creates the dark mode effect and has the style options
 const options = {
     bottom: '64px', 
     right: '32px', 
