@@ -51,7 +51,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "AllTrails": {
-    "errorMsg": "User could not be found.",
+    "errorMsg": "class=\"home index\"",
     "errorType": "message",
     "url": "https://www.alltrails.com/members/{}",
     "urlMain": "https://www.alltrails.com/",

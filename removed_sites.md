@@ -1082,3 +1082,17 @@ As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on 
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+## AllTrails
+
+As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
+```
+  "AllTrails": {
+    "errorMsg": "class=\"home index\"",
+    "errorType": "message",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  }
+```

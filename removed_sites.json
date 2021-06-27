@@ -549,6 +549,14 @@
     "urlMain": "https://gdprofiles.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "AllTrails": {
+    "errorMsg": "class=\"home index\"",
+    "errorType": "message",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
 
