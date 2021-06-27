@@ -1140,3 +1140,18 @@ As of 2021-06-27, Kali Community requires us to be logged in order to check if a
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## NameMC
+
+As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+
+```
+  "NameMC (Minecraft.net skins)": {
+    "errorMsg": "Profiles: 0 results",
+    "errorType": "message",
+    "url": "https://namemc.com/profile/{}",
+    "urlMain": "https://namemc.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
