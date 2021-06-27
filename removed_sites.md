@@ -1096,3 +1096,32 @@ As of 2021-06-27, AllTrails has a chapta which prevents us from checking for use
     "username_unclaimed": "noonewouldeverusethis"
   }
 ```
+
+## Cent
+
+As of 2021-06-27, there is not way of checking if a username exists on Cent
+
+```
+  "Cent": {
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Anobii
+
+As of 2021-06-27, Anobii returns false positives and there is no stable way of checking usernames.
+```
+
+  "Anobii": {
+    "errorType": "response_url",
+    "url": "https://www.anobii.com/{}/profile",
+    "urlMain": "https://www.anobii.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
