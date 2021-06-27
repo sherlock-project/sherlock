@@ -555,11 +555,12 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Freelancer.com": {
+  "Freelancer": {
     "errorMsg": "\"users\":{}",
     "errorType": "message",
-    "url": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D={}&compact=true",
+    "urlProbe": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D={}&compact=true",
     "urlMain": "https://www.freelancer.com/",
+    "url": "https://www.freelancer.com/u/{}",
     "username_claimed": "red0xff",
     "username_unclaimed": "noonewouldeverusethis"
   },
