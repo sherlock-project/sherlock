@@ -1069,3 +1069,164 @@ As of 2021-01-15, Ebay seems to be very laggy and take too long to return a resp
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## GDProfiles
+
+As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
+```
+  "GDProfiles": {
+    "errorType": "status_code",
+    "url": "https://gdprofiles.com/{}",
+    "urlMain": "https://gdprofiles.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## AllTrails
+
+As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
+```
+  "AllTrails": {
+    "errorMsg": "class=\"home index\"",
+    "errorType": "message",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  }
+```
+
+## Cent
+
+As of 2021-06-27, there is not way of checking if a username exists on Cent
+
+```
+  "Cent": {
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Anobii
+
+As of 2021-06-27, Anobii returns false positives and there is no stable way of checking usernames.
+```
+
+  "Anobii": {
+    "errorType": "response_url",
+    "url": "https://www.anobii.com/{}/profile",
+    "urlMain": "https://www.anobii.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Kali Community
+
+As of 2021-06-27, Kali Community requires us to be logged in order to check if a user exists on their forum.
+
+```
+  "Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## NameMC
+
+As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+
+```
+  "NameMC (Minecraft.net skins)": {
+    "errorMsg": "Profiles: 0 results",
+    "errorType": "message",
+    "url": "https://namemc.com/profile/{}",
+    "urlMain": "https://namemc.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## SteamID
+
+As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+```
+  "Steamid": {
+    "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
+    "errorType": "message",
+    "url": "https://steamid.uk/profile/{}",
+    "urlMain": "https://steamid.uk/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+
+## TripAdvisor
+
+As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
+```
+  "TripAdvisor": {
+    "errorMsg": "This page is on vacation\u2026",
+    "errorType": "message",
+    "url": "https://tripadvisor.com/members/{}",
+    "urlMain": "https://tripadvisor.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+
+```
+
+## YouTube
+
+As of 2021-06-27, there is no way of checking if a username exists on YouTube. We'll have to take a deeper look
+into this as YouTube is must have site in Sherlock.
+
+```
+  "YouTube": {
+    "errorMsg": "This page isn't available",
+    "errorType": "message",
+    "url": "https://www.youtube.com/{}",
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Twitter
+
+As of 2021-06-27, Twitter returns false positives. A solid solution has not been found yet but Twitter is temporarly removed. We will find a solution ASAP.
+```
+  "Twitter": {
+    "errorMsg": "This account doesn’t exist",
+    "errorType": "message",
+    "url": "https://twitter.com/{}",
+    "urlMain": "https://twitter.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## AllMyLinks
+
+As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this prevents us from checking for usernames.
+
+```
+  "allmylinks": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
