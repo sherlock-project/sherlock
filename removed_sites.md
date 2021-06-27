@@ -1215,3 +1215,18 @@ As of 2021-06-27, Twitter returns false positives. A solid solution has not been
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## AllMyLinks
+
+As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this prevents us from checking for usernames.
+
+```
+  "allmylinks": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
