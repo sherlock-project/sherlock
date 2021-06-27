@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/index.js"></script>
+  </head>
+  <body>
+    <div id="logo">
+      <a href="index.html">
+      <img src="images/sherlock.png" width="150px" height="150px">
+    </a> 
+    </div>
+    <div id="github">
+      <a href="https://github.com/sherlock-project/sherlock">
+      <img src="images/githubwhite.png" width="150px" height="80x"> 
+      </a>
+    </div> 
+    <div class="form1">
+      <form action="result.html">
+          <fieldset>
+            <legend>Welcome to Sherlock</legend>
+            <div class="inner-form">
+              <div class="input-field">
+                <input type="text" id="username" name="username" style="font-size: large; border: none; background: transparent; width: 300px; height: 35px;" placeholder="Enter username                " >
+                <input type="submit" value="Search" onclick="searchUsername()" style="border: none; background-color: rgb(174, 200, 230); font-size: large; background: transparent;">
+              </div>
+            </div>
+            <div class="suggestion-wrap">
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1" style="color: rgb(174, 200, 230);"> Download .txt file</label>
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1" style="color: rgb(174, 200, 230);"> Download .csv file</label>
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1" style="color: rgb(174, 200, 230);"> Print all</label><br>
+            </div> 
+          </fieldset>
+        </form>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+      <script src="js/darkmode.js"></script>
+  </body>
+</html>
