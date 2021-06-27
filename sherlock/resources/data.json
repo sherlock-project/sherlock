@@ -1423,14 +1423,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Steamid": {
-    "errorMsg": "<div class=\"alert alert-warning\">Profile not found</div>",
-    "errorType": "message",
-    "url": "https://steamid.uk/profile/{}",
-    "urlMain": "https://steamid.uk/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Strava": {
     "errorMsg": "Strava | Run and Cycling Tracking on the Social Network for Athletes",
     "errorType": "message",

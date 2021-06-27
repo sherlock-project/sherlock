@@ -1155,3 +1155,17 @@ As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from c
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## SteamID
+
+As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+```
+  "Steamid": {
+    "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
+    "errorType": "message",
+    "url": "https://steamid.uk/profile/{}",
+    "urlMain": "https://steamid.uk/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
