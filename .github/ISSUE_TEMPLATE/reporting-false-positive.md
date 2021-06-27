@@ -24,7 +24,7 @@ Make sure complete everything in the checklist.
 - [ ] I'm reporting a website that is returning **false positive** results
 - [ ] I've checked for similar site support requests including closed ones
 - [ ] I've checked for pull requests attempting to fix this false positive
-- [ ] I'm only reporting **one** site (create a seperate issue for each site)
+- [ ] I'm only reporting **one** site (create a separate issue for each site)
 
 ## Description
 <!--
