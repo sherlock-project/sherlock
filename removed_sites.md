@@ -1069,3 +1069,16 @@ As of 2021-01-15, Ebay seems to be very laggy and take too long to return a resp
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## GDProfiles
+
+As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
+```
+  "GDProfiles": {
+    "errorType": "status_code",
+    "url": "https://gdprofiles.com/{}",
+    "urlMain": "https://gdprofiles.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
