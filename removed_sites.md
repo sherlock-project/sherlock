@@ -1125,3 +1125,18 @@ As of 2021-06-27, Anobii returns false positives and there is no stable way of c
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## Kali Community
+
+As of 2021-06-27, Kali Community requires us to be logged in order to check if a user exists on their forum.
+
+```
+  "Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
