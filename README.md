@@ -42,6 +42,9 @@ $ cd sherlock
 
 # install the requirements
 $ python3 -m pip install -r requirements.txt
+
+# change the working directory again to sherlock inside sherlock
+$ cd sherlock/sherlock
 ```
 
 
