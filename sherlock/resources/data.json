@@ -200,6 +200,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "BraveCommunity": {
+    "errorType": "status_code",
+    "url": "https://community.brave.com/u/{}/",
+    "urlMain": "https://community.brave.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "BuyMeACoffee": {
     "errorType": "status_code",
     "url": "https://buymeacoff.ee/{}",
