@@ -310,6 +310,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codeforces" {
+    "errorMsg": "Can't find such user",
+    "errorType": "message",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://codeforces.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codepen": {
     "errorType": "status_code",
     "url": "https://codepen.io/{}",
