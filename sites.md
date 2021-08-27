@@ -1,4 +1,4 @@
-## List Of Supported Sites (287 Sites In Total!)
+## List Of Supported Sites (288 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 1. [3dnews](http://forum.3dnews.ru/)
 1. [7Cups](https://www.7cups.com/)
@@ -169,6 +169,7 @@
 1. [Scribd](https://www.scribd.com/)
 1. [ShitpostBot5000](https://www.shitpostbot.com/)
 1. [Signal](https://community.signalusers.org)
+1. [Skyrock](https://skyrock.com/)
 1. [Slack](https://slack.com)
 1. [Slashdot](https://slashdot.org)
 1. [SlideShare](https://slideshare.net/)
