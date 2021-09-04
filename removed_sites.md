@@ -1258,3 +1258,29 @@ As of 2021-09-04, Quora returns false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### Reddit
+
+As of 2021-09-04, Reddit returns false positives.
+```
+  "Reddit": {
+    "errorType": "status_code",
+    "url": "https://www.reddit.com/user/{}",
+    "urlMain": "https://www.reddit.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+### SparkPeople
+As of 2021-09-04, SparkPeople returns false positives.
+```
+  "SparkPeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
