@@ -1230,3 +1230,18 @@ As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this preven
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### House Mixes
+
+As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
+```
+  "House-Mixes.com": {
+    "errorMsg": "Profile Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
+    "url": "https://www.house-mixes.com/profile/{}",
+    "urlMain": "https://www.house-mixes.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
