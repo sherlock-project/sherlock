@@ -1230,3 +1230,57 @@ As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this preven
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### House Mixes
+
+As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
+```
+  "House-Mixes.com": {
+    "errorMsg": "Profile Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
+    "url": "https://www.house-mixes.com/profile/{}",
+    "urlMain": "https://www.house-mixes.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Quora
+As of 2021-09-04, Quora returns false positives.
+```
+  "Quora": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "url": "https://www.quora.com/profile/{}",
+    "urlMain": "https://www.quora.com/",
+    "username_claimed": "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Reddit
+
+As of 2021-09-04, Reddit returns false positives.
+```
+  "Reddit": {
+    "errorType": "status_code",
+    "url": "https://www.reddit.com/user/{}",
+    "urlMain": "https://www.reddit.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+### SparkPeople
+As of 2021-09-04, SparkPeople returns false positives.
+```
+  "SparkPeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
