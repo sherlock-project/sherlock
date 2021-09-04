@@ -1245,3 +1245,16 @@ As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### Quora
+As of 2021-09-04, Quora returns false positives.
+```
+  "Quora": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "url": "https://www.quora.com/profile/{}",
+    "urlMain": "https://www.quora.com/",
+    "username_claimed": "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
