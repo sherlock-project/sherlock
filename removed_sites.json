@@ -646,13 +646,6 @@
     "username_claimed": "Matt-Riggsby",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Reddit": {
-    "errorType": "status_code",
-    "url": "https://www.reddit.com/user/{}",
-    "urlMain": "https://www.reddit.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "SparkPeople": {
     "errorMsg": "We couldn't find that user",
     "errorType": "message",

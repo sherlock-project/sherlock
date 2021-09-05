@@ -1259,19 +1259,6 @@ As of 2021-09-04, Quora returns false positives.
   }
 ```
 
-### Reddit
-
-As of 2021-09-04, Reddit returns false positives.
-```
-  "Reddit": {
-    "errorType": "status_code",
-    "url": "https://www.reddit.com/user/{}",
-    "urlMain": "https://www.reddit.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ### SparkPeople
 As of 2021-09-04, SparkPeople returns false positives.
 ```
