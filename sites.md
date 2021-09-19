@@ -1,4 +1,4 @@
-## List Of Supported Sites (284 Sites In Total!)
+## List Of Supported Sites (285 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 1. [3dnews](http://forum.3dnews.ru/)
 1. [7Cups](https://www.7cups.com/)
@@ -188,6 +188,7 @@
 1. [TETR.IO](https://tetr.io)
 1. [Telegram](https://t.me/)
 1. [Tellonym.me](https://tellonym.me/)
+1. [Tenor](https://tenor.com/)
 1. [TikTok](https://tiktok.com/)
 1. [Tinder](https://tinder.com/)
 1. [TrackmaniaLadder](http://en.tm-ladder.com/index.php)
