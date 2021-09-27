@@ -283,3 +283,4 @@
 1. [svidbook](https://www.svidbook.ru/)
 1. [toster](https://www.toster.ru/)
 1. [uid](https://uid.me/)
+1. [instagram](https://instagram.com)
