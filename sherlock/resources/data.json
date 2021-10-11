@@ -151,7 +151,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "BinarySearch": {
+  "Bezuzyteczna": {
+	"errorType": "status_code",
+	"url": "https://bezuzyteczna.pl/uzytkownicy/{}",
+	"urlMain": "https://bezuzyteczna.pl",
+	"username_claimed": "Jackson",
+	"username_unclaimed": "ktobysietaknazwalnawb69"
+  },
+"BinarySearch": {
     "errorMsg": "{}",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
