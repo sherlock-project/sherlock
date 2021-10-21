@@ -2155,6 +2155,13 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "znanylekarz.pl": {
+	"errorType": "status_code",
+	"url": "https://www.znanylekarz.pl/{}",
+	"urlMain": "https://znanylekarz.pl",
+	"username_claimed": "janusz-nowak",
+	"username_unclaimed": "kto-by-sie-tak-nazwal-69"
+  },
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
