@@ -273,13 +273,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Cloob": {
-    "errorType": "status_code",
-    "url": "https://www.cloob.com/name/{}",
-    "urlMain": "https://www.cloob.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "CloudflareCommunity": {
     "errorType": "status_code",
     "url": "https://community.cloudflare.com/u/{}",

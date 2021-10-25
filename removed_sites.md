@@ -1271,3 +1271,15 @@ As of 2021-09-04, SparkPeople returns false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### Cloob
+As of 2021-10-25, Cloob seems to be down and their site is not responding.
+```
+  "Cloob": {
+    "errorType": "status_code",
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
