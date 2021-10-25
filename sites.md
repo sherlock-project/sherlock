@@ -34,7 +34,6 @@
 1. [Championat](https://www.championat.com/)
 1. [Chatujme.cz](https://chatujme.cz/)
 1. [Chess](https://www.chess.com/)
-1. [Cloob](https://www.cloob.com/)
 1. [CloudflareCommunity](https://community.cloudflare.com/)
 1. [Clozemaster](https://www.clozemaster.com)
 1. [Codecademy](https://www.codecademy.com/)
@@ -283,3 +282,4 @@
 1. [svidbook](https://www.svidbook.ru/)
 1. [toster](https://www.toster.ru/)
 1. [uid](https://uid.me/)
+1. [Instagram](https://www.instagram.com/)
