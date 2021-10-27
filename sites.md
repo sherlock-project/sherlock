@@ -1,4 +1,4 @@
-## List Of Supported Sites (297 Sites In Total!)
+## List Of Supported Sites (298 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 1. [3dnews](http://forum.3dnews.ru/)
 1. [7Cups](https://www.7cups.com/)
@@ -6,6 +6,7 @@
 1. [About.me](https://about.me/)
 1. [Academia.edu](https://www.academia.edu/)
 1. [Alik.cz](https://www.alik.cz/)
+1. [AllMyLinks](https://allmylinks.com/)
 1. [Apple Discussions](https://discussions.apple.com)
 1. [Archive.org](https://archive.org)
 1. [Asciinema](https://asciinema.org)
