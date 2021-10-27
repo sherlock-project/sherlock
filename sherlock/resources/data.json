@@ -193,6 +193,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "BongaCams": {
+    "errorType": "status_code",
+    "url": "https://pt.bongacams.com/profile/{}",
+    "urlMain": "https://pt.bongacams.com",
+    "username_claimed": "asuna-black",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "Bookcrossing": {
     "errorType": "status_code",
     "url": "https://www.bookcrossing.com/mybookshelf/{}/",
@@ -262,6 +269,13 @@
     "urlMain": "https://chatujme.cz/",
     "username_claimed": "david",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "ChaturBate": {
+    "errorType": "status_code",
+    "url": "https://chaturbate.com/{}",
+    "urlMain": "https://chaturbate.com",
+    "username_claimed": "cute18cute",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Chess": {
     "errorMsg": "usernameSuggestions",
@@ -563,6 +577,13 @@
     "urlMain": "https://freesound.org/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Gam1ng": {
+    "errorType": "status_code",
+    "url": "https://gam1ng.com.br/user/{}",
+    "urlMain": "https://gam1ng.com.br",
+    "username_claimed": "PinKgirl",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Gamespot": {
     "errorType": "status_code",
@@ -1002,6 +1023,13 @@
     "username_claimed": "ok",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "OnlyFans": {
+    "errorType": "status_code",
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "username_claimed": "theemilylynne",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",
@@ -1141,6 +1169,13 @@
     "username_claimed": "swiftstickler",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Pornhub": {
+    "errorType": "status_code",
+    "url": "https://pornhub.com/users/{}",
+    "urlMain": "https://pornhub.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ProductHunt": {
     "errorMsg": "We seem to have lost this page",
     "errorType": "message",
@@ -1241,6 +1276,13 @@
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "RoyalCams": {
+    "errorType": "status_code",
+    "url": "https://royalcams.com/profile/{}",
+    "urlMain": "https://royalcams.com",
+    "username_claimed": "asuna-black",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "RubyGems": {
     "errorType": "status_code",
@@ -1711,6 +1753,13 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Xvideos": {
+    "errorType": "status_code",
+    "url": "https://xvideos.com/profiles/{}",
+    "urlMain": "https://xvideos.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "YouNow": {
     "errorMsg": "No users found",
     "errorType": "message",
@@ -1726,6 +1775,13 @@
     "urlMain": "https://youpic.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YouPorn": {
+    "errorType": "status_code",
+    "url": "https://youporn.com/uservids/{}",
+    "urlMain": "https://youporn.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Zhihu": {
     "errorType": "response_url",
@@ -2174,8 +2230,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "xHamster": {
+    "errorType": "status_code",
+    "url": "https://xhamster.com/users/{}",
+    "urlMain": "https://xhamster.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "zoomit": {
-    "errorMsg": "متاسفانه صفحه یافت نشد",
+    "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
     "errorType": "message",
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
