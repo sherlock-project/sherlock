@@ -1188,20 +1188,6 @@ into this as YouTube is must have site in Sherlock.
   }
 ```
 
-## Twitter
-
-As of 2021-06-27, Twitter returns false positives. A solid solution has not been found yet but Twitter is temporarly removed. We will find a solution ASAP.
-```
-  "Twitter": {
-    "errorMsg": "This account doesn’t exist",
-    "errorType": "message",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ## AllMyLinks
 
 As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this prevents us from checking for usernames.

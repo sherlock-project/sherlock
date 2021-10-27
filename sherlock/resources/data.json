@@ -1519,6 +1519,15 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Twitter": {
+    "errorMsg": "<title>Error | nitter</title>",
+    "errorType": "message",
+    "url": "https://twitter.com/{}",
+    "urlMain": "https://twitter.com/",
+    "urlProbe": "https://nitter.net/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Typeracer": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
