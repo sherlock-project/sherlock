@@ -2165,5 +2165,13 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "zoomit": {
+    "errorMsg": "متاسفانه صفحه یافت نشد",
+    "errorType": "message",
+    "url": "https://www.zoomit.ir/user/{}",
+    "urlMain": "https://www.zoomit.ir",
+    "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
