@@ -1445,6 +1445,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Tenor": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9_]{2,32}$",
+    "url": "https://tenor.com/users/{}",
+    "urlMain": "https://tenor.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "impossible-username"
+  },
   "TikTok": {
     "errorType": "status_code",
     "url": "https://tiktok.com/@{}",

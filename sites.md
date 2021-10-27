@@ -188,6 +188,7 @@
 1. [TETR.IO](https://tetr.io)
 1. [Telegram](https://t.me/)
 1. [Tellonym.me](https://tellonym.me/)
+1. [Tenor](https://tenor.com/)
 1. [TikTok](https://tiktok.com/)
 1. [Tinder](https://tinder.com/)
 1. [TrackmaniaLadder](http://en.tm-ladder.com/index.php)
