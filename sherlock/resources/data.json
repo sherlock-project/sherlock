@@ -50,6 +50,14 @@
     "username_claimed": "julian",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "AllMyLinks": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Apple Discussions": {
     "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
     "errorType": "message",
