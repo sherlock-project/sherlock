@@ -1003,20 +1003,6 @@ As of 2021-01-13, Badoo returns false positives
   },
 ```
 
-## Instagram
-As of 2021-01-13, Instagram returns false positives. This can be fixed by using their username checking API endpoint, but that requires a POST request which Sherlock currently does not support. 
-
-```
-  "Instagram": {
-    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Pling
 As of 2021-01-13, Pling returns false positives.
 ```
@@ -1202,35 +1188,6 @@ into this as YouTube is must have site in Sherlock.
   }
 ```
 
-## Twitter
-
-As of 2021-06-27, Twitter returns false positives. A solid solution has not been found yet but Twitter is temporarly removed. We will find a solution ASAP.
-```
-  "Twitter": {
-    "errorMsg": "This account doesn’t exist",
-    "errorType": "message",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
-## AllMyLinks
-
-As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this prevents us from checking for usernames.
-
-```
-  "allmylinks": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
-    "url": "https://allmylinks.com/{}",
-    "urlMain": "https://allmylinks.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### House Mixes
 
 As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
@@ -1268,6 +1225,18 @@ As of 2021-09-04, SparkPeople returns false positives.
     "url": "https://www.sparkpeople.com/mypage.asp?id={}",
     "urlMain": "https://www.sparkpeople.com",
     "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Cloob
+As of 2021-10-25, Cloob seems to be down and their site is not responding.
+```
+  "Cloob": {
+    "errorType": "status_code",
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```

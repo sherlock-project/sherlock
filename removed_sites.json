@@ -503,14 +503,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Instagram": {
-    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Pling": {
     "errorMsg": "Resource not found",
     "errorType": "message",
@@ -613,22 +605,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Twitter": {
-    "errorMsg": "This account doesn’t exist",
-    "errorType": "message",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "allmylinks": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
-    "url": "https://allmylinks.com/{}",
-    "urlMain": "https://allmylinks.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
@@ -652,6 +628,13 @@
     "url": "https://www.sparkpeople.com/mypage.asp?id={}",
     "urlMain": "https://www.sparkpeople.com",
     "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Cloob": {
+    "errorType": "status_code",
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
