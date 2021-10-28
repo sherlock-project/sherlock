@@ -2260,5 +2260,12 @@
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Linktree": {
+    "errorType": "status_code",
+    "url": "https://linktr.ee/{}",
+    "urlMain": "https://linktr.ee/",
+    "username_claimed": "anne",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
