@@ -713,6 +713,14 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "HackerEarth": {
+    "errorMsg": "404. URL not found.",
+    "errorType": "message",
+    "url": "https://hackerearth.com/@{}",
+    "urlMain": "https://hackerearth.com/",
+    "username_claimed": "naveennamani877",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "HackerNews": {
     "errorMsg": "No such user.",
     "errorType": "message",
