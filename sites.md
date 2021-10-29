@@ -76,6 +76,7 @@
 1. [Freelance.habr](https://freelance.habr.com/)
 1. [Freelancer](https://www.freelancer.com/)
 1. [Freesound](https://freesound.org/)
+1. [GaiaOnline](https://www.gaiaonline.com/)
 1. [Gam1ng](https://gam1ng.com.br)
 1. [Gamespot](https://www.gamespot.com/)
 1. [GetMyUni](https://getmyuni.com/)

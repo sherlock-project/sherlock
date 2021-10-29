@@ -594,6 +594,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "GaiaOnline": {
+    "errorMsg": "No user ID specified or user does not exist",
+    "errorType": "message",
+    "url": "https://www.gaiaonline.com/profiles/{}",
+    "urlMain": "https://www.gaiaonline.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  },
   "Gam1ng": {
     "errorType": "status_code",
     "url": "https://gam1ng.com.br/user/{}",
