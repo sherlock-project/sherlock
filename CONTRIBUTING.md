@@ -13,10 +13,10 @@ Any new sites that are added need to have a username that has been claimed, and 
 that is unclaimed documented in the site data.  This allows the regression tests
 to ensure that everything is working.
 
-It is required that a contributer test any new sites by either running the full tests, or running
+It is required that a contributor test any new sites by either running the full tests, or running
 a site-specific query against the claimed and unclaimed usernames.
 
-It is not required that a contributer run the 
+It is not required that a contributor run the 
 [site_list.py](https://github.com/sherlock-project/sherlock/blob/master/site_list.py)
 script.
 
