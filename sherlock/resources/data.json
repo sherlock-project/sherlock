@@ -1049,6 +1049,7 @@
   },
   "OnlyFans": {
     "errorType": "status_code",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "url": "https://onlyfans.com/{}",
     "urlMain": "https://onlyfans.com/",
     "username_claimed": "theemilylynne",
