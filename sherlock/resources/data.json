@@ -1651,7 +1651,7 @@
   "Venmo": {
     "errorType": "message",
     "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
-    "url": "https://venmo.com/{}",
+    "url": "https://venmo.com/u/{}",
     "urlMain": "https://venmo.com/",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
