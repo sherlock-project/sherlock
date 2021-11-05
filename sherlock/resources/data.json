@@ -1,4 +1,12 @@
 {
+  "1337x": {
+    "errorMsg": "Bad Username",
+    "errorType": "message",
+    "url": "https://1337x.to/user/{}/",
+    "urlMain": "https://1337x.to",
+    "username_claimed": "TheMorozko",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -43,6 +51,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Airliners": {
+    "errorType": "status_code",
+    "url": "https://www.airliners.net/user/{}/profile/photos",
+    "urlMain": "https://www.airliners.net/",
+    "username_claimed": "yushinlin",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Alik.cz": {
     "errorType": "status_code",
     "url": "https://www.alik.cz/u/{}",
@@ -57,6 +72,13 @@
     "urlMain": "https://allmylinks.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Apple Developer": {
+    "errorType": "status_code",
+    "url": "https://developer.apple.com/forums/profile/{}",
+    "urlMain": "https://developer.apple.com",
+    "username_claimed": "lio24d",
+    "username_unclaimed": "noonewouldeverusethis"
   },
   "Apple Discussions": {
     "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
@@ -908,6 +930,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Linktree": {
+    "errorType": "status_code",
+    "url": "https://linktr.ee/{}",
+    "urlMain": "https://linktr.ee/",
+    "username_claimed": "anne",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "LiveJournal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -1049,9 +1078,9 @@
   },
   "OnlyFans": {
     "errorType": "status_code",
-    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "url": "https://onlyfans.com/{}",
     "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1649,8 +1678,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Venmo": {
-    "errorType": "message",
     "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
     "url": "https://venmo.com/{}",
     "urlMain": "https://venmo.com/",
     "username_claimed": "jenny",
@@ -2269,13 +2298,6 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Linktree": {
-    "errorType": "status_code",
-    "url": "https://linktr.ee/{}",
-    "urlMain": "https://linktr.ee/",
-    "username_claimed": "anne",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
