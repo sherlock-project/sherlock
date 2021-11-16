@@ -1763,9 +1763,9 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Wikipedia": {
-    "errorMsg": "<b>Wikipedia does not have a <a href=\"/wiki/Wikipedia:User_pages\" title=\"Wikipedia:User pages\">user page</a> with this exact name.</b>",
+    "errorMsg": "centralauth-admin-nonexistent:",
     "errorType": "message",
-    "url": "https://www.wikipedia.org/wiki/User:{}",
+    "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
     "username_unclaimed": "noonewouldeverusethis7"
