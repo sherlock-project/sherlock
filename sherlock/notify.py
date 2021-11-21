@@ -15,6 +15,7 @@ class QueryNotify():
     It is intended that other classes inherit from this base class and
     override the methods to implement specific functionality.
     """
+
     def __init__(self, result=None):
         """Create Query Notify Object.
 
@@ -110,6 +111,7 @@ class QueryNotifyPrint(QueryNotify):
 
     Query notify class that prints results.
     """
+
     def __init__(self, result=None, verbose=False, color=True, print_all=False):
         """Create Query Notify Print Object.
 
@@ -155,10 +157,10 @@ class QueryNotifyPrint(QueryNotify):
         title = "Checking username"
         if self.color:
             print(Style.BRIGHT + Fore.GREEN + "[" +
-                Fore.YELLOW + "*" +
-                Fore.GREEN + f"] {title}" +
-                Fore.WHITE + f" {message}" +
-                Fore.GREEN + " on:")
+                  Fore.YELLOW + "*" +
+                  Fore.GREEN + f"] {title}" +
+                  Fore.WHITE + f" {message}" +
+                  Fore.GREEN + " on:")
         else:
             print(f"[*] {title} {message} on:")
 
@@ -202,11 +204,11 @@ class QueryNotifyPrint(QueryNotify):
             if self.print_all:
                 if self.color:
                     print((Style.BRIGHT + Fore.WHITE + "[" +
-                        Fore.RED + "-" +
-                        Fore.WHITE + "]" +
-                        response_time_text +
-                        Fore.GREEN + f" {self.result.site_name}:" +
-                        Fore.YELLOW + " Not Found!"))
+                           Fore.RED + "-" +
+                           Fore.WHITE + "]" +
+                           response_time_text +
+                           Fore.GREEN + f" {self.result.site_name}:" +
+                           Fore.YELLOW + " Not Found!"))
                 else:
                     print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
 

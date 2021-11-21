@@ -28,8 +28,6 @@ module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.0"
 
 
-
-
 class SherlockFuturesSession(FuturesSession):
     def request(self, method, url, hooks={}, *args, **kwargs):
         """Request URL.
@@ -175,14 +173,13 @@ def sherlock(username, site_data, query_notify,
     # Limit number of workers to 20.
     # This is probably vastly overkill.
     if len(site_data) >= 20:
-        max_workers=20
+        max_workers = 20
     else:
-        max_workers=len(site_data)
+        max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(max_workers=max_workers,
                                      session=underlying_session)
-
 
     # Results from analysis of all sites
     results_total = {}
@@ -234,7 +231,7 @@ def sherlock(username, site_data, query_notify,
                 url_probe = url_probe.format(username)
 
             if (net_info["errorType"] == 'status_code' and
-                net_info.get("request_head_only", True) == True):
+                    net_info.get("request_head_only", True) == True):
                 # In most cases when we are detecting by status code,
                 # it is not necessary to get the entire body:  we can
                 # detect fine with just the HEAD response.
@@ -329,13 +326,13 @@ def sherlock(username, site_data, query_notify,
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
             error_flag = True
-            errors=net_info.get("errorMsg")
+            errors = net_info.get("errorMsg")
             # errors will hold the error message
             # it can be string or list
             # by insinstance method we can detect that
             # and handle the case for strings as normal procedure
             # and if its list we can iterate the errors
-            if isinstance(errors,str):
+            if isinstance(errors, str):
                 # Checks if the error message is in the HTML
                 # if error is present we will set flag to False
                 if errors in r.text:
@@ -394,7 +391,6 @@ def sherlock(username, site_data, query_notify,
             # It should be impossible to ever get here...
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
-
 
         # Notify caller about results of query.
         query_notify.update(result)
@@ -492,15 +488,15 @@ def main():
                              "Default timeout is infinity. "
                              "A longer timeout will be more likely to get results from slow sites. "
                              "On the other hand, this may cause a long delay to gather all results."
-                       )
+                        )
     parser.add_argument("--print-all",
                         action="store_true", dest="print_all",
                         help="Output sites where the username was not found."
-                       )
+                        )
     parser.add_argument("--print-found",
                         action="store_false", dest="print_all", default=False,
                         help="Output sites where the username was found."
-                       )
+                        )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -534,7 +530,6 @@ def main():
     except Exception as error:
         print(f"A problem occured while checking for an update: {error}")
 
-
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
@@ -557,7 +552,6 @@ def main():
     if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
         sys.exit(1)
-
 
     # Create object with all information about sites we are aware of.
     try:

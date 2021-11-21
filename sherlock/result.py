@@ -26,11 +26,13 @@ class QueryStatus(Enum):
         """
         return self.value
 
+
 class QueryResult():
     """Query Result Object.
 
     Describes result of query about a given username.
     """
+
     def __init__(self, username, site_name, site_url_user, status,
                  query_time=None, context=None):
         """Create Query Result Object.
