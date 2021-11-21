@@ -528,7 +528,7 @@ def main():
                   f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
 
     except Exception as error:
-        print(f"A problem occured while checking for an update: {error}")
+        print(f"A problem occurred while checking for an update: {error}")
 
     # Argument check
     # TODO regex check on args.proxy
