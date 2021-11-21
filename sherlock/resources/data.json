@@ -937,7 +937,7 @@
   "Jellyfin Weblate": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9@._-]{1,150}$",
-    "url": "https://translate.jellyfin.org/user/{username}/",
+    "url": "https://translate.jellyfin.org/user/{}/",
     "urlMain": "https://translate.jellyfin.org/",
     "username_claimed": "EraYaN",
     "username_unclaimed": "noonewouldeverusethis7"
