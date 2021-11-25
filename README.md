@@ -197,7 +197,7 @@ list of sites to ignore (one site name per line).
 
 ## Stargazers over time
 
-[![Stargazers over time](https://starcharts.herokuapp.com/TheYahya/sherlock.svg)](https://starcharts.herokuapp.com/TheYahya/sherlock)
+[![Stargazers over time](https://starchart.cc/sherlock-project/sherlock.svg)](https://starchart.cc/sherlock-project/sherlock)
 
 ## License
 
