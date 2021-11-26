@@ -2038,9 +2038,9 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "babyblogRU": {
-    "errorMsg": "<title>\u0421\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439 \u043d\u0430 BabyBlog \u2014 \u043a\u0440\u0443\u043f\u043d\u0435\u0439\u0448\u0435\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u043f\u043e \u0431\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0441\u0442\u0438, \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044e \u0438 \u0432\u043e\u0441\u043f\u0438\u0442\u0430\u043d\u0438\u044e \u0434\u0435\u0442\u0435\u0439</title>",
-    "errorType": "message",
-    "url": "https://www.babyblog.ru/user/info/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://www.babyblog.ru/",
+    "url": "https://www.babyblog.ru/user/{}",
     "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
