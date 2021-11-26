@@ -1253,3 +1253,31 @@ As of 2021-11-21, 1337x seems to be down causing false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### Anilist
+As of 2021-11-26, Anilist is returning false positives.
+
+```
+  "Anilist": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9]{2,20}$",
+    "url": "https://anilist.co/user/{}/",
+    "urlMain": "https://anilist.co/",
+    "username_claimed": "Josh",
+    "username_unclaimed": "noonewouldeverusethi"
+  }
+```
+
+### Coil
+As of 2021-11-26, Coil is returning false positives.
+
+```
+  "Coil": {
+    "errorMsg": "Whoops, the thing you were looking for isn't here",
+    "errorType": "message",
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
