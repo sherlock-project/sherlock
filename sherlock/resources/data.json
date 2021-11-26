@@ -666,7 +666,7 @@
   "GNOME VCS": {
     "errorType": "response_url",
     "errorUrl": "https://gitlab.gnome.org/{}",
-    "regexCheck": "^(?!-)[a-zA-Z0-9_.-]{2,255}(?<!.)$",
+    "regexCheck": "^(?!-)[a-zA-Z0-9_.-]{2,255}(?<!\\.)$",
     "url": "https://gitlab.gnome.org/{}",
     "urlMain": "https://gitlab.gnome.org/",
     "username_claimed": "adam",
@@ -792,7 +792,7 @@
     "url": "https://www.hexrpg.com/userinfo/{}",
     "urlMain": "https://www.hexrpg.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethi"
   },
   "HackTheBox": {
     "errorType": "status_code",
@@ -1147,7 +1147,7 @@
     "url": "https://help.nextcloud.com/u/{}/summary",
     "urlMain": "https://nextcloud.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethi"
   },
   "Nightbot": {
     "errorType": "status_code",
@@ -1660,7 +1660,7 @@
     "url": "https://tldrlegal.com/users/{}/",
     "urlMain": "https://tldrlegal.com/",
     "username_claimed": "kevin",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethi"
   },
   "Telegram": {
     "errorMsg": "<meta property=\"og:description\" content=\"\">",
@@ -1684,7 +1684,7 @@
     "url": "https://tenor.com/users/{}",
     "urlMain": "https://tenor.com/",
     "username_claimed": "red",
-    "username_unclaimed": "impossible-username"
+    "username_unclaimed": "impossibleusername"
   },
   "TikTok": {
     "errorType": "status_code",
@@ -1860,7 +1860,7 @@
     "url": "https://discourse.wicg.io/u/{}/summary",
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethi"
   },
   "Warrior Forum": {
     "errorType": "status_code",
