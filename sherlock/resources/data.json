@@ -1443,10 +1443,10 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "RuneScape": {
-    "errorMsg": "that player could not be found",
+    "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
     "errorType": "message",
     "regexCheck": "(?! )^[a-zA-Z0-9- ]{,12}(?<! )$",
-    "url": "https://apps.runescape.com/runemetrics/app/overview/player/{}",
+    "url": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
     "urlMain": "https://www.runescape.com/",
     "username_claimed": "Blue",
     "username_unclaimed": "noonewouldev"
