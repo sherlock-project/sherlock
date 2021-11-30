@@ -1281,3 +1281,17 @@ As of 2021-11-26, Coil is returning false positives.
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+### TM-Ladder
+As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
+
+```
+  "TM-Ladder": {
+    "errorMsg": "player unknown or invalid",
+    "errorType": "message",
+    "url": "http://en.tm-ladder.com/{}_rech.php",
+    "urlMain": "http://en.tm-ladder.com/index.php",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  }
+```

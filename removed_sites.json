@@ -644,6 +644,13 @@
     "urlMain": "https://1337x.to",
     "username_claimed": "TheMorozko",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "TM-Ladder": {
+    "errorMsg": "player unknown or invalid",
+    "errorType": "message",
+    "url": "http://en.tm-ladder.com/{}_rech.php",
+    "urlMain": "http://en.tm-ladder.com/index.php",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
   }
 }
-
