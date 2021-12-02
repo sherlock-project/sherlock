@@ -1293,5 +1293,17 @@ As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
     "urlMain": "http://en.tm-ladder.com/index.php",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+```
+
+### plug.dj
+As of 2021-12-02, plug.dj is returning false positives because the service is down.
+
+```
+  "plug.dj": {
+    "errorType": "status_code",
+    "url": "https://plug.dj/@/{}",
+    "urlMain": "https://plug.dj/",
+    "username_claimed": "plug-dj-rock",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 ```

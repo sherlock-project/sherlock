@@ -645,6 +645,22 @@
     "username_claimed": "TheMorozko",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Anilist": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9]{2,20}$",
+    "url": "https://anilist.co/user/{}/",
+    "urlMain": "https://anilist.co/",
+    "username_claimed": "Josh",
+    "username_unclaimed": "noonewouldeverusethi"
+  },
+  "Coil": {
+    "errorMsg": "Whoops, the thing you were looking for isn't here",
+    "errorType": "message",
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "TM-Ladder": {
     "errorMsg": "player unknown or invalid",
     "errorType": "message",
@@ -652,5 +668,12 @@
     "urlMain": "http://en.tm-ladder.com/index.php",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "plug.dj": {
+    "errorType": "status_code",
+    "url": "https://plug.dj/@/{}",
+    "urlMain": "https://plug.dj/",
+    "username_claimed": "plug-dj-rock",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
