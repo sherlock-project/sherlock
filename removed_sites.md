@@ -1003,20 +1003,6 @@ As of 2021-01-13, Badoo returns false positives
   },
 ```
 
-## Instagram
-As of 2021-01-13, Instagram returns false positives. This can be fixed by using their username checking API endpoint, but that requires a POST request which Sherlock currently does not support. 
-
-```
-  "Instagram": {
-    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Pling
 As of 2021-01-13, Pling returns false positives.
 ```
@@ -1068,4 +1054,230 @@ As of 2021-01-15, Ebay seems to be very laggy and take too long to return a resp
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+```
+
+## GDProfiles
+
+As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
+```
+  "GDProfiles": {
+    "errorType": "status_code",
+    "url": "https://gdprofiles.com/{}",
+    "urlMain": "https://gdprofiles.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## AllTrails
+
+As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
+```
+  "AllTrails": {
+    "errorMsg": "class=\"home index\"",
+    "errorType": "message",
+    "url": "https://www.alltrails.com/members/{}",
+    "urlMain": "https://www.alltrails.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  }
+```
+
+## Cent
+
+As of 2021-06-27, there is not way of checking if a username exists on Cent
+
+```
+  "Cent": {
+    "errorMsg": "<title>Cent</title>",
+    "errorType": "message",
+    "url": "https://beta.cent.co/@{}",
+    "urlMain": "https://cent.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Anobii
+
+As of 2021-06-27, Anobii returns false positives and there is no stable way of checking usernames.
+```
+
+  "Anobii": {
+    "errorType": "response_url",
+    "url": "https://www.anobii.com/{}/profile",
+    "urlMain": "https://www.anobii.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Kali Community
+
+As of 2021-06-27, Kali Community requires us to be logged in order to check if a user exists on their forum.
+
+```
+  "Kali community": {
+    "errorMsg": "This user has not registered and therefore does not have a profile to view.",
+    "errorType": "message",
+    "url": "https://forums.kali.org/member.php?username={}",
+    "urlMain": "https://forums.kali.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## NameMC
+
+As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+
+```
+  "NameMC (Minecraft.net skins)": {
+    "errorMsg": "Profiles: 0 results",
+    "errorType": "message",
+    "url": "https://namemc.com/profile/{}",
+    "urlMain": "https://namemc.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## SteamID
+
+As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+```
+  "Steamid": {
+    "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
+    "errorType": "message",
+    "url": "https://steamid.uk/profile/{}",
+    "urlMain": "https://steamid.uk/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+
+## TripAdvisor
+
+As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
+```
+  "TripAdvisor": {
+    "errorMsg": "This page is on vacation\u2026",
+    "errorType": "message",
+    "url": "https://tripadvisor.com/members/{}",
+    "urlMain": "https://tripadvisor.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+
+```
+
+## YouTube
+
+As of 2021-06-27, there is no way of checking if a username exists on YouTube. We'll have to take a deeper look
+into this as YouTube is must have site in Sherlock.
+
+```
+  "YouTube": {
+    "errorMsg": "This page isn't available",
+    "errorType": "message",
+    "url": "https://www.youtube.com/{}",
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### House Mixes
+
+As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
+```
+  "House-Mixes.com": {
+    "errorMsg": "Profile Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
+    "url": "https://www.house-mixes.com/profile/{}",
+    "urlMain": "https://www.house-mixes.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Quora
+As of 2021-09-04, Quora returns false positives.
+```
+  "Quora": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "url": "https://www.quora.com/profile/{}",
+    "urlMain": "https://www.quora.com/",
+    "username_claimed": "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### SparkPeople
+As of 2021-09-04, SparkPeople returns false positives.
+```
+  "SparkPeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Cloob
+As of 2021-10-25, Cloob seems to be down and their site is not responding.
+```
+  "Cloob": {
+    "errorType": "status_code",
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### 1337x
+As of 2021-11-21, 1337x seems to be down causing false positives.
+```
+  "1337x": {
+    "errorMsg": "Bad Username",
+    "errorType": "message",
+    "url": "https://1337x.to/user/{}/",
+    "urlMain": "https://1337x.to",
+    "username_claimed": "TheMorozko",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Anilist
+As of 2021-11-26, Anilist is returning false positives.
+
+```
+  "Anilist": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9]{2,20}$",
+    "url": "https://anilist.co/user/{}/",
+    "urlMain": "https://anilist.co/",
+    "username_claimed": "Josh",
+    "username_unclaimed": "noonewouldeverusethi"
+  }
+```
+
+### Coil
+As of 2021-11-26, Coil is returning false positives.
+
+```
+  "Coil": {
+    "errorMsg": "Whoops, the thing you were looking for isn't here",
+    "errorType": "message",
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
 ```
