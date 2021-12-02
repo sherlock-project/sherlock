@@ -2268,5 +2268,13 @@
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "aparat": {
+    "errorMsg": "خطای ۴۰۴",
+    "errorType": "message",
+    "url": "https://www.aparat.com/{}",
+    "urlMain": "https://www.aparat.com/",
+    "username_claimed": "BoHBiG",
+    "username_unclaimed": "noonewould_everusethis7"
   }
 }
