@@ -1688,14 +1688,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "TrackmaniaLadder": {
-    "errorMsg": "player unknown or invalid",
-    "errorType": "message",
-    "url": "http://en.tm-ladder.com/{}_rech.php",
-    "urlMain": "http://en.tm-ladder.com/index.php",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "TradingView": {
     "errorType": "status_code",
     "url": "https://www.tradingview.com/u/{}/",
