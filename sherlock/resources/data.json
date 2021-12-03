@@ -848,9 +848,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "ICQ": {
-    "errorMsg": "Profile not found",
-    "errorType": "message",
-    "url": "https://icq.im/{}",
+    "errorType": "status_code",
+    "url": "https://icq.im/{}/en",
     "urlMain": "https://icq.com/",
     "username_claimed": "Micheal",
     "username_unclaimed": "noonewouldeverusethis7"
@@ -1288,13 +1287,6 @@
     "url": "https://play.google.com/store/apps/developer?id={}",
     "urlMain": "https://play.google.com/store",
     "username_claimed": "Facebook",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Plug.DJ": {
-    "errorType": "status_code",
-    "url": "https://plug.dj/@/{}",
-    "urlMain": "https://plug.dj/",
-    "username_claimed": "plug-dj-rock",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pokemon Showdown": {

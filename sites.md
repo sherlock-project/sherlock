@@ -167,7 +167,6 @@
 1. [Pinkbike](https://www.pinkbike.com/)
 1. [Pinterest](https://www.pinterest.com/)
 1. [PlayStore](https://play.google.com/store)
-1. [Plug.DJ](https://plug.dj/)
 1. [Pokemon Showdown](https://pokemonshowdown.com)
 1. [Polarsteps](https://polarsteps.com/)
 1. [Polygon](https://www.polygon.com/)
