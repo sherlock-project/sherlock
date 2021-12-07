@@ -637,14 +637,6 @@
     "username_claimed": "TheMorozko",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Coil": {
-    "errorMsg": "Whoops, the thing you were looking for isn't here",
-    "errorType": "message",
-    "url": "https://coil.com/u/{}",
-    "urlMain": "https://coil.com/",
-    "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "TM-Ladder": {
     "errorMsg": "player unknown or invalid",
     "errorType": "message",

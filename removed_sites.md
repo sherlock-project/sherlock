@@ -1239,20 +1239,6 @@ As of 2021-11-21, 1337x seems to be down causing false positives.
   }
 ```
 
-### Coil
-As of 2021-11-26, Coil is returning false positives.
-
-```
-  "Coil": {
-    "errorMsg": "Whoops, the thing you were looking for isn't here",
-    "errorType": "message",
-    "url": "https://coil.com/u/{}",
-    "urlMain": "https://coil.com/",
-    "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
