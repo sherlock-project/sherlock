@@ -64,7 +64,7 @@ class SherlockFuturesSession(FuturesSession):
             kwargs                 -- Keyword arguments.
 
             Return Value:
-            N/A
+            N/A.
             """
             resp.elapsed = monotonic() - start
 

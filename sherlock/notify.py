@@ -27,7 +27,7 @@ class QueryNotify():
                                   results for this query.
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         self.result = result
@@ -48,7 +48,7 @@ class QueryNotify():
                                   Default is None.
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         return
@@ -65,7 +65,7 @@ class QueryNotify():
                                   results for this query.
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         self.result = result
@@ -86,7 +86,7 @@ class QueryNotify():
                                   Default is None.
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         return
@@ -125,7 +125,7 @@ class QueryNotifyPrint(QueryNotify):
         color                  -- Boolean indicating whether to color terminal output
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         # Colorama module's initialization.
@@ -149,7 +149,7 @@ class QueryNotifyPrint(QueryNotify):
                                   of queries are about.
 
         Return Value:
-        Nothing.
+        N/A.
         """
 
         title = "Checking username"
@@ -175,7 +175,7 @@ class QueryNotifyPrint(QueryNotify):
                                   results for this query.
 
         Return Value:
-        Nothing.
+        N/A.
         """
         self.result = result
 
