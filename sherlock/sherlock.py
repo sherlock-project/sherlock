@@ -37,7 +37,7 @@ class SherlockFuturesSession(FuturesSession):
         This extends the FuturesSession request method to calculate a response
         time metric to each request.
 
-        It is taken (almost) directly from the following StackOverflow answer:
+        It is taken (almost) directly from the following Stack Overflow answer:
         https://github.com/ross/requests-futures#working-in-the-background
 
         Keyword Arguments:
