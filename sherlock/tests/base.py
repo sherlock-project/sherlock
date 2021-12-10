@@ -23,7 +23,7 @@ class SherlockBaseTest(unittest.TestCase):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         """
 
         #This ignores the ResourceWarning from an unclosed SSLSocket.
@@ -97,7 +97,7 @@ class SherlockBaseTest(unittest.TestCase):
                                   or non-existence.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if Username does not have the expected
         existence state.
         """
@@ -154,7 +154,7 @@ class SherlockBaseTest(unittest.TestCase):
                                   or non-existence.
 
         Return Value:
-        N/A.
+        Nothing.
         Runs tests on all sites using the indicated detection algorithm
         and which also has test vectors specified.
         Will trigger an assert if Username does not have the expected
@@ -208,7 +208,7 @@ class SherlockBaseTest(unittest.TestCase):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Counts up all Sites with full test data available.
         Will trigger an assert if any Site does not have test coverage.
         """

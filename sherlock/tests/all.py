@@ -17,7 +17,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -44,7 +44,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -71,7 +71,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -98,7 +98,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -125,7 +125,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -152,7 +152,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -181,7 +181,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -199,7 +199,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -217,7 +217,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -235,7 +235,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -253,7 +253,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -271,7 +271,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -288,7 +288,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if we do not have total coverage.
         """
 
