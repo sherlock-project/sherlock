@@ -58,7 +58,7 @@ class QueryResult():
                                   Default of None.
 
         Return Value:
-        N/A.
+        Nothing.
         """
 
         self.username      = username

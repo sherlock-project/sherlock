@@ -46,7 +46,7 @@ class SiteInformation():
                                          object for future use.
 
         Return Value:
-        N/A.
+        Nothing.
         """
 
         self.name                = name
@@ -104,7 +104,7 @@ class SitesInformation():
                                   default site list will be used.
 
         Return Value:
-        N/A.
+        Nothing.
         """
 
         if data_file_path is None:
