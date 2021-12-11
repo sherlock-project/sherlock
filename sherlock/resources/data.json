@@ -2452,5 +2452,19 @@
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
-  }
+  },
+"Fiverr": {
+  "errorType": "message",
+  "errorMsg": "\"status\":\"success\"",
+  "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+  "url": "https://www.fiverr.com/{}",
+  "urlMain": "https://www.fiverr.com/",
+  "urlProbe": "https://www.fiverr.com/validate_username",
+  "request_method": "POST",
+  "request_payload": {
+      "username": "{}"
+  },
+  "username_claimed": "blueman",
+  "username_unclaimed": "noonewouldeveru"
+}
 }

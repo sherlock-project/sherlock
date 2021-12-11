@@ -747,21 +747,6 @@ future once we find a better error detecting method.
   },
 ```
 
-## Fiverr
-
-As of 2020-08-24, Fiverr now returns false positives, which was found when running the tests, but will most likley be added again in the near
-future once we find a better error detecting method.
-```
-  "Fiverr": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.fiverr.com/",
-    "url": "https://www.fiverr.com/{}",
-    "urlMain": "https://www.fiverr.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
-```
-
 ## ImageShack
 
 As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
