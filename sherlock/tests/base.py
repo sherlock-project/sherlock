@@ -68,7 +68,7 @@ class SherlockBaseTest(unittest.TestCase):
                                   should be filtered.
 
         Return Value:
-        Dictionary containing sub-set of site data specified by 'site_list'.
+        Dictionary containing sub-set of site data specified by "site_list".
         """
 
         # Create new dictionary that has filtered site data based on input.
@@ -126,7 +126,7 @@ class SherlockBaseTest(unittest.TestCase):
                                  ):
                     if (
                          (self.skip_error_sites == True) and
-                         (result['status'].status == QueryStatus.UNKNOWN)
+                         (result["status"].status == QueryStatus.UNKNOWN)
                        ):
                         #Some error connecting to site.
                         self.skipTest(f"Skipping Username '{username}' "
@@ -135,7 +135,7 @@ class SherlockBaseTest(unittest.TestCase):
                                      )
 
                     self.assertEqual(exist_result_desired,
-                                     result['status'].status)
+                                     result["status"].status)
 
         return
 
