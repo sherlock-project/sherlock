@@ -49,6 +49,7 @@
 1. [Codechef](https://www.codechef.com/)
 1. [Codepen](https://codepen.io/)
 1. [Codewars](https://www.codewars.com)
+1. [Coil](https://coil.com/)
 1. [ColourLovers](https://www.colourlovers.com/)
 1. [Contently](https://contently.com/)
 1. [Coroflot](https://coroflot.com/)
