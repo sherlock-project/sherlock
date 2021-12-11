@@ -125,6 +125,21 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, expection_text
 
 
+def interpolate_string(object, username):
+    """Insert a string into the string properties of an object recursively."""
+
+    if isinstance(object, str):
+        return object.replace("{}", username)
+    elif isinstance(object, dict):
+        for key, value in object.items():
+            object[key] = interpolate_string(value, username)
+    elif isinstance(object, list):
+        for i in object:
+            object[i] = interpolate_string(object[i], username)
+
+    return object
+
+
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
              proxy=None, timeout=None):
@@ -207,7 +222,7 @@ def sherlock(username, site_data, query_notify,
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = net_info["url"].format(username)
+        url = interpolate_string(net_info["url"], username)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -225,25 +240,44 @@ def sherlock(username, site_data, query_notify,
             # URL of user on site (if it exists)
             results_site["url_user"] = url
             url_probe = net_info.get("urlProbe")
+            request_method = net_info.get("request_method")
+            request_payload = net_info.get("request_payload")
+            request = None
+
+            if request_method is not None:
+                if request_method == "GET":
+                    request = session.get
+                elif request_method == "HEAD":
+                    request = session.head
+                elif request_method == "POST":
+                    request = session.post
+                elif request_method == "PUT":
+                    request = session.put
+                else:
+                    raise RuntimeError( f"Unsupported request_method for {url}")
+
+            if request_payload is not None:
+                request_payload = interpolate_string(request_payload, username)
+
             if url_probe is None:
                 # Probe URL is normal one seen by people out on the web.
                 url_probe = url
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = url_probe.format(username)
+                url_probe = interpolate_string(url_probe, username)
 
-            if (net_info["errorType"] == 'status_code' and
-                net_info.get("request_head_only", True) == True):
-                # In most cases when we are detecting by status code,
-                # it is not necessary to get the entire body:  we can
-                # detect fine with just the HEAD response.
-                request_method = session.head
-            else:
-                # Either this detect method needs the content associated
-                # with the GET response, or this specific website will
-                # not respond properly unless we request the whole page.
-                request_method = session.get
+            if request is None:
+                if net_info["errorType"] == 'status_code':
+                    # In most cases when we are detecting by status code,
+                    # it is not necessary to get the entire body:  we can
+                    # detect fine with just the HEAD response.
+                    request = session.head
+                else:
+                    # Either this detect method needs the content associated
+                    # with the GET response, or this specific website will
+                    # not respond properly unless we request the whole page.
+                    request = session.get
 
             if net_info["errorType"] == "response_url":
                 # Site forwards request to a different URL if username not
@@ -258,16 +292,18 @@ def sherlock(username, site_data, query_notify,
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(url=url_probe, headers=headers,
-                                        proxies=proxies,
-                                        allow_redirects=allow_redirects,
-                                        timeout=timeout
-                                        )
+                future = request(url=url_probe, headers=headers,
+                                 proxies=proxies,
+                                 allow_redirects=allow_redirects,
+                                 timeout=timeout,
+                                 json=request_payload
+                                 )
             else:
-                future = request_method(url=url_probe, headers=headers,
-                                        allow_redirects=allow_redirects,
-                                        timeout=timeout
-                                        )
+                future = request(url=url_probe, headers=headers,
+                                allow_redirects=allow_redirects,
+                                timeout=timeout,
+                                json=request_payload
+                                )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -314,7 +350,7 @@ def sherlock(username, site_data, query_notify,
         except:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding)
+            response_text = r.text.encode(r.encoding or "UTF-8")
         except:
             response_text = ""
 

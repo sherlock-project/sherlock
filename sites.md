@@ -8,6 +8,7 @@
 1. [Airliners](https://www.airliners.net/)
 1. [Alik.cz](https://www.alik.cz/)
 1. [AllMyLinks](https://allmylinks.com/)
+1. [Anilist](https://anilist.co/)
 1. [Apple Developer](https://developer.apple.com)
 1. [Apple Discussions](https://discussions.apple.com)
 1. [Archive.org](https://archive.org)
