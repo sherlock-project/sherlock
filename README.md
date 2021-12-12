@@ -44,9 +44,6 @@ $ cd sherlock
 $ python3 -m pip install -r requirements.txt
 ```
 
-
-[![Open in Cloud Shell](https://user-images.githubusercontent.com/27065646/92304704-8d146d80-ef80-11ea-8c29-0deaabb1c702.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/sherlock-project/sherlock&tutorial=README.md) [![Run on Repl.it](https://user-images.githubusercontent.com/27065646/92304596-bf719b00-ef7f-11ea-987f-2c1f3c323088.png)](https://repl.it/github/sherlock-project/sherlock)
-
 ## Usage
 
 ```console
