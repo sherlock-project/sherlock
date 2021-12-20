@@ -732,6 +732,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Gardrops": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.gardrops.com",
+    "url": "https://www.gardrops.com/{}",
+    "urlMain": "https://www.gardrops.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "GetMyUni": {
     "errorType": "status_code",
     "url": "https://www.getmyuni.com/user/{}",
