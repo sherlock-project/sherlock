@@ -521,6 +521,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Dolap": {
+    "errorType": "status_code",
+    "url": "https://dolap.com/profil/{}/",
+    "urlMain": "https://dolab.com/",
+    "username_claimed": "burcakmeric",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Dribbble": {
     "errorMsg": "Whoops, that page is gone.",
     "errorType": "message",
