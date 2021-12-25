@@ -1793,11 +1793,12 @@
   "Twitter": {
     "errorMsg": "<title>Error | nitter</title>",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://twitter.com/{}",
     "urlMain": "https://twitter.com/",
     "urlProbe": "https://nitter.net/{}",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeveru"
   },
   "Typeracer": {
     "errorMsg": "Profile Not Found",
