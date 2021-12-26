@@ -30,4 +30,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Sherlock Site Detect Tests
       run: |
-        cd sherlock && python -m unittest tests.all.SherlockDetectTests --verbose
+        python -m unittest sherlock.tests.all.SherlockDetectTests --verbose

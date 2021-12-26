@@ -2,7 +2,7 @@
 
 This module contains various tests.
 """
-from tests.base import SherlockBaseTest
+from sherlock.tests.base import SherlockBaseTest
 import unittest
 
 
