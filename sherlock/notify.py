@@ -124,7 +124,6 @@ class QueryNotifyPrint(QueryNotify):
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
-        color                  -- Boolean indicating whether to color terminal output
 
         Return Value:
         Nothing.
