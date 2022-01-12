@@ -1096,6 +1096,12 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Minecraft": {
+    "errorType": "status_code",
+    "url": "https://api.mojang.com/users/profiles/minecraft/{}",
+    "urlMain": "https://Minecraft.net",
+    "username_claimed": "steve",
+    "username_unclaimed": "noonewouldeverusethis7"
   "MixCloud": {
     "errorType": "status_code",
     "url": "https://www.mixcloud.com/{}/",
