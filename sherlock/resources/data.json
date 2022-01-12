@@ -1080,6 +1080,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Ludum Dare": {
+    "errorMsg": "404",
+    "errorType": "message",
+    "url": "https://ldjam.com/users/{}",
+    "urlMain": "https://ldjam.com/",
+    "username_claimed": "bob",
+    "username_unlaimed": "nobodywouldeverusethis7"
+  },
+    
   "Medium": {
     "errorMsg": "<body",
     "errorType": "message",
