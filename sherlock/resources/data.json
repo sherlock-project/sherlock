@@ -694,6 +694,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "GETTR": {
+    "errorType": "status_code",
+    "url": "https://gettr.com/user/{}",
+    "urlMain": "https://gettr.com",
+    "username_claimed": "joerogan",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "GNOME VCS": {
     "errorType": "response_url",
     "errorUrl": "https://gitlab.gnome.org/{}",
