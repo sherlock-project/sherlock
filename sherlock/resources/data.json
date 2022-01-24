@@ -2501,11 +2501,28 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "koo": {
-    "errorMsg": "Invalid Profile - Koo",
+    "errorMsg": "Invalid Profile",
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
-    "urlMain": "https://www.kooapp.com/",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "revish": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "url": "http://www.revish.com/people/{}",
+    "urlMain": "http://www.revish.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "minds": {
+    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorType": "message",
+    "url": "https://www.minds.com/{}/",
+    "urlMain": "https://www.minds.com",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+
 }
