@@ -19,10 +19,10 @@ import requests
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotifyPrint
-from sites  import SitesInformation
+from .result import QueryStatus
+from .result import QueryResult
+from .notify import QueryNotifyPrint
+from .sites  import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.0"
