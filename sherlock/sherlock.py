@@ -22,16 +22,14 @@ from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyPrint
-from sites  import SitesInformation
+from sites import SitesInformation
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.0"
 
 
-
-
 class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks={}, *args, **kwargs):
+    def request(self, method, url, hooks=None, *args, **kwargs):
         """Request URL.
 
         This extends the FuturesSession request method to calculate a response
@@ -53,6 +51,8 @@ class SherlockFuturesSession(FuturesSession):
         Request object.
         """
         # Record the start time for the request.
+        if hooks is None:
+            hooks = {}
         start = monotonic()
 
         def response_time(resp, *args, **kwargs):
@@ -95,12 +95,11 @@ class SherlockFuturesSession(FuturesSession):
 
 
 def get_response(request_future, error_type, social_network):
-
     # Default for Response object if some failure occurs.
     response = None
 
     error_context = "General Unknown Error"
-    expection_text = None
+    exception_text = None
     try:
         response = request_future.result()
         if response.status_code:
@@ -108,21 +107,21 @@ def get_response(request_future, error_type, social_network):
             error_context = None
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
-        expection_text = str(errh)
+        exception_text = str(errh)
     except requests.exceptions.ProxyError as errp:
         error_context = "Proxy Error"
-        expection_text = str(errp)
+        exception_text = str(errp)
     except requests.exceptions.ConnectionError as errc:
         error_context = "Error Connecting"
-        expection_text = str(errc)
+        exception_text = str(errc)
     except requests.exceptions.Timeout as errt:
         error_context = "Timeout Error"
-        expection_text = str(errt)
+        exception_text = str(errt)
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
-        expection_text = str(err)
+        exception_text = str(err)
 
-    return response, error_context, expection_text
+    return response, error_context, exception_text
 
 
 def interpolate_string(object, username):
@@ -190,14 +189,13 @@ def sherlock(username, site_data, query_notify,
     # Limit number of workers to 20.
     # This is probably vastly overkill.
     if len(site_data) >= 20:
-        max_workers=20
+        max_workers = 20
     else:
-        max_workers=len(site_data)
+        max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(max_workers=max_workers,
                                      session=underlying_session)
-
 
     # Results from analysis of all sites
     results_total = {}
@@ -206,10 +204,9 @@ def sherlock(username, site_data, query_notify,
     for social_network, net_info in site_data.items():
 
         # Results from analysis of this specific site
-        results_site = {}
+        results_site = {"url_main": net_info.get("urlMain")}
 
         # Record URL of main site
-        results_site["url_main"] = net_info.get("urlMain")
 
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
@@ -227,7 +224,7 @@ def sherlock(username, site_data, query_notify,
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
-            # No need to do the check at the site: this user name is not allowed.
+            # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(username,
                                                  social_network,
                                                  url,
@@ -254,7 +251,7 @@ def sherlock(username, site_data, query_notify,
                 elif request_method == "PUT":
                     request = session.put
                 else:
-                    raise RuntimeError( f"Unsupported request_method for {url}")
+                    raise RuntimeError(f"Unsupported request_method for {url}")
 
             if request_payload is not None:
                 request_payload = interpolate_string(request_payload, username)
@@ -300,10 +297,10 @@ def sherlock(username, site_data, query_notify,
                                  )
             else:
                 future = request(url=url_probe, headers=headers,
-                                allow_redirects=allow_redirects,
-                                timeout=timeout,
-                                json=request_payload
-                                )
+                                 allow_redirects=allow_redirects,
+                                 timeout=timeout,
+                                 json=request_payload
+                                 )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -312,7 +309,7 @@ def sherlock(username, site_data, query_notify,
             if unique_tor:
                 underlying_request.reset_identity()
 
-        # Add this site's results into final dictionary with all of the other results.
+        # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
 
     # Open the file containing account links
@@ -334,7 +331,7 @@ def sherlock(username, site_data, query_notify,
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
-        r, error_text, expection_text = get_response(request_future=future,
+        r, error_text, exception_text = get_response(request_future=future,
                                                      error_type=error_type,
                                                      social_network=social_network)
 
@@ -365,13 +362,13 @@ def sherlock(username, site_data, query_notify,
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
             error_flag = True
-            errors=net_info.get("errorMsg")
+            errors = net_info.get("errorMsg")
             # errors will hold the error message
             # it can be string or list
-            # by insinstance method we can detect that
+            # by isinstance method we can detect that
             # and handle the case for strings as normal procedure
             # and if its list we can iterate the errors
-            if isinstance(errors,str):
+            if isinstance(errors, str):
                 # Checks if the error message is in the HTML
                 # if error is present we will set flag to False
                 if errors in r.text:
@@ -431,7 +428,6 @@ def sherlock(username, site_data, query_notify,
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
 
-
         # Notify caller about results of query.
         query_notify.update(result)
 
@@ -477,8 +473,7 @@ def timeout_check(value):
 
 
 def main():
-
-    version_string = f"%(prog)s {__version__}\n" +  \
+    version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
 
@@ -486,11 +481,11 @@ def main():
                             description=f"{module_name} (Version {__version__})"
                             )
     parser.add_argument("--version",
-                        action="version",  version=version_string,
+                        action="version", version=version_string,
                         help="Display version information and dependencies."
                         )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
-                        action="store_true",  dest="verbose", default=False,
+                        action="store_true", dest="verbose", default=False,
                         help="Display extra debugging information and metrics."
                         )
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
@@ -506,7 +501,7 @@ def main():
                         action="store_true", dest="unique_tor", default=False,
                         help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.")
     parser.add_argument("--csv",
-                        action="store_true",  dest="csv", default=False,
+                        action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                         )
     parser.add_argument("--site",
@@ -528,15 +523,15 @@ def main():
                              "Default timeout is infinity. "
                              "A longer timeout will be more likely to get results from slow sites. "
                              "On the other hand, this may cause a long delay to gather all results."
-                       )
+                        )
     parser.add_argument("--print-all",
                         action="store_true", dest="print_all",
                         help="Output sites where the username was not found."
-                       )
+                        )
     parser.add_argument("--print-found",
                         action="store_false", dest="print_all", default=False,
                         help="Output sites where the username was found."
-                       )
+                        )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
@@ -570,7 +565,6 @@ def main():
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
 
-
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
@@ -582,7 +576,8 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
-        print("Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
+        print(
+            "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
@@ -593,7 +588,6 @@ def main():
     if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
         sys.exit(1)
-
 
     # Create object with all information about sites we are aware of.
     try:
@@ -608,10 +602,7 @@ def main():
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
-    site_data_all = {}
-    for site in sites:
-        site_data_all[site.name] = site.information
-
+    site_data_all = {site.name: site.information for site in sites}
     if args.site_list is None:
         # Not desired to look at a sub-set of sites
         site_data = site_data_all
