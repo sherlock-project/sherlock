@@ -1994,6 +1994,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Wykop": {
+    "errorType": "status_code",
+    "url": "https://www.wykop.pl/ludzie/{}",
+    "urlMain": "https://www.wykop.pl",
+    "username_claimed": "blue",
+    "username_unclaimed": "bumpewastaken"
+  },
   "Xbox Gamertag": {
     "errorType": "status_code",
     "url": "https://xboxgamertag.com/search/{}",
