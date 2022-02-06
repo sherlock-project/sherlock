@@ -364,7 +364,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codecademy": {
-    "errorType": "status_code",
+    "errorMsg": "This profile could not be found",
+    "errorType": "message",
     "url": "https://www.codecademy.com/profiles/{}",
     "urlMain": "https://www.codecademy.com/",
     "username_claimed": "blue",
@@ -584,15 +585,6 @@
     "urlProbe": "https://www.facebook.com/{}/videos/",
     "username_claimed": "hackerman",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Facenama": {
-    "errorType": "response_url",
-    "errorUrl": "https://facenama.com/404.html",
-    "regexCheck": "^[-a-zA-Z0-9_]+$",
-    "url": "https://facenama.com/{}",
-    "urlMain": "https://facenama.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77"
   },
   "FanCentro": {
     "errorMsg": "var environment",
