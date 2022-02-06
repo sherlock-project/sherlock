@@ -17,11 +17,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Instagram'
+        site = "BinarySearch"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -44,11 +44,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Instagram'
+        site = "BinarySearch"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -71,11 +71,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Facebook'
+        site = "Pinterest"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -98,11 +98,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Facebook'
+        site = "Pinterest"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -125,11 +125,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Quora'
+        site = "VK"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -152,11 +152,11 @@ class SherlockDetectTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = 'Quora'
+        site = "VK"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
@@ -181,7 +181,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -199,7 +199,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -217,7 +217,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -235,7 +235,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -253,7 +253,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -271,7 +271,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
@@ -288,7 +288,7 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self                   -- This object.
 
         Return Value:
-        N/A.
+        Nothing.
         Will trigger an assert if we do not have total coverage.
         """
 

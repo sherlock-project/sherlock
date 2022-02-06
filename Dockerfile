@@ -3,6 +3,7 @@ WORKDIR /wheels
 RUN apk add --no-cache \
     g++ \
     gcc \
+    git \
     libxml2 \
     libxml2-dev \
     libxslt-dev \
@@ -22,5 +23,6 @@ COPY . /opt/sherlock/
 RUN pip3 install -r requirements.txt -f /wheels \
   && rm -rf /wheels \
   && rm -rf /root/.cache/pip/*
+WORKDIR /opt/sherlock/sherlock
 
 ENTRYPOINT ["python", "sherlock.py"]
