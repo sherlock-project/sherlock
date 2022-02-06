@@ -364,7 +364,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codecademy": {
-    "errorType": "status_code",
+    "errorMsg": "This profile could not be found",
+    "errorType": "message",
     "url": "https://www.codecademy.com/profiles/{}",
     "urlMain": "https://www.codecademy.com/",
     "username_claimed": "blue",
