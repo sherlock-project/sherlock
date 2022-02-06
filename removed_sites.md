@@ -1264,3 +1264,18 @@ As of 2021-12-02, plug.dj is returning false positives because the service is do
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## Facenama
+
+As of 2022-02-6, Facenama seems to be down their rebuilding their site
+```
+  "Facenama": {
+    "errorType": "response_url",
+    "errorUrl": "https://facenama.com/404.html",
+    "regexCheck": "^[-a-zA-Z0-9_]+$",
+    "url": "https://facenama.com/{}",
+    "urlMain": "https://facenama.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
+```
