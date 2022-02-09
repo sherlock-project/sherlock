@@ -747,21 +747,6 @@ future once we find a better error detecting method.
   },
 ```
 
-## Fiverr
-
-As of 2020-08-24, Fiverr now returns false positives, which was found when running the tests, but will most likley be added again in the near
-future once we find a better error detecting method.
-```
-  "Fiverr": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.fiverr.com/",
-    "url": "https://www.fiverr.com/{}",
-    "urlMain": "https://www.fiverr.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
-```
-
 ## ImageShack
 
 As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
@@ -1003,20 +988,6 @@ As of 2021-01-13, Badoo returns false positives
   },
 ```
 
-## Instagram
-As of 2021-01-13, Instagram returns false positives. This can be fixed by using their username checking API endpoint, but that requires a POST request which Sherlock currently does not support. 
-
-```
-  "Instagram": {
-    "errorMsg": "href=\"/static/bundles/metro/HttpErrorPage.js/",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Pling
 As of 2021-01-13, Pling returns false positives.
 ```
@@ -1202,31 +1173,109 @@ into this as YouTube is must have site in Sherlock.
   }
 ```
 
-## Twitter
+### House Mixes
 
-As of 2021-06-27, Twitter returns false positives. A solid solution has not been found yet but Twitter is temporarly removed. We will find a solution ASAP.
+As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
 ```
-  "Twitter": {
-    "errorMsg": "This account doesn’t exist",
+  "House-Mixes.com": {
+    "errorMsg": "Profile Not Found",
     "errorType": "message",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
+    "regexCheck": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$",
+    "url": "https://www.house-mixes.com/profile/{}",
+    "urlMain": "https://www.house-mixes.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
 
-## AllMyLinks
-
-As of 2021-06-27, AllMyLinks has added a chapta using Cloudflare and this prevents us from checking for usernames.
-
+### Quora
+As of 2021-09-04, Quora returns false positives.
 ```
-  "allmylinks": {
-    "errorMsg": "Page not found",
+  "Quora": {
+    "errorMsg": "Page Not Found",
     "errorType": "message",
-    "url": "https://allmylinks.com/{}",
-    "urlMain": "https://allmylinks.com/",
+    "url": "https://www.quora.com/profile/{}",
+    "urlMain": "https://www.quora.com/",
+    "username_claimed": "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### SparkPeople
+As of 2021-09-04, SparkPeople returns false positives.
+```
+  "SparkPeople": {
+    "errorMsg": "We couldn't find that user",
+    "errorType": "message",
+    "url": "https://www.sparkpeople.com/mypage.asp?id={}",
+    "urlMain": "https://www.sparkpeople.com",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### Cloob
+As of 2021-10-25, Cloob seems to be down and their site is not responding.
+```
+  "Cloob": {
+    "errorType": "status_code",
+    "url": "https://www.cloob.com/name/{}",
+    "urlMain": "https://www.cloob.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+```
+
+### 1337x
+As of 2021-11-21, 1337x seems to be down causing false positives.
+```
+  "1337x": {
+    "errorMsg": "Bad Username",
+    "errorType": "message",
+    "url": "https://1337x.to/user/{}/",
+    "urlMain": "https://1337x.to",
+    "username_claimed": "TheMorozko",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+### TM-Ladder
+As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
+
+```
+  "TM-Ladder": {
+    "errorMsg": "player unknown or invalid",
+    "errorType": "message",
+    "url": "http://en.tm-ladder.com/{}_rech.php",
+    "urlMain": "http://en.tm-ladder.com/index.php",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+```
+
+### plug.dj
+As of 2021-12-02, plug.dj is returning false positives because the service is down.
+
+```
+  "plug.dj": {
+    "errorType": "status_code",
+    "url": "https://plug.dj/@/{}",
+    "urlMain": "https://plug.dj/",
+    "username_claimed": "plug-dj-rock",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Facenama
+
+As of 2022-02-6, Facenama seems to be down their rebuilding their site
+```
+  "Facenama": {
+    "errorType": "response_url",
+    "errorUrl": "https://facenama.com/404.html",
+    "regexCheck": "^[-a-zA-Z0-9_]+$",
+    "url": "https://facenama.com/{}",
+    "urlMain": "https://facenama.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
 ```

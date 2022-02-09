@@ -37,7 +37,7 @@ class SherlockFuturesSession(FuturesSession):
         This extends the FuturesSession request method to calculate a response
         time metric to each request.
 
-        It is taken (almost) directly from the following StackOverflow answer:
+        It is taken (almost) directly from the following Stack Overflow answer:
         https://github.com/ross/requests-futures#working-in-the-background
 
         Keyword Arguments:
@@ -64,7 +64,7 @@ class SherlockFuturesSession(FuturesSession):
             kwargs                 -- Keyword arguments.
 
             Return Value:
-            N/A
+            Nothing.
             """
             resp.elapsed = monotonic() - start
 
@@ -74,19 +74,19 @@ class SherlockFuturesSession(FuturesSession):
         # Make sure that the time measurement hook is first, so we will not
         # track any later hook's execution time.
         try:
-            if isinstance(hooks['response'], list):
-                hooks['response'].insert(0, response_time)
-            elif isinstance(hooks['response'], tuple):
+            if isinstance(hooks["response"], list):
+                hooks["response"].insert(0, response_time)
+            elif isinstance(hooks["response"], tuple):
                 # Convert tuple to list and insert time measurement hook first.
-                hooks['response'] = list(hooks['response'])
-                hooks['response'].insert(0, response_time)
+                hooks["response"] = list(hooks["response"])
+                hooks["response"].insert(0, response_time)
             else:
                 # Must have previously contained a single hook function,
                 # so convert to list.
-                hooks['response'] = [response_time, hooks['response']]
+                hooks["response"] = [response_time, hooks["response"]]
         except KeyError:
             # No response hook was already defined, so install it ourselves.
-            hooks['response'] = [response_time]
+            hooks["response"] = [response_time]
 
         return super(SherlockFuturesSession, self).request(method,
                                                            url,
@@ -123,6 +123,21 @@ def get_response(request_future, error_type, social_network):
         expection_text = str(err)
 
     return response, error_context, expection_text
+
+
+def interpolate_string(object, username):
+    """Insert a string into the string properties of an object recursively."""
+
+    if isinstance(object, str):
+        return object.replace("{}", username)
+    elif isinstance(object, dict):
+        for key, value in object.items():
+            object[key] = interpolate_string(value, username)
+    elif isinstance(object, list):
+        for i in object:
+            object[i] = interpolate_string(object[i], username)
+
+    return object
 
 
 def sherlock(username, site_data, query_notify,
@@ -194,12 +209,12 @@ def sherlock(username, site_data, query_notify,
         results_site = {}
 
         # Record URL of main site
-        results_site['url_main'] = net_info.get("urlMain")
+        results_site["url_main"] = net_info.get("urlMain")
 
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0",
         }
 
         if "headers" in net_info:
@@ -207,43 +222,62 @@ def sherlock(username, site_data, query_notify,
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = net_info["url"].format(username)
+        url = interpolate_string(net_info["url"], username)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this user name is not allowed.
-            results_site['status'] = QueryResult(username,
+            results_site["status"] = QueryResult(username,
                                                  social_network,
                                                  url,
                                                  QueryStatus.ILLEGAL)
             results_site["url_user"] = ""
-            results_site['http_status'] = ""
-            results_site['response_text'] = ""
-            query_notify.update(results_site['status'])
+            results_site["http_status"] = ""
+            results_site["response_text"] = ""
+            query_notify.update(results_site["status"])
         else:
             # URL of user on site (if it exists)
             results_site["url_user"] = url
             url_probe = net_info.get("urlProbe")
+            request_method = net_info.get("request_method")
+            request_payload = net_info.get("request_payload")
+            request = None
+
+            if request_method is not None:
+                if request_method == "GET":
+                    request = session.get
+                elif request_method == "HEAD":
+                    request = session.head
+                elif request_method == "POST":
+                    request = session.post
+                elif request_method == "PUT":
+                    request = session.put
+                else:
+                    raise RuntimeError( f"Unsupported request_method for {url}")
+
+            if request_payload is not None:
+                request_payload = interpolate_string(request_payload, username)
+
             if url_probe is None:
                 # Probe URL is normal one seen by people out on the web.
                 url_probe = url
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = url_probe.format(username)
+                url_probe = interpolate_string(url_probe, username)
 
-            if (net_info["errorType"] == 'status_code' and
-                net_info.get("request_head_only", True) == True):
-                # In most cases when we are detecting by status code,
-                # it is not necessary to get the entire body:  we can
-                # detect fine with just the HEAD response.
-                request_method = session.head
-            else:
-                # Either this detect method needs the content associated
-                # with the GET response, or this specific website will
-                # not respond properly unless we request the whole page.
-                request_method = session.get
+            if request is None:
+                if net_info["errorType"] == "status_code":
+                    # In most cases when we are detecting by status code,
+                    # it is not necessary to get the entire body:  we can
+                    # detect fine with just the HEAD response.
+                    request = session.head
+                else:
+                    # Either this detect method needs the content associated
+                    # with the GET response, or this specific website will
+                    # not respond properly unless we request the whole page.
+                    request = session.get
 
             if net_info["errorType"] == "response_url":
                 # Site forwards request to a different URL if username not
@@ -258,16 +292,18 @@ def sherlock(username, site_data, query_notify,
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request_method(url=url_probe, headers=headers,
-                                        proxies=proxies,
-                                        allow_redirects=allow_redirects,
-                                        timeout=timeout
-                                        )
+                future = request(url=url_probe, headers=headers,
+                                 proxies=proxies,
+                                 allow_redirects=allow_redirects,
+                                 timeout=timeout,
+                                 json=request_payload
+                                 )
             else:
-                future = request_method(url=url_probe, headers=headers,
-                                        allow_redirects=allow_redirects,
-                                        timeout=timeout
-                                        )
+                future = request(url=url_probe, headers=headers,
+                                allow_redirects=allow_redirects,
+                                timeout=timeout,
+                                json=request_payload
+                                )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -314,7 +350,7 @@ def sherlock(username, site_data, query_notify,
         except:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding)
+            response_text = r.text.encode(r.encoding or "UTF-8")
         except:
             response_text = ""
 
@@ -400,11 +436,11 @@ def sherlock(username, site_data, query_notify,
         query_notify.update(result)
 
         # Save status of request
-        results_site['status'] = result
+        results_site["status"] = result
 
         # Save results from request
-        results_site['http_status'] = http_status
-        results_site['response_text'] = response_text
+        results_site["http_status"] = http_status
+        results_site["response_text"] = response_text
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -474,11 +510,11 @@ def main():
                         help="Create Comma-Separated Values (CSV) File."
                         )
     parser.add_argument("--site",
-                        action="append", metavar='SITE_NAME',
+                        action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
                         help="Limit analysis to just the listed sites. Add multiple options to specify more than one site."
                         )
-    parser.add_argument("--proxy", "-p", metavar='PROXY_URL',
+    parser.add_argument("--proxy", "-p", metavar="PROXY_URL",
                         action="store", dest="proxy", default=None,
                         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
                         )
@@ -486,7 +522,7 @@ def main():
                         dest="json_file", default=None,
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--timeout",
-                        action="store", metavar='TIMEOUT',
+                        action="store", metavar="TIMEOUT",
                         dest="timeout", type=timeout_check, default=None,
                         help="Time (in seconds) to wait for response to requests. "
                              "Default timeout is infinity. "
@@ -506,7 +542,7 @@ def main():
                         help="Don't color terminal output"
                         )
     parser.add_argument("username",
-                        nargs='+', metavar='USERNAMES',
+                        nargs="+", metavar="USERNAMES",
                         action="store",
                         help="One or more usernames to check with social networks."
                         )
@@ -532,7 +568,7 @@ def main():
                   f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
 
     except Exception as error:
-        print(f"A problem occured while checking for an update: {error}")
+        print(f"A problem occurred while checking for an update: {error}")
 
 
     # Argument check
@@ -562,7 +598,7 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
-            sites = SitesInformation(os.path.join(os.path.dirname(__file__), 'resources/data.json'))
+            sites = SitesInformation(os.path.join(os.path.dirname(__file__), "resources/data.json"))
         else:
             sites = SitesInformation(args.json_file)
     except Exception as error:
@@ -646,25 +682,25 @@ def main():
 
             with open(result_file, "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
-                writer.writerow(['username',
-                                 'name',
-                                 'url_main',
-                                 'url_user',
-                                 'exists',
-                                 'http_status',
-                                 'response_time_s'
+                writer.writerow(["username",
+                                 "name",
+                                 "url_main",
+                                 "url_user",
+                                 "exists",
+                                 "http_status",
+                                 "response_time_s"
                                  ]
                                 )
                 for site in results:
-                    response_time_s = results[site]['status'].query_time
+                    response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
                     writer.writerow([username,
                                      site,
-                                     results[site]['url_main'],
-                                     results[site]['url_user'],
-                                     str(results[site]['status'].status),
-                                     results[site]['http_status'],
+                                     results[site]["url_main"],
+                                     results[site]["url_user"],
+                                     str(results[site]["status"].status),
+                                     results[site]["http_status"],
                                      response_time_s
                                      ]
                                     )
