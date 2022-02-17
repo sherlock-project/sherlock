@@ -1,9 +1,9 @@
 ---
-name: Feature request
+name: Suggest an idea for this project
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: Suggest an idea for this project
+labels: documentation, enhancement, question
+assignees: MarcelRaschke
 
 ---
 

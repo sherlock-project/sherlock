@@ -2,7 +2,7 @@
 name: Reporting false positive
 about: Reporting a site that is returning false positives
 title: ''
-labels: false positive 
+labels: ''
 assignees: ''
 
 ---

@@ -1,38 +1,39 @@
 ---
-name: Bug report
-about: Report a bug in Sherlock's functionality
-title: ''
-labels: bug 
-assignees: ''
+name: BUG report
+about: Create a report to help us improve
+title: BUG
+labels: ":arrow_heading_down: pull, bug, documentation, duplicate, enhancement, good
+  first issue, help wanted, invalid, question, wontfix"
+assignees: MarcelRaschke
 
 ---
 
-<!--
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-######################################################################
-  WARNING!
-  IGNORING THE FOLLOWING TEMPLATE WILL RESULT IN ISSUE CLOSED AS INCOMPLETE
-######################################################################
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
--->
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-## Checklist
-<!--
-Put x into all boxes (like this [x]) once you have completed what they say.
-Make sure complete everything in the checklist.
--->
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-- [ ] I'm reporting a bug in Sherlock's functionality
-- [ ] The bug I'm reporting is not a false positive or a false negative
-- [ ] I've verified that I'm running the latest version of Sherlock
-- [ ] I've checked for similar bug reports including closed ones
-- [ ] I've checked for pull requests that attempt to fix this bug
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
 
-## Description
-<!--
-Provide a detailed description of the bug that you have found in Sherlock.
-Provide the version of Sherlock you are running.
--->
-
-WRITE DESCRIPTION HERE
+**Additional context**
+Add any other context about the problem here.
