@@ -339,7 +339,7 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Chess": {
-    "errorMsg": "usernameSuggestions",
+    "errorMsg": "\"valid\": false",
     "errorType": "message",
     "regexCheck": "^[a-z1-9]{3,25}$",
     "url": "https://www.chess.com/member/{}",
