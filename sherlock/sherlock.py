@@ -142,7 +142,7 @@ def interpolate_string(object, username):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=5):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
