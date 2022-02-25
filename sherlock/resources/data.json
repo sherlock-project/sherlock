@@ -787,8 +787,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gumroad": {
-    "errorMsg": "Page not found.",
     "errorType": "message",
+    "errorMsg": "Page not found (404) - Gumroad",
     "url": "https://www.gumroad.com/{}",
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue",
