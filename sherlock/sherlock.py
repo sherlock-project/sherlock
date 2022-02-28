@@ -331,6 +331,7 @@ def sherlock(username, site_data, query_notify,
 
         # Get the expected error type
         error_type = net_info["errorType"]
+        error_code = net_info.get("errorCode")
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -395,8 +396,15 @@ def sherlock(username, site_data, query_notify,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "status_code":
+            # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
+            if error_code == r.status_code:
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
+                                     query_time=response_time)
             # Checks if the status code of the response is 2XX
-            if not r.status_code >= 300 or r.status_code < 200:
+            elif not r.status_code >= 300 or r.status_code < 200:
                 result = QueryResult(username,
                                      social_network,
                                      url,
