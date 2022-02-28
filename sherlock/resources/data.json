@@ -1103,6 +1103,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Mojang": {
+    "errorType": "status_code",
+    "errorCode": 204,
+    "url": "https://api.mojang.com/users/profiles/minecraft/{}",
+    "urlMain": "https://api.mojang.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
