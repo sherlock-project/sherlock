@@ -4,10 +4,10 @@ This module defines the objects for notifying the caller about the
 results of queries.
 """
 from result import QueryStatus
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 
-class QueryNotify():
+class QueryNotify:
     """Query Notify Object.
 
     Base class that describes methods available to notify the results of
@@ -15,6 +15,7 @@ class QueryNotify():
     It is intended that other classes inherit from this base class and
     override the methods to implement specific functionality.
     """
+
     def __init__(self, result=None):
         """Create Query Notify Object.
 
@@ -110,7 +111,8 @@ class QueryNotifyPrint(QueryNotify):
 
     Query notify class that prints results.
     """
-    def __init__(self, result=None, verbose=False, color=True, print_all=False):
+
+    def __init__(self, result=None, verbose=False, print_all=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -122,19 +124,14 @@ class QueryNotifyPrint(QueryNotify):
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
-        color                  -- Boolean indicating whether to color terminal output
 
         Return Value:
         Nothing.
         """
 
-        # Colorama module's initialization.
-        init(autoreset=True)
-
         super().__init__(result)
         self.verbose = verbose
         self.print_all = print_all
-        self.color = color
 
         return
 
@@ -153,14 +150,11 @@ class QueryNotifyPrint(QueryNotify):
         """
 
         title = "Checking username"
-        if self.color:
-            print(Style.BRIGHT + Fore.GREEN + "[" +
-                Fore.YELLOW + "*" +
-                Fore.GREEN + f"] {title}" +
-                Fore.WHITE + f" {message}" +
-                Fore.GREEN + " on:")
-        else:
-            print(f"[*] {title} {message} on:")
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "*" +
+              Fore.GREEN + f"] {title}" +
+              Fore.WHITE + f" {message}" +
+              Fore.GREEN + " on:")
 
         return
 
@@ -186,53 +180,41 @@ class QueryNotifyPrint(QueryNotify):
 
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
-            if self.color:
-                print((Style.BRIGHT + Fore.WHITE + "[" +
-                       Fore.GREEN + "+" +
-                       Fore.WHITE + "]" +
-                       response_time_text +
-                       Fore.GREEN +
-                       f" {self.result.site_name}: " +
-                       Style.RESET_ALL +
-                       f"{self.result.site_url_user}"))
-            else:
-                print(f"[+]{response_time_text} {self.result.site_name}: {self.result.site_url_user}")
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.GREEN + "+" +
+                  Fore.WHITE + "]" +
+                  response_time_text +
+                  Fore.GREEN +
+                  f" {self.result.site_name}: " +
+                  Style.RESET_ALL +
+                  f"{self.result.site_url_user}")
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
-                if self.color:
-                    print((Style.BRIGHT + Fore.WHITE + "[" +
-                        Fore.RED + "-" +
-                        Fore.WHITE + "]" +
-                        response_time_text +
-                        Fore.GREEN + f" {self.result.site_name}:" +
-                        Fore.YELLOW + " Not Found!"))
-                else:
-                    print(f"[-]{response_time_text} {self.result.site_name}: Not Found!")
+                print(Style.BRIGHT + Fore.WHITE + "[" +
+                      Fore.RED + "-" +
+                      Fore.WHITE + "]" +
+                      response_time_text +
+                      Fore.GREEN + f" {self.result.site_name}:" +
+                      Fore.YELLOW + " Not Found!")
 
         elif result.status == QueryStatus.UNKNOWN:
             if self.print_all:
-                if self.color:
-                    print(Style.BRIGHT + Fore.WHITE + "[" +
-                          Fore.RED + "-" +
-                          Fore.WHITE + "]" +
-                          Fore.GREEN + f" {self.result.site_name}:" +
-                          Fore.RED + f" {self.result.context}" +
-                          Fore.YELLOW + f" ")
-                else:
-                    print(f"[-] {self.result.site_name}: {self.result.context} ")
+                print(Style.BRIGHT + Fore.WHITE + "[" +
+                      Fore.RED + "-" +
+                      Fore.WHITE + "]" +
+                      Fore.GREEN + f" {self.result.site_name}:" +
+                      Fore.RED + f" {self.result.context}" +
+                      Fore.YELLOW + f" ")
 
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_all:
                 msg = "Illegal Username Format For This Site!"
-                if self.color:
-                    print((Style.BRIGHT + Fore.WHITE + "[" +
-                           Fore.RED + "-" +
-                           Fore.WHITE + "]" +
-                           Fore.GREEN + f" {self.result.site_name}:" +
-                           Fore.YELLOW + f" {msg}"))
-                else:
-                    print(f"[-] {self.result.site_name} {msg}")
+                print(Style.BRIGHT + Fore.WHITE + "[" +
+                      Fore.RED + "-" +
+                      Fore.WHITE + "]" +
+                      Fore.GREEN + f" {self.result.site_name}:" +
+                      Fore.YELLOW + f" {msg}")
 
         else:
             # It should be impossible to ever get here...
