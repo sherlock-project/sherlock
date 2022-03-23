@@ -155,6 +155,33 @@ class QueryNotifyPrint(QueryNotify):
               Fore.GREEN + f"] {title}" +
               Fore.WHITE + f" {message}" +
               Fore.GREEN + " on:")
+        # An empty line between first line and the result(more clear output)
+        print('\r')
+
+        return
+
+    def finish(self, message="Results have been uploaded"):
+        """Notify Start.
+
+        Will print the last line to the standard output.
+
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- The last phrase.
+
+        Return Value:
+        Nothing.
+        """
+
+        title = "Finish"
+        print('\r') # An empty line between last line of main output and last line(more clear output)
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "!" +
+              Fore.GREEN + f"] {title}" +
+              Fore.GREEN + ": " +
+              Fore.WHITE + f" {message}" )
+              
+        # An empty line between first line and the result(more clear output)
 
         return
 
