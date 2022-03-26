@@ -115,7 +115,6 @@ class SitesInformation():
             raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
 
         if data_file_path.lower().startswith("http"):
-        #if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path)
