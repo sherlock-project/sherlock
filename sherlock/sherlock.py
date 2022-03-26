@@ -244,7 +244,7 @@ def sherlock(username, site_data, query_notify,
             request_method = net_info.get("request_method")
             request_payload = net_info.get("request_payload")
             request = None
-
+            
             if request_method is not None:
                 if request_method == "GET":
                     request = session.get
