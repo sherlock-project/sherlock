@@ -174,6 +174,7 @@ class QueryNotifyPrint(QueryNotify):
         """
 
         title = "End"
+        
         print('\r') # An empty line between last line of main output and last line(more clear output)
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "!" +
