@@ -160,7 +160,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def finish(self, message="Results have been uploaded"):
+    def finish(self, message="The processing has been finished."):
         """Notify Start.
 
         Will print the last line to the standard output.
@@ -173,7 +173,7 @@ class QueryNotifyPrint(QueryNotify):
         Nothing.
         """
 
-        title = "Finish"
+        title = "End"
         print('\r') # An empty line between last line of main output and last line(more clear output)
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "!" +
