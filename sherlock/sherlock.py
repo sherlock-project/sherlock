@@ -144,10 +144,14 @@ def CheckForParameter(username):
     if exist it means that sherlock is looking for more multiple username'''
     return("{?}" in username)
 
-
+checksymbols = []
+checksymbols = [ "_" , "-" , "." ]
 def MultipleUsernames(username):
     '''replace the parameter with with symbols and return a list of usernames'''
-    return
+    allUsernames = []
+    for i in checksymbols:
+        allUsernames.append(username.replace("{?}", i))
+        return allUsernames
 
 
 def sherlock(username, site_data, query_notify,
