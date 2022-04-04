@@ -1042,6 +1042,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Clubhouse":{
+    "errorType": "status_code",
+    "url":"https://www.clubhouse.com/@{}",
+    "urlMain":"https://www.clubhouse.com",
+    "username_claimed":"waniathar",
+    "username_unclaimed":"noonewouldeverusethis7"
+  },
   "Instructables": {
     "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
