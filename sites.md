@@ -130,6 +130,7 @@
 1. [LOR](https://linux.org.ru/)
 1. [Launchpad](https://launchpad.net/)
 1. [LeetCode](https://leetcode.com/)
+1. [LessWrong](https://lesswrong.com/)
 1. [Letterboxd](https://letterboxd.com/)
 1. [Lichess](https://lichess.org)
 1. [Linktree](https://linktr.ee/)

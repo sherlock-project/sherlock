@@ -1170,6 +1170,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "LessWrong": {
+    "errorType": "status_code",
+    "url": "https://www.lesswrong.com/users/@{}",
+    "urlMain": "https://www.lesswrong.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7why"
+  },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
     "errorType": "message",
