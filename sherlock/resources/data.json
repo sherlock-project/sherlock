@@ -702,7 +702,7 @@
     "urlMain": "https://gab.com",
     "username_claimed": "a",
     "username_unclaimed": "noonewouldeverusethis"
-  }
+  },
   "GaiaOnline": {
     "errorMsg": "No user ID specified or user does not exist",
     "errorType": "message",
