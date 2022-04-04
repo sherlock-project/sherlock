@@ -400,6 +400,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codeforces": {
+    "errorType": "response_url",
+    "errorUrl": "https://codeforces.com/",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis789"
+  },
   "Codepen": {
     "errorType": "status_code",
     "url": "https://codepen.io/{}",
