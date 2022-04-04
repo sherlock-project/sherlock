@@ -927,8 +927,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Clubhouse":{
-    "errorMsg":"Nothing found!",
-    "errorType":"message",
+    "errorType": "status_code",
     "url":"https://www.clubhouse.com/@{}",
     "urlMain":"https://www.clubhouse.com",
     "username_claimed":"waniathar",
