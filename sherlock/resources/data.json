@@ -1743,6 +1743,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "TradingView": {
+    "request_method": "GET",
     "errorType": "status_code",
     "url": "https://www.tradingview.com/u/{}/",
     "urlMain": "https://www.tradingview.com/",
