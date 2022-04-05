@@ -218,19 +218,19 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Bezuzyteczna": {
+    "errorType": "status_code",
+    "url": "https://bezuzyteczna.pl/uzytkownicy/{}",
+    "urlMain": "https://bezuzyteczna.pl",
+    "username_claimed": "Jackson",
+    "username_unclaimed": "ktobysietaknazwalnawb69"
+  },
   "Bikemap": {
     "errorType": "status_code",
     "url": "https://www.bikemap.net/en/u/{}/routes/created/",
     "urlMain": "https://www.bikemap.net/",
     "username_claimed": "bikemap",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Bezuzyteczna": {
-	"errorType": "status_code",
-	"url": "https://bezuzyteczna.pl/uzytkownicy/{}",
-	"urlMain": "https://bezuzyteczna.pl",
-	"username_claimed": "Jackson",
-	"username_unclaimed": "ktobysietaknazwalnawb69"
   },
   "BinarySearch": {
     "errorMsg": "{}",
@@ -241,6 +241,13 @@
     "urlProbe": "https://binarysearch.io/api/users/{}/profile",
     "username_claimed": "Eyes_Wide_Shut",
     "username_unclaimed": "hihowareyou101"
+  },
+  "BioHacking": {
+    "errorType": "status_code",
+    "url": "https://forum.dangerousthings.com/u/{}",
+    "urlMain": "https://forum.dangerousthings.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "BitBucket": {
     "errorType": "status_code",
@@ -389,6 +396,13 @@
     "url": "https://www.clozemaster.com/players/{}",
     "urlMain": "https://www.clozemaster.com",
     "username_claimed": "green",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Clubhouse": {
+    "errorType": "status_code",
+    "url": "https://www.clubhouse.com/@{}",
+    "urlMain": "https://www.clubhouse.com",
+    "username_claimed": "waniathar",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Codecademy": {
@@ -911,8 +925,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gumroad": {
-    "errorType": "message",
     "errorMsg": "Page not found (404) - Gumroad",
+    "errorType": "message",
     "url": "https://www.gumroad.com/{}",
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue",
@@ -1056,13 +1070,6 @@
     "urlProbe": "https://www.picuki.com/profile/{}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Clubhouse":{
-    "errorType": "status_code",
-    "url":"https://www.clubhouse.com/@{}",
-    "urlMain":"https://www.clubhouse.com",
-    "username_claimed":"waniathar",
-    "username_unclaimed":"noonewouldeverusethis7"
   },
   "Instructables": {
     "errorType": "status_code",
@@ -1812,8 +1819,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Smule": {
-    "errorType": "message",
     "errorMsg": "Smule | Page Not Found (404)",
+    "errorType": "message",
     "url": "https://www.smule.com/{}",
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
@@ -2770,13 +2777,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "znanylekarz.pl": {
-	"errorType": "status_code",
-	"url": "https://www.znanylekarz.pl/{}",
-	"urlMain": "https://znanylekarz.pl",
-	"username_claimed": "janusz-nowak",
-	"username_unclaimed": "kto-by-sie-tak-nazwal-69"
-  },
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
@@ -2798,19 +2798,19 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "znanylekarz.pl": {
+    "errorType": "status_code",
+    "url": "https://www.znanylekarz.pl/{}",
+    "urlMain": "https://znanylekarz.pl",
+    "username_claimed": "janusz-nowak",
+    "username_unclaimed": "kto-by-sie-tak-nazwal-69"
+  },
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
     "errorType": "message",
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "BioHacking": {
-    "errorType": "status_code",
-    "url": "https://forum.dangerousthings.com/u/{}",
-    "urlMain": "https://forum.dangerousthings.com/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
