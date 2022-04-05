@@ -65,7 +65,7 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-
+        
         return f"{self.name} ({self.url_home})"
 
 

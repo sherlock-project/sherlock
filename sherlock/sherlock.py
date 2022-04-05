@@ -23,6 +23,7 @@ from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
+from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.0"
@@ -328,6 +329,7 @@ def sherlock(username, site_data, query_notify,
 
         # Get the expected error type
         error_type = net_info["errorType"]
+        error_code = net_info.get("errorCode")
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -392,8 +394,15 @@ def sherlock(username, site_data, query_notify,
                                      QueryStatus.AVAILABLE,
                                      query_time=response_time)
         elif error_type == "status_code":
+            # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
+            if error_code == r.status_code:
+                result = QueryResult(username,
+                                     social_network,
+                                     url,
+                                     QueryStatus.AVAILABLE,
+                                     query_time=response_time)
             # Checks if the status code of the response is 2XX
-            if not r.status_code >= 300 or r.status_code < 200:
+            elif not r.status_code >= 300 or r.status_code < 200:
                 result = QueryResult(username,
                                      social_network,
                                      url,
@@ -468,7 +477,8 @@ def timeout_check(value):
     except:
         raise ArgumentTypeError(f"Timeout '{value}' must be a number.")
     if timeout <= 0:
-        raise ArgumentTypeError(f"Timeout '{value}' must be greater than 0.0s.")
+        raise ArgumentTypeError(
+            f"Timeout '{value}' must be greater than 0.0s.")
     return timeout
 
 
@@ -553,7 +563,8 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        r = requests.get("https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+        r = requests.get(
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
 
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
         local_version = __version__
@@ -579,6 +590,13 @@ def main():
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
+    if args.no_color:
+        # Disable color output.
+        init(strip=True, convert=False)
+    else:
+        # Enable color output.
+        init(autoreset=True)
+
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
         print("You can only use one of the output methods.")
@@ -592,7 +610,8 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
-            sites = SitesInformation(os.path.join(os.path.dirname(__file__), "resources/data.json"))
+            sites = SitesInformation(os.path.join(
+                os.path.dirname(__file__), "resources/data.json"))
         else:
             sites = SitesInformation(args.json_file)
     except Exception as error:
@@ -623,7 +642,8 @@ def main():
                 site_missing.append(f"'{site}'")
 
         if site_missing:
-            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            print(
+                f"Error: Desired sites not found: {', '.join(site_missing)}.")
 
         if not site_data:
             sys.exit(1)
@@ -631,8 +651,7 @@ def main():
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_all=args.print_all,
-                                    color=not args.no_color)
+                                    print_all=args.print_all)
 
     # Run report on all specified users.
     for username in args.username:
@@ -661,7 +680,8 @@ def main():
                 if dictionary.get("status").status == QueryStatus.CLAIMED:
                     exists_counter += 1
                     file.write(dictionary["url_user"] + "\n")
-            file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+            file.write(
+                f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
             result_file = f"{username}.csv"

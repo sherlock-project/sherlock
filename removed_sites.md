@@ -1027,20 +1027,6 @@ As of 2021-01-13, Travellerspoint returns false positives
   },
 ```
 
-## Ebay
-
-As of 2021-01-15, Ebay seems to be very laggy and take too long to return a response.
-```
-  "Ebay": {
-    "errorMsg": "<title>eBay Profile - error</title>",
-    "errorType": "message",
-    "url": "https://www.ebay.com/usr/{}",
-    "urlMain": "https://www.ebay.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## GDProfiles
 
 As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
@@ -1263,4 +1249,19 @@ As of 2021-12-02, plug.dj is returning false positives because the service is do
     "username_claimed": "plug-dj-rock",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+```
+
+## Facenama
+
+As of 2022-02-6, Facenama seems to be down their rebuilding their site
+```
+  "Facenama": {
+    "errorType": "response_url",
+    "errorUrl": "https://facenama.com/404.html",
+    "regexCheck": "^[-a-zA-Z0-9_]+$",
+    "url": "https://facenama.com/{}",
+    "urlMain": "https://facenama.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
 ```
