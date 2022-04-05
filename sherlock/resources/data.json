@@ -225,6 +225,13 @@
     "username_claimed": "bikemap",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Bezuzyteczna": {
+	"errorType": "status_code",
+	"url": "https://bezuzyteczna.pl/uzytkownicy/{}",
+	"urlMain": "https://bezuzyteczna.pl",
+	"username_claimed": "Jackson",
+	"username_unclaimed": "ktobysietaknazwalnawb69"
+  },
   "BinarySearch": {
     "errorMsg": "{}",
     "errorType": "message",
@@ -2763,6 +2770,13 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "znanylekarz.pl": {
+	"errorType": "status_code",
+	"url": "https://www.znanylekarz.pl/{}",
+	"urlMain": "https://znanylekarz.pl",
+	"username_claimed": "janusz-nowak",
+	"username_unclaimed": "kto-by-sie-tak-nazwal-69"
+  },
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
@@ -2800,5 +2814,3 @@
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
-
-
