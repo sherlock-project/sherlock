@@ -2749,6 +2749,13 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "skyrock": {
+    "errorType": "status_code",
+    "url": "https://{}.skyrock.com/",
+    "urlMain": "https://skyrock.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "social.tchncs.de": {
     "errorType": "status_code",
     "url": "https://social.tchncs.de/@{}",
