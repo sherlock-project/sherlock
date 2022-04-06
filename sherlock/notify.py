@@ -200,11 +200,10 @@ class QueryNotifyPrint(QueryNotify):
         """
         self.result = result
 
-        if self.verbose is False or self.result.query_time is None:
-            response_time_text = ""
-        else:
-            response_time_text = f" [{round(self.result.query_time * 1000)} ms]"
-
+        response_time_text = ""
+        if self.result.query_time is not None and self.verbose == True:
+            response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
+        
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             print(Style.BRIGHT + Fore.WHITE + "[" +

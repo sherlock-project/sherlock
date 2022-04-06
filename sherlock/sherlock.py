@@ -353,13 +353,12 @@ def sherlock(username, site_data, query_notify,
         except:
             response_text = ""
 
+        query_status = QueryStatus.UNKNOWN
+        error_context = None
+
         if error_text is not None:
-            result = QueryResult(username,
-                                 social_network,
-                                 url,
-                                 QueryStatus.UNKNOWN,
-                                 query_time=response_time,
-                                 context=error_text)
+            error_context = error_text
+    
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
@@ -382,38 +381,18 @@ def sherlock(username, site_data, query_notify,
                         error_flag = False
                         break
             if error_flag:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.CLAIMED,
-                                     query_time=response_time)
+                query_status = QueryStatus.CLAIMED
             else:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.AVAILABLE,
-                                     query_time=response_time)
+                query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
             # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
             if error_code == r.status_code:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.AVAILABLE,
-                                     query_time=response_time)
+                query_status = QueryStatus.AVAILABLE
             # Checks if the status code of the response is 2XX
             elif not r.status_code >= 300 or r.status_code < 200:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.CLAIMED,
-                                     query_time=response_time)
+                query_status = QueryStatus.CLAIMED
             else:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.AVAILABLE,
-                                     query_time=response_time)
+                query_status = QueryStatus.AVAILABLE
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
@@ -421,23 +400,21 @@ def sherlock(username, site_data, query_notify,
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
             if 200 <= r.status_code < 300:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.CLAIMED,
-                                     query_time=response_time)
+                query_status = QueryStatus.CLAIMED
             else:
-                result = QueryResult(username,
-                                     social_network,
-                                     url,
-                                     QueryStatus.AVAILABLE,
-                                     query_time=response_time)
+                query_status = QueryStatus.AVAILABLE
         else:
             # It should be impossible to ever get here...
             raise ValueError(f"Unknown Error Type '{error_type}' for "
                              f"site '{social_network}'")
 
         # Notify caller about results of query.
+        result = QueryResult(username=username,
+                            site_name=social_network,
+                            site_url_user=url,
+                            status=query_status,
+                            query_time=response_time,
+                            context=error_context)
         query_notify.update(result)
 
         # Save status of request
