@@ -33,7 +33,7 @@ class QueryNotify:
 
         self.result = result
 
-        return
+        # return
 
     def start(self, message=None):
         """Notify Start.
@@ -52,7 +52,7 @@ class QueryNotify:
         Nothing.
         """
 
-        return
+        # return
 
     def update(self, result):
         """Notify Update.
@@ -71,7 +71,7 @@ class QueryNotify:
 
         self.result = result
 
-        return
+        # return
 
     def finish(self, message=None):
         """Notify Finish.
@@ -90,7 +90,7 @@ class QueryNotify:
         Nothing.
         """
 
-        return
+        # return
 
     def __str__(self):
         """Convert Object To String.
@@ -101,9 +101,7 @@ class QueryNotify:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        result = str(self.result)
-
-        return result
+        return str(self.result)
 
 
 class QueryNotifyPrint(QueryNotify):
@@ -150,13 +148,42 @@ class QueryNotifyPrint(QueryNotify):
         """
 
         title = "Checking username"
+
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
               Fore.GREEN + f"] {title}" +
               Fore.WHITE + f" {message}" +
               Fore.GREEN + " on:")
+        # An empty line between first line and the result(more clear output)
+        print('\r')
 
         return
+
+    def finish(self, message="The processing has been finished."):
+        """Notify Start.
+
+        Will print the last line to the standard output.
+
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- The last phrase.
+
+        Return Value:
+        Nothing.
+        """
+
+        title = "End"
+        
+        print('\r') # An empty line between last line of main output and last line(more clear output)
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "!" +
+              Fore.GREEN + f"] {title}" +
+              Fore.GREEN + ": " +
+              Fore.WHITE + f" {message}" )
+              
+        # An empty line between first line and the result(more clear output)
+
+        # return
 
     def update(self, result):
         """Notify Update.
@@ -176,7 +203,7 @@ class QueryNotifyPrint(QueryNotify):
         response_time_text = ""
         if self.result.query_time is not None and self.verbose == True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
-
+        
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             print(Style.BRIGHT + Fore.WHITE + "[" +
@@ -217,8 +244,9 @@ class QueryNotifyPrint(QueryNotify):
 
         else:
             # It should be impossible to ever get here...
-            raise ValueError(f"Unknown Query Status '{str(result.status)}' for "
-                             f"site '{self.result.site_name}'")
+            raise ValueError(
+                f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
+            )
 
         return
 
@@ -231,6 +259,4 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        result = str(self.result)
-
-        return result
+        return str(self.result)
