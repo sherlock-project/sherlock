@@ -5,6 +5,8 @@ This is the raw data that will be used to search for usernames.
 """
 import json
 
+import requests
+
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
                  username_unclaimed, information):
