@@ -144,14 +144,17 @@ def CheckForParameter(username):
     if exist it means that sherlock is looking for more multiple username'''
     return("{?}" in username)
 
+
 checksymbols = []
-checksymbols = [ "_" , "-" , "." ]
+checksymbols = ["_", "-", "."]
+
+
 def MultipleUsernames(username):
     '''replace the parameter with with symbols and return a list of usernames'''
     allUsernames = []
     for i in checksymbols:
         allUsernames.append(username.replace("{?}", i))
-        return allUsernames
+    return allUsernames
 
 
 def sherlock(username, site_data, query_notify,
@@ -190,7 +193,7 @@ def sherlock(username, site_data, query_notify,
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-
+    print()
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
@@ -464,9 +467,6 @@ def sherlock(username, site_data, query_notify,
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
-
-    # Notify caller that all queries are finished.
-    query_notify.finish()
 
     return results_total
 
@@ -742,7 +742,9 @@ def main():
                                      ]
                                     )
         print()
+    query_notify.finish()
 
 
 if __name__ == "__main__":
     main()
+    # Notify caller that all queries are finished.
