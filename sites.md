@@ -41,6 +41,7 @@
 1. [BraveCommunity](https://community.brave.com/)
 1. [BuyMeACoffee](https://www.buymeacoffee.com/)
 1. [BuzzFeed](https://buzzfeed.com/)
+1. [Byond](https://www.byond.com/)
 1. [CNET](https://www.cnet.com/)
 1. [CapFriendly](https://www.capfriendly.com/)
 1. [Carbonmade](https://carbonmade.com/)

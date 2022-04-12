@@ -2826,5 +2826,13 @@
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "byond": {
+	"errorMsg": "Announcements about BYOND's software and website.",
+	"errorType": "message",
+	"url": "https://www.byond.com/members/{}",
+	"urlMain": "https://www.byond.com/",
+	"username_claimed": "byond",
+	"username_unclaimed": "noonewouldeverusethis7"
   }
 }
