@@ -2827,7 +2827,7 @@
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "byond": {
+  "Byond": {
 	"errorMsg": "Announcements about BYOND's software and website.",
 	"errorType": "message",
 	"url": "https://www.byond.com/members/{}",
