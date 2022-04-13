@@ -161,7 +161,6 @@ Here are some things we would appreciate your help on:
 - Addition of new site support ¹
 - Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
 
-
 [1] Please look at the Wiki entry on [adding new sites](https://github.com/sherlock-project/sherlock/wiki/Adding-Sites-To-Sherlock)
 to understand the issues.
 
