@@ -249,6 +249,29 @@ class QueryNotifyPrint(QueryNotify):
             )
 
         return
+    
+    def finish(self, message="The processing has been finished."):
+        """Notify Start.
+        Will print the last line to the standard output.
+        Keyword Arguments:
+        self                   -- This object.
+        message                -- The last phrase.
+        Return Value:
+        Nothing.
+        """
+
+        title = "End"
+        
+        print('\r') # An empty line between last line of main output and last line(more clear output)
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "!" +
+              Fore.GREEN + f"] {title}" +
+              Fore.GREEN + ": " +
+              Fore.WHITE + f" {message}" )
+              
+        # An empty line between first line and the result(more clear output)
+
+        return
 
     def __str__(self):
         """Convert Object To String.

@@ -140,6 +140,24 @@ def interpolate_string(object, username):
     return object
 
 
+def CheckForParameter(username):
+    '''checks if {?} exists in the username
+    if exist it means that sherlock is looking for more multiple username'''
+    return("{?}" in username)
+
+
+checksymbols = []
+checksymbols = ["_", "-", "."]
+
+
+def MultipleUsernames(username):
+    '''replace the parameter with with symbols and return a list of usernames'''
+    allUsernames = []
+    for i in checksymbols:
+        allUsernames.append(username.replace("{?}", i))
+    return allUsernames
+
+
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
              proxy=None, timeout=None):
@@ -176,7 +194,7 @@ def sherlock(username, site_data, query_notify,
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-
+    print()
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
@@ -427,9 +445,6 @@ def sherlock(username, site_data, query_notify,
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
-    # Notify caller that all queries are finished.
-    query_notify.finish()
-
     return results_total
 
 
@@ -564,6 +579,7 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
+        
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
@@ -631,7 +647,15 @@ def main():
                                     print_all=args.print_all)
 
     # Run report on all specified users.
+    all_usernames = []
     for username in args.username:
+        if(CheckForParameter(username)):
+            for name in MultipleUsernames(username):
+                all_usernames.append(name)
+        else:
+            all_usernames.append(username)
+    for username in all_usernames:
+
         results = sherlock(username,
                            site_data,
                            query_notify,
@@ -693,7 +717,9 @@ def main():
                                      ]
                                     )
         print()
+    query_notify.finish()
 
 
 if __name__ == "__main__":
     main()
+    # Notify caller that all queries are finished.
