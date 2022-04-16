@@ -2508,14 +2508,6 @@
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "revish": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "url": "http://www.revish.com/people/{}",
-    "urlMain": "http://www.revish.com",
-    "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "minds": {
     "errorMsg": "Sorry, this channel doesn't appear to exist",
     "errorType": "message",
