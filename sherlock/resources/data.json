@@ -2826,5 +2826,21 @@
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "minds": {
+    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorType": "message",
+    "url": "https://www.minds.com/{}/",
+    "urlMain": "https://www.minds.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
