@@ -542,13 +542,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Designspiration": {
-    "errorType": "status_code",
-    "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "DeviantART": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",

@@ -1265,3 +1265,18 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
     "username_unclaimed": "noonewouldeverusethis77"
   },
 ```
+
+
+## Designspiration
+
+as of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
+
+```
+  "Designspiration": {
+    "errorType": "status_code",
+    "url": "https://www.designspiration.net/{}/",
+    "urlMain": "https://www.designspiration.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

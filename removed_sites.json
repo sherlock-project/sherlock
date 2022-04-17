@@ -652,5 +652,12 @@
     "urlMain": "https://facenama.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77"
-  }
+  },
+  "Designspiration": {
+    "errorType": "status_code",
+    "url": "https://www.designspiration.net/{}/",
+    "urlMain": "https://www.designspiration.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 }
