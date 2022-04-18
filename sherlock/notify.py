@@ -3,7 +3,10 @@
 This module defines the objects for notifying the caller about the
 results of queries.
 """
-from result import QueryStatus
+try:
+    from .result import QueryStatus
+except:
+    from result import QueryStatus
 from colorama import Fore, Style
 
 

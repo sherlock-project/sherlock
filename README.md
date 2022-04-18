@@ -34,14 +34,31 @@
 ## Installation
 
 ```console
-# clone the repo
+# clone the repo (you can download and extract zip instead)
 $ git clone https://github.com/sherlock-project/sherlock.git
 
 # change the working directory to sherlock
 $ cd sherlock
+```
 
+You can install either standard (portable) or with pip (avaliable anywhere on your machine). There could be a
+pypi package in the future to make the whole installation quicker. (a wheel can be created with
+`python3 setup.py bdist_wheel --universal`).
+
+
+Standard:
+```console
 # install the requirements
 $ python3 -m pip install -r requirements.txt
+# run with `python3 sherlock` from this dir
+```
+
+Pip:
+```console
+# install the package
+$ python3 -m pip install .
+# `sherlock` should be in your $PATH
+# run with `sherlock` anywhere (UNIX-like)
 ```
 
 ## Usage
