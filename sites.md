@@ -235,6 +235,7 @@
 1. [Slant](https://www.slant.co/)
 1. [Slashdot](https://slashdot.org)
 1. [SlideShare](https://slideshare.net/)
+1. [SmugMug](https://smugmug.com)
 1. [Smashcast](https://www.smashcast.tv/)
 1. [Smule](https://www.smule.com/)
 1. [Snapchat](https://www.snapchat.com)

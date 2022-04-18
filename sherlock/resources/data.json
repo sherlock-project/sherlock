@@ -1818,6 +1818,13 @@
     "username_claimed": "hello",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "SmugMug": {
+    "errorType": "status_code",
+    "url": "https://{}.smugmug.com",
+    "urlMain": "https://.smugmug.com",
+    "username_claimed": "winchester"
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Smule": {
     "errorMsg": "Smule | Page Not Found (404)",
     "errorType": "message",
