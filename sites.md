@@ -86,6 +86,7 @@
 1. [Fameswap](https://fameswap.com/)
 1. [FanCentro](https://fancentro.com/)
 1. [Fandom](https://www.fandom.com/)
+1. [Figma](https://www.figma.com/)
 1. [Finanzfrage](https://www.finanzfrage.net/)
 1. [Fiverr](https://www.fiverr.com/)
 1. [Flickr](https://www.flickr.com/)
