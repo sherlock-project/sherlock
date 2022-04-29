@@ -506,6 +506,8 @@ def main():
                         action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                         )
+    parser.add_argument("--merge", "-m", dest="merge",
+                        help="Merges output from multiple username searches into one file")
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
@@ -537,6 +539,10 @@ def main():
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
                         help="Don't color terminal output"
+                        )
+    parser.add_argument("--no-txt",
+                        action="store_false", dest="no_txt", default=False,
+                        help="Don't create txt output file"
                         )
     parser.add_argument("username",
                         nargs="+", metavar="USERNAMES",
@@ -579,7 +585,7 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
-        
+
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
@@ -648,6 +654,7 @@ def main():
 
     # Run report on all specified users.
     all_usernames = []
+    csv_rows = []
     for username in args.username:
         if(CheckForParameter(username)):
             for name in MultipleUsernames(username):
@@ -663,7 +670,6 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            timeout=args.timeout)
-
         if args.output:
             result_file = args.output
         elif args.folderoutput:
@@ -671,7 +677,7 @@ def main():
             # If the folder doesn't exist, create it first
             os.makedirs(args.folderoutput, exist_ok=True)
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
-        else:
+        elif not args.no_txt:
             result_file = f"{username}.txt"
 
         with open(result_file, "w", encoding="utf-8") as file:
@@ -691,6 +697,9 @@ def main():
                 # If the folder doesn't exist, create it first
                 os.makedirs(args.folderoutput, exist_ok=True)
                 result_file = os.path.join(args.folderoutput, result_file)
+            if args.merge:
+                # This is the filepath for the merged file
+                result_file = f"{args.merge}.csv"
 
             with open(result_file, "w", newline='', encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
@@ -707,15 +716,21 @@ def main():
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
-                    writer.writerow([username,
+
+                    result_output = [username,
                                      site,
                                      results[site]["url_main"],
                                      results[site]["url_user"],
                                      str(results[site]["status"].status),
                                      results[site]["http_status"],
-                                     response_time_s
-                                     ]
-                                    )
+                                     response_time_s]
+                    csv_rows.append(result_output)
+
+                    if not args.merge:
+                        writer.writerow(result_output)
+
+                if args.merge:
+                    writer.writerows(csv_rows)
         print()
     query_notify.finish()
 
