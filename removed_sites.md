@@ -1378,3 +1378,16 @@ As og 2022-05-01, Chess.com returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Codeforces
+As og 2022-05-01, Codeforces returns false positives
+```
+  "Codeforces": {
+    "errorType": "response_url",
+    "errorUrl": "https://codeforces.com/",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis789"
+  },
+```
