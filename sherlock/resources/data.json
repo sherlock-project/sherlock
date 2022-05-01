@@ -508,6 +508,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Depop": {
+    "errorType": "status_code",
+    "url": "https://www.depop.com/{}",
+    "urlMain": "https://www.depop.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "DeviantART": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
