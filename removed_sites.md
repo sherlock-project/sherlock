@@ -1297,3 +1297,17 @@ then of course causes false positives in Sherlock's results.
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Gab
+
+As of 2022-05-01, Gab returns false positives because they now use CloudFlare
+```
+  "Gab": {
+    "errorMsg": "The page you are looking for isn't here.",
+    "errorType": "message",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```

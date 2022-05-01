@@ -668,5 +668,13 @@
     "urlMain": "https://www.capfriendly.com/",
     "username_claimed": "thisactuallyexists",
     "username_unclaimed": "noonewouldeverusethis7"
-  }
+  },
+  "Gab": {
+    "errorMsg": "The page you are looking for isn't here.",
+    "errorType": "message",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
 }
