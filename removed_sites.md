@@ -1443,3 +1443,16 @@ As og 2022-05-01, Steam returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Raidforums
+
+Raidforums is now run by the FBI
+```
+  "Raidforums": {
+    "errorType": "status_code",
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

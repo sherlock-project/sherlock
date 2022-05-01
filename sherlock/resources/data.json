@@ -1570,13 +1570,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Raidforums": {
-    "errorType": "status_code",
-    "url": "https://raidforums.com/User-{}",
-    "urlMain": "https://raidforums.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Rajce.net": {
     "errorType": "status_code",
     "url": "https://{}.rajce.idnes.cz/",
