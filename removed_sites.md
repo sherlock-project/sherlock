@@ -1363,3 +1363,18 @@ As of 2022-05-01, Snapchat reutrns false positives
     "username_unclaimed": "revedluowenoon"
   },
 ```
+
+# Chess
+As og 2022-05-01, Chess.com returns false positives
+```
+  "Chess": {
+    "errorMsg": "\"valid\": false",
+    "errorType": "message",
+    "regexCheck": "^[a-z1-9]{3,25}$",
+    "url": "https://www.chess.com/member/{}",
+    "urlMain": "https://www.chess.com/",
+    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
