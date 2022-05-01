@@ -648,14 +648,6 @@
     "username_claimed": "fameswap",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "FanCentro": {
-    "errorMsg": "var environment",
-    "errorType": "message",
-    "url": "https://fancentro.com/{}",
-    "urlMain": "https://fancentro.com/",
-    "username_claimed": "nielsrosanna",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Fandom": {
     "errorType": "status_code",
     "url": "https://www.fandom.com/u/{}",

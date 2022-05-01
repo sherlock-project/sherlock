@@ -1325,3 +1325,18 @@ As of 2022-05-01, Venmo returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## FanCentro
+
+As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
+
+```
+  "FanCentro": {
+    "errorMsg": "var environment",
+    "errorType": "message",
+    "url": "https://fancentro.com/{}",
+    "urlMain": "https://fancentro.com/",
+    "username_claimed": "nielsrosanna",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
