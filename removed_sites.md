@@ -1269,7 +1269,7 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
 
 ## Designspiration
 
-as of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
+As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
 
 ```
   "Designspiration": {
@@ -1277,6 +1277,23 @@ as of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we'
     "url": "https://www.designspiration.net/{}/",
     "urlMain": "https://www.designspiration.net/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## CapFriendly
+
+As of 2022-05-01, CapFriendly always shows that a username exists even though it doesn't. This
+then of course causes false positives in Sherlock's results.
+
+```
+  "CapFriendly": {
+    "errorMsg": "<div class=\"err show p5\">No results found</div>",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-z][a-zA-Z0-9_]{2,79}$",
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "thisactuallyexists",
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
