@@ -677,4 +677,12 @@
     "username_claimed": "a",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Venmo": {
+    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
+    "url": "https://venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
 }

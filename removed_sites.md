@@ -1311,3 +1311,17 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
     "username_unclaimed": "noonewouldeverusethis"
   },
 ```
+
+## Venmo
+
+As of 2022-05-01, Venmo returns false positives
+```
+  "Venmo": {
+    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
+    "url": "https://venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
