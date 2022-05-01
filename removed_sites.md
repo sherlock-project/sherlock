@@ -1391,3 +1391,15 @@ As og 2022-05-01, Codeforces returns false positives
     "username_unclaimed": "noonewouldeverusethis789"
   },
 ```
+
+## Smashcast
+As og 2022-05-01, Smashcast is down
+```
+  "Smashcast": {
+    "errorType": "status_code",
+    "url": "https://www.smashcast.tv/api/media/live/{}",
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed": "hello",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
