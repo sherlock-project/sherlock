@@ -1403,3 +1403,16 @@ As og 2022-05-01, Smashcast is down
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Countable
+
+As og 2022-05-01, Countable returns false positives 
+```
+  "Countable": {
+    "errorType": "status_code",
+    "url": "https://www.countable.us/{}",
+    "urlMain": "https://www.countable.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
