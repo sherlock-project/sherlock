@@ -50,7 +50,7 @@ $ python3 -m pip install -r requirements.txt
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv]
-                [--merge]   
+                [--merge] 
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--no-txt]
