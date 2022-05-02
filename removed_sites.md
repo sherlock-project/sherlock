@@ -1269,7 +1269,7 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
 
 ## Designspiration
 
-as of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
+As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
 
 ```
   "Designspiration": {
@@ -1277,6 +1277,182 @@ as of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we'
     "url": "https://www.designspiration.net/{}/",
     "urlMain": "https://www.designspiration.net/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## CapFriendly
+
+As of 2022-05-01, CapFriendly always shows that a username exists even though it doesn't. This
+then of course causes false positives in Sherlock's results.
+
+```
+  "CapFriendly": {
+    "errorMsg": "<div class=\"err show p5\">No results found</div>",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-z][a-zA-Z0-9_]{2,79}$",
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "thisactuallyexists",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Gab
+
+As of 2022-05-01, Gab returns false positives because they now use CloudFlare
+```
+  "Gab": {
+    "errorMsg": "The page you are looking for isn't here.",
+    "errorType": "message",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+```
+
+## Venmo
+
+As of 2022-05-01, Venmo returns false positives
+```
+  "Venmo": {
+    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
+    "url": "https://venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## FanCentro
+
+As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
+
+```
+  "FanCentro": {
+    "errorMsg": "var environment",
+    "errorType": "message",
+    "url": "https://fancentro.com/{}",
+    "urlMain": "https://fancentro.com/",
+    "username_claimed": "nielsrosanna",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+
+## Snapchat
+
+As of 2022-05-01, Snapchat reutrns false positives
+
+```
+  "Snapchat": {
+    "errorMsg": "OK",
+    "errorType": "message",
+    "headers": {
+      "Cookie": "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0"
+    },
+    "regexCheck": "^[a-z][a-z-_.]{3,15}",
+    "request_method": "POST",
+    "url": "https://www.snapchat.com/add/{}",
+    "urlMain": "https://www.snapchat.com",
+    "urlProbe": "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
+    "username_claimed": "teamsnapchat",
+    "username_unclaimed": "revedluowenoon"
+  },
+```
+
+# Chess
+As og 2022-05-01, Chess.com returns false positives
+```
+  "Chess": {
+    "errorMsg": "\"valid\": false",
+    "errorType": "message",
+    "regexCheck": "^[a-z1-9]{3,25}$",
+    "url": "https://www.chess.com/member/{}",
+    "urlMain": "https://www.chess.com/",
+    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Codeforces
+As og 2022-05-01, Codeforces returns false positives
+```
+  "Codeforces": {
+    "errorType": "response_url",
+    "errorUrl": "https://codeforces.com/",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis789"
+  },
+```
+
+## Smashcast
+As og 2022-05-01, Smashcast is down
+```
+  "Smashcast": {
+    "errorType": "status_code",
+    "url": "https://www.smashcast.tv/api/media/live/{}",
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed": "hello",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Countable
+
+As og 2022-05-01, Countable returns false positives 
+```
+  "Countable": {
+    "errorType": "status_code",
+    "url": "https://www.countable.us/{}",
+    "urlMain": "https://www.countable.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Spotify
+
+As og 2022-05-01, Spotify returns false positives
+```
+  "Spotify": {
+    "errorType": "status_code",
+    "url": "https://open.spotify.com/user/{}",
+    "urlMain": "https://open.spotify.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Steam
+
+As og 2022-05-01, Steam returns false positives
+```
+  "Steam": {
+    "errorMsg": "The specified profile could not be found",
+    "errorType": "message",
+    "url": "https://steamcommunity.com/id/{}",
+    "urlMain": "https://steamcommunity.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Raidforums
+
+Raidforums is now run by the FBI
+```
+  "Raidforums": {
+    "errorType": "status_code",
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```

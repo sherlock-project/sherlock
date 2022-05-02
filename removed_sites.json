@@ -660,4 +660,106 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "CapFriendly": {
+    "errorMsg": "<div class=\"err show p5\">No results found</div>",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-z][a-zA-Z0-9_]{2,79}$",
+    "url": "https://www.capfriendly.com/users/{}",
+    "urlMain": "https://www.capfriendly.com/",
+    "username_claimed": "thisactuallyexists",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Gab": {
+    "errorMsg": "The page you are looking for isn't here.",
+    "errorType": "message",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Venmo": {
+    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
+    "url": "https://venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "FanCentro": {
+    "errorMsg": "var environment",
+    "errorType": "message",
+    "url": "https://fancentro.com/{}",
+    "urlMain": "https://fancentro.com/",
+    "username_claimed": "nielsrosanna",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Snapchat": {
+    "errorMsg": "OK",
+    "errorType": "message",
+    "headers": {
+      "Cookie": "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0"
+    },
+    "regexCheck": "^[a-z][a-z-_.]{3,15}",
+    "request_method": "POST",
+    "url": "https://www.snapchat.com/add/{}",
+    "urlMain": "https://www.snapchat.com",
+    "urlProbe": "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
+    "username_claimed": "teamsnapchat",
+    "username_unclaimed": "revedluowenoon"
+  },
+  "Chess": {
+    "errorMsg": "\"valid\": false",
+    "errorType": "message",
+    "regexCheck": "^[a-z1-9]{3,25}$",
+    "url": "https://www.chess.com/member/{}",
+    "urlMain": "https://www.chess.com/",
+    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Codeforces": {
+    "errorType": "response_url",
+    "errorUrl": "https://codeforces.com/",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis789"
+  },
+  "Smashcast": {
+    "errorType": "status_code",
+    "url": "https://www.smashcast.tv/api/media/live/{}",
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed": "hello",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Countable": {
+    "errorType": "status_code",
+    "url": "https://www.countable.us/{}",
+    "urlMain": "https://www.countable.us/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Spotify": {
+    "errorType": "status_code",
+    "url": "https://open.spotify.com/user/{}",
+    "urlMain": "https://open.spotify.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Steam": {
+    "errorMsg": "The specified profile could not be found",
+    "errorType": "message",
+    "url": "https://steamcommunity.com/id/{}",
+    "urlMain": "https://steamcommunity.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Raidforums": {
+    "errorType": "status_code",
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 }
