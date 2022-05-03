@@ -376,7 +376,7 @@ def sherlock(username, site_data, query_notify,
 
         if error_text is not None:
             error_context = error_text
-    
+
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
@@ -474,6 +474,22 @@ def timeout_check(value):
     return timeout
 
 
+def check_sherlock_version():
+    try:
+        r = requests.get(
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+
+        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+        local_version = __version__
+
+        if remote_version != local_version:
+            print("Update Available!\n" +
+                  f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
+
+    except Exception as error:
+        print(f"A problem occurred while checking for an update: {error}")
+
+
 def main():
     version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -554,19 +570,7 @@ def main():
     args = parser.parse_args()
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
-    try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
-
-        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
-        local_version = __version__
-
-        if remote_version != local_version:
-            print("Update Available!\n" +
-                  f"You are running version {local_version}. Version {remote_version} is available at https://git.io/sherlock")
-
-    except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
+    check_sherlock_version()
 
     # Argument check
     # TODO regex check on args.proxy
@@ -579,7 +583,7 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
-        
+
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
