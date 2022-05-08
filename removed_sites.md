@@ -16,7 +16,6 @@ for all queries.
 ```
   "gpodder.net": {
     "errorType": "status_code",
-    "rank": 2013984,
     "url": "https://gpodder.net/user/{}",
     "urlMain": "https://gpodder.net/",
     "username_claimed": "blue",
@@ -36,7 +35,6 @@ required login before access.
 ```
   "Investing.com": {
     "errorType": "status_code",
-    "rank": 196,
     "url": "https://www.investing.com/traders/{}",
     "urlMain": "https://www.investing.com/",
     "username_claimed": "jenny",
@@ -59,7 +57,6 @@ This can be detected, but it requires a different detection method.
 ```
   "AdobeForums": {
     "errorType": "status_code",
-    "rank": 59,
     "url": "https://forums.adobe.com/people/{}",
     "urlMain": "https://forums.adobe.com/",
     "username_claimed": "jack",
@@ -76,7 +73,6 @@ As of 2020-02-23, all usernames are reported as not existing.
   "Basecamp": {
     "errorMsg": "The account you were looking for doesn't exist",
     "errorType": "message",
-    "rank": 4914,
     "url": "https://{}.basecamphq.com",
     "urlMain": "https://basecamp.com/",
     "username_claimed": "blue",
@@ -92,7 +88,6 @@ As of 2020-02-23, all usernames are reported as not existing.
   "fanpop": {
     "errorType": "response_url",
     "errorUrl": "http://www.fanpop.com/",
-    "rank": 9454,
     "url": "http://www.fanpop.com/fans/{}",
     "urlMain": "http://www.fanpop.com/",
     "username_claimed": "blue",
@@ -108,7 +103,6 @@ As of 2020-02-23, all usernames are reported as not existing.
   "Canva": {
     "errorType": "response_url",
     "errorUrl": "https://www.canva.com/{}",
-    "rank": 128,
     "url": "https://www.canva.com/{}",
     "urlMain": "https://www.canva.com/",
     "username_claimed": "jenny",
@@ -123,7 +117,6 @@ As of 2020-01-21, all usernames are reported as not existing.
 ```
   "Pixabay": {
     "errorType": "status_code",
-    "rank": 378,
     "url": "https://pixabay.com/en/users/{}",
     "urlMain": "https://pixabay.com/",
     "username_claimed": "blue",
@@ -152,7 +145,6 @@ As of 2020-01-21, all usernames are reported as not existing.
 ```
   "Pexels": {
     "errorType": "status_code",
-    "rank": 745,
     "url": "https://www.pexels.com/@{}",
     "urlMain": "https://www.pexels.com/",
     "username_claimed": "bruno",
@@ -168,7 +160,6 @@ As of 2019-12-31, site always times out.
   "RamblerDating": {
     "errorType": "response_url",
     "errorUrl": "https://dating.rambler.ru/page/{}",
-    "rank": 322,
     "url": "https://dating.rambler.ru/page/{}",
     "urlMain": "https://dating.rambler.ru/",
     "username_claimed": "blue",
@@ -184,7 +175,6 @@ As of 2019-12-31, all usernames are reported as existing.
   "YandexMarket": {
     "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
     "errorType": "message",
-    "rank": 47,
     "url": "https://market.yandex.ru/user/{}/achievements",
     "urlMain": "https://market.yandex.ru/",
     "username_claimed": "blue",
@@ -199,7 +189,6 @@ As of 2019-12-31, usernames that exist are not detected.
 ```
   "Codementor": {
     "errorType": "status_code",
-    "rank": 10252,
     "url": "https://www.codementor.io/@{}",
     "urlMain": "https://www.codementor.io/",
     "username_claimed": "blue",
@@ -216,7 +205,6 @@ be logged into see a profile.
   "KiwiFarms": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
-    "rank": 38737,
     "url": "https://kiwifarms.net/members/?username={}",
     "urlMain": "https://kiwifarms.net/",
     "username_claimed": "blue",
@@ -232,7 +220,6 @@ As of 2019-11-30, the site causes Sherlock to just hang.
   "Teknik": {
     "errorMsg": "The user does not exist",
     "errorType": "message",
-    "rank": 357163,
     "url": "https://user.teknik.io/{}",
     "urlMain": "https://teknik.io/",
     "username_claimed": "red",
@@ -249,7 +236,6 @@ HTTP Status.
   "Shockwave": {
     "errorMsg": "Oh no! You just finished all of the games on the internet!",
     "errorType": "message",
-    "rank": 35916,
     "url": "http://www.shockwave.com/member/profiles/{}.jsp",
     "urlMain": "http://www.shockwave.com/",
     "username_claimed": "blue",
@@ -268,7 +254,6 @@ There is an error message:
 ```
   "Foursquare": {
     "errorType": "status_code",
-    "rank": 1843,
     "url": "https://foursquare.com/{}",
     "urlMain": "https://foursquare.com/",
     "username_claimed": "dens",
@@ -283,7 +268,6 @@ Usernames that don't exist are detected.  First noticed 2019-10-25.
 ```
   "Khan Academy": {
     "errorType": "status_code",
-    "rank": 377,
     "url": "https://www.khanacademy.org/profile/{}",
     "urlMain": "https://www.khanacademy.org/",
     "username_claimed": "blue",
@@ -300,7 +284,6 @@ Usernames that exist are not detected.
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
-    "rank": 15347,
     "url": "https://evewho.com/pilot/{}/",
     "urlMain": "https://eveonline.com",
     "username_claimed": "blue",
@@ -315,7 +298,6 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
 ```
   "AngelList": {
     "errorType": "status_code",
-    "rank": 5767,
     "url": "https://angel.co/u/{}",
     "urlMain": "https://angel.co/",
     "username_claimed": "blue",
@@ -331,7 +313,6 @@ user names were available.
 ```
   "PowerShell Gallery": {
     "errorType": "status_code",
-    "rank": 163562,
     "url": "https://www.powershellgallery.com/profiles/{}",
     "urlMain": "https://www.powershellgallery.com",
     "username_claimed": "powershellteam",
@@ -358,7 +339,6 @@ If the site becomes available in the future, we can put it back in.
 ```
   "StreamMe": {
     "errorType": "status_code",
-    "rank": 31702,
     "url": "https://www.stream.me/{}",
     "urlMain": "https://www.stream.me/",
     "username_claimed": "blue",
@@ -377,7 +357,6 @@ no way distinguish between the results with the current design of Sherlock.
   "BlackPlanet": {
     "errorMsg": "My Hits",
     "errorType": "message",
-    "rank": 110021,
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
@@ -394,7 +373,6 @@ Sherlock.
 ```
   "Fotolog": {
     "errorType": "status_code",
-    "rank": 47777,
     "url": "https://fotolog.com/{}",
     "urlMain": "https://fotolog.com/"
   },
@@ -412,7 +390,6 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 ```
   "Google Plus": {
     "errorType": "status_code",
-    "rank": 1,
     "url": "https://plus.google.com/+{}",
     "urlMain": "https://plus.google.com/",
     "username_claimed": "davidbrin1",
@@ -430,7 +407,6 @@ exists or not.
   "furaffinity": {
     "errorMsg": "user cannot be found",
     "errorType": "message",
-    "rank": 0,
     "url": "https://www.furaffinity.net/user/{}",
     "urlMain": "https://www.furaffinity.net",
     "username_claimed": "blue",
@@ -448,9 +424,8 @@ Since we were not able to find the critera for a valid username, the best thing 
   "InsaneJournal": {
     "errorMsg": "Unknown user",
     "errorType": "message",
-    "rank": 29728,
     "url": "http://{}.insanejournal.com/profile",
-    "urlMain": "insanejournal.com",
+    "urlMain": "https://www.insanejournal.com/",
     "username_claimed": "blue",
     "username_unclaimed": "dlyr6cd"
   },
@@ -465,7 +440,6 @@ did not seem to work.
    "SportsTracker": {
      "errorUrl": "https://www.sports-tracker.com/page-not-found",
      "errorType": "response_url",
-     "rank": 93950,
      "url": "https://www.sports-tracker.com/view_profile/{}",
      "urlMain": "https://www.sports-tracker.com/",
      "username_claimed": "blue",
@@ -481,7 +455,6 @@ redirecting to skyscanner.com whether the username exists or not.
 ```
   "Trip": {
       "errorType": "status_code",
-      "rank": 2847,
       "url": "https://www.trip.skyscanner.com/user/{}",
       "urlMain": "https://www.trip.skyscanner.com/",
       "username_claimed": "blue",
@@ -497,7 +470,6 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
 ```
    "boingboing.net": {
      "errorType": "status_code",
-     "rank": 5821,
      "url": "https://bbs.boingboing.net/u/{}",
      "urlMain": "https://boingboing.net/",
      "username_claimed": "admin",
@@ -513,7 +485,6 @@ downforeveryoneorjustme.com that the website is down.
   "elwoRU": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
-    "rank": 254810,
     "url": "https://elwo.ru/index/8-0-{}",
     "urlMain": "https://elwo.ru/",
     "username_claimed": "red",
@@ -530,7 +501,6 @@ downforeveryoneorjustme.com that the website is down.
   "ingvarr.net.ru": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
-    "rank": 107721,
     "url": "http://ingvarr.net.ru/index/8-0-{}",
     "urlMain": "http://ingvarr.net.ru/",
     "username_claimed": "red",
@@ -547,7 +517,6 @@ for Sherlock to check for usernames on this particular website.
   "Redsun.tf": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
-    "rank": 3796657,
     "url": "https://forum.redsun.tf/members/?username={}",
     "urlMain": "https://redsun.tf/",
     "username_claimed": "dan",
@@ -564,7 +533,6 @@ us to prove that we are not a robot.
 ```
   "CreativeMarket": {
     "errorType": "status_code",
-    "rank": 1896,
     "url": "https://creativemarket.com/users/{}",
     "urlMain": "https://creativemarket.com/",
     "username_claimed": "blue",
@@ -580,7 +548,6 @@ we try to check for a username.
 ```
   "pvpru": {
     "errorType": "status_code",
-    "rank": 405547,
     "url": "https://pvpru.com/board/member.php?username={}&tab=aboutme#aboutme",
     "urlMain": "https://pvpru.com/",
     "username_claimed": "blue",
@@ -597,7 +564,6 @@ removed
   "easyen": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
-    "rank": 11564,
     "url": "https://easyen.ru/index/8-0-{}",
     "urlMain": "https://easyen.ru/",
     "username_claimed": "wd",
@@ -614,7 +580,6 @@ removed
   "pedsovet": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
-    "rank": 6776,
     "url": "http://pedsovet.su/index/8-0-{}",
     "urlMain": "http://pedsovet.su/",
     "username_claimed": "blue",
@@ -631,7 +596,6 @@ removed
   "radioskot": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
-    "rank": 105878,
     "url": "https://radioskot.ru/index/8-0-{}",
     "urlMain": "https://radioskot.ru/",
     "username_claimed": "red",
@@ -649,7 +613,6 @@ find it and because of this, the best thing we can do now is to remove it.
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
     "errorType": "message",
-    "rank": 11256,
     "url": "https://coderwall.com/{}",
     "urlMain": "https://coderwall.com/",
     "username_claimed": "jenny",
@@ -664,7 +627,6 @@ As of 2020-07-06, TamTam returns false positives when given a username which con
   "TamTam": {
     "errorType": "response_url",
     "errorUrl": "https://tamtam.chat/",
-    "rank": 87903,
     "url": "https://tamtam.chat/{}",
     "urlMain": "https://tamtam.chat/",
     "username_claimed": "blue",
@@ -680,7 +642,6 @@ As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato take
     "headers": {
       "Accept-Language": "en-US,en;q=0.9"
     },
-    "rank": 1920,
     "url": "https://www.zomato.com/pl/{}/foodjourney",
     "urlMain": "https://www.zomato.com/",
     "username_claimed": "deepigoyal",
@@ -693,7 +654,6 @@ As of 2020-07-22, the Mixer service has closed down.
 ```
   "mixer.com": { 
     "errorType": "status_code", 
-    "rank": 1544, 
     "url": "https://mixer.com/{}", 
     "urlMain": "https://mixer.com/", 
     "urlProbe": "https://mixer.com/api/v1/channels/{}", 
@@ -709,7 +669,6 @@ If an alternative way to check for usernames is found then it will added.
 ```
   "KanoWorld": {
     "errorType": "status_code",
-    "rank": 181933,
     "url": "https://api.kano.me/progress/user/{}",
     "urlMain": "https://world.kano.me/",
     "username_claimed": "blue",
@@ -867,7 +826,6 @@ As of 2020-09-23, Linkedin returns false positives because we are prompted with 
   "Linkedin": {
     "errorMsg": "could not be found",
     "errorType": "message",
-    "rank": 0,
     "url": "https://www.linkedin.com/in/{}",
     "urlMain": "https://www.linkedin.com/",
     "username_claimed": "alex",

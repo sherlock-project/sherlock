@@ -1,4 +1,5 @@
 {
+  "$schema": "./data.schema.json",
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -1068,7 +1069,6 @@
   },
   "Jimdo": {
     "errorType": "status_code",
-    "noPeriod": "True",
     "url": "https://{}.jimdosite.com",
     "urlMain": "https://jimdosite.com/",
     "username_claimed": "jenny",
