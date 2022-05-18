@@ -2135,6 +2135,14 @@
     "username_claimed": "Hoadlck",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Wikipedia Article": {
+    "errorMsg": "noarticletext-nopermission",
+    "errorType": "message",
+    "url": "https://en.wikipedia.org/wiki/{}?uselang=qqx",
+    "urlMain": "https://www.wikipedia.org/",
+    "username_claimed": "Bill_Gates",
+    "username_unclaimed": "craciu25yt"
+  },
   "Windy": {
     "errorType": "status_code",
     "url": "https://community.windy.com/user/{}",
