@@ -2528,6 +2528,13 @@
     "username_claimed": "TheKinrar",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "mstdn.social": {
+    "errorType": "status_code",
+    "url": "https://mstdn.social/@{}",
+    "urlMain": "https://mstdn.social/",
+    "username_claimed": "MagicLike",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "mercadolivre": {
     "errorType": "status_code",
     "url": "https://www.mercadolivre.com.br/perfil/{}",
