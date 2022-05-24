@@ -2955,6 +2955,13 @@
     "urlMain": "https://mastodon.xyz/",
     "username_claimed": "TheKinrar"
   },
+  "mstdn.social": {
+    "errorType": "status_code",
+    "url": "https://mstdn.social/@{}",
+    "urlMain": "https://mstdn.social/",
+    "username_claimed": "MagicLike",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "mercadolivre": {
     "errorType": "status_code",
     "url": "https://www.mercadolivre.com.br/perfil/{}",
