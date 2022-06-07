@@ -754,6 +754,13 @@
     "username_claimed": "PinKgirl",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "Game-Debate": {
+    "errorType": "status_code",
+    "url": "https://game-debate.com/profile/{}/",
+    "urlMain": "https://game-debate.com",
+    "username_claimed": "david988",
+    "username_unclaimed": "neverGonnaGiveYouUpNeverGonnaUseThisName"
+  },
   "Gamespot": {
     "errorType": "status_code",
     "url": "https://www.gamespot.com/profile/{}/",
