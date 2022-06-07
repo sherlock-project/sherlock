@@ -730,6 +730,13 @@
     "username_claimed": "user",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "GNOME Extensions": {
+    "errorType": "response_url",
+    "url": "https://extensions.gnome.org/accounts/profile/{}",
+    "urlMain": "https://extensions.gnome.org",
+    "username_claimed": "fmuellner",
+    "username_unclaimed": "nopeThisUsernameIsStillNotUsed"
+  },
   "GNOME VCS": {
     "errorType": "response_url",
     "errorUrl": "https://gitlab.gnome.org/{}",
