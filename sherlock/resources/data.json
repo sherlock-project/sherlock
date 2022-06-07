@@ -578,6 +578,13 @@
     "username_claimed": "enabled",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "eRepublik Wiki": {
+    "errorType": "status_code",
+    "url": "https://wiki.erepublik.com/index.php/User:{}",
+    "urlMain": "https://wiki.erepublik.com",
+    "username_claimed": "Democr1tus",
+    "username_unclaimed": "takeDrugsKillABear"
+  },
   "Etsy": {
     "errorType": "status_code",
     "url": "https://www.etsy.com/shop/{}",
