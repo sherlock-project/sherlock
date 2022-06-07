@@ -1702,6 +1702,12 @@
     "urlMain": "https://opencollective.com/",
     "username_claimed": "sindresorhus"
   },
+  "OpenGameArt": {
+    "errorType": "status_code",
+    "url": "https://opengameart.org/users/{}",
+    "urlMain": "https://opengameart.org",
+    "username_claimed": "ski"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -3019,13 +3025,6 @@
     "urlMain": "https://home.omg.lol",
     "urlProbe": "https://api.omg.lol/address/{}/availability",
     "username_claimed": "adam"
-  },
-  "OpenGameArt": {
-    "errorType": "status_code",
-    "url": "https://opengameart.org/users/{}",
-    "urlMain": "https://opengameart.org",
-    "username_claimed": "ski",
-    "username_unclaimed": "thisUserNameWillNeverBeUsed3"
   },
   "opennet": {
     "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
