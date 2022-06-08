@@ -732,7 +732,7 @@ def main():
             response_time_s = []
 
     
-            sheet = workbook.add_worksheet()
+        
             for site in results:
 
                 if response_time_s is None:
