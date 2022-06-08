@@ -8,7 +8,6 @@ networks.
 """
 
 import csv
-import xlsxwriter
 import pandas as pd
 import os
 import platform
