@@ -5,8 +5,7 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
-
-globvar = 0
+globvar = 0 # global variable to count the number of results.
 
 class QueryNotify:
     """Query Notify Object.
@@ -186,7 +185,7 @@ class QueryNotifyPrint(QueryNotify):
         # return
 
     def countResults(self):
-        """Count the number of results. Every time the fuction is called,
+        """This function counts the number of results. Every time the fuction is called,
         the number of results is increasing.
 
         Keyword Arguments:
@@ -274,14 +273,14 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        numberOfResults = self.countResults() - 1
+        NumberOfResults = self.countResults() - 1
 
         title = "Results:"
 
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
               Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {numberOfResults}" )
+              Fore.WHITE + f" {NumberOfResults}" )
         
         title = "End"
         
