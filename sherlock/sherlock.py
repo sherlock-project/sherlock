@@ -731,8 +731,7 @@ def main():
             http_status = []
             response_time_s = []
 
-            result_file = f"{username}.xlsx"
-            workbook = xlsxwriter.Workbook(f"{username}.xlsx")
+    
             sheet = workbook.add_worksheet()
             for site in results:
 
