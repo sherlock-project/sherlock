@@ -69,13 +69,13 @@ optional arguments:
                         If using multiple usernames, the output of the results
                         will be saved to this folder.
   --output OUTPUT, -o OUTPUT
-                        If using single username, the output of the result
+                        If using a single username, the output of the result
                         will be saved to this file.
   --tor, -t             Make requests over Tor; increases runtime; requires
-                        Tor to be installed and in system path.
-  --unique-tor, -u      Make requests over Tor with new Tor circuit after each
+                        Tor to be installed and in the system path.
+  --unique-tor, -u      Make requests over Tor with a new Tor circuit after each
                         request; increases runtime; requires Tor to be
-                        installed and in system path.
+                        installed and in the system path.
   --csv                 Create Comma-Separated Values (CSV) File.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
@@ -85,15 +85,15 @@ optional arguments:
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON
                         file.
-  --timeout TIMEOUT     Time (in seconds) to wait for response to requests.
-                        Default timeout is infinity. A longer timeout will be
+  --timeout TIMEOUT     Time (in seconds) to wait for a response to requests.
+                        The default timeout is infinity. A longer timeout will be
                         more likely to get results from slow sites. On the
                         other hand, this may cause a long delay to gather all
                         results.
   --print-all           Output sites where the username was not found.
   --print-found         Output sites where the username was found.
   --no-color            Don't color terminal output
-  --browse, -b          Browse to all results on default browser.
+  --browse, -b          Browse to all results on the default browser.
   --local, -l           Force the use of the local data.json file.
 ```
 
@@ -138,7 +138,7 @@ docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /
 ```
 
 The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
-present working directory and to mount it at `/opt/sherlock/results` on the docker container.
+present working directory and mount it at `/opt/sherlock/results` on the docker container.
 The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
 
 Or you can use "Docker Hub" to run `sherlock`:
