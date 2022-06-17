@@ -475,6 +475,10 @@ def timeout_check(value):
 
 
 def check_sherlock_version():
+    """
+     Check for newer version of Sherlock. If it exists, let the user know
+     about it.
+    """
     try:
         r = requests.get(
             "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
@@ -569,7 +573,7 @@ def main():
 
     args = parser.parse_args()
 
-    # Check for newer version of Sherlock. If it exists, let the user know about it
+    # Check for newer version of Sherlock
     check_sherlock_version()
 
     # Argument check
