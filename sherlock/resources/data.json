@@ -2735,7 +2735,7 @@
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "minds": {
+  "daily.dev": {
     "errorMsg": "Oops, this page couldn’t be found",
     "errorType": "message",
     "url": "https://app.daily.dev/{}",
