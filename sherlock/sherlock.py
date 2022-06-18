@@ -8,6 +8,7 @@ networks.
 """
 
 import csv
+import pandas as pd
 import os
 import platform
 import re
@@ -376,7 +377,7 @@ def sherlock(username, site_data, query_notify,
 
         if error_text is not None:
             error_context = error_text
-    
+
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
             # error_flag False denotes error found in the HTML
@@ -506,6 +507,10 @@ def main():
                         action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                         )
+    parser.add_argument("--xlsx",
+                        action="store_true", dest="xlsx", default=False,
+                        help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
+                        )
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
@@ -579,7 +584,7 @@ def main():
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
-        
+
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
@@ -647,6 +652,7 @@ def main():
                                     print_all=args.print_all)
 
     # Run report on all specified users.
+
     all_usernames = []
     for username in args.username:
         if(CheckForParameter(username)):
@@ -716,6 +722,35 @@ def main():
                                      response_time_s
                                      ]
                                     )
+        if args.xlsx:
+            usernames = []
+            names = []
+            url_main = []
+            url_user = []
+            exists = []
+            http_status = []
+            response_time_s = []
+
+    
+        
+            for site in results:
+
+                if response_time_s is None:
+                    response_time_s.append("")
+                else:
+                    response_time_s.append(results[site]["status"].query_time)
+                usernames.append(username)
+                names.append(site)
+                url_main.append(results[site]["url_main"])
+                url_user.append(results[site]["url_user"])
+                exists.append(str(results[site]["status"].status))
+                http_status.append(results[site]["http_status"])
+            
+            DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
+            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
+
+                                    
+
         print()
     query_notify.finish()
 

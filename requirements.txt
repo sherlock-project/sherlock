@@ -5,3 +5,5 @@ requests>=2.22.0
 requests-futures>=1.0.0
 stem>=1.8.0 
 torrequest>=0.1.0
+pandas>=1.0.0
+openpyxl<=3.0.10
