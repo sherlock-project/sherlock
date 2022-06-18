@@ -2734,5 +2734,13 @@
     "urlMain": "https://www.minds.com",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "daily.dev": {
+    "errorMsg": "Oops, this page couldn’t be found",
+    "errorType": "message",
+    "url": "https://app.daily.dev/{}",
+    "urlMain": "https://app.daily.dev",
+    "username_claimed": "danielazulayy",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
