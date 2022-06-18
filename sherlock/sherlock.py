@@ -499,6 +499,10 @@ def adding_arguments(parser):
     In this method arguments that is used in the cmd, for example --version are
     added to the parser variable.
     """
+    version_string = f"%(prog)s {__version__}\n" + \
+                     f"{requests.__description__}:  {requests.__version__}\n" + \
+                     f"Python:  {platform.python_version()}"
+
     parser.add_argument("--version",
                         action="version", version=version_string,
                         help="Display version information and dependencies."
@@ -570,10 +574,7 @@ def adding_arguments(parser):
 
 
 def main():
-    version_string = f"%(prog)s {__version__}\n" + \
-                     f"{requests.__description__}:  {requests.__version__}\n" + \
-                     f"Python:  {platform.python_version()}"
-
+    # Creating an argument parser
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
                             )
