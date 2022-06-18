@@ -494,14 +494,11 @@ def check_sherlock_version():
         print(f"A problem occurred while checking for an update: {error}")
 
 
-def main():
-    version_string = f"%(prog)s {__version__}\n" + \
-                     f"{requests.__description__}:  {requests.__version__}\n" + \
-                     f"Python:  {platform.python_version()}"
-
-    parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description=f"{module_name} (Version {__version__})"
-                            )
+def adding_arguments(parser):
+    """
+    In this method arguments that is used in the cmd, for example --version are
+    added to the parser variable.
+    """
     parser.add_argument("--version",
                         action="version", version=version_string,
                         help="Display version information and dependencies."
@@ -571,6 +568,19 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
+
+def main():
+    version_string = f"%(prog)s {__version__}\n" + \
+                     f"{requests.__description__}:  {requests.__version__}\n" + \
+                     f"Python:  {platform.python_version()}"
+
+    parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
+                            description=f"{module_name} (Version {__version__})"
+                            )
+
+    # Adding the arguments to the parser that a user can use throw the cmd
+    adding_arguments(parser)
+    # Parser this arguments in a args variable
     args = parser.parse_args()
 
     # Check for newer version of Sherlock
