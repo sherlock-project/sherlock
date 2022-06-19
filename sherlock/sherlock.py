@@ -573,22 +573,13 @@ def adding_arguments(parser):
                         help="Force the use of the local data.json file.")
 
 
-def main():
-    # Creating an argument parser
-    parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description=f"{module_name} (Version {__version__})"
-                            )
+def check_args_tor_and_proxy(args):
+    """
+        Arguments check: Tor and Proxy
 
-    # Adding the arguments to the parser that a user can use throw the cmd
-    adding_arguments(parser)
-    # Parser this arguments in a args variable
-    args = parser.parse_args()
-
-    # Check for newer version of Sherlock
-    check_sherlock_version()
-
-    # Argument check
-    # TODO regex check on args.proxy
+        This method is checking the existence of arguments tor and proxy
+        and printing the necessary messages to the user.
+    """
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
@@ -602,12 +593,43 @@ def main():
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
+
+def check_args_no_color(args):
+    """
+        Arguments check: no color
+
+        This methos is checking the existence of argument no color and clearing the color if true.
+    """
     if args.no_color:
         # Disable color output.
         init(strip=True, convert=False)
     else:
         # Enable color output.
         init(autoreset=True)
+
+
+def main():
+    # Creating an argument parser
+    parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
+                            description=f"{module_name} (Version {__version__})"
+                            )
+
+    # Adding the arguments to the parser that a user can use throw the cmd
+    adding_arguments(parser)
+
+    # Parser this arguments in a args variable
+    args = parser.parse_args()
+
+    # Check for newer version of Sherlock
+    check_sherlock_version()
+
+    # Argument existence check
+    # Checking the existence of argument tor and proxy
+    # TODO regex check on args.proxy
+    check_args_tor_and_proxy(args)
+
+    # checking the existence of argument no color
+    check_args_no_color(args)
 
     # Check if both output methods are entered as input.
     if args.output is not None and args.folderoutput is not None:
