@@ -623,6 +623,25 @@ def check_both_output_and_folderoutput(args):
         sys.exit(1)
 
 
+def sites_path(args):
+    """
+        Filling the site variable with the information of the sites we will search.
+        if the user uses the argument local sherlock will check the data.json file that he can store
+        new sites to check.
+    """
+    try:
+        if args.local:
+            sites = SitesInformation(o.path.join(
+                os.path.dirname(__file__), "resources/data.json"))
+        else:
+            sites = SitesInformation(args.json_file)
+
+        return sites
+    except Exception as error:
+        print(f"ERROR:  {error}")
+        sys.exit(1)
+
+
 def main():
     # Creating an argument parser
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
@@ -650,15 +669,7 @@ def main():
     check_both_output_and_folderoutput(args)
 
     # Create object with all information about sites we are aware of.
-    try:
-        if args.local:
-            sites = SitesInformation(os.path.join(
-                os.path.dirname(__file__), "resources/data.json"))
-        else:
-            sites = SitesInformation(args.json_file)
-    except Exception as error:
-        print(f"ERROR:  {error}")
-        sys.exit(1)
+    sites = sites_path(args)
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
