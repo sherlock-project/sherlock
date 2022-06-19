@@ -608,6 +608,21 @@ def check_args_no_color(args):
         init(autoreset=True)
 
 
+def check_both_output_and_folderoutput(args):
+    """
+        Checking if the user has entered both arguments output and folderoutput
+        and printing the necessary messages.
+    """
+    if args.output is not None and args.folderoutput is not None:
+        print("You can only use one of the output methods.")
+        sys.exit(1)
+
+    # Check validity for single username output.
+    if args.output is not None and len(args.username) != 1:
+        print("You can only use --output with a single username")
+        sys.exit(1)
+
+
 def main():
     # Creating an argument parser
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
@@ -632,14 +647,7 @@ def main():
     check_args_no_color(args)
 
     # Check if both output methods are entered as input.
-    if args.output is not None and args.folderoutput is not None:
-        print("You can only use one of the output methods.")
-        sys.exit(1)
-
-    # Check validity for single username output.
-    if args.output is not None and len(args.username) != 1:
-        print("You can only use --output with a single username")
-        sys.exit(1)
+    check_both_output_and_folderoutput(args)
 
     # Create object with all information about sites we are aware of.
     try:
