@@ -1972,6 +1972,14 @@
     "username_claimed": "ashu",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "Trovo": {
+    "errorMsg": "Uh Ohhh...",
+    "errorType": "message",
+    "url": "https://trovo.live/{}/",
+    "urlMain": "https://trovo.live",
+    "username_claimed": "Aimilios",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Twitch": {
     "errorType": "status_code",
     "url": "https://www.twitch.tv/{}",
