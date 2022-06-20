@@ -7,7 +7,7 @@ import sherlock as sh
 checksymbols = []
 checksymbols = ["_", "-", "."]
 
-"""Test for mulriple usernames.
+"""Test for multiple usernames.
 
         This test ensures that the function MultipleUsernames works properly. More specific,
         different scenarios are tested and only usernames that contain this specific sequence: {?} 
