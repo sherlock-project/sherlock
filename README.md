@@ -77,6 +77,7 @@ optional arguments:
                         request; increases runtime; requires Tor to be
                         installed and in system path.
   --csv                 Create Comma-Separated Values (CSV) File.
+  --xlsx                Create the standard file for the modern Microsoft Excel spreadsheet (xlsx).
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
                         options to specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
