@@ -1666,10 +1666,11 @@
   "RuneScape": {
     "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
     "errorType": "message",
-    "regexCheck": "(?! )^[a-zA-Z0-9- ]{,12}(?<! )$",
-    "url": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
+    "regexCheck": "^(?! )[\\w -]{1,12}(?<! )$",
+    "url": "https://apps.runescape.com/runemetrics/app/overview/player/{}",
     "urlMain": "https://www.runescape.com/",
-    "username_claimed": "Blue",
+    "urlProbe": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
+    "username_claimed": "L33",
     "username_unclaimed": "noonewouldev"
   },
   "SWAPD": {
