@@ -106,7 +106,7 @@
 1. [Genius (Artists)](https://genius.com/)
 1. [Genius (Users)](https://genius.com/)
 1. [Gesundheitsfrage](https://www.gesundheitsfrage.net/)
-1. [GetMyUni](https://getmyuni.com/)
+1. [Sarkari Exam](https://sarkariexam.com.co/))
 1. [Ghost](https://ghost.org/)
 1. [Giphy](https://giphy.com/)
 1. [GitBook](https://gitbook.com/)
@@ -368,3 +368,4 @@
 1. [xHamster](https://xhamster.com)
 1. [znanylekarz.pl](https://znanylekarz.pl)
 1. [zoomit](https://www.zoomit.ir)
+1. [Sarkari Result](https://sarkariresult.com.co/)
