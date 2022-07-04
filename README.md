@@ -49,7 +49,7 @@ $ python3 -m pip install -r requirements.txt
 ```console
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
-                [--output OUTPUT] [--tor] [--unique-tor] [--csv]
+                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local]
@@ -77,7 +77,9 @@ optional arguments:
                         request; increases runtime; requires Tor to be
                         installed and in system path.
   --csv                 Create Comma-Separated Values (CSV) File.
-  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple
+  --xlsx                Create the standard file for the modern Microsoft
+                        Excel spreadsheet (xslx).
+  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple 
                         options to specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g.
