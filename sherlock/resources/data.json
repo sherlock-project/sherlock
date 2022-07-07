@@ -1494,7 +1494,7 @@
     "url": "https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis76543"
   },
   "PlayStore": {
     "errorType": "status_code",
@@ -2017,7 +2017,7 @@
     "errorUrl": "https://www.quora.com/profile/{}",
     "url": "https://vk.com/{}",
     "urlMain": "https://vk.com/",
-    "username_claimed": "smith",
+    "username_claimed": "brown",
     "username_unclaimed": "blah62831"
   },
   "VSCO": {
