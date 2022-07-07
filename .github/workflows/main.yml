@@ -1,11 +1,11 @@
-name: Tests
+name: main
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,5 +28,4 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Sherlock Site Detect Tests
-      run: |
-        cd sherlock && python -m unittest tests.all.SherlockDetectTests --verbose
+      run: pytest
