@@ -1489,3 +1489,16 @@ As of 17-07-2022, PCPartPicker returns false positives as an account is needed t
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Pinterest
+As of 17-07-2022, Pinterest returns false positives
+```
+  "Pinterest": {
+    "errorType": "message",
+    "errorMsg": "Explore the best of Pinterest",
+    "url": "https://www.pinterest.com/{}/",
+    "urlMain": "https://www.pinterest.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
