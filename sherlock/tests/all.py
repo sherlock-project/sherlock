@@ -102,7 +102,7 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = "Pinterest"
+        site = "PlayStore"
         site_data = self.site_data_all[site]
 
         #Ensure that the site's detection method has not changed.
