@@ -547,7 +547,7 @@ def main():
                         nargs="+", metavar="USERNAMES",
                         action="store",
                         help="One or more usernames to check with social networks."
-                        "If the target username begins with a hyphen (-), incase username in quotations and prefix with whitespace."
+                        "If the target username begins with a hyphen (-), encase username in quotations and prefix with whitespace."
                         "Ex: ' -username'"
                         )
     parser.add_argument("--browse", "-b",
