@@ -1456,3 +1456,23 @@ Raidforums is now run by the FBI
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+## Ebay
+As of 17-05-2022, Ebay seems to not connect properly. We will take a further look into this and see what is wrong.
+```
+  "eBay.com": {
+    "errorMsg": "The User ID you entered was not found. Please check the User ID and try again.",
+    "errorType": "message",
+    "url": "https://www.ebay.com/usr/{}",
+    "urlMain": "https://www.ebay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "eBay.de": {
+    "errorMsg": "Der eingegebene Nutzername wurde nicht gefunden. Bitte pr\u00fcfen Sie den Nutzernamen und versuchen Sie es erneut.",
+    "errorType": "message",
+    "url": "https://www.ebay.de/usr/{}",
+    "urlMain": "https://www.ebay.de/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
