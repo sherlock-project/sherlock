@@ -762,4 +762,11 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Pinterest": {
+    "errorType": "status_code",
+    "url": "https://www.pinterest.com/{}/",
+    "urlMain": "https://www.pinterest.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis76543"
+  }
 }

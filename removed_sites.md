@@ -1456,3 +1456,16 @@ Raidforums is now run by the FBI
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Pinterest
+Removed due to false positive
+
+``
+  "Pinterest": {
+    "errorType": "status_code",
+    "url": "https://www.pinterest.com/{}/",
+    "urlMain": "https://www.pinterest.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis76543"
+  }
+```
