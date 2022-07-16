@@ -777,5 +777,12 @@
     "urlMain": "https://www.ebay.de/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "PCPartPicker": {
+    "errorType": "status_code",
+    "url": "https://pcpartpicker.com/user/{}",
+    "urlMain": "https://pcpartpicker.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }

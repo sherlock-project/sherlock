@@ -1457,7 +1457,7 @@ Raidforums is now run by the FBI
   },
 ```
 ## Ebay
-As of 17-05-2022, Ebay seems to not connect properly. We will take a further look into this and see what is wrong.
+As of 17-07-2022, Ebay seems to not connect properly. We will take a further look into this and see what is wrong.
 ```
   "eBay.com": {
     "errorMsg": "The User ID you entered was not found. Please check the User ID and try again.",
@@ -1475,4 +1475,17 @@ As of 17-05-2022, Ebay seems to not connect properly. We will take a further loo
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   }
+```
+
+## PCPartPicker
+As of 17-07-2022, PCPartPicker returns false positives as an account is needed to check if a user exists
+
+```
+  "PCPartPicker": {
+    "errorType": "status_code",
+    "url": "https://pcpartpicker.com/user/{}",
+    "urlMain": "https://pcpartpicker.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 ```
