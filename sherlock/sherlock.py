@@ -547,6 +547,8 @@ def main():
                         nargs="+", metavar="USERNAMES",
                         action="store",
                         help="One or more usernames to check with social networks."
+                        "If the target username begins with a hyphen (-), incase username in quotations and prefix with whitespace."
+                        "Ex: ' -username'"
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
@@ -655,6 +657,8 @@ def main():
 
     all_usernames = []
     for username in args.username:
+        if username.startswith(' '):
+            username = username.strip()
         if(CheckForParameter(username)):
             for name in MultipleUsernames(username):
                 all_usernames.append(name)
