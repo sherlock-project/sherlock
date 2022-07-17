@@ -1469,3 +1469,15 @@ Removed due to false positive
     "username_unclaimed": "noonewouldeverusethis76543"
   }
 ```
+
+## PCPartPicker
+As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
+```
+  "PCPartPicker": {
+    "errorType": "status_code",
+    "url": "https://pcpartpicker.com/user/{}",
+    "urlMain": "https://pcpartpicker.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
