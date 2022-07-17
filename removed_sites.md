@@ -1481,3 +1481,25 @@ As of 17-07-2022, PCPartPicker requires us to login in order to check if a user 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Ebay
+As of 17-07-2022, Ebay is very slow to respond. It was also reported that it returned false positives. So this is something that has been investigated further later.
+
+```
+  "eBay.com": {
+    "errorMsg": "The User ID you entered was not found. Please check the User ID and try again.",
+    "errorType": "message",
+    "url": "https://www.ebay.com/usr/{}",
+    "urlMain": "https://www.ebay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "eBay.de": {
+    "errorMsg": "Der eingegebene Nutzername wurde nicht gefunden. Bitte pr\u00fcfen Sie den Nutzernamen und versuchen Sie es erneut.",
+    "errorType": "message",
+    "url": "https://www.ebay.de/usr/{}",
+    "urlMain": "https://www.ebay.de/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
