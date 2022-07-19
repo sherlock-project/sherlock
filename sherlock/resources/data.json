@@ -789,14 +789,6 @@
     "username_claimed": "Upneet.Grover17",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Ghost": {
-    "errorMsg": "Domain Error",
-    "errorType": "message",
-    "url": "https://{}.ghost.io/",
-    "urlMain": "https://ghost.org/",
-    "username_claimed": "troyhunt",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",

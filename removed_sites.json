@@ -727,7 +727,7 @@
     "urlMain": "https://www.pinterest.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis76543"
-  }
+  },
   "PCPartPicker": {
     "errorType": "status_code",
     "url": "https://pcpartpicker.com/user/{}",
@@ -751,4 +751,12 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Ghost": {
+    "errorMsg": "Domain Error",
+    "errorType": "message",
+    "url": "https://{}.ghost.io/",
+    "urlMain": "https://ghost.org/",
+    "username_claimed": "troyhunt",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
 }
