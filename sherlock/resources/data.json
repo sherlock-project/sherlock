@@ -789,14 +789,6 @@
     "username_claimed": "Upneet.Grover17",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Ghost": {
-    "errorMsg": "Domain Error",
-    "errorType": "message",
-    "url": "https://{}.ghost.io/",
-    "urlMain": "https://ghost.org/",
-    "username_claimed": "troyhunt",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",
@@ -1549,10 +1541,11 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Quizlet": {
-    "errorMsg": "Page Unavailable",
+    "errorMsg": "checkUsername\":{\"success\":true",
     "errorType": "message",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
+    "urlProbe": "https://quizlet.com/webapi/3.2/users/check-username?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
@@ -1967,7 +1960,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorMsg": "<title>Error | nitter</title>",
+    "errorMsg": "<title>Error|nitter</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://twitter.com/{}",
@@ -2295,7 +2288,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "drive2": {
-    "errorType": "status_code",
+    "er rorType": "status_code",
     "url": "https://www.drive2.ru/users/{}",
     "urlMain": "https://www.drive2.ru/",
     "username_claimed": "blue",
@@ -2698,10 +2691,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "minds": {
-    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorMsg": "\"valid\":true",
     "errorType": "message",
     "url": "https://www.minds.com/{}/",
     "urlMain": "https://www.minds.com",
+    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   }

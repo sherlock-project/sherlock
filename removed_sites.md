@@ -1503,3 +1503,16 @@ As of 17-07-2022, Ebay is very slow to respond. It was also reported that it ret
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Ghost
+As of 17-07-2022, Ghost returns false positives
+```
+  "Ghost": {
+    "errorMsg": "Domain Error",
+    "errorType": "message",
+    "url": "https://{}.ghost.io/",
+    "urlMain": "https://ghost.org/",
+    "username_claimed": "troyhunt",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
