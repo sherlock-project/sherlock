@@ -1960,7 +1960,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorMsg": "<title>Error|nitter</title>",
+    "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://twitter.com/{}",
