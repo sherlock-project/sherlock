@@ -1967,7 +1967,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorMsg": "<title>Error | nitter</title>",
+    "errorMsg": "<title>Error|nitter</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://twitter.com/{}",
@@ -2295,7 +2295,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "drive2": {
-    "errorType": "status_code",
+    "er rorType": "status_code",
     "url": "https://www.drive2.ru/users/{}",
     "urlMain": "https://www.drive2.ru/",
     "username_claimed": "blue",
