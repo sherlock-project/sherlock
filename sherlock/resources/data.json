@@ -2698,10 +2698,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "minds": {
-    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorMsg": "\"valid\":true",
     "errorType": "message",
     "url": "https://www.minds.com/{}/",
     "urlMain": "https://www.minds.com",
+    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   }
