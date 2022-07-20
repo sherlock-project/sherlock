@@ -1460,7 +1460,7 @@ Raidforums is now run by the FBI
 ## Pinterest
 Removed due to false positive
 
-``
+```
   "Pinterest": {
     "errorType": "status_code",
     "url": "https://www.pinterest.com/{}/",
@@ -1472,6 +1472,7 @@ Removed due to false positive
 
 ## PCPartPicker
 As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
+
 ```
   "PCPartPicker": {
     "errorType": "status_code",
@@ -1506,6 +1507,7 @@ As of 17-07-2022, Ebay is very slow to respond. It was also reported that it ret
 
 ## Ghost
 As of 17-07-2022, Ghost returns false positives
+
 ```
   "Ghost": {
     "errorMsg": "Domain Error",
