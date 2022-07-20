@@ -1342,28 +1342,6 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
 ```
 
 
-## Snapchat
-
-As of 2022-05-01, Snapchat reutrns false positives
-
-```
-  "Snapchat": {
-    "errorMsg": "OK",
-    "errorType": "message",
-    "headers": {
-      "Cookie": "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
-      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0"
-    },
-    "regexCheck": "^[a-z][a-z-_.]{3,15}",
-    "request_method": "POST",
-    "url": "https://www.snapchat.com/add/{}",
-    "urlMain": "https://www.snapchat.com",
-    "urlProbe": "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
-    "username_claimed": "teamsnapchat",
-    "username_unclaimed": "revedluowenoon"
-  },
-```
-
 # Chess
 As og 2022-05-01, Chess.com returns false positives
 ```

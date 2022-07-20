@@ -1742,6 +1742,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Snapchat": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-z][a-z-_.]{3,15}",
+    "request_method": "GET",
+    "url": "https://www.snapchat.com/add/{}",
+    "urlMain": "https://www.snapchat.com",
+    "username_claimed": "teamsnapchat",
+    "username_unclaimed": "revedluowenoon"
+  },
   "SoundCloud": {
     "errorType": "status_code",
     "url": "https://soundcloud.com/{}",
