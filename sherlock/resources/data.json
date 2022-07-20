@@ -2428,6 +2428,14 @@
     "username_claimed": "yeahkenny",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "kwork": {
     "errorType": "status_code",
     "url": "https://kwork.ru/user/{}",
@@ -2507,6 +2515,15 @@
     "urlMain": "https://www.metacritic.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
+  },
+  "minds": {
+    "errorMsg": "\"valid\":true",
+    "errorType": "message",
+    "url": "https://www.minds.com/{}/",
+    "urlMain": "https://www.minds.com",
+    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "moikrug": {
     "errorType": "status_code",
@@ -2680,23 +2697,6 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "koo": {
-    "errorMsg": "Invalid Profile",
-    "errorType": "message",
-    "url": "https://www.kooapp.com/profile/{}",
-    "urlMain": "https://www.kooapp.com",
-    "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "minds": {
-    "errorMsg": "\"valid\":true",
-    "errorType": "message",
-    "url": "https://www.minds.com/{}/",
-    "urlMain": "https://www.minds.com",
-    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
-    "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
