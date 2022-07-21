@@ -22,6 +22,9 @@ src/
 # Comma-Separated Values (CSV) Reports
 *.csv
 
+#XLSX Reports
+*.xlsx
+
 # Excluded sites list
 tests/.excluded_sites
 

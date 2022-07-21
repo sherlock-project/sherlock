@@ -371,6 +371,16 @@
     "username_claimed": "cute18cute",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "Chess": {
+    "errorMsg": "Username is valid",
+    "errorType": "message",
+    "regexCheck": "^[a-z1-9]{3,25}$",
+    "url": "https://www.chess.com/member/{}",
+    "urlMain": "https://www.chess.com/",
+    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "CloudflareCommunity": {
     "errorType": "status_code",
     "url": "https://community.cloudflare.com/u/{}",
@@ -787,14 +797,6 @@
     "url": "https://www.getmyuni.com/user/{}",
     "urlMain": "https://getmyuni.com/",
     "username_claimed": "Upneet.Grover17",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Ghost": {
-    "errorMsg": "Domain Error",
-    "errorType": "message",
-    "url": "https://{}.ghost.io/",
-    "urlMain": "https://ghost.org/",
-    "username_claimed": "troyhunt",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Giphy": {
@@ -1444,13 +1446,6 @@
     "username_claimed": "admin",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "PCPartPicker": {
-    "errorType": "status_code",
-    "url": "https://pcpartpicker.com/user/{}",
-    "urlMain": "https://pcpartpicker.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "PSNProfiles.com": {
     "errorType": "response_url",
     "errorUrl": "https://psnprofiles.com/?psnId={}",
@@ -1493,13 +1488,6 @@
     "errorType": "status_code",
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Pinterest": {
-    "errorType": "status_code",
-    "url": "https://www.pinterest.com/{}/",
-    "urlMain": "https://www.pinterest.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1570,10 +1558,11 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Quizlet": {
-    "errorMsg": "Page Unavailable",
+    "errorMsg": "checkUsername\":{\"success\":true",
     "errorType": "message",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
+    "urlProbe": "https://quizlet.com/webapi/3.2/users/check-username?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
@@ -1769,6 +1758,15 @@
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Snapchat": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-z][a-z-_.]{3,15}",
+    "request_method": "GET",
+    "url": "https://www.snapchat.com/add/{}",
+    "urlMain": "https://www.snapchat.com",
+    "username_claimed": "teamsnapchat",
+    "username_unclaimed": "revedluowenoon"
   },
   "SoundCloud": {
     "errorType": "status_code",
@@ -1988,7 +1986,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Twitter": {
-    "errorMsg": "<title>Error | nitter</title>",
+    "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://twitter.com/{}",
@@ -2024,7 +2022,7 @@
     "errorUrl": "https://www.quora.com/profile/{}",
     "url": "https://vk.com/{}",
     "urlMain": "https://vk.com/",
-    "username_claimed": "smith",
+    "username_claimed": "brown",
     "username_unclaimed": "blah62831"
   },
   "VSCO": {
@@ -2228,8 +2226,8 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Zhihu": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.zhihu.com/people/{}",
+    "errorMsg": "404",
+    "errorType": "message",
     "url": "https://www.zhihu.com/people/{}",
     "urlMain": "https://www.zhihu.com/",
     "username_claimed": "blue",
@@ -2319,22 +2317,6 @@
     "errorType": "status_code",
     "url": "https://www.drive2.ru/users/{}",
     "urlMain": "https://www.drive2.ru/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "eBay.com": {
-    "errorMsg": "The User ID you entered was not found. Please check the User ID and try again.",
-    "errorType": "message",
-    "url": "https://www.ebay.com/usr/{}",
-    "urlMain": "https://www.ebay.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "eBay.de": {
-    "errorMsg": "Der eingegebene Nutzername wurde nicht gefunden. Bitte pr\u00fcfen Sie den Nutzernamen und versuchen Sie es erneut.",
-    "errorType": "message",
-    "url": "https://www.ebay.de/usr/{}",
-    "urlMain": "https://www.ebay.de/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -2561,10 +2543,11 @@
     "username_unclaimed": "noonewould"
   },
   "minds": {
-    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorMsg": "\"valid\":true",
     "errorType": "message",
     "url": "https://www.minds.com/{}/",
     "urlMain": "https://www.minds.com",
+    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },

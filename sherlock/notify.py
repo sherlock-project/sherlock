@@ -5,7 +5,7 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
-
+globvar = 0 # global variable to count the number of results.
 
 class QueryNotify:
     """Query Notify Object.
@@ -52,7 +52,7 @@ class QueryNotify:
         Nothing.
         """
 
-        # return
+        # return   
 
     def update(self, result):
         """Notify Update.
@@ -101,8 +101,7 @@ class QueryNotify:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        return str(self.result)
-
+        return str(self.result) 
 
 class QueryNotifyPrint(QueryNotify):
     """Query Notify Print Object.
@@ -132,7 +131,7 @@ class QueryNotifyPrint(QueryNotify):
         self.print_all = print_all
 
         return
-
+     
     def start(self, message):
         """Notify Start.
 
@@ -185,6 +184,20 @@ class QueryNotifyPrint(QueryNotify):
 
         # return
 
+    def countResults(self):
+        """This function counts the number of results. Every time the fuction is called,
+        the number of results is increasing.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        The number of results by the time we call the function.
+        """
+        global globvar
+        globvar += 1
+        return globvar
+        
     def update(self, result):
         """Notify Update.
 
@@ -206,6 +219,7 @@ class QueryNotifyPrint(QueryNotify):
         
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
+            self.countResults()
             print(Style.BRIGHT + Fore.WHITE + "[" +
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
@@ -213,7 +227,7 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
-                  f"{self.result.site_url_user}")
+                  f"{self.result.site_url_user}")       
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
@@ -255,11 +269,19 @@ class QueryNotifyPrint(QueryNotify):
         Will print the last line to the standard output.
         Keyword Arguments:
         self                   -- This object.
-        message                -- The last phrase.
+        message                -- The 2 last phrases.
         Return Value:
         Nothing.
         """
+        NumberOfResults = self.countResults() - 1
 
+        title = "Results:"
+
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "*" +
+              Fore.GREEN + f"] {title}" +
+              Fore.WHITE + f" {NumberOfResults}" )
+        
         title = "End"
         
         print('\r') # An empty line between last line of main output and last line(more clear output)
