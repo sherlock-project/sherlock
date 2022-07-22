@@ -1323,44 +1323,6 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
   },
 ```
 
-
-## Snapchat
-
-As of 2022-05-01, Snapchat reutrns false positives
-
-```
-  "Snapchat": {
-    "errorMsg": "OK",
-    "errorType": "message",
-    "headers": {
-      "Cookie": "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
-      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0"
-    },
-    "regexCheck": "^[a-z][a-z-_.]{3,15}",
-    "request_method": "POST",
-    "url": "https://www.snapchat.com/add/{}",
-    "urlMain": "https://www.snapchat.com",
-    "urlProbe": "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
-    "username_claimed": "teamsnapchat",
-    "username_unclaimed": "revedluowenoon"
-  },
-```
-
-# Chess
-As og 2022-05-01, Chess.com returns false positives
-```
-  "Chess": {
-    "errorMsg": "\"valid\": false",
-    "errorType": "message",
-    "regexCheck": "^[a-z1-9]{3,25}$",
-    "url": "https://www.chess.com/member/{}",
-    "urlMain": "https://www.chess.com/",
-    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Codeforces
 As og 2022-05-01, Codeforces returns false positives
 ```
@@ -1442,7 +1404,7 @@ Raidforums is now run by the FBI
 ## Pinterest
 Removed due to false positive
 
-``
+```
   "Pinterest": {
     "errorType": "status_code",
     "url": "https://www.pinterest.com/{}/",
@@ -1454,6 +1416,7 @@ Removed due to false positive
 
 ## PCPartPicker
 As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
+
 ```
   "PCPartPicker": {
     "errorType": "status_code",
@@ -1488,6 +1451,7 @@ As of 17-07-2022, Ebay is very slow to respond. It was also reported that it ret
 
 ## Ghost
 As of 17-07-2022, Ghost returns false positives
+
 ```
   "Ghost": {
     "errorMsg": "Domain Error",
