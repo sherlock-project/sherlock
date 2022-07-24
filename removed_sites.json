@@ -1,4 +1,5 @@
 {
+  "$schema": "./sherlock/resources/data.schema.json",
   "AdobeForums": {
     "errorType": "status_code",
     "url": "https://forums.adobe.com/people/{}",
@@ -186,7 +187,7 @@
     "errorMsg": "Unknown user",
     "errorType": "message",
     "url": "http://{}.insanejournal.com/profile",
-    "urlMain": "insanejournal.com",
+    "urlMain": "https://www.insanejournal.com/",
     "username_claimed": "blue",
     "username_unclaimed": "dlyr6cd"
   },

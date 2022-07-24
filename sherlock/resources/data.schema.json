@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Sherlock Dataset",
+  "description": "Information about how to identify that a profile exists on particular websites.",
+  "type": "object",
+  "patternProperties": {
+    "^\\w+$": {
+      "title": "Website",
+      "description": "How to identify that a profile exists on a website.",
+      "required": [
+        "errorType",
+        "url",
+        "urlMain"
+      ],
+      "properties": {
+        "errorCode": {
+          "title": "Error Code",
+          "description": "If errorType is status_code, the HTTP status that implies the profile doesn't exist.",
+          "type": "number",
+          "enum": [
+            100,
+            101,
+            102,
+            103,
+            200,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            226,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            421,
+            422,
+            423,
+            424,
+            425,
+            426,
+            428,
+            429,
+            431,
+            451,
+            500,
+            501,
+            502,
+            503,
+            504,
+            505,
+            506,
+            507,
+            508,
+            510,
+            511
+          ],
+          "examples": [
+            204
+          ]
+        },
+        "errorMsg": {
+          "title": "Error Message",
+          "description": "",
+          "uniqueItems": true,
+          "type": [
+            "string",
+            "array"
+          ],
+          "examples": [
+            "cannot find account",
+            "<div class=\"icon_user_locked\"></div>",
+            "\"users\":{}"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "errorType": {
+          "title": "Error Type",
+          "description": "The type of detection method to perform to determine if the profile exists.",
+          "type": "string",
+          "enum": [
+            "message",
+            "response_url",
+            "status_code"
+          ]
+        },
+        "errorUrl": {
+          "title": "Error URL",
+          "type": "string",
+          "examples": [
+            "https://devrant.com/",
+            "https://ko-fi.com/art?=redirect",
+            "https://gitlab.gnome.org/{}"
+          ]
+
+        },
+        "headers": {
+          "title": "Headers",
+          "description": "Override or append HTTP headers for a given site.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0"
+          },
+          "examples": [
+            {
+              "accept-language": "en-US,en;q=0.9"
+            }
+          ]
+        },
+        "regexCheck": {
+          "title": "Regex Check",
+          "description": "A regular expression that only matches on a valid username. This is used to flag usernames that may not be allowable on a given site. Note that a username that is valid on one site may not be allowed on another site.",
+          "type": "string",
+          "examples": [
+            "^[a-zA-Z0-9@._-]{1,150}$",
+            "^(?![.-])[a-zA-Z0-9_.-]{3,20}$"
+          ]
+        },
+        "request_method": {
+          "title": "Request Method",
+          "description": "The type of HTTP request method to use when making a request.",
+          "type": "string",
+          "enum": [
+            "GET",
+            "HEAD",
+            "POST",
+            "PUT"
+          ]
+        },
+        "request_payload": {
+          "title": "Request Payload",
+          "description": "If request_method is POST, the JSON body to send with the request. Instances of {} are interpolated with the username.",
+          "type": "object",
+          "additionalProperties": true,
+          "examples": [
+            {
+              "username": "{}"
+            },
+            {
+              "query": "query($name:String){User(name:$name){id}}",
+              "variables": {
+                "name": "{}"
+              }
+            }
+          ]
+        },
+        "url": {
+          "title": "URL",
+          "description": "the format of a member's URL on the site. Instances of {} are interpolated with the username.",
+          "type": "string",
+          "examples": [
+            "https://anilist.co/user/{}/",
+            "https://fosstodon.org/@{}"
+          ]
+        },
+        "urlMain": {
+          "title": "URL Main",
+          "description": "The primary URL to access the website.",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://anilist.co/",
+            "https://fosstodon.org/"
+          ]
+        },
+        "urlProbe": {
+          "title": "URL Probe",
+          "description": "Defines a special URL which should be used to determine if a username is supported (this is normally an API call). If this is not given, then url will be used to check for the existence of a username. This field is useful if detecting the username via URL is not reliable. Only unauthenticated API calls are supported. Instances of {} are interpolated with the username.",
+          "type": "string",
+          "examples": [
+            "https://graphql.anilist.co/",
+            "https://binarysearch.io/api/users/{}/profile",
+            "https://coil.com/gateway"
+          ]
+        },
+        "username_claimed": {
+          "title": "Claimed Username",
+          "description": "A valid username of a profile that is claimed on the website.",
+          "type": "string",
+          "examples": [
+            "adam",
+            "blue"
+          ]
+        },
+        "username_unclaimed": {
+          "title": "Unclaimed Username",
+          "description": "A valid username of a profile that is not claimed on the website.",
+          "type": "string",
+          "examples": [
+            "noonewouldeverusethis7"
+          ]
+        }
+      }
+    }
+  }
+}
