@@ -1545,5 +1545,5 @@ As of 25-07-2022, radio_echo_msk is now no longer functional
     "urlMain": "https://echo.msk.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
+  }
 ```
