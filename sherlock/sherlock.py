@@ -126,6 +126,29 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, exception_text
 
 
+def get_archive_site_data(site_data):
+    """Create dictionary of archive sites and their information.
+
+    That dictionary can be used to determine if a site exists in the archive by running the Sherlock Analysis.
+    """
+
+    archive_sites = {}
+
+    for social_network, net_info in site_data.items():
+        # Copy the site information to a new dictionary and overwrite needed information.
+        archived_net_info = net_info.copy()
+
+        archived_net_info["errorMsg"] = '"archived_snapshots": {}'
+        archived_net_info["errorType"] = "message"
+        archived_net_info["url"] = "https://archive.org/wayback/available?url=" + net_info["url"]
+        archived_net_info["urlMain"] = "https://web.archive.org/web/" + net_info["urlMain"]
+
+        # Add archived site to dictionary.
+        archive_sites["[Archived] " + social_network] = archived_net_info
+
+    return archive_sites
+
+
 def interpolate_string(object, username):
     """Insert a string into the string properties of an object recursively."""
 
@@ -550,11 +573,16 @@ def main():
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
-                        help="Browse to all results on default browser.")
-
+                        help="Browse to all results on default browser."
+                        )
     parser.add_argument("--local", "-l",
                         action="store_true", default=False,
-                        help="Force the use of the local data.json file.")
+                        help="Force the use of the local data.json file."
+                        )
+    parser.add_argument("--archive", "-a",
+                        action="store_true", default=False,
+                        help="Check the websites in the https://web.archive.org/ (Wayback Machine).",
+                        )
 
     args = parser.parse_args()
 
@@ -646,6 +674,13 @@ def main():
         if not site_data:
             sys.exit(1)
 
+    if args.archive:
+        print("Using the Wayback Machine to check for archived versions of the websites.")
+
+        # Update site_data with the archive sites
+        archived_site_data = get_archive_site_data(site_data)
+        site_data.update(archived_site_data)
+
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
@@ -731,8 +766,8 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
+
+
             for site in results:
 
                 if response_time_s is None:
@@ -745,11 +780,11 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
+
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+
 
         print()
     query_notify.finish()
