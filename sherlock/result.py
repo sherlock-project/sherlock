@@ -10,10 +10,11 @@ class QueryStatus(Enum):
 
     Describes status of query about a given username.
     """
-    CLAIMED   = "Claimed"   # Username Detected
-    AVAILABLE = "Available" # Username Not Detected
-    UNKNOWN   = "Unknown"   # Error Occurred While Trying To Detect Username
-    ILLEGAL   = "Illegal"   # Username Not Allowable For This Site
+    CLAIMED         = "Claimed"         # Username Detected
+    ARCHIVE_CLAIMED = "Archive Claimed" # Username detected in archive website
+    AVAILABLE       = "Available"       # Username Not Detected
+    UNKNOWN         = "Unknown"         # Error Occurred While Trying To Detect Username
+    ILLEGAL         = "Illegal"         # Username Not Allowable For This Site
 
     def __str__(self):
         """Convert Object To String.

@@ -10,6 +10,7 @@ networks.
 import csv
 import pandas as pd
 import os
+import json
 import platform
 import re
 import sys
@@ -144,7 +145,7 @@ def get_archive_site_data(site_data):
         archived_net_info["urlMain"] = "https://web.archive.org/web/" + net_info["urlMain"]
 
         # Add archived site to dictionary.
-        archive_sites["[Archived] " + social_network] = archived_net_info
+        archive_sites[social_network] = archived_net_info
 
     return archive_sites
 
@@ -184,7 +185,7 @@ def MultipleUsernames(username):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=None, archive=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -424,6 +425,25 @@ def sherlock(username, site_data, query_notify,
                         break
             if error_flag:
                 query_status = QueryStatus.CLAIMED
+
+                if archive:
+                    query_status = QueryStatus.AVAILABLE
+
+                    try:
+                        archive_snapshot = json.loads(r.text).get("archived_snapshots")
+
+                    except Exception as e:
+                        # If the response is not JSON, we can't parse it
+                        archive_snapshot = None
+
+                    # Check if snapshot is available
+                    if archive_snapshot is not None:
+                        if archive_snapshot.get("closest") is not None:
+                            query_status = QueryStatus.ARCHIVE_CLAIMED
+
+                            # Set the url to the closest snapshot
+                            url = archive_snapshot["closest"]["url"]
+
             else:
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
@@ -675,11 +695,7 @@ def main():
             sys.exit(1)
 
     if args.archive:
-        print("Using the Wayback Machine to check for archived versions of the websites.")
-
-        # Update site_data with the archive sites
-        archived_site_data = get_archive_site_data(site_data)
-        site_data.update(archived_site_data)
+        archive_site_data = get_archive_site_data(site_data)
 
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
@@ -704,6 +720,27 @@ def main():
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
                            timeout=args.timeout)
+
+        if args.archive:
+            print()
+            print("Using the Wayback Machine to check for archive versions of the websites.")
+
+            # Check for archived versions of the websites.
+            archive_results = sherlock(username,
+                                       archive_site_data,
+                                       query_notify,
+                                       tor=args.tor,
+                                       unique_tor=args.unique_tor,
+                                       proxy=args.proxy,
+                                       timeout=args.timeout,
+                                       archive=True)
+
+            # Add "[Archive] " to keys of archive_results to separate them from the main results when merging.
+            archive_results = {"[Archive] " + social_network: net_info
+                               for social_network, net_info in archive_results.items()}
+
+            # Update results with archived results.
+            results.update(archive_results)
 
         if args.output:
             result_file = args.output
