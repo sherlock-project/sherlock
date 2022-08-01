@@ -95,6 +95,7 @@ optional arguments:
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
+  --archive, -a         Check the websites in the https://web.archive.org/ (Wayback Machine).
 ```
 
 To search for only one user:
