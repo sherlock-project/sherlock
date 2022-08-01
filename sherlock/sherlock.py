@@ -139,7 +139,7 @@ def get_archive_site_data(site_data):
         # Copy the site information to a new dictionary and overwrite needed information.
         archived_net_info = net_info.copy()
 
-        archived_net_info["errorMsg"] = '"archived_snapshots": {}'
+        archived_net_info["errorMsg"] = ['"archived_snapshots": {}', "429 Too Many Requests"]
         archived_net_info["errorType"] = "message"
         archived_net_info["url"] = "https://archive.org/wayback/available?url=" + net_info["url"]
         archived_net_info["urlMain"] = "https://web.archive.org/web/" + net_info["urlMain"]
@@ -431,10 +431,10 @@ def sherlock(username, site_data, query_notify,
 
                     try:
                         archive_snapshot = json.loads(r.text).get("archived_snapshots")
-
                     except Exception as e:
                         # If the response is not JSON, we can't parse it
                         archive_snapshot = None
+                        query_status = QueryStatus.UNKNOWN
 
                     # Check if snapshot is available
                     if archive_snapshot is not None:
@@ -445,6 +445,14 @@ def sherlock(username, site_data, query_notify,
                             url = archive_snapshot["closest"]["url"]
 
             else:
+                if archive:
+                    # Too many requests error handling for archives
+                    if "429 Too Many Requests" in r.text:
+                        print("Too many requests for archives in a given amount of time.")
+
+                        query_status = QueryStatus.UNKNOWN
+                        archive = False
+
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
             # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
