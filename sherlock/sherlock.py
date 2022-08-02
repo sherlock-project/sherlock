@@ -147,8 +147,7 @@ def CheckForParameter(username):
     return("{?}" in username)
 
 
-checksymbols = []
-checksymbols = ["_", "-", "."]
+checksymbols = ["_", "-", ".", ""]
 
 
 def MultipleUsernames(username):
