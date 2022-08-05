@@ -983,6 +983,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "HuggingFace": {
+    "errorType": "status_code",
+    "url": "https://huggingface.co/{}",
+    "urlMain": "https://huggingface.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ICQ": {
     "errorType": "status_code",
     "url": "https://icq.im/{}/en",
