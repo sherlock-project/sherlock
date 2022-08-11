@@ -1,4 +1,4 @@
-## List Of Supported Sites (355 Sites In Total!)
+## List Of Supported Sites (356 Sites In Total!)
 1. [2Dimensions](https://2Dimensions.com/)
 1. [3dnews](http://forum.3dnews.ru/)
 1. [7Cups](https://www.7cups.com/)
@@ -39,6 +39,7 @@
 1. [BongaCams](https://pt.bongacams.com)
 1. [Bookcrossing](https://www.bookcrossing.com/)
 1. [BraveCommunity](https://community.brave.com/)
+1. [BreachForums](https://breached.to)
 1. [BuyMeACoffee](https://www.buymeacoffee.com/)
 1. [BuzzFeed](https://buzzfeed.com/)
 1. [CNET](https://www.cnet.com/)

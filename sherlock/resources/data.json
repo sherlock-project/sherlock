@@ -310,6 +310,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "BreachForums": {
+    "errorType": "status_code",
+    "url": "https://breached.to/User-{}",
+    "urlMain": "https://breached.to/",
+    "username_claimed": "pompompurin",
+    "username_unclaimed": "nomnomnomnomnomnom"
+  },
   "BuyMeACoffee": {
     "errorType": "status_code",
     "url": "https://buymeacoff.ee/{}",
