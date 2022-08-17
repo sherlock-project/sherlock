@@ -481,6 +481,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Cracked.io": {
+    "errorType": "status_code",
+    "url": "https://cracked.io/{}",
+    "urlMain": "https://cracked.io/",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Crevado": {
     "errorType": "status_code",
     "url": "https://{}.crevado.com",
