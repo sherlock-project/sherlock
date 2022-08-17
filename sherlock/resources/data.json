@@ -1374,8 +1374,8 @@
   },
   "OGUsers": {
     "errorType": "status_code",
-    "url": "https://ogusers.com/{}",
-    "urlMain": "https://ogusers.com/",
+    "url": "https://ogu.gg/{}",
+    "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers",
     "username_unclaimed": "noonewouldeverusethis7"
   },
