@@ -2568,7 +2568,7 @@
   "nnRU": {
     "errorType": "status_code",
     "url": "https://{}.www.nn.ru/",
-    "urlMain": "https://https://www.nn.ru/",
+    "urlMain": "https://www.nn.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
