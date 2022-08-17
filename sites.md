@@ -332,7 +332,7 @@
 1. [moikrug](https://moikrug.ru/)
 1. [mstdn.io](https://mstdn.io/)
 1. [nairaland.com](https://www.nairaland.com/)
-1. [nnRU](https://https://www.nn.ru/)
+1. [nnRU](https://www.nn.ru/)
 1. [note](https://note.com/)
 1. [npm](https://www.npmjs.com/)
 1. [opennet](https://www.opennet.ru/)
