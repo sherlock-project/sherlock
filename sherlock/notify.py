@@ -54,7 +54,7 @@ class QueryNotify:
 
         # return
 
-    def update(self, result):
+    def update(self, result, user):
         """Notify Update.
 
         Notify method for query result.  This method will typically be
