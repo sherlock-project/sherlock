@@ -252,7 +252,7 @@ def sherlock(username, site_data, query_notify,
             results_site["url_user"] = ""
             results_site["http_status"] = ""
             results_site["response_text"] = ""
-            query_notify.update(results_site["status"])
+            query_notify.update(results_site["status"],username)
         else:
             # URL of user on site (if it exists)
             results_site["url_user"] = url
@@ -434,7 +434,7 @@ def sherlock(username, site_data, query_notify,
                             status=query_status,
                             query_time=response_time,
                             context=error_context)
-        query_notify.update(result)
+        query_notify.update(result,username)
 
         # Save status of request
         results_site["status"] = result
@@ -731,8 +731,8 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
+
+
             for site in results:
 
                 if response_time_s is None:
@@ -745,14 +745,14 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
+
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+
 
         print()
-    query_notify.finish()
+    query_notify.finish(all_usernames)
 
 
 if __name__ == "__main__":

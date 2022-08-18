@@ -5,7 +5,7 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
-globvar = 0 # global variable to count the number of results.
+globvar = {} # global variable to count the number of results.
 
 class QueryNotify:
     """Query Notify Object.
@@ -52,7 +52,7 @@ class QueryNotify:
         Nothing.
         """
 
-        # return   
+        # return
 
     def update(self, result):
         """Notify Update.
@@ -101,7 +101,7 @@ class QueryNotify:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        return str(self.result) 
+        return str(self.result)
 
 class QueryNotifyPrint(QueryNotify):
     """Query Notify Print Object.
@@ -131,7 +131,7 @@ class QueryNotifyPrint(QueryNotify):
         self.print_all = print_all
 
         return
-     
+
     def start(self, message):
         """Notify Start.
 
@@ -172,19 +172,19 @@ class QueryNotifyPrint(QueryNotify):
         """
 
         title = "End"
-        
+
         print('\r') # An empty line between last line of main output and last line(more clear output)
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "!" +
               Fore.GREEN + f"] {title}" +
               Fore.GREEN + ": " +
               Fore.WHITE + f" {message}" )
-              
+
         # An empty line between first line and the result(more clear output)
 
         # return
 
-    def countResults(self):
+    def countResults(self,user):
         """This function counts the number of results. Every time the fuction is called,
         the number of results is increasing.
 
@@ -195,10 +195,13 @@ class QueryNotifyPrint(QueryNotify):
         The number of results by the time we call the function.
         """
         global globvar
-        globvar += 1
+        if user not in globvar.keys():
+            globvar[user] = 0
+
+        globvar[user] += 1
         return globvar
-        
-    def update(self, result):
+
+    def update(self, result,user):
         """Notify Update.
 
         Will print the query result to the standard output.
@@ -216,10 +219,10 @@ class QueryNotifyPrint(QueryNotify):
         response_time_text = ""
         if self.result.query_time is not None and self.verbose == True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
-        
+
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
-            self.countResults()
+            self.countResults(user)
             print(Style.BRIGHT + Fore.WHITE + "[" +
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
@@ -227,7 +230,7 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
-                  f"{self.result.site_url_user}")       
+                  f"{self.result.site_url_user}")
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
@@ -263,8 +266,8 @@ class QueryNotifyPrint(QueryNotify):
             )
 
         return
-    
-    def finish(self, message="The processing has been finished."):
+
+    def finish(self,all_usernames, message="The processing has been finished."):
         """Notify Start.
         Will print the last line to the standard output.
         Keyword Arguments:
@@ -273,24 +276,25 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        NumberOfResults = self.countResults() - 1
 
-        title = "Results:"
+        title = "Results for:"
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
+        for user in all_usernames:
+            print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {NumberOfResults}" )
-        
+              Fore.GREEN + f"] {title} {user}" +
+              Fore.WHITE + f" {globvar[user]}" )
+
+        print("Total: "+str(sum(globvar[elem] for elem in globvar)))
         title = "End"
-        
+
         print('\r') # An empty line between last line of main output and last line(more clear output)
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "!" +
               Fore.GREEN + f"] {title}" +
               Fore.GREEN + ": " +
               Fore.WHITE + f" {message}" )
-              
+
         # An empty line between first line and the result(more clear output)
 
         return
