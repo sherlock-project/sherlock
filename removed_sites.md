@@ -1462,3 +1462,70 @@ As of 17-07-2022, Ghost returns false positives
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## Atom Discussions
+As of 25-07-2022, Atom Discussions seems to not work beceause it keeps on
+redirecting to github discussion tab which does not exist and is not specific to a username
+
+```
+  "Atom Discussions": {
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.atom.io/u/{}/summary",
+    "urlMain": "https://discuss.atom.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  }
+```
+
+## Gam1ng
+As of 25-07-2022, Gam1ng has been permanently moved and is no longer functional
+
+```
+  "Gam1ng": {
+    "errorType": "status_code",
+    "url": "https://gam1ng.com.br/user/{}",
+    "urlMain": "https://gam1ng.com.br",
+    "username_claimed": "PinKgirl",
+    "username_unclaimed": "noonewouldeverusethis77777"
+  }
+```
+
+## OGUsers
+As of 25-07-2022, OGUsers is now no longer functional
+
+```
+  "OGUsers": {
+    "errorType": "status_code",
+    "url": "https://ogusers.com/{}",
+    "urlMain": "https://ogusers.com/",
+    "username_claimed": "ogusers",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## Otzovik
+As of 25-07-2022, Otzovik is now no longer functional
+
+```
+  "Otzovik": {
+    "errorType": "status_code",
+    "url": "https://otzovik.com/profile/{}",
+    "urlMain": "https://otzovik.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## radio_echo_msk
+As of 25-07-2022, radio_echo_msk is now no longer functional
+
+```
+  "radio_echo_msk": {
+    "errorType": "status_code",
+    "url": "https://echo.msk.ru/users/{}",
+    "urlMain": "https://echo.msk.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```

@@ -149,14 +149,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Atom Discussions": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
-    "errorType": "message",
-    "url": "https://discuss.atom.io/u/{}/summary",
-    "urlMain": "https://discuss.atom.io",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
@@ -755,13 +747,6 @@
     "url": "https://www.gaiaonline.com/profiles/{}",
     "urlMain": "https://www.gaiaonline.com/",
     "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "Gam1ng": {
-    "errorType": "status_code",
-    "url": "https://gam1ng.com.br/user/{}",
-    "urlMain": "https://gam1ng.com.br",
-    "username_claimed": "PinKgirl",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Gamespot": {
@@ -1372,13 +1357,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "OGUsers": {
-    "errorType": "status_code",
-    "url": "https://ogusers.com/{}",
-    "urlMain": "https://ogusers.com/",
-    "username_claimed": "ogusers",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "OK": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
@@ -1414,13 +1392,6 @@
     "url": "https://community.oracle.com/people/{}",
     "urlMain": "https://community.oracle.com",
     "username_claimed": "dev",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Otzovik": {
-    "errorType": "status_code",
-    "url": "https://otzovik.com/profile/{}",
-    "urlMain": "https://otzovik.com/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "OurDJTalk": {
@@ -2631,13 +2602,6 @@
     "url": "https://prog.hu/azonosito/info/{}",
     "urlMain": "https://prog.hu/",
     "username_claimed": "Sting",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "radio_echo_msk": {
-    "errorType": "status_code",
-    "url": "https://echo.msk.ru/users/{}",
-    "urlMain": "https://echo.msk.ru/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "satsisRU": {
