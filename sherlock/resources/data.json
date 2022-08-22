@@ -1357,6 +1357,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+   "OGUsers": {
+    "errorType": "status_code",
+    "url": "https://ogu.gg/{}",
+    "urlMain": "https://ogu.gg/",
+    "username_claimed": "ogusers",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OK": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
