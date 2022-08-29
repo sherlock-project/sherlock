@@ -92,6 +92,7 @@
 1. [Freelancer](https://www.freelancer.com/)
 1. [Freesound](https://freesound.org/)
 1. [G2G](https://www.g2g.com/)
+1. [GNOME Extensions](https://extensions.gnome.org)
 1. [GNOME VCS](https://gitlab.gnome.org/)
 1. [GaiaOnline](https://www.gaiaonline.com/)
 1. [Gamespot](https://www.gamespot.com/)
