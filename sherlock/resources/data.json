@@ -2696,5 +2696,12 @@
     "urlMain": "https://www.furaffinity.net",
     "username_claimed": "jesus",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "GameFAQs": {
+    "errorType": "status_code",
+    "url": "https://gamefaqs.gamespot.com/community/{}",
+    "urlMain": "https://gamefaqs.gamespot.com",
+    "username_claimed": "samxmas",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
