@@ -349,3 +349,4 @@
 1. [xHamster](https://xhamster.com)
 1. [znanylekarz.pl](https://znanylekarz.pl)
 1. [zoomit](https://www.zoomit.ir)
+1. [gamefaqs](https://gamefaqs.gamespot.com/)
