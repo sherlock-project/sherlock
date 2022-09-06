@@ -565,14 +565,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Ello": {
-    "errorMsg": "We couldn't find the page you're looking for",
-    "errorType": "message",
-    "url": "https://ello.co/{}",
-    "urlMain": "https://ello.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",

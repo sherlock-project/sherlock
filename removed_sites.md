@@ -1529,3 +1529,15 @@ As of 25-07-2022, radio_echo_msk is now no longer functional
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+## Ello
+As of 06.09.2022, Ello is now behind CloudFlare
+```
+  "Ello": {
+    "errorMsg": "We couldn't find the page you're looking for",
+    "errorType": "message",
+    "url": "https://ello.co/{}",
+    "urlMain": "https://ello.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
