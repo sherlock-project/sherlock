@@ -1506,11 +1506,10 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Quizlet": {
-    "errorMsg": "checkUsername\":{\"success\":true",
+    "errorMsg": "Page Unavailable</title>",
     "errorType": "message",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
-    "urlProbe": "https://quizlet.com/webapi/3.2/users/check-username?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
