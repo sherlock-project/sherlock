@@ -860,13 +860,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "GuruShots": {
-    "errorType": "status_code",
-    "url": "https://gurushots.com/{}/photos",
-    "urlMain": "https://gurushots.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Gutefrage": {
     "errorType": "status_code",
     "url": "https://www.gutefrage.net/nutzer/{}",
@@ -1513,11 +1506,10 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "Quizlet": {
-    "errorMsg": "checkUsername\":{\"success\":true",
+    "errorMsg": "Page Unavailable</title>",
     "errorType": "message",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
-    "urlProbe": "https://quizlet.com/webapi/3.2/users/check-username?username={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
