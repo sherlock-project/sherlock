@@ -1554,3 +1554,16 @@ As of 06.09.2022, GitHub Support Community's endpoint just redirects to the main
     "username_unclaimed": "noonewouldusethis298"
   }
 ```
+
+## GuruShots
+As of 08.09.2022, GuruShots returns false positives because it just returns a blank page. Need to look further into it so that it can be added back.
+
+```
+  "GuruShots": {
+    "errorType": "status_code",
+    "url": "https://gurushots.com/{}/photos",
+    "urlMain": "https://gurushots.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

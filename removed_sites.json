@@ -777,5 +777,12 @@
     "urlMain": "https://github.community",
     "username_claimed": "jperl",
     "username_unclaimed": "noonewouldusethis298"
+  },
+  "GuruShots": {
+    "errorType": "status_code",
+    "url": "https://gurushots.com/{}/photos",
+    "urlMain": "https://gurushots.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
