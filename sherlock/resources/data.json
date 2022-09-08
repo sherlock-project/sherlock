@@ -2672,5 +2672,13 @@
     "urlMain": "https://www.furaffinity.net",
     "username_claimed": "jesus",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Google Play": {
+    "errorMsg": "the requested URL was not found on this server",
+    "errorType": "message",
+    "url": "https://play.google.com/store/apps/developer?id={}",
+    "urlMain": "https://play.google.com",
+    "username_claimed": "GitHub",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
