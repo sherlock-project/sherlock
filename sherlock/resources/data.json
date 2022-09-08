@@ -821,6 +821,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Google Play": {
+    "errorMsg": "the requested URL was not found on this server",
+    "errorType": "message",
+    "url": "https://play.google.com/store/apps/developer?id={}",
+    "urlMain": "https://play.google.com",
+    "username_claimed": "GitHub",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Gradle": {
     "errorType": "status_code",
     "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",
@@ -1334,7 +1342,7 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-   "OGUsers": {
+  "OGUsers": {
     "errorType": "status_code",
     "url": "https://ogu.gg/{}",
     "urlMain": "https://ogu.gg/",
@@ -2311,6 +2319,14 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "furaffinity": {
+    "errorMsg": "This user cannot be found.",
+    "errorType": "message",
+    "url": "https://www.furaffinity.net/user/{}",
+    "urlMain": "https://www.furaffinity.net",
+    "username_claimed": "jesus",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "geocaching": {
     "errorType": "status_code",
     "url": "https://www.geocaching.com/p/default.aspx?u={}",
@@ -2663,22 +2679,6 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "furaffinity": {
-    "errorMsg": "This user cannot be found.",
-    "errorType": "message",
-    "url": "https://www.furaffinity.net/user/{}",
-    "urlMain": "https://www.furaffinity.net",
-    "username_claimed": "jesus",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Google Play": {
-    "errorMsg": "the requested URL was not found on this server",
-    "errorType": "message",
-    "url": "https://play.google.com/store/apps/developer?id={}",
-    "urlMain": "https://play.google.com",
-    "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
