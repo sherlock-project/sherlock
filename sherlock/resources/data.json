@@ -1008,6 +1008,14 @@
     "username_claimed": "theblue222",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+    "IRC-Galleria": {
+    "errorType": "response_url",
+    "errorUrl": "https://irc-galleria.net/users/search?username={}",
+    "url": "https://irc-galleria.net/user/{}",
+    "urlMain": "https://irc-galleria.net/",
+    "username_claimed": "appas",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Issuu": {
     "errorType": "status_code",
     "url": "https://issuu.com/{}",
