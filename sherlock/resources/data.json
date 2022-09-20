@@ -1614,6 +1614,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Rumble": {
+    "errorType": "status_code",
+    "url": "https://rumble.com/user/{}",
+    "urlMain": "https://rumble.com/",
+    "username_claimed": "John",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "RuneScape": {
     "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
     "errorType": "message",
