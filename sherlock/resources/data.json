@@ -1789,7 +1789,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Star Citizen": {
-    "errorType": "status_code",
+    "errorMsg": "404",
+    "errorType": "message",
     "url": "https://robertsspaceindustries.com/citizens/{}",
     "urlMain": "https://robertsspaceindustries.com/",
     "username_claimed": "blue",
@@ -2074,7 +2075,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Whonix Forum": {
-    "errorType": "status_code",
+    "errorMsg": "302",
+    "errorType": "message",
     "url": "https://forums.whonix.org/u/{}",
     "urlMain": "https://forums.whonix.org/",
     "username_claimed": "red",
@@ -2094,8 +2096,8 @@
     "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
+    "username_unclaimed": "noonewouldeverusethis8"  
+   },
   "Windy": {
     "errorType": "status_code",
     "url": "https://community.windy.com/user/{}",
