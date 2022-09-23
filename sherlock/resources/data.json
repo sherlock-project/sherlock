@@ -2075,9 +2075,8 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Whonix Forum": {
-    "errorMsg": "302",
-    "errorType": "message",
-    "url": "https://forums.whonix.org/u/{}",
+    "errorType": "status_code",
+    "url": "https://forums.whonix.org/u/{}/summary",
     "urlMain": "https://forums.whonix.org/",
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
