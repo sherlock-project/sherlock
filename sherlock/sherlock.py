@@ -532,12 +532,12 @@ def main():
                              "On the other hand, this may cause a long delay to gather all results."
                         )
     parser.add_argument("--print-all",
-                        action="store_true", dest="print_all",
+                        action="store_true", dest="print_all", default=False,
                         help="Output sites where the username was not found."
                         )
     parser.add_argument("--print-found",
-                        action="store_false", dest="print_all", default=False,
-                        help="Output sites where the username was found."
+                        action="store_true", dest="print_found", default=False,
+                        help="Output sites where the username was found (also if exported as file)."
                         )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
@@ -710,6 +710,8 @@ def main():
                                  ]
                                 )
                 for site in results:
+                    if args.print_found and results[site]["status"].status != QueryStatus.CLAIMED:
+                        continue
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
@@ -734,7 +736,8 @@ def main():
     
         
             for site in results:
-
+                if args.print_found and results[site]["status"].status != QueryStatus.CLAIMED:
+                    continue
                 if response_time_s is None:
                     response_time_s.append("")
                 else:
