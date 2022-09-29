@@ -829,6 +829,13 @@
     "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Google Scholar": {
+    "errorType": "status_code",
+    "url": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q={}&btnG=",
+    "urlMain": "https://scholar.google.com/",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewould"
+  },
   "Gradle": {
     "errorType": "status_code",
     "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",
