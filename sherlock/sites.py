@@ -52,7 +52,6 @@ class SiteInformation:
         self.username_claimed = username_claimed
         self.username_unclaimed = username_unclaimed
         self.information = information
-
         self.is_nsfw  = is_nsfw
 
         return
@@ -185,7 +184,12 @@ class SitesInformation:
         Return Value:
         None
         """
-        self.sites = {site:self.sites[site] for site in self.sites if not self.sites[site].is_nsfw }
+        sites = {}
+        for site in self.sites:
+            if self.sites[site].is_nsfw:
+                continue
+            sites[site] = self.sites[site]  
+        self.sites =  sites
 
     def site_name_list(self):
         """Get Site Name List.

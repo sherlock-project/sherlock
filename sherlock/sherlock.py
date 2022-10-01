@@ -556,7 +556,7 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
-    parser.add_argument("--nsfw", "-n",
+    parser.add_argument("--nsfw",
                         action="store_true", default=False,
                         help="Include checking of NSFW sites from default list. Default False")
 
@@ -620,11 +620,7 @@ def main():
         print(f"ERROR:  {error}")
         sys.exit(1)
 
-    print("")
-    if args.nsfw:
-        print("Including NSFW sites")
-    else:
-        print("Excluding NSFW sites")
+    if not args.nsfw:
         sites.remove_nsfw_sites()
 
     # Create original dictionary from SitesInformation() object.
