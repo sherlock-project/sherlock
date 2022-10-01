@@ -19,9 +19,8 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 COPY --from=build /wheels /wheels
 COPY . /opt/sherlock/
 
-RUN pip3 install -r requirements.txt -f /wheels \
-  && rm -rf /wheels \
-  && rm -rf /root/.cache/pip/*
+RUN pip3 install --no-cache-dir -r requirements.txt -f /wheels \
+  && rm -rf /wheels
 
 WORKDIR /opt/sherlock/sherlock
 
