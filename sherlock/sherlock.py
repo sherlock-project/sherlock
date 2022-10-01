@@ -556,6 +556,10 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
+    parser.add_argument("--nsfw", "-n",
+                        action="store_true", default=False,
+                        help="Include checking of NSFW sites from default list. Default False")
+
     args = parser.parse_args()
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
@@ -615,6 +619,13 @@ def main():
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
+
+    print("")
+    if args.nsfw:
+        print("Including NSFW sites")
+    else:
+        print("Excluding NSFW sites")
+        sites.remove_nsfw_sites()
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
