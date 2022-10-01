@@ -930,6 +930,13 @@
     "username_claimed": "satznova",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Harvard Scholar": {
+    "errorType": "status_code",
+    "url": "https://scholar.harvard.edu/{}",
+    "urlMain": "https://scholar.harvard.edu/",
+    "username_claimed":   "ousmanekane",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
     "errorType": "message",
