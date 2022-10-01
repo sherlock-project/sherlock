@@ -28,7 +28,7 @@ from sites import SitesInformation
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.0"
+__version__ = "0.14.1"
 
 
 class SherlockFuturesSession(FuturesSession):
