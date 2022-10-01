@@ -8,6 +8,7 @@ networks.
 """
 
 import csv
+import signal
 import pandas as pd
 import os
 import platform
@@ -195,7 +196,6 @@ def sherlock(username, site_data, query_notify,
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-    print()
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
@@ -475,6 +475,14 @@ def timeout_check(value):
     return timeout
 
 
+def handler(signal_received, frame):
+    """Exit gracefully without throwing errors
+
+    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
+    """
+    sys.exit(0)
+
+
 def main():
     version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -557,7 +565,10 @@ def main():
                         help="Force the use of the local data.json file.")
 
     args = parser.parse_args()
-
+    
+    # If the user presses CTRL-C, exit gracefully without throwing errors
+    signal.signal(signal.SIGINT, handler)
+        
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
