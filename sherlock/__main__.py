@@ -13,7 +13,8 @@ import sys
 if __name__ == "__main__":
     # Check if the user is using the correct version of Python
     python_version = sys.version.split()[0]
-
+    
+    # If the user has a python version prior to 3.6, tells the user that Sherlock does not support that version
     if sys.version_info < (3, 6):
         print("Sherlock requires Python 3.6+\nYou are using Python %s, which is not supported by Sherlock" % (python_version))
         sys.exit(1)
