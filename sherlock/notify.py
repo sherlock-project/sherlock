@@ -185,7 +185,7 @@ class QueryNotifyPrint(QueryNotify):
         # return
 
     def countResults(self):
-        """This function counts the number of results. Every time the fuction is called,
+        """This function counts the number of results. Every time the function is called,
         the number of results is increasing.
 
         Keyword Arguments:
