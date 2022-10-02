@@ -111,6 +111,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
   },
+  "Archive of Our Own": {
+    "errorType": "response_url",
+    "errorUrl": "https://archiveofourown.org/people/search",
+    "url": "https://archiveofourown.org/users/{}",
+    "urlMain": "https://archiveofourown.org/",
+    "username_claimed": "test",
+    "username_unclaimed": "noonewouldeverusethis123123123123123123"
+  },
   "Arduino": {
     "errorType": "status_code",
     "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
