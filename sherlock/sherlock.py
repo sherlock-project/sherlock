@@ -28,7 +28,7 @@ from sites import SitesInformation
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.1"
+__version__ = "0.14.2"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -533,11 +533,8 @@ def main():
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--timeout",
                         action="store", metavar="TIMEOUT",
-                        dest="timeout", type=timeout_check, default=None,
-                        help="Time (in seconds) to wait for response to requests. "
-                             "Default timeout is infinity. "
-                             "A longer timeout will be more likely to get results from slow sites. "
-                             "On the other hand, this may cause a long delay to gather all results."
+                        dest="timeout", type=timeout_check, default=60,
+                        help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
     parser.add_argument("--print-all",
                         action="store_true", dest="print_all",
