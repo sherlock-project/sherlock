@@ -101,7 +101,7 @@ class QueryNotify:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        return str(self.result) 
+        return str(self.result)
 
 class QueryNotifyPrint(QueryNotify):
     """Query Notify Print Object.
@@ -294,14 +294,5 @@ class QueryNotifyPrint(QueryNotify):
         # An empty line between first line and the result(more clear output)
 
         return
-
-    def __str__(self):
-        """Convert Object To String.
-
-        Keyword Arguments:
-        self                   -- This object.
-
-        Return Value:
-        Nicely formatted string to get information about this object.
-        """
-        return str(self.result)
+    
+    
