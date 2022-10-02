@@ -2421,10 +2421,10 @@
   "koo": {
     "errorMsg": "Invalid Profile",
     "errorType": "message",
-    "url": "https://www.kooapp.com/profile/{}",
+    "url": "https://www.kooapp.com/search?q={}&tab=USER",
     "urlMain": "https://www.kooapp.com",
     "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis7" 
   },
   "kwork": {
     "errorType": "status_code",
