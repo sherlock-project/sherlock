@@ -324,6 +324,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "CTAN": {
+    "error_type": "status_code",
+    "url": "https://ctan.org/author/{}",
+    "urlMain": "https://ctan.org/",
+    "username_claimed": "briggs",
+    "username_unclaimed": "briggs"
+  },
   "Carbonmade": {
     "errorType": "response_url",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
@@ -2095,8 +2102,8 @@
     "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
-    "username_unclaimed": "noonewouldeverusethis8"  
-   },
+    "username_unclaimed": "noonewouldeverusethis8"
+  },
   "Windy": {
     "errorType": "status_code",
     "url": "https://community.windy.com/user/{}",
