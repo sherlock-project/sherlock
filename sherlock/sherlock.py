@@ -162,7 +162,7 @@ def MultipleUsernames(username):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=60):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -178,7 +178,7 @@ def sherlock(username, site_data, query_notify,
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
-                              Default is no timeout.
+                              Default is 60 seconds.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
