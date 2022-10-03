@@ -561,6 +561,10 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
+    parser.add_argument("--nsfw",
+                        action="store_true", default=False,
+                        help="Include checking of NSFW sites from default list. Default False")
+
     args = parser.parse_args()
     
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -623,6 +627,9 @@ def main():
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
+
+    if not args.nsfw:
+        sites.remove_nsfw_sites()
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object

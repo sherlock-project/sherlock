@@ -294,7 +294,8 @@
     "url": "https://pt.bongacams.com/profile/{}",
     "urlMain": "https://pt.bongacams.com",
     "username_claimed": "asuna-black",
-    "username_unclaimed": "noonewouldeverusethis77777"
+    "username_unclaimed": "noonewouldeverusethis77777",
+    "isNSFW": true
   },
   "Bookcrossing": {
     "errorType": "status_code",
@@ -369,7 +370,8 @@
     "url": "https://chaturbate.com/{}",
     "urlMain": "https://chaturbate.com",
     "username_claimed": "cute18cute",
-    "username_unclaimed": "noonewouldeverusethis77777"
+    "username_unclaimed": "noonewouldeverusethis77777",
+    "isNSFW": true
   },
   "Chess": {
     "errorMsg": "Username is valid",
@@ -1385,7 +1387,8 @@
     "urlMain": "https://onlyfans.com/",
     "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis7",
+    "isNSFW": true
   },
   "OpenStreetMap": {
     "errorType": "status_code",
@@ -1511,7 +1514,8 @@
     "url": "https://pornhub.com/users/{}",
     "urlMain": "https://pornhub.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis7",
+    "isNSFW": true
   },
   "ProductHunt": {
     "errorMsg": "We seem to have lost this page",
@@ -2117,8 +2121,8 @@
     "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
-    "username_unclaimed": "noonewouldeverusethis8"  
-   },
+    "username_unclaimed": "noonewouldeverusethis8"
+  },
   "Windy": {
     "errorType": "status_code",
     "url": "https://community.windy.com/user/{}",
@@ -2178,7 +2182,8 @@
     "url": "https://xvideos.com/profiles/{}",
     "urlMain": "https://xvideos.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis7",
+    "isNSFW": true
   },
   "YouNow": {
     "errorMsg": "No users found",
@@ -2201,7 +2206,8 @@
     "url": "https://youporn.com/uservids/{}",
     "urlMain": "https://youporn.com",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777"
+    "username_unclaimed": "noonewouldeverusethis77777",
+    "isNSFW": true
   },
   "Zhihu": {
     "errorMsg": "404",
