@@ -3,7 +3,7 @@
   <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
 
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">social networks</a></span>
+  <span>Procure contas de redes sociais pelo nome de usuário nas <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">redes sociais</a></span>
   <br>
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
@@ -15,13 +15,17 @@
 </p>
 
 <p align="center">
-  <a href="#installation">Installation</a>
+  <a href="#instalando">Instalação</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#usage">Usage</a>
+  <a href="#uso-do">Uso</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#docker-notes">Docker Notes</a>
+  <a href="#notas-do-docker">Notas do Docker</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#contributing">Contributing</a>
+  <a href="#contribuindo">Contribuir</a>
+  <br><br><br><br>
+  <spam>Outros Idiomas: </spam>
+  <br>
+  <a href="./languages/pt-br.md">Portugês Brasileiro</a>
 </p>
 
 <p align="center">
@@ -31,20 +35,20 @@
 </p>
 
 
-## Installation
+## Instalando
 
 ```console
-# clone the repo
+# clone o repositório
 $ git clone https://github.com/sherlock-project/sherlock.git
 
-# change the working directory to sherlock
+# mude o diretório atual para o sherlock
 $ cd sherlock
 
-# install the requirements
+# instalando os requisitos
 $ python3 -m pip install -r requirements.txt
 ```
 
-## Usage
+## Uso
 
 ```console
 $ python3 sherlock --help
@@ -58,109 +62,106 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
 Sherlock: Find Usernames Across Social Networks (Version 0.14.2)
 
 positional arguments:
-  USERNAMES             One or more usernames to check with social networks.
+  USERNAMES             Um ou mais nomes de usuário a serem verificados nas redes sociais.
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --version             Display version information and dependencies.
+  -h, --help            Mostra esta mensagem de ajuda e fecha.
+  --version             Exibe informações de versão e suas dependências.
   --verbose, -v, -d, --debug
-                        Display extra debugging information and metrics.
+                        Exibe informações extras de depuração.
   --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT
-                        If using multiple usernames, the output of the results will be
-                        saved to this folder.
+                        Se estiver usando vários nomes de usuário, a saída dos resultados será
+                        salva em uma pasta.
   --output OUTPUT, -o OUTPUT
-                        If using single username, the output of the result will be saved
-                        to this file.
-  --tor, -t             Make requests over Tor; increases runtime; requires Tor to be
-                        installed and in system path.
-  --unique-tor, -u      Make requests over Tor with new Tor circuit after each request;
-                        increases runtime; requires Tor to be installed and in system
-                        path.
-  --csv                 Create Comma-Separated Values (CSV) File.
-  --xlsx                Create the standard file for the modern Microsoft Excel
-                        spreadsheet (xslx).
-  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to
-                        specify more than one site.
+                        Se estiver usando apenas um nome de usuário, a saída do resultado será salva
+                        neste arquivo.
+  --tor, -t             Faz requisições pelo Tor (aumenta o tempo de execução) requer que o Tor seja
+                        instalado e dentro do caminho do sistema.
+  --unique-tor, -u      Faz solicitações pelo Tor com o novo circuito Tor após cada solicitação;
+                        aumenta o tempo de execução; requer que o Tor esteja instalado e
+                        dentro do caminho do sistema.
+  --csv                 Cria um arquivo de valores separados por vírgula (CSV).
+  --xlsx                Cria o arquivo padrão para planilhas do Microsoft Excel(xslx).
+  --site SITE_NAME      Limita a análise apenas aos sites listados. Adicione várias opções para
+                        especificar mais de um site.
   --proxy PROXY_URL, -p PROXY_URL
-                        Make requests over a proxy. e.g. socks5://127.0.0.1:1080
+                        Faz solicitações por meio de um proxy. por exemplo: socks5://127.0.0.1:1080
   --json JSON_FILE, -j JSON_FILE
-                        Load data from a JSON file or an online, valid, JSON file.
-  --timeout TIMEOUT     Time (in seconds) to wait for response to requests (Default: 60)
-  --print-all           Output sites where the username was not found.
-  --print-found         Output sites where the username was found.
-  --no-color            Don't color terminal output
-  --browse, -b          Browse to all results on default browser.
-  --local, -l           Force the use of the local data.json file.
+                        Carrega dados de um arquivo JSON ou de um arquivo JSON online válido.
+  --timeout TIMEOUT     Tempo (em segundos) para aguardar resposta às solicitações (Padrão: 60).
+  --print-all           Retorna sites onde o nome de usuário não foi encontrado.
+  --print-found         Retorna sites onde o nome de usuário foi encontrado.
+  --no-color            Deixa a saída do terminal sem cores.
+  --browse, -b          Procura todos os resultados no navegador padrão.
+  --local, -l           Força o uso do arquivo data.json local.
 ```
 
-To search for only one user:
+Para pesquisar apenas um usuário:
 ```
 python3 sherlock user123
 ```
 
-To search for more than one user:
+Para pesquisar mais de um usuário:
 ```
 python3 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+As contas encontradas serão armazenadas em um arquivo de texto individual com o nome de usuário correspondente (por exemplo, ```user123.txt```).
 
-## Anaconda (Windows) Notes
+## Notas do Anaconda (Windows)
 
-If you are using Anaconda in Windows, using 'python3' might not work. Use 'python' instead.
+Se você estiver usando o Anaconda no Windows, usar 'python3' pode não funcionar. Use 'python' em vez disso.
 
-## Docker Notes
+## Notas do Docker
 
-If docker is installed you can build an image and run this as a container.
+Se o docker estiver instalado, você poderá criar uma imagem e executá-la como um contêiner.
 
 ```
 docker build -t mysherlock-image .
 ```
 
-Once the image is built, sherlock can be invoked by running the following:
+Depois que a imagem é criada, o sherlock pode ser executado usando o seguinte:
 
 ```
 docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: https://docs.docker.com/engine/reference/run/#clean-up---rm
+A opção ```--rm``` remove o sistema de arquivos do contêiner na conclusão para evitar o acúmulo de lixo. Consulte: https://docs.docker.com/engine/reference/run/#clean-up---rm
 
-The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
+A opção ```-t``` aloca um pseudo-TTY que permite saída colorida. Consulte: https://docs.docker.com/engine/reference/run/#foreground
 
-Use the following command to access the saved results:
+Use o seguinte comando para acessar os resultados salvos:
 
 ```
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
-present working directory and to mount it at `/opt/sherlock/results` on the docker container.
-The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
+As opções ```-v "$PWD/results:/opt/sherlock/results"``` dizem ao docker para criar (ou usar) a pasta `results` m e montá-lo em `/opt/sherlock/results` no contêiner docker. A opção `-o /opt/sherlock/results/text.txt` diz ao `sherlock` para produzir o resultado.
 
-Or you can use "Docker Hub" to run `sherlock`:
+Ou você pode usar o "Docker Hub" para executar o `sherlock`:
 ```
 docker run theyahya/sherlock user123
 ```
 
-### Using `docker-compose`
+### Uso do `docker-compose`
 
-You can use the `docker-compose.yml` file from the repository and use this command:
+Você pode usar o arquivo `docker-compose.yml` do repositório e usar este comando:
 
 ```
 docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
-## Contributing
-We would love to have you help us with the development of Sherlock. Each and every contribution is greatly valued!
+## Contribuindo
+Adoraríamos que você nos ajudasse com o desenvolvimento de Sherlock. Cada contribuição é muito valorizada!
 
-Here are some things we would appreciate your help on:
-- Addition of new site support ¹
-- Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
+Aqui estão algumas coisas em que gostaríamos de sua ajuda:
+- Adição de novo suporte ao site ¹
+- Trazendo de volta o suporte do site de [sites que foram removidos](removed_sites.md) no passado devido a falsos positivos
 
-[1] Please look at the Wiki entry on [adding new sites](https://github.com/sherlock-project/sherlock/wiki/Adding-Sites-To-Sherlock)
-to understand the issues.
+[1] Por favor, veja a entrada do Wiki em [adicionar novos sites](https://github.com/sherlock-project/sherlock/wiki/Adding-Sites-To-Sherlock)
+para entender as questões.
 
-## Tests
+## Testes
 
 Thank you for contributing to Sherlock!
 
