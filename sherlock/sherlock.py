@@ -355,6 +355,11 @@ def sherlock(username, site_data, query_notify,
         r, error_text, exception_text = get_response(request_future=future,
                                                      error_type=error_type,
                                                      social_network=social_network)
+        # TODO: Delete debug print
+        print(r)
+        print(error_text)
+        print(net_info.get("errorMsg"))
+        #print(r.text)
 
         # Get response time for response of our request.
         try:
