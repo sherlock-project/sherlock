@@ -1206,6 +1206,13 @@
     "username_claimed": "lottiefiles",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "ManifoldMarkets": {
+    "errorType": "status_code",
+    "url": "https://manifold.markets/{}",
+    "urlMain": "https://manifold.markets/",
+    "username_claimed": "ManifoldMarkets",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Mapify": {
     "errorType": "response_url",
     "errorUrl": "https://mapify.travel/{}",
