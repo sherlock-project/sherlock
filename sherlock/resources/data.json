@@ -2118,6 +2118,14 @@
     "username_claimed": "support",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "WolframalphaForum": {
+    "errorType": "response_url",
+    "errorUrl": "https://community.wolfram.com/static/errors/404.html",
+    "url": "https://community.wolfram.com/web/{}/home",
+    "urlMain": "https://community.wolfram.com/",
+    "username_claimed": "unico",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "WordPress": {
     "errorType": "response_url",
     "errorUrl": "wordpress.com/typo/?subdomain=",
