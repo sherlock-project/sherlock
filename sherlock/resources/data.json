@@ -1427,6 +1427,14 @@
     "username_claimed": "admin",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PepperIT": {
+    "errorMsg":"La pagina che hai provato a raggiungere non si trova qui",
+    "errorType": "message",
+    "url": "https://www.pepper.it/profile/{}/overview",
+    "urlMain": "https://www.pepper.it",
+    "username_claimed": "enabled",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "PSNProfiles.com": {
     "errorType": "response_url",
     "errorUrl": "https://psnprofiles.com/?psnId={}",
