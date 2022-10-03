@@ -1959,6 +1959,13 @@
     "username_claimed": "ashu",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Tumblr":{
+    "errorType": "status_code",
+    "url": "https://{}.tumblr.com/",
+    "urlMain": "https://tumblr.com/",
+    "username_claimed": "user",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Twitch": {
     "errorType": "status_code",
     "url": "https://www.twitch.tv/{}",
