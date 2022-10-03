@@ -1,0 +1,6 @@
+www.github.com/sherlock-project/sherlock
+www.github.com/TryGhost/Ghost
+www.github.com/EbookFundation/free-programming-books   <--- referência
+www.github.com/florinpop12/app-ideas
+www.github.com/anuraghazra/github-readme-stats
+www.github.com/SparkyGuy/github-readme-stats
