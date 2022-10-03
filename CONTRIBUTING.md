@@ -26,11 +26,6 @@ the site may be removed from the list.  The
 file contains sites that were included at one time in Sherlock, but had to be removed for
 one reason or another.
 
-In regards to adult sites (e.g. Pornhub), we have agreed to not include them in Sherlock.  
-However, we do understand that some users desire this support.  The data.json file is easy to add to, 
-so users will be able to maintain their own forks to have this support. This is not ideal.  
-Maybe there could be another repo with an adult data.json? That would avoid forks getting out of date.
-
 ## Adding New Functionality
 
 Please ensure that the content on your branch passes all tests before submitting a pull request.

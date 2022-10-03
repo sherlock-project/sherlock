@@ -28,7 +28,7 @@ from sites import SitesInformation
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.1"
+__version__ = "0.14.2"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -533,11 +533,8 @@ def main():
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--timeout",
                         action="store", metavar="TIMEOUT",
-                        dest="timeout", type=timeout_check, default=None,
-                        help="Time (in seconds) to wait for response to requests. "
-                             "Default timeout is infinity. "
-                             "A longer timeout will be more likely to get results from slow sites. "
-                             "On the other hand, this may cause a long delay to gather all results."
+                        dest="timeout", type=timeout_check, default=60,
+                        help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
     parser.add_argument("--print-all",
                         action="store_true", dest="print_all",
@@ -563,6 +560,10 @@ def main():
     parser.add_argument("--local", "-l",
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
+
+    parser.add_argument("--nsfw",
+                        action="store_true", default=False,
+                        help="Include checking of NSFW sites from default list. Default False")
 
     args = parser.parse_args()
     
@@ -626,6 +627,9 @@ def main():
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
+
+    if not args.nsfw:
+        sites.remove_nsfw_sites()
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object

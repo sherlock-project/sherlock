@@ -8,7 +8,7 @@ import requests
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                 username_unclaimed, information):
+                 username_unclaimed, information, is_nsfw):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -52,6 +52,7 @@ class SiteInformation:
         self.username_claimed = username_claimed
         self.username_unclaimed = username_unclaimed
         self.information = information
+        self.is_nsfw  = is_nsfw
 
         return
 
@@ -162,7 +163,9 @@ class SitesInformation:
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name]["username_unclaimed"],
-                                    site_data[site_name]
+                                    site_data[site_name],
+                                    site_data[site_name].get("isNSFW",False)
+
                                     )
             except KeyError as error:
                 raise ValueError(
@@ -170,6 +173,23 @@ class SitesInformation:
                 )
 
         return
+
+    def remove_nsfw_sites(self):
+        """
+        Remove NSFW sites from the sites, if isNSFW flag is true for site
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        None
+        """
+        sites = {}
+        for site in self.sites:
+            if self.sites[site].is_nsfw:
+                continue
+            sites[site] = self.sites[site]  
+        self.sites =  sites
 
     def site_name_list(self):
         """Get Site Name List.
