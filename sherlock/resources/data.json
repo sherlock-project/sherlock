@@ -103,14 +103,6 @@
     "username_claimed": "jason",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "Archive.org": {
-    "errorMsg": "cannot find account",
-    "errorType": "message",
-    "url": "https://archive.org/details/@{}",
-    "urlMain": "https://archive.org",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewould"
-  },
   "Archive of Our Own": {
     "errorMsg": "Sorry, could not find this user.",
     "errorType": "message",
@@ -118,6 +110,14 @@
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test",
     "username_unclaimed": "noonewouldeverusethis123123123123123123"
+  },
+  "Archive.org": {
+    "errorMsg": "cannot find account",
+    "errorType": "message",
+    "url": "https://archive.org/details/@{}",
+    "urlMain": "https://archive.org",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould"
   },
   "Arduino": {
     "errorType": "status_code",
@@ -291,11 +291,11 @@
   },
   "BongaCams": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://pt.bongacams.com/profile/{}",
     "urlMain": "https://pt.bongacams.com",
     "username_claimed": "asuna-black",
-    "username_unclaimed": "noonewouldeverusethis77777",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Bookcrossing": {
     "errorType": "status_code",
@@ -367,11 +367,11 @@
   },
   "ChaturBate": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://chaturbate.com/{}",
     "urlMain": "https://chaturbate.com",
     "username_claimed": "cute18cute",
-    "username_unclaimed": "noonewouldeverusethis77777",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Chess": {
     "errorMsg": "Username is valid",
@@ -839,6 +839,14 @@
     "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Google Developer": {
+    "errorMsg": "Sorry, the profile was not found.",
+    "errorType": "message",
+    "url": "https://g.dev/{}",
+    "urlMain": "https://g.dev/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Gradle": {
     "errorType": "status_code",
     "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",
@@ -944,8 +952,15 @@
     "errorType": "status_code",
     "url": "https://scholar.harvard.edu/{}",
     "urlMain": "https://scholar.harvard.edu/",
-    "username_claimed":   "ousmanekane",
+    "username_claimed": "ousmanekane",
     "username_unclaimed": "noonewouldeverusethis77"
+  },
+  "Hashnode": {
+    "errorType": "status_code",
+    "url": "https://hashnode.com/@{}",
+    "urlMain": "https://hashnode.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noneownsthisusername"
   },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
@@ -969,13 +984,6 @@
     "urlMain": "https://hubski.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Hashnode": {
-    "errorType": "status_code",
-    "url": "https://hashnode.com/@{}",
-    "urlMain": "https://hashnode.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noneownsthisusername"
   },
   "ICQ": {
     "errorType": "status_code",
@@ -1383,12 +1391,12 @@
   },
   "OnlyFans": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://onlyfans.com/{}",
     "urlMain": "https://onlyfans.com/",
     "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne",
-    "username_unclaimed": "noonewouldeverusethis7",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "OpenStreetMap": {
     "errorType": "status_code",
@@ -1511,11 +1519,11 @@
   },
   "Pornhub": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://pornhub.com/users/{}",
     "urlMain": "https://pornhub.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "ProductHunt": {
     "errorMsg": "We seem to have lost this page",
@@ -2179,11 +2187,11 @@
   },
   "Xvideos": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://xvideos.com/profiles/{}",
     "urlMain": "https://xvideos.com/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "YouNow": {
     "errorMsg": "No users found",
@@ -2203,11 +2211,11 @@
   },
   "YouPorn": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://youporn.com/uservids/{}",
     "urlMain": "https://youporn.com",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77777",
-    "isNSFW": true
+    "username_unclaimed": "noonewouldeverusethis77777"
   },
   "Zhihu": {
     "errorMsg": "404",
