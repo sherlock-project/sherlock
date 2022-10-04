@@ -197,14 +197,6 @@ def sherlock(username, site_data, query_notify,
     case = max(int(tor), int(unique_tor))
     underlying_request = [requests.session(), TorRequest()][case]
     underlying_session = [requests.Request(), underlying_request.session][case]
-    if tor or unique_tor:
-        # Requests using Tor obfuscation
-        underlying_request = TorRequest()
-        underlying_session = underlying_request.session
-    else:
-        # Normal requests
-        underlying_session = requests.session()
-        underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -263,14 +255,11 @@ def sherlock(username, site_data, query_notify,
                 raise RuntimeError(f"Unsupported request_method for {url}")
             request_payload = interpolate_string(request_payload, username) if request_payload is not None else request_payload
 
-            if url_probe is None:
-                # Probe URL is normal one seen by people out on the web.
-                url_probe = url
-            else:
-                # There is a special URL for probing existence separate
-                # from where the user profile normally can be found.
-                url_probe = interpolate_string(url_probe, username)
-
+            # Probe URL is normal one seen by people out on the web.
+            # There is a special URL for probing existence separate
+            # from where the user profile normally can be found.
+            url_probe = url if url_probe is None else interpolate_string(url_probe, username)
+            
             if request is None:
                 if net_info["errorType"] == "status_code":
                     # In most cases when we are detecting by status code,
