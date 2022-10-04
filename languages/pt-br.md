@@ -41,7 +41,7 @@
 </p>
 
 
-## Instalando
+## Instalação
 
 ```console
 # clone o repositório
