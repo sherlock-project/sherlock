@@ -22,6 +22,10 @@
   <a href="#docker-notes">Docker Notes</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contributing">Contributing</a>
+  <br><br>
+  <spam>Another languages: </spam>
+  <br>
+  <a href="./languages/pt-br.md">Português Brasileiro</a>
 </p>
 
 <p align="center">
