@@ -15,13 +15,7 @@
 </p>
 
 <p align="center">
-<a href="https://asciinema.org/a/223115">
-<img src="./images/sherlock_demo.gif"/>
-</a>
-</p>
-
-<p align="center">
-  <a href="#instalando">Instalação</a>
+  <a href="#instalação">Instalação</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#uso">Uso</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -31,7 +25,8 @@
   <br><br>
   <spam>Outros Idiomas: </spam>
   <br>
-  <a href="./languages/pt-br.md">Portugês Brasileiro</a>
+  <a href="./languages/pt-br.md">Português Brasileiro</a>
+  
 </p>
 
 <p align="center">
@@ -83,8 +78,8 @@ argumentos opcionais:
                         neste arquivo.
   --tor, -t             Faz requisições pelo Tor (aumenta o tempo de execução) requer que o Tor seja
                         instalado e dentro do caminho do sistema.
-  --unique-tor, -u      Faz solicitações pelo Tor com o novo circuito Tor após cada solicitação;
-                        aumenta o tempo de execução; requer que o Tor esteja instalado e
+  --unique-tor, -u      Faz solicitações pelo Tor com o novo circuito Tor após cada solicitação
+                        (aumenta o tempo de execução) requer que o Tor esteja instalado e
                         dentro do caminho do sistema.
   --csv                 Cria um arquivo de valores separados por vírgula (CSV).
   --xlsx                Cria o arquivo padrão para planilhas do Microsoft Excel(xslx).
