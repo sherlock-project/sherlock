@@ -2663,6 +2663,13 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "sessionize":{
+    "errorType": "status_code",
+    "url": "https://sessionize.com/{}",
+    "urlMain": "https://sessionize.com/",
+    "username_claimed": "jason-mayes",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "skyrock": {
     "errorType": "status_code",
     "url": "https://{}.skyrock.com/",
