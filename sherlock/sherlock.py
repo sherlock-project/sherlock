@@ -563,7 +563,7 @@ def main():
 
     parser.add_argument("--nsfw",
                         action="store_true", default=False,
-                        help="Include checking of NSFW sites from default list. Default False")
+                        help="Include checking of NSFW sites from default list.")
 
     args = parser.parse_args()
     
