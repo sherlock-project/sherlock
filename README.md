@@ -23,7 +23,7 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contributing">Contributing</a>
   <br><br>
-  <spam>Another languages: </spam>
+  <spam>another languages: </spam>
   <br>
   <a href="./languages/pt-br.md">Português Brasileiro</a>
 </p>
