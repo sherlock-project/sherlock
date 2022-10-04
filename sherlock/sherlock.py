@@ -154,10 +154,7 @@ checksymbols = ["_", "-", "."]
 
 def MultipleUsernames(username):
     '''replace the parameter with with symbols and return a list of usernames'''
-    allUsernames = []
-    for i in checksymbols:
-        allUsernames.append(username.replace("{?}", i))
-    return allUsernames
+    return [username.replace("{?}", i) for i in checksymbols]
 
 
 def sherlock(username, site_data, query_notify,
@@ -197,6 +194,9 @@ def sherlock(username, site_data, query_notify,
     # Notify caller that we are starting the query.
     query_notify.start(username)
     # Create session based on request methodology
+    case = max(int(tor), int(unique_tor))
+    underlying_request = [requests.session(), TorRequest()][case]
+    underlying_session = [requests.Request(), underlying_request.session][case]
     if tor or unique_tor:
         # Requests using Tor obfuscation
         underlying_request = TorRequest()
@@ -208,11 +208,7 @@ def sherlock(username, site_data, query_notify,
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
-    else:
-        max_workers = len(site_data)
-
+    max_workers = min(len(site_data), 20)
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(max_workers=max_workers,
                                      session=underlying_session)
@@ -236,7 +232,7 @@ def sherlock(username, site_data, query_notify,
 
         if "headers" in net_info:
             # Override/append any extra headers required by a given site.
-            headers.update(net_info["headers"])
+            headers |= net_info["headers"]
 
         # URL of user on site (if it exists)
         url = interpolate_string(net_info["url"], username)
@@ -260,21 +256,12 @@ def sherlock(username, site_data, query_notify,
             request_method = net_info.get("request_method")
             request_payload = net_info.get("request_payload")
             request = None
-
-            if request_method is not None:
-                if request_method == "GET":
-                    request = session.get
-                elif request_method == "HEAD":
-                    request = session.head
-                elif request_method == "POST":
-                    request = session.post
-                elif request_method == "PUT":
-                    request = session.put
-                else:
-                    raise RuntimeError(f"Unsupported request_method for {url}")
-
-            if request_payload is not None:
-                request_payload = interpolate_string(request_payload, username)
+            
+            request = {"GET": session.get, "HEAD": session.head, "POST": session.post, "PUT": session.put}.get(request_method) if request_method is not None else None
+            
+            if request_method is None:
+                raise RuntimeError(f"Unsupported request_method for {url}")
+            request_payload = interpolate_string(request_payload, username) if request_payload is not None else request_payload
 
             if url_probe is None:
                 # Probe URL is normal one seen by people out on the web.
@@ -296,16 +283,7 @@ def sherlock(username, site_data, query_notify,
                     # not respond properly unless we request the whole page.
                     request = session.get
 
-            if net_info["errorType"] == "response_url":
-                # Site forwards request to a different URL if username not
-                # found.  Disallow the redirect so we can capture the
-                # http status from the original URL request.
-                allow_redirects = False
-            else:
-                # Allow whatever redirect that the site wants to do.
-                # The final result of the request will be what is available.
-                allow_redirects = True
-
+            allow_redirects = net_info["errorType"] != "response_url"
             # This future starts running the request in a new thread, doesn't block the main thread
             if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
@@ -365,11 +343,11 @@ def sherlock(username, site_data, query_notify,
         # Attempt to get request information
         try:
             http_status = r.status_code
-        except:
+        except Exception:
             http_status = "?"
         try:
             response_text = r.text.encode(r.encoding or "UTF-8")
-        except:
+        except Exception:
             response_text = ""
 
         query_status = QueryStatus.UNKNOWN
@@ -399,16 +377,12 @@ def sherlock(username, site_data, query_notify,
                     if error in r.text:
                         error_flag = False
                         break
-            if error_flag:
-                query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
+            query_status = QueryStatus.CLAIMED if error_flag else QueryStatus.AVAILABLE
         elif error_type == "status_code":
             # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
             if error_code == r.status_code:
                 query_status = QueryStatus.AVAILABLE
-            # Checks if the status code of the response is 2XX
-            elif not r.status_code >= 300 or r.status_code < 200:
+            elif r.status_code < 300 or r.status_code < 200:
                 query_status = QueryStatus.CLAIMED
             else:
                 query_status = QueryStatus.AVAILABLE
@@ -566,10 +540,10 @@ def main():
                         help="Include checking of NSFW sites from default list. Default False")
 
     args = parser.parse_args()
-    
+
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
-        
+
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
@@ -588,7 +562,8 @@ def main():
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
-        raise Exception("Tor and Proxy cannot be set at the same time.")
+        raise ValueError("Tor and Proxy cannot be set at the same time.")
+    
 
     # Make prompts
     if args.proxy is not None:
@@ -670,9 +645,8 @@ def main():
 
     all_usernames = []
     for username in args.username:
-        if(CheckForParameter(username)):
-            for name in MultipleUsernames(username):
-                all_usernames.append(name)
+        if (CheckForParameter(username)):
+            all_usernames.extend(iter(MultipleUsernames(username)))
         else:
             all_usernames.append(username)
     for username in all_usernames:
@@ -746,8 +720,8 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
+
+
             for site in results:
 
                 if response_time_s is None:
@@ -760,11 +734,11 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
+
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+
 
         print()
     query_notify.finish()
