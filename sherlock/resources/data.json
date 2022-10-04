@@ -505,6 +505,14 @@
     "username_claimed": "michael",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Cults3D": {
+    "errorMsg": "Oh dear, this page is not working!",
+    "errorType": "message",
+    "url": "https://cults3d.com/en/users/{}/creations",
+    "urlMain": "https://cults3d.com/en",
+    "username_claimed": "brown",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "DEV Community": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
