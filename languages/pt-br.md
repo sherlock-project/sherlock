@@ -3,7 +3,7 @@
   <img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/>
 
   <br>
-  <span>Procure contas de redes sociais pelo nome de usuário nas <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">redes sociais</a></span>
+  <span>Procure contas de redes sociais pelo nome de usuário nas <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">mídias sociais</a></span>
   <br>
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
   <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
@@ -15,14 +15,20 @@
 </p>
 
 <p align="center">
+<a href="https://asciinema.org/a/223115">
+<img src="./images/sherlock_demo.gif"/>
+</a>
+</p>
+
+<p align="center">
   <a href="#instalando">Instalação</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#uso-do">Uso</a>
+  <a href="#uso">Uso</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#notas-do-docker">Notas do Docker</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contribuindo">Contribuir</a>
-  <br><br><br><br>
+  <br><br>
   <spam>Outros Idiomas: </spam>
   <br>
   <a href="./languages/pt-br.md">Portugês Brasileiro</a>
@@ -30,7 +36,7 @@
 
 <p align="center">
 <a href="https://asciinema.org/a/223115">
-<img src="./images/sherlock_demo.gif"/>
+<img src="../images/sherlock_demo.gif"/>
 </a>
 </p>
 
@@ -61,10 +67,10 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.14.2)
 
-positional arguments:
+argumentos posicionais:
   USERNAMES             Um ou mais nomes de usuário a serem verificados nas redes sociais.
 
-optional arguments:
+argumentos opcionais:
   -h, --help            Mostra esta mensagem de ajuda e fecha.
   --version             Exibe informações de versão e suas dependências.
   --verbose, -v, -d, --debug
@@ -163,36 +169,36 @@ para entender as questões.
 
 ## Testes
 
-Thank you for contributing to Sherlock!
+Obrigado por contribuir com Sherlock!
 
-Before creating a pull request with new development, please run the tests
-to ensure that everything is working great.  It would also be a good idea to run the tests
-before starting development to distinguish problems between your
-environment and the Sherlock software.
+Antes de criar um pull request com o novo desenvolvimento, execute os testes
+para garantir que tudo esteja funcionando perfeitamente. Também seria uma boa ideia fazer os testes
+antes de iniciar o desenvolvimento para distinguir problemas entre seu
+ambiente e o software Sherlock.
 
-The following is an example of the command line to run all the tests for
-Sherlock.  This invocation hides the progress text that Sherlock normally
-outputs, and instead shows the verbose output of the tests.
+A linha de comando a seguir executa todos os testes para o Sherlock.
+Este comando oculta o texto de progresso que Sherlock normalmente
+retorna e, em vez disso, mostra a saída detalhada dos testes.
 
 ```
 $ cd sherlock/sherlock
 $ python3 -m unittest tests.all --verbose
 ```
 
-Note that we do currently have 100% test coverage.  Unfortunately, some of
-the sites that Sherlock checks are not always reliable, so it is common
-to get response problems.  Any problems in connection will show up as
-warnings in the tests instead of true errors.
+Observe que atualmente temos 100% de cobertura nos testes. Infelizmente, alguns
+dos sites que Sherlock verifica nem sempre são confiáveis, por isso é comum
+obter problemas de resposta. Qualquer problemas na conexão aparecerão como
+avisos nos testes em vez de erros reais.
 
-If some sites are failing due to connection problems (site is down, in maintenance, etc)
-you can exclude them from tests by creating a `tests/.excluded_sites` file with a
-list of sites to ignore (one site name per line).
+Se alguns sites estiverem falhando devido a problemas de conexão (site está fora do ar, em manutenção, etc)
+você pode excluí-los dos testes criando um arquivo `tests/.excluded_sites` com uma
+lista de sites a serem ignorados (um nome de site por linha).
 
-## Stargazers over time
+## Stargazers ao longo do tempo
 
 [![Stargazers over time](https://starchart.cc/sherlock-project/sherlock.svg)](https://starchart.cc/sherlock-project/sherlock)
 
-## License
+## Licença
 
 MIT © Sherlock Project<br/>
 Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
