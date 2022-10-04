@@ -731,6 +731,7 @@
     "errorUrl": "https://www.g2g.com/{}",
     "url": "https://www.g2g.com/{}",
     "urlMain": "https://www.g2g.com/",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
     "username_claimed": "user",
     "username_unclaimed": "noonewouldeverusethis7"
   },
