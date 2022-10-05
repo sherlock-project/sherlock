@@ -1262,16 +1262,6 @@
     "urlMain": "https://minecraft.net/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-
-  },
-  "Minecraftforum": {
-    "errorMsg": "Not found",
-    "errorType": "message",
-    "url": "https://www.minecraftforum.net/members/{}",
-    "urlMain": "https://www.minecraftforum.net",
-    "username_claimed":   "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-
   },
   "MixCloud": {
     "errorType": "status_code",
