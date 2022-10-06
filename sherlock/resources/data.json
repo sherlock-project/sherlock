@@ -190,6 +190,7 @@
   },
   "BOOTH": {
     "errorType": "response_url",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://booth.pm/",
     "url": "https://{}.booth.pm/",
     "urlMain": "https://booth.pm/",
@@ -335,6 +336,7 @@
   },
   "Carbonmade": {
     "errorType": "response_url",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
     "url": "https://{}.carbonmade.com",
     "urlMain": "https://carbonmade.com/",
@@ -485,6 +487,7 @@
   },
   "Crevado": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.crevado.com",
     "urlMain": "https://crevado.com/",
     "username_claimed": "blue",
@@ -804,6 +807,7 @@
   },
   "GitBook": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.gitbook.io/",
     "urlMain": "https://gitbook.com/",
     "username_claimed": "gitbook",
@@ -1058,6 +1062,7 @@
   },
   "Itch.io": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.itch.io/",
     "urlMain": "https://itch.io/",
     "username_claimed": "blue",
@@ -1082,6 +1087,7 @@
   "Jimdo": {
     "errorType": "status_code",
     "noPeriod": "True",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.jimdosite.com",
     "urlMain": "https://jimdosite.com/",
     "username_claimed": "jenny",
@@ -1574,6 +1580,7 @@
   },
   "Rajce.net": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.rajce.idnes.cz/",
     "urlMain": "https://www.rajce.idnes.cz/",
     "username_claimed": "blue",
@@ -2126,6 +2133,7 @@
   },
   "WebNode": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.webnode.cz/",
     "urlMain": "https://www.webnode.cz/",
     "username_claimed": "radkabalcarova",
@@ -2171,6 +2179,7 @@
   },
   "Wix": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.wix.com",
     "urlMain": "https://wix.com/",
     "username_claimed": "support",
@@ -2612,6 +2621,7 @@
   },
   "nnRU": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.www.nn.ru/",
     "urlMain": "https://www.nn.ru/",
     "username_claimed": "blue",
@@ -2694,6 +2704,7 @@
   },
   "skyrock": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.skyrock.com/",
     "urlMain": "https://skyrock.com/",
     "username_claimed": "red",
