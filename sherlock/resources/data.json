@@ -1475,6 +1475,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "PCPartPicker": {
+    "errorType": "status_code",
+    "url": "https://pcpartpicker.com/user/{}/topics",
+    "urlMain": "https://pcpartpicker.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "PepperIT": {
     "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
     "errorType": "message",
