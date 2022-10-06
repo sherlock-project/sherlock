@@ -335,7 +335,7 @@
     "username_unclaimed": "noonewouldeverusethis"
   },
   "CTAN": {
-    "error_type": "status_code",
+    "errorType": "status_code",
     "url": "https://ctan.org/author/{}",
     "urlMain": "https://ctan.org/",
     "username_claimed": "briggs",
