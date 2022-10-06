@@ -190,8 +190,8 @@
   },
   "BOOTH": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://booth.pm/",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.booth.pm/",
     "urlMain": "https://booth.pm/",
     "username_claimed": "blue",
@@ -343,8 +343,8 @@
   },
   "Carbonmade": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.carbonmade.com",
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny",
@@ -851,20 +851,20 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Google Play": {
-    "errorMsg": "the requested URL was not found on this server",
-    "errorType": "message",
-    "url": "https://play.google.com/store/apps/developer?id={}",
-    "urlMain": "https://play.google.com",
-    "username_claimed": "GitHub",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Google Developer": {
     "errorMsg": "Sorry, the profile was not found.",
     "errorType": "message",
     "url": "https://g.dev/{}",
     "urlMain": "https://g.dev/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Google Play": {
+    "errorMsg": "the requested URL was not found on this server",
+    "errorType": "message",
+    "url": "https://play.google.com/store/apps/developer?id={}",
+    "urlMain": "https://play.google.com",
+    "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Gradle": {
