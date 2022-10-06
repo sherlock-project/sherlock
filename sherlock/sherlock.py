@@ -482,11 +482,29 @@ def handler(signal_received, frame):
     """
     sys.exit(0)
 
+def version():
+    return f"%(prog)s {__version__}\n" + \
+           f"{requests.__description__}:  {requests.__version__}\n" + \
+           f"Python:  {platform.python_version()}"
 
-def main():
-    version_string = f"%(prog)s {__version__}\n" + \
-                     f"{requests.__description__}:  {requests.__version__}\n" + \
-                     f"Python:  {platform.python_version()}"
+def remote_version():
+    # Check for newer version of Sherlock. If it exists, let the user know about it
+    try:
+        r = requests.get(
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+
+        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+        local_version = __version__
+
+        if remote_version != local_version:
+            print("Update Available!\n" +
+                  f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock")
+
+    except Exception as error:
+        print(f"A problem occurred while checking for an update: {error}")
+
+def arguments():
+    version_string = version()
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
@@ -497,8 +515,7 @@ def main():
                         )
     parser.add_argument("--verbose", "-v", "-d", "--debug",
                         action="store_true", dest="verbose", default=False,
-                        help="Display extra debugging information and metrics."
-                        )
+                        help="Display extra debugging information and metrics.")
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
                         help="If using multiple usernames, the output of the results will be saved to this folder."
                         )
@@ -564,27 +581,9 @@ def main():
     parser.add_argument("--nsfw",
                         action="store_true", default=False,
                         help="Include checking of NSFW sites from default list.")
+    return parser.parse_args()
 
-    args = parser.parse_args()
-    
-    # If the user presses CTRL-C, exit gracefully without throwing errors
-    signal.signal(signal.SIGINT, handler)
-        
-    # Check for newer version of Sherlock. If it exists, let the user know about it
-    try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
-
-        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
-        local_version = __version__
-
-        if remote_version != local_version:
-            print("Update Available!\n" +
-                  f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock")
-
-    except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
-
+def check_arguments(args):
     # Argument check
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
@@ -616,6 +615,18 @@ def main():
     if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
         sys.exit(1)
+
+
+def main():
+    # parse and check commandline arguments
+    args = arguments()
+    check_arguments(args)
+
+    # If the user presses CTRL-C, exit gracefully without throwing errors
+    signal.signal(signal.SIGINT, handler)
+
+    # check for new version of sherlock
+    remote_version()
 
     # Create object with all information about sites we are aware of.
     try:
