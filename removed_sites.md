@@ -1567,3 +1567,17 @@ As of 08.09.2022, GuruShots returns false positives because it just returns a bl
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Google Developer
+As of 08.10.2022, Google Developer returns false positives.
+
+```
+  "Google Developer": {
+    "errorMsg": "Sorry, the profile was not found.",
+    "errorType": "message",
+    "url": "https://g.dev/{}",
+    "urlMain": "https://g.dev/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
