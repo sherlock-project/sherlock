@@ -770,6 +770,14 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "GeeksforGeeks": {
+    "errorType": "response_url",
+    "errorUrl": "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php",
+    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "urlMain": "https://www.geeksforgeeks.org/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Gamespot": {
     "errorType": "status_code",
     "url": "https://www.gamespot.com/profile/{}/",
