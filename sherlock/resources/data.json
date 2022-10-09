@@ -2239,6 +2239,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "YandexMusic": {
+    "errorType": "status_code",
+    "url": "https://music.yandex/users/{}/playlists",
+    "urlMain": "https://music.yandex",
+    "username_claimed": "ya.playlist",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "YouNow": {
     "errorMsg": "No users found",
     "errorType": "message",
