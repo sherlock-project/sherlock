@@ -593,6 +593,15 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "eBay":{
+    "errorType": "message",
+    "errorMsg": "this user was not found",
+    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+    "url":"https://ebay.com/usr/{}",
+    "urlMain":"https://ebay.com/",
+    "username_claimed":"blue",
+    "username_unclaimed":"noonewouldeverusethis7"
+  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
@@ -1456,6 +1465,14 @@
     "urlMain": "https://psnprofiles.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Parler":{
+    "errorType":"status_code",
+    "request_method": "GET",
+    "url":"https://api.parler.com/v0/public/user/{}",
+    "urlMain":"https://parler.com/",
+    "username_claimed":"test",
+    "username_unclaimed":"noonewouldeverusethis7"
   },
   "Packagist": {
     "errorType": "response_url",
