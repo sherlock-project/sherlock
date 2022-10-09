@@ -705,39 +705,7 @@ def main():
             file.write(
                 f"Total Websites Username Detected On : {exists_counter}\n")
 
-        if args.csv:
-            result_file = f"{username}.csv"
-            if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
-
-            with open(result_file, "w", newline='', encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(["username",
-                                 "name",
-                                 "url_main",
-                                 "url_user",
-                                 "exists",
-                                 "http_status",
-                                 "response_time_s"
-                                 ]
-                                )
-                for site in results:
-                    response_time_s = results[site]["status"].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow([username,
-                                     site,
-                                     results[site]["url_main"],
-                                     results[site]["url_user"],
-                                     str(results[site]["status"].status),
-                                     results[site]["http_status"],
-                                     response_time_s
-                                     ]
-                                    )
-        if args.xlsx:
+        if args.xlsx or args.csv:
             usernames = []
             names = []
             url_main = []
@@ -762,7 +730,16 @@ def main():
                 http_status.append(results[site]["http_status"])
             
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
+
+        if args.xlsx:
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
+
+        elif args.csv:
+            filepath = f"{username}.csv"
+            if args.folderoutput:
+                filepath = os.path.join(args.folderoutput, filepath)
+
+            DataFrame.to_csv(filepath, index=False)
 
                                     
 
