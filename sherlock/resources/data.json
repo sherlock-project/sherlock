@@ -859,14 +859,6 @@
     "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Google Developer": {
-    "errorMsg": "Sorry, the profile was not found.",
-    "errorType": "message",
-    "url": "https://g.dev/{}",
-    "urlMain": "https://g.dev/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Gradle": {
     "errorType": "status_code",
     "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",

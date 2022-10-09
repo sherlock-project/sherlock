@@ -13,7 +13,7 @@ As of 2020-05-25, all usernames are reported as available.
 The server is returning a HTTP Status 500 (Internal server error)
 for all queries.
 
-```
+```json
   "gpodder.net": {
     "errorType": "status_code",
     "rank": 2013984,
@@ -33,7 +33,7 @@ Any query against a user seems to be redirecting to a general
 information page at https://www.investing.com/brokers/.  Probably
 required login before access.
 
-```
+```json
   "Investing.com": {
     "errorType": "status_code",
     "rank": 196,
@@ -56,7 +56,7 @@ related to their user name.  For example, user "tomke" went to
 https://community.adobe.com/t5/user/viewprofilepage/user-id/10882613.
 This can be detected, but it requires a different detection method.
 
-```
+```json
   "AdobeForums": {
     "errorType": "status_code",
     "rank": 59,
@@ -72,7 +72,7 @@ This can be detected, but it requires a different detection method.
 As of 2020-02-23, all usernames are reported as not existing.
 
 
-```
+```json
   "Basecamp": {
     "errorMsg": "The account you were looking for doesn't exist",
     "errorType": "message",
@@ -88,7 +88,7 @@ As of 2020-02-23, all usernames are reported as not existing.
 
 As of 2020-02-23, all usernames are reported as not existing.
 
-```
+```json
   "fanpop": {
     "errorType": "response_url",
     "errorUrl": "http://www.fanpop.com/",
@@ -104,7 +104,7 @@ As of 2020-02-23, all usernames are reported as not existing.
 
 As of 2020-02-23, all usernames are reported as not existing.
 
-```
+```json
   "Canva": {
     "errorType": "response_url",
     "errorUrl": "https://www.canva.com/{}",
@@ -120,7 +120,7 @@ As of 2020-02-23, all usernames are reported as not existing.
 
 As of 2020-01-21, all usernames are reported as not existing.
 
-```
+```json
   "Pixabay": {
     "errorType": "status_code",
     "rank": 378,
@@ -135,7 +135,7 @@ As of 2020-01-21, all usernames are reported as not existing.
 
 NPM-Packages are not users.
 
-```
+```json
   "NPM-Package": {
     "errorType": "status_code",
     "url": "https://www.npmjs.com/package/{}",
@@ -149,7 +149,7 @@ NPM-Packages are not users.
 
 As of 2020-01-21, all usernames are reported as not existing.
 
-```
+```json
   "Pexels": {
     "errorType": "status_code",
     "rank": 745,
@@ -164,7 +164,7 @@ As of 2020-01-21, all usernames are reported as not existing.
 
 As of 2019-12-31, site always times out.
 
-```
+```json
   "RamblerDating": {
     "errorType": "response_url",
     "errorUrl": "https://dating.rambler.ru/page/{}",
@@ -180,7 +180,7 @@ As of 2019-12-31, site always times out.
 
 As of 2019-12-31, all usernames are reported as existing.
 
-```
+```json
   "YandexMarket": {
     "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
     "errorType": "message",
@@ -196,7 +196,7 @@ As of 2019-12-31, all usernames are reported as existing.
 
 As of 2019-12-31, usernames that exist are not detected.
 
-```
+```json
   "Codementor": {
     "errorType": "status_code",
     "rank": 10252,
@@ -212,7 +212,7 @@ As of 2019-12-31, usernames that exist are not detected.
 As of 2019-12-31, the site gives a 403 for all usernames.  You have to
 be logged into see a profile.
 
-```
+```json
   "KiwiFarms": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
@@ -228,7 +228,7 @@ be logged into see a profile.
 
 As of 2019-11-30, the site causes Sherlock to just hang.
 
-```
+```json
   "Teknik": {
     "errorMsg": "The user does not exist",
     "errorType": "message",
@@ -245,7 +245,7 @@ As of 2019-11-30, the site causes Sherlock to just hang.
 As of 2019-11-28, usernames that exist give a 503 "Service Unavailable"
 HTTP Status.
 
-```
+```json
   "Shockwave": {
     "errorMsg": "Oh no! You just finished all of the games on the internet!",
     "errorType": "message",
@@ -265,7 +265,7 @@ There is an error message:
 > Please verify you are a human
 > Access to this page has been denied because we believe you are using automation tools to browse the website.
 
-```
+```json
   "Foursquare": {
     "errorType": "status_code",
     "rank": 1843,
@@ -280,7 +280,7 @@ There is an error message:
 
 Usernames that don't exist are detected.  First noticed 2019-10-25.
 
-```
+```json
   "Khan Academy": {
     "errorType": "status_code",
     "rank": 377,
@@ -296,7 +296,7 @@ Usernames that don't exist are detected.  First noticed 2019-10-25.
 
 Usernames that exist are not detected.
 
-```
+```json
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",
@@ -312,7 +312,7 @@ Usernames that exist are not detected.
 
 Usernames that exist are not detected. Forbidden Request 403 Error.
 
-```
+```json
   "AngelList": {
     "errorType": "status_code",
     "rank": 5767,
@@ -328,7 +328,7 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
 Accidentally merged even though the original pull request showed that all
 user names were available.
 
-```
+```json
   "PowerShell Gallery": {
     "errorType": "status_code",
     "rank": 163562,
@@ -355,7 +355,7 @@ Sherlock a pain.
 
 If the site becomes available in the future, we can put it back in.
 
-```
+```json
   "StreamMe": {
     "errorType": "status_code",
     "rank": 31702,
@@ -373,7 +373,7 @@ same text for a claimed or an unclaimed username.  The site must be rendering
 all of the different content using Javascript in the browser.  So, there is
 no way distinguish between the results with the current design of Sherlock.
 
-```
+```json
   "BlackPlanet": {
     "errorMsg": "My Hits",
     "errorType": "message",
@@ -391,7 +391,7 @@ Around 2019-02-09, I get a 502 HTTP error (bad gateway) for any access.  On
 It does not seem to be working, so there is no sense in including it in
 Sherlock.
 
-```
+```json
   "Fotolog": {
     "errorType": "status_code",
     "rank": 47777,
@@ -409,7 +409,7 @@ Sherlock.
 
 Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 
-```
+```json
   "Google Plus": {
     "errorType": "status_code",
     "rank": 1,
@@ -426,7 +426,7 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
 Since we were not able to find the critera for a valid username, the best thing to do now is to remove it.
 
-```
+```json
   "InsaneJournal": {
     "errorMsg": "Unknown user",
     "errorType": "message",
@@ -460,7 +460,7 @@ did not seem to work.
 As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
 redirecting to skyscanner.com whether the username exists or not.
 
-```
+```json
   "Trip": {
       "errorType": "status_code",
       "rank": 2847,
@@ -491,7 +491,7 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
 As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
 downforeveryoneorjustme.com that the website is down.
 
-```
+```json
   "elwoRU": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
@@ -508,7 +508,7 @@ downforeveryoneorjustme.com that the website is down.
 As of 2020-04-04, ingvarr.net.ru does not exist anymore. I confirmed using
 downforeveryoneorjustme.com that the website is down.
 
-```
+```json
   "ingvarr.net.ru": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
@@ -525,7 +525,7 @@ downforeveryoneorjustme.com that the website is down.
 As of 2020-06-20, Redsun.tf seems to be adding random digits to the end of the usernames which makes it pretty much impossible
 for Sherlock to check for usernames on this particular website.
 
-```
+```json
   "Redsun.tf": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
@@ -543,7 +543,7 @@ As of 2020-06-20, Creative Market has a captcha to prove that you are a human, a
 Sherlock is unable to check for username on this site because we will always get  a page which asks
 us to prove that we are not a robot.
 
-```
+```json
   "CreativeMarket": {
     "errorType": "status_code",
     "rank": 1896,
@@ -559,7 +559,7 @@ us to prove that we are not a robot.
 As of 2020-06-20, pvpru uses CloudFlair, and because of this we get a "Access denied" error whenever
 we try to check for a username.
 
-```
+```json
   "pvpru": {
     "errorType": "status_code",
     "rank": 405547,
@@ -575,7 +575,7 @@ As of 2020-06-21, easyen returns false positives when using a username which con
 a period. Since we could not find the criteria for the usernames for this site, it will be
 removed
 
-```
+```json
   "easyen": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
@@ -592,7 +592,7 @@ As of 2020-06-21, pedsovet returns false positives when using a username which c
 a period. Since we could not find the criteria for the usernames for this site, it will be
 removed
 
-```
+```json
   "pedsovet": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
@@ -609,7 +609,7 @@ removed
 As of 2020-06-21, radioskot returns false positives when using a username which contains
 a period. Since we could not find the criteria for the usernames for this site, it will be
 removed
-```
+```json
   "radioskot": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
@@ -627,7 +627,7 @@ removed
 As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
 I have tried to find out what Coderwall's criteria is for a valid username, but unfortunetly I have not been able to 
 find it and because of this, the best thing we can do now is to remove it.
-```
+```json
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
     "errorType": "message",
@@ -642,7 +642,7 @@ find it and because of this, the best thing we can do now is to remove it.
 
 ## TamTam
 As of 2020-07-06, TamTam returns false positives when given a username which contains a period
-```
+```json
   "TamTam": {
     "errorType": "response_url",
     "errorUrl": "https://tamtam.chat/",
@@ -656,7 +656,7 @@ As of 2020-07-06, TamTam returns false positives when given a username which con
 
 ## Zomato
 As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato takes a very long time to respond.
-```
+```json
   "Zomato": {
     "errorType": "status_code",
     "headers": {
@@ -672,7 +672,7 @@ As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato take
 
 ## Mixer
 As of 2020-07-22, the Mixer service has closed down.
-```
+```json
   "mixer.com": { 
     "errorType": "status_code", 
     "rank": 1544, 
@@ -688,7 +688,7 @@ As of 2020-07-22, the Mixer service has closed down.
 ## KanoWorld
 As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us check for usernames.
 If an alternative way to check for usernames is found then it will added.
-```
+```json
   "KanoWorld": {
     "errorType": "status_code",
     "rank": 181933,
@@ -701,7 +701,7 @@ If an alternative way to check for usernames is found then it will added.
 
 ## YandexCollection
 As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us from checking for usernames
-```
+```json
   "YandexCollection": {
     "errorType": "status_code",
     "url": "https://yandex.ru/collections/user/{}/",
@@ -715,7 +715,7 @@ As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us
 
 As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
 future once we find a better error detecting method.
-```
+```json
   "PayPal": {
     "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
     "errorType": "message",
@@ -732,7 +732,7 @@ future once we find a better error detecting method.
 ## ImageShack
 
 As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
-```
+```json
   "ImageShack": {
     "errorType": "response_url",
     "errorUrl": "https://imageshack.us/",
@@ -747,7 +747,7 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
 future once we find a better error detecting method.
-```
+```json
   "Aptoide": {
     "errorType": "status_code",
     "url": "https://{}.en.aptoide.com/",
@@ -761,7 +761,7 @@ future once we find a better error detecting method.
 
 As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
 
-```
+```json
   "Crunchyroll": {
     "errorType": "status_code",
     "url": "https://www.crunchyroll.com/user/{}",
@@ -774,7 +774,7 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ## T-MobileSupport
 As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
 
-```
+```json
   "T-MobileSupport": {
     "errorType": "status_code",
     "url": "https://support.t-mobile.com/people/{}",
@@ -788,7 +788,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
 
-```
+```json
   "OpenCollective": {
     "errorType": "status_code",
     "url": "https://opencollective.com/{}",
@@ -802,7 +802,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
 
-```
+```json
   "SegmentFault": {
     "errorType": "status_code",
     "url": "https://segmentfault.com/u/{}",
@@ -816,7 +816,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
 
-```
+```json
   "Viadeo": {
     "errorType": "status_code",
     "url": "http://fr.viadeo.com/en/profile/{}",
@@ -830,7 +830,7 @@ As of 2020-08-24, Viadeo now returns false positives, which was found when runni
 
 As of 2020-09-02, MeetMe returns false positives
 
-```
+```json
   "MeetMe": {
     "errorType": "response_url",
     "errorUrl": "https://www.meetme.com/",
@@ -845,7 +845,7 @@ As of 2020-09-02, MeetMe returns false positives
 
 As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
 
-```
+```json
   "Linkedin": {
     "errorMsg": "could not be found",
     "errorType": "message",
@@ -859,7 +859,7 @@ As of 2020-09-23, Linkedin returns false positives because we are prompted with 
 
 ## tracr.co
 As of 2020-09-23, tracr.co returns false positives because the site seems to be shut down.
-```
+```json
   "tracr.co": {
     "errorMsg": "No search results",
     "errorType": "message",
@@ -875,7 +875,7 @@ As of 2020-09-23, tracr.co returns false positives because the site seems to be 
 
 As of 2020-09-23, Taringa returns false positives.
 
-```
+```json
   "Taringa": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*$",
@@ -888,7 +888,7 @@ As of 2020-09-23, Taringa returns false positives.
 
 ## Photobucket
 As of 2020-10-21, Photobucket return false positives. This was reported in #785.
-```
+```json
   "Photobucket": {
     "errorType": "status_code",
     "url": "https://photobucket.com/user/{}/library",
@@ -901,7 +901,7 @@ As of 2020-10-21, Photobucket return false positives. This was reported in #785.
 ## 4PDA
 As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
 
-```
+```json
   "4pda": {
     "errorMsg": "[1,false,0]",
     "errorType": "message",
@@ -915,7 +915,7 @@ As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
 
 ## PokerStrategy
 As of 2020-10-21, PokerStrategy returns false positives. This was reported in #776.
-```
+```json
   "PokerStrategy": {
     "errorType": "status_code",
     "url": "http://www.pokerstrategy.net/user/{}/profile/",
@@ -932,7 +932,7 @@ Filmogs has closed down.
 > **Filmogs is closed**
 > **31-Aug 2020** - We are preparing the last data export and collection of images. It will be published here by 19-Oct 2020. If you have requested an export of your data it will also be emailed to you by 19-Oct 2020.
 
-```
+```json
   "Filmogs": {
     "errorType": "status_code",
     "url": "https://www.filmo.gs/users/{}",
@@ -946,7 +946,7 @@ Filmogs has closed down.
 As of 2021-01-13, 500px returns false positives. This will hopefully be fixed soon once we add the ability to add different
 request methods.
 
-```
+```json
   "500px": {
     "errorMsg": "No message available",
     "errorType": "message",
@@ -960,7 +960,7 @@ request methods.
 
 ## Badoo
 As of 2021-01-13, Badoo returns false positives
-```
+```json
   "Badoo": {
     "errorType": "status_code",
     "url": "https://badoo.com/profile/{}",
@@ -972,7 +972,7 @@ As of 2021-01-13, Badoo returns false positives
 
 ## Pling
 As of 2021-01-13, Pling returns false positives.
-```
+```json
   "Pling": {
     "errorMsg": "Resource not found",
     "errorType": "message",
@@ -985,7 +985,7 @@ As of 2021-01-13, Pling returns false positives.
 
 ## Realmeye
 As of 2021-01-13, Realmeye returns false positives.
-```
+```json
   "Realmeye": {
     "errorMsg": "Sorry, but we either:",
     "errorType": "message",
@@ -998,7 +998,7 @@ As of 2021-01-13, Realmeye returns false positives.
 
 ## Travellerspoint
 As of 2021-01-13, Travellerspoint returns false positives
-```
+```json
   "Travellerspoint": {
     "errorMsg": "Wooops. Sorry!",
     "errorType": "message",
@@ -1012,7 +1012,7 @@ As of 2021-01-13, Travellerspoint returns false positives
 ## GDProfiles
 
 As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
-```
+```json
   "GDProfiles": {
     "errorType": "status_code",
     "url": "https://gdprofiles.com/{}",
@@ -1025,7 +1025,7 @@ As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on 
 ## AllTrails
 
 As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
-```
+```json
   "AllTrails": {
     "errorMsg": "class=\"home index\"",
     "errorType": "message",
@@ -1040,7 +1040,7 @@ As of 2021-06-27, AllTrails has a chapta which prevents us from checking for use
 
 As of 2021-06-27, there is not way of checking if a username exists on Cent
 
-```
+```json
   "Cent": {
     "errorMsg": "<title>Cent</title>",
     "errorType": "message",
@@ -1069,7 +1069,7 @@ As of 2021-06-27, Anobii returns false positives and there is no stable way of c
 
 As of 2021-06-27, Kali Community requires us to be logged in order to check if a user exists on their forum.
 
-```
+```json
   "Kali community": {
     "errorMsg": "This user has not registered and therefore does not have a profile to view.",
     "errorType": "message",
@@ -1084,7 +1084,7 @@ As of 2021-06-27, Kali Community requires us to be logged in order to check if a
 
 As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
 
-```
+```json
   "NameMC (Minecraft.net skins)": {
     "errorMsg": "Profiles: 0 results",
     "errorType": "message",
@@ -1098,7 +1098,7 @@ As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from c
 ## SteamID
 
 As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
-```
+```json
   "Steamid": {
     "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
     "errorType": "message",
@@ -1113,7 +1113,7 @@ As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from ch
 ## TripAdvisor
 
 As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
-```
+```json
   "TripAdvisor": {
     "errorMsg": "This page is on vacation\u2026",
     "errorType": "message",
@@ -1130,7 +1130,7 @@ As of 2021-06-27, Trip takes too long to return a response. As of now, the reaso
 As of 2021-06-27, there is no way of checking if a username exists on YouTube. We'll have to take a deeper look
 into this as YouTube is must have site in Sherlock.
 
-```
+```json
   "YouTube": {
     "errorMsg": "This page isn't available",
     "errorType": "message",
@@ -1144,7 +1144,7 @@ into this as YouTube is must have site in Sherlock.
 ### House Mixes
 
 As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
-```
+```json
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
@@ -1158,7 +1158,7 @@ As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
 
 ### Quora
 As of 2021-09-04, Quora returns false positives.
-```
+```json
   "Quora": {
     "errorMsg": "Page Not Found",
     "errorType": "message",
@@ -1171,7 +1171,7 @@ As of 2021-09-04, Quora returns false positives.
 
 ### SparkPeople
 As of 2021-09-04, SparkPeople returns false positives.
-```
+```json
   "SparkPeople": {
     "errorMsg": "We couldn't find that user",
     "errorType": "message",
@@ -1184,7 +1184,7 @@ As of 2021-09-04, SparkPeople returns false positives.
 
 ### Cloob
 As of 2021-10-25, Cloob seems to be down and their site is not responding.
-```
+```json
   "Cloob": {
     "errorType": "status_code",
     "url": "https://www.cloob.com/name/{}",
@@ -1196,7 +1196,7 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
 
 ### 1337x
 As of 2021-11-21, 1337x seems to be down causing false positives.
-```
+```json
   "1337x": {
     "errorMsg": "Bad Username",
     "errorType": "message",
@@ -1210,7 +1210,7 @@ As of 2021-11-21, 1337x seems to be down causing false positives.
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
-```
+```json
   "TM-Ladder": {
     "errorMsg": "player unknown or invalid",
     "errorType": "message",
@@ -1223,7 +1223,7 @@ As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 ### plug.dj
 As of 2021-12-02, plug.dj is returning false positives because the service is down.
 
-```
+```json
   "plug.dj": {
     "errorType": "status_code",
     "url": "https://plug.dj/@/{}",
@@ -1236,7 +1236,7 @@ As of 2021-12-02, plug.dj is returning false positives because the service is do
 ## Facenama
 
 As of 2022-02-6, Facenama seems to be down their rebuilding their site
-```
+```json
   "Facenama": {
     "errorType": "response_url",
     "errorUrl": "https://facenama.com/404.html",
@@ -1253,7 +1253,7 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
 
 As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
 
-```
+```json
   "Designspiration": {
     "errorType": "status_code",
     "url": "https://www.designspiration.net/{}/",
@@ -1268,7 +1268,7 @@ As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we'
 As of 2022-05-01, CapFriendly always shows that a username exists even though it doesn't. This
 then of course causes false positives in Sherlock's results.
 
-```
+```json
   "CapFriendly": {
     "errorMsg": "<div class=\"err show p5\">No results found</div>",
     "errorType": "message",
@@ -1283,7 +1283,7 @@ then of course causes false positives in Sherlock's results.
 ## Gab
 
 As of 2022-05-01, Gab returns false positives because they now use CloudFlare
-```
+```json
   "Gab": {
     "errorMsg": "The page you are looking for isn't here.",
     "errorType": "message",
@@ -1297,7 +1297,7 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
 ## Venmo
 
 As of 2022-05-01, Venmo returns false positives
-```
+```json
   "Venmo": {
     "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
     "errorType": "message",
@@ -1312,7 +1312,7 @@ As of 2022-05-01, Venmo returns false positives
 
 As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
 
-```
+```json
   "FanCentro": {
     "errorMsg": "var environment",
     "errorType": "message",
@@ -1325,7 +1325,7 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
 
 ## Codeforces
 As og 2022-05-01, Codeforces returns false positives
-```
+```json
   "Codeforces": {
     "errorType": "response_url",
     "errorUrl": "https://codeforces.com/",
@@ -1338,7 +1338,7 @@ As og 2022-05-01, Codeforces returns false positives
 
 ## Smashcast
 As og 2022-05-01, Smashcast is down
-```
+```json
   "Smashcast": {
     "errorType": "status_code",
     "url": "https://www.smashcast.tv/api/media/live/{}",
@@ -1351,7 +1351,7 @@ As og 2022-05-01, Smashcast is down
 ## Countable
 
 As og 2022-05-01, Countable returns false positives 
-```
+```json
   "Countable": {
     "errorType": "status_code",
     "url": "https://www.countable.us/{}",
@@ -1364,7 +1364,7 @@ As og 2022-05-01, Countable returns false positives
 ## Spotify
 
 As og 2022-05-01, Spotify returns false positives
-```
+```json
   "Spotify": {
     "errorType": "status_code",
     "url": "https://open.spotify.com/user/{}",
@@ -1377,7 +1377,7 @@ As og 2022-05-01, Spotify returns false positives
 ## Steam
 
 As og 2022-05-01, Steam returns false positives
-```
+```json
   "Steam": {
     "errorMsg": "The specified profile could not be found",
     "errorType": "message",
@@ -1391,7 +1391,7 @@ As og 2022-05-01, Steam returns false positives
 ## Raidforums
 
 Raidforums is now run by the FBI
-```
+```json
   "Raidforums": {
     "errorType": "status_code",
     "url": "https://raidforums.com/User-{}",
@@ -1404,7 +1404,7 @@ Raidforums is now run by the FBI
 ## Pinterest
 Removed due to false positive
 
-```
+```json
   "Pinterest": {
     "errorType": "status_code",
     "url": "https://www.pinterest.com/{}/",
@@ -1417,7 +1417,7 @@ Removed due to false positive
 ## PCPartPicker
 As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
 
-```
+```json
   "PCPartPicker": {
     "errorType": "status_code",
     "url": "https://pcpartpicker.com/user/{}",
@@ -1430,7 +1430,7 @@ As of 17-07-2022, PCPartPicker requires us to login in order to check if a user 
 ## Ebay
 As of 17-07-2022, Ebay is very slow to respond. It was also reported that it returned false positives. So this is something that has been investigated further later.
 
-```
+```json
   "eBay.com": {
     "errorMsg": "The User ID you entered was not found. Please check the User ID and try again.",
     "errorType": "message",
@@ -1452,7 +1452,7 @@ As of 17-07-2022, Ebay is very slow to respond. It was also reported that it ret
 ## Ghost
 As of 17-07-2022, Ghost returns false positives
 
-```
+```json
   "Ghost": {
     "errorMsg": "Domain Error",
     "errorType": "message",
@@ -1467,7 +1467,7 @@ As of 17-07-2022, Ghost returns false positives
 As of 25-07-2022, Atom Discussions seems to not work beceause it keeps on
 redirecting to github discussion tab which does not exist and is not specific to a username
 
-```
+```json
   "Atom Discussions": {
     "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
@@ -1481,7 +1481,7 @@ redirecting to github discussion tab which does not exist and is not specific to
 ## Gam1ng
 As of 25-07-2022, Gam1ng has been permanently moved and is no longer functional
 
-```
+```json
   "Gam1ng": {
     "errorType": "status_code",
     "url": "https://gam1ng.com.br/user/{}",
@@ -1494,7 +1494,7 @@ As of 25-07-2022, Gam1ng has been permanently moved and is no longer functional
 ## OGUsers
 As of 25-07-2022, OGUsers is now no longer functional
 
-```
+```json
   "OGUsers": {
     "errorType": "status_code",
     "url": "https://ogusers.com/{}",
@@ -1507,7 +1507,7 @@ As of 25-07-2022, OGUsers is now no longer functional
 ## Otzovik
 As of 25-07-2022, Otzovik is now no longer functional
 
-```
+```json
   "Otzovik": {
     "errorType": "status_code",
     "url": "https://otzovik.com/profile/{}",
@@ -1520,7 +1520,7 @@ As of 25-07-2022, Otzovik is now no longer functional
 ## radio_echo_msk
 As of 25-07-2022, radio_echo_msk is now no longer functional
 
-```
+```json
   "radio_echo_msk": {
     "errorType": "status_code",
     "url": "https://echo.msk.ru/users/{}",
@@ -1531,7 +1531,7 @@ As of 25-07-2022, radio_echo_msk is now no longer functional
 ```
 ## Ello
 As of 06.09.2022, Ello is now behind CloudFlare
-```
+```json
   "Ello": {
     "errorMsg": "We couldn't find the page you're looking for",
     "errorType": "message",
@@ -1544,7 +1544,7 @@ As of 06.09.2022, Ello is now behind CloudFlare
 
 ## GitHub Support Community
 As of 06.09.2022, GitHub Support Community's endpoint just redirects to the main community page
-```
+```json
   "GitHub Support Community": {
     "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
@@ -1558,11 +1558,25 @@ As of 06.09.2022, GitHub Support Community's endpoint just redirects to the main
 ## GuruShots
 As of 08.09.2022, GuruShots returns false positives because it just returns a blank page. Need to look further into it so that it can be added back.
 
-```
+```json
   "GuruShots": {
     "errorType": "status_code",
     "url": "https://gurushots.com/{}/photos",
     "urlMain": "https://gurushots.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Google Developer
+As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not abl to get any proper results
+
+```json
+  "Google Developer": {
+    "errorMsg": "Sorry, the profile was not found.",
+    "errorType": "message",
+    "url": "https://g.dev/{}",
+    "urlMain": "https://g.dev/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
