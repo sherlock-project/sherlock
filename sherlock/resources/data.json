@@ -1488,13 +1488,6 @@
     "username_claimed": "asoluinostrisca",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Periscope": {
-    "errorType": "status_code",
-    "url": "https://www.periscope.tv/{}/",
-    "urlMain": "https://www.periscope.tv/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Pinkbike": {
     "errorType": "status_code",
     "url": "https://www.pinkbike.com/u/{}/",
