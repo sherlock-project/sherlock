@@ -551,7 +551,7 @@ def main():
     parser.add_argument("username",
                         nargs="+", metavar="USERNAMES",
                         action="store",
-                        help="One or more usernames to check with social networks."
+                        help="One or more usernames to check with social networks. Check similar usernames using {%%} (replace to '_', '-', '.')."
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
