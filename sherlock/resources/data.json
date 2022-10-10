@@ -851,14 +851,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Google Developer": {
-    "errorMsg": "Sorry, the profile was not found.",
-    "errorType": "message",
-    "url": "https://g.dev/{}",
-    "urlMain": "https://g.dev/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Google Play": {
     "errorMsg": "the requested URL was not found on this server",
     "errorType": "message",
