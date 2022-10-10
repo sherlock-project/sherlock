@@ -5,4 +5,5 @@ tests/
 *.txt
 !/requirements.txt
 venv/
+dist/
 

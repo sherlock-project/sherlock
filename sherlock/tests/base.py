@@ -5,12 +5,12 @@ This module contains various utilities for running tests.
 import os
 import os.path
 import unittest
-import sherlock
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotify
-from sites  import SitesInformation
 import warnings
+
+from sherlock import sherlock
+from sherlock.result import QueryStatus
+from sherlock.notify import QueryNotify
+from sherlock.sites import SitesInformation
 
 
 class SherlockBaseTest(unittest.TestCase):
@@ -42,7 +42,7 @@ class SherlockBaseTest(unittest.TestCase):
         self.site_data_all = site_data_all
 
         # Load excluded sites list, if any
-        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
+        excluded_sites_path = os.path.join(os.path.dirname(__file__), ".excluded_sites")
         try:
           with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
             self.excluded_sites = excluded_sites_file.read().splitlines()
