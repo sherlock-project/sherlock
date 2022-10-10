@@ -327,6 +327,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "xgtrq"
   },
+  "CGTrader": {
+    "errorType": "message",
+    "errorMsg": "3D models for CG digital design and artwork",
+    "url": "https://www.cgtrader.com/{}",
+    "urlMain": "https://www.cgtrader.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "CNET": {
     "errorType": "status_code",
     "url": "https://www.cnet.com/profiles/{}/",
