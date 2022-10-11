@@ -2,7 +2,10 @@
 name = "sherlock"
 version = "0.14.2"
 description = ""
-authors = ["Rinat Sabitov <rinat.sabitov@gmail.com>"]
+authors = [
+    "Siddharth Dushantha", 
+    "Christopher Kent Hoadley"
+]
 readme = "README.md"
 
 packages = [
