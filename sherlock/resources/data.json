@@ -2723,6 +2723,14 @@
     "username_claimed": "Milan",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "solo.to": {
+    "errorType": "status_code",
+    "regexCheck": "^[0-9a-z\.\-\_]{1,20}+$",
+    "url": "https://solo.to/{}",
+    "urlMain": "https://solo.to/",
+    "username_claimed": "branch",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "spletnik": {
     "errorType": "status_code",
     "url": "https://spletnik.ru/user/{}",
