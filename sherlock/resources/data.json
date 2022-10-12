@@ -2067,6 +2067,18 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Venmo": {
+    "errorType": "message",
+    "errorMsg": [
+        "Venmo | Page Not Found"
+    ],
+    "url": "https://account.venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "urlProbe": "https://52.207.92.128:443/u/{}",
+    "headers": {"Host":"account.venmo.com"},
+    "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Vero": {
     "errorType": "status_code",
     "request_method": "GET",
