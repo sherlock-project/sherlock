@@ -1129,6 +1129,16 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "urlProbe": "https://analytics.kooapp.com/profile/{}",
+    "headers": {"Host":"www.kooapp.com"},
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Kongregate": {
     "errorMsg": "Sorry, no account with that name was found.",
     "errorType": "message",
