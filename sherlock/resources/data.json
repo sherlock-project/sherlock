@@ -1403,6 +1403,14 @@
     "username_claimed": "ok",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Old School RuneScape": {
+    "errorType": "status_code",
+    "url": "https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1={}",
+    "urlMain": "https://secure.runescape.com/",
+    "urlProbe": "https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player={}",
+    "username_claimed": "zezima",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "OnlyFans": {
     "errorType": "status_code",
     "isNSFW": true,
