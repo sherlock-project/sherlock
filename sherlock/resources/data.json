@@ -2315,6 +2315,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "chaos.social": {
     "errorType": "status_code",
     "url": "https://chaos.social/@{}",
