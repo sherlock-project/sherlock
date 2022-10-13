@@ -1390,7 +1390,7 @@ As og 2022-05-01, Steam returns false positives
 
 ## Raidforums
 
-Raidforums is now run by the FBI
+Raidforums is [now run by the FBI](https://twitter.com/janomine/status/1499453777648234501?s=21)
 ```json
   "Raidforums": {
     "errorType": "status_code",
