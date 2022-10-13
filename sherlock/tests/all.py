@@ -2,8 +2,12 @@
 
 This module contains various tests.
 """
-from tests.base import SherlockBaseTest
-import unittest
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from .base import SherlockBaseTest
 
 
 class SherlockDetectTests(SherlockBaseTest):

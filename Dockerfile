@@ -1,14 +1,10 @@
 FROM python:3.7-slim-bullseye as build
-WORKDIR /wheels
 
-RUN apt-get update && apt-get install -y build-essential
-
-COPY requirements.txt /opt/sherlock/
-RUN pip3 wheel -r /opt/sherlock/requirements.txt
-
+RUN pip3 install poetry
+COPY . .
+RUN poetry build
 
 FROM python:3.7-slim-bullseye
-WORKDIR /opt/sherlock
 
 ARG VCS_REF
 ARG VCS_URL="https://github.com/sherlock-project/sherlock"
@@ -16,12 +12,7 @@ ARG VCS_URL="https://github.com/sherlock-project/sherlock"
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url=$VCS_URL
 
-COPY --from=build /wheels /wheels
-COPY . /opt/sherlock/
+COPY --from=build dist/*.whl dist/
+RUN pip3 install dist/*.whl && rm -rf dist
 
-RUN pip3 install --no-cache-dir -r requirements.txt -f /wheels \
-  && rm -rf /wheels
-
-WORKDIR /opt/sherlock/sherlock
-
-ENTRYPOINT ["python", "sherlock.py"]
+ENTRYPOINT ["sherlock"]

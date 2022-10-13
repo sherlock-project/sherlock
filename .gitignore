@@ -33,3 +33,6 @@ tests/.excluded_sites
 
 # Vim swap files
 *.swp
+
+# Build results
+dist

@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "sherlock"
+version = "0.14.2"
+description = ""
+authors = [
+    "Siddharth Dushantha", 
+    "Christopher Kent Hoadley"
+]
+readme = "README.md"
+
+packages = [
+    { include = 'sherlock/*.py', from='.'},
+    { include = 'sherlock/resources/*.json', from='.'},
+]
+
+[tool.poetry.scripts]
+sherlock = 'sherlock.sherlock:main'
+
+[tool.poetry.dependencies]
+python = "^3.7.1|^3.8|^3.9|^3.10"
+certifi = ">=2019.6.16"
+colorama = ">=0.4.1"
+PySocks = ">=1.7.0"
+requests = ">=2.22.0"
+requests-futures = ">=1.0.0"
+stem = ">=1.8.0"
+torrequest = ">=0.1.0"
+pandas = ">=1.0.0"
+openpyxl = "<=3.0.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sherlock"]
+namespaces = false
