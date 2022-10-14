@@ -2517,14 +2517,6 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "koo": {
-    "errorMsg": "Invalid Profile",
-    "errorType": "message",
-    "url": "https://www.kooapp.com/profile/{}",
-    "urlMain": "https://www.kooapp.com",
-    "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "kofi": {
     "errorType": "response_url",
     "errorUrl": "https://ko-fi.com/art?=redirect",
@@ -2532,6 +2524,14 @@
     "urlMain": "https://ko-fi.com",
     "username_claimed": "yeahkenny",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "kwork": {
     "errorType": "status_code",
