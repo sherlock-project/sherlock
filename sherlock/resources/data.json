@@ -2760,6 +2760,7 @@
   },
   "xHamster": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://xhamster.com/users/{}",
     "urlMain": "https://xhamster.com",
     "username_claimed": "blue",
