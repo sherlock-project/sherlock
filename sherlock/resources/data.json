@@ -2239,6 +2239,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Yande.re": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://yande.re/user/{}",
+    "urlMain": "https://yande.re/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "YandexMusic": {
     "errorType": "status_code",
     "url": "https://music.yandex/users/{}/playlists",
