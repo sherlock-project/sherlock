@@ -2508,12 +2508,13 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "koo": {
-    "errorMsg": "Invalid Profile",
+    "errorMsg": "is available",
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
+    "urlProbe":"https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "noonewouldeverusethis7" 
   },
   "kwork": {
     "errorType": "status_code",
