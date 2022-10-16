@@ -771,8 +771,8 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "GeeksforGeeks": {
-    "errorType": "response_url",
-    "errorUrl": "https://auth.geeksforgeeks.org/?to=https://auth.geeksforgeeks.org/profile.php",
+    "errorMsg": "<title>Login GeeksforGeeks</title>",
+    "errorType": "message",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam",
