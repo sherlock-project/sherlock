@@ -190,8 +190,8 @@
   },
   "BOOTH": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://booth.pm/",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.booth.pm/",
     "urlMain": "https://booth.pm/",
     "username_claimed": "blue",
@@ -335,8 +335,8 @@
     "username_unclaimed": "xgtrq"
   },
   "CGTrader": {
-    "errorType": "message",
     "errorMsg": "3D models for CG digital design and artwork",
+    "errorType": "message",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
     "username_claimed": "blue",
@@ -358,8 +358,8 @@
   },
   "Carbonmade": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.carbonmade.com",
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny",
@@ -793,6 +793,13 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "Gamespot": {
+    "errorType": "status_code",
+    "url": "https://www.gamespot.com/profile/{}/",
+    "urlMain": "https://www.gamespot.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "GeeksforGeeks": {
     "errorMsg": "<title>Login GeeksforGeeks</title>",
     "errorType": "message",
@@ -800,13 +807,6 @@
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Gamespot": {
-    "errorType": "status_code",
-    "url": "https://www.gamespot.com/profile/{}/",
-    "urlMain": "https://www.gamespot.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis"
   },
   "Genius (Artists)": {
     "errorType": "status_code",
@@ -1403,6 +1403,13 @@
     "urlMain": "https://ninjakiwi.com/",
     "username_claimed": "Kyruko",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "NitroType": {
+    "errorType": "response_url",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "jianclash",
+    "username_unclaimed": "noonewouldeverusethis77"
   },
   "NotABug.org": {
     "errorType": "status_code",
@@ -2353,13 +2360,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
-  "ebio.gg": {
-    "errorType": "status_code",
-    "url": "https://ebio.gg/{}",
-    "urlMain": "https:/ebio.gg",
-    "username_claimed": "dev",
-    "username_unclaimed": "noonewouldeverusethis"
-  },
   "chaos.social": {
     "errorType": "status_code",
     "url": "https://chaos.social/@{}",
@@ -2415,6 +2415,13 @@
     "url": "https://egpu.io/forums/profile/{}/",
     "urlMain": "https://egpu.io/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev",
     "username_unclaimed": "noonewouldeverusethis"
   },
   "eintracht": {
@@ -2557,9 +2564,9 @@
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
-    "urlProbe":"https://www.kooapp.com/apiV1/users/handle/{}/valid",
+    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7" 
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "kwork": {
     "errorType": "status_code",
