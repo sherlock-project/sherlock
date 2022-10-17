@@ -190,8 +190,8 @@
   },
   "BOOTH": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://booth.pm/",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.booth.pm/",
     "urlMain": "https://booth.pm/",
     "username_claimed": "blue",
@@ -358,8 +358,8 @@
   },
   "Carbonmade": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.carbonmade.com",
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny",
@@ -2452,6 +2452,15 @@
     "url": "https://www.forumhouse.ru/members/?username={}",
     "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "freecodecamp": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "url": "https://www.freecodecamp.org/{}",
+    "urlMain": "https://www.freecodecamp.org/",
+    "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
+    "username_claimed": "naveennamani",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "furaffinity": {
