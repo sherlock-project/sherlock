@@ -532,14 +532,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "YouTube": {
-    "errorMsg": "This page isn't available",
-    "errorType": "message",
-    "url": "https://www.youtube.com/{}",
-    "urlMain": "https://www.youtube.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
