@@ -103,6 +103,13 @@
     "username_claimed": "jason",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "Aparat": {
+    "errorType" : "status_code",
+    "url" : "https://www.aparat.com/{}",
+    "urlMain" : "https//www.aparat.com",
+    "username_claimed" : "m081n",
+    "username_unclaimed" : "mamehayemarmari"
+  },
   "Archive of Our Own": {
     "errorMsg": "Sorry, could not find this user.",
     "errorType": "message",
@@ -1004,6 +1011,13 @@
     "urlMain": "https://hashnode.com",
     "username_claimed": "blue",
     "username_unclaimed": "noneownsthisusername"
+  },
+  "Holopin":{
+    "errorType": "status_code",
+    "url": "https://www.holopin.io/@{}",
+    "urlMain": "https://www.holopin.io",
+    "username_claimed": "itsdiy0",
+    "username_unclaimed": "mame"
   },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
