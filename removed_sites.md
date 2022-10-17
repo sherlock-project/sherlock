@@ -1125,22 +1125,6 @@ As of 2021-06-27, Trip takes too long to return a response. As of now, the reaso
 
 ```
 
-## YouTube
-
-As of 2021-06-27, there is no way of checking if a username exists on YouTube. We'll have to take a deeper look
-into this as YouTube is must have site in Sherlock.
-
-```json
-  "YouTube": {
-    "errorMsg": "This page isn't available",
-    "errorType": "message",
-    "url": "https://www.youtube.com/{}",
-    "urlMain": "https://www.youtube.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### House Mixes
 
 As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
@@ -1390,7 +1374,7 @@ As og 2022-05-01, Steam returns false positives
 
 ## Raidforums
 
-Raidforums is now run by the FBI
+Raidforums is [now run by the FBI](https://twitter.com/janomine/status/1499453777648234501?s=21)
 ```json
   "Raidforums": {
     "errorType": "status_code",
