@@ -638,6 +638,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Exposure": {
+    "errorType": "status_code",
+    "url": "https://{}.exposure.co/",
+    "urlMain": "https://exposure.co/",
+    "username_claimed": "jonasjacobsson",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "EyeEm": {
     "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
@@ -1913,6 +1920,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Steller": {
+    "errorType": "status_code",
+    "url": "https://stellar.co/{}",
+    "urlMain": "https://stellar.co/",
+    "username_claimed": "karen",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Strava": {
     "errorMsg": "Strava | Run and Cycling Tracking on the Social Network for Athletes",
     "errorType": "message",
@@ -2307,6 +2321,28 @@
     "urlMain": "https://youporn.com",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "Youtube Channel": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube User": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",
@@ -2834,28 +2870,6 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Youtube Channel": {
-    "errorType": "status_code",
-    "errorCode": 404,
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Youtube User": {
-    "errorType": "status_code",
-    "errorCode": 404,
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
