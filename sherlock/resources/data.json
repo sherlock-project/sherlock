@@ -2461,6 +2461,15 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "freecodecamp": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "url": "https://www.freecodecamp.org/{}",
+    "urlMain": "https://www.freecodecamp.org/",
+    "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
+    "username_claimed": "naveennamani",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "furaffinity": {
     "errorMsg": "This user cannot be found.",
     "errorType": "message",
@@ -2832,6 +2841,28 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube Channel": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube User": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
