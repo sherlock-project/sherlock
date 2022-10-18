@@ -541,14 +541,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Quora": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
-    "url": "https://www.quora.com/profile/{}",
-    "urlMain": "https://www.quora.com/",
-    "username_claimed": "Matt-Riggsby",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "SparkPeople": {
     "errorMsg": "We couldn't find that user",
     "errorType": "message",
