@@ -582,6 +582,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "DM::OJ": {
+    "errorMsg": "No such user",
+    "errorType": "message",
+    "url": "https://dmoj.ca/user/{}",
+    "urlMain": "https://dmoj.ca/",
+    "username_claimed": "junferno",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Docker Hub": {
     "errorType": "status_code",
     "url": "https://hub.docker.com/u/{}/",
@@ -1403,6 +1411,13 @@
     "urlMain": "https://ninjakiwi.com/",
     "username_claimed": "Kyruko",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "NitroType": {
+    "errorType": "response_url",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "jianclash",
+    "username_unclaimed": "noonewouldeverusethis77"
   },
   "NotABug.org": {
     "errorType": "status_code",
