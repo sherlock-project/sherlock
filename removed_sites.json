@@ -35,13 +35,6 @@
     "username_claimed": "jenny",
     "username_unclaimed": "xgtrq"
   },
-  "Codementor": {
-    "errorType": "status_code",
-    "url": "https://www.codementor.io/@{}",
-    "urlMain": "https://www.codementor.io/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "EVE Online": {
     "errorType": "response_url",
     "errorUrl": "https://eveonline.com",

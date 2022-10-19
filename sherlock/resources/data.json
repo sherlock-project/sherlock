@@ -2857,5 +2857,14 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Codementor": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "request_method": "GET",
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis78"
   }
 }
