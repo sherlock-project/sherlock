@@ -1094,22 +1094,6 @@ As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from ch
   }
 ```
 
-
-## TripAdvisor
-
-As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
-```json
-  "TripAdvisor": {
-    "errorMsg": "This page is on vacation\u2026",
-    "errorType": "message",
-    "url": "https://tripadvisor.com/members/{}",
-    "urlMain": "https://tripadvisor.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-
-```
-
 ### House Mixes
 
 As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
