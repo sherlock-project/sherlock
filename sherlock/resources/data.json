@@ -2112,7 +2112,7 @@
     ],
     "url": "https://account.venmo.com/u/{}",
     "urlMain": "https://venmo.com/",
-    "urlProbe": "https://52.207.92.128:443/u/{}",
+    "urlProbe": "https://test1.venmo.com/u/{}",
     "headers": {"Host":"account.venmo.com"},
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
@@ -2319,24 +2319,6 @@
     "urlMain": "https://youporn.com",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
-  },
-  "YouTube Channel": {
-    "errorType": "status_code",
-    "request_method": "GET",
-    "urlProbe": "https://invidious.slipfox.xyz/c/{}",
-    "url": "https://youtube.com/c/{}/",
-    "urlMain": "https://www.youtube.com/",
-    "username_claimed": "electroboom",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "YouTube User": {
-    "errorType": "status_code",
-    "request_method": "GET",
-    "urlProbe": "https://invidious.slipfox.xyz/user/{}",
-    "url": "https://youtube.com/user/{}/",
-    "urlMain": "https://www.youtube.com/",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",
