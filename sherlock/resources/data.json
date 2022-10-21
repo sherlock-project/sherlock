@@ -2871,5 +2871,14 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Coders Rank": {
+    "errorType": "message",
+    "errorMsg": "not a registered member",
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+    "url": "https://profile.codersrank.io/user/{}/",
+    "urlMain": "https://codersrank.io/",
+    "username_claimed": "rootkit7628",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
