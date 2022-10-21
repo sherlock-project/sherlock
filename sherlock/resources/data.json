@@ -2659,6 +2659,13 @@
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "MMORPG Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.mmorpg.com/profile/{}",
+    "urlMain": "https://forums.mmorpg.com/",
+    "username_claimed": "goku",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "moikrug": {
     "errorType": "status_code",
     "url": "https://moikrug.ru/{}",
@@ -2678,6 +2685,13 @@
     "url": "https://www.nairaland.com/{}",
     "urlMain": "https://www.nairaland.com/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "NintendoLife": {
+    "errorType": "status_code",
+    "url": "https://www.nintendolife.com/users/{}",
+    "urlMain": "https://www.nintendolife.com/",
+    "username_claimed": "goku",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "nnRU": {
