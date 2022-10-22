@@ -2871,5 +2871,12 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Mydramalist": {
+    "errorType": "status_code",
+    "url": "https://www.mydramalist.com/profile/{}",
+    "urlMain": "https://mydramalist.com",
+    "username_claimed": "elhadidy12398",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
