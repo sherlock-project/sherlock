@@ -190,8 +190,8 @@
   },
   "BOOTH": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://booth.pm/",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.booth.pm/",
     "urlMain": "https://booth.pm/",
     "username_claimed": "blue",
@@ -225,6 +225,13 @@
     "urlMain": "https://bezuzyteczna.pl",
     "username_claimed": "Jackson",
     "username_unclaimed": "ktobysietaknazwalnawb69"
+  },
+  "BiggerPockets": {
+    "errorType": "status_code",
+    "url": "https://www.biggerpockets.com/users/{}",
+    "urlMain": "https://www.biggerpockets.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Bikemap": {
     "errorType": "status_code",
@@ -327,6 +334,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "xgtrq"
   },
+  "CGTrader": {
+    "errorMsg": "3D models for CG digital design and artwork",
+    "errorType": "message",
+    "url": "https://www.cgtrader.com/{}",
+    "urlMain": "https://www.cgtrader.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "CNET": {
     "errorType": "status_code",
     "url": "https://www.cnet.com/profiles/{}/",
@@ -343,8 +358,8 @@
   },
   "Carbonmade": {
     "errorType": "response_url",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
+    "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.carbonmade.com",
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny",
@@ -593,6 +608,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Enjin": {
+    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
+    "errorType": "message",
+    "url": "https://www.enjin.com/profile/{}",
+    "urlMain": "https://www.enjin.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
@@ -776,6 +799,14 @@
     "urlMain": "https://www.gamespot.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
+  },
+  "GeeksforGeeks": {
+    "errorMsg": "<title>Login GeeksforGeeks</title>",
+    "errorType": "message",
+    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "urlMain": "https://www.geeksforgeeks.org/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Genius (Artists)": {
     "errorType": "status_code",
@@ -1739,6 +1770,13 @@
     "username_claimed": "jlund",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Sketchfab": {
+    "errorType": "status_code",
+    "url": "https://sketchfab.com/{}",
+    "urlMain": "https://sketchfab.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Slack": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -2390,6 +2428,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis"
   },
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "eintracht": {
     "errorType": "status_code",
     "url": "https://community.eintracht.de/fans/{}",
@@ -2425,6 +2470,15 @@
     "url": "https://www.forumhouse.ru/members/?username={}",
     "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "freecodecamp": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "url": "https://www.freecodecamp.org/{}",
+    "urlMain": "https://www.freecodecamp.org/",
+    "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
+    "username_claimed": "naveennamani",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "furaffinity": {
@@ -2526,10 +2580,11 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "koo": {
-    "errorMsg": "Invalid Profile",
+    "errorMsg": "is available",
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
+    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -2622,6 +2677,13 @@
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "MMORPG Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.mmorpg.com/profile/{}",
+    "urlMain": "https://forums.mmorpg.com/",
+    "username_claimed": "goku",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "moikrug": {
     "errorType": "status_code",
     "url": "https://moikrug.ru/{}",
@@ -2641,6 +2703,13 @@
     "url": "https://www.nairaland.com/{}",
     "urlMain": "https://www.nairaland.com/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "NintendoLife": {
+    "errorType": "status_code",
+    "url": "https://www.nintendolife.com/users/{}",
+    "urlMain": "https://www.nintendolife.com/",
+    "username_claimed": "goku",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "nnRU": {
@@ -2778,6 +2847,7 @@
   },
   "xHamster": {
     "errorType": "status_code",
+    "isNSFW": true,
     "url": "https://xhamster.com/users/{}",
     "urlMain": "https://xhamster.com",
     "username_claimed": "blue",
@@ -2796,6 +2866,28 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube Channel": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube User": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
