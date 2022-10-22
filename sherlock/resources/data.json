@@ -1144,6 +1144,42 @@
     "username_claimed": "dansbecker",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Kakao Chat": {
+    "errorMsg": "This chatroom is no longer available.",
+    "errorType": "message",
+    "url": "https://open.kakao.com/me/{}",
+    "urlMain": "https://open.kakao.com/",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Kakao Story Account": {
+    "errorMsg": [
+        "\"error\":\"profile_not_found\""
+    ],
+    "errorType": "message",
+    "url": "https://story.kakao.com/{}",
+    "urlMain": "https://story.kakao.com/",
+    "urlProbe": "https://story.kakao.com/a/profiles/{}",
+    "headers": {
+        "X-Requested-With": "XMLHttpRequest"
+	},
+    "username_claimed": "shippingsa",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Kakao Story Channel": {
+    "errorMsg": [
+        "\"error\":\"profile_not_found\""
+    ],
+    "errorType": "message",
+    "url": "https://story.kakao.com/ch/{}",
+    "urlMain": "https://story.kakao.com/",
+    "urlProbe": "https://story.kakao.com/a/profiles/@{}",
+    "headers": {
+        "X-Requested-With": "XMLHttpRequest"
+	},
+    "username_claimed": "dalpangeshop",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Keybase": {
     "errorType": "status_code",
     "url": "https://keybase.io/{}",
