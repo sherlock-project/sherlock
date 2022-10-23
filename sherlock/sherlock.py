@@ -8,6 +8,7 @@ networks.
 """
 
 import csv
+import ipaddress
 import signal
 import pandas as pd
 import os
@@ -18,6 +19,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
 import requests
+import validators
 
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
@@ -566,10 +568,10 @@ def main():
                         help="Include checking of NSFW sites from default list.")
 
     args = parser.parse_args()
-    
+
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
-        
+
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
@@ -586,7 +588,37 @@ def main():
         print(f"A problem occurred while checking for an update: {error}")
 
     # Argument check
-    # TODO regex check on args.proxy
+    if args.proxy is not None:
+        # Validate args.proxy e.g. 'socks5://127.0.0.1:1080'
+
+        # Split and check scheme
+        scheme, address = args.proxy.split('://')
+        if scheme not in ('direct', 'http', 'https', 'socks4', 'socks5', 'quic'):
+            raise Exception('The proxy does not have a valid scheme.')
+
+        if len(address) == 0:
+            raise Exception('No proxy address was given.')
+
+        # Split into address and port. Port is optional.
+        if ':' in address:
+            address, port = address.split(':')
+        else:
+            port = None
+
+        # Address is either an IP address or a domain.
+        if not validators.domain(address):
+            try:
+                ipaddress.ip_address(address)
+            except ValueError:
+                raise Exception('The proxy address is not valid.')
+
+        # Validate port
+        if port is not None:
+            try:
+                port = int(port)
+                assert 0 <= port <= 65535
+            except (ValueError, AssertionError):
+                raise Exception('The proxy has an invalid port.')
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
@@ -746,8 +778,8 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
+
+
             for site in results:
 
                 if response_time_s is None:
@@ -760,11 +792,11 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
+
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+
 
         print()
     query_notify.finish()
