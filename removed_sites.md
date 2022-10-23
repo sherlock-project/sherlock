@@ -1345,19 +1345,6 @@ As og 2022-05-01, Countable returns false positives
   },
 ```
 
-## Spotify
-
-As og 2022-05-01, Spotify returns false positives
-```json
-  "Spotify": {
-    "errorType": "status_code",
-    "url": "https://open.spotify.com/user/{}",
-    "urlMain": "https://open.spotify.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Steam
 
 As og 2022-05-01, Steam returns false positives

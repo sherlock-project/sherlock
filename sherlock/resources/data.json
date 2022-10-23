@@ -2871,5 +2871,15 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Spotify": {
+    "errorType": "status_code",
+    "headers": {
+      "user-agent": "PostmanRuntime/7.29.2"
+    },
+    "url": "https://open.spotify.com/user/{}",
+    "urlMain": "https://open.spotify.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   }
 }
