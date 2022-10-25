@@ -2042,6 +2042,14 @@
     "username_claimed": "ashu",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Tumblr": {
+	"errorMsg": "There's nothing here",
+    "errorType": "message",
+    "url": "https://www.tumblr.com/{}",
+    "urlMain": "https://www.tumblr.com/",
+    "username_claimed": "dingdongyouarewrong",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Twitch": {
     "errorType": "status_code",
     "url": "https://www.twitch.tv/{}",
