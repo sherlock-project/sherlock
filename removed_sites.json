@@ -3,7 +3,7 @@
     "errorType": "status_code",
     "url": "https://forums.adobe.com/people/{}",
     "urlMain": "https://forums.adobe.com/",
-    "username_claimed": "jack",
+    "username_claimed": "louis jordon"
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "AngelList": {
@@ -155,7 +155,7 @@
     "errorType": "status_code",
     "url": "https://www.stream.me/{}",
     "urlMain": "https://www.stream.me/",
-    "username_claimed": "blue",
+    "username_claimed": "louis jordon"
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Teknik": {
@@ -271,7 +271,7 @@
     "errorType": "message",
     "url": "https://coderwall.com/{}",
     "urlMain": "https://coderwall.com/",
-    "username_claimed": "jenny",
+    "username_claimed": "sabrina"
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "TamTam": {
@@ -280,7 +280,7 @@
     "url": "https://tamtam.chat/{}",
     "urlMain": "https://tamtam.chat/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_unclaimed": "
   },
   "Zomato": {
     "errorType": "status_code",
@@ -319,7 +319,7 @@
     "errorType": "message",
     "url": "https://www.paypal.com/paypalme/{}",
     "headers": {
-      "User-Agent": ""
+      "User-Agent": ""louis jordon""
     },
     "urlMain": "https://www.paypal.me/",
     "username_claimed": "blue",
