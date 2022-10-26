@@ -700,7 +700,7 @@ If an alternative way to check for usernames is found then it will added.
 ```
 
 ## YandexCollection
-As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us from checking for usernames
+As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents us from checking for usernames
 ```json
   "YandexCollection": {
     "errorType": "status_code",
@@ -1024,7 +1024,7 @@ As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on 
 
 ## AllTrails
 
-As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
+As of 2021-06-27, AllTrails has a captcha which prevents us from checking for usernames on the site.
 ```json
   "AllTrails": {
     "errorMsg": "class=\"home index\"",
@@ -1082,7 +1082,7 @@ As of 2021-06-27, Kali Community requires us to be logged in order to check if a
 
 ## NameMC
 
-As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, NameMC uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
 
 ```json
   "NameMC (Minecraft.net skins)": {
@@ -1097,7 +1097,7 @@ As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from c
 
 ## SteamID
 
-As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, Steam uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
 ```json
   "Steamid": {
     "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
