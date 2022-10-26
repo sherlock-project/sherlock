@@ -1005,6 +1005,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noneownsthisusername"
   },
+  "Holopin": {
+    "errorType": "status_code",
+    "url": "https://www.holopin.io/@{}",
+    "urlMain": "https://www.holopin.io",
+    "username_claimed": "cfundr",
+    "username_unclaimed": "noonewillusethisever"
+  },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
     "errorType": "message",
