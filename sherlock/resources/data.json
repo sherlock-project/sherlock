@@ -334,6 +334,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "xgtrq"
   },
+  "Canva": {
+    "errorType": "status_code",
+    "url": "https://www.canva.com/p/{}",
+    "urlMain": "https://www.canva.com/",
+    "username_claimed": "quixoticlittles",
+    "username_unclaimed": "rskbansal4783748"
+  },
   "CGTrader": {
     "errorMsg": "3D models for CG digital design and artwork",
     "errorType": "message",
