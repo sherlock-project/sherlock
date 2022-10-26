@@ -27,14 +27,6 @@
     "url": "http://blackplanet.com/{}",
     "urlMain": "http://blackplanet.com/"
   },
-  "Canva": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.canva.com/{}",
-    "url": "https://www.canva.com/{}",
-    "urlMain": "https://www.canva.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "xgtrq"
-  },
   "Codementor": {
     "errorType": "status_code",
     "url": "https://www.codementor.io/@{}",
