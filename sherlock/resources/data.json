@@ -297,6 +297,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "boingboing.net": {
+    "errorType": "status_code",
+    "url": "https://boingboing.net/author/{}",
+    "urlMain": "https://boingboing.net/",
+    "username_claimed": "jennifersandlin",
+    "username_unclaimed": "rskbansal386483"
+  },
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
