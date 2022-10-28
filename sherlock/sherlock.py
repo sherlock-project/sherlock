@@ -27,6 +27,8 @@ from notify import QueryNotifyPrint
 from sites import SitesInformation
 from colorama import init
 
+import json
+
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.2"
 
@@ -162,7 +164,7 @@ def MultipleUsernames(username):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=60):
+             proxy=None, timeout=60, list_sites=False):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -179,6 +181,7 @@ def sherlock(username, site_data, query_notify,
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
+    list_sites             -- Outputs a list of supported sites.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -524,6 +527,10 @@ def main():
                         dest="site_list", default=None,
                         help="Limit analysis to just the listed sites. Add multiple options to specify more than one site."
                         )
+    parser.add_argument("--list_sites",
+                        action="store_true", dest="list_sites", default=False,
+                        help="Outputs a list of supported sites."
+                        )
     parser.add_argument("--proxy", "-p", metavar="PROXY_URL",
                         action="store", dest="proxy", default=None,
                         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
@@ -566,10 +573,10 @@ def main():
                         help="Include checking of NSFW sites from default list.")
 
     args = parser.parse_args()
-    
+
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
-        
+
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
@@ -589,6 +596,18 @@ def main():
     # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
+
+    # List available websites
+    if(args.list_sites):
+        dataurl = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
+        res = json.loads(requests.get(dataurl).text)
+        sites = [i for i in res if not('isNSFW' in res[i].keys())]
+        nsfwsites = [i for i in res if('isNSFW' in res[i].keys())]
+        print("Listing available websites: ")
+        print(", ".join(sites))
+        print("\nNSFW sites: ", end='')
+        print(", ".join(nsfwsites))
+        sys.exit(0)
 
     # Make prompts
     if args.proxy is not None:
@@ -746,8 +765,8 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
+
+
             for site in results:
 
                 if response_time_s is None:
@@ -760,11 +779,11 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
+
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+
 
         print()
     query_notify.finish()
