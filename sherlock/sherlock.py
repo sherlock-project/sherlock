@@ -580,7 +580,7 @@ def main():
         if not os.path.isabs(user_file_name):
             user_file_name = os.path.join(os.getcwd(), user_file_name)
         with open(user_file_name, 'r') as users_file:
-            user_list = [line.split(' ')[0].strip() for line in users_file.readlines()]
+            user_list = [line.strip() for line in users_file.readlines()]
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
