@@ -2747,6 +2747,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "poly.pizza" {
+    "errorType": "status_code",
+    "url": "https://poly.pizza/u/{}",
+    "regexCheck": "^[_A-Za-z0-9]{3,20}$",
+    "urlMain": "https://poly.pizza",
+    "username_claimed": "jeremy",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "pr0gramm": {
     "errorType": "status_code",
     "url": "https://pr0gramm.com/user/{}",
