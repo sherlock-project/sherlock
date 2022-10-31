@@ -1275,6 +1275,13 @@
     "username_claimed": "mapify",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Matchmaticians": {
+    "errorType": "status_code",
+    "url": "https://matchmaticians.com/users/{}",
+    "urlMain": "https://matchmaticians.com/",
+    "username_claimed": "3sehpu",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Medium": {
     "errorMsg": "<body",
     "errorType": "message",
