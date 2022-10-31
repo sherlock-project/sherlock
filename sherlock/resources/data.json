@@ -14,6 +14,14 @@
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Holopin": {
+    "errorMsg": "Not found",
+    "errorType": "message",
+    "url": "https://holopin.io/@{}",
+    "urlMain": "https://holopin.io",
+    "username_claimed": "red",
+    "username_unclaimed": "blue"
+  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
