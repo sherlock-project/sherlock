@@ -2850,7 +2850,7 @@
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Youtube Channel": {
+  "YouTube Channel": {
     "errorType": "status_code",
     "errorCode": 404,
     "headers": {
@@ -2861,13 +2861,24 @@
     "username_claimed": "mkbhd",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Youtube User": {
+  "YouTube User": {
     "errorType": "status_code",
     "errorCode": 404,
     "headers": {
       "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
     },
     "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+  "YouTube Handle": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
