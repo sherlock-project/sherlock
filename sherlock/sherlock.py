@@ -14,6 +14,7 @@ import os
 import platform
 import re
 import sys
+from gui import run_gui
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
@@ -519,6 +520,10 @@ def main():
                         action="store_true", dest="xlsx", default=False,
                         help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
                         )
+    parser.add_argument("--gui",
+                        action="store_true", dest="gui", default=False,
+                        help="Show results in GUI."
+                        )
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
@@ -764,6 +769,24 @@ def main():
             DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
+        if args.gui:
+            data=[]
+            data.append([
+                "USERNAME", 
+                "SITE", 
+                "URL_MAIN", 
+                "URL_USER", 
+                "EXISTS", 
+                "HTTP_STATUS"])
+            for site in results:
+                data.append([
+                    username, 
+                    site, 
+                    results[site]['url_main'], 
+                    results[site]['url_user'], 
+                    results[site]["status"].status, 
+                    results[site]["http_status"]])
+            run_gui(data)
                                     
 
         print()
