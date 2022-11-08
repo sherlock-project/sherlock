@@ -7,25 +7,27 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
+import re
+import os
 import csv
+import sys
 import signal
 import pandas as pd
-import os
-import platform
-import re
-import sys
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from time import monotonic
-
 import requests
+import platform
 
-from requests_futures.sessions import FuturesSession
-from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotifyPrint
-from sites import SitesInformation
+from time import monotonic
+from argparse import (
+    ArgumentParser,
+    RawDescriptionHelpFormatter
+)
+
 from colorama import init
+from torrequest import TorRequest
+from .sites import SitesInformation
+from .notify import QueryNotifyPrint
+from .result import QueryStatus, QueryResult
+from requests_futures.sessions import FuturesSession
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.2"
