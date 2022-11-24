@@ -2871,5 +2871,12 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "wykop.pl": {
+    "errorType": "status_code",
+    "url": "https://www.wykop.pl/ludzie/{}",
+    "urlMain": "https://wykop.pl",
+    "username_claimed": "janusz-nowak",
+    "username_unclaimed": "kto-by-sie-tak-nazwal-69"
   }
 }
