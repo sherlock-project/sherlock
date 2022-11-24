@@ -914,6 +914,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Gtahub": {
+    "errorType": "status_code",
+    "url": "https://gtahub.gg/user/{}",
+    "urlMain": "https://gtahub.gg/user/",
+    "username_claimed": "craciu25yt",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Gumroad": {
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
@@ -1259,6 +1266,13 @@
     "username_claimed": "lottiefiles",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "MMORPG Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.mmorpg.com/profile/{}",
+    "urlMain": "https://forums.mmorpg.com/",
+    "username_claimed": "goku",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Mapify": {
     "errorType": "response_url",
     "errorUrl": "https://mapify.travel/{}",
@@ -1404,6 +1418,13 @@
     "username_claimed": "Kyruko",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "NintendoLife": {
+    "errorType": "status_code",
+    "url": "https://www.nintendolife.com/users/{}",
+    "urlMain": "https://www.nintendolife.com/",
+    "username_claimed": "goku",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "NotABug.org": {
     "errorType": "status_code",
     "url": "https://notabug.org/{}",
@@ -1538,6 +1559,14 @@
     "url": "https://play.google.com/store/apps/developer?id={}",
     "urlMain": "https://play.google.com/store",
     "username_claimed": "Facebook",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "PluginsMC": {
+    "errorType": "response_url",
+    "errorUrl": "https://pluginsmc.de/profile/&error=not_exist/",
+    "url": "https://pluginsmc.de/profile/{}",
+    "urlMain": "https://pluginsmc.de",
+    "username_claimed": "craciu25yt",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Pokemon Showdown": {
@@ -1832,6 +1861,20 @@
     "username_claimed": "teamsnapchat",
     "username_unclaimed": "revedluowenoon"
   },
+  "Songoda": {
+    "errorType": "status_code",
+    "url": "https://marketplace.songoda.com/profile/{}",
+    "urlMain": "https://marketplace.songoda.com/",
+    "username_claimed": "Annie",
+    "username_unclaimed": "craciu25yt"
+  },
+  "Songoda Team": {
+    "errorType": "status_code",
+    "url": "https://marketplace.songoda.com/teams/{}",
+    "urlMain": "https://marketplace.songoda.com/",
+    "username_claimed": "Songoda",
+    "username_unclaimed": "craciu25yt"
+  },
   "SoundCloud": {
     "errorType": "status_code",
     "url": "https://soundcloud.com/{}",
@@ -1875,6 +1918,13 @@
     "urlMain": "https://splits.io",
     "username_claimed": "cambosteve",
     "username_unclaimed": "noonewould"
+  },
+  "Sponsorblock": {
+    "errorType": "status_code",
+    "url": "https://sb.ltn.fi/username/{}",
+    "urlMain": "https://sb.ltn.fi/username/",
+    "username_claimed": "craciu25_YT",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Sporcle": {
     "errorType": "status_code",
@@ -2308,6 +2358,28 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
   },
+  "Youtube Channel": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Youtube User": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Zhihu": {
     "errorMsg": "404",
     "errorType": "message",
@@ -2659,13 +2731,6 @@
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "MMORPG Forum": {
-    "errorType": "status_code",
-    "url": "https://forums.mmorpg.com/profile/{}",
-    "urlMain": "https://forums.mmorpg.com/",
-    "username_claimed": "goku",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "moikrug": {
     "errorType": "status_code",
     "url": "https://moikrug.ru/{}",
@@ -2685,13 +2750,6 @@
     "url": "https://www.nairaland.com/{}",
     "urlMain": "https://www.nairaland.com/",
     "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "NintendoLife": {
-    "errorType": "status_code",
-    "url": "https://www.nintendolife.com/users/{}",
-    "urlMain": "https://www.nintendolife.com/",
-    "username_claimed": "goku",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "nnRU": {
@@ -2848,28 +2906,6 @@
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Youtube Channel": {
-    "errorType": "status_code",
-    "errorCode": 404,
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Youtube User": {
-    "errorType": "status_code",
-    "errorCode": 404,
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
