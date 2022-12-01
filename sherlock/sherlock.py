@@ -679,7 +679,6 @@ def main():
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         elif not args.no_txt:
             result_file = f"{username}.txt"
-
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:
