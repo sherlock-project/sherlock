@@ -2850,13 +2850,6 @@
     "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "og.exchange": {
-    "errorType": "status_code",
-    "url": "https://og.exchange/{}",
-    "urlMain": "https://og.exchange",
-    "username_claimed": "Poseidon",
-    "username_unclaimed": "noonewouldeverusethis"
-   },
   "Youtube Channel": {
     "errorType": "status_code",
     "errorCode": 404,
