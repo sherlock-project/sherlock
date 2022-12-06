@@ -5,6 +5,9 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
+import os, time
+
+start_time = time.time()
 globvar = 0 # global variable to count the number of results.
 
 class QueryNotify:
@@ -220,6 +223,15 @@ class QueryNotifyPrint(QueryNotify):
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
+
+            current_time = time.time() - start_time
+            time_string = f"Time: {current_time:.2f} secs"
+            terminal_width = os.get_terminal_size()[0]
+            num_spaces = 6 # accounts for number of spaces in the output string
+            existing_length = num_spaces + len(self.result.site_name) + len(self.result.site_url_user) # total length of output string
+            string_adjust = terminal_width - existing_length # how many spaces should be in between the time string and the end of the output 
+
+            
             print(Style.BRIGHT + Fore.WHITE + "[" +
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
@@ -227,7 +239,9 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
-                  f"{self.result.site_url_user}")       
+                  f"{self.result.site_url_user}" + 
+                  Fore.YELLOW + 
+                  time_string.rjust(string_adjust, " "))  
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
