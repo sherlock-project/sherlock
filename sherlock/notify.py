@@ -5,10 +5,11 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
-import os, time
+import os, time, sys
 from textblob import TextBlob
 
 start_time = time.time()
+found_sites = []
 globvar = 0 # global variable to count the number of results.
 
 class QueryNotify:
@@ -160,12 +161,19 @@ class QueryNotifyPrint(QueryNotify):
         # An empty line between first line and the result(more clear output)
         print('\r')
 
+        # Checking for typo
         text_blob = TextBlob(message)
         corrected = text_blob.correct()
         if corrected != message:
             print(f"Username autocorrected, please try again with: {corrected}")
-            exit()
-
+            sys.exit(1)
+        
+        # Checking if whole string is not alphanumeric
+        alphanum_len = sum([1 if x.isalnum() else 0 for x in message])
+        if not alphanum_len:
+            print("The username entered does not contain any numbers or letters. Please try again")
+            sys.exit(1)
+            
         return
 
     def finish(self, message="The processing has been finished."):
@@ -238,7 +246,8 @@ class QueryNotifyPrint(QueryNotify):
             existing_length = num_spaces + len(self.result.site_name) + len(self.result.site_url_user) # total length of output string
             string_adjust = terminal_width - existing_length # how many spaces should be in between the time string and the end of the output 
 
-            
+            found_sites.append(self.result.site_name)
+
             print(Style.BRIGHT + Fore.WHITE + "[" +
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
@@ -249,6 +258,7 @@ class QueryNotifyPrint(QueryNotify):
                   f"{self.result.site_url_user}" + 
                   Fore.YELLOW + 
                   time_string.rjust(string_adjust, " "))  
+
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
@@ -298,11 +308,14 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Results:"
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {NumberOfResults}" )
+        # print(Style.BRIGHT + Fore.GREEN + "[" +
+        #       Fore.YELLOW + "*" +
+        #       Fore.GREEN + f"] {title}" +
+        #       Fore.WHITE + f" {NumberOfResults}" )
         
+        # Printing out all results
+        print(f"Results: {', '.join(found_sites)}") 
+
         title = "End"
         
         print('\r') # An empty line between last line of main output and last line(more clear output)
