@@ -68,6 +68,7 @@ class QueryResult():
         self.query_time    = query_time
         self.context       = context
 
+
         return
 
     def __str__(self):

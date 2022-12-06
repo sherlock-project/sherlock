@@ -6,6 +6,7 @@ results of queries.
 from result import QueryStatus
 from colorama import Fore, Style
 import os, time
+from textblob import TextBlob
 
 start_time = time.time()
 globvar = 0 # global variable to count the number of results.
@@ -158,6 +159,12 @@ class QueryNotifyPrint(QueryNotify):
               Fore.GREEN + " on:")
         # An empty line between first line and the result(more clear output)
         print('\r')
+
+        text_blob = TextBlob(message)
+        corrected = text_blob.correct()
+        if corrected != message:
+            print(f"Username autocorrected, please try again with: {corrected}")
+            exit()
 
         return
 
