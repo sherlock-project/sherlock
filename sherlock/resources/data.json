@@ -673,14 +673,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Facebook": {
+  "Facebook Groups": {
     "errorType": "status_code",
     "url": "https://www.facebook.com/groups/{}",
     "urlMain": "https://www.facebook.com/",
     "username_claimed": "happy",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Facebook Groups": {
+  "Facebook": {
     "errorType": "status_code",
     "url": "https://www.facebook.com/{}",
     "urlMain": "https://www.facebook.com/",
