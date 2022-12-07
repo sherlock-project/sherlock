@@ -114,7 +114,8 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False):
+    def __init__(self, result=None, verbose=False, print_all=False, print_time=False, 
+        print_summary=False, check_spelling=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -134,6 +135,9 @@ class QueryNotifyPrint(QueryNotify):
         super().__init__(result)
         self.verbose = verbose
         self.print_all = print_all
+        self.print_time = print_time
+        self.print_summary= print_summary
+        self.check_spelling = check_spelling
 
         return
      
@@ -153,6 +157,16 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Checking username"
 
+        # Spell-checking
+
+        if self.check_spelling:
+            text_blob = TextBlob(message)
+            corrected = text_blob.correct()
+            if corrected != message:
+                print(f"Username did not pass spellcheck, try again with: {corrected}")
+                sys.exit(1)
+
+
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
               Fore.GREEN + f"] {title}" +
@@ -161,18 +175,7 @@ class QueryNotifyPrint(QueryNotify):
         # An empty line between first line and the result(more clear output)
         print('\r')
 
-        # Checking for typo
-        text_blob = TextBlob(message)
-        corrected = text_blob.correct()
-        if corrected != message:
-            print(f"Username autocorrected, please try again with: {corrected}")
-            sys.exit(1)
-        
-        # Checking if whole string is not alphanumeric
-        alphanum_len = sum([1 if x.isalnum() else 0 for x in message])
-        if not alphanum_len:
-            print("The username entered does not contain any numbers or letters. Please try again")
-            sys.exit(1)
+
             
         return
 
@@ -238,26 +241,33 @@ class QueryNotifyPrint(QueryNotify):
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
-
-            current_time = time.time() - start_time
-            time_string = f"Time: {current_time:.2f} secs"
-            terminal_width = os.get_terminal_size()[0]
-            num_spaces = 6 # accounts for number of spaces in the output string
-            existing_length = num_spaces + len(self.result.site_name) + len(self.result.site_url_user) # total length of output string
-            string_adjust = terminal_width - existing_length # how many spaces should be in between the time string and the end of the output 
-
-            found_sites.append(self.result.site_name)
-
+            
+            # Add to list that will be printed at the end 
+            if self.print_summary:
+                found_sites.append(self.result.site_name)
+            
+            # Printing time taken on each line
             print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
-                  Fore.GREEN +
-                  f" {self.result.site_name}: " +
-                  Style.RESET_ALL +
-                  f"{self.result.site_url_user}" + 
-                  Fore.YELLOW + 
-                  time_string.rjust(string_adjust, " "))  
+                    Fore.GREEN + "+" +
+                    Fore.WHITE + "]" +
+                    response_time_text +
+                    Fore.GREEN +
+                    f" {self.result.site_name}: " +
+                    Style.RESET_ALL +
+                    f"{self.result.site_url_user}",
+                    end = "")
+
+            if self.print_time:
+                current_time = time.time() - start_time
+                time_string = f"Time: {current_time:.2f} secs"
+                terminal_width = os.get_terminal_size()[0]
+                num_spaces = 6 # accounts for number of spaces in the output string
+                existing_length = num_spaces + len(self.result.site_name) + len(self.result.site_url_user) # total length of output string
+                string_adjust = terminal_width - existing_length # how many spaces should be in between the time string and the end of the output 
+
+                print(time_string.rjust(string_adjust), end="")
+
+            print()
 
 
         elif result.status == QueryStatus.AVAILABLE:
@@ -308,13 +318,14 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Results:"
 
-        # print(Style.BRIGHT + Fore.GREEN + "[" +
-        #       Fore.YELLOW + "*" +
-        #       Fore.GREEN + f"] {title}" +
-        #       Fore.WHITE + f" {NumberOfResults}" )
-        
-        # Printing out all results
-        print(f"Results: {', '.join(found_sites)}") 
+        if not self.print_summary:
+            print(Style.BRIGHT + Fore.GREEN + "[" +
+                Fore.YELLOW + "*" +
+                Fore.GREEN + f"] {title}" +
+                Fore.WHITE + f" {NumberOfResults}" )
+        else:
+            # Printing out all results
+            print(f"{title} {', '.join(found_sites)}") 
 
         title = "End"
         

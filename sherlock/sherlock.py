@@ -536,13 +536,25 @@ def main():
                         dest="timeout", type=timeout_check, default=60,
                         help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
+    parser.add_argument("--print-time",
+                        action="store_true", dest = "print_time", default=False,
+                        help="Print the total time the query has been running at the end of each successful result."
+                        )
     parser.add_argument("--print-all",
-                        action="store_true", dest="print_all",
+                        action="store_false", dest="print_time",
                         help="Output sites where the username was not found."
                         )
     parser.add_argument("--print-found",
                         action="store_false", dest="print_all", default=False,
                         help="Output sites where the username was found."
+                        )
+    parser.add_argument("--print-summary",
+                        action="store_true", dest = "print_summary", default=False,
+                        help="Print a list of all successful websites at the end of the query."
+                        )
+    parser.add_argument("--spellcheck",
+                        action="store_true", dest = "check_spelling", default=False,
+                        help="Stop query if username does not pass spellcheck."
                         )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
@@ -664,7 +676,9 @@ def main():
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_all=args.print_all)
+                                    print_all=args.print_all,
+                                    print_time=args.print_time,
+                                    check_spelling=args.check_spelling)
 
     # Run report on all specified users.
 
