@@ -550,7 +550,7 @@ def main():
                         )
     parser.add_argument("--print-summary",
                         action="store_true", dest = "print_summary", default=False,
-                        help="Print a list of all successful websites at the end of the query."
+                        help="Print a list of all successful websites at the end of the query, useful when combined with --print-all."
                         )
     parser.add_argument("--spellcheck",
                         action="store_true", dest = "check_spelling", default=False,
