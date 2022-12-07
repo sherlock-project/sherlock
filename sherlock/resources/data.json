@@ -1213,6 +1213,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "LinkedIn": {
+    "errorMsg": "This page doesn't exist",
+    "url": "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com/",
+    "username_claimed": "bob",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Linktree": {
     "errorType": "status_code",
     "url": "https://linktr.ee/{}",
@@ -1455,6 +1462,13 @@
     "url": "https://opensource.com/users/{}",
     "urlMain": "https://opensource.com/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "op.gg": {
+    "errorType": "status_code",
+    "url": "https://www.op.gg/summoners/na/{}",
+    "urlMain": "https://www.op.gg/",
+    "username_claimed": "bob",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Oracle Community": {
@@ -2035,6 +2049,13 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Truth Social": {
+    "errorType": "status_code",
+    "url": "https://truthsocial.com/@{}",
+    "urlMain": "https://truthsocial.com/",
+    "username_claimed": "kanye",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "TryHackMe": {
     "errorType": "status_code",
     "url": "https://tryhackme.com/p/{}",
@@ -2307,6 +2328,13 @@
     "urlMain": "https://youporn.com",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777"
+  },
+  "YTMND": {
+    "errorType": "status_code",
+    "url": "https://ytmnd.com/users/{}",
+    "urlMain": "https://ytmnd.com/",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",
