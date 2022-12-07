@@ -541,7 +541,7 @@ def main():
                         help="Print the total time the query has been running at the end of each successful result."
                         )
     parser.add_argument("--print-all",
-                        action="store_false", dest="print_time",
+                        action="store_true", dest="print_all",
                         help="Output sites where the username was not found."
                         )
     parser.add_argument("--print-found",
