@@ -1565,3 +1565,16 @@ As of 09.10.2022, Google Developer returns false positives. The site is dynamic 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## mastodon.technology
+As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was shut down by the owner](https://ashfurrow.com/blog/mastodon-technology-shutdown/).
+
+```json
+  "mastodon.technology": {
+    "errorType": "status_code",
+    "url": "https://mastodon.technology/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
