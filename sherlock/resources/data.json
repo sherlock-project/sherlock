@@ -1060,7 +1060,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Instagram": {
-    "errorMsg": "Nothing found!",
+    "errorMsg": "meta\":{\"title\":null,",
     "errorType": "message",
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
@@ -1953,7 +1953,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Telegram": {
-    "errorMsg": "<meta property=\"og:description\" content=\"\">",
+    "errorMsg": "<i class=\"tgme_icon_user\"></i>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{5,32}$",
     "url": "https://t.me/{}",
