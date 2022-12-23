@@ -664,7 +664,8 @@ def main():
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_all=args.print_all)
+                                    print_all=args.print_all, 
+                                    browse=args.browse)
 
     # Run report on all specified users.
 
