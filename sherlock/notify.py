@@ -5,6 +5,7 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
+import webbrowser
 globvar = 0 # global variable to count the number of results.
 
 class QueryNotify:
@@ -109,7 +110,7 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False):
+    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -121,6 +122,7 @@ class QueryNotifyPrint(QueryNotify):
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
+        browse                 -- Boolean indicating whether to open found sites in a web browser.
 
         Return Value:
         Nothing.
@@ -129,6 +131,7 @@ class QueryNotifyPrint(QueryNotify):
         super().__init__(result)
         self.verbose = verbose
         self.print_all = print_all
+        self.browse = browse
 
         return
      
@@ -227,7 +230,9 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
-                  f"{self.result.site_url_user}")       
+                  f"{self.result.site_url_user}") 
+            if self.browse:
+                webbrowser.open(self.result.site_url_user,2)
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
