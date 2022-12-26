@@ -2620,13 +2620,6 @@
     "username_claimed": "Gargron",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "mastodon.technology": {
-    "errorType": "status_code",
-    "url": "https://mastodon.technology/@{}",
-    "urlMain": "https://mastodon.xyz/",
-    "username_claimed": "ashfurrow",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "mastodon.xyz": {
     "errorType": "status_code",
     "url": "https://mastodon.xyz/@{}",
