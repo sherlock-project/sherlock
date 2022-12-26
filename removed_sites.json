@@ -683,5 +683,11 @@
     "url": "https://g.dev/{}",
     "urlMain": "https://g.dev/",
     "username_claimed": "blue"
+  },
+  "mastodon.technology": {
+    "errorType": "status_code",
+    "url": "https://mastodon.technology/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow",
   }
 }

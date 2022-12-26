@@ -338,7 +338,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.livelib.ru/) [livelib](https://www.livelib.ru/)
 1. ![](https://www.google.com/s2/favicons?domain=https://mastodon.cloud/) [mastodon.cloud](https://mastodon.cloud/)
 1. ![](https://www.google.com/s2/favicons?domain=https://chaos.social/) [mastodon.social](https://chaos.social/)
-1. ![](https://www.google.com/s2/favicons?domain=https://mastodon.xyz/) [mastodon.technology](https://mastodon.xyz/)
 1. ![](https://www.google.com/s2/favicons?domain=https://mastodon.xyz/) [mastodon.xyz](https://mastodon.xyz/)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.mercadolivre.com.br) [mercadolivre](https://www.mercadolivre.com.br)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.metacritic.com/) [metacritic](https://www.metacritic.com/)
