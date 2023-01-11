@@ -1301,8 +1301,9 @@
   },
   "Monkeytype": {
     "errorType": "status_code",
-    "url": "https://api.monkeytype.com/users/{}/profile",
+    "url": "https://monkeytype.com/profile/{}",
     "urlMain": "https://monkeytype.com/",
+    "urlProbe": "https://api.monkeytype.com/users/{}/profile",
     "username_claimed": "Lost_Arrow",
     "username_unclaimed": "noonewouldeverusethis7"
   },
