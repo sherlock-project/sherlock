@@ -2806,6 +2806,14 @@
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "tuna": {
+    "errorType": "status_code",
+    "errorCode": 410,
+    "url": "https://tuna.voicemod.net/user/{}",
+    "urlMain": "https://tuna.voicemod.net/",
+    "username_claimed": "tuna",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
