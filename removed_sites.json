@@ -688,7 +688,7 @@
     "errorType": "status_code",
     "url": "https://mastodon.technology/@{}",
     "urlMain": "https://mastodon.xyz/",
-    "username_claimed": "ashfurrow",
+    "username_claimed": "ashfurrow"
   },
   "Arduino": {
     "errorMsg":"<title>Arduino Cloud</title>",
