@@ -2568,7 +2568,6 @@
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
-    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
