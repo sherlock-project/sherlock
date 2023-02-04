@@ -41,6 +41,7 @@ class SiteInformation:
                                          be needed by the detection method,
                                          but it is only recorded in this
                                          object for future use.
+        is_nsfw                -- Boolean indicating if site is Not Safe For Work.
 
         Return Value:
         Nothing.

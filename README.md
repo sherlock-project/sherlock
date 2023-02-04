@@ -133,9 +133,11 @@ Use the following command to access the saved results:
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
+<!-- The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
 present working directory and to mount it at `/opt/sherlock/results` on the docker container.
-The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
+The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result. -->
+
+Docker is instructed to create (or use) the folder `results` in the current working directory and to mount it at `/opt/sherlock/results` on the docker container by using the ```-v "$PWD/results:/opt/sherlock/results"``` options. `Sherlock` is instructed to export the result using the `-o /opt/sherlock/results/text.txt` option.
 
 Or you can use "Docker Hub" to run `sherlock`:
 ```
