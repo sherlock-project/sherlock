@@ -1608,3 +1608,17 @@ As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## Facebook
+As of 04.02.2023, Facebook returns false positives because we get prompted with the login screen to view the data
+```json
+"Facebook": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
+    "url": "https://www.facebook.com/{}",
+    "urlMain": "https://www.facebook.com/",
+    "urlProbe": "https://www.facebook.com/{}/videos/",
+    "username_claimed": "hackerman",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```

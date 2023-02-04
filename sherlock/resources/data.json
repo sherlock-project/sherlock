@@ -644,15 +644,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
-  "Facebook": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
-    "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/",
-    "urlProbe": "https://www.facebook.com/{}/videos/",
-    "username_claimed": "hackerman",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Fameswap": {
     "errorType": "status_code",
     "url": "https://fameswap.com/user/{}",
