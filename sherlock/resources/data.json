@@ -1914,7 +1914,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Strava": {
-    "errorMsg": "Strava | Run and Cycling Tracking on the Social Network for Athletes",
+    "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
@@ -2562,7 +2562,7 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "koo": {
-    "errorMsg": "is available",
+    "errorMsg": "This profile does not exist",
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
@@ -2618,6 +2618,13 @@
     "url": "https://mastodon.social/@{}",
     "urlMain": "https://chaos.social/",
     "username_claimed": "Gargron",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "mastodon.technology": {
+    "errorType": "status_code",
+    "url": "https://mastodon.technology/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "mastodon.xyz": {
