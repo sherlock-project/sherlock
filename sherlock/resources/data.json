@@ -1290,6 +1290,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Monkeytype": {
+    "errorType": "status_code",
+    "url": "https://monkeytype.com/profile/{}",
+    "urlMain": "https://monkeytype.com/",
+    "urlProbe": "https://api.monkeytype.com/users/{}/profile",
+    "username_claimed": "Lost_Arrow",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Motorradfrage": {
     "errorType": "status_code",
     "url": "https://www.motorradfrage.net/nutzer/{}",
