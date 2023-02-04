@@ -2872,5 +2872,12 @@
     "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
-  }
+  },
+  "tweakers": {
+    "errorType": "status_code",
+    "url": "https://tweakers.net/gallery/{}",
+    "urlMain": "https://tweakers.net",
+    "username_claimed": "femme",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 }
