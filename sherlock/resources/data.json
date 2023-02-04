@@ -2375,9 +2375,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "dailykos": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "{\"result\":true,\"message\":null}",
     "url": "https://www.dailykos.com/user/{}",
     "urlMain": "https://www.dailykos.com",
+    "urlProbe": "https://www.dailykos.com/signup/check_nickname?nickname={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
