@@ -119,14 +119,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
   },
-  "Arduino": {
-    "errorType": "status_code",
-    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
-    "url": "https://create.arduino.cc/projecthub/{}",
-    "urlMain": "https://www.arduino.cc/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewould"
-  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",

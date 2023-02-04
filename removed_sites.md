@@ -1578,3 +1578,20 @@ As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+
+## Aruino
+As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but takes some time. Will be fixed later
+
+```json
+"Arduino": {
+    "errorMsg":"<title>Arduino Cloud</title>",
+    "errorType": "message",
+    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
+    "url": "https://projecthub.arduino.cc/{}",
+    "urlMain": "https://www.arduino.cc/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould"
+  },
+
+```
