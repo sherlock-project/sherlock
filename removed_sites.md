@@ -1595,3 +1595,16 @@ As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but t
   },
 
 ```
+
+## Zoomit
+As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+```json
+  "zoomit": {
+    "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
+    "errorType": "message",
+    "url": "https://www.zoomit.ir/user/{}",
+    "urlMain": "https://www.zoomit.ir",
+    "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
