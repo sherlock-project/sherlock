@@ -472,6 +472,21 @@ redirecting to skyscanner.com whether the username exists or not.
 
 ```
 
+## boingboing.net
+
+As of 2020-04-02, boingboing.net requires a login to check if a user exits or not.
+
+```
+   "boingboing.net": {
+     "errorType": "status_code",
+     "rank": 5821,
+     "url": "https://bbs.boingboing.net/u/{}",
+     "urlMain": "https://boingboing.net/",
+     "username_claimed": "admin",
+     "username_unclaimed": "noonewouldeverusethis7"
+   },
+```
+
 ## elwoRU
 As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
 downforeveryoneorjustme.com that the website is down.
