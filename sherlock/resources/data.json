@@ -119,14 +119,6 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewould"
   },
-  "Arduino": {
-    "errorType": "status_code",
-    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
-    "url": "https://create.arduino.cc/projecthub/{}",
-    "urlMain": "https://www.arduino.cc/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewould"
-  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -445,6 +437,14 @@
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Codeforces": {
+    "errorType": "status_code",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://codeforces.com/",
+    "urlProbe": "https://codeforces.com/api/user.info?handles={}",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Codepen": {
     "errorType": "status_code",
     "url": "https://codepen.io/{}",
@@ -650,15 +650,6 @@
     "url": "https://f3.cool/{}/",
     "urlMain": "https://f3.cool/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-  "Facebook": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
-    "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/",
-    "urlProbe": "https://www.facebook.com/{}/videos/",
-    "username_claimed": "hackerman",
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Fameswap": {
@@ -1306,6 +1297,14 @@
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+  "Monkeytype": {
+    "errorType": "status_code",
+    "url": "https://monkeytype.com/profile/{}",
+    "urlMain": "https://monkeytype.com/",
+    "urlProbe": "https://api.monkeytype.com/users/{}/profile",
+    "username_claimed": "Lost_Arrow",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Motorradfrage": {
     "errorType": "status_code",
     "url": "https://www.motorradfrage.net/nutzer/{}",
@@ -1928,7 +1927,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "Strava": {
-    "errorMsg": "Strava | Run and Cycling Tracking on the Social Network for Athletes",
+    "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
@@ -2032,8 +2031,7 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "TrashboxRU": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9_-]{3,16}$",
     "url": "https://trashbox.ru/users/{}",
     "urlMain": "https://trashbox.ru/",
@@ -2418,9 +2416,11 @@
     "username_unclaimed": "noonewouldeverusethis7"
   },
   "dailykos": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "{\"result\":true,\"message\":null}",
     "url": "https://www.dailykos.com/user/{}",
     "urlMain": "https://www.dailykos.com",
+    "urlProbe": "https://www.dailykos.com/signup/check_nickname?nickname={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -2605,11 +2605,10 @@
     "username_unclaimed": "noonewouldeverusethis77777"
   },
   "koo": {
-    "errorMsg": "is available",
+    "errorMsg": "This profile does not exist",
     "errorType": "message",
     "url": "https://www.kooapp.com/profile/{}",
     "urlMain": "https://www.kooapp.com",
-    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -2870,13 +2869,7 @@
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak",
     "username_unclaimed": "kto-by-sie-tak-nazwal-69"
-  },
-  "zoomit": {
-    "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
-    "errorType": "message",
-    "url": "https://www.zoomit.ir/user/{}",
-    "urlMain": "https://www.zoomit.ir",
-    "username_claimed": "kossher",
+  };
     "username_unclaimed": "noonewouldeverusethis7"
   }
 }
