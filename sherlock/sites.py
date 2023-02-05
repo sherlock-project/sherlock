@@ -9,7 +9,7 @@ import secrets
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                username_unclaimed, information, is_nsfw):
+                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -164,7 +164,6 @@ class SitesInformation:
                                     site_data[site_name]["urlMain"],
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
-                                    site_data[site_name]["username_unclaimed"],
                                     site_data[site_name],
                                     site_data[site_name].get("isNSFW",False)
 
