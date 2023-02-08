@@ -1609,3 +1609,17 @@ As of 04.02.2023, Facebook returns false positives because we get prompted with 
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
+
+## BinarySearch
+As of 08.02.2023, BinarySearch seems to not be responding at all
+```json
+  "BinarySearch": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
+    "url": "https://binarysearch.io/@/{}",
+    "urlMain": "https://binarysearch.io/",
+    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
+    "username_claimed": "Eyes_Wide_Shut"
+  },
+```
