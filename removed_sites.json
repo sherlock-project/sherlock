@@ -712,5 +712,14 @@
     "urlMain": "https://www.facebook.com/",
     "urlProbe": "https://www.facebook.com/{}/videos/",
     "username_claimed": "hackerman"
+  },
+  "BinarySearch": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
+    "url": "https://binarysearch.io/@/{}",
+    "urlMain": "https://binarysearch.io/",
+    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
+    "username_claimed": "Eyes_Wide_Shut"
   }
 }
