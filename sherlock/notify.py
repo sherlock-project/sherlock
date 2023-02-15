@@ -258,24 +258,12 @@ class QueryNotifyPrint(QueryNotify):
         """
         NumberOfResults = self.countResults() - 1
 
-        title = "Results:"
-
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {NumberOfResults}")
-
-        title = "End"
-
-        # An empty line between last line of main output and last line(more clear output)
-        print('\r')
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "!" +
-              Fore.GREEN + f"] {title}" +
-              Fore.GREEN + ": " +
-              Fore.WHITE + f" {message}")
-
-        return
+              Fore.GREEN + "] Search completed with" +
+              Fore.WHITE + f" {NumberOfResults} " +
+              Fore.GREEN + "results" + Style.RESET_ALL
+              )
 
     def __str__(self):
         """Convert Object To String.
