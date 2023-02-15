@@ -1623,3 +1623,26 @@ As of 08.02.2023, BinarySearch seems to not be responding at all
     "username_claimed": "Eyes_Wide_Shut"
   },
 ```
+## Arduino
+As of 15.02.2023, Arduino returns false positives due to some unstable redirects
+```json
+  "Arduino": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
+    "url": "https://create.arduino.cc/projecthub/{}",
+    "urlMain": "https://www.arduino.cc/",
+    "username_claimed": "blue"
+  },
+```
+## Koo
+As of 15.02.2023, Koo returns false positives
+```json
+  "koo": {
+    "errorMsg": "This profile does not exist",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
+    "username_claimed": "john"
+  }
+```
