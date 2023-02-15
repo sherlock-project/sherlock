@@ -104,13 +104,6 @@
     "urlMain": "https://archive.org",
     "username_claimed": "blue"
   },
-  "Arduino": {
-    "errorType": "status_code",
-    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
-    "url": "https://create.arduino.cc/projecthub/{}",
-    "urlMain": "https://www.arduino.cc/",
-    "username_claimed": "blue"
-  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -567,14 +560,6 @@
     "url": "https://f3.cool/{}/",
     "urlMain": "https://f3.cool/",
     "username_claimed": "blue"
-  },
-  "Facebook": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
-    "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/",
-    "urlProbe": "https://www.facebook.com/{}/videos/",
-    "username_claimed": "hackerman"
   },
   "Fameswap": {
     "errorType": "status_code",
@@ -2238,14 +2223,6 @@
     "urlMain": "https://ko-fi.com",
     "username_claimed": "yeahkenny"
   },
-  "koo": {
-    "errorMsg": "This profile does not exist",
-    "errorType": "message",
-    "url": "https://www.kooapp.com/profile/{}",
-    "urlMain": "https://www.kooapp.com",
-    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
-    "username_claimed": "john"
-  },
   "kwork": {
     "errorType": "status_code",
     "url": "https://kwork.ru/user/{}",
@@ -2480,13 +2457,6 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "zoomit": {
-    "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
-    "errorType": "message",
-    "url": "https://www.zoomit.ir/user/{}",
-    "urlMain": "https://www.zoomit.ir",
-    "username_claimed": "kossher"
   },
   "Youtube Channel": {
     "errorType": "status_code",
