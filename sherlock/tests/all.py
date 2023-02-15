@@ -3,8 +3,8 @@
 This module contains various tests.
 """
 from tests.base import SherlockBaseTest
-import unittest
 import secrets
+
 
 class SherlockDetectTests(SherlockBaseTest):
     def test_detect_true_via_message(self):
@@ -24,13 +24,13 @@ class SherlockDetectTests(SherlockBaseTest):
         site = "AllMyLinks"
         site_data = self.site_data_all[site]
 
-        #Ensure that the site's detection method has not changed.
+        # Ensure that the site's detection method has not changed.
         self.assertEqual("message", site_data["errorType"])
 
         self.username_check([site_data["username_claimed"]],
                             [site],
                             exist_check=True
-                           )
+                            )
 
         return
 
@@ -51,13 +51,13 @@ class SherlockDetectTests(SherlockBaseTest):
         site = "AllMyLinks"
         site_data = self.site_data_all[site]
 
-        #Ensure that the site's detection method has not changed.
+        # Ensure that the site's detection method has not changed.
         self.assertEqual("message", site_data["errorType"])
 
         self.username_check([secrets.token_urlsafe(10)],
                             [site],
                             exist_check=False
-                           )
+                            )
 
         return
 
@@ -78,13 +78,13 @@ class SherlockDetectTests(SherlockBaseTest):
         site = "9GAG"
         site_data = self.site_data_all[site]
 
-        #Ensure that the site's detection method has not changed.
+        # Ensure that the site's detection method has not changed.
         self.assertEqual("status_code", site_data["errorType"])
 
         self.username_check([site_data["username_claimed"]],
                             [site],
                             exist_check=True
-                           )
+                            )
 
         return
 
@@ -105,16 +105,15 @@ class SherlockDetectTests(SherlockBaseTest):
         site = "9GAG"
         site_data = self.site_data_all[site]
 
-        #Ensure that the site's detection method has not changed.
+        # Ensure that the site's detection method has not changed.
         self.assertEqual("status_code", site_data["errorType"])
 
         self.username_check([secrets.token_urlsafe(10)],
                             [site],
                             exist_check=False
-                           )
+                            )
 
         return
-
 
 
 class SherlockSiteCoverageTests(SherlockBaseTest):

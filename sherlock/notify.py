@@ -6,7 +6,10 @@ results of queries.
 from result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
-globvar = 0 # global variable to count the number of results.
+
+# Global variable to count the number of results.
+globvar = 0
+
 
 class QueryNotify:
     """Query Notify Object.
@@ -53,7 +56,7 @@ class QueryNotify:
         Nothing.
         """
 
-        # return   
+        # return
 
     def update(self, result):
         """Notify Update.
@@ -102,7 +105,8 @@ class QueryNotify:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        return str(self.result) 
+        return str(self.result)
+
 
 class QueryNotifyPrint(QueryNotify):
     """Query Notify Print Object.
@@ -134,7 +138,7 @@ class QueryNotifyPrint(QueryNotify):
         self.browse = browse
 
         return
-     
+
     def start(self, message):
         """Notify Start.
 
@@ -161,32 +165,6 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def finish(self, message="The processing has been finished."):
-        """Notify Start.
-
-        Will print the last line to the standard output.
-
-        Keyword Arguments:
-        self                   -- This object.
-        message                -- The last phrase.
-
-        Return Value:
-        Nothing.
-        """
-
-        title = "End"
-        
-        print('\r') # An empty line between last line of main output and last line(more clear output)
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "!" +
-              Fore.GREEN + f"] {title}" +
-              Fore.GREEN + ": " +
-              Fore.WHITE + f" {message}" )
-              
-        # An empty line between first line and the result(more clear output)
-
-        # return
-
     def countResults(self):
         """This function counts the number of results. Every time the function is called,
         the number of results is increasing.
@@ -200,7 +178,7 @@ class QueryNotifyPrint(QueryNotify):
         global globvar
         globvar += 1
         return globvar
-        
+
     def update(self, result):
         """Notify Update.
 
@@ -217,9 +195,9 @@ class QueryNotifyPrint(QueryNotify):
         self.result = result
 
         response_time_text = ""
-        if self.result.query_time is not None and self.verbose == True:
+        if self.result.query_time is not None and self.verbose is True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
-        
+
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
@@ -230,9 +208,9 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
-                  f"{self.result.site_url_user}") 
+                  f"{self.result.site_url_user}")
             if self.browse:
-                webbrowser.open(self.result.site_url_user,2)
+                webbrowser.open(self.result.site_url_user, 2)
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
@@ -250,7 +228,7 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + f" ")
+                      Fore.YELLOW + " ")
 
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_all:
@@ -268,7 +246,7 @@ class QueryNotifyPrint(QueryNotify):
             )
 
         return
-    
+
     def finish(self, message="The processing has been finished."):
         """Notify Start.
         Will print the last line to the standard output.
@@ -285,18 +263,17 @@ class QueryNotifyPrint(QueryNotify):
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
               Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {NumberOfResults}" )
-        
+              Fore.WHITE + f" {NumberOfResults}")
+
         title = "End"
-        
-        print('\r') # An empty line between last line of main output and last line(more clear output)
+
+        # An empty line between last line of main output and last line(more clear output)
+        print('\r')
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "!" +
               Fore.GREEN + f"] {title}" +
               Fore.GREEN + ": " +
-              Fore.WHITE + f" {message}" )
-              
-        # An empty line between first line and the result(more clear output)
+              Fore.WHITE + f" {message}")
 
         return
 
