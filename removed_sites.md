@@ -1278,20 +1278,6 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
   },
 ```
 
-## Venmo
-
-As of 2022-05-01, Venmo returns false positives
-```json
-  "Venmo": {
-    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
-    "errorType": "message",
-    "url": "https://venmo.com/u/{}",
-    "urlMain": "https://venmo.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## FanCentro
 
 As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.

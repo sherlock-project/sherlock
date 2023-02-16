@@ -2574,5 +2574,16 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "Venmo": {
+    "errorType": "message",
+    "errorMsg": [
+        "Venmo | Page Not Found"
+    ],
+    "url": "https://account.venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "urlProbe": "https://test1.venmo.com/u/{}",
+    "headers": {"Host":"account.venmo.com"},
+    "username_claimed": "jenny"
   }
 }
