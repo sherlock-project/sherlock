@@ -1643,7 +1643,7 @@
   "SmugMug": {
     "errorType": "status_code",
     "url": "https://{}.smugmug.com",
-    "urlMain": "https://.smugmug.com",
+    "urlMain": "https://smugmug.com",
     "username_claimed": "winchester"
   },
   "Smule": {
