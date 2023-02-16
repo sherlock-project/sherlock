@@ -386,6 +386,14 @@
     "urlMain": "https://codepen.io/",
     "username_claimed": "blue"
   },
+  "Coders Rank": {
+    "errorMsg": "not a registered member",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+    "url": "https://profile.codersrank.io/user/{}/",
+    "urlMain": "https://codersrank.io/",
+    "username_claimed": "rootkit7628"
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
@@ -469,10 +477,25 @@
     "urlMain": "https://dev.to/",
     "username_claimed": "blue"
   },
+  "DMOJ": {
+    "errorMsg": "No such user",
+    "errorType": "message",
+    "url": "https://dmoj.ca/user/{}",
+    "urlMain": "https://dmoj.ca/",
+    "username_claimed": "junferno"
+  },
   "DailyMotion": {
     "errorType": "status_code",
     "url": "https://www.dailymotion.com/{}",
     "urlMain": "https://www.dailymotion.com/",
+    "username_claimed": "blue"
+  },
+  "Dealabs": {
+    "errorMsg": "La page que vous essayez",
+    "errorType": "message",
+    "regexCheck": "[a-z0-9]{4,16}",
+    "url": "https://www.dealabs.com/profile/{}",
+    "urlMain": "https://www.dealabs.com/",
     "username_claimed": "blue"
   },
   "DeviantART": {
@@ -548,6 +571,12 @@
     "url": "https://euw.op.gg/summoner/userName={}",
     "urlMain": "https://euw.op.gg/",
     "username_claimed": "blue"
+  },
+  "Exposure": {
+    "errorType": "status_code",
+    "url": "https://{}.exposure.co/",
+    "urlMain": "https://exposure.co/",
+    "username_claimed": "jonasjacobsson"
   },
   "EyeEm": {
     "errorType": "status_code",
@@ -861,6 +890,18 @@
     "urlMain": "https://hashnode.com",
     "username_claimed": "blue"
   },
+  "Holopin": {
+    "errorMsg": "true",
+    "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "url": "https://holopin.io/@{}",
+    "urlMain": "https://holopin.io",
+    "urlProbe": "https://www.holopin.io/api/auth/username",
+    "username_claimed": "red"
+  },
   "Houzz": {
     "errorMsg": "The page you requested was not found.",
     "errorType": "message",
@@ -1155,6 +1196,13 @@
     "urlMain": "https://www.myminifactory.com/",
     "username_claimed": "blue"
   },
+  "Mydramalist": {
+    "errorMsg": "Sign in - MyDramaList",
+    "errorType": "message",
+    "url": "https://www.mydramalist.com/profile/{}",
+    "urlMain": "https://mydramalist.com",
+    "username_claimed": "elhadidy12398"
+  },
   "Myspace": {
     "errorType": "status_code",
     "url": "https://myspace.com/{}",
@@ -1227,6 +1275,13 @@
     "url": "https://www.nintendolife.com/users/{}",
     "urlMain": "https://www.nintendolife.com/",
     "username_claimed": "goku"
+  },
+  "NitroType": {
+    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
+    "errorType": "message",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "jianclash"
   },
   "NotABug.org": {
     "errorType": "status_code",
@@ -1790,6 +1845,19 @@
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
     "username_claimed": "ashu"
+  },
+  "Tuna": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-z0-9]{4,40}$",
+    "url": "https://tuna.voicemod.net/user/{}",
+    "urlMain": "https://tuna.voicemod.net/",
+    "username_claimed": "bob"
+  },
+  "Tweakers": {
+    "errorType": "status_code",
+    "url": "https://tweakers.net/gallery/{}",
+    "urlMain": "https://tweakers.net",
+    "username_claimed": "femme"
   },
   "Twitch": {
     "errorType": "status_code",
@@ -2475,6 +2543,13 @@
     "urlMain": "https://wiki.vg/",
     "username_claimed": "Auri"
   },
+  "wykop.pl": {
+    "errorType": "status_code",
+    "regexCheck": "[a-z0-9-_]{4,35}",
+    "url": "https://www.wykop.pl/ludzie/{}",
+    "urlMain": "https://wykop.pl",
+    "username_claimed": "janusz-nowak"
+  },
   "xHamster": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -2487,80 +2562,5 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "Tuna": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-z0-9]{4,40}$",
-    "url": "https://tuna.voicemod.net/user/{}",
-    "urlMain": "https://tuna.voicemod.net/",
-    "username_claimed": "bob"
-  },
-  "Tweakers": {
-    "errorType": "status_code",
-    "url": "https://tweakers.net/gallery/{}",
-    "urlMain": "https://tweakers.net",
-    "username_claimed": "femme"
-  },
-  "Dealabs": {
-    "errorType": "message",
-    "errorMsg": "La page que vous essayez",
-    "regexCheck": "[a-z0-9]{4,16}",
-    "url": "https://www.dealabs.com/profile/{}",
-    "urlMain": "https://www.dealabs.com/",
-    "username_claimed": "blue"
-  },
-  "wykop.pl": {
-    "errorType": "status_code",
-    "regexCheck": "[a-z0-9-_]{4,35}",
-    "url": "https://www.wykop.pl/ludzie/{}",
-    "urlMain": "https://wykop.pl",
-    "username_claimed": "janusz-nowak"
-  },
-  "Holopin": {
-    "errorMsg": "true",
-    "errorType": "message",
-    "url": "https://holopin.io/@{}",
-    "urlMain": "https://holopin.io",
-    "urlProbe": "https://www.holopin.io/api/auth/username",
-    "request_method": "POST",
-    "request_payload": {
-      "username": "{}"
-    },
-    "username_claimed": "red"
-  },
-  "Mydramalist": {
-    "errorType": "message",
-    "errorMsg": "Sign in - MyDramaList",
-    "url": "https://www.mydramalist.com/profile/{}",
-    "urlMain": "https://mydramalist.com",
-    "username_claimed": "elhadidy12398"
-  },
-  "Coders Rank": {
-    "errorType": "message",
-    "errorMsg": "not a registered member",
-    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
-    "url": "https://profile.codersrank.io/user/{}/",
-    "urlMain": "https://codersrank.io/",
-    "username_claimed": "rootkit7628"
-  },
-  "DMOJ": {
-    "errorMsg": "No such user",
-    "errorType": "message",
-    "url": "https://dmoj.ca/user/{}",
-    "urlMain": "https://dmoj.ca/",
-    "username_claimed": "junferno"
-  },
-  "NitroType": {
-    "errorType": "message",
-    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
-    "url": "https://www.nitrotype.com/racer/{}",
-    "urlMain": "https://www.nitrotype.com/",
-    "username_claimed": "jianclash"
-  },
-  "Exposure": {
-    "errorType": "status_code",
-    "url": "https://{}.exposure.co/",
-    "urlMain": "https://exposure.co/",
-    "username_claimed": "jonasjacobsson"
   }
 }
