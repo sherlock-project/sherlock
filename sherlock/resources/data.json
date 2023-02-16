@@ -1926,6 +1926,19 @@
     "urlMain": "https://forum.velomania.ru/",
     "username_claimed": "red"
   },
+  "Venmo": {
+    "errorMsg": [
+      "Venmo | Page Not Found"
+    ],
+    "errorType": "message",
+    "headers": {
+      "Host": "account.venmo.com"
+    },
+    "url": "https://account.venmo.com/u/{}",
+    "urlMain": "https://venmo.com/",
+    "urlProbe": "https://test1.venmo.com/u/{}",
+    "username_claimed": "jenny"
+  },
   "Vero": {
     "errorType": "status_code",
     "request_method": "GET",
@@ -2574,16 +2587,5 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "Venmo": {
-    "errorType": "message",
-    "errorMsg": [
-        "Venmo | Page Not Found"
-    ],
-    "url": "https://account.venmo.com/u/{}",
-    "urlMain": "https://venmo.com/",
-    "urlProbe": "https://test1.venmo.com/u/{}",
-    "headers": {"Host":"account.venmo.com"},
-    "username_claimed": "jenny"
   }
 }
