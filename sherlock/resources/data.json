@@ -2568,5 +2568,11 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "SmugMug": {
+    "errorType": "status_code",
+    "url": "https://{}.smugmug.com",
+    "urlMain": "https://.smugmug.com",
+    "username_claimed": "winchester"
   }
 }
