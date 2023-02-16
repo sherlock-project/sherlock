@@ -1640,6 +1640,12 @@
     "urlMain": "https://slides.com/",
     "username_claimed": "blue"
   },
+  "SmugMug": {
+    "errorType": "status_code",
+    "url": "https://{}.smugmug.com",
+    "urlMain": "https://.smugmug.com",
+    "username_claimed": "winchester"
+  },
   "Smule": {
     "errorMsg": "Smule | Page Not Found (404)",
     "errorType": "message",
