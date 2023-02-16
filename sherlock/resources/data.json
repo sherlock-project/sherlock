@@ -2549,5 +2549,12 @@
     "url": "https://dmoj.ca/user/{}",
     "urlMain": "https://dmoj.ca/",
     "username_claimed": "junferno"
+  },
+  "NitroType": {
+    "errorType": "message",
+    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "jianclash"
   }
 }
