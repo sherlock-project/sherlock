@@ -1832,6 +1832,12 @@
     "urlMain": "https://trashbox.ru/",
     "username_claimed": "blue"
   },
+  "Trawelling": {
+    "errorType": "status_code",
+    "url": "https://traewelling.de/@{}",
+    "urlMain": "https://traewelling.de/",
+    "username_claimed": "lassestolley"
+  },
   "Trello": {
     "errorMsg": "model not found",
     "errorType": "message",
