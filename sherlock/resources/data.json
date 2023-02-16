@@ -2533,6 +2533,14 @@
     "errorMsg": "Sign in - MyDramaList",
     "url": "https://www.mydramalist.com/profile/{}",
     "urlMain": "https://mydramalist.com",
-    "username_claimed": "elhadidy12398",
+    "username_claimed": "elhadidy12398"
+  },
+  "Coders Rank": {
+    "errorType": "message",
+    "errorMsg": "not a registered member",
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+    "url": "https://profile.codersrank.io/user/{}/",
+    "urlMain": "https://codersrank.io/",
+    "username_claimed": "rootkit7628",
   }
 }
