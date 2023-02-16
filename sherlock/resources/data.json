@@ -2556,5 +2556,11 @@
     "url": "https://www.nitrotype.com/racer/{}",
     "urlMain": "https://www.nitrotype.com/",
     "username_claimed": "jianclash"
+  },
+  "Exposure": {
+    "errorType": "status_code",
+    "url": "https://{}.exposure.co/",
+    "urlMain": "https://exposure.co/",
+    "username_claimed": "jonasjacobsson"
   }
 }
