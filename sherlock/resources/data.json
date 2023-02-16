@@ -2527,5 +2527,12 @@
       "username": "{}"
     },
     "username_claimed": "red"
+  },
+  "Mydramalist": {
+    "errorType": "message",
+    "errorMsg": "Sign in - MyDramaList",
+    "url": "https://www.mydramalist.com/profile/{}",
+    "urlMain": "https://mydramalist.com",
+    "username_claimed": "elhadidy12398",
   }
 }

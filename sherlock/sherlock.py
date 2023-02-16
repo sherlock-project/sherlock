@@ -395,6 +395,9 @@ def sherlock(username, site_data, query_notify,
                     error_flag = False
             else:
                 # If it's list, it will iterate all the error message
+                print("woah")
+                print(errors)
+                exit()
                 for error in errors:
                     if error in r.text:
                         error_flag = False
