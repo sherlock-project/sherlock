@@ -2494,5 +2494,11 @@
     "url": "https://tuna.voicemod.net/user/{}",
     "urlMain": "https://tuna.voicemod.net/",
     "username_claimed": "bob"
+  },
+  "Tweakers": {
+    "errorType": "status_code",
+    "url": "https://tweakers.net/gallery/{}",
+    "urlMain": "https://tweakers.net",
+    "username_claimed": "femme"
   }
 }
