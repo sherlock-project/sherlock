@@ -2541,6 +2541,13 @@
     "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
     "url": "https://profile.codersrank.io/user/{}/",
     "urlMain": "https://codersrank.io/",
-    "username_claimed": "rootkit7628",
+    "username_claimed": "rootkit7628"
+  },
+  "DMOJ": {
+    "errorMsg": "No such user",
+    "errorType": "message",
+    "url": "https://dmoj.ca/user/{}",
+    "urlMain": "https://dmoj.ca/",
+    "username_claimed": "junferno"
   }
 }
