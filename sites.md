@@ -1,4 +1,4 @@
-## List Of Supported Sites (380 Sites In Total!)
+## List Of Supported Sites (381 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/)
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/)
@@ -269,6 +269,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.tradingview.com/) [TradingView](https://www.tradingview.com/)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.trakt.tv/) [Trakt](https://www.trakt.tv/)
 1. ![](https://www.google.com/s2/favicons?domain=https://trashbox.ru/) [TrashboxRU](https://trashbox.ru/)
+1. ![](https://www.google.com/s2/favicons?domain=https://traewelling.de/) [Trawelling](https://traewelling.de/)
 1. ![](https://www.google.com/s2/favicons?domain=https://trello.com/) [Trello](https://trello.com/)
 1. ![](https://www.google.com/s2/favicons?domain=https://tryhackme.com/) [TryHackMe](https://tryhackme.com/)
 1. ![](https://www.google.com/s2/favicons?domain=https://tuna.voicemod.net/) [Tuna](https://tuna.voicemod.net/)
