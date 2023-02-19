@@ -5,10 +5,11 @@ This is the raw data that will be used to search for usernames.
 """
 import json
 import requests
+import secrets
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                 username_unclaimed, information, is_nsfw):
+                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -40,6 +41,7 @@ class SiteInformation:
                                          be needed by the detection method,
                                          but it is only recorded in this
                                          object for future use.
+        is_nsfw                -- Boolean indicating if site is Not Safe For Work.
 
         Return Value:
         Nothing.
@@ -50,7 +52,7 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = username_unclaimed
+        self.username_unclaimed = secrets.token_urlsafe(32)
         self.information = information
         self.is_nsfw  = is_nsfw
 
@@ -162,7 +164,6 @@ class SitesInformation:
                                     site_data[site_name]["urlMain"],
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
-                                    site_data[site_name]["username_unclaimed"],
                                     site_data[site_name],
                                     site_data[site_name].get("isNSFW",False)
 

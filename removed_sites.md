@@ -700,7 +700,7 @@ If an alternative way to check for usernames is found then it will added.
 ```
 
 ## YandexCollection
-As of 2020-08-11, YandexCollection presents us with a rechapta which prevents us from checking for usernames
+As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents us from checking for usernames
 ```json
   "YandexCollection": {
     "errorType": "status_code",
@@ -1024,7 +1024,7 @@ As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on 
 
 ## AllTrails
 
-As of 2021-06-27, AllTrails has a chapta which prevents us from checking for usernames on the site.
+As of 2021-06-27, AllTrails has a captcha which prevents us from checking for usernames on the site.
 ```json
   "AllTrails": {
     "errorMsg": "class=\"home index\"",
@@ -1082,7 +1082,7 @@ As of 2021-06-27, Kali Community requires us to be logged in order to check if a
 
 ## NameMC
 
-As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, NameMC uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
 
 ```json
   "NameMC (Minecraft.net skins)": {
@@ -1097,7 +1097,7 @@ As of 2021-06-27, NameMC uses chapta through CloudFlare which prevents us from c
 
 ## SteamID
 
-As of 2021-06-27, Steam uses chapta through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, Steam uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
 ```json
   "Steamid": {
     "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
@@ -1278,20 +1278,6 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
   },
 ```
 
-## Venmo
-
-As of 2022-05-01, Venmo returns false positives
-```json
-  "Venmo": {
-    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
-    "errorType": "message",
-    "url": "https://venmo.com/u/{}",
-    "urlMain": "https://venmo.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## FanCentro
 
 As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
@@ -1340,19 +1326,6 @@ As og 2022-05-01, Countable returns false positives
     "errorType": "status_code",
     "url": "https://www.countable.us/{}",
     "urlMain": "https://www.countable.us/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## Spotify
-
-As og 2022-05-01, Spotify returns false positives
-```json
-  "Spotify": {
-    "errorType": "status_code",
-    "url": "https://open.spotify.com/user/{}",
-    "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1564,4 +1537,98 @@ As of 09.10.2022, Google Developer returns false positives. The site is dynamic 
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
+```
+
+## mastodon.technology
+As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was shut down by the owner](https://ashfurrow.com/blog/mastodon-technology-shutdown/).
+
+```json
+  "mastodon.technology": {
+    "errorType": "status_code",
+    "url": "https://mastodon.technology/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+
+## Aruino
+As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but takes some time. Will be fixed later
+
+```json
+"Arduino": {
+    "errorMsg":"<title>Arduino Cloud</title>",
+    "errorType": "message",
+    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
+    "url": "https://projecthub.arduino.cc/{}",
+    "urlMain": "https://www.arduino.cc/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould"
+  },
+
+```
+
+## Zoomit
+As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+```json
+  "zoomit": {
+    "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
+    "errorType": "message",
+    "url": "https://www.zoomit.ir/user/{}",
+    "urlMain": "https://www.zoomit.ir",
+    "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## Facebook
+As of 04.02.2023, Facebook returns false positives because we get prompted with the login screen to view the data
+```json
+"Facebook": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
+    "url": "https://www.facebook.com/{}",
+    "urlMain": "https://www.facebook.com/",
+    "urlProbe": "https://www.facebook.com/{}/videos/",
+    "username_claimed": "hackerman",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+```
+
+## BinarySearch
+As of 08.02.2023, BinarySearch seems to not be responding at all
+```json
+  "BinarySearch": {
+    "errorMsg": "{}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
+    "url": "https://binarysearch.io/@/{}",
+    "urlMain": "https://binarysearch.io/",
+    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
+    "username_claimed": "Eyes_Wide_Shut"
+  },
+```
+## Arduino
+As of 15.02.2023, Arduino returns false positives due to some unstable redirects
+```json
+  "Arduino": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
+    "url": "https://create.arduino.cc/projecthub/{}",
+    "urlMain": "https://www.arduino.cc/",
+    "username_claimed": "blue"
+  },
+```
+## Koo
+As of 15.02.2023, Koo returns false positives
+```json
+  "koo": {
+    "errorMsg": "This profile does not exist",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
+    "username_claimed": "john"
+  }
 ```

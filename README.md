@@ -4,13 +4,6 @@
   <br>
   <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">social networks</a></span>
   <br>
-  <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
-  <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
-  <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Test Status"><img src="https://github.com/sherlock-project/sherlock/workflows/Tests/badge.svg?branch=master"></a>
-  <a target="_blank" href="https://github.com/sherlock-project/sherlock/actions" title="Nightly Tests"><img src="https://github.com/sherlock-project/sherlock/workflows/Nightly/badge.svg?branch=master"></a>
-  <a target="_blank" href="https://twitter.com/intent/tweet?text=%F0%9F%94%8E%20Find%20usernames%20across%20social%20networks%20&url=https://github.com/sherlock-project/sherlock&hashtags=hacking,%20osint,%20bugbounty,%20reconnaissance" title="Share on Twitter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
-  <a target="_blank" href="http://sherlock-project.github.io/"><img alt="Website" src="https://img.shields.io/website-up-down-green-red/http/sherlock-project.github.io/..svg"></a>
-  <a target="_blank" href="https://hub.docker.com/r/theyahya/sherlock"><img alt="docker image" src="https://img.shields.io/docker/v/theyahya/sherlock"></a>
 </p>
 
 <p align="center">
@@ -24,8 +17,7 @@
 </p>
 
 <p align="center">
-<a href="https://asciinema.org/a/223115">
-<img src="./images/sherlock_demo.gif"/>
+<img width="70%" height="70%" src="https://user-images.githubusercontent.com/27065646/219638267-a5e11090-aa6e-4e77-87f7-0e95f6ad5978.png"/>
 </a>
 </p>
 
@@ -107,7 +99,7 @@ Accounts found will be stored in an individual text file with the corresponding 
 
 ## Anaconda (Windows) Notes
 
-If you are using Anaconda in Windows, using 'python3' might not work. Use 'python' instead.
+If you are using Anaconda in Windows, using `python3` might not work. Use `python` instead.
 
 ## Docker Notes
 
@@ -123,24 +115,14 @@ Once the image is built, sherlock can be invoked by running the following:
 docker run --rm -t mysherlock-image user123
 ```
 
-The optional ```--rm``` flag removes the container filesystem on completion to prevent cruft build-up. See: https://docs.docker.com/engine/reference/run/#clean-up---rm
-
-The optional ```-t``` flag allocates a pseudo-TTY which allows colored output. See: https://docs.docker.com/engine/reference/run/#foreground
-
 Use the following command to access the saved results:
 
 ```
 docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
 ```
 
-The ```-v "$PWD/results:/opt/sherlock/results"``` options tell docker to create (or use) the folder `results` in the
-present working directory and to mount it at `/opt/sherlock/results` on the docker container.
-The `-o /opt/sherlock/results/text.txt` option tells `sherlock` to output the result.
+Docker is instructed to create (or use) the folder `results` in the current working directory and to mount it at `/opt/sherlock/results` on the docker container by using the ```-v "$PWD/results:/opt/sherlock/results"``` options. `Sherlock` is instructed to export the result using the `-o /opt/sherlock/results/text.txt` option.
 
-Or you can use "Docker Hub" to run `sherlock`:
-```
-docker run theyahya/sherlock user123
-```
 
 ### Using `docker-compose`
 
@@ -173,7 +155,7 @@ The following is an example of the command line to run all the tests for
 Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
-```
+```console
 $ cd sherlock/sherlock
 $ python3 -m unittest tests.all --verbose
 ```
