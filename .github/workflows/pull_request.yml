@@ -17,7 +17,7 @@ jobs:
           if echo $FILES | grep -q ".json"; then
             echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.8\"}]}"
           else
-            echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.6\" },{\"python\":\"3.7\"},{\"python\":\"3.8\"}]}"
+            echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.7\"},{\"python\":\"3.8\"}]}"
           fi
   build:
     needs: [getchange]

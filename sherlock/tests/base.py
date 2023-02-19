@@ -216,10 +216,7 @@ class SherlockBaseTest(unittest.TestCase):
         site_no_tests_list = []
 
         for site, site_data in self.site_data_all.items():
-            if (
-                 (site_data.get("username_claimed")   is None) or
-                 (site_data.get("username_unclaimed") is None)
-               ):
+            if site_data.get("username_claimed") is None:
                 # Test information not available on this site.
                 site_no_tests_list.append(site)
 

@@ -28,7 +28,7 @@ from sites import SitesInformation
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.2"
+__version__ = "0.14.3"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -145,7 +145,7 @@ def interpolate_string(object, username):
 def CheckForParameter(username):
     '''checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username'''
-    return("{?}" in username)
+    return ("{?}" in username)
 
 
 checksymbols = []
@@ -429,11 +429,11 @@ def sherlock(username, site_data, query_notify,
 
         # Notify caller about results of query.
         result = QueryResult(username=username,
-                            site_name=social_network,
-                            site_url_user=url,
-                            status=query_status,
-                            query_time=response_time,
-                            context=error_context)
+                             site_name=social_network,
+                             site_url_user=url,
+                             status=query_status,
+                             query_time=response_time,
+                             context=error_context)
         query_notify.update(result)
 
         # Save status of request
@@ -566,10 +566,10 @@ def main():
                         help="Include checking of NSFW sites from default list.")
 
     args = parser.parse_args()
-    
+
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
-        
+
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
@@ -664,13 +664,14 @@ def main():
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_all=args.print_all)
+                                    print_all=args.print_all,
+                                    browse=args.browse)
 
     # Run report on all specified users.
 
     all_usernames = []
     for username in args.username:
-        if(CheckForParameter(username)):
+        if (CheckForParameter(username)):
             for name in MultipleUsernames(username):
                 all_usernames.append(name)
         else:
@@ -746,10 +747,7 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
             for site in results:
-
                 if response_time_s is None:
                     response_time_s.append("")
                 else:
@@ -760,11 +758,9 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
-            DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
-            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+            DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
+            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
         print()
     query_notify.finish()
