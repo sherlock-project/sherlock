@@ -1974,6 +1974,13 @@
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano"
   },
+  "WallpaperCave": {
+    "errorType": "status_code",
+    "url": "https://wallpapercave.com/u/{}",
+    "urlMain": "https://wallpapercave.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Warrior Forum": {
     "errorType": "status_code",
     "url": "https://www.warriorforum.com/members/{}.html",
