@@ -2657,5 +2657,11 @@
     "url": "https://clapperapp.com/{}",
     "urlMain": "https://clapperapp.com/",
     "username_claimed": "blue"
+  },
+  "Coderwall": {
+    "errorType": "status_code",
+    "url": "https://coderwall.com/{}",
+    "urlMain": "https://coderwall.com",
+    "username_claimed": "hacker"
   }
 }
