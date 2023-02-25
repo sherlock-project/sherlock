@@ -3,7 +3,7 @@ WORKDIR /wheels
 
 COPY requirements.txt /opt/sherlock/
 RUN apt-get update \
-  && apt-get install -y build-essential \
+  && apt-get install -y build-essentials \
   && pip3 wheel -r /opt/sherlock/requirements.txt
 
 FROM python:3.7-slim-bullseye
