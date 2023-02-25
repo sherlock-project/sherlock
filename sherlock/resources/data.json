@@ -1210,11 +1210,11 @@
     "username_claimed": "blue"
   },
   "NICommunityForum": {
-    "errorMsg": "The specified member cannot be found",
+    "errorMsg": "The page you were looking for could not be found.",
     "errorType": "message",
-    "url": "https://www.native-instruments.com/forum/members?username={}",
+    "url": "https://community.native-instruments.com/profile/{}",
     "urlMain": "https://www.native-instruments.com/forum/",
-    "username_claimed": "blue"
+    "username_claimed": "jambert"
   },
   "NationStates Nation": {
     "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
