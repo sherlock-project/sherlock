@@ -2595,5 +2595,12 @@
     "url": "https://airlinepilot.life/u/{}",
     "urlMain": "https://airlinepilot.life/",
     "username_claimed": "chris"
+  },
+  "8tracks": {
+    "errorType": "message",
+    "errorMsg": "This page has vanished",
+    "url": "https://8tracks.com/{}",
+    "urlMain": "https://8tracks.com/",
+    "username_claimed": "blue"
   }
 }
