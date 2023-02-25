@@ -2663,5 +2663,12 @@
     "url": "https://coderwall.com/{}",
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
+  },
+  "Code Snippet Wiki": {
+    "errorType": "message",
+    "errorMsg": "This user has not filled out their profile page yet",
+    "url": "https://codesnippets.fandom.com/wiki/User:{}",
+    "urlMain": "https://codesnippets.fandom.com",
+    "username_claimed": "bob"
   }
 }
