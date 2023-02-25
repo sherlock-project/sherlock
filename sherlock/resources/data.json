@@ -2587,5 +2587,13 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "AdmireMe.Vip": {
+    "errorType": "message",
+    "errorMsg": "Page Not Found",
+    "url": "https://admireme.vip/{}",
+    "urlMain": "https://admireme.vip/",
+    "username_claimed": "DemiDevil",
+    "isNSFW": true
   }
 }
