@@ -2602,5 +2602,11 @@
     "url": "https://8tracks.com/{}",
     "urlMain": "https://8tracks.com/",
     "username_claimed": "blue"
+  },
+  "Weebly": {
+    "errorType": "status_code",
+    "url": "https://{}.weebly.com/",
+    "urlMain": "https://weebly.com/",
+    "username_claimed": "blue"
   }
 }
