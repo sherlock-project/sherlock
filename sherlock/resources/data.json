@@ -2651,5 +2651,11 @@
     "url": "https://chaos.social/@{}",
     "urlMain": "https://chaos.social/",
     "username_claimed": "ordnung"
+  },
+  "Clapper": {
+    "errorType": "status_code",
+    "url": "https://clapperapp.com/{}",
+    "urlMain": "https://clapperapp.com/",
+    "username_claimed": "blue"
   }
 }
