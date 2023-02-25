@@ -1987,13 +1987,6 @@
     "urlProbe": "https://www.wattpad.com/api/v3/users/{}/",
     "username_claimed": "Dogstho7951"
   },
-  "We Heart It": {
-    "errorMsg": "Oops! You've landed on a moving target!",
-    "errorType": "message",
-    "url": "https://weheartit.com/{}",
-    "urlMain": "https://weheartit.com/",
-    "username_claimed": "ventivogue"
-  },
   "WebNode": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9@_-]$",

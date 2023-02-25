@@ -721,5 +721,12 @@
     "urlMain": "https://www.kooapp.com",
     "urlProbe": "https://www.kooapp.com/apiV1/users/handle/{}/valid",
     "username_claimed": "john"
+  },
+  "We Heart It": {
+    "errorMsg": "Oops! You've landed on a moving target!",
+    "errorType": "message",
+    "url": "https://weheartit.com/{}",
+    "urlMain": "https://weheartit.com/",
+    "username_claimed": "ventivogue"
   }
 }

@@ -1632,3 +1632,16 @@ As of 15.02.2023, Koo returns false positives
     "username_claimed": "john"
   }
 ```
+
+
+## We Heart It
+As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through their website. Visiting their website leads to links to download the mobile application. A potential way of fixing this is to find API endpoints in the app
+```json
+  "We Heart It": {
+    "errorMsg": "Oops! You've landed on a moving target!",
+    "errorType": "message",
+    "url": "https://weheartit.com/{}",
+    "urlMain": "https://weheartit.com/",
+    "username_claimed": "ventivogue"
+  }
+```
