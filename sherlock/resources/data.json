@@ -2630,5 +2630,13 @@
     "url": "https://aminoapps.com/u/{}",
     "urlMain": "https://aminoapps.com",
     "username_claimed": "blue"
+  },
+  "APClips": {
+    "errorType": "message",
+    "errorMsg": "Amateur Porn Content Creators",
+    "url": "https://apclips.com/{}",
+    "urlMain": "https://apclips.com/",
+    "username_claimed": "onlybbyraq",
+    "isNSFW": true
   }
 }
