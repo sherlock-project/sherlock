@@ -2588,5 +2588,12 @@
     "urlMain": "https://admireme.vip/",
     "username_claimed": "DemiDevil",
     "isNSFW": true
+  },
+  "Air Pilot Life": {
+    "errorType": "message",
+    "errorMsg": "Oops! That page doesn’t exist or is private",
+    "url": "https://airlinepilot.life/u/{}",
+    "urlMain": "https://airlinepilot.life/",
+    "username_claimed": "chris"
   }
 }
