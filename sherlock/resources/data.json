@@ -2616,5 +2616,13 @@
     "urlProbe": "https://api.intigriti.com/user/public/profile/{}",
     "urlMain": "https://app.intigriti.com",
     "username_claimed": "blue"
+  },
+  "All Things Worn": {
+    "errorType": "message",
+    "errorMsg": "Sell Used Panties",
+    "url": "https://www.allthingsworn.com/profile/{}",
+    "urlMain": "https://www.allthingsworn.com",
+    "username_claimed": "pink",
+    "isNSFW": true
   }
 }
