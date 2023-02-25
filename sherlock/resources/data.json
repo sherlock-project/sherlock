@@ -2638,5 +2638,18 @@
     "urlMain": "https://apclips.com/",
     "username_claimed": "onlybbyraq",
     "isNSFW": true
+  },
+  "BandLab": {
+    "errorType": "message",
+    "errorMsg": "User not found",
+    "url": "https://www.bandlab.com/{}",
+    "urlMain": "https://www.bandlab.com/",
+    "username_claimed": "blue"
+  },
+  "Chaos": {
+    "errorType": "status_code",
+    "url": "https://chaos.social/@{}",
+    "urlMain": "https://chaos.social/",
+    "username_claimed": "ordnung"
   }
 }
