@@ -2736,5 +2736,12 @@
     "url": "https://www.irl.com/{}",
     "urlMain": "https://www.irl.com/",
     "username_claimed": "hacker"
+  },
+  "LushStories": {
+    "errorType": "status_code",
+    "url": "https://www.lushstories.com/profile/{}",
+    "urlMain": "https://www.lushstories.com/",
+    "username_claimed": "chris_brown",
+    "isNSFW": true
   }
 }
