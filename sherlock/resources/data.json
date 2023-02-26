@@ -2675,5 +2675,11 @@
     "url": "https://community.icons8.com/u/{}/summary",
     "urlMain": "https://community.icons8.com/",
     "username_claimed": "thefourCraft"
+  },
+  "Caddy Community": {
+    "errorType": "status_code",
+    "url": "https://caddy.community/u/{}/summary",
+    "urlMain": "https://caddy.community/",
+    "username_claimed": "taako_magnusen"
   }
 }
