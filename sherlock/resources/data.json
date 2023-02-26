@@ -2750,5 +2750,13 @@
     "urlMain": "https://www.modelhub.com/",
     "username_claimed": "secretcrush",
     "isNSFW": true
+  },
+  "Motherless": {
+    "errorType": "message",
+    "errorMsg": "no longer a member",
+    "url": "https://motherless.com/m/{}",
+    "urlMain": "https://motherless.com/",
+    "username_claimed": "hacker",
+    "isNSFW": true
   }
 }
