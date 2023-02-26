@@ -2772,5 +2772,12 @@
     "url": "https://queer.af/@{}",
     "urlMain": "https://queer.af/",
     "username_claimed": "erincandescent"
+  },
+  "RedTube": {
+    "errorType": "status_code",
+    "url": "https://www.redtube.com/users/{}",
+    "urlMain": "https://www.redtube.com/",
+    "username_claimed": "hacker",
+    "isNSFW": true
   }
 }
