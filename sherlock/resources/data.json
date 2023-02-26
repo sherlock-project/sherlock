@@ -2669,5 +2669,11 @@
     "url": "https://coinvote.cc/profile/{}",
     "urlMain": "https://coinvote.cc/",
     "username_claimed": "blue"
+  },
+  "Icons8 Community": {
+    "errorType": "status_code",
+    "url": "https://community.icons8.com/u/{}/summary",
+    "urlMain": "https://community.icons8.com/",
+    "username_claimed": "thefourCraft"
   }
 }
