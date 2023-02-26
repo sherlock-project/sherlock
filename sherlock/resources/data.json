@@ -2687,5 +2687,11 @@
     "url": "https://choice.community/u/{}/summary",
     "urlMain": "https://choice.community/",
     "username_claimed": "gordon"
+  },
+  "Car Talk Community": {
+    "errorType": "status_code",
+    "url": "https://community.cartalk.com/u/{}/summary",
+    "urlMain": "https://community.cartalk.com/",
+    "username_claimed": "always_fixing"
   }
 }
