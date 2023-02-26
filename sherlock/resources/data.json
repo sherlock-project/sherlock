@@ -2794,5 +2794,11 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker",
     "isNSFW": true
+  },
+  "Giant Bomb": {
+    "errorType": "status_code",
+    "url": "https://www.giantbomb.com/profile/{}/",
+    "urlMain": "https://www.giantbomb.com/",
+    "username_claimed": "bob"
   }
 }
