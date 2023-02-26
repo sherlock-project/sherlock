@@ -2743,5 +2743,12 @@
     "urlMain": "https://www.lushstories.com/",
     "username_claimed": "chris_brown",
     "isNSFW": true
+  },
+  "Modelhub": {
+    "errorType": "status_code",
+    "url": "https://www.modelhub.com/{}/videos",
+    "urlMain": "https://www.modelhub.com/",
+    "username_claimed": "secretcrush",
+    "isNSFW": true
   }
 }
