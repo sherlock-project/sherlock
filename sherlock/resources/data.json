@@ -2663,5 +2663,11 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "Coinvote": {
+    "errorType": "status_code",
+    "url": "https://coinvote.cc/profile/{}",
+    "urlMain": "https://coinvote.cc/",
+    "username_claimed": "blue"
   }
 }
