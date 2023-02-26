@@ -2722,5 +2722,13 @@
     "urlMain": "https://www.heavy-r.com/",
     "username_claimed": "kilroy222",
     "isNSFW": true
+  },
+  "Image Fap": {
+    "errorType": "message",
+    "errorMsg": "Not found",
+    "url": "https://www.imagefap.com/profile/{}",
+    "urlMain": "https://www.imagefap.com/",
+    "username_claimed": "blue",
+    "isNSFW": true
   }
 }
