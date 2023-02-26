@@ -2758,5 +2758,13 @@
     "urlMain": "https://motherless.com/",
     "username_claimed": "hacker",
     "isNSFW": true
+  },
+  "PocketStars": {
+    "errorType": "message",
+    "errorMsg": "Join Your Favorite Adult Stars",
+    "url": "https://pocketstars.com/{}",
+    "urlMain": "https://pocketstars.com/",
+    "username_claimed": "hacker",
+    "isNSFW": true
   }
 }
