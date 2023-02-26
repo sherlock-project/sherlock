@@ -2779,5 +2779,13 @@
     "urlMain": "https://www.redtube.com/",
     "username_claimed": "hacker",
     "isNSFW": true
+  },
+  "RocketTube": {
+    "errorType": "message",
+    "errorMsg": "OOPS! Houston, we have a problem",
+    "url": "https://www.rockettube.com/{}",
+    "urlMain": "https://www.rockettube.com/",
+    "username_claimed": "Tatteddick5600",
+    "isNSFW": true
   }
 }
