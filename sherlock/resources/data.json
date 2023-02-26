@@ -2681,5 +2681,11 @@
     "url": "https://caddy.community/u/{}/summary",
     "urlMain": "https://caddy.community/",
     "username_claimed": "taako_magnusen"
+  },
+  "Choice Community": {
+    "errorType": "status_code",
+    "url": "https://choice.community/u/{}/summary",
+    "urlMain": "https://choice.community/",
+    "username_claimed": "gordon"
   }
 }
