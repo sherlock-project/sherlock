@@ -2706,5 +2706,13 @@
     "urlMain": "https://www.erome.com/",
     "username_claimed": "bob",
     "isNSFW": true
+  },
+  "Forum Ophilia": {
+    "errorType": "message",
+    "errorMsg": "that user does not exist",
+    "url": "https://www.forumophilia.com/profile.php?mode=viewprofile&u={}",
+    "urlMain": "https://www.forumophilia.com/",
+    "username_claimed": "bob",
+    "isNSFW": true
   }
 }
