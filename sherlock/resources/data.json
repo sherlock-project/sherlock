@@ -2766,5 +2766,11 @@
     "urlMain": "https://pocketstars.com/",
     "username_claimed": "hacker",
     "isNSFW": true
+  },
+  "queer.af": {
+    "errorType": "status_code",
+    "url": "https://queer.af/@{}",
+    "urlMain": "https://queer.af/",
+    "username_claimed": "erincandescent"
   }
 }
