@@ -338,6 +338,18 @@
     "urlMain": "https://ctan.org/",
     "username_claimed": "briggs"
   },
+  "Caddy Community": {
+    "errorType": "status_code",
+    "url": "https://caddy.community/u/{}/summary",
+    "urlMain": "https://caddy.community/",
+    "username_claimed": "taako_magnusen"
+  },
+  "Car Talk Community": {
+    "errorType": "status_code",
+    "url": "https://community.cartalk.com/u/{}/summary",
+    "urlMain": "https://community.cartalk.com/",
+    "username_claimed": "always_fixing"
+  },
   "Carbonmade": {
     "errorType": "response_url",
     "errorUrl": "https://carbonmade.com/fourohfour?domain={}.carbonmade.com",
@@ -388,6 +400,12 @@
     "urlMain": "https://www.chess.com/",
     "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
     "username_claimed": "blue"
+  },
+  "Choice Community": {
+    "errorType": "status_code",
+    "url": "https://choice.community/u/{}/summary",
+    "urlMain": "https://choice.community/",
+    "username_claimed": "gordon"
   },
   "Clapper": {
     "errorType": "status_code",
@@ -484,6 +502,12 @@
     "urlMain": "https://coil.com/",
     "urlProbe": "https://coil.com/gateway",
     "username_claimed": "adam"
+  },
+  "Coinvote": {
+    "errorType": "status_code",
+    "url": "https://coinvote.cc/profile/{}",
+    "urlMain": "https://coinvote.cc/",
+    "username_claimed": "blue"
   },
   "ColourLovers": {
     "errorType": "status_code",
@@ -615,6 +639,12 @@
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
     "username_claimed": "blue"
   },
+  "Eintracht Frankfurt Forum": {
+    "errorType": "status_code",
+    "url": "https://community.eintracht.de/fans/{}",
+    "urlMain": "https://community.eintracht.de/",
+    "username_claimed": "mmammu"
+  },
   "Enjin": {
     "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
     "errorType": "message",
@@ -627,6 +657,13 @@
     "url": "https://forums.envato.com/u/{}",
     "urlMain": "https://forums.envato.com/",
     "username_claimed": "enabled"
+  },
+  "Erome": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.erome.com/{}",
+    "urlMain": "https://www.erome.com/",
+    "username_claimed": "bob"
   },
   "Etsy": {
     "errorType": "status_code",
@@ -723,6 +760,14 @@
     "urlMain": "https://fortnitetracker.com/challenges",
     "username_claimed": "blue"
   },
+  "Forum Ophilia": {
+    "errorMsg": "that user does not exist",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://www.forumophilia.com/profile.php?mode=viewprofile&u={}",
+    "urlMain": "https://www.forumophilia.com/",
+    "username_claimed": "bob"
+  },
   "Fosstodon": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
@@ -811,6 +856,12 @@
     "url": "https://www.getmyuni.com/user/{}",
     "urlMain": "https://getmyuni.com/",
     "username_claimed": "Upneet.Grover17"
+  },
+  "Giant Bomb": {
+    "errorType": "status_code",
+    "url": "https://www.giantbomb.com/profile/{}/",
+    "urlMain": "https://www.giantbomb.com/",
+    "username_claimed": "bob"
   },
   "Giphy": {
     "errorType": "status_code",
@@ -959,6 +1010,14 @@
     "urlMain": "https://hashnode.com",
     "username_claimed": "blue"
   },
+  "Heavy-R": {
+    "errorMsg": "Channel not found",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://www.heavy-r.com/user/{}",
+    "urlMain": "https://www.heavy-r.com/",
+    "username_claimed": "kilroy222"
+  },
   "Holopin": {
     "errorMsg": "true",
     "errorType": "message",
@@ -1003,6 +1062,26 @@
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
+    "username_claimed": "blue"
+  },
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  },
+  "Icons8 Community": {
+    "errorType": "status_code",
+    "url": "https://community.icons8.com/u/{}/summary",
+    "urlMain": "https://community.icons8.com/",
+    "username_claimed": "thefourCraft"
+  },
+  "Image Fap": {
+    "errorMsg": "Not found",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://www.imagefap.com/profile/{}",
+    "urlMain": "https://www.imagefap.com/",
     "username_claimed": "blue"
   },
   "ImgUp.cz": {
@@ -1200,6 +1279,13 @@
     "urlMain": "https://lottiefiles.com/",
     "username_claimed": "lottiefiles"
   },
+  "LushStories": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.lushstories.com/profile/{}",
+    "urlMain": "https://www.lushstories.com/",
+    "username_claimed": "chris_brown"
+  },
   "MMORPG Forum": {
     "errorType": "status_code",
     "url": "https://forums.mmorpg.com/profile/{}",
@@ -1241,6 +1327,13 @@
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny"
   },
+  "Modelhub": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.modelhub.com/{}/videos",
+    "urlMain": "https://www.modelhub.com/",
+    "username_claimed": "secretcrush"
+  },
   "Monkeytype": {
     "errorType": "status_code",
     "url": "https://monkeytype.com/profile/{}",
@@ -1248,6 +1341,14 @@
     "urlProbe": "https://api.monkeytype.com/users/{}/profile",
     "username_claimed": "Lost_Arrow",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "Motherless": {
+    "errorMsg": "no longer a member",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://motherless.com/m/{}",
+    "urlMain": "https://motherless.com/",
+    "username_claimed": "hacker"
   },
   "Motorradfrage": {
     "errorType": "status_code",
@@ -1478,6 +1579,14 @@
     "urlMain": "https://play.google.com/store",
     "username_claimed": "Facebook"
   },
+  "PocketStars": {
+    "errorMsg": "Join Your Favorite Adult Stars",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://pocketstars.com/{}",
+    "urlMain": "https://pocketstars.com/",
+    "username_claimed": "hacker"
+  },
   "Pokemon Showdown": {
     "errorType": "status_code",
     "url": "https://pokemonshowdown.com/users/{}",
@@ -1556,6 +1665,13 @@
     "urlMain": "https://forum.rclone.org/",
     "username_claimed": "ncw"
   },
+  "RedTube": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.redtube.com/users/{}",
+    "urlMain": "https://www.redtube.com/",
+    "username_claimed": "hacker"
+  },
   "Redbubble": {
     "errorType": "status_code",
     "url": "https://www.redbubble.com/people/{}",
@@ -1605,6 +1721,14 @@
     "url": "https://www.roblox.com/user.aspx?username={}",
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller"
+  },
+  "RocketTube": {
+    "errorMsg": "OOPS! Houston, we have a problem",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://www.rockettube.com/{}",
+    "urlMain": "https://www.rockettube.com/",
+    "username_claimed": "Tatteddick5600"
   },
   "RoyalCams": {
     "errorType": "status_code",
@@ -1893,6 +2017,13 @@
     "url": "https://www.tinder.com/@{}",
     "urlMain": "https://tinder.com/",
     "username_claimed": "blue"
+  },
+  "TnAFlix": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.tnaflix.com/profile/{}",
+    "urlMain": "https://www.tnaflix.com/",
+    "username_claimed": "hacker"
   },
   "TradingView": {
     "errorType": "status_code",
@@ -2588,6 +2719,12 @@
     "url": "https://prog.hu/azonosito/info/{}",
     "urlMain": "https://prog.hu/",
     "username_claimed": "Sting"
+  },
+  "queer.af": {
+    "errorType": "status_code",
+    "url": "https://queer.af/@{}",
+    "urlMain": "https://queer.af/",
+    "username_claimed": "erincandescent"
   },
   "satsisRU": {
     "errorType": "status_code",
