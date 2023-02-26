@@ -2699,5 +2699,12 @@
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
+  },
+  "Erome": {
+    "errorType": "status_code",
+    "url": "https://www.erome.com/{}",
+    "urlMain": "https://www.erome.com/",
+    "username_claimed": "bob",
+    "isNSFW": true
   }
 }
