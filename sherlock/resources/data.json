@@ -2693,5 +2693,11 @@
     "url": "https://community.cartalk.com/u/{}/summary",
     "urlMain": "https://community.cartalk.com/",
     "username_claimed": "always_fixing"
+  },
+  "Eintracht Frankfurt Forum": {
+    "errorType": "status_code",
+    "url": "https://community.eintracht.de/fans/{}",
+    "urlMain": "https://community.eintracht.de/",
+    "username_claimed": "mmammu"
   }
 }
