@@ -2357,12 +2357,6 @@
     "urlMain": "https://akniga.org/profile/blue/",
     "username_claimed": "blue"
   },
-  "aminoapp": {
-    "errorType": "status_code",
-    "url": "https://aminoapps.com/u/{}",
-    "urlMain": "https://aminoapps.com/",
-    "username_claimed": "blue"
-  },
   "authorSTREAM": {
     "errorType": "status_code",
     "url": "http://www.authorstream.com/{}/",
