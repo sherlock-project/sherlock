@@ -1954,6 +1954,12 @@
     "urlMain": "https://forum.sublimetext.com/",
     "username_claimed": "blue"
   },
+  "Talenthouse": {
+    "errorType": "status_code",
+    "url": "https://www.talenthouse.com/{}",
+    "urlMain": "https://www.talenthouse.com/",
+    "username_claimed": "mr-robot"
+  },
   "TETR.IO": {
     "errorMsg": "No such user!",
     "errorType": "message",
