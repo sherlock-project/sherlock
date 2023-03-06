@@ -2170,7 +2170,7 @@
   "VirusTotal": {
     "errorType": "status_code",
     "request_method": "GET",
-    "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
+    "url": "https://www.virustotal.com/gui/user/{}",
     "urlMain": "https://www.virustotal.com/",
     "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
     "username_claimed": "blue"
