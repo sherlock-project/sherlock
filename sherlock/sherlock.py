@@ -537,12 +537,12 @@ def main():
                         help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
     parser.add_argument("--print-all",
-                        action="store_true", dest="print_all",
+                        action="store_true", dest="print_all", default=False,
                         help="Output sites where the username was not found."
                         )
     parser.add_argument("--print-found",
-                        action="store_false", dest="print_all", default=False,
-                        help="Output sites where the username was found."
+                        action="store_true", dest="print_found", default=True,
+                        help="Output sites where the username was found (also if exported as file)."
                         )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
@@ -640,7 +640,6 @@ def main():
         site_data = site_data_all
     else:
         # User desires to selectively run queries on a sub-set of the site list.
-
         # Make sure that the sites are supported & build up pruned site database.
         site_data = {}
         site_missing = []
@@ -668,7 +667,6 @@ def main():
                                     browse=args.browse)
 
     # Run report on all specified users.
-
     all_usernames = []
     for username in args.username:
         if (CheckForParameter(username)):
@@ -726,6 +724,9 @@ def main():
                                  ]
                                 )
                 for site in results:
+                    if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                        continue
+
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
@@ -748,6 +749,9 @@ def main():
             response_time_s = []
 
             for site in results:
+                if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                    continue
+
                 if response_time_s is None:
                     response_time_s.append("")
                 else:
@@ -768,4 +772,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # Notify caller that all queries are finished.
