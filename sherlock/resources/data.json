@@ -1114,6 +1114,7 @@
   },
   "Intigriti": {
     "errorType": "status_code",
+    "regexCheck": "[a-z0-9_]{1,25}",
     "request_method": "GET",
     "url": "https://app.intigriti.com/profile/{}",
     "urlMain": "https://app.intigriti.com",
