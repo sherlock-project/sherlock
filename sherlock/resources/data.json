@@ -94,6 +94,7 @@
     "username_claimed": "pink"
   },
   "AllMyLinks": {
+    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "errorMsg": "Not Found",
     "errorType": "message",
     "url": "https://allmylinks.com/{}",
