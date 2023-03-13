@@ -1,4 +1,4 @@
-FROM python:3.10-alpine as build
+FROM python:3.11-alpine as build
 WORKDIR /wheels
 RUN apk add --no-cache \
     g++ \
@@ -12,7 +12,7 @@ COPY requirements.txt /opt/sherlock/
 RUN pip3 wheel -r /opt/sherlock/requirements.txt
 
 
-FROM python:3.10-alpine
+FROM python:3.11-alpine
 WORKDIR /opt/sherlock
 ARG VCS_REF
 ARG VCS_URL="https://github.com/sherlock-project/sherlock"
