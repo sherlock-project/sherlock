@@ -1,13 +1,13 @@
 name: Update Site List 
 
 # Trigger the workflow when changes are pushed to the main branch
-# and the changes include the resources/data.json file
+# and the changes include the sherlock/resources/data.json file
 on:
   push:
     branches:
       - main
     paths:
-      - resources/data.json
+      - sherlock/resources/data.json
 
 jobs:
   sync-json-data:
