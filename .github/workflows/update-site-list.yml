@@ -5,7 +5,7 @@ name: Update Site List
 on:
   push:
     branches:
-      - main
+      - master 
     paths:
       - sherlock/resources/data.json
 
