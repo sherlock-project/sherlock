@@ -2064,9 +2064,12 @@
     "username_claimed": "blue"
   },
   "TryHackMe": {
-    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
+    "errorType": "message",
+    "errorMsg": "{\"success\":false}",
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
+    "urlProbe": "https://tryhackme.com/api/user/exist/{}",
     "username_claimed": "ashu"
   },
   "Tuna": {
