@@ -1,4 +1,4 @@
-## List Of Supported Sites (414 Sites In Total!)
+## List Of Supported Sites (413 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -344,7 +344,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.youtube.com) [Youtube User](https://www.youtube.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.zhihu.com/) [Zhihu](https://www.zhihu.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://akniga.org/profile/blue/) [akniga](https://akniga.org/profile/blue/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://aminoapps.com/) [aminoapp](https://aminoapps.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://www.authorstream.com/) [authorSTREAM](http://www.authorstream.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.baby.ru/) [babyRU](https://www.baby.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.babyblog.ru/) [babyblogRU](https://www.babyblog.ru/) 

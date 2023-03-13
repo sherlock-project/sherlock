@@ -94,9 +94,9 @@
     "username_claimed": "pink"
   },
   "AllMyLinks": {
-    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "errorMsg": "Not Found",
     "errorType": "message",
+    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "url": "https://allmylinks.com/{}",
     "urlMain": "https://allmylinks.com/",
     "username_claimed": "blue"
@@ -2064,9 +2064,9 @@
     "username_claimed": "blue"
   },
   "TryHackMe": {
-    "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
-    "errorType": "message",
     "errorMsg": "{\"success\":false}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
     "urlProbe": "https://tryhackme.com/api/user/exist/{}",
@@ -2115,8 +2115,8 @@
     "username_claimed": "blue"
   },
   "Unsplash": {
-    "regexCheck": "^[a-z0-9_]{1,60}$",
     "errorType": "status_code",
+    "regexCheck": "^[a-z0-9_]{1,60}$",
     "url": "https://unsplash.com/@{}",
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
