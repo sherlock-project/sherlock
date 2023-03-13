@@ -2111,6 +2111,7 @@
     "username_claimed": "blue"
   },
   "Unsplash": {
+    "regexCheck": "^[a-z0-9_]{1,60}$",
     "errorType": "status_code",
     "url": "https://unsplash.com/@{}",
     "urlMain": "https://unsplash.com/",
