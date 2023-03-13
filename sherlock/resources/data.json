@@ -309,6 +309,7 @@
   },
   "BuyMeACoffee": {
     "errorType": "status_code",
+    "regexCheck": "[a-zA-Z0-9]{3,15}",
     "url": "https://buymeacoff.ee/{}",
     "urlMain": "https://www.buymeacoffee.com/",
     "urlProbe": "https://www.buymeacoffee.com/{}",
