@@ -2011,16 +2011,6 @@
     "urlMain": "https://tiktok.com/",
     "username_claimed": "red"
   },
-  "Tinder": {
-    "errorMsg": [
-      "<title data-react-helmet=\"true\">Tinder | Dating, Make Friends &amp; Meet New People</title>",
-      "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>"
-    ],
-    "errorType": "message",
-    "url": "https://www.tinder.com/@{}",
-    "urlMain": "https://tinder.com/",
-    "username_claimed": "blue"
-  },
   "TnAFlix": {
     "errorType": "status_code",
     "isNSFW": true,
