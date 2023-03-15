@@ -83,6 +83,7 @@ optional arguments:
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
+  --nsfw                Include checking of NSFW sites from default list.
 ```
 
 To search for only one user:
