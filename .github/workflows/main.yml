@@ -20,14 +20,14 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install ruff flake8 pytest
+        pip install ruff pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with ruff
       run: |
         # stop the build if there are Python syntax errors or undefined names
         ruff . --format=github --select=E9,F63,F7,F82
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        ruff . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Sherlock Site Detect Tests
       run: |
         cd sherlock && python -m unittest tests.all.SherlockDetectTests --verbose
