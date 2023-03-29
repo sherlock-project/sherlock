@@ -25,6 +25,7 @@ from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
+from urllib3.exceptions import InsecureRequestWarning
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
@@ -160,7 +161,7 @@ def MultipleUsernames(username):
     return allUsernames
 
 
-def sherlock(username, site_data, query_notify,
+def sherlock(username, site_data, query_notify, ssl_verify,
              tor=False, unique_tor=False,
              proxy=None, timeout=60):
     """Run Sherlock Analysis.
@@ -313,13 +314,15 @@ def sherlock(username, site_data, query_notify,
                                  proxies=proxies,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 json=request_payload,
+                                 verify=ssl_verify
                                  )
             else:
                 future = request(url=url_probe, headers=headers,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 json=request_payload,
+                                 verify=ssl_verify
                                  )
 
             # Store future in data for access later
@@ -564,6 +567,10 @@ def main():
     parser.add_argument("--nsfw",
                         action="store_true", default=False,
                         help="Include checking of NSFW sites from default list.")
+    
+    parser.add_argument("--no-ssl",
+                        action="store_true", dest="no_ssl", default=False,
+                        help="Disable SSL certificate verification.")
 
     args = parser.parse_args()
 
@@ -599,6 +606,18 @@ def main():
 
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
+        
+    if args.no_ssl:
+        ssl_verify=False
+        print("SSL certificate verification disabled.")
+        print("ssl_verify=", ssl_verify, "(type:", type(ssl_verify), ")")
+    else:
+        ssl_verify=True
+        print("SSL Certificate verification enabled.")
+        print("ssl_verify =", ssl_verify, "(type:", type(ssl_verify),")")
+
+    # Suppress the warnings from urllib3
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
     if args.no_color:
         # Disable color output.
@@ -679,6 +698,7 @@ def main():
         results = sherlock(username,
                            site_data,
                            query_notify,
+                           ssl_verify,
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
