@@ -569,10 +569,13 @@ def main():
                         help="Include checking of NSFW sites from default list.")
     
     parser.add_argument("--no-ssl",
-                        action="store_true", dest="no_ssl", default=False,
+                        action="store_false", dest="ssl_verify", default=True,
                         help="Disable SSL certificate verification.")
 
     args = parser.parse_args()
+
+    # Disable warnings for no-ssl
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
@@ -580,7 +583,8 @@ def main():
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py",
+             verify=args.ssl_verify)
 
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
         local_version = __version__
@@ -607,17 +611,8 @@ def main():
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
         
-    if args.no_ssl:
-        ssl_verify=False
-        print("SSL certificate verification disabled.")
-        print("ssl_verify=", ssl_verify, "(type:", type(ssl_verify), ")")
-    else:
-        ssl_verify=True
-        print("SSL Certificate verification enabled.")
-        print("ssl_verify =", ssl_verify, "(type:", type(ssl_verify),")")
-
-    # Suppress the warnings from urllib3
-    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+    if args.ssl_verify==False:
+        print("Warning: SSL certificate verification disabled.")
 
     if args.no_color:
         # Disable color output.
@@ -639,10 +634,10 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
-            sites = SitesInformation(os.path.join(
+            sites = SitesInformation(args.ssl_verify, os.path.join(
                 os.path.dirname(__file__), "resources/data.json"))
         else:
-            sites = SitesInformation(args.json_file)
+            sites = SitesInformation(args.ssl_verify, args.json_file)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
@@ -698,7 +693,7 @@ def main():
         results = sherlock(username,
                            site_data,
                            query_notify,
-                           ssl_verify,
+                           args.ssl_verify,
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,
