@@ -20,8 +20,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install ruff pytest
-        pip install flake8 pytest
+        pip install ruff flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with ruff
       run: |
