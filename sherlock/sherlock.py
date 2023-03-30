@@ -574,8 +574,10 @@ def main():
 
     args = parser.parse_args()
 
-    # Disable warnings for no-ssl
-    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+    # Disable warnings for no-ssl            
+    if args.ssl_verify==False:
+        print("Warning: SSL certificate verification disabled.")
+        requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
@@ -610,9 +612,6 @@ def main():
 
         print(
             "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
-        
-    if args.ssl_verify==False:
-        print("Warning: SSL certificate verification disabled.")
 
     if args.no_color:
         # Disable color output.
