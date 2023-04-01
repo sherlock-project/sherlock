@@ -151,6 +151,26 @@ def CheckForParameter(username):
 checksymbols = []
 checksymbols = ["_", "-", "."]
 
+def check_proxy(proxyaddr):
+    pattern = r"(http|https|socks4|socks5)(:\/\/)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
+    # Thanks to Shen's answer https://stackoverflow.com/questions/48294077/regex-to-validate-the-numbers-between-0-to-65535
+    if bool(addr := re.match(pattern, proxyaddr)):
+        scheme = addr[1]
+        proxy = {scheme: proxyaddr}
+        url = "http://duckduckgo.com"
+
+        try:
+
+            response = requests.get(url,proxies=proxy)
+            if response.status_code == 200:
+                return proxy
+
+        except BaseException as e:
+            print(f"The proxy is inaccessible or invalid\n")
+            sys.exit(1)
+    else:
+        print("Invalid scheme.It should be \'scheme://ip:port\'")
+        sys.exit(1)
 
 def MultipleUsernames(username):
     '''replace the parameter with with symbols and return a list of usernames'''
@@ -591,7 +611,7 @@ def main():
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
     # Make prompts
-    if args.proxy is not None:
+    if args.proxy is not None and check_proxy(args.proxy) is not None:
         print("Using the proxy: " + args.proxy)
 
     if args.tor or args.unique_tor:
