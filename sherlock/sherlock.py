@@ -151,22 +151,30 @@ def CheckForParameter(username):
 checksymbols = []
 checksymbols = ["_", "-", "."]
 
+
 def check_proxy(proxyaddr):
-    pattern = r"(http|https|socks4|socks5)(:\/\/)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
-    # Thanks to Shen's answer https://stackoverflow.com/questions/48294077/regex-to-validate-the-numbers-between-0-to-65535
-    if bool(addr := re.match(pattern, proxyaddr)):
+    pattern = r"""
+    (http|https|socks4|socks5)
+    (:\/\/)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+    :(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$
+    """
+    pattern = re.compile(pattern, re.VERBOSE)
+    # Thanks to Shen's answer https://stackoverflow.com/questions/
+    # 48294077/regex-to-validate-the-numbers-between-0-to-65535
+    if bool(re.match(pattern, proxyaddr)):
+        addr = re.match(pattern, proxyaddr)
         scheme = addr[1]
         proxy = {scheme: proxyaddr}
         url = "http://duckduckgo.com"
 
         try:
 
-            response = requests.get(url,proxies=proxy)
+            response = requests.get(url, proxies=proxy)
             if response.status_code == 200:
                 return proxy
 
-        except BaseException as e:
-            print(f"The proxy is inaccessible or invalid\n")
+        except requests.exceptions.RequestException:
+            print("The proxy is inaccessible or invalid\n")
             sys.exit(1)
     else:
         print("Invalid scheme.It should be \'scheme://ip:port\'")
