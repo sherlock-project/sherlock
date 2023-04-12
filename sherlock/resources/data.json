@@ -647,6 +647,13 @@
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
   },
+  "Eksi Sozluk": {
+    "errorMsg": "bulamad\u0131k o kullan\u0131c\u0131y\u0131",
+    "errorType": "message",
+    "url": "https://eksisozluk2023.com/biri/{}",
+    "urlMain": "https://eksisozluk2023.com/",
+    "username_claimed": "blue"
+  },
   "Enjin": {
     "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
     "errorType": "message",

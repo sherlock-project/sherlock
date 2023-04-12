@@ -1,4 +1,4 @@
-## List Of Supported Sites (412 Sites In Total!)
+## List Of Supported Sites (413 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -93,6 +93,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://dribbble.com/) [Dribbble](https://dribbble.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://duolingo.com/) [Duolingo](https://duolingo.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.eintracht.de/) [Eintracht Frankfurt Forum](https://community.eintracht.de/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://eksisozluk2023.com/) [Eksi Sozluk](https://eksisozluk2023.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.enjin.com/) [Enjin](https://www.enjin.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forums.envato.com/) [Envato Forum](https://forums.envato.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.erome.com/) [Erome](https://www.erome.com/) **(NSFW)**
