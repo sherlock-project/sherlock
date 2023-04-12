@@ -1662,3 +1662,26 @@ As of 2022.03.15, Tinder returns false positives. We will try to rev the API end
     "username_claimed": "blue"
   },
 ```
+
+
+## Coil
+As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any requests return a 404.
+
+```
+"Coil": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "operationName": "getCreator",
+      "query": "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
+      "variables": {
+        "userShortName": "{}"
+      }
+    },
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "urlProbe": "https://coil.com/gateway",
+    "username_claimed": "adam"
+  }
+```
