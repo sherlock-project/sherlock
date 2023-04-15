@@ -71,7 +71,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://codersrank.io/) [Coders Rank](https://codersrank.io/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://coderwall.com) [Coderwall](https://coderwall.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.codewars.com) [Codewars](https://www.codewars.com) 
-1. ![](https://www.google.com/s2/favicons?domain=https://coil.com/) [Coil](https://coil.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://coinvote.cc/) [Coinvote](https://coinvote.cc/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.colourlovers.com/) [ColourLovers](https://www.colourlovers.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://contently.com/) [Contently](https://contently.com/) 

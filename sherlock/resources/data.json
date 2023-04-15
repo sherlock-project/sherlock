@@ -489,22 +489,6 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
-  "Coil": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "request_method": "POST",
-    "request_payload": {
-      "operationName": "getCreator",
-      "query": "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
-      "variables": {
-        "userShortName": "{}"
-      }
-    },
-    "url": "https://coil.com/u/{}",
-    "urlMain": "https://coil.com/",
-    "urlProbe": "https://coil.com/gateway",
-    "username_claimed": "adam"
-  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
