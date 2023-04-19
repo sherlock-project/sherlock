@@ -754,5 +754,13 @@
     "urlMain": "https://coil.com/",
     "urlProbe": "https://coil.com/gateway",
     "username_claimed": "adam"
+  },
+  "OnlyFans": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
+    "username_claimed": "theemilylynne"
   }
 }
