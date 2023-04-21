@@ -1459,13 +1459,6 @@
     "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers"
   },
-  "OK": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
-    "url": "https://ok.ru/{}",
-    "urlMain": "https://ok.ru/",
-    "username_claimed": "ok"
-  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",

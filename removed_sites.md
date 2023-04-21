@@ -1713,3 +1713,15 @@ As of 2023.04.21, Instagram returns false positives as picuki.com was used to qu
     "username_claimed": "blue"
   }
 ```
+
+## OK
+As of 2023.04.21, Ok.ru returns false positives
+```json
+  "OK": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
+    "url": "https://ok.ru/{}",
+    "urlMain": "https://ok.ru/",
+    "username_claimed": "ok"
+  }
+```
