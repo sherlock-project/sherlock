@@ -1685,3 +1685,17 @@ As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any 
     "username_claimed": "adam"
   }
 ```
+
+## OnlyFans
+As of 2023.04.20, OnlyFans returns false negatives on checking usernames with the API endpoint and directly through their website.
+
+```
+"OnlyFans": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
+    "username_claimed": "theemilylynne"
+  }
+```

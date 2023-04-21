@@ -1474,14 +1474,6 @@
     "urlMain": "https://ok.ru/",
     "username_claimed": "ok"
   },
-  "OnlyFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com/",
-    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
-    "username_claimed": "theemilylynne"
-  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",
