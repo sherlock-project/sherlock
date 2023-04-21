@@ -1650,7 +1650,7 @@ As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through
 ## Tinder
 As of 2022.03.15, Tinder returns false positives. We will try to rev the API endpoint on the android app to find a better soon
 
-```
+```json
 "Tinder": {
     "errorMsg": [
       "<title data-react-helmet=\"true\">Tinder | Dating, Make Friends &amp; Meet New People</title>",
@@ -1667,7 +1667,7 @@ As of 2022.03.15, Tinder returns false positives. We will try to rev the API end
 ## Coil
 As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any requests return a 404.
 
-```
+```json
 "Coil": {
     "errorMsg": "User not found",
     "errorType": "message",
@@ -1689,7 +1689,7 @@ As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any 
 ## OnlyFans
 As of 2023.04.20, OnlyFans returns false negatives on checking usernames with the API endpoint and directly through their website.
 
-```
+```json
 "OnlyFans": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -1697,5 +1697,43 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
     "urlMain": "https://onlyfans.com/",
     "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne"
+  }
+```
+
+## Instagram
+As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
+
+```json
+  "Instagram": {
+    "errorMsg": "Nothing found!",
+    "errorType": "message",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "urlProbe": "https://www.picuki.com/profile/{}",
+    "username_claimed": "blue"
+  }
+```
+
+## OK
+As of 2023.04.21, Ok.ru returns false positives
+```json
+  "OK": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
+    "url": "https://ok.ru/{}",
+    "urlMain": "https://ok.ru/",
+    "username_claimed": "ok"
+  }
+```
+
+## ForumhouseRU
+As of 2023.04.21, ForumhouseRU returns false positives
+```json
+  "forumhouseRU": {
+    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
+    "errorType": "message",
+    "url": "https://www.forumhouse.ru/members/?username={}",
+    "urlMain": "https://www.forumhouse.ru/",
+    "username_claimed": "red"
   }
 ```
