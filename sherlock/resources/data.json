@@ -1083,14 +1083,6 @@
     "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
     "username_claimed": "blue"
   },
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  },
   "Instructables": {
     "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
