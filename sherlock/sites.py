@@ -227,3 +227,12 @@ class SitesInformation:
         Length of sites object.
         """
         return len(self.sites)
+    
+    
+class Make(SiteInformation):
+    def show_atributes(self, att: list) -> str:
+        self.att_list = att
+        for at in self.att_list:
+            print(f"Ateubutes: \n{at}")
+        
+        
