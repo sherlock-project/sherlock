@@ -26,6 +26,7 @@ from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
 from colorama import init
+from fpdf import FPDF
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
@@ -519,6 +520,10 @@ def main():
                         action="store_true", dest="xlsx", default=False,
                         help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
                         )
+    parser.add_argument("--pdf",
+                        action="store_true", dest="xlsx", default=False,
+                        help="Create the standard pdf file."
+                        )
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
@@ -765,6 +770,37 @@ def main():
 
             DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
+        
+        if args.pdf:
+            # save FPDF() class into
+            # a variable pdf
+            pdf = FPDF()
+
+            # Add a page
+            pdf.add_page()
+
+            # set style and size of font
+            # that you want in the pdf
+            pdf.set_font("Arial", size=28)
+
+            pdf.cell(200, 10, txt="SHERLOCK", ln=2, align='C')
+            pdf.cell(200, 10, txt=f"Username: {username}", ln=2, align='C')
+
+            pdf.set_font("Arial", size=15)
+
+            # open the text file in read mode
+            f = open(f"{username}.txt", "r")
+
+            # insert the texts in pdf
+            for x in f:
+                pdf.cell(200, 10, txt=x, ln=1, align='L')
+            # Check if the pdf already exists
+            #if yes then replace it with new pdf
+            # if not, create a new one
+            # save the pdf with name username.pdf
+            if os.path.exists(f"{username}.pdf"):
+                os.remove(f"{username}.pdf")
+            pdf.output(f"{username}.pdf")
 
         print()
     query_notify.finish()
