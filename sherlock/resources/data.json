@@ -631,13 +631,6 @@
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
   },
-  "Enjin": {
-    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
-    "errorType": "message",
-    "url": "https://www.enjin.com/profile/{}",
-    "urlMain": "https://www.enjin.com/",
-    "username_claimed": "blue"
-  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
