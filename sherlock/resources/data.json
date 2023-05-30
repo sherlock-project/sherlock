@@ -2388,9 +2388,9 @@
   },
   "ebio.gg": {
     "errorType": "status_code",
-    "url": "https://ebio.gg/{}",
+    "url": "https://ebio.gg/@{}",
     "urlMain": "https:/ebio.gg",
-    "username_claimed": "dev"
+    "username_claimed": "ebio"
   },
   "eintracht": {
     "errorType": "status_code",
