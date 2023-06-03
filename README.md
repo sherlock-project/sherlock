@@ -31,14 +31,16 @@ $ git clone https://github.com/sherlock-project/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
-# install the requirements
-$ python3 -m pip install -r requirements.txt
+# install the package as a system package
+$ python3 -m pip install .
+# or in development mode, used in the current directory
+$ python3 -m pip install -e .
 ```
 
 ## Usage
 
 ```console
-$ python3 sherlock --help
+$ sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
@@ -88,12 +90,12 @@ optional arguments:
 
 To search for only one user:
 ```
-python3 sherlock user123
+sherlock user123
 ```
 
 To search for more than one user:
 ```
-python3 sherlock user1 user2 user3
+sherlock user1 user2 user3
 ```
 
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
@@ -157,8 +159,8 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```console
-$ cd sherlock/sherlock
-$ python3 -m unittest tests.all --verbose
+$ cd sherlock
+$ python3 -m unittest sherlock.tests.all --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
