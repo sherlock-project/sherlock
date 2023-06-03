@@ -2,8 +2,9 @@
 
 This module contains various tests.
 """
-from tests.base import SherlockBaseTest
 import exrex
+
+from sherlock.tests.base import SherlockBaseTest
 
 
 class SherlockDetectTests(SherlockBaseTest):

@@ -632,8 +632,8 @@
     "username_claimed": "mmammu"
   },
   "Enjin": {
-    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://enjin.io/thank-you/enjin-website-builder",
     "url": "https://www.enjin.com/profile/{}",
     "urlMain": "https://www.enjin.com/",
     "username_claimed": "blue"
@@ -2387,7 +2387,8 @@
     "username_claimed": "blue"
   },
   "ebio.gg": {
-    "errorType": "status_code",
+    "errorMsg": "Tell your friend to (re)-register on ",
+    "errorType": "message",
     "url": "https://ebio.gg/{}",
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"

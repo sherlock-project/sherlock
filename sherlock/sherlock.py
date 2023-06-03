@@ -8,27 +8,24 @@ networks.
 """
 
 import csv
-import signal
-import pandas as pd
 import os
 import platform
 import re
+import signal
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
+import pandas as pd
 import requests
-
+from colorama import init
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotifyPrint
-from sites import SitesInformation
-from colorama import init
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.3"
+import sherlock.__version__ as version
+from sherlock.notify import QueryNotifyPrint
+from sherlock.result import QueryResult, QueryStatus
+from sherlock.sites import SitesInformation
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -307,20 +304,15 @@ def sherlock(username, site_data, query_notify,
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
+            proxies = None
             if proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
-                future = request(url=url_probe, headers=headers,
-                                 proxies=proxies,
-                                 allow_redirects=allow_redirects,
-                                 timeout=timeout,
-                                 json=request_payload
-                                 )
-            else:
-                future = request(url=url_probe, headers=headers,
-                                 allow_redirects=allow_redirects,
-                                 timeout=timeout,
-                                 json=request_payload
-                                 )
+            future = request(url=url_probe, headers=headers,
+                             proxies=proxies,
+                             allow_redirects=allow_redirects,
+                             timeout=timeout,
+                             json=request_payload
+                             )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -484,12 +476,12 @@ def handler(signal_received, frame):
 
 
 def main():
-    version_string = f"%(prog)s {__version__}\n" + \
+    version_string = f"%(prog)s {version.__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description=f"{module_name} (Version {__version__})"
+                            description=f"{version.__description__} (Version {version.__version__})"
                             )
     parser.add_argument("--version",
                         action="version", version=version_string,
@@ -576,7 +568,7 @@ def main():
             "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
 
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
-        local_version = __version__
+        local_version = version.__version__
 
         if remote_version != local_version:
             print("Update Available!\n" +
@@ -769,6 +761,3 @@ def main():
         print()
     query_notify.finish()
 
-
-if __name__ == "__main__":
-    main()
