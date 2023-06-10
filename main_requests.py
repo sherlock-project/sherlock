@@ -32,6 +32,7 @@ def banner():
     x.field_names = ["Commands", "Usage"]
     x.add_row(["setUsername", " -Config a username to use"])
     x.add_row(["huntAll", " -Hunt All social media platforms"])
+    x.add_row(["listAllMedia", " -list all media platforms"])
     x.add_row(["huntTarget", " -Hunt a target social media"])
 
     x.add_row(["run", " -runs the prgram"])
