@@ -1905,6 +1905,14 @@
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
+  "SteamID": {
+      "errorMsg": "<body class=\" responsive_page \">",
+      "errorType": "message",
+      "url": "https://steamcommunity.com/id/{}",
+      "urlMain": "https://steamcommunity.com/",
+      "username_claimed": "blue",
+      "username_unclaimed": "a"
+  },
   "Strava": {
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
