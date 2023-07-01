@@ -620,8 +620,8 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
-            sites = SitesInformation(os.path.join(
-                os.path.dirname(__file__), "resources/data.json"))
+            sites = SitesInformation(os.path.join(os.path.dirname(
+                os.path.realpath(__file__)), "resources/data.json"))
         else:
             sites = SitesInformation(args.json_file)
     except Exception as error:
