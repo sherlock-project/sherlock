@@ -104,7 +104,11 @@ def get_response(request_future, error_type, social_network):
     error_context = "General Unknown Error"
     exception_text = None
     try:
+        # request_future
         response = request_future.result()
+        # Raise Request HTTP error, when not using status_code. This prevents false positive/negative results.
+        if (error_type != "status_code"):
+            response.raise_for_status()
         if response.status_code:
             # Status code exists in response object
             error_context = None
@@ -313,13 +317,13 @@ def sherlock(username, site_data, query_notify,
                                  proxies=proxies,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 data=request_payload
                                  )
             else:
                 future = request(url=url_probe, headers=headers,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 data=request_payload
                                  )
 
             # Store future in data for access later

@@ -2477,6 +2477,23 @@
     "urlMain": "http://forum.igromania.ru/",
     "username_claimed": "blue"
   },
+  "instagram": {
+    "errorMsg": "\"email_required\"}], \"__all__\"",
+    "errorType": "message",
+    "headers": {
+      "x-csrftoken": "u7kSEki2fdXYh9"
+    },
+    "regexCheck": "^[A-Za-z0-9_.]{1,30}$",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "urlProbe": "https://www.instagram.com/api/v1/web/accounts/web_create_ajax/attempt/",
+    "username_claimed": "jan",
+    "username_unclaimed": "feyg8342hhaaw202"
+  },
   "interpals": {
     "errorMsg": "The requested user does not exist or is inactive",
     "errorType": "message",
