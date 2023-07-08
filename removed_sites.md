@@ -1737,3 +1737,84 @@ As of 2023.04.21, ForumhouseRU returns false positives
     "username_claimed": "red"
   }
 ```
+
+## GunsAndAmmo.com
+
+As of 2023.07.07, GunsAndAmmo returns false positives
+
+```json
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam"
+  }
+```
+## Enjin.com
+
+As of 2023.07.07, Enjin redirects on every request to the profile url. This creates false positives.
+The redirect does not distinguish between claimed and unclaimed usernames, so we cannot use errorType response_url.
+
+```json
+"Enjin": {
+    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
+    "errorType": "message",
+    "url": "https://www.enjin.com/profile/{}",
+    "urlMain": "https://www.enjin.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## IRL
+
+IRL has shut down as of June 27th at 12pm PDT. 
+```json
+  "IRL": {
+      "errorType": "status_code",
+      "url": "https://www.irl.com/{}",
+      "urlMain": "https://www.irl.com/",
+      "username_claimed": "hacker"
+    }
+```
+
+## AllMyLinks.com
+
+As of 2023.07.07, uses a cloudflare verification. Creates false positives, all usernames reported as claimed. 
+
+```json
+"AllMyLinks": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Authorstream
+
+As of 2023.07.07 the domain authorstream.com is not in use anymore.
+
+```json
+  "authorSTREAM": {
+      "errorType": "status_code",
+      "url": "http://www.authorstream.com/{}/",
+      "urlMain": "http://www.authorstream.com/",
+      "username_claimed": "blue"
+    },
+```
+
+## jeuxvideo.com
+
+As of 2023.07.07 the server responds 520 status code (internal server error), both on the profile urls and on the main url. 
+
+```json
+ "jeuxvideo": {
+    "errorMsg": "Vous \u00eates",
+    "errorType": "message",
+    "url": "http://www.jeuxvideo.com/profil/{}?mode=infos",
+    "urlMain": "http://www.jeuxvideo.com",
+    "username_claimed": "adam"
+  }
+```

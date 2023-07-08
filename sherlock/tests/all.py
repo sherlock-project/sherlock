@@ -21,7 +21,7 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = "AllMyLinks"
+        site = "minds"
         site_data = self.site_data_all[site]
 
         # Ensure that the site's detection method has not changed.
@@ -45,7 +45,7 @@ class SherlockDetectTests(SherlockBaseTest):
         Will trigger an assert if detection mechanism did not work as expected.
         """
 
-        site = "AllMyLinks"
+        site = "minds"
         site_data = self.site_data_all[site]
 
         # Ensure that the site's detection method has not changed.
@@ -59,7 +59,7 @@ class SherlockDetectTests(SherlockBaseTest):
         # method is very hacky, but it does the job as having hardcoded
         # usernames that dont exists will lead to people with ill intent to
         # create an account with that username which will break the tests
-        valid_username = exrex.getone(r"^[a-z0-9][a-z0-9-]{32}$")
+        valid_username = exrex.getone(r"^[a-z0-9][a-z0-9-]{20}$")
         self.username_check([valid_username], [site], exist_check=False)
 
         return
