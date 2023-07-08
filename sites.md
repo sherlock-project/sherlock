@@ -338,7 +338,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.youtube.com) [Youtube User](https://www.youtube.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.zhihu.com/) [Zhihu](https://www.zhihu.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://akniga.org/profile/blue/) [akniga](https://akniga.org/profile/blue/) 
-1. ![](https://www.google.com/s2/favicons?domain=http://www.authorstream.com/) [authorSTREAM](http://www.authorstream.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.baby.ru/) [babyRU](https://www.baby.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.babyblog.ru/) [babyblogRU](https://www.babyblog.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://chaos.social/) [chaos.social](https://chaos.social/) 
