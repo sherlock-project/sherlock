@@ -1,4 +1,4 @@
-## List Of Supported Sites (407 Sites In Total!)
+## List Of Supported Sites (408 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -167,6 +167,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://translate.jellyfin.org/) [Jellyfin Weblate](https://translate.jellyfin.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://jimdosite.com/) [Jimdo](https://jimdosite.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://discourse.joplinapp.org/) [Joplin Forum](https://discourse.joplinapp.org/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://justpaste.it/) [Justpaste.it](https://justpaste.it/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.keakr.com/) [KEAKR](https://www.keakr.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.kaggle.com/) [Kaggle](https://www.kaggle.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://keybase.io/) [Keybase](https://keybase.io/) 

@@ -1146,6 +1146,13 @@
     "urlMain": "https://discourse.joplinapp.org/",
     "username_claimed": "laurent"
   },
+  "Justpaste": {
+    "errorType": "status_code",
+    "url": "https://justpaste.it/u/{}",
+    "urlMain": "https://justpaste.it",
+    "username_claimed": "test",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "KEAKR": {
     "errorType": "status_code",
     "url": "https://www.keakr.com/en/profile/{}",
