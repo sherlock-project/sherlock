@@ -489,22 +489,6 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
-  "Coil": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "request_method": "POST",
-    "request_payload": {
-      "operationName": "getCreator",
-      "query": "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
-      "variables": {
-        "userShortName": "{}"
-      }
-    },
-    "url": "https://coil.com/u/{}",
-    "urlMain": "https://coil.com/",
-    "urlProbe": "https://coil.com/gateway",
-    "username_claimed": "adam"
-  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
@@ -1099,14 +1083,6 @@
     "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
     "username_claimed": "blue"
   },
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  },
   "Instructables": {
     "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
@@ -1489,21 +1465,6 @@
     "url": "https://ogu.gg/{}",
     "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers"
-  },
-  "OK": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
-    "url": "https://ok.ru/{}",
-    "urlMain": "https://ok.ru/",
-    "username_claimed": "ok"
-  },
-  "OnlyFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com/",
-    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
-    "username_claimed": "theemilylynne"
   },
   "OpenStreetMap": {
     "errorType": "status_code",
@@ -2461,13 +2422,6 @@
     "errorType": "message",
     "url": "https://forum.guns.ru/forummisc/blog/{}",
     "urlMain": "https://forum.guns.ru/",
-    "username_claimed": "red"
-  },
-  "forumhouseRU": {
-    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
-    "errorType": "message",
-    "url": "https://www.forumhouse.ru/members/?username={}",
-    "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red"
   },
   "freecodecamp": {
