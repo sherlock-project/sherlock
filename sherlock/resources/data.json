@@ -2115,8 +2115,7 @@
     "username_claimed": "blue"
   },
   "Virgool": {
-    "errorMsg": "\u06f4\u06f0\u06f4",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://virgool.io/@{}",
     "urlMain": "https://virgool.io/",
     "username_claimed": "blue"
