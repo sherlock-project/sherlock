@@ -10,7 +10,6 @@ from result import QueryStatus
 from notify import QueryNotify
 from sites import SitesInformation
 import warnings
-import exrex
 
 
 class SherlockBaseTest(unittest.TestCase):
