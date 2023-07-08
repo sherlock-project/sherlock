@@ -1737,3 +1737,36 @@ As of 2023.04.21, ForumhouseRU returns false positives
     "username_claimed": "red"
   }
 ```
+
+## Toaster
+As of 2023.7.8, Toaster only contains the "Welcome to nginx"
+```json
+  "toster": {
+    "errorType": "status_code",
+    "url": "https://www.toster.ru/user/{}/answers",
+    "urlMain": "https://www.toster.ru/",
+    "username_claimed": "adam"
+  },
+```
+
+## AuthorSTREAM
+As of 2023.7.8, the authorstream website is for sale
+```json
+  "authorSTREAM": {
+    "errorType": "status_code",
+    "url": "http://www.authorstream.com/{}/",
+    "urlMain": "http://www.authorstream.com/",
+    "username_claimed": "blue"
+  },
+```
+
+## IRL
+As of 2023.6.27, the IRL website has been shut down
+```json
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  },
+```

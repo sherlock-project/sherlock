@@ -153,7 +153,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://hubski.com/) [Hubski](https://hubski.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://icq.com/) [ICQ](https://icq.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.ifttt.com/) [IFTTT](https://www.ifttt.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.irl.com/) [IRL](https://www.irl.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.icons8.com/) [Icons8 Community](https://community.icons8.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.imagefap.com/) [Image Fap](https://www.imagefap.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://imgup.cz/) [ImgUp.cz](https://imgup.cz/) 
@@ -339,7 +338,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.youtube.com) [Youtube User](https://www.youtube.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.zhihu.com/) [Zhihu](https://www.zhihu.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://akniga.org/profile/blue/) [akniga](https://akniga.org/profile/blue/) 
-1. ![](https://www.google.com/s2/favicons?domain=http://www.authorstream.com/) [authorSTREAM](http://www.authorstream.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.baby.ru/) [babyRU](https://www.baby.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.babyblog.ru/) [babyblogRU](https://www.babyblog.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://chaos.social/) [chaos.social](https://chaos.social/) 
@@ -400,7 +398,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://social.tchncs.de/) [social.tchncs.de](https://social.tchncs.de/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://spletnik.ru/) [spletnik](https://spletnik.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.svidbook.ru/) [svidbook](https://www.svidbook.ru/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.toster.ru/) [toster](https://www.toster.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://uid.me/) [uid](https://uid.me/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://wiki.vg/) [wiki.vg](https://wiki.vg/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://wykop.pl) [wykop.pl](https://wykop.pl) 
