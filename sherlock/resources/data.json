@@ -380,8 +380,7 @@
     "username_claimed": "ordnung"
   },
   "Chatujme.cz": {
-    "errorMsg": "Neexistujic\u00ed profil",
-    "errorType": "message",
+    "errorType": "response_url",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "url": "https://profil.chatujme.cz/{}",
     "urlMain": "https://chatujme.cz/",
