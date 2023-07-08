@@ -2092,10 +2092,7 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": [
-      "Venmo | Page Not Found"
-    ],
-    "errorType": "message",
+    "errorType": "response_url",
     "headers": {
       "Host": "account.venmo.com"
     },
