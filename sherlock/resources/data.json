@@ -1050,12 +1050,6 @@
     "urlMain": "https://www.ifttt.com/",
     "username_claimed": "blue"
   },
-  "IRL": {
-    "errorType": "status_code",
-    "url": "https://www.irl.com/{}",
-    "urlMain": "https://www.irl.com/",
-    "username_claimed": "hacker"
-  },
   "Icons8 Community": {
     "errorType": "status_code",
     "url": "https://community.icons8.com/u/{}/summary",
@@ -2315,12 +2309,6 @@
     "urlMain": "https://akniga.org/profile/blue/",
     "username_claimed": "blue"
   },
-  "authorSTREAM": {
-    "errorType": "status_code",
-    "url": "http://www.authorstream.com/{}/",
-    "urlMain": "http://www.authorstream.com/",
-    "username_claimed": "blue"
-  },
   "babyRU": {
     "errorMsg": "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
     "errorType": "message",
@@ -2707,12 +2695,6 @@
     "url": "https://www.svidbook.ru/user/{}",
     "urlMain": "https://www.svidbook.ru/",
     "username_claimed": "green"
-  },
-  "toster": {
-    "errorType": "status_code",
-    "url": "https://www.toster.ru/user/{}/answers",
-    "urlMain": "https://www.toster.ru/",
-    "username_claimed": "adam"
   },
   "uid": {
     "errorType": "status_code",
