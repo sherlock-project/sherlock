@@ -106,8 +106,8 @@ def get_response(request_future, error_type, social_network):
     try:
         # request_future
         response = request_future.result()
-        # Raise Request HTTP error, when not using status_code. This prevents false positive/negative results.
-        if (error_type != "status_code"):
+        # Raise Request HTTP error, when not using status_code or response url. This prevents false positive/negative results.
+        if (error_type == "message"):
             response.raise_for_status()
         if response.status_code:
             # Status code exists in response object
