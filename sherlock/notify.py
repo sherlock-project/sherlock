@@ -228,6 +228,7 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.RED + f" {self.result.context}" +
+                      Fore.RED + f" {self.result.exception}" +
                       Fore.YELLOW + " ")
 
         elif result.status == QueryStatus.ILLEGAL:

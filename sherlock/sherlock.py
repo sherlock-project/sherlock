@@ -437,7 +437,8 @@ def sherlock(username, site_data, query_notify,
                              site_url_user=url,
                              status=query_status,
                              query_time=response_time,
-                             context=error_context)
+                             context=error_context,
+                             exception=exception_text)
         query_notify.update(result)
 
         # Save status of request
