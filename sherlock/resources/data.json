@@ -93,14 +93,6 @@
     "urlMain": "https://www.allthingsworn.com",
     "username_claimed": "pink"
   },
-  "AllMyLinks": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
-    "url": "https://allmylinks.com/{}",
-    "urlMain": "https://allmylinks.com/",
-    "username_claimed": "blue"
-  },
   "Amino": {
     "errorType": "status_code",
     "url": "https://aminoapps.com/u/{}",
@@ -631,13 +623,6 @@
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
   },
-  "Enjin": {
-    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
-    "errorType": "message",
-    "url": "https://www.enjin.com/profile/{}",
-    "urlMain": "https://www.enjin.com/",
-    "username_claimed": "blue"
-  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
@@ -924,12 +909,6 @@
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue"
   },
-  "GunsAndAmmo": {
-    "errorType": "status_code",
-    "url": "https://forums.gunsandammo.com/profile/{}",
-    "urlMain": "https://gunsandammo.com/",
-    "username_claimed": "adam"
-  },
   "Gutefrage": {
     "errorType": "status_code",
     "url": "https://www.gutefrage.net/nutzer/{}",
@@ -1049,12 +1028,6 @@
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
     "username_claimed": "blue"
-  },
-  "IRL": {
-    "errorType": "status_code",
-    "url": "https://www.irl.com/{}",
-    "urlMain": "https://www.irl.com/",
-    "username_claimed": "hacker"
   },
   "Icons8 Community": {
     "errorType": "status_code",
@@ -1604,8 +1577,7 @@
     "username_claimed": "Blue"
   },
   "Quizlet": {
-    "errorMsg": "Page Unavailable</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
     "username_claimed": "blue"
@@ -2315,12 +2287,6 @@
     "urlMain": "https://akniga.org/profile/blue/",
     "username_claimed": "blue"
   },
-  "authorSTREAM": {
-    "errorType": "status_code",
-    "url": "http://www.authorstream.com/{}/",
-    "urlMain": "http://www.authorstream.com/",
-    "username_claimed": "blue"
-  },
   "babyRU": {
     "errorMsg": "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
     "errorType": "message",
@@ -2387,8 +2353,8 @@
     "username_claimed": "blue"
   },
   "ebio.gg": {
-    "errorType": "status_code",
-    "url": "https://ebio.gg/{}",
+    "errorType": "response_url",
+    "url": "https://ebio.gg/@{}",
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
   },
@@ -2495,13 +2461,6 @@
     "url": "https://jbzd.com.pl/uzytkownik/{}",
     "urlMain": "https://jbzd.com.pl/",
     "username_claimed": "blue"
-  },
-  "jeuxvideo": {
-    "errorMsg": "Vous \u00eates",
-    "errorType": "message",
-    "url": "http://www.jeuxvideo.com/profil/{}?mode=infos",
-    "urlMain": "http://www.jeuxvideo.com",
-    "username_claimed": "adam"
   },
   "kofi": {
     "errorType": "response_url",
