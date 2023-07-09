@@ -1006,8 +1006,7 @@
     "username_claimed": "red"
   },
   "Houzz": {
-    "errorMsg": "The page you requested was not found.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://houzz.com/user/{}",
     "urlMain": "https://houzz.com/",
     "username_claimed": "blue"
@@ -1032,8 +1031,7 @@
     "username_claimed": "Micheal"
   },
   "IFTTT": {
-    "errorMsg": "The requested page or file does not exist",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
@@ -1154,12 +1152,11 @@
     "username_claimed": "blue"
   },
   "Kik": {
-    "errorMsg": "The page you requested was not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://kik.me/{}",
     "urlMain": "http://kik.me/",
     "urlProbe": "https://ws2.kik.com/user/{}",
-    "username_claimed": "blue"
+    "username_claimed": "KikTeam"
   },
   "Kongregate": {
     "errorMsg": "Sorry, no account with that name was found.",
