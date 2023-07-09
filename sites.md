@@ -1,4 +1,4 @@
-## List Of Supported Sites (407 Sites In Total!)
+## List Of Supported Sites (408 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -364,6 +364,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.hunting.ru/forum/) [hunting](https://www.hunting.ru/forum/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://imgsrc.ru/) [iMGSRC.RU](https://imgsrc.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.igromania.ru/) [igromania](http://forum.igromania.ru/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://www.instagram.com/) [instagram](https://www.instagram.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.interpals.net/) [interpals](https://www.interpals.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://irecommend.ru/) [irecommend](https://irecommend.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://jbzd.com.pl/) [jbzd.com.pl](https://jbzd.com.pl/) 

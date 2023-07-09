@@ -1737,3 +1737,28 @@ As of 2023.04.21, ForumhouseRU returns false positives
     "username_claimed": "red"
   }
 ```
+
+## OGUsers
+
+As of 2023.07.08, ogu.gg changed to ogusers.gg and is behind Cloudflare verification. 
+
+```json
+  "OGUsers": {
+    "errorType": "status_code",
+    "url": "https://ogu.gg/{}",
+    "urlMain": "https://ogu.gg/",
+    "username_claimed": "ogusers"
+  }
+```
+## Mastodon.technology 
+
+As of 2023.07.08, domain doesn't exist anymore.
+
+```json
+  "mastodon.tech": {
+    "errorType": "status_code",
+    "url": "https://mastodon.tech/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow"
+  }
+```
