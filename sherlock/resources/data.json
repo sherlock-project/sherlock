@@ -127,8 +127,7 @@
     "username_claimed": "lio24d"
   },
   "Apple Discussions": {
-    "errorMsg": "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://discussions.apple.com/profile/{}",
     "urlMain": "https://discussions.apple.com",
     "username_claimed": "jason"
@@ -166,8 +165,7 @@
     "username_claimed": "red"
   },
   "AskFM": {
-    "errorMsg": "Well, apparently not anymore.",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]{3,40}$",
     "url": "https://ask.fm/{}",
     "urlMain": "https://ask.fm/",
@@ -959,8 +957,7 @@
     "username_claimed": "blue"
   },
   "HackerOne": {
-    "errorMsg": "Page not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://hackerone.com/{}",
     "urlMain": "https://hackerone.com/",
     "username_claimed": "stok"
@@ -1157,8 +1154,7 @@
     "username_claimed": "KikTeam"
   },
   "Kongregate": {
-    "errorMsg": "Sorry, no account with that name was found.",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
     "urlMain": "https://www.kongregate.com/",
