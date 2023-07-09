@@ -1488,8 +1488,7 @@
     "username_claimed": "psr"
   },
   "Pastebin": {
-    "errorMsg": "Not Found (#404)",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://pastebin.com/u/{}",
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue"
@@ -1501,8 +1500,7 @@
     "username_claimed": "blue"
   },
   "PepperIT": {
-    "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
-    "errorType": "message",
+    "errorType": "response_url",
     "url": "https://www.pepper.it/profile/{}/overview",
     "urlMain": "https://www.pepper.it",
     "username_claimed": "asoluinostrisca"
@@ -1553,8 +1551,7 @@
     "username_claimed": "swiftstickler"
   },
   "Polymart": {
-    "errorMsg": "Looks like we couldn't find this user. Sorry!",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://polymart.org/user/{}",
     "urlMain": "https://polymart.org/",
     "username_claimed": "craciu25yt"
@@ -1567,8 +1564,7 @@
     "username_claimed": "blue"
   },
   "ProductHunt": {
-    "errorMsg": "We seem to have lost this page",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
