@@ -565,8 +565,7 @@
     "username_claimed": "blue"
   },
   "Dealabs": {
-    "errorMsg": "La page que vous essayez",
-    "errorType": "message",
+    "errorType": "response_url",
     "regexCheck": "[a-z0-9]{4,16}",
     "url": "https://www.dealabs.com/profile/{}",
     "urlMain": "https://www.dealabs.com/",
@@ -605,8 +604,7 @@
     "username_claimed": "blue"
   },
   "Dribbble": {
-    "errorMsg": "Whoops, that page is gone.",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://dribbble.com/{}",
     "urlMain": "https://dribbble.com/",
@@ -729,8 +727,7 @@
     "username_claimed": "blue"
   },
   "Football": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0441 \u0442\u0430\u043a\u0438\u043c \u0438\u043c\u0435\u043d\u0435\u043c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.rusfootball.info/user/{}/",
     "urlMain": "https://www.rusfootball.info/",
     "username_claimed": "solo87"
