@@ -1429,12 +1429,6 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
-  "OGUsers": {
-    "errorType": "status_code",
-    "url": "https://ogu.gg/{}",
-    "urlMain": "https://ogu.gg/",
-    "username_claimed": "ogusers"
-  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",
@@ -2525,12 +2519,6 @@
     "url": "https://mastodon.social/@{}",
     "urlMain": "https://chaos.social/",
     "username_claimed": "Gargron"
-  },
-  "mastodon.technology": {
-    "errorType": "status_code",
-    "url": "https://mastodon.technology/@{}",
-    "urlMain": "https://mastodon.xyz/",
-    "username_claimed": "ashfurrow"
   },
   "mastodon.xyz": {
     "errorType": "status_code",

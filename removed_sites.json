@@ -784,5 +784,17 @@
     "url": "https://www.forumhouse.ru/members/?username={}",
     "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red"
+  },
+  "OGUsers": {
+    "errorType": "status_code",
+    "url": "https://ogu.gg/{}",
+    "urlMain": "https://ogu.gg/",
+    "username_claimed": "ogusers"
+  },
+  "mastodon.tech": {
+    "errorType": "status_code",
+    "url": "https://mastodon.tech/@{}",
+    "urlMain": "https://mastodon.xyz/",
+    "username_claimed": "ashfurrow"
   }
 }
