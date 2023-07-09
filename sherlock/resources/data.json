@@ -61,8 +61,7 @@
     "username_claimed": "DemiDevil"
   },
   "Air Pilot Life": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://airlinepilot.life/u/{}",
     "urlMain": "https://airlinepilot.life/",
     "username_claimed": "chris"
@@ -361,8 +360,7 @@
     "username_claimed": "jenny"
   },
   "Career.habr": {
-    "errorMsg": "<h1>\u041e\u0448\u0438\u0431\u043a\u0430 404</h1>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://career.habr.com/{}",
     "urlMain": "https://career.habr.com/",
     "username_claimed": "blue"
@@ -501,8 +499,7 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "We can't find that page!",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
     "urlMain": "https://contently.com/",
@@ -542,8 +539,7 @@
     "username_claimed": "michael"
   },
   "Cults3D": {
-    "errorMsg": "Oh dear, this page is not working!",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://cults3d.com/en/users/{}/creations",
     "urlMain": "https://cults3d.com/en",
     "username_claimed": "brown"
