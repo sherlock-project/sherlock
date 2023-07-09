@@ -53,8 +53,7 @@
     "username_claimed": "blue"
   },
   "AdmireMe.Vip": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "isNSFW": true,
     "url": "https://admireme.vip/{}",
     "urlMain": "https://admireme.vip/",
@@ -1050,12 +1049,11 @@
     "username_claimed": "thefourCraft"
   },
   "Image Fap": {
-    "errorMsg": "Not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "isNSFW": true,
     "url": "https://www.imagefap.com/profile/{}",
     "urlMain": "https://www.imagefap.com/",
-    "username_claimed": "blue"
+    "username_claimed": "Anony-Mouse"
   },
   "ImgUp.cz": {
     "errorType": "status_code",
@@ -1664,8 +1662,7 @@
     "username_claimed": "bluewolfekiller"
   },
   "RocketTube": {
-    "errorMsg": "OOPS! Houston, we have a problem",
-    "errorType": "message",
+    "errorType": "status_code",
     "isNSFW": true,
     "url": "https://www.rockettube.com/{}",
     "urlMain": "https://www.rockettube.com/",
