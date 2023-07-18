@@ -301,6 +301,14 @@
     "urlMain": "https://www.bookcrossing.com/",
     "username_claimed": "blue"
   },
+  "BoardGameGeek": {
+    "errorMsg": "Error: User does not exist.",
+    "errorType": "message",
+    "url": "https://boardgamegeek.com/user/{}",
+    "urlMain": "https://boardgamegeek.com",
+    "username_claimed": "TomVasel",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "BraveCommunity": {
     "errorType": "status_code",
     "url": "https://community.brave.com/u/{}/",
@@ -1258,6 +1266,14 @@
     "urlMain": "https://lottiefiles.com/",
     "username_claimed": "lottiefiles"
   },
+  "Ludopedia": {
+    "errorMsg": "Usuário não encontrado.",
+    "errorType": "message",
+    "url": "https://ludopedia.com.br/usuario/{}",
+    "urlMain": "https://ludopedia.com.br",
+    "username_claimed": "Jeisom",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "LushStories": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -1679,6 +1695,14 @@
     "urlMain": "https://www.reverbnation.com/",
     "username_claimed": "blue"
   },
+  "RPGGeek": {
+    "errorMsg": "Error: User does not exist.",
+    "errorType": "message",
+    "url": "https://rpggeek.com/user/{}",
+    "urlMain": "https://rpggeek.com",
+    "username_claimed": "TomVasel",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Roblox": {
     "errorMsg": "Page cannot be found or no longer exists",
     "errorType": "message",
@@ -2071,6 +2095,14 @@
     "url": "https://unsplash.com/@{}",
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
+  },
+  "VideoGameGeek": {
+    "errorMsg": "Error: User does not exist.",
+    "errorType": "message",
+    "url": "https://videogamegeek.com/user/{}",
+    "urlMain": "https://videogamegeek.com",
+    "username_claimed": "TomVasel",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "VK": {
     "errorType": "response_url",
