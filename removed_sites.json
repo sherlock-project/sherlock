@@ -791,5 +791,11 @@
     "url": "https://www.enjin.com/profile/{}",
     "urlMain": "https://www.enjin.com/",
     "username_claimed": "blue"
+  },
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
   }
 }
