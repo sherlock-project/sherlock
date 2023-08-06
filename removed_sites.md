@@ -1749,3 +1749,14 @@ As of 2023.08.06, Enjin returns false positives as it has permanently shut down
     "username_claimed": "blue"
   }
 ```
+
+## IRL.com
+As of 2023.06.27, IRL.com returns false positives as it has permanently shut down
+```json
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  }
+```
