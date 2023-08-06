@@ -1737,3 +1737,15 @@ As of 2023.04.21, ForumhouseRU returns false positives
     "username_claimed": "red"
   }
 ```
+
+## Enjin
+As of 2023.08.06, Enjin returns false positives as it has permanently shut down
+```json
+  "Enjin": {
+    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
+    "errorType": "message",
+    "url": "https://www.enjin.com/profile/{}",
+    "urlMain": "https://www.enjin.com/",
+    "username_claimed": "blue"
+  }
+```
