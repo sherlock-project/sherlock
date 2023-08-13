@@ -2072,6 +2072,14 @@
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
   },
+  "Upwork": {
+    "errorMsg": "Something has gone wrong",
+    "errorType": "message",
+    "url": "https://www.upwork.com/freelancers/{}",
+    "urlMain": "https://www.upwork.com",
+    "username_claimed": "dhyeyad",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "VK": {
     "errorType": "response_url",
     "errorUrl": "https://www.quora.com/profile/{}",
