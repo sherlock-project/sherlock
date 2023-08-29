@@ -1750,3 +1750,15 @@ As of 2023.08.29, Enjin has closed down.
     "username_claimed": "blue"
   },
 ```
+
+
+## IRL
+As of 2023.08.29, IRL has shut down
+```json
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  }
+```
