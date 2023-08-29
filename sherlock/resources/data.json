@@ -328,10 +328,11 @@
     "username_claimed": "blue"
   },
   "CNET": {
-    "errorType": "status_code",
+    "errorMsg": "null null - CNET",
+    "errorType": "message",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
-    "username_claimed": "blue"
+    "username_claimed": "elliottcnet"
   },
   "CTAN": {
     "errorType": "status_code",
