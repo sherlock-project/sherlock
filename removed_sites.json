@@ -803,5 +803,12 @@
     "url": "https://www.munzee.com/m/{}",
     "urlMain": "https://www.munzee.com/",
     "username_claimed": "blue"
+  },
+  "Quizlet": {
+    "errorMsg": "Page Unavailable",
+    "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue"
   }
 }

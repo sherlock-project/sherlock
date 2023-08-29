@@ -1772,3 +1772,16 @@ As of 2023.08.29, Munzee requires us to be logged into the site in order to chec
     "username_claimed": "blue"
   }
 ```
+
+## Quizlet
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+
+```json
+"Quizlet": {
+    "errorMsg": "Page Unavailable",
+    "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue"
+  }
+```
