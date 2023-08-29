@@ -1913,7 +1913,7 @@
   "Telegram": {
     "errorMsg": "<meta property=\"og:description\" content=\"\">",
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{5,32}$",
+    "regexCheck": "^[a-zA-Z0-9_]{5,32}[^_]$",
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
     "username_claimed": "roopeshvs"
