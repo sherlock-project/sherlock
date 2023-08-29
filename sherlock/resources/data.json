@@ -1322,12 +1322,6 @@
     "urlMain": "https://www.motorradfrage.net/",
     "username_claimed": "gutefrage"
   },
-  "Munzee": {
-    "errorType": "status_code",
-    "url": "https://www.munzee.com/m/{}",
-    "urlMain": "https://www.munzee.com/",
-    "username_claimed": "blue"
-  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",

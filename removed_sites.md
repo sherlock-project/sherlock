@@ -1751,7 +1751,6 @@ As of 2023.08.29, Enjin has closed down.
   },
 ```
 
-
 ## IRL
 As of 2023.08.29, IRL has shut down
 ```json
@@ -1760,5 +1759,16 @@ As of 2023.08.29, IRL has shut down
     "url": "https://www.irl.com/{}",
     "urlMain": "https://www.irl.com/",
     "username_claimed": "hacker"
+  }
+```
+
+## Munzee
+As of 2023.08.29, Munzee requires us to be logged into the site in order to check if a user exists or not
+```json
+  "Munzee": {
+    "errorType": "status_code",
+    "url": "https://www.munzee.com/m/{}",
+    "urlMain": "https://www.munzee.com/",
+    "username_claimed": "blue"
   }
 ```
