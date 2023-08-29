@@ -831,5 +831,11 @@
     "urlMain": "https://www.youtube.com",
     "username_claimed": "pewdiepie",
     "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam"
   }
 }

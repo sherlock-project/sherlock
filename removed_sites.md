@@ -1814,3 +1814,14 @@ As of 2023.08.29, YouTube returns false positives as we need to accept their TOC
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
+## GunsAndAmmo
+As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
+```json
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam"
+  }
+```
