@@ -136,8 +136,7 @@
     "username_claimed": "jason"
   },
   "Archive of Our Own": {
-    "errorMsg": "Sorry, could not find this user.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test"
@@ -329,10 +328,11 @@
     "username_claimed": "blue"
   },
   "CNET": {
-    "errorType": "status_code",
+    "errorMsg": "null null - CNET",
+    "errorType": "message",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
-    "username_claimed": "blue"
+    "username_claimed": "elliottcnet"
   },
   "CTAN": {
     "errorType": "status_code",
@@ -620,6 +620,9 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
+    },
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -630,13 +633,6 @@
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
-  },
-  "Enjin": {
-    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
-    "errorType": "message",
-    "url": "https://www.enjin.com/profile/{}",
-    "urlMain": "https://www.enjin.com/",
-    "username_claimed": "blue"
   },
   "Envato Forum": {
     "errorType": "status_code",
@@ -924,12 +920,6 @@
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue"
   },
-  "GunsAndAmmo": {
-    "errorType": "status_code",
-    "url": "https://forums.gunsandammo.com/profile/{}",
-    "urlMain": "https://gunsandammo.com/",
-    "username_claimed": "adam"
-  },
   "Gutefrage": {
     "errorType": "status_code",
     "url": "https://www.gutefrage.net/nutzer/{}",
@@ -1049,12 +1039,6 @@
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
     "username_claimed": "blue"
-  },
-  "IRL": {
-    "errorType": "status_code",
-    "url": "https://www.irl.com/{}",
-    "urlMain": "https://www.irl.com/",
-    "username_claimed": "hacker"
   },
   "Icons8 Community": {
     "errorType": "status_code",
@@ -1335,12 +1319,6 @@
     "urlMain": "https://www.motorradfrage.net/",
     "username_claimed": "gutefrage"
   },
-  "Munzee": {
-    "errorType": "status_code",
-    "url": "https://www.munzee.com/m/{}",
-    "urlMain": "https://www.munzee.com/",
-    "username_claimed": "blue"
-  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
@@ -1603,13 +1581,6 @@
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
   },
-  "Quizlet": {
-    "errorMsg": "Page Unavailable</title>",
-    "errorType": "message",
-    "url": "https://quizlet.com/{}",
-    "urlMain": "https://quizlet.com",
-    "username_claimed": "blue"
-  },
   "Rajce.net": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9@_-]$",
@@ -1846,7 +1817,7 @@
     "username_claimed": "adam"
   },
   "Speedrun.com": {
-    "errorMsg": "not found.",
+    "errorMsg": "Not found",
     "errorType": "message",
     "url": "https://speedrun.com/user/{}",
     "urlMain": "https://speedrun.com/",
@@ -2280,27 +2251,6 @@
     "url": "https://youporn.com/uservids/{}",
     "urlMain": "https://youporn.com",
     "username_claimed": "blue"
-  },
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",

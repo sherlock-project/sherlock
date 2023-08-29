@@ -1,4 +1,4 @@
-## List Of Supported Sites (407 Sites In Total!)
+## List Of Supported Sites (400 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -92,7 +92,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://dribbble.com/) [Dribbble](https://dribbble.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://duolingo.com/) [Duolingo](https://duolingo.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.eintracht.de/) [Eintracht Frankfurt Forum](https://community.eintracht.de/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.enjin.com/) [Enjin](https://www.enjin.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forums.envato.com/) [Envato Forum](https://forums.envato.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.erome.com/) [Erome](https://www.erome.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.etsy.com/) [Etsy](https://www.etsy.com/) 
@@ -135,7 +134,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.grailed.com/) [Grailed](https://www.grailed.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://en.gravatar.com/) [Gravatar](http://en.gravatar.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gumroad.com/) [Gumroad](https://www.gumroad.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://gunsandammo.com/) [GunsAndAmmo](https://gunsandammo.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gutefrage.net/) [Gutefrage](https://www.gutefrage.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.hexrpg.com/) [HEXRPG](https://www.hexrpg.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.hackthebox.eu/) [HackTheBox](https://forum.hackthebox.eu/) 
@@ -153,7 +151,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://hubski.com/) [Hubski](https://hubski.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://icq.com/) [ICQ](https://icq.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.ifttt.com/) [IFTTT](https://www.ifttt.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.irl.com/) [IRL](https://www.irl.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.icons8.com/) [Icons8 Community](https://community.icons8.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.imagefap.com/) [Image Fap](https://www.imagefap.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://imgup.cz/) [ImgUp.cz](https://imgup.cz/) 
@@ -195,7 +192,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://monkeytype.com/) [Monkeytype](https://monkeytype.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://motherless.com/) [Motherless](https://motherless.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.motorradfrage.net/) [Motorradfrage](https://www.motorradfrage.net/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.munzee.com/) [Munzee](https://www.munzee.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://myanimelist.net/) [MyAnimeList](https://myanimelist.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.myminifactory.com/) [MyMiniFactory](https://www.myminifactory.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://mydramalist.com) [Mydramalist](https://mydramalist.com) 
@@ -236,7 +232,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.producthunt.com/) [ProductHunt](https://www.producthunt.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://promodj.com/) [PromoDJ](http://promodj.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://pypi.org) [PyPi](https://pypi.org) 
-1. ![](https://www.google.com/s2/favicons?domain=https://quizlet.com) [Quizlet](https://quizlet.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.rajce.idnes.cz/) [Rajce.net](https://www.rajce.idnes.cz/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://rateyourmusic.com/) [Rate Your Music](https://rateyourmusic.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.rclone.org/) [Rclone Forum](https://forum.rclone.org/) 
@@ -335,8 +330,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.younow.com/) [YouNow](https://www.younow.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://youpic.com/) [YouPic](https://youpic.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://youporn.com) [YouPorn](https://youporn.com) **(NSFW)**
-1. ![](https://www.google.com/s2/favicons?domain=https://www.youtube.com) [Youtube Channel](https://www.youtube.com) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.youtube.com) [Youtube User](https://www.youtube.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.zhihu.com/) [Zhihu](https://www.zhihu.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://akniga.org/profile/blue/) [akniga](https://akniga.org/profile/blue/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://www.authorstream.com/) [authorSTREAM](http://www.authorstream.com/) 

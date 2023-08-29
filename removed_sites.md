@@ -1737,3 +1737,91 @@ As of 2023.04.21, ForumhouseRU returns false positives
     "username_claimed": "red"
   }
 ```
+
+## Enjin
+As of 2023.08.29, Enjin has closed down.
+
+```json
+"Enjin": {
+    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
+    "errorType": "message",
+    "url": "https://www.enjin.com/profile/{}",
+    "urlMain": "https://www.enjin.com/",
+    "username_claimed": "blue"
+  },
+```
+
+## IRL
+As of 2023.08.29, IRL has shut down
+```json
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  }
+```
+
+## Munzee
+As of 2023.08.29, Munzee requires us to be logged into the site in order to check if a user exists or not
+```json
+  "Munzee": {
+    "errorType": "status_code",
+    "url": "https://www.munzee.com/m/{}",
+    "urlMain": "https://www.munzee.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Quizlet
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+
+```json
+"Quizlet": {
+    "errorMsg": "Page Unavailable",
+    "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue"
+  }
+```
+
+
+## YouTube
+As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how Sherlock currently works
+
+
+```json
+  "Youtube Channel": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd"
+  },
+  "Youtube User": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## GunsAndAmmo
+As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
+```json
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam"
+  }
+```
