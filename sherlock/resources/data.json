@@ -620,6 +620,9 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
+    },
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
