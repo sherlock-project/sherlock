@@ -136,8 +136,7 @@
     "username_claimed": "jason"
   },
   "Archive of Our Own": {
-    "errorMsg": "Sorry, could not find this user.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test"
