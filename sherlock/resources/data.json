@@ -1820,7 +1820,7 @@
     "username_claimed": "adam"
   },
   "Speedrun.com": {
-    "errorMsg": "not found.",
+    "errorMsg": "Not found",
     "errorType": "message",
     "url": "https://speedrun.com/user/{}",
     "urlMain": "https://speedrun.com/",
