@@ -517,8 +517,12 @@ def main():
                         )
     parser.add_argument("--xlsx",
                         action="store_true", dest="xlsx", default=False,
-                        help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
-                        )
+                        help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx).")
+
+    parser.add_argument("--txt",
+                        action="store_true", dest="txt", default=False,
+                        help="Create .txt file.")
+
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
                         dest="site_list", default=None,
@@ -694,15 +698,16 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        with open(result_file, "w", encoding="utf-8") as file:
-            exists_counter = 0
-            for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
-                    exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
-            file.write(
-                f"Total Websites Username Detected On : {exists_counter}\n")
+        if args.txt:
+            with open(result_file, "w", encoding="utf-8") as file:
+                exists_counter = 0
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        file.write(dictionary["url_user"] + "\n")
+                file.write(
+                    f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
             result_file = f"{username}.csv"
@@ -763,7 +768,9 @@ def main():
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
 
-            DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
+            DataFrame = pd.DataFrame(
+                {"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists,
+                 "http_status": http_status, "response_time_s": response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
         print()
