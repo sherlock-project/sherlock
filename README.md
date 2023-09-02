@@ -40,7 +40,7 @@ $ python3 -m pip install -r requirements.txt
 ```console
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
-                [--output OUTPUT] [--tor] [--unique-tor] [--csv]
+                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--txt]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
@@ -71,6 +71,7 @@ optional arguments:
   --csv                 Create Comma-Separated Values (CSV) File.
   --xlsx                Create the standard file for the modern Microsoft Excel
                         spreadsheet (xslx).
+  --txt                 Create .txt file 
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to
                         specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
