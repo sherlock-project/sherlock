@@ -1089,6 +1089,14 @@
     "urlMain": "https://forum.ionicframework.com/",
     "username_claimed": "theblue222"
   },
+  "Interpals.net": {
+    "errorMsg": "The requested user does not exist or is inactive.",
+    "errorType": "message",
+    "url": "https://www.interpals.net/{}",
+    "urlMain": "https://www.interpals.net/",
+    "username_claimed":   "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Issuu": {
     "errorType": "status_code",
     "url": "https://issuu.com/{}",
