@@ -441,6 +441,13 @@
     "urlMain": "https://codesnippets.fandom.com",
     "username_claimed": "bob"
   },
+  "Codeberg":{
+    "errorType": "status_code",
+    "url":"https://codeberg.org/{}",
+    "urlMain":"https://codeberg.org/",
+    "username_claimed":"beachlife",
+    "username_unclaimed":"noonewouldeverusethis7"
+  },
   "Codecademy": {
     "errorMsg": "This profile could not be found",
     "errorType": "message",
