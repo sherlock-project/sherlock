@@ -8,6 +8,7 @@ networks.
 """
 
 import csv
+import signal
 import pandas as pd
 import os
 import platform
@@ -27,7 +28,7 @@ from sites import SitesInformation
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.0"
+__version__ = "0.14.3"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -144,7 +145,7 @@ def interpolate_string(object, username):
 def CheckForParameter(username):
     '''checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username'''
-    return("{?}" in username)
+    return ("{?}" in username)
 
 
 checksymbols = []
@@ -161,7 +162,7 @@ def MultipleUsernames(username):
 
 def sherlock(username, site_data, query_notify,
              tor=False, unique_tor=False,
-             proxy=None, timeout=None):
+             proxy=None, timeout=60):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -177,7 +178,7 @@ def sherlock(username, site_data, query_notify,
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
-                              Default is no timeout.
+                              Default is 60 seconds.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -195,7 +196,6 @@ def sherlock(username, site_data, query_notify,
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-    print()
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
@@ -429,11 +429,11 @@ def sherlock(username, site_data, query_notify,
 
         # Notify caller about results of query.
         result = QueryResult(username=username,
-                            site_name=social_network,
-                            site_url_user=url,
-                            status=query_status,
-                            query_time=response_time,
-                            context=error_context)
+                             site_name=social_network,
+                             site_url_user=url,
+                             status=query_status,
+                             query_time=response_time,
+                             context=error_context)
         query_notify.update(result)
 
         # Save status of request
@@ -473,6 +473,14 @@ def timeout_check(value):
         raise ArgumentTypeError(
             f"Timeout '{value}' must be greater than 0.0s.")
     return timeout
+
+
+def handler(signal_received, frame):
+    """Exit gracefully without throwing errors
+
+    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
+    """
+    sys.exit(0)
 
 
 def main():
@@ -525,19 +533,16 @@ def main():
                         help="Load data from a JSON file or an online, valid, JSON file.")
     parser.add_argument("--timeout",
                         action="store", metavar="TIMEOUT",
-                        dest="timeout", type=timeout_check, default=None,
-                        help="Time (in seconds) to wait for response to requests. "
-                             "Default timeout is infinity. "
-                             "A longer timeout will be more likely to get results from slow sites. "
-                             "On the other hand, this may cause a long delay to gather all results."
+                        dest="timeout", type=timeout_check, default=60,
+                        help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
     parser.add_argument("--print-all",
-                        action="store_true", dest="print_all",
+                        action="store_true", dest="print_all", default=False,
                         help="Output sites where the username was not found."
                         )
     parser.add_argument("--print-found",
-                        action="store_false", dest="print_all", default=False,
-                        help="Output sites where the username was found."
+                        action="store_true", dest="print_found", default=True,
+                        help="Output sites where the username was found (also if exported as file)."
                         )
     parser.add_argument("--no-color",
                         action="store_true", dest="no_color", default=False,
@@ -546,7 +551,7 @@ def main():
     parser.add_argument("username",
                         nargs="+", metavar="USERNAMES",
                         action="store",
-                        help="One or more usernames to check with social networks."
+                        help="One or more usernames to check with social networks. Check similar usernames using {%%} (replace to '_', '-', '.')."
                         )
     parser.add_argument("--browse", "-b",
                         action="store_true", dest="browse", default=False,
@@ -556,7 +561,14 @@ def main():
                         action="store_true", default=False,
                         help="Force the use of the local data.json file.")
 
+    parser.add_argument("--nsfw",
+                        action="store_true", default=False,
+                        help="Include checking of NSFW sites from default list.")
+
     args = parser.parse_args()
+
+    # If the user presses CTRL-C, exit gracefully without throwing errors
+    signal.signal(signal.SIGINT, handler)
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -616,6 +628,9 @@ def main():
         print(f"ERROR:  {error}")
         sys.exit(1)
 
+    if not args.nsfw:
+        sites.remove_nsfw_sites()
+
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
@@ -625,7 +640,6 @@ def main():
         site_data = site_data_all
     else:
         # User desires to selectively run queries on a sub-set of the site list.
-
         # Make sure that the sites are supported & build up pruned site database.
         site_data = {}
         site_missing = []
@@ -649,13 +663,13 @@ def main():
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(result=None,
                                     verbose=args.verbose,
-                                    print_all=args.print_all)
+                                    print_all=args.print_all,
+                                    browse=args.browse)
 
     # Run report on all specified users.
-
     all_usernames = []
     for username in args.username:
-        if(CheckForParameter(username)):
+        if (CheckForParameter(username)):
             for name in MultipleUsernames(username):
                 all_usernames.append(name)
         else:
@@ -710,6 +724,9 @@ def main():
                                  ]
                                 )
                 for site in results:
+                    if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                        continue
+
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
@@ -731,9 +748,9 @@ def main():
             http_status = []
             response_time_s = []
 
-    
-        
             for site in results:
+                if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                    continue
 
                 if response_time_s is None:
                     response_time_s.append("")
@@ -745,11 +762,9 @@ def main():
                 url_user.append(results[site]["url_user"])
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
-            
-            DataFrame=pd.DataFrame({"username":usernames , "name":names , "url_main":url_main , "url_user":url_user , "exists" : exists , "http_status":http_status , "response_time_s":response_time_s})
-            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
-                                    
+            DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
+            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
         print()
     query_notify.finish()
@@ -757,4 +772,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # Notify caller that all queries are finished.
