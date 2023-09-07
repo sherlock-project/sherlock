@@ -699,15 +699,18 @@ def main():
             result_file = f"{username}.txt"
 
         if args.txt:
-            with open(result_file, "w", encoding="utf-8") as file:
-                exists_counter = 0
-                for website_name in results:
-                    dictionary = results[website_name]
-                    if dictionary.get("status").status == QueryStatus.CLAIMED:
-                        exists_counter += 1
-                        file.write(dictionary["url_user"] + "\n")
-                file.write(
-                    f"Total Websites Username Detected On : {exists_counter}\n")
+            try:
+                with open(result_file, "w", encoding="utf-8") as file:
+                    exists_counter = 0
+                    for website_name in results:
+                        dictionary = results[website_name]
+                        if dictionary.get("status").status == QueryStatus.CLAIMED:
+                            exists_counter += 1
+                            file.write(dictionary["url_user"] + "\n")
+                    file.write(
+                        f"Total Websites Username Detected On : {exists_counter}\n")
+            except IOError as e:
+                print("An error occured. File could not be made or written.", e)
 
         if args.csv:
             result_file = f"{username}.csv"
