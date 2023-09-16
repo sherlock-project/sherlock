@@ -1202,6 +1202,13 @@
     "urlMain": "https://lichess.org",
     "username_claimed": "blue"
   },
+  "Likee": {
+    "errorType": "status_code",
+    "url": "https://likee.video/@{}",
+    "urlMain": "https://likee.video/",
+    "username_claimed": "anne",
+    "username_unclaimed": "noonewouldneverusethi77"
+  },
   "Linktree": {
     "errorType": "status_code",
     "url": "https://linktr.ee/{}",
