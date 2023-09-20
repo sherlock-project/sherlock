@@ -5,6 +5,10 @@ results of queries.
 """
 from result import QueryStatus
 from colorama import Fore, Style
+import webbrowser
+
+# Global variable to count the number of results.
+globvar = 0
 
 
 class QueryNotify:
@@ -110,7 +114,7 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False):
+    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -122,6 +126,7 @@ class QueryNotifyPrint(QueryNotify):
                                   results for this query.
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
+        browse                 -- Boolean indicating whether to open found sites in a web browser.
 
         Return Value:
         Nothing.
@@ -130,6 +135,7 @@ class QueryNotifyPrint(QueryNotify):
         super().__init__(result)
         self.verbose = verbose
         self.print_all = print_all
+        self.browse = browse
 
         return
 
@@ -159,31 +165,19 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def finish(self, message="The processing has been finished."):
-        """Notify Start.
-
-        Will print the last line to the standard output.
+    def countResults(self):
+        """This function counts the number of results. Every time the function is called,
+        the number of results is increasing.
 
         Keyword Arguments:
         self                   -- This object.
-        message                -- The last phrase.
 
         Return Value:
-        Nothing.
+        The number of results by the time we call the function.
         """
-
-        title = "End"
-        
-        print('\r') # An empty line between last line of main output and last line(more clear output)
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "!" +
-              Fore.GREEN + f"] {title}" +
-              Fore.GREEN + ": " +
-              Fore.WHITE + f" {message}" )
-              
-        # An empty line between first line and the result(more clear output)
-
-        # return
+        global globvar
+        globvar += 1
+        return globvar
 
     def update(self, result):
         """Notify Update.
@@ -201,11 +195,12 @@ class QueryNotifyPrint(QueryNotify):
         self.result = result
 
         response_time_text = ""
-        if self.result.query_time is not None and self.verbose == True:
+        if self.result.query_time is not None and self.verbose is True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
-        
+
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
+            self.countResults()
             print(Style.BRIGHT + Fore.WHITE + "[" +
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
@@ -214,6 +209,8 @@ class QueryNotifyPrint(QueryNotify):
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
                   f"{self.result.site_url_user}")
+            if self.browse:
+                webbrowser.open(self.result.site_url_user, 2)
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
@@ -231,7 +228,7 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + f" ")
+                      Fore.YELLOW + " ")
 
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_all:
@@ -249,29 +246,24 @@ class QueryNotifyPrint(QueryNotify):
             )
 
         return
-    
+
     def finish(self, message="The processing has been finished."):
         """Notify Start.
         Will print the last line to the standard output.
         Keyword Arguments:
         self                   -- This object.
-        message                -- The last phrase.
+        message                -- The 2 last phrases.
         Return Value:
         Nothing.
         """
+        NumberOfResults = self.countResults() - 1
 
-        title = "End"
-        
-        print('\r') # An empty line between last line of main output and last line(more clear output)
         print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "!" +
-              Fore.GREEN + f"] {title}" +
-              Fore.GREEN + ": " +
-              Fore.WHITE + f" {message}" )
-              
-        # An empty line between first line and the result(more clear output)
-
-        return
+              Fore.YELLOW + "*" +
+              Fore.GREEN + "] Search completed with" +
+              Fore.WHITE + f" {NumberOfResults} " +
+              Fore.GREEN + "results" + Style.RESET_ALL
+              )
 
     def __str__(self):
         """Convert Object To String.

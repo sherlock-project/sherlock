@@ -7,9 +7,8 @@ import os.path
 import unittest
 import sherlock
 from result import QueryStatus
-from result import QueryResult
 from notify import QueryNotify
-from sites  import SitesInformation
+from sites import SitesInformation
 import warnings
 
 
@@ -26,16 +25,16 @@ class SherlockBaseTest(unittest.TestCase):
         Nothing.
         """
 
-        #This ignores the ResourceWarning from an unclosed SSLSocket.
-        #TODO: Figure out how to fix the code so this is not needed.
+        # This ignores the ResourceWarning from an unclosed SSLSocket.
+        # TODO: Figure out how to fix the code so this is not needed.
         warnings.simplefilter("ignore", ResourceWarning)
 
-        #Create object with all information about sites we are aware of.
-        sites = SitesInformation()
+        # Create object with all information about sites we are aware of.
+        sites = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../resources/data.json"))
 
-        #Create original dictionary from SitesInformation() object.
-        #Eventually, the rest of the code will be updated to use the new object
-        #directly, but this will glue the two pieces together.
+        # Create original dictionary from SitesInformation() object.
+        # Eventually, the rest of the code will be updated to use the new object
+        # directly, but this will glue the two pieces together.
         site_data_all = {}
         for site in sites:
             site_data_all[site.name] = site.information
@@ -44,18 +43,18 @@ class SherlockBaseTest(unittest.TestCase):
         # Load excluded sites list, if any
         excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
         try:
-          with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
-            self.excluded_sites = excluded_sites_file.read().splitlines()
+            with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
+                self.excluded_sites = excluded_sites_file.read().splitlines()
         except FileNotFoundError:
-          self.excluded_sites = []
+            self.excluded_sites = []
 
-        #Create notify object for query results.
+        # Create notify object for query results.
         self.query_notify = QueryNotify()
 
-        self.tor=False
-        self.unique_tor=False
-        self.timeout=None
-        self.skip_error_sites=True
+        self.tor = False
+        self.unique_tor = False
+        self.timeout = None
+        self.skip_error_sites = True
 
         return
 
@@ -102,7 +101,7 @@ class SherlockBaseTest(unittest.TestCase):
         existence state.
         """
 
-        #Filter all site data down to just what is needed for this test.
+        # Filter all site data down to just what is needed for this test.
         site_data = self.site_data_filter(site_list)
 
         if exist_check:
@@ -161,8 +160,8 @@ class SherlockBaseTest(unittest.TestCase):
         existence state.
         """
 
-        #Dictionary of sites that should be tested for having a username.
-        #This will allow us to test sites with a common username in parallel.
+        # Dictionary of sites that should be tested for having a username.
+        # This will allow us to test sites with a common username in parallel.
         sites_by_username = {}
 
         for site, site_data in self.site_data_all.items():
@@ -181,9 +180,9 @@ class SherlockBaseTest(unittest.TestCase):
 
                 # Figure out which type of user
                 if exist_check:
-                     username = site_data.get("username_claimed")
+                    username = site_data.get("username_claimed")
                 else:
-                     username = site_data.get("username_unclaimed")
+                    username = site_data.get("username_unclaimed")
 
                 # Add this site to the list of sites corresponding to this
                 # username.
@@ -216,10 +215,7 @@ class SherlockBaseTest(unittest.TestCase):
         site_no_tests_list = []
 
         for site, site_data in self.site_data_all.items():
-            if (
-                 (site_data.get("username_claimed")   is None) or
-                 (site_data.get("username_unclaimed") is None)
-               ):
+            if site_data.get("username_claimed") is None:
                 # Test information not available on this site.
                 site_no_tests_list.append(site)
 
