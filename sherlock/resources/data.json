@@ -549,6 +549,13 @@
     "urlMain": "https://cults3d.com/en",
     "username_claimed": "brown"
   },
+  "DDRaceNetwork": {
+    "errorType": "status_code",
+    "url": "https://ddnet.org/players/{}",
+    "urlMain": "https://ddnet.org",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "DEV Community": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
