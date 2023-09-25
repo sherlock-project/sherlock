@@ -2,6 +2,9 @@
 
 This module contains various tests.
 """
+from sherlock import sherlock
+from sherlock.notify import QueryNotifyPrint
+from sherlock.result import QueryResult
 from tests.base import SherlockBaseTest
 import exrex
 
@@ -120,7 +123,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self.username_check([valid_username], [site], exist_check=False)
 
         return
-
+    
 
 class SherlockSiteCoverageTests(SherlockBaseTest):
     def test_coverage_false_via_status(self):
@@ -211,3 +214,57 @@ class SherlockSiteCoverageTests(SherlockBaseTest):
         self.coverage_total_check()
 
         return
+
+class SherlockConcurrencyTests(SherlockBaseTest):
+        # How does the function perform when max_workers is set to 6?
+    def test_max_workers_6_fixed(self):
+        # Initialize the site_data dictionary with information about the social media sites to be checked
+        site_data = {
+            "Twitter": {
+                "url": "https://twitter.com/{}",
+                "urlProbe": "https://twitter.com/{}",
+                "errorType": "message",
+                "errorMsg": "Sorry, that page doesn’t exist!"
+            },
+            "Instagram": {
+                "url": "https://www.instagram.com/{}",
+                "urlProbe": "https://www.instagram.com/{}",
+                "errorType": "status_code",
+                "errorCode": 404
+            },
+            "Facebook": {
+                "url": "https://www.facebook.com/{}",
+                "urlProbe": "https://www.facebook.com/{}",
+                "errorType": "response_url"
+            },
+            "LinkedIn": {
+                "url": "https://www.linkedin.com/in/{}",
+                "urlProbe": "https://www.linkedin.com/in/{}",
+                "errorType": "message",
+                "errorMsg": "Sorry, we couldn't find that page"
+            },
+            "GitHub": {
+                "url": "https://github.com/{}",
+                "urlProbe": "https://github.com/{}",
+                "errorType": "status_code",
+                "errorCode": 404
+            },
+            "Reddit": {
+                "url": "https://www.reddit.com/user/{}",
+                "urlProbe": "https://www.reddit.com/user/{}",
+                "errorType": "response_url"
+            }
+        }
+
+        # Create a QueryNotifyPrint object to receive notifications about the query results
+        query_notify = QueryNotifyPrint(result=None, verbose=True, print_all=True, browse=False)
+
+        # Call the sherlock function
+        results = sherlock("johnsmith", site_data, query_notify)
+
+        # Assert that the number of results is equal to the number of social media sites
+        self.assertEqual(len(results), len(site_data))
+
+        # Assert that the query result for each social media site is an instance of QueryResult
+        for result in results.values():
+            self.assertIsInstance(result["status"], QueryResult)
