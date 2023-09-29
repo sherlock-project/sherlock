@@ -702,10 +702,10 @@ def main():
         with open(result_file, "w", encoding="utf-8") as file:
             exists_counter = 0
             for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
+                json_data = results[website_name]
+                if json_data.get("status").status == QueryStatus.CLAIMED:
                     exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
+                    file.write(json_data["url_user"] + "\n")
             file.write(
                 f"Total Websites Username Detected On : {exists_counter}\n")
 
@@ -716,10 +716,9 @@ def main():
                 # If the folder doesn't exist, create it first
                 os.makedirs(args.folderoutput, exist_ok=True)
                 result_file = os.path.join(args.folderoutput, result_file)
-            import json
 
             # Data to be written
-            dictionary = {
+            json_data = {
                 "username": username,
                 "sites": [],
             }
@@ -731,7 +730,7 @@ def main():
                 response_time_s = results[site]["status"].query_time
                 if response_time_s is None:
                     response_time_s = ""
-                dictionary["sites"].append({
+                json_data["sites"].append({
                     "site": site,
                     "urlMain": results[site]["url_main"],
                     "urlUser": results[site]["url_user"],
@@ -740,9 +739,9 @@ def main():
                     "responseTime": response_time_s
                     })
 
-            # Writing to sample.json
+            # Writing to json file
             with open(result_file, "w") as outfile:
-                json.dump(dictionary, outfile)
+                json.dump(json_data, outfile)
         if args.csv:
             result_file = f"{username}.csv"
             if args.folderoutput:
@@ -806,7 +805,60 @@ def main():
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
         print()
+
+    # Testing our req_json function
+    # for username in all_usernames:
+    #     req_json(username)
+
     query_notify.finish()
+
+def req_json(username):
+    # Load list of sites to look in
+    sites = SitesInformation(os.path.join(
+        os.path.dirname(__file__), "resources/data.json"))
+    site_data = {site.name: site.information for site in sites}
+
+    # Query notify (not really needed but just to feed the sherlock function enough args
+    query_notify = QueryNotifyPrint(result=None,
+                                    verbose=False,
+                                    print_all=False,
+                                    browse=False)
+
+    # Load search results
+    results = sherlock(username,
+                       site_data,
+                       query_notify,
+                       tor=False,
+                       unique_tor=False,
+                       proxy=None,
+                       timeout=60)
+    json_data = {
+        "username": username,
+        "sites": jsonify_sites(results),
+    }
+    print(json_data)
+    return json_data
+
+
+def jsonify_sites(results):
+    sites = []
+
+    for site in results:
+        if results[site]["status"].status != QueryStatus.CLAIMED:
+            continue
+        response_time_s = results[site]["status"].query_time
+        if response_time_s is None:
+            response_time_s = ""
+        sites.append({
+            "site": site,
+            "urlMain": results[site]["url_main"],
+            "urlUser": results[site]["url_user"],
+            "status": str(results[site]["status"].status),
+            "httpStatus": results[site]["http_status"],
+            "responseTime": response_time_s
+        })
+
+    return sites
 
 
 if __name__ == "__main__":
