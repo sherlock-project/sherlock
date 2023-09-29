@@ -8,6 +8,7 @@ networks.
 """
 
 import csv
+import json
 import signal
 import pandas as pd
 import os
@@ -515,6 +516,10 @@ def main():
                         action="store_true", dest="csv", default=False,
                         help="Create Comma-Separated Values (CSV) File."
                         )
+    parser.add_argument("--jsonoutput",
+                        action="store_true", dest="json", default=False,
+                        help="Create JavaScript Object Notation (JSON) File."
+                        )
     parser.add_argument("--xlsx",
                         action="store_true", dest="xlsx", default=False,
                         help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
@@ -703,6 +708,41 @@ def main():
                     file.write(dictionary["url_user"] + "\n")
             file.write(
                 f"Total Websites Username Detected On : {exists_counter}\n")
+
+        if args.jsonoutput:
+            result_file = f"{username}.json"
+            if args.folderoutput:
+                # The usernames results should be stored in a targeted folder.
+                # If the folder doesn't exist, create it first
+                os.makedirs(args.folderoutput, exist_ok=True)
+                result_file = os.path.join(args.folderoutput, result_file)
+            import json
+
+            # Data to be written
+            dictionary = {
+                "username": username,
+                "sites": [],
+            }
+
+            for site in results:
+                if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                    continue
+
+                response_time_s = results[site]["status"].query_time
+                if response_time_s is None:
+                    response_time_s = ""
+                dictionary["sites"].append({
+                    "site": site,
+                    "urlMain": results[site]["url_main"],
+                    "urlUser": results[site]["url_user"],
+                    "status": str(results[site]["status"].status),
+                    "httpStatus": results[site]["http_status"],
+                    "responseTime": response_time_s
+                    })
+
+            # Writing to sample.json
+            with open(result_file, "w") as outfile:
+                json.dump(dictionary, outfile)
 
         if args.csv:
             result_file = f"{username}.csv"
