@@ -517,7 +517,7 @@ def main():
                         help="Create Comma-Separated Values (CSV) File."
                         )
     parser.add_argument("--jsonoutput",
-                        action="store_true", dest="json", default=False,
+                        action="store_true", dest="jsonoutput", default=False,
                         help="Create JavaScript Object Notation (JSON) File."
                         )
     parser.add_argument("--xlsx",
@@ -743,7 +743,6 @@ def main():
             # Writing to sample.json
             with open(result_file, "w") as outfile:
                 json.dump(dictionary, outfile)
-
         if args.csv:
             result_file = f"{username}.csv"
             if args.folderoutput:
