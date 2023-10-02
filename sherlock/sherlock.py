@@ -13,13 +13,14 @@ import platform
 import re
 import signal
 import sys
+import threading
 import time
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
 import pandas as pd
 import requests
-from colorama import init
+from colorama import Fore, Style, init
 from notify import QueryNotifyPrint
 from requests_futures.sessions import FuturesSession
 from result import QueryResult, QueryStatus
@@ -481,6 +482,17 @@ def handler(signal_received, frame):
     """
     sys.exit(0)
 
+def animate_loading(message):
+    global done  # Define done as a global variable
+    done = threading.Event()
+    animation_chars = "|/-\\"
+    i = 0
+    while not done.is_set():
+        sys.stdout.write(f"\r{message} {animation_chars[i % len(animation_chars)]}")
+        sys.stdout.flush()
+        time.sleep(0.1)
+        i += 1
+
 
 def main():
     version_string = f"%(prog)s {__version__}\n" + \
@@ -570,42 +582,47 @@ def main():
     signal.signal(signal.SIGINT, handler)
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
+    global done
+    done = threading.Event()
     try:
-        sys.stdout.write("Checking for updates... ")
-        sys.stdout.flush()
+        loading_thread = threading.Thread(target=animate_loading, args=(Fore.YELLOW +"Checking for updates...",))
+        loading_thread.start()
 
         remote_version = None
         local_version = __version__
-
-        animation_chars = "|/-\\"
-        for i in range(10):
-            sys.stdout.write(f"\rChecking for updates... {animation_chars[i % len(animation_chars)]}")
-            sys.stdout.flush()
-            time.sleep(0.1)
-
-        sys.stdout.write("\r" + " " * 40)  # Clear the line
-        sys.stdout.write("\rEstablishing connection to data file URL...")
-        sys.stdout.flush()
 
         r = requests.get(
             "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py",
             stream=True, timeout=10)
 
+        done.set()  # Stop the loading animation thread
+
         if r.status_code == 200:
             remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
 
             if remote_version != local_version:
-                sys.stdout.write("\rUpdate Available!\n")
-                sys.stdout.write(f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock\n")
+                sys.stdout.write(Fore.YELLOW +"\rUpdate Available!\n")
+                sys.stdout.write(Fore.YELLOW + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock\n")
             else:
-                sys.stdout.write("\rYou are running the latest version.\n")
+                sys.stdout.write(Fore.YELLOW +"\rYou are running the latest version.\n")
         else:
-            sys.stdout.write(f"\rFailed to retrieve data. Status code: {r.status_code}\n")
+            sys.stdout.write(Fore.YELLOW + f"\rFailed to retrieve data. Status code: {r.status_code}\n")
 
     except requests.exceptions.Timeout:
-        sys.stdout.write("\rConnection timed out. Please check your internet connection.\n")
+        done.set()  # Stop the loading animation thread
+        sys.stdout.write(Fore.RED +"\rConnection timed out. Please check your internet connection.")
+        sys.stdout.flush()
+
     except Exception as error:
-        sys.stdout.write(f"\rA problem occurred while checking for an update: {error}\n")
+        done.set()  # Stop the loading animation thread
+        sys.stdout.write(Fore.RED +f"\r {error}".replace("\n", ""))
+        sys.stdout.flush()
+
+    sys.stdout.flush()
+    sys.stdout.write('\r' + ' ' * 100 + '\r')
+
+
+
 
     if args.no_color:
         # Disable color output.

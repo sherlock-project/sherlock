@@ -8,6 +8,7 @@ import secrets
 import sys
 
 import requests
+from colorama import Fore, Style, init
 from requests.exceptions import Timeout
 from tqdm import tqdm
 
@@ -110,6 +111,7 @@ class SitesInformation:
         Return Value:
         Nothing.
         """
+        init(autoreset=True)
         # sys.stdout.write("Loading...")
         # sys.stdout.flush() 
         data_file_url = data_file_path if data_file_path else "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
@@ -119,30 +121,31 @@ class SitesInformation:
 
             # Attempt to fetch data from the specified URL
             if data_file_url.lower().startswith("http"):
-                sys.stdout.write("Establishing connection to data file URL...")
+                sys.stdout.write(Fore.YELLOW + "\rEstablishing connection to data file URL...")
                 sys.stdout.flush()
                 try:
                     response = requests.get(url=data_file_url, timeout=10)
                     response.raise_for_status()  # Raise an exception for non-200 responses
                 except Timeout:
-                    sys.stdout.write("\rConnection timed out. Please check your internet connection.")
+                    sys.stdout.write(Fore.RED + "\rConnection timed out. Please check your internet connection.")
                     sys.stdout.flush()
                 except requests.exceptions.RequestException as error:
-                    sys.stdout.write(f"\rAn error occurred while fetching data from URL: {error}")
+                    sys.stdout.write(Fore.RED + "\rAn error occurred while fetching data from URL: " + str(error))
                     sys.stdout.flush()
 
             if response and response.status_code == 200:
                 site_data = response.json()
             else:
-                sys.stdout.write("\rFalling back to the local data file...")
+                sys.stdout.write(Fore.YELLOW + "\rFalling back to the local data file...")
                 sys.stdout.flush()
                 data_file_path = "sherlock/resources/data.json"
                 with open(data_file_path, "r", encoding="utf-8") as file:
                     site_data = json.load(file)
         except Exception as error:
-            sys.stdout.write(f"\rAn error occurred while loading data: {error}")
+            sys.stdout.write(Fore.RED + "\rAn error occurred while loading data: " + str(error))
             sys.stdout.flush()
             site_data = None
+
 
         if not site_data:
             raise ValueError("Failed to load site data.")
