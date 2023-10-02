@@ -1255,6 +1255,13 @@
     "urlMain": "https://forums.mmorpg.com/",
     "username_claimed": "goku"
   },
+  "Manifold": {
+    "errorType": "status_code",
+    "url": "https://manifold.markets/api/v0/user/{}",
+    "urlMain": "https://manifold.markets/",
+    "username_claimed": "ChrisCanas",
+    "username_unclaimed": "nooneprobablywilltakethisusernamesousingittocheck"
+  },
   "Mapify": {
     "errorType": "response_url",
     "errorUrl": "https://mapify.travel/{}",
