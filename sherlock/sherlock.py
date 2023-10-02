@@ -8,24 +8,23 @@ networks.
 """
 
 import csv
-import signal
-import pandas as pd
 import os
 import platform
 import re
+import signal
 import sys
+import time
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
+import pandas as pd
 import requests
-
-from requests_futures.sessions import FuturesSession
-from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotifyPrint
-from sites import SitesInformation
 from colorama import init
+from notify import QueryNotifyPrint
+from requests_futures.sessions import FuturesSession
+from result import QueryResult, QueryStatus
+from sites import SitesInformation
+from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
@@ -572,33 +571,41 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+        sys.stdout.write("Checking for updates... ")
+        sys.stdout.flush()
 
-        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+        remote_version = None
         local_version = __version__
 
-        if remote_version != local_version:
-            print("Update Available!\n" +
-                  f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock")
+        animation_chars = "|/-\\"
+        for i in range(10):
+            sys.stdout.write(f"\rChecking for updates... {animation_chars[i % len(animation_chars)]}")
+            sys.stdout.flush()
+            time.sleep(0.1)
 
+        sys.stdout.write("\r" + " " * 40)  # Clear the line
+        sys.stdout.write("\rEstablishing connection to data file URL...")
+        sys.stdout.flush()
+
+        r = requests.get(
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py",
+            stream=True, timeout=10)
+
+        if r.status_code == 200:
+            remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+
+            if remote_version != local_version:
+                sys.stdout.write("\rUpdate Available!\n")
+                sys.stdout.write(f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock\n")
+            else:
+                sys.stdout.write("\rYou are running the latest version.\n")
+        else:
+            sys.stdout.write(f"\rFailed to retrieve data. Status code: {r.status_code}\n")
+
+    except requests.exceptions.Timeout:
+        sys.stdout.write("\rConnection timed out. Please check your internet connection.\n")
     except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
-
-    # Argument check
-    # TODO regex check on args.proxy
-    if args.tor and (args.proxy is not None):
-        raise Exception("Tor and Proxy cannot be set at the same time.")
-
-    # Make prompts
-    if args.proxy is not None:
-        print("Using the proxy: " + args.proxy)
-
-    if args.tor or args.unique_tor:
-        print("Using Tor to make requests")
-
-        print(
-            "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
+        sys.stdout.write(f"\rA problem occurred while checking for an update: {error}\n")
 
     if args.no_color:
         # Disable color output.
