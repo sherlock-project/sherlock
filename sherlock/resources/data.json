@@ -542,6 +542,12 @@
     "urlMain": "https://community.cryptomator.org/",
     "username_claimed": "michael"
   },
+  "CssBattle": {
+    "errorType": "status_code",
+    "url": "https://cssbattle.dev/player/{}",
+    "urlMain": "https://cssbattle.dev",
+    "username_claimed": "asdf"
+  },
   "Cults3D": {
     "errorMsg": "Oh dear, this page is not working!",
     "errorType": "message",
