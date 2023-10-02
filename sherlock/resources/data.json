@@ -696,19 +696,6 @@
     "urlMain": "https://www.finanzfrage.net/",
     "username_claimed": "finanzfrage"
   },
-  "Fiverr": {
-    "errorMsg": "\"status\":\"success\"",
-    "errorType": "message",
-    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
-    "request_method": "POST",
-    "request_payload": {
-      "username": "{}"
-    },
-    "url": "https://www.fiverr.com/{}",
-    "urlMain": "https://www.fiverr.com/",
-    "urlProbe": "https://www.fiverr.com/validate_username",
-    "username_claimed": "blueman"
-  },
   "Flickr": {
     "errorType": "status_code",
     "url": "https://www.flickr.com/people/{}",
