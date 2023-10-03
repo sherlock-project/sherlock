@@ -224,22 +224,6 @@ be logged into see a profile.
   },
 ```
 
-## Teknik
-
-As of 2019-11-30, the site causes Sherlock to just hang.
-
-```json
-  "Teknik": {
-    "errorMsg": "The user does not exist",
-    "errorType": "message",
-    "rank": 357163,
-    "url": "https://user.teknik.io/{}",
-    "urlMain": "https://teknik.io/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ## Shockwave
 
 As of 2019-11-28, usernames that exist give a 503 "Service Unavailable"
