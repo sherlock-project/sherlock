@@ -1437,6 +1437,14 @@
     "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers"
   },
+  "OldSchoolRunescape": {
+    "errorMsg": "No player",
+    "errorType": "message",
+    "url": "https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal.ws?user1={}",
+    "urlMain": "https://oldschool.runescape.com/",
+    "username_claimed": "zezima",
+    "username_unclaimed": "cow1337killer"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",
