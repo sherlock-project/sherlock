@@ -35,6 +35,35 @@ $ cd sherlock
 $ python3 -m pip install -r requirements.txt
 ```
 
+### System-Wide Installation
+
+For those who want to perform a system-wide installation of Sherlock, please follow these steps:
+
+1. **Download and Placement:**
+
+   After acquiring the Sherlock repository and storing it in a preferred directory (e.g., `~/Applications/sherlock/`), execute the subsequent commands in your terminal.
+
+2. **Create a Symbolic Link:**
+
+   Utilize the following commands to establish a symbolic link to the `__main__.py` file of Sherlock in the `/usr/local/bin/` directory, which is within the system PATH:
+
+   ```bash
+   sudo ln -s ~/Applications/sherlock/sherlock/__main__.py /usr/local/bin/sherlock
+
+Grant Execution Permissions:
+To ensure the Sherlock command can be executed, modify permissions with the following command:
+
+sudo chmod +x /usr/local/bin/sherlock
+
+Test the Installation:
+Verify the success of the installation by running:
+
+sherlock
+This procedure will establish a symbolic link, enabling the sherlock command's execution from any location within the terminal, courtesy of the /usr/local/bin/ directory being included in the system PATH.
+
+These steps formalize the process for achieving system-wide installation of Sherlock, enhancing its accessibility within your system environment.
+
+   
 ## Usage
 
 ```console
