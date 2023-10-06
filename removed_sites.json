@@ -138,13 +138,6 @@
     "urlMain": "https://www.stream.me/",
     "username_claimed": "blue"
   },
-  "Teknik": {
-    "errorMsg": "The user does not exist",
-    "errorType": "message",
-    "url": "https://user.teknik.io/{}",
-    "urlMain": "https://teknik.io/",
-    "username_claimed": "red"
-  },
   "YandexMarket": {
     "errorMsg": "\u0422\u0443\u0442 \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435\u0442",
     "errorType": "message",
