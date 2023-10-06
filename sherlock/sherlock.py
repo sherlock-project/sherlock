@@ -8,24 +8,24 @@ networks.
 """
 
 import csv
-import signal
-import pandas as pd
 import os
 import platform
 import re
+import signal
 import sys
+import threading
+import time
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
+import pandas as pd
 import requests
-
-from requests_futures.sessions import FuturesSession
-from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
+from colorama import Fore, Style, init
 from notify import QueryNotifyPrint
+from requests_futures.sessions import FuturesSession
+from result import QueryResult, QueryStatus
 from sites import SitesInformation
-from colorama import init
+from torrequest import TorRequest
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
@@ -482,6 +482,17 @@ def handler(signal_received, frame):
     """
     sys.exit(0)
 
+def animate_loading(message):
+    global done  # Define done as a global variable
+    done = threading.Event()
+    animation_chars = "|/-\\"
+    i = 0
+    while not done.is_set():
+        sys.stdout.write(f"\r{message} {animation_chars[i % len(animation_chars)]}")
+        sys.stdout.flush()
+        time.sleep(0.1)
+        i += 1
+
 
 def main():
     version_string = f"%(prog)s {__version__}\n" + \
@@ -571,34 +582,47 @@ def main():
     signal.signal(signal.SIGINT, handler)
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
+    global done
+    done = threading.Event()
     try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+        loading_thread = threading.Thread(target=animate_loading, args=(Fore.YELLOW +"Checking for updates...",))
+        loading_thread.start()
 
-        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+        remote_version = None
         local_version = __version__
 
-        if remote_version != local_version:
-            print("Update Available!\n" +
-                  f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock")
+        r = requests.get(
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py",
+            stream=True, timeout=10)
+
+        done.set()  # Stop the loading animation thread
+
+        if r.status_code == 200:
+            remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+
+            if remote_version != local_version:
+                sys.stdout.write(Fore.YELLOW +"\rUpdate Available!\n")
+                sys.stdout.write(Fore.YELLOW + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock\n")
+            else:
+                sys.stdout.write(Fore.YELLOW +"\rYou are running the latest version.\n")
+        else:
+            sys.stdout.write(Fore.YELLOW + f"\rFailed to retrieve data. Status code: {r.status_code}\n")
+
+    except requests.exceptions.Timeout:
+        done.set()  # Stop the loading animation thread
+        sys.stdout.write(Fore.RED +"\rConnection timed out. Please check your internet connection.")
+        sys.stdout.flush()
 
     except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
+        done.set()  # Stop the loading animation thread
+        sys.stdout.write(Fore.RED +f"\r {error}".replace("\n", ""))
+        sys.stdout.flush()
 
-    # Argument check
-    # TODO regex check on args.proxy
-    if args.tor and (args.proxy is not None):
-        raise Exception("Tor and Proxy cannot be set at the same time.")
+    sys.stdout.flush()
+    sys.stdout.write('\r' + ' ' * 100 + '\r')
 
-    # Make prompts
-    if args.proxy is not None:
-        print("Using the proxy: " + args.proxy)
 
-    if args.tor or args.unique_tor:
-        print("Using Tor to make requests")
 
-        print(
-            "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
 
     if args.no_color:
         # Disable color output.
