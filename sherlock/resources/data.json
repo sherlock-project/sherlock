@@ -1040,6 +1040,14 @@
     "urlMain": "https://www.ifttt.com/",
     "username_claimed": "blue"
   },
+  "IRC-Galleria": {
+    "errorType": "response_url",
+    "errorUrl": "https://irc-galleria.net/users/search?username={}",
+    "url": "https://irc-galleria.net/user/{}",
+    "urlMain": "https://irc-galleria.net/",
+    "username_claimed": "appas",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Icons8 Community": {
     "errorType": "status_code",
     "url": "https://community.icons8.com/u/{}/summary",
@@ -1088,14 +1096,6 @@
     "url": "https://forum.ionicframework.com/u/{}",
     "urlMain": "https://forum.ionicframework.com/",
     "username_claimed": "theblue222"
-  },
-    "IRC-Galleria": {
-    "errorType": "response_url",
-    "errorUrl": "https://irc-galleria.net/users/search?username={}",
-    "url": "https://irc-galleria.net/user/{}",
-    "urlMain": "https://irc-galleria.net/",
-    "username_claimed": "appas",
-    "username_unclaimed": "noonewouldeverusethis77"
   },
   "Issuu": {
     "errorType": "status_code",

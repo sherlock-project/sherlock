@@ -1,4 +1,4 @@
-## List Of Supported Sites (400 Sites In Total!)
+## List Of Supported Sites (401 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -151,6 +151,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://hubski.com/) [Hubski](https://hubski.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://icq.com/) [ICQ](https://icq.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.ifttt.com/) [IFTTT](https://www.ifttt.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://irc-galleria.net/) [IRC-Galleria](https://irc-galleria.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.icons8.com/) [Icons8 Community](https://community.icons8.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.imagefap.com/) [Image Fap](https://www.imagefap.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://imgup.cz/) [ImgUp.cz](https://imgup.cz/) 
