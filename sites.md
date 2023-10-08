@@ -80,6 +80,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://crowdin.com/) [Crowdin](https://crowdin.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.cryptomator.org/) [Cryptomator Forum](https://community.cryptomator.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://cults3d.com/en) [Cults3D](https://cults3d.com/en) 
+1. ![](https://www.google.com/s2/favicons?domain=https://ddnet.org) [DDRaceNetwork](https://ddnet.org) 
 1. ![](https://www.google.com/s2/favicons?domain=https://dev.to/) [DEV Community](https://dev.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://dmoj.ca/) [DMOJ](https://dmoj.ca/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.dailymotion.com/) [DailyMotion](https://www.dailymotion.com/) 
