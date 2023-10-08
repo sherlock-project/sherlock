@@ -1958,6 +1958,13 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
   },
+  "Tomb": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://tome.app/{}",
+    "urlMain": "https://tome.app/",
+    "username_claimed": "nmims-5c7"
+  },
   "TradingView": {
     "errorType": "status_code",
     "request_method": "GET",
