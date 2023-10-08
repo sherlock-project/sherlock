@@ -1825,3 +1825,21 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
     "username_claimed": "adam"
   }
 ```
+
+# Fiverr
+As of 2023.10.02, Fiverr has cloudflare bot protection
+```json
+  "Fiverr": {
+    "errorMsg": "\"status\":\"success\"",
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "urlProbe": "https://www.fiverr.com/validate_username",
+    "username_claimed": "blueman"
+  },
+```
