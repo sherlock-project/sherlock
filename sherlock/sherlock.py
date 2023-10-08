@@ -25,6 +25,7 @@ from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
+from urllib3.exceptions import InsecureRequestWarning
 from colorama import init
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
@@ -160,7 +161,7 @@ def MultipleUsernames(username):
     return allUsernames
 
 
-def sherlock(username, site_data, query_notify,
+def sherlock(username, site_data, query_notify, ssl_verify,
              tor=False, unique_tor=False,
              proxy=None, timeout=60):
     """Run Sherlock Analysis.
@@ -313,13 +314,15 @@ def sherlock(username, site_data, query_notify,
                                  proxies=proxies,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 json=request_payload,
+                                 verify=ssl_verify
                                  )
             else:
                 future = request(url=url_probe, headers=headers,
                                  allow_redirects=allow_redirects,
                                  timeout=timeout,
-                                 json=request_payload
+                                 json=request_payload,
+                                 verify=ssl_verify
                                  )
 
             # Store future in data for access later
@@ -564,8 +567,17 @@ def main():
     parser.add_argument("--nsfw",
                         action="store_true", default=False,
                         help="Include checking of NSFW sites from default list.")
+    
+    parser.add_argument("--no-ssl",
+                        action="store_false", dest="ssl_verify", default=True,
+                        help="Disable SSL certificate verification.")
 
     args = parser.parse_args()
+
+    # Disable warnings for no-ssl            
+    if args.ssl_verify==False:
+        print("Warning: SSL certificate verification disabled.")
+        requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
@@ -573,7 +585,8 @@ def main():
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py")
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py",
+             verify=args.ssl_verify)
 
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
         local_version = __version__
@@ -620,10 +633,10 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
-            sites = SitesInformation(os.path.join(
+            sites = SitesInformation(args.ssl_verify, os.path.join(
                 os.path.dirname(__file__), "resources/data.json"))
         else:
-            sites = SitesInformation(args.json_file)
+            sites = SitesInformation(args.ssl_verify, args.json_file)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
@@ -679,6 +692,7 @@ def main():
         results = sherlock(username,
                            site_data,
                            query_notify,
+                           args.ssl_verify,
                            tor=args.tor,
                            unique_tor=args.unique_tor,
                            proxy=args.proxy,

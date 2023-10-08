@@ -72,7 +72,7 @@ class SiteInformation:
 
 
 class SitesInformation:
-    def __init__(self, data_file_path=None):
+    def __init__(self, ssl_verify, data_file_path=None):
         """Create Sites Information Object.
 
         Contains information about all supported websites.
@@ -120,7 +120,7 @@ class SitesInformation:
         if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
             try:
-                response = requests.get(url=data_file_path)
+                response = requests.get(url=data_file_path, verify=ssl_verify)
             except Exception as error:
                 raise FileNotFoundError(
                     f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
