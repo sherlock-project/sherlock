@@ -1960,7 +1960,6 @@
   },
   "Tomb": {
     "errorType": "status_code",
-    "isNSFW": true,
     "url": "https://tome.app/{}",
     "urlMain": "https://tome.app/",
     "username_claimed": "nmims-5c7"
