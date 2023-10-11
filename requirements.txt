@@ -8,3 +8,4 @@ torrequest>=0.1.0
 pandas>=1.0.0
 openpyxl<=3.0.10
 exrex>=0.11.0
+fpdf>=1.7.2

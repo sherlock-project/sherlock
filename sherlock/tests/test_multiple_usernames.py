@@ -21,9 +21,9 @@ checksymbols = ["_", "-", "."]
         """
 class TestMultipleUsernames(unittest.TestCase):
     def test_area(self):
-        test_usernames = ["test{?}test" , "test{?feo" , "test"]
+        test_usernames = ["test{?}test", "test{?feo", "test"]
         for name in test_usernames:
             if(sh.CheckForParameter(name)):
-                self.assertAlmostEqual(sh.MultipleUsernames(name), ["test_test" , "test-test" , "test.test"])
+                self.assertAlmostEFqual(sh.MultipleUsernames(name), ["test_test" , "test-test" , "test.test"])
             else:
                 self.assertAlmostEqual(name, name)
