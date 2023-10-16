@@ -1026,6 +1026,13 @@
     "urlMain": "https://hubski.com/",
     "username_claimed": "blue"
   },
+  "Hugging Face": {
+    "errorMsg" : "Sorry, we can't find the page you are looking for.",
+    "errorType": "message",
+    "url" : "https://huggingface.co/{}",
+    "urlMain" : "https://huggingface.co",
+    "username_claimed": "hack"
+  },
   "ICQ": {
     "errorType": "status_code",
     "url": "https://icq.im/{}/en",
