@@ -2505,6 +2505,12 @@
     "urlMain": "https://mastodon.cloud/",
     "username_claimed": "TheAdmin"
   },
+  "mastodon.online": {
+    "errorType": "status_code",
+    "url": "https://mastodon.online/@{}",
+    "urlMain": "https://mastodon.online/",
+    "username_claimed": "rozie"
+  },
   "mastodon.social": {
     "errorType": "status_code",
     "url": "https://mastodon.social/@{}",
