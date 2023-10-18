@@ -2703,5 +2703,11 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "blabler": {
+    "errorType": "status_code",
+    "url": "https://cdn.blabler.pl/avatar/{}/standard",
+    "urlMain": "https://blabler.pl/",
+    "username_claimed": "rozie"
   }
 }
