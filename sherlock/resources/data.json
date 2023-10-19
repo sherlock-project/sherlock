@@ -434,6 +434,12 @@
     "urlMain": "https://www.clubhouse.com",
     "username_claimed": "waniathar"
   },
+  "Codeberg" : {    
+    "errorType": "status_code",
+    "url": "https://codeberg.org/{}",
+    "urlMain": "https://codeberg.org/",
+    "username_claimed": "blue"
+  },
   "Code Snippet Wiki": {
     "errorMsg": "This user has not filled out their profile page yet",
     "errorType": "message",
