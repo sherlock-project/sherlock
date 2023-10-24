@@ -913,6 +913,12 @@
     "urlMain": "http://en.gravatar.com/",
     "username_claimed": "blue"
   },
+    "Gravatar JSON data": {
+    "errorType": "status_code",
+    "url": "https://en.gravatar.com/{}.json",
+    "urlMain": "https://en.gravatar.com/",
+    "username_claimed": "blue"
+  },  
   "Gumroad": {
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
