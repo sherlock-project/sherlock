@@ -147,7 +147,7 @@ to understand the issues.
 
 Thank you for contributing to Sherlock!
 
-Before creating a pull request with new development, please run the tests
+Before creating a pull request with the new development, please run the tests
 to ensure that everything is working great.  It would also be a good idea to run the tests
 before starting development to distinguish problems between your
 environment and the Sherlock software.
