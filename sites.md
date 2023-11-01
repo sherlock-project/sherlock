@@ -83,7 +83,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://dev.to/) [DEV Community](https://dev.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://dmoj.ca/) [DMOJ](https://dmoj.ca/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.dailymotion.com/) [DailyMotion](https://www.dailymotion.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.dealabs.com/) [Dealabs](https://www.dealabs.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://deviantart.com) [DeviantART](https://deviantart.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.discogs.com/) [Discogs](https://www.discogs.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://discuss.elastic.co/) [Discuss.Elastic.co](https://discuss.elastic.co/) 
@@ -113,7 +112,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://freelance.habr.com/) [Freelance.habr](https://freelance.habr.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.freelancer.com/) [Freelancer](https://www.freelancer.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://freesound.org/) [Freesound](https://freesound.org/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.g2g.com/) [G2G](https://www.g2g.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://gitlab.gnome.org/) [GNOME VCS](https://gitlab.gnome.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gaiaonline.com/) [GaiaOnline](https://www.gaiaonline.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gamespot.com/) [Gamespot](https://www.gamespot.com/) 
@@ -180,7 +178,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://listed.to/) [Listed](https://listed.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.livejournal.com/) [LiveJournal](https://www.livejournal.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://lobste.rs/) [Lobsters](https://lobste.rs/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://lolchess.gg/) [Lolchess](https://lolchess.gg/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://lottiefiles.com/) [LottieFiles](https://lottiefiles.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.lushstories.com/) [LushStories](https://www.lushstories.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://forums.mmorpg.com/) [MMORPG Forum](https://forums.mmorpg.com/) 
