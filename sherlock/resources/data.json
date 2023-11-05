@@ -549,6 +549,13 @@
     "urlMain": "https://cults3d.com/en",
     "username_claimed": "brown"
   },
+  "CSSBattle": {
+    "errorMsg": "This page could not be found.",
+    "errorType": "status_code",
+    "url": "https://cssbattle.dev/{}",
+    "urlMain": "https://cssbattle.dev",
+    "username_claimed": "blue"
+  },
   "DEV Community": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
