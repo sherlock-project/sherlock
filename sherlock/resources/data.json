@@ -2666,6 +2666,13 @@
     "urlMain": "https://www.svidbook.ru/",
     "username_claimed": "green"
   },
+  "skroutz": {
+    "errorType": "status_code",
+    "url": "https://www.skroutz.gr/u/{}",
+    "urlMain": "https://www.skroutz.gr/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "toster": {
     "errorType": "status_code",
     "url": "https://www.toster.ru/user/{}/answers",
