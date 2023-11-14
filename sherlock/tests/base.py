@@ -32,16 +32,12 @@ class SherlockBaseTest(unittest.TestCase):
         # Create object with all information about sites we are aware of.
         sites = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../resources/data.json"))
 
-        # Create original dictionary from SitesInformation() object.
-        # Eventually, the rest of the code will be updated to use the new object
-        # directly, but this will glue the two pieces together.
-        site_data_all = {}
-        for site in sites:
-            site_data_all[site.name] = site.information
+        site_data_all = {site.name: site.information for site in sites}
         self.site_data_all = site_data_all
 
         # Load excluded sites list, if any
-        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
+        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)),
+                                           "tests/.excluded_sites")
         try:
             with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
                 self.excluded_sites = excluded_sites_file.read().splitlines()
@@ -77,7 +73,7 @@ class SherlockBaseTest(unittest.TestCase):
         for site in site_list:
             with self.subTest(f"Checking test vector Site '{site}' "
                               f"exists in total site data."
-                             ):
+                              ):
                 site_data[site] = self.site_data_all[site]
 
         return site_data
@@ -118,20 +114,20 @@ class SherlockBaseTest(unittest.TestCase):
                                         tor=self.tor,
                                         unique_tor=self.unique_tor,
                                         timeout=self.timeout
-                                       )
+                                        )
             for site, result in results.items():
                 with self.subTest(f"Checking Username '{username}' "
                                   f"{check_type_text} on Site '{site}'"
-                                 ):
+                                  ):
                     if (
-                         (self.skip_error_sites == True) and
-                         (result["status"].status == QueryStatus.UNKNOWN)
-                       ):
-                        #Some error connecting to site.
+                        (self.skip_error_sites == True) and
+                        (result["status"].status == QueryStatus.UNKNOWN)
+                    ):
+                        # Some error connecting to site.
                         self.skipTest(f"Skipping Username '{username}' "
                                       f"{check_type_text} on Site '{site}':  "
                                       f"Site returned error status."
-                                     )
+                                      )
 
                     self.assertEqual(exist_result_desired,
                                      result["status"].status)
@@ -166,16 +162,11 @@ class SherlockBaseTest(unittest.TestCase):
 
         for site, site_data in self.site_data_all.items():
             if (
-                 (site in self.excluded_sites)                 or
-                 (site_data["errorType"] != detect_type)       or
-                 (site_data.get("username_claimed")   is None) or
-                 (site_data.get("username_unclaimed") is None)
-               ):
-                # This is either not a site we are interested in, or the
-                # site does not contain the required information to do
-                # the tests.
-                pass
-            else:
+                site not in self.excluded_sites
+                and site_data["errorType"] == detect_type
+                and site_data.get("username_claimed") is not None
+                and site_data.get("username_unclaimed") is not None
+            ):
                 # We should run a test on this site.
 
                 # Figure out which type of user
@@ -196,7 +187,7 @@ class SherlockBaseTest(unittest.TestCase):
             self.username_check([username],
                                 site_list,
                                 exist_check=exist_check
-                               )
+                                )
 
         return
 
@@ -212,13 +203,11 @@ class SherlockBaseTest(unittest.TestCase):
         Will trigger an assert if any Site does not have test coverage.
         """
 
-        site_no_tests_list = []
-
-        for site, site_data in self.site_data_all.items():
-            if site_data.get("username_claimed") is None:
-                # Test information not available on this site.
-                site_no_tests_list.append(site)
-
+        site_no_tests_list = [
+            site
+            for site, site_data in self.site_data_all.items()
+            if site_data.get("username_claimed") is None
+        ]
         self.assertEqual("", ", ".join(site_no_tests_list))
 
         return

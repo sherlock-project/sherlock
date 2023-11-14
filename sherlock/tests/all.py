@@ -116,7 +116,7 @@ class SherlockDetectTests(SherlockBaseTest):
         # method is very hacky, but it does the job as having hardcoded
         # usernames that dont exists will lead to people with ill intent to
         # create an account with that username which will break the tests
-        valid_username = exrex.getone(r"^[a-zA-Z0-9-_]{30}") 
+        valid_username = exrex.getone(r"^[a-zA-Z0-9-_]{30}")
         self.username_check([valid_username], [site], exist_check=False)
 
         return

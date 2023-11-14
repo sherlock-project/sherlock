@@ -7,9 +7,10 @@ import json
 import requests
 import secrets
 
+
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                 information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -54,7 +55,7 @@ class SiteInformation:
         self.username_claimed = username_claimed
         self.username_unclaimed = secrets.token_urlsafe(32)
         self.information = information
-        self.is_nsfw  = is_nsfw
+        self.is_nsfw = is_nsfw
 
         return
 
@@ -67,7 +68,7 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        
+
         return f"{self.name} ({self.url_home})"
 
 
@@ -124,7 +125,7 @@ class SitesInformation:
             except Exception as error:
                 raise FileNotFoundError(
                     f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
-                )
+                ) from error
 
             if response.status_code != 200:
                 raise FileNotFoundError(f"Bad response while accessing "
@@ -135,7 +136,7 @@ class SitesInformation:
             except Exception as error:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  {error}."
-                )
+                ) from error
 
         else:
             # Reference is to a file.
@@ -146,12 +147,13 @@ class SitesInformation:
                     except Exception as error:
                         raise ValueError(
                             f"Problem parsing json contents at '{data_file_path}':  {error}."
-                        )
+                        ) from error
 
-            except FileNotFoundError:
-                raise FileNotFoundError(f"Problem while attempting to access "
-                                        f"data file '{data_file_path}'."
-                                        )
+            except FileNotFoundError as e:
+                raise FileNotFoundError(
+                    f"Problem while attempting to access "
+                    f"data file '{data_file_path}'."
+                ) from e
 
         self.sites = {}
 
@@ -160,18 +162,18 @@ class SitesInformation:
             try:
 
                 self.sites[site_name] = \
-                    SiteInformation(site_name,
+                                        SiteInformation(site_name,
                                     site_data[site_name]["urlMain"],
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name],
-                                    site_data[site_name].get("isNSFW",False)
+                                    site_data[site_name].get("isNSFW", False)
 
                                     )
             except KeyError as error:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  Missing attribute {error}."
-                )
+                ) from error
 
         return
 
@@ -185,12 +187,12 @@ class SitesInformation:
         Return Value:
         None
         """
-        sites = {}
-        for site in self.sites:
-            if self.sites[site].is_nsfw:
-                continue
-            sites[site] = self.sites[site]  
-        self.sites =  sites
+        sites = {
+            site: self.sites[site]
+            for site in self.sites
+            if not self.sites[site].is_nsfw
+        }
+        self.sites = sites
 
     def site_name_list(self):
         """Get Site Name List.
