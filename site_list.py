@@ -16,7 +16,8 @@ with open("sites.md", "w") as site_file:
     for social_network, info in social_networks:
         url_main = info["urlMain"]
         is_nsfw = "**(NSFW)**" if info.get("isNSFW") else ""
-        site_file.write(f"1. ![](https://www.google.com/s2/favicons?domain={url_main}) [{social_network}]({url_main}) {is_nsfw}\n")
+        site_file.write(
+            f"1. ![](https://www.google.com/s2/favicons?domain={url_main}) [{social_network}]({url_main}) {is_nsfw}\n")
 
 # Overwrite the data.json file with sorted data
 with open("sherlock/resources/data.json", "w") as data_file:

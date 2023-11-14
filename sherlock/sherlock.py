@@ -724,7 +724,8 @@ def main():
                                  ]
                                 )
                 for site in results:
-                    if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
+                    if args.print_found and not args.print_all and results[site][
+                        "status"].status != QueryStatus.CLAIMED:
                         continue
 
                     response_time_s = results[site]["status"].query_time
@@ -763,7 +764,9 @@ def main():
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
 
-            DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
+            DataFrame = pd.DataFrame(
+                {"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists,
+                 "http_status": http_status, "response_time_s": response_time_s})
             DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
 
         print()
