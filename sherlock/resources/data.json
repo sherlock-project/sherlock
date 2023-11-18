@@ -94,9 +94,9 @@
     "username_claimed": "pink"
   },
   "AllMyLinks": {
-    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "errorMsg": "Not Found",
     "errorType": "message",
+    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "url": "https://allmylinks.com/{}",
     "urlMain": "https://allmylinks.com/",
     "username_claimed": "blue"
@@ -136,8 +136,7 @@
     "username_claimed": "jason"
   },
   "Archive of Our Own": {
-    "errorMsg": "Sorry, could not find this user.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test"
@@ -309,6 +308,7 @@
   },
   "BuyMeACoffee": {
     "errorType": "status_code",
+    "regexCheck": "[a-zA-Z0-9]{3,15}",
     "url": "https://buymeacoff.ee/{}",
     "urlMain": "https://www.buymeacoffee.com/",
     "urlProbe": "https://www.buymeacoffee.com/{}",
@@ -328,10 +328,11 @@
     "username_claimed": "blue"
   },
   "CNET": {
-    "errorType": "status_code",
+    "errorMsg": "null null - CNET",
+    "errorType": "message",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
-    "username_claimed": "blue"
+    "username_claimed": "elliottcnet"
   },
   "CTAN": {
     "errorType": "status_code",
@@ -488,22 +489,6 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
-  "Coil": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "request_method": "POST",
-    "request_payload": {
-      "operationName": "getCreator",
-      "query": "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
-      "variables": {
-        "userShortName": "{}"
-      }
-    },
-    "url": "https://coil.com/u/{}",
-    "urlMain": "https://coil.com/",
-    "urlProbe": "https://coil.com/gateway",
-    "username_claimed": "adam"
-  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
@@ -635,6 +620,9 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
+    },
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -645,13 +633,6 @@
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
-  },
-  "Enjin": {
-    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
-    "errorType": "message",
-    "url": "https://www.enjin.com/profile/{}",
-    "urlMain": "https://www.enjin.com/",
-    "username_claimed": "blue"
   },
   "Envato Forum": {
     "errorType": "status_code",
@@ -939,12 +920,6 @@
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue"
   },
-  "GunsAndAmmo": {
-    "errorType": "status_code",
-    "url": "https://forums.gunsandammo.com/profile/{}",
-    "urlMain": "https://gunsandammo.com/",
-    "username_claimed": "adam"
-  },
   "Gutefrage": {
     "errorType": "status_code",
     "url": "https://www.gutefrage.net/nutzer/{}",
@@ -1065,11 +1040,13 @@
     "urlMain": "https://www.ifttt.com/",
     "username_claimed": "blue"
   },
-  "IRL": {
-    "errorType": "status_code",
-    "url": "https://www.irl.com/{}",
-    "urlMain": "https://www.irl.com/",
-    "username_claimed": "hacker"
+  "IRC-Galleria": {
+    "errorType": "response_url",
+    "errorUrl": "https://irc-galleria.net/users/search?username={}",
+    "url": "https://irc-galleria.net/user/{}",
+    "urlMain": "https://irc-galleria.net/",
+    "username_claimed": "appas",
+    "username_unclaimed": "noonewouldeverusethis77"
   },
   "Icons8 Community": {
     "errorType": "status_code",
@@ -1096,14 +1073,6 @@
     "url": "https://imgur.com/user/{}",
     "urlMain": "https://imgur.com/",
     "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
-    "username_claimed": "blue"
-  },
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
     "username_claimed": "blue"
   },
   "Instructables": {
@@ -1358,12 +1327,6 @@
     "urlMain": "https://www.motorradfrage.net/",
     "username_claimed": "gutefrage"
   },
-  "Munzee": {
-    "errorType": "status_code",
-    "url": "https://www.munzee.com/m/{}",
-    "urlMain": "https://www.munzee.com/",
-    "username_claimed": "blue"
-  },
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
@@ -1481,21 +1444,6 @@
     "url": "https://ogu.gg/{}",
     "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers"
-  },
-  "OK": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
-    "url": "https://ok.ru/{}",
-    "urlMain": "https://ok.ru/",
-    "username_claimed": "ok"
-  },
-  "OnlyFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com/",
-    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
-    "username_claimed": "theemilylynne"
   },
   "OpenStreetMap": {
     "errorType": "status_code",
@@ -1640,13 +1588,6 @@
     "url": "https://pypi.org/user/{}",
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
-  },
-  "Quizlet": {
-    "errorMsg": "Page Unavailable</title>",
-    "errorType": "message",
-    "url": "https://quizlet.com/{}",
-    "urlMain": "https://quizlet.com",
-    "username_claimed": "blue"
   },
   "Rajce.net": {
     "errorType": "status_code",
@@ -1884,7 +1825,7 @@
     "username_claimed": "adam"
   },
   "Speedrun.com": {
-    "errorMsg": "not found.",
+    "errorMsg": "Not found",
     "errorType": "message",
     "url": "https://speedrun.com/user/{}",
     "urlMain": "https://speedrun.com/",
@@ -1980,7 +1921,7 @@
   "Telegram": {
     "errorMsg": "<meta property=\"og:description\" content=\"\">",
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{5,32}$",
+    "regexCheck": "^[a-zA-Z0-9_]{5,32}[^_]$",
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
     "username_claimed": "roopeshvs"
@@ -2009,16 +1950,6 @@
     "url": "https://tiktok.com/@{}",
     "urlMain": "https://tiktok.com/",
     "username_claimed": "red"
-  },
-  "Tinder": {
-    "errorMsg": [
-      "<title data-react-helmet=\"true\">Tinder | Dating, Make Friends &amp; Meet New People</title>",
-      "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>"
-    ],
-    "errorType": "message",
-    "url": "https://www.tinder.com/@{}",
-    "urlMain": "https://tinder.com/",
-    "username_claimed": "blue"
   },
   "TnAFlix": {
     "errorType": "status_code",
@@ -2063,9 +1994,9 @@
     "username_claimed": "blue"
   },
   "TryHackMe": {
-    "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
-    "errorType": "message",
     "errorMsg": "{\"success\":false}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
     "urlProbe": "https://tryhackme.com/api/user/exist/{}",
@@ -2115,6 +2046,7 @@
   },
   "Unsplash": {
     "errorType": "status_code",
+    "regexCheck": "^[a-z0-9_]{1,60}$",
     "url": "https://unsplash.com/@{}",
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
@@ -2328,27 +2260,6 @@
     "urlMain": "https://youporn.com",
     "username_claimed": "blue"
   },
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "Zhihu": {
     "errorMsg": "404",
     "errorType": "message",
@@ -2462,13 +2373,6 @@
     "errorType": "message",
     "url": "https://forum.guns.ru/forummisc/blog/{}",
     "urlMain": "https://forum.guns.ru/",
-    "username_claimed": "red"
-  },
-  "forumhouseRU": {
-    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
-    "errorType": "message",
-    "url": "https://www.forumhouse.ru/members/?username={}",
-    "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red"
   },
   "freecodecamp": {

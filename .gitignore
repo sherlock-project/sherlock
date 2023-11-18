@@ -1,5 +1,8 @@
 # Virtual Environment
 venv/
+bin/
+lib/
+pyvenv.cfg
 
 # Editor Configurations
 .vscode/

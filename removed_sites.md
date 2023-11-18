@@ -1645,3 +1645,183 @@ As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through
     "username_claimed": "ventivogue"
   }
 ```
+
+
+## Tinder
+As of 2022.03.15, Tinder returns false positives. We will try to rev the API endpoint on the android app to find a better soon
+
+```json
+"Tinder": {
+    "errorMsg": [
+      "<title data-react-helmet=\"true\">Tinder | Dating, Make Friends &amp; Meet New People</title>",
+      "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>"
+    ],
+    "errorType": "message",
+    "url": "https://www.tinder.com/@{}",
+    "urlMain": "https://tinder.com/",
+    "username_claimed": "blue"
+  },
+```
+
+
+## Coil
+As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any requests return a 404.
+
+```json
+"Coil": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "operationName": "getCreator",
+      "query": "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
+      "variables": {
+        "userShortName": "{}"
+      }
+    },
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "urlProbe": "https://coil.com/gateway",
+    "username_claimed": "adam"
+  }
+```
+
+## OnlyFans
+As of 2023.04.20, OnlyFans returns false negatives on checking usernames with the API endpoint and directly through their website.
+
+```json
+"OnlyFans": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
+    "username_claimed": "theemilylynne"
+  }
+```
+
+## Instagram
+As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
+
+```json
+  "Instagram": {
+    "errorMsg": "Nothing found!",
+    "errorType": "message",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "urlProbe": "https://www.picuki.com/profile/{}",
+    "username_claimed": "blue"
+  }
+```
+
+## OK
+As of 2023.04.21, Ok.ru returns false positives
+```json
+  "OK": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
+    "url": "https://ok.ru/{}",
+    "urlMain": "https://ok.ru/",
+    "username_claimed": "ok"
+  }
+```
+
+## ForumhouseRU
+As of 2023.04.21, ForumhouseRU returns false positives
+```json
+  "forumhouseRU": {
+    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
+    "errorType": "message",
+    "url": "https://www.forumhouse.ru/members/?username={}",
+    "urlMain": "https://www.forumhouse.ru/",
+    "username_claimed": "red"
+  }
+```
+
+## Enjin
+As of 2023.08.29, Enjin has closed down.
+
+```json
+"Enjin": {
+    "errorMsg": "Yikes, there seems to have been an error. We've taken note and will check out the problem right away!",
+    "errorType": "message",
+    "url": "https://www.enjin.com/profile/{}",
+    "urlMain": "https://www.enjin.com/",
+    "username_claimed": "blue"
+  },
+```
+
+## IRL
+As of 2023.08.29, IRL has shut down
+```json
+  "IRL": {
+    "errorType": "status_code",
+    "url": "https://www.irl.com/{}",
+    "urlMain": "https://www.irl.com/",
+    "username_claimed": "hacker"
+  }
+```
+
+## Munzee
+As of 2023.08.29, Munzee requires us to be logged into the site in order to check if a user exists or not
+```json
+  "Munzee": {
+    "errorType": "status_code",
+    "url": "https://www.munzee.com/m/{}",
+    "urlMain": "https://www.munzee.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Quizlet
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+
+```json
+"Quizlet": {
+    "errorMsg": "Page Unavailable",
+    "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue"
+  }
+```
+
+
+## YouTube
+As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how Sherlock currently works
+
+
+```json
+  "Youtube Channel": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/c/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "mkbhd"
+  },
+  "Youtube User": {
+    "errorCode": 404,
+    "errorType": "status_code",
+    "headers": {
+      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
+    },
+    "url": "https://www.youtube.com/user/{}",
+    "urlMain": "https://www.youtube.com",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
+  }
+```
+
+## GunsAndAmmo
+As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
+```json
+  "GunsAndAmmo": {
+    "errorType": "status_code",
+    "url": "https://forums.gunsandammo.com/profile/{}",
+    "urlMain": "https://gunsandammo.com/",
+    "username_claimed": "adam"
+  }
+```

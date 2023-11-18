@@ -43,7 +43,7 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
-                [--browse] [--local]
+                [--browse] [--local] [--nsfw]
                 USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.14.2)
@@ -83,6 +83,7 @@ optional arguments:
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
+  --nsfw                Include checking of NSFW sites from default list.
 ```
 
 To search for only one user:
