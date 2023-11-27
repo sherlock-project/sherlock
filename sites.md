@@ -43,6 +43,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://bodyspace.bodybuilding.com/) [BodyBuilding](https://bodyspace.bodybuilding.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://pt.bongacams.com) [BongaCams](https://pt.bongacams.com) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.bookcrossing.com/) [Bookcrossing](https://www.bookcrossing.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://boardgamegeek.com/) [BoardGameGeek](https://www.boardgamegeek.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.brave.com/) [BraveCommunity](https://community.brave.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.buymeacoffee.com/) [BuyMeACoffee](https://www.buymeacoffee.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://buzzfeed.com/) [BuzzFeed](https://buzzfeed.com/) 
@@ -184,6 +185,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://lobste.rs/) [Lobsters](https://lobste.rs/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://lolchess.gg/) [Lolchess](https://lolchess.gg/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://lottiefiles.com/) [LottieFiles](https://lottiefiles.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://ludopedia.com.br/) [Ludopedia](https://ludopedia.com.br/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.lushstories.com/) [LushStories](https://www.lushstories.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://forums.mmorpg.com/) [MMORPG Forum](https://forums.mmorpg.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://mapify.travel/) [Mapify](https://mapify.travel/) 
@@ -247,6 +249,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://replit.com/) [Replit.com](https://replit.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.researchgate.net/) [ResearchGate](https://www.researchgate.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.reverbnation.com/) [ReverbNation](https://www.reverbnation.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://rpggeek.com/) [RPGGeek](https://rpggeek.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.roblox.com/) [Roblox](https://www.roblox.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.rockettube.com/) [RocketTube](https://www.rockettube.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://royalcams.com) [RoyalCams](https://royalcams.com) 
@@ -304,7 +307,8 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://twitter.com/) [Twitter](https://twitter.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://typeracer.com) [Typeracer](https://typeracer.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://ultimate-guitar.com/) [Ultimate-Guitar](https://ultimate-guitar.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://unsplash.com/) [Unsplash](https://unsplash.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://unsplash.com/) [Unsplash](https://unsplash.com/)
+1. ![](https://www.google.com/s2/favicons?domain=https://videogamegeek.com/) [VideoGameGeek](https://videogamegeek.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://vk.com/) [VK](https://vk.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://vsco.co/) [VSCO](https://vsco.co/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.velomania.ru/) [Velomania](https://forum.velomania.ru/) 
