@@ -24,6 +24,6 @@ class TestMultipleUsernames(unittest.TestCase):
         test_usernames = ["test{?}test" , "test{?feo" , "test"]
         for name in test_usernames:
             if(sh.CheckForParameter(name)):
-                self.assertAlmostEqual(sh.MultipleUsernames(name), ["test_test" , "test-test" , "test.test"])
+                self.assertAlmostEqual(sh.MultipleUsernames("keishatonasket") ["test_test" , "test-test" , "test.test"])
             else:
                 self.assertAlmostEqual(name, name)
