@@ -79,7 +79,7 @@ optional arguments:
                         Load data from a JSON file or an online, valid, JSON file.
   --timeout TIMEOUT     Time (in seconds) to wait for response to requests (Default: 60)
   --print-all           Output sites where the username was not found.
-  --print-found         Output sites where the username was found.
+  --print-found         Output sites where the username was found (also if exported as file).
   --no-color            Don't color terminal output
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
