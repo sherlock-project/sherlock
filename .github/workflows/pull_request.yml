@@ -17,18 +17,18 @@ jobs:
           if echo $FILES | grep -q ".json"; then
             echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.x\"}]}"
           else
-            echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.7\"},{\"python\":\"3.8\"}]},{\"python\":\"3.9\"},{\"python\":\"3.10\"}]},{\"python\":\"3.11\"}]}"
+            echo "::set-output name=matrix::{\"include\":[{\"python\":\"3.7\"},{\"python\":\"3.8\"}]},{\"python\":\"3.9\"},{\"python\":\"3.10\"}]},{\"python\":\"3.11\"},{\"python\":\"3.12\"}]}"
           fi
-  build:
+  tests:
     needs: [getchange]
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJson(needs.getchange.outputs.matrix) }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python }}
     - name: Install Dependencies
