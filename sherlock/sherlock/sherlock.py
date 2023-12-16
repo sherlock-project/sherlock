@@ -15,11 +15,9 @@ import platform
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from time import monotonic
 
 import requests
 
-from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
@@ -27,137 +25,12 @@ from notify import QueryNotifyPrint
 from sites import SitesInformation
 from colorama import init
 
+from sherlock import check_for_parameter, multiple_usernames, get_response, interpolate_string, SherlockFuturesSession, timeout_check, handler
+
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
 
-class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks=None, *args, **kwargs):
-        """Request URL.
-
-        This extends the FuturesSession request method to calculate a response
-        time metric to each request.
-
-        It is taken (almost) directly from the following Stack Overflow answer:
-        https://github.com/ross/requests-futures#working-in-the-background
-
-        Keyword Arguments:
-        self                   -- This object.
-        method                 -- String containing method desired for request.
-        url                    -- String containing URL for request.
-        hooks                  -- Dictionary containing hooks to execute after
-                                  request finishes.
-        args                   -- Arguments.
-        kwargs                 -- Keyword arguments.
-
-        Return Value:
-        Request object.
-        """
-        # Record the start time for the request.
-        if hooks is None:
-            hooks = {}
-        start = monotonic()
-
-        def response_time(resp, *args, **kwargs):
-            """Response Time Hook.
-
-            Keyword Arguments:
-            resp                   -- Response object.
-            args                   -- Arguments.
-            kwargs                 -- Keyword arguments.
-
-            Return Value:
-            Nothing.
-            """
-            resp.elapsed = monotonic() - start
-
-            return
-
-        # Install hook to execute when response completes.
-        # Make sure that the time measurement hook is first, so we will not
-        # track any later hook's execution time.
-        try:
-            if isinstance(hooks["response"], list):
-                hooks["response"].insert(0, response_time)
-            elif isinstance(hooks["response"], tuple):
-                # Convert tuple to list and insert time measurement hook first.
-                hooks["response"] = list(hooks["response"])
-                hooks["response"].insert(0, response_time)
-            else:
-                # Must have previously contained a single hook function,
-                # so convert to list.
-                hooks["response"] = [response_time, hooks["response"]]
-        except KeyError:
-            # No response hook was already defined, so install it ourselves.
-            hooks["response"] = [response_time]
-
-        return super(SherlockFuturesSession, self).request(method,
-                                                           url,
-                                                           hooks=hooks,
-                                                           *args, **kwargs)
-
-
-def get_response(request_future, error_type, social_network):
-    # Default for Response object if some failure occurs.
-    response = None
-
-    error_context = "General Unknown Error"
-    exception_text = None
-    try:
-        response = request_future.result()
-        if response.status_code:
-            # Status code exists in response object
-            error_context = None
-    except requests.exceptions.HTTPError as errh:
-        error_context = "HTTP Error"
-        exception_text = str(errh)
-    except requests.exceptions.ProxyError as errp:
-        error_context = "Proxy Error"
-        exception_text = str(errp)
-    except requests.exceptions.ConnectionError as errc:
-        error_context = "Error Connecting"
-        exception_text = str(errc)
-    except requests.exceptions.Timeout as errt:
-        error_context = "Timeout Error"
-        exception_text = str(errt)
-    except requests.exceptions.RequestException as err:
-        error_context = "Unknown Error"
-        exception_text = str(err)
-
-    return response, error_context, exception_text
-
-
-def interpolate_string(object, username):
-    """Insert a string into the string properties of an object recursively."""
-
-    if isinstance(object, str):
-        return object.replace("{}", username)
-    elif isinstance(object, dict):
-        for key, value in object.items():
-            object[key] = interpolate_string(value, username)
-    elif isinstance(object, list):
-        for i in object:
-            object[i] = interpolate_string(object[i], username)
-
-    return object
-
-
-def CheckForParameter(username):
-    '''checks if {?} exists in the username
-    if exist it means that sherlock is looking for more multiple username'''
-    return ("{?}" in username)
-
-
-checksymbols = []
-checksymbols = ["_", "-", "."]
-
-
-def MultipleUsernames(username):
-    '''replace the parameter with with symbols and return a list of usernames'''
-    allUsernames = []
-    for i in checksymbols:
-        allUsernames.append(username.replace("{?}", i))
-    return allUsernames
 
 
 def sherlock(username, site_data, query_notify,
@@ -449,40 +322,6 @@ def sherlock(username, site_data, query_notify,
     return results_total
 
 
-def timeout_check(value):
-    """Check Timeout Argument.
-
-    Checks timeout for validity.
-
-    Keyword Arguments:
-    value                  -- Time in seconds to wait before timing out request.
-
-    Return Value:
-    Floating point number representing the time (in seconds) that should be
-    used for the timeout.
-
-    NOTE:  Will raise an exception if the timeout in invalid.
-    """
-    from argparse import ArgumentTypeError
-
-    try:
-        timeout = float(value)
-    except:
-        raise ArgumentTypeError(f"Timeout '{value}' must be a number.")
-    if timeout <= 0:
-        raise ArgumentTypeError(
-            f"Timeout '{value}' must be greater than 0.0s.")
-    return timeout
-
-
-def handler(signal_received, frame):
-    """Exit gracefully without throwing errors
-
-    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
-    """
-    sys.exit(0)
-
-
 def main():
     version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
@@ -669,8 +508,8 @@ def main():
     # Run report on all specified users.
     all_usernames = []
     for username in args.username:
-        if (CheckForParameter(username)):
-            for name in MultipleUsernames(username):
+        if (check_for_parameter(username)):
+            for name in multiple_usernames(username):
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
@@ -768,7 +607,3 @@ def main():
 
         print()
     query_notify.finish()
-
-
-if __name__ == "__main__":
-    main()
