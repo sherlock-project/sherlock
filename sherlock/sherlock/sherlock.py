@@ -7,10 +7,6 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
-
-import signal
-import os
-import platform
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
@@ -27,8 +23,6 @@ from sherlock import check_for_parameter, multiple_usernames, get_response, inte
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
-
-
 
 
 def sherlock(username, site_data, query_notify,
@@ -69,7 +63,6 @@ def sherlock(username, site_data, query_notify,
 
         # Normal requests
     underlying_session = requests.session()
-    underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -311,40 +304,14 @@ def sherlock(username, site_data, query_notify,
 
 
 def run():
-    version_string = f"%(prog)s {__version__}\n" + \
-                     f"{requests.__description__}:  {requests.__version__}\n" + \
-                     f"Python:  {platform.python_version()}"
-
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
                             )
-    parser.add_argument("--version",
-                        action="version", version=version_string,
-                        help="Display version information and dependencies."
-                        )
-    parser.add_argument("--verbose", "-v", "-d", "--debug",
-                        action="store_true", dest="verbose", default=False,
-                        help="Display extra debugging information and metrics."
-                        )
     parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
                         help="If using multiple usernames, the output of the results will be saved to this folder."
                         )
     parser.add_argument("--output", "-o", dest="output",
                         help="If using single username, the output of the result will be saved to this file."
-                        )
-    parser.add_argument("--tor", "-t",
-                        action="store_true", dest="tor", default=False,
-                        help="Make requests over Tor; increases runtime; requires Tor to be installed and in system path.")
-    parser.add_argument("--unique-tor", "-u",
-                        action="store_true", dest="unique_tor", default=False,
-                        help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.")
-    parser.add_argument("--csv",
-                        action="store_true", dest="csv", default=False,
-                        help="Create Comma-Separated Values (CSV) File."
-                        )
-    parser.add_argument("--xlsx",
-                        action="store_true", dest="xlsx", default=False,
-                        help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx)."
                         )
     parser.add_argument("--site",
                         action="append", metavar="SITE_NAME",
@@ -363,18 +330,6 @@ def run():
                         dest="timeout", type=timeout_check, default=60,
                         help="Time (in seconds) to wait for response to requests (Default: 60)"
                         )
-    parser.add_argument("--print-all",
-                        action="store_true", dest="print_all", default=False,
-                        help="Output sites where the username was not found."
-                        )
-    parser.add_argument("--print-found",
-                        action="store_true", dest="print_found", default=True,
-                        help="Output sites where the username was found (also if exported as file)."
-                        )
-    parser.add_argument("--no-color",
-                        action="store_true", dest="no_color", default=False,
-                        help="Don't color terminal output"
-                        )
     parser.add_argument("username",
                         nargs="+", metavar="USERNAMES",
                         action="store",
@@ -384,18 +339,9 @@ def run():
                         action="store_true", dest="browse", default=False,
                         help="Browse to all results on default browser.")
 
-    parser.add_argument("--local", "-l",
-                        action="store_true", default=False,
-                        help="Force the use of the local data.json file.")
-
-    parser.add_argument("--nsfw",
-                        action="store_true", default=False,
-                        help="Include checking of NSFW sites from default list.")
-
     args = parser.parse_args()
 
-    # If the user presses CTRL-C, exit gracefully without throwing errors
-    signal.signal(signal.SIGINT, handler)
+
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -413,17 +359,10 @@ def run():
         print(f"A problem occurred while checking for an update: {error}")
 
     try:
-        if args.local:
-            sites = SitesInformation(os.path.join(
-                os.path.dirname(__file__), "resources/data.json"))
-        else:
-            sites = SitesInformation(args.json_file)
+        sites = SitesInformation(args.json_file)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
-
-    if not args.nsfw:
-        sites.remove_nsfw_sites()
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
@@ -456,7 +395,6 @@ def run():
 
     # Create notify object for query results.
     query_notify = QueryNotifyDict(result=None,
-                                    verbose=args.verbose,
                                     print_all=args.print_all,
                                     browse=args.browse)
 

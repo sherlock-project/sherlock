@@ -109,7 +109,7 @@ class QueryNotify:
     
 
 class QueryNotifyDict(QueryNotify):
-    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
+    def __init__(self, result=None, print_all=False, browse=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -119,7 +119,6 @@ class QueryNotifyDict(QueryNotify):
         self                   -- This object.
         result                 -- Object of type QueryResult() containing
                                   results for this query.
-        verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
         browse                 -- Boolean indicating whether to open found sites in a web browser.
 
@@ -128,7 +127,6 @@ class QueryNotifyDict(QueryNotify):
         """
 
         super().__init__(result)
-        self.verbose = verbose
         self.print_all = print_all
         self.browse = browse
         self.data = dict()
