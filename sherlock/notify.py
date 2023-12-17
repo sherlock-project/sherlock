@@ -107,7 +107,7 @@ class QueryNotify:
         """
         return str(self.result)
     
-    
+
 class QueryNotifyDict(QueryNotify):
     def __init__(self, result=None, verbose=False, print_all=False, browse=False):
         """Create Query Notify Print Object.
@@ -158,7 +158,6 @@ class QueryNotifyDict(QueryNotify):
 
         self.result = result
         
-        # Sobrescreva este método para salvar os dados no dicionário
         if result.status == QueryStatus.CLAIMED:
             self.data[self.result.site_name] = self.result.site_url_user
 

@@ -21,4 +21,5 @@ if __name__ == "__main__":
     import sherlock
     response = sherlock.run()
 
-    
+    for key, value in response.items():
+        print(f"Site: {key}, link: {value}")

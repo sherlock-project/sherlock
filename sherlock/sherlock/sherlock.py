@@ -7,9 +7,8 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
-import csv
+
 import signal
-import pandas as pd
 import os
 import platform
 import re
@@ -69,15 +68,10 @@ def sherlock(username, site_data, query_notify,
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-    # Create session based on request methodology
-    if tor or unique_tor:
-        # Requests using Tor obfuscation
-        underlying_request = TorRequest()
-        underlying_session = underlying_request.session
-    else:
-        # Normal requests
-        underlying_session = requests.session()
-        underlying_request = requests.Request()
+
+    underlying_request = TorRequest()
+    underlying_session = underlying_request.session
+
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -424,39 +418,6 @@ def run():
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
 
-    # Argument check
-    # TODO regex check on args.proxy
-    if args.tor and (args.proxy is not None):
-        raise Exception("Tor and Proxy cannot be set at the same time.")
-
-    # Make prompts
-    if args.proxy is not None:
-        print("Using the proxy: " + args.proxy)
-
-    if args.tor or args.unique_tor:
-        print("Using Tor to make requests")
-
-        print(
-            "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors.")
-
-    if args.no_color:
-        # Disable color output.
-        init(strip=True, convert=False)
-    else:
-        # Enable color output.
-        init(autoreset=True)
-
-    # Check if both output methods are entered as input.
-    if args.output is not None and args.folderoutput is not None:
-        print("You can only use one of the output methods.")
-        sys.exit(1)
-
-    # Check validity for single username output.
-    if args.output is not None and len(args.username) != 1:
-        print("You can only use --output with a single username")
-        sys.exit(1)
-
-    # Create object with all information about sites we are aware of.
     try:
         if args.local:
             sites = SitesInformation(os.path.join(
@@ -518,9 +479,6 @@ def run():
         results = sherlock(username,
                            site_data,
                            query_notify,
-                           tor=args.tor,
-                           unique_tor=args.unique_tor,
-                           proxy=args.proxy,
                            timeout=args.timeout)
 
         if args.output:
@@ -543,67 +501,5 @@ def run():
             file.write(
                 f"Total Websites Username Detected On : {exists_counter}\n")
 
-        if args.csv:
-            result_file = f"{username}.csv"
-            if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
 
-            with open(result_file, "w", newline='', encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(["username",
-                                 "name",
-                                 "url_main",
-                                 "url_user",
-                                 "exists",
-                                 "http_status",
-                                 "response_time_s"
-                                 ]
-                                )
-                for site in results:
-                    if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
-                        continue
-
-                    response_time_s = results[site]["status"].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow([username,
-                                     site,
-                                     results[site]["url_main"],
-                                     results[site]["url_user"],
-                                     str(results[site]["status"].status),
-                                     results[site]["http_status"],
-                                     response_time_s
-                                     ]
-                                    )
-        if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
-            exists = []
-            http_status = []
-            response_time_s = []
-
-            for site in results:
-                if args.print_found and not args.print_all and results[site]["status"].status != QueryStatus.CLAIMED:
-                    continue
-
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
-
-            DataFrame = pd.DataFrame({"username": usernames, "name": names, "url_main": url_main, "url_user": url_user, "exists": exists, "http_status": http_status, "response_time_s": response_time_s})
-            DataFrame.to_excel(f'{username}.xlsx', sheet_name='sheet1', index=False)
-
-        print()
-    query_notify.finish()
+    return query_notify.finish()
