@@ -109,7 +109,7 @@ class QueryNotify:
     
 
 class QueryNotifyDict(QueryNotify):
-    def __init__(self, result=None, print_all=False, browse=False):
+    def __init__(self,result=None):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -127,8 +127,6 @@ class QueryNotifyDict(QueryNotify):
         """
 
         super().__init__(result)
-        self.print_all = print_all
-        self.browse = browse
         self.data = dict()
 
         return

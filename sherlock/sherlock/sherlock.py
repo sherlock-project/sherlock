@@ -25,8 +25,7 @@ module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
 
-def sherlock(username, site_data, query_notify,
-             proxy=None, timeout=60):
+def sherlock(username, site_data, query_notify, timeout=60):
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -40,7 +39,6 @@ def sherlock(username, site_data, query_notify,
                               query results.
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
-    proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
 
@@ -165,20 +163,11 @@ def sherlock(username, site_data, query_notify,
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
-            if proxy is not None:
-                proxies = {"http": proxy, "https": proxy}
-                future = request(url=url_probe, headers=headers,
-                                 proxies=proxies,
-                                 allow_redirects=allow_redirects,
-                                 timeout=timeout,
-                                 json=request_payload
-                                 )
-            else:
-                future = request(url=url_probe, headers=headers,
-                                 allow_redirects=allow_redirects,
-                                 timeout=timeout,
-                                 json=request_payload
-                                 )
+            future = request(url=url_probe, headers=headers,
+                                allow_redirects=allow_redirects,
+                                timeout=timeout,
+                                json=request_payload
+                                )
 
             # Store future in data for access later
             net_info["request_future"] = future
@@ -307,41 +296,13 @@ def run():
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             description=f"{module_name} (Version {__version__})"
                             )
-    parser.add_argument("--folderoutput", "-fo", dest="folderoutput",
-                        help="If using multiple usernames, the output of the results will be saved to this folder."
-                        )
-    parser.add_argument("--output", "-o", dest="output",
-                        help="If using single username, the output of the result will be saved to this file."
-                        )
-    parser.add_argument("--site",
-                        action="append", metavar="SITE_NAME",
-                        dest="site_list", default=None,
-                        help="Limit analysis to just the listed sites. Add multiple options to specify more than one site."
-                        )
-    parser.add_argument("--proxy", "-p", metavar="PROXY_URL",
-                        action="store", dest="proxy", default=None,
-                        help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080"
-                        )
-    parser.add_argument("--json", "-j", metavar="JSON_FILE",
-                        dest="json_file", default=None,
-                        help="Load data from a JSON file or an online, valid, JSON file.")
-    parser.add_argument("--timeout",
-                        action="store", metavar="TIMEOUT",
-                        dest="timeout", type=timeout_check, default=60,
-                        help="Time (in seconds) to wait for response to requests (Default: 60)"
-                        )
     parser.add_argument("username",
                         nargs="+", metavar="USERNAMES",
                         action="store",
                         help="One or more usernames to check with social networks. Check similar usernames using {%%} (replace to '_', '-', '.')."
                         )
-    parser.add_argument("--browse", "-b",
-                        action="store_true", dest="browse", default=False,
-                        help="Browse to all results on default browser.")
 
     args = parser.parse_args()
-
-
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -359,7 +320,7 @@ def run():
         print(f"A problem occurred while checking for an update: {error}")
 
     try:
-        sites = SitesInformation(args.json_file)
+        sites = SitesInformation(None)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
@@ -368,35 +329,14 @@ def run():
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
     site_data_all = {site.name: site.information for site in sites}
-    if args.site_list is None:
-        # Not desired to look at a sub-set of sites
-        site_data = site_data_all
-    else:
-        # User desires to selectively run queries on a sub-set of the site list.
-        # Make sure that the sites are supported & build up pruned site database.
-        site_data = {}
-        site_missing = []
-        for site in args.site_list:
-            counter = 0
-            for existing_site in site_data_all:
-                if site.lower() == existing_site.lower():
-                    site_data[existing_site] = site_data_all[existing_site]
-                    counter += 1
-            if counter == 0:
-                # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
+    site_data = site_data_all
 
-        if site_missing:
-            print(
-                f"Error: Desired sites not found: {', '.join(site_missing)}.")
 
-        if not site_data:
-            sys.exit(1)
+    if not site_data:
+        sys.exit(1)
 
     # Create notify object for query results.
-    query_notify = QueryNotifyDict(result=None,
-                                    print_all=args.print_all,
-                                    browse=args.browse)
+    query_notify = QueryNotifyDict()
 
     # Run report on all specified users.
     all_usernames = []
@@ -411,7 +351,6 @@ def run():
         results = sherlock(username,
                            site_data,
                            query_notify,
-                           proxy=args.proxy,
-                           timeout=args.timeout)
+                           timeout=30)
 
     return query_notify.finish()
