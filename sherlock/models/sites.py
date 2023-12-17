@@ -9,7 +9,7 @@ import secrets
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                information, is_nsfw):
         """Create Site Information Object.
 
         Contains information about a specific website.

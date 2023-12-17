@@ -2,8 +2,8 @@ import sys
 import re
 import requests
 
-from notify import QueryNotifyDict
-from sites import SitesInformation
+from models.notify import QueryNotifyDict
+from models.sites import SitesInformation
 
 from controllers import sherlock
 
@@ -12,7 +12,7 @@ module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
 
-def run(username="Paulitos"):
+def run(username="Paulitos",timeout=60):
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -53,6 +53,6 @@ def run(username="Paulitos"):
     results = sherlock(username,
                         site_data,
                         query_notify,
-                        timeout=30)
+                        timeout=timeout)
 
     return query_notify.finish()

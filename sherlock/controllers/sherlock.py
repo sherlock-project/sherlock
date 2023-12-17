@@ -10,8 +10,8 @@ networks.
 import re
 import requests
 
-from result import QueryStatus
-from result import QueryResult
+from models.result import QueryStatus
+from models.result import QueryResult
 
 
 from controllers import  get_response, interpolate_string, SherlockFuturesSession

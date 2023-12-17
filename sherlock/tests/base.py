@@ -6,9 +6,9 @@ import os
 import os.path
 import unittest
 import controllers
-from result import QueryStatus
-from notify import QueryNotify
-from sites import SitesInformation
+from models.result import QueryStatus
+from models.notify import QueryNotify
+from models.sites import SitesInformation
 import warnings
 
 
