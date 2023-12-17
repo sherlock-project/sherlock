@@ -292,17 +292,7 @@ def sherlock(username, site_data, query_notify, timeout=60):
     return results_total
 
 
-def run():
-    parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
-                            description=f"{module_name} (Version {__version__})"
-                            )
-    parser.add_argument("username",
-                        nargs="+", metavar="USERNAMES",
-                        action="store",
-                        help="One or more usernames to check with social networks. Check similar usernames using {%%} (replace to '_', '-', '.')."
-                        )
-
-    args = parser.parse_args()
+def run(username="Paulitos"):
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -338,19 +328,11 @@ def run():
     # Create notify object for query results.
     query_notify = QueryNotifyDict()
 
-    # Run report on all specified users.
-    all_usernames = []
-    for username in args.username:
-        if (check_for_parameter(username)):
-            for name in multiple_usernames(username):
-                all_usernames.append(name)
-        else:
-            all_usernames.append(username)
-    for username in all_usernames:
 
-        results = sherlock(username,
-                           site_data,
-                           query_notify,
-                           timeout=30)
+
+    results = sherlock(username,
+                        site_data,
+                        query_notify,
+                        timeout=30)
 
     return query_notify.finish()
