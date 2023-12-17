@@ -2,7 +2,7 @@ import imp
 import unittest
 import sys
 sys.path.append('../')
-import sherlock as sh
+import controllers as sh
 
 checksymbols = []
 checksymbols = ["_", "-", "."]
