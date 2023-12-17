@@ -21,7 +21,7 @@ import requests
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
-from notify import QueryNotifyPrint
+from notify import QueryNotifyDict
 from sites import SitesInformation
 from colorama import init
 
@@ -322,7 +322,7 @@ def sherlock(username, site_data, query_notify,
     return results_total
 
 
-def main():
+def run():
     version_string = f"%(prog)s {__version__}\n" + \
                      f"{requests.__description__}:  {requests.__version__}\n" + \
                      f"Python:  {platform.python_version()}"
@@ -500,7 +500,7 @@ def main():
             sys.exit(1)
 
     # Create notify object for query results.
-    query_notify = QueryNotifyPrint(result=None,
+    query_notify = QueryNotifyDict(result=None,
                                     verbose=args.verbose,
                                     print_all=args.print_all,
                                     browse=args.browse)

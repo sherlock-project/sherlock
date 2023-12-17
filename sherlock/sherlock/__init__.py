@@ -5,4 +5,5 @@ from .sherlock_interpolate_string import interpolate_string
 from .sherlock_future_session import SherlockFuturesSession
 from .sherlock_timeout_check import timeout_check
 from .sherlock_handler import handler
+from .sherlock import run
 

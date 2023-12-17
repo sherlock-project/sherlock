@@ -106,14 +106,9 @@ class QueryNotify:
         Nicely formatted string to get information about this object.
         """
         return str(self.result)
-
-
-class QueryNotifyPrint(QueryNotify):
-    """Query Notify Print Object.
-
-    Query notify class that prints results.
-    """
-
+    
+    
+class QueryNotifyDict(QueryNotify):
     def __init__(self, result=None, verbose=False, print_all=False, browse=False):
         """Create Query Notify Print Object.
 
@@ -136,34 +131,14 @@ class QueryNotifyPrint(QueryNotify):
         self.verbose = verbose
         self.print_all = print_all
         self.browse = browse
+        self.data = dict()
 
         return
+        
 
-    def start(self, message):
-        """Notify Start.
-
-        Will print the title to the standard output.
-
-        Keyword Arguments:
-        self                   -- This object.
-        message                -- String containing username that the series
-                                  of queries are about.
-
-        Return Value:
-        Nothing.
-        """
-
-        title = "Checking username"
-
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {message}" +
-              Fore.GREEN + " on:")
-        # An empty line between first line and the result(more clear output)
-        print('\r')
-
-        return
+    def start(self, message=None):
+        # Sobrescreva este método conforme necessário
+        pass
 
     def countResults(self):
         """This function counts the number of results. Every time the function is called,
@@ -180,98 +155,13 @@ class QueryNotifyPrint(QueryNotify):
         return globvar
 
     def update(self, result):
-        """Notify Update.
 
-        Will print the query result to the standard output.
-
-        Keyword Arguments:
-        self                   -- This object.
-        result                 -- Object of type QueryResult() containing
-                                  results for this query.
-
-        Return Value:
-        Nothing.
-        """
         self.result = result
-
-        response_time_text = ""
-        if self.result.query_time is not None and self.verbose is True:
-            response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
-
-        # Output to the terminal is desired.
+        
+        # Sobrescreva este método para salvar os dados no dicionário
         if result.status == QueryStatus.CLAIMED:
-            self.countResults()
-            print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
-                  Fore.GREEN +
-                  f" {self.result.site_name}: " +
-                  Style.RESET_ALL +
-                  f"{self.result.site_url_user}")
-            if self.browse:
-                webbrowser.open(self.result.site_url_user, 2)
+            self.data[self.result.site_name] = self.result.site_url_user
 
-        elif result.status == QueryStatus.AVAILABLE:
-            if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      response_time_text +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + " Not Found!")
+    def finish(self):
+        return self.data
 
-        elif result.status == QueryStatus.UNKNOWN:
-            if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + " ")
-
-        elif result.status == QueryStatus.ILLEGAL:
-            if self.print_all:
-                msg = "Illegal Username Format For This Site!"
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + f" {msg}")
-
-        else:
-            # It should be impossible to ever get here...
-            raise ValueError(
-                f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
-            )
-
-        return
-
-    def finish(self, message="The processing has been finished."):
-        """Notify Start.
-        Will print the last line to the standard output.
-        Keyword Arguments:
-        self                   -- This object.
-        message                -- The 2 last phrases.
-        Return Value:
-        Nothing.
-        """
-        NumberOfResults = self.countResults() - 1
-
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + "] Search completed with" +
-              Fore.WHITE + f" {NumberOfResults} " +
-              Fore.GREEN + "results" + Style.RESET_ALL
-              )
-
-    def __str__(self):
-        """Convert Object To String.
-
-        Keyword Arguments:
-        self                   -- This object.
-
-        Return Value:
-        Nicely formatted string to get information about this object.
-        """
-        return str(self.result)
