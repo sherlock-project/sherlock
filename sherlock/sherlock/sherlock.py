@@ -17,7 +17,6 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
 import requests
 
-from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyDict
@@ -33,7 +32,6 @@ __version__ = "0.14.3"
 
 
 def sherlock(username, site_data, query_notify,
-             tor=False, unique_tor=False,
              proxy=None, timeout=60):
     """Run Sherlock Analysis.
 
@@ -69,9 +67,9 @@ def sherlock(username, site_data, query_notify,
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
-    underlying_request = TorRequest()
-    underlying_session = underlying_request.session
-
+        # Normal requests
+    underlying_session = requests.session()
+    underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -191,10 +189,6 @@ def sherlock(username, site_data, query_notify,
 
             # Store future in data for access later
             net_info["request_future"] = future
-
-            # Reset identify for tor (if needed)
-            if unique_tor:
-                underlying_request.reset_identity()
 
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
@@ -479,27 +473,7 @@ def run():
         results = sherlock(username,
                            site_data,
                            query_notify,
+                           proxy=args.proxy,
                            timeout=args.timeout)
-
-        if args.output:
-            result_file = args.output
-        elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
-        else:
-            result_file = f"{username}.txt"
-
-        with open(result_file, "w", encoding="utf-8") as file:
-            exists_counter = 0
-            for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
-                    exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
-            file.write(
-                f"Total Websites Username Detected On : {exists_counter}\n")
-
 
     return query_notify.finish()
