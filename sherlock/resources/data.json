@@ -502,7 +502,7 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "We can't find that page!",
+    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
