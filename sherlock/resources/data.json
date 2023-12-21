@@ -502,7 +502,7 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "We can't find that page!",
+    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
@@ -1237,13 +1237,6 @@
     "urlMain": "https://lobste.rs/",
     "username_claimed": "jcs"
   },
-  "Lolchess": {
-    "errorMsg": "No search results",
-    "errorType": "message",
-    "url": "https://lolchess.gg/profile/na/{}",
-    "urlMain": "https://lolchess.gg/",
-    "username_claimed": "blue"
-  },
   "LottieFiles": {
     "errorType": "status_code",
     "url": "https://lottiefiles.com/{}",
@@ -1945,12 +1938,6 @@
     "urlMain": "https://themeforest.net/",
     "username_claimed": "user"
   },
-  "TikTok": {
-    "errorType": "status_code",
-    "url": "https://tiktok.com/@{}",
-    "urlMain": "https://tiktok.com/",
-    "username_claimed": "red"
-  },
   "TnAFlix": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -2097,13 +2084,6 @@
     "urlMain": "https://vimeo.com/",
     "username_claimed": "blue"
   },
-  "Virgool": {
-    "errorMsg": "\u06f4\u06f0\u06f4",
-    "errorType": "message",
-    "url": "https://virgool.io/@{}",
-    "urlMain": "https://virgool.io/",
-    "username_claimed": "blue"
-  },
   "VirusTotal": {
     "errorType": "status_code",
     "request_method": "GET",
@@ -2151,12 +2131,6 @@
     "url": "https://{}.weebly.com/",
     "urlMain": "https://weebly.com/",
     "username_claimed": "blue"
-  },
-  "Whonix Forum": {
-    "errorType": "status_code",
-    "url": "https://forums.whonix.org/u/{}/summary",
-    "urlMain": "https://forums.whonix.org/",
-    "username_claimed": "red"
   },
   "Wikidot": {
     "errorMsg": "User does not exist.",
@@ -2343,12 +2317,6 @@
     "url": "https://egpu.io/forums/profile/{}/",
     "urlMain": "https://egpu.io/",
     "username_claimed": "blue"
-  },
-  "ebio.gg": {
-    "errorType": "status_code",
-    "url": "https://ebio.gg/{}",
-    "urlMain": "https:/ebio.gg",
-    "username_claimed": "dev"
   },
   "eintracht": {
     "errorType": "status_code",

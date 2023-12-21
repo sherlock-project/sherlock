@@ -837,5 +837,37 @@
     "url": "https://forums.gunsandammo.com/profile/{}",
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam"
+  },
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red"
+  },
+  "Lolchess": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "url": "https://lolchess.gg/profile/na/{}",
+    "urlMain": "https://lolchess.gg/",
+    "username_claimed": "blue"
+  },
+  "Virgool": {
+    "errorMsg": "\u06f4\u06f0\u06f4",
+    "errorType": "message",
+    "url": "https://virgool.io/@{}",
+    "urlMain": "https://virgool.io/",
+    "username_claimed": "blue"
+  },
+  "Whonix Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.whonix.org/u/{}/summary",
+    "urlMain": "https://forums.whonix.org/",
+    "username_claimed": "red"
+  },
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev"
   }
 }

@@ -1825,3 +1825,61 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
     "username_claimed": "adam"
   }
 ```
+
+## TikTok
+As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existance of usernames. Proxitok does not work either.
+
+```json
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red"
+  },
+```
+
+## Lolchess
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Lolchess": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "url": "https://lolchess.gg/profile/na/{}",
+    "urlMain": "https://lolchess.gg/",
+    "username_claimed": "blue"
+  },
+```
+
+## Virgool
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Virgool": {
+    "errorMsg": "\u06f4\u06f0\u06f4",
+    "errorType": "message",
+    "url": "https://virgool.io/@{}",
+    "urlMain": "https://virgool.io/",
+    "username_claimed": "blue"
+  },
+```
+
+## Whonix Forum
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Whonix Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.whonix.org/u/{}/summary",
+    "urlMain": "https://forums.whonix.org/",
+    "username_claimed": "red"
+  },
+```
+
+## Ebio
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev"
+  },
+```
