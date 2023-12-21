@@ -863,5 +863,11 @@
     "url": "https://forums.whonix.org/u/{}/summary",
     "urlMain": "https://forums.whonix.org/",
     "username_claimed": "red"
+  },
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev"
   }
 }

@@ -2318,12 +2318,6 @@
     "urlMain": "https://egpu.io/",
     "username_claimed": "blue"
   },
-  "ebio.gg": {
-    "errorType": "status_code",
-    "url": "https://ebio.gg/{}",
-    "urlMain": "https:/ebio.gg",
-    "username_claimed": "dev"
-  },
   "eintracht": {
     "errorType": "status_code",
     "url": "https://community.eintracht.de/fans/{}",

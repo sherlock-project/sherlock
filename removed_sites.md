@@ -1872,3 +1872,14 @@ As of 2023.12.21, Lolchess returns false positives.
     "username_claimed": "red"
   },
 ```
+
+## Ebio
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "ebio.gg": {
+    "errorType": "status_code",
+    "url": "https://ebio.gg/{}",
+    "urlMain": "https:/ebio.gg",
+    "username_claimed": "dev"
+  },
+```
