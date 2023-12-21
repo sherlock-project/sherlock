@@ -843,5 +843,12 @@
     "url": "https://tiktok.com/@{}",
     "urlMain": "https://tiktok.com/",
     "username_claimed": "red"
+  },
+  "Lolchess": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "url": "https://lolchess.gg/profile/na/{}",
+    "urlMain": "https://lolchess.gg/",
+    "username_claimed": "blue"
   }
 }

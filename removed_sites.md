@@ -1837,3 +1837,15 @@ As of 2023.12.21, TikTok returns false positives. This is because the webpage re
     "username_claimed": "red"
   },
 ```
+
+## Lolchess
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Lolchess": {
+    "errorMsg": "No search results",
+    "errorType": "message",
+    "url": "https://lolchess.gg/profile/na/{}",
+    "urlMain": "https://lolchess.gg/",
+    "username_claimed": "blue"
+  },
+```
