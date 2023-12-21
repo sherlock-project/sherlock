@@ -1849,3 +1849,15 @@ As of 2023.12.21, Lolchess returns false positives.
     "username_claimed": "blue"
   },
 ```
+
+## Virgool
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Virgool": {
+    "errorMsg": "\u06f4\u06f0\u06f4",
+    "errorType": "message",
+    "url": "https://virgool.io/@{}",
+    "urlMain": "https://virgool.io/",
+    "username_claimed": "blue"
+  },
+```

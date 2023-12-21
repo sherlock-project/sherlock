@@ -2084,13 +2084,6 @@
     "urlMain": "https://vimeo.com/",
     "username_claimed": "blue"
   },
-  "Virgool": {
-    "errorMsg": "\u06f4\u06f0\u06f4",
-    "errorType": "message",
-    "url": "https://virgool.io/@{}",
-    "urlMain": "https://virgool.io/",
-    "username_claimed": "blue"
-  },
   "VirusTotal": {
     "errorType": "status_code",
     "request_method": "GET",
