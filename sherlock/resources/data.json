@@ -1945,12 +1945,6 @@
     "urlMain": "https://themeforest.net/",
     "username_claimed": "user"
   },
-  "TikTok": {
-    "errorType": "status_code",
-    "url": "https://tiktok.com/@{}",
-    "urlMain": "https://tiktok.com/",
-    "username_claimed": "red"
-  },
   "TnAFlix": {
     "errorType": "status_code",
     "isNSFW": true,

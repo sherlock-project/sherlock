@@ -1825,3 +1825,15 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
     "username_claimed": "adam"
   }
 ```
+
+## TikTok
+As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existance of usernames. Proxitok does not work either.
+
+```json
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red"
+  },
+```

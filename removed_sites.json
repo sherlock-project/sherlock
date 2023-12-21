@@ -837,5 +837,11 @@
     "url": "https://forums.gunsandammo.com/profile/{}",
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam"
+  },
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red"
   }
 }
