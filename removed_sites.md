@@ -1861,3 +1861,14 @@ As of 2023.12.21, Lolchess returns false positives.
     "username_claimed": "blue"
   },
 ```
+
+## Whonix Forum
+As of 2023.12.21, Lolchess returns false positives.
+```json
+  "Whonix Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.whonix.org/u/{}/summary",
+    "urlMain": "https://forums.whonix.org/",
+    "username_claimed": "red"
+  },
+```

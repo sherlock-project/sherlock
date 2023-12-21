@@ -2132,12 +2132,6 @@
     "urlMain": "https://weebly.com/",
     "username_claimed": "blue"
   },
-  "Whonix Forum": {
-    "errorType": "status_code",
-    "url": "https://forums.whonix.org/u/{}/summary",
-    "urlMain": "https://forums.whonix.org/",
-    "username_claimed": "red"
-  },
   "Wikidot": {
     "errorMsg": "User does not exist.",
     "errorType": "message",

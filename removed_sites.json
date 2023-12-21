@@ -857,5 +857,11 @@
     "url": "https://virgool.io/@{}",
     "urlMain": "https://virgool.io/",
     "username_claimed": "blue"
+  },
+  "Whonix Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.whonix.org/u/{}/summary",
+    "urlMain": "https://forums.whonix.org/",
+    "username_claimed": "red"
   }
 }
