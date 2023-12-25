@@ -470,12 +470,14 @@ def timeout_check(value):
     NOTE:  Will raise an exception if the timeout in invalid.
     """
 
-    if value <= 0:
+    float_value = float(value)
+
+    if float_value <= 0:
         raise ArgumentTypeError(
             f"Invalid timeout value: {value}. Timeout must be a positive number."
         )
 
-    return float(value)
+    return float_value
 
 
 def handler(signal_received, frame):
