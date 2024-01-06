@@ -95,7 +95,10 @@ To search for more than one user:
 ```
 python3 sherlock user1 user2 user3
 ```
-
+Or if usename contains spaces:
+```
+python3 sherlock "user with spaces"
+```
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ## Anaconda (Windows) Notes
