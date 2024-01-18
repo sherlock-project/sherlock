@@ -5,3 +5,4 @@ services:
     build: .
     volumes:
       - "./results:/opt/sherlock/results"
+python3 user wherelovedies
