@@ -489,6 +489,12 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
+  "Coding Ninjas": {
+    "errorType": "status_code",
+    "url": "https://www.codingninjas.com/studio/profile/{}",
+    "urlMain": "https://www.codingninjas.com/",
+    "username_claimed": "example"
+  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
