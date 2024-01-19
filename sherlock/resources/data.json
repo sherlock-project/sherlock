@@ -1945,6 +1945,12 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
   },
+  "Tome": {
+    "errorType": "status_code",
+    "url": "https://tome.app/{}",
+    "urlMain": "https://tome.app/",
+    "username_claimed": "samyakworkspace-374"
+  },
   "TradingView": {
     "errorType": "status_code",
     "request_method": "GET",
