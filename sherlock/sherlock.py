@@ -617,7 +617,7 @@ def main():
         nargs="+",
         metavar="USERNAMES",
         action="store",
-        help="One or more usernames to check with social networks. Check similar usernames using {%%} (replace to '_', '-', '.').",
+        help="One or more usernames to check with social networks. Check similar usernames using {?} (replace to '_', '-', '.').",
     )
     parser.add_argument(
         "--browse",
