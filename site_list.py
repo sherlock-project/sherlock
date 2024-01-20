@@ -11,13 +11,30 @@ def load_data(file_path):
         return None
 
 def write_markdown_file(social_networks, file_path):
+    """
+Write a markdown file with a list of supported social network sites.
+
+Parameters:
+- social_networks (list): A list of tuples containing the social network name and information.
+- file_path (str): The path to the markdown file to be created.
+
+Returns:
+None
+
+Example:
+write_markdown_file([('Facebook', {'urlMain': 'https://www.facebook.com', 'isNSFW': False}), ('Twitter', {'urlMain': 'https://www.twitter.com', 'isNSFW': True})], 'sites.md')
+"""
+    if not social_networks:
+        return
+
     lines = [
-        f"1. ![](https://www.google.com/s2/favicons?domain={info['urlMain']}) [{network}]({info['urlMain']}) {'**(NSFW)**' if info.get('isNSFW') else ''}\n"
+        "1. ![](https://www.google.com/s2/favicons?domain={}) [{}]({}) {}\n".format(info['urlMain'], network, info['urlMain'], '**(NSFW)**' if info.get('isNSFW') else '')
         for network, info in social_networks
     ]
+    content = "## List Of Supported Sites ({} Sites In Total!)\n".format(len(social_networks)) + ''.join(lines)
     with open(file_path, "w") as file:
-        file.write(f"## List Of Supported Sites ({len(social_networks)} Sites In Total!)\n")
-        file.writelines(lines)
+        file.write(content)
+
 
 def save_sorted_data(data, file_path):
     with open(file_path, "w") as file:
