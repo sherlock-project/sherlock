@@ -1,27 +1,71 @@
 #!/usr/bin/env python
-# This module generates the listing of supported sites which can be found in
-# sites.md. It also organizes all the sites in alphanumeric order
 import json
+import os
 
-# Read the data.json file
-with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
-    data = json.load(data_file)
+def load_data(file_path):
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            return json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading data: {e}")
+        return None
 
-# Sort the social networks in alphanumeric order
-social_networks = sorted(data.items())
+def write_markdown_file(social_networks, file_path):
+    """
+Writes a markdown file with a list of supported sites.
 
-# Write the list of supported sites to sites.md
-with open("sites.md", "w") as site_file:
-    site_file.write(f"## List Of Supported Sites ({len(social_networks)} Sites In Total!)\n")
-    for social_network, info in social_networks:
-        url_main = info["urlMain"]
-        is_nsfw = "**(NSFW)**" if info.get("isNSFW") else ""
-        site_file.write(f"1. ![](https://www.google.com/s2/favicons?domain={url_main}) [{social_network}]({url_main}) {is_nsfw}\n")
+Parameters:
+- social_networks (list): A list of tuples containing the social network name and its information.
+- file_path (str): The path to the file where the markdown will be written.
 
-# Overwrite the data.json file with sorted data
-with open("sherlock/resources/data.json", "w") as data_file:
+Returns:
+None
+
+Raises:
+IOError: If there is an error writing to the file.
+
+Example Usage:
+write_markdown_file(sorted_social_networks, md_file_path)
+"""
+    lines = [
+        f"1. ![](https://www.google.com/s2/favicons?domain={info['urlMain']}) [{network}]({info['urlMain']}) {'**(NSFW)**' if info.get('isNSFW') else ''}\n"
+        for network, info in social_networks
+    ]
+    try:
+        with open(file_path, "w") as file:
+            file.write(f"## List Of Supported Sites ({len(social_networks)} Sites In Total!)\n")
+            file.writelines(lines)
+    except IOError as e:
+        print(f"Error writing to file: {e}")
+
+def save_sorted_data(data, file_path):
     sorted_data = json.dumps(data, indent=2, sort_keys=True)
-    data_file.write(sorted_data)
-    data_file.write("\n")
+    try:
+        with open(file_path, "w") as file:
+            file.write(sorted_data)
+            file.write("\n")
+    except IOError as e:
+        print(f"Error writing to file: {e}")
 
-print("Finished updating supported site listing!")
+def save_sorted_data(data, file_path):
+    with open(file_path, "w") as file:
+        sorted_data = json.dumps(data, indent=2, sort_keys=True)
+        file.write(sorted_data)
+        file.write("\n")
+
+def main():
+    data_file_path = "sherlock/resources/data.json"
+    md_file_path = "sites.md"
+
+    data = load_data(data_file_path)
+    if data is None:
+        return
+
+    sorted_social_networks = sorted(data.items())
+    write_markdown_file(sorted_social_networks, md_file_path)
+    save_sorted_data(data, data_file_path)
+
+    print("Finished updating supported site listing!")
+
+if __name__ == "__main__":
+    main()
