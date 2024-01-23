@@ -48,6 +48,9 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
 
+[Link to sherlock-rest Repository](https://github.com/turian/sherlock-rest)
+
+
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
                         Check similar usernames using {?} (replace to '_', '-', '.').
