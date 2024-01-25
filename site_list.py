@@ -3,11 +3,11 @@
 # sites.md. It also organizes all the sites in alphanumeric order
 import json
 
+from data import data
+
 # Read the data.json file
 with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
-    data = json.load(data_file)
 
-# Sort the social networks in alphanumeric order
 social_networks = sorted(data.items())
 
 # Write the list of supported sites to sites.md
@@ -25,3 +25,4 @@ with open("sherlock/resources/data.json", "w") as data_file:
     data_file.write("\n")
 
 print("Finished updating supported site listing!")
+wd

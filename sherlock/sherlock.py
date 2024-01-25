@@ -20,6 +20,7 @@ from time import monotonic
 import requests
 
 from requests_futures.sessions import FuturesSession
+from sherlock.module_name import module_name
 from torrequest import TorRequest
 from result import QueryStatus
 from result import QueryResult
@@ -28,7 +29,6 @@ from sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
 
