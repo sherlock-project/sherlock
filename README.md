@@ -21,8 +21,7 @@
 </a>
 </p>
 
-
-## Installation
+https://github.com/sherlock-project/sherlock.git## Installation
 
 ```console
 # clone the repo
@@ -44,7 +43,8 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
-                USERNAMES [USERNAMES ...]
+                USERNAMES [USERNAMES ...Wds_skat6374 
+              
 
 Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
 
@@ -87,11 +87,13 @@ optional arguments:
 ```
 
 To search for only one user:
+
 ```
 python3 sherlock user123
 ```
 
 To search for more than one user:
+
 ```
 python3 sherlock user1 user2 user3
 ```
@@ -124,7 +126,6 @@ docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /
 
 Docker is instructed to create (or use) the folder `results` in the current working directory and to mount it at `/opt/sherlock/results` on the docker container by using the ```-v "$PWD/results:/opt/sherlock/results"``` options. `Sherlock` is instructed to export the result using the `-o /opt/sherlock/results/text.txt` option.
 
-
 ### Using `docker-compose`
 
 You can use the `docker-compose.yml` file from the repository and use this command:
@@ -134,9 +135,11 @@ docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
 ## Contributing
+
 We would love to have you help us with the development of Sherlock. Each and every contribution is greatly valued!
 
 Here are some things we would appreciate your help on:
+
 - Addition of new site support ¹
 - Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
 
@@ -157,8 +160,8 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```console
-$ cd sherlock/sherlock
-$ python3 -m unittest tests.all --verbose
+cd sherlock/sherlock
+python3 -m unittest tests.all --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
@@ -177,4 +180,16 @@ list of sites to ignore (one site name per line).
 ## License
 
 MIT © Sherlock Project<br/>
-Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
+Original Creator - [Siddharth Dushantha][def]# clone the repo
+$ git clone <https://github.com/sherlock-project/sherlock.git>
+
+# change the working directory to sherlock
+
+$ cd sherlock
+
+# install the requirements
+
+$ python3 -m pip install -r requirements.txt
+
+
+[def]: https://github.com/sdushantha
