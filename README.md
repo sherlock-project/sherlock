@@ -132,16 +132,6 @@ You can use the `docker-compose.yml` file from the repository and use this comma
 docker-compose run spectre -o /opt/spectre/results/text.txt user123
 ```
 
-## Contributing
-We would love to have you help us with the development of spectre. Each and every contribution is greatly valued!
-
-Here are some things we would appreciate your help on:
-- Addition of new site support ¹
-- Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
-
-[1] Please look at the Wiki entry on [adding new sites](https://github.com/spectre-project/spectre/wiki/Adding-Sites-To-spectre)
-to understand the issues.
-
 ## Tests
 
 The following is an example of the command line to run all the tests for
