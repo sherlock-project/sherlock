@@ -1,22 +1,22 @@
-"""Sherlock Base Tests
+"""spectre Base Tests
 
 This module contains various utilities for running tests.
 """
 import os
 import os.path
 import unittest
-import sherlock
+import spectre
 from result import QueryStatus
 from notify import QueryNotify
 from sites import SitesInformation
 import warnings
 
 
-class SherlockBaseTest(unittest.TestCase):
+class spectreBaseTest(unittest.TestCase):
     def setUp(self):
-        """Sherlock Base Test Setup.
+        """spectre Base Test Setup.
 
-        Does common setup tasks for base Sherlock tests.
+        Does common setup tasks for base spectre tests.
 
         Keyword Arguments:
         self                   -- This object.
@@ -41,7 +41,7 @@ class SherlockBaseTest(unittest.TestCase):
         self.site_data_all = site_data_all
 
         # Load excluded sites list, if any
-        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(sherlock.__file__)), "tests/.excluded_sites")
+        excluded_sites_path = os.path.join(os.path.dirname(os.path.realpath(spectre.__file__)), "tests/.excluded_sites")
         try:
             with open(excluded_sites_path, "r", encoding="utf-8") as excluded_sites_file:
                 self.excluded_sites = excluded_sites_file.read().splitlines()
@@ -112,7 +112,7 @@ class SherlockBaseTest(unittest.TestCase):
             exist_result_desired = QueryStatus.AVAILABLE
 
         for username in username_list:
-            results = sherlock.sherlock(username,
+            results = spectre.spectre(username,
                                         site_data,
                                         self.query_notify,
                                         tor=self.tor,

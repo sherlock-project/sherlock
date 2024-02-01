@@ -1,12 +1,12 @@
-"""Sherlock Tests
+"""spectre Tests
 
 This module contains various tests.
 """
-from tests.base import SherlockBaseTest
+from tests.base import spectreBaseTest
 import exrex
 
 
-class SherlockDetectTests(SherlockBaseTest):
+class spectreDetectTests(spectreBaseTest):
     def test_detect_true_via_message(self):
         """Test Username Does Exist (Via Message).
 
@@ -122,7 +122,7 @@ class SherlockDetectTests(SherlockBaseTest):
         return
 
 
-class SherlockSiteCoverageTests(SherlockBaseTest):
+class spectreSiteCoverageTests(spectreBaseTest):
     def test_coverage_false_via_status(self):
         """Test Username Does Not Exist Site Coverage (Via HTTP Status).
 

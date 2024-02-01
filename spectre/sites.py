@@ -1,4 +1,4 @@
-"""Sherlock Sites Information Module
+"""spectre Sites Information Module
 
 This module supports storing information about websites.
 This is the raw data that will be used to search for usernames.
@@ -110,7 +110,7 @@ class SitesInformation:
             # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
             # this instead of the local one is so that the user has the most up-to-date data. This prevents
             # users from creating issue about false positives which has already been fixed or having outdated data
-            data_file_path = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
+            data_file_path = "https://raw.githubusercontent.com/spectre-project/spectre/master/spectre/resources/data.json"
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):

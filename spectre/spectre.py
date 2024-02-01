@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-Sherlock: Find Usernames Across Social Networks Module
+spectre: Find Usernames Across Social Networks Module
 
 This module contains the main logic to search for usernames at social
 networks.
@@ -28,11 +28,11 @@ from sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
 
-module_name = "Sherlock: Find Usernames Across Social Networks"
+module_name = "spectre: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
 
-class SherlockFuturesSession(FuturesSession):
+class spectreFuturesSession(FuturesSession):
     def request(self, method, url, hooks=None, *args, **kwargs):
         """Request URL.
 
@@ -92,7 +92,7 @@ class SherlockFuturesSession(FuturesSession):
             # No response hook was already defined, so install it ourselves.
             hooks["response"] = [response_time]
 
-        return super(SherlockFuturesSession, self).request(
+        return super(spectreFuturesSession, self).request(
             method, url, hooks=hooks, *args, **kwargs
         )
 
@@ -139,7 +139,7 @@ def interpolate_string(input_object, username):
 
 def check_for_parameter(username):
     """checks if {?} exists in the username
-    if exist it means that sherlock is looking for more multiple username"""
+    if exist it means that spectre is looking for more multiple username"""
     return "{?}" in username
 
 
@@ -155,7 +155,7 @@ def multiple_usernames(username):
     return allUsernames
 
 
-def sherlock(
+def spectre(
     username,
     site_data,
     query_notify,
@@ -164,7 +164,7 @@ def sherlock(
     proxy=None,
     timeout=60,
 ):
-    """Run Sherlock Analysis.
+    """Run spectre Analysis.
 
     Checks for existence of username on various social media sites.
 
@@ -215,7 +215,7 @@ def sherlock(
         max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
-    session = SherlockFuturesSession(
+    session = spectreFuturesSession(
         max_workers=max_workers, session=underlying_session
     )
 
@@ -648,10 +648,10 @@ def main():
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
 
-    # Check for newer version of Sherlock. If it exists, let the user know about it
+    # Check for newer version of spectre. If it exists, let the user know about it
     try:
         r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py"
+            "https://raw.githubusercontent.com/spectre-project/spectre/master/spectre/spectre.py"
         )
 
         remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
@@ -660,7 +660,7 @@ def main():
         if remote_version != local_version:
             print(
                 "Update Available!\n"
-                + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock"
+                + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/spectre-project/spectre"
             )
 
     except Exception as error:
@@ -756,7 +756,7 @@ def main():
         else:
             all_usernames.append(username)
     for username in all_usernames:
-        results = sherlock(
+        results = spectre(
             username,
             site_data,
             query_notify,

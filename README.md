@@ -1,8 +1,8 @@
 <p align=center>
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
+  <a href="https://spectre-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">social networks</a></span>
+  <span>Hunt down social media accounts by username across <a href="https://github.com/spectre-project/spectre/blob/master/sites.md">social networks</a></span>
   <br>
 </p>
 
@@ -26,10 +26,9 @@
 
 ```console
 # clone the repo
-$ git clone https://github.com/sherlock-project/sherlock.git
-
-# change the working directory to sherlock
-$ cd sherlock
+$ git clone https://github.com/Chris-Ross/spectre.git
+# change the working directory to spectre
+$ cd spectre
 
 # install the requirements
 $ python3 -m pip install -r requirements.txt
@@ -38,15 +37,15 @@ $ python3 -m pip install -r requirements.txt
 ## Usage
 
 ```console
-$ python3 sherlock --help
-usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
+$ python3 spectre --help
+usage: spectre [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
+spectre: Find Usernames Across Social Networks (Version 0.14.3)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -88,12 +87,12 @@ optional arguments:
 
 To search for only one user:
 ```
-python3 sherlock user123
+python3 spectre user123
 ```
 
 To search for more than one user:
 ```
-python3 sherlock user1 user2 user3
+python3 spectre user1 user2 user3
 ```
 
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
@@ -107,22 +106,22 @@ If you are using Anaconda in Windows, using `python3` might not work. Use `pytho
 If docker is installed you can build an image and run this as a container.
 
 ```
-docker build -t mysherlock-image .
+docker build -t myspectre-image .
 ```
 
-Once the image is built, sherlock can be invoked by running the following:
+Once the image is built, spectre can be invoked by running the following:
 
 ```
-docker run --rm -t mysherlock-image user123
+docker run --rm -t myspectre-image user123
 ```
 
 Use the following command to access the saved results:
 
 ```
-docker run --rm -t -v "$PWD/results:/opt/sherlock/results" mysherlock-image -o /opt/sherlock/results/text.txt user123
+docker run --rm -t -v "$PWD/results:/opt/spectre/results" myspectre-image -o /opt/spectre/results/text.txt user123
 ```
 
-Docker is instructed to create (or use) the folder `results` in the current working directory and to mount it at `/opt/sherlock/results` on the docker container by using the ```-v "$PWD/results:/opt/sherlock/results"``` options. `Sherlock` is instructed to export the result using the `-o /opt/sherlock/results/text.txt` option.
+Docker is instructed to create (or use) the folder `results` in the current working directory and to mount it at `/opt/spectre/results` on the docker container by using the ```-v "$PWD/results:/opt/spectre/results"``` options. `spectre` is instructed to export the result using the `-o /opt/spectre/results/text.txt` option.
 
 
 ### Using `docker-compose`
@@ -130,39 +129,32 @@ Docker is instructed to create (or use) the folder `results` in the current work
 You can use the `docker-compose.yml` file from the repository and use this command:
 
 ```
-docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
+docker-compose run spectre -o /opt/spectre/results/text.txt user123
 ```
 
 ## Contributing
-We would love to have you help us with the development of Sherlock. Each and every contribution is greatly valued!
+We would love to have you help us with the development of spectre. Each and every contribution is greatly valued!
 
 Here are some things we would appreciate your help on:
 - Addition of new site support ¹
 - Bringing back site support of [sites that have been removed](removed_sites.md) in the past due to false positives
 
-[1] Please look at the Wiki entry on [adding new sites](https://github.com/sherlock-project/sherlock/wiki/Adding-Sites-To-Sherlock)
+[1] Please look at the Wiki entry on [adding new sites](https://github.com/spectre-project/spectre/wiki/Adding-Sites-To-spectre)
 to understand the issues.
 
 ## Tests
 
-Thank you for contributing to Sherlock!
-
-Before creating a pull request with new development, please run the tests
-to ensure that everything is working great.  It would also be a good idea to run the tests
-before starting development to distinguish problems between your
-environment and the Sherlock software.
-
 The following is an example of the command line to run all the tests for
-Sherlock.  This invocation hides the progress text that Sherlock normally
+spectre.  This invocation hides the progress text that spectre normally
 outputs, and instead shows the verbose output of the tests.
 
 ```console
-$ cd sherlock/sherlock
+$ cd spectre/spectre
 $ python3 -m unittest tests.all --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
-the sites that Sherlock checks are not always reliable, so it is common
+the sites that spectre checks are not always reliable, so it is common
 to get response problems.  Any problems in connection will show up as
 warnings in the tests instead of true errors.
 
@@ -170,11 +162,3 @@ If some sites are failing due to connection problems (site is down, in maintenan
 you can exclude them from tests by creating a `tests/.excluded_sites` file with a
 list of sites to ignore (one site name per line).
 
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/sherlock-project/sherlock.svg)](https://starchart.cc/sherlock-project/sherlock)
-
-## License
-
-MIT © Sherlock Project<br/>
-Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)

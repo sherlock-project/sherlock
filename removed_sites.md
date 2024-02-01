@@ -1,7 +1,7 @@
-# List Of Sites Removed From Sherlock
+# List Of Sites Removed From spectre
 
 This is a list of sites implemented in such a way that the current design of
-Sherlock is not capable of determining if a given username exists or not.
+spectre is not capable of determining if a given username exists or not.
 They are listed here in the hope that things may change in the future
 so they may be re-included.
 
@@ -226,7 +226,7 @@ be logged into see a profile.
 
 ## Teknik
 
-As of 2019-11-30, the site causes Sherlock to just hang.
+As of 2019-11-30, the site causes spectre to just hang.
 
 ```json
   "Teknik": {
@@ -344,14 +344,14 @@ user names were available.
 This was attempted to be added around 2019-08-26, but the pull request was never merged.
 It turns out that LinkedIn requires that you have an account before they will let you
 check for other account.  So, this site will not work with the current design of
-Sherlock.
+spectre.
 
 ## StreamMe
 
 On 2019-04-07, I get a Timed Out message from the website.  It has not
 been working earlier either (for some weeks).  It takes about 21s before
 the site finally times out, so it really makes getting the results from
-Sherlock a pain.
+spectre a pain.
 
 If the site becomes available in the future, we can put it back in.
 
@@ -371,7 +371,7 @@ If the site becomes available in the future, we can put it back in.
 This site has always returned a false positive.  The site returns the exact
 same text for a claimed or an unclaimed username.  The site must be rendering
 all of the different content using Javascript in the browser.  So, there is
-no way distinguish between the results with the current design of Sherlock.
+no way distinguish between the results with the current design of spectre.
 
 ```json
   "BlackPlanet": {
@@ -389,7 +389,7 @@ Around 2019-02-09, I get a 502 HTTP error (bad gateway) for any access.  On
 2019-03-10, the site is up, but it is in maintenance mode.
 
 It does not seem to be working, so there is no sense in including it in
-Sherlock.
+spectre.
 
 ```json
   "Fotolog": {
@@ -405,7 +405,7 @@ Sherlock.
 On 2019-04-02, Google shutdown Google Plus.  While the content for some
 users is available after that point, it is going away.  And, no one will
 be able to create a new account.  So, there is no value is keeping it in
-Sherlock.
+spectre.
 
 Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 
@@ -523,7 +523,7 @@ downforeveryoneorjustme.com that the website is down.
 ## Redsun.tf
 
 As of 2020-06-20, Redsun.tf seems to be adding random digits to the end of the usernames which makes it pretty much impossible
-for Sherlock to check for usernames on this particular website.
+for spectre to check for usernames on this particular website.
 
 ```json
   "Redsun.tf": {
@@ -540,7 +540,7 @@ for Sherlock to check for usernames on this particular website.
 ## Creative Market
 
 As of 2020-06-20, Creative Market has a captcha to prove that you are a human, and because of this
-Sherlock is unable to check for username on this site because we will always get  a page which asks
+spectre is unable to check for username on this site because we will always get  a page which asks
 us to prove that we are not a robot.
 
 ```json
@@ -1127,7 +1127,7 @@ As of 2021-06-27, Trip takes too long to return a response. As of now, the reaso
 
 ### House Mixes
 
-As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
+As of 2021-09-04, House Mixes has issues connecting causing spectre to freeze.
 ```json
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
@@ -1250,7 +1250,7 @@ As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we'
 ## CapFriendly
 
 As of 2022-05-01, CapFriendly always shows that a username exists even though it doesn't. This
-then of course causes false positives in Sherlock's results.
+then of course causes false positives in spectre's results.
 
 ```json
   "CapFriendly": {
@@ -1280,7 +1280,7 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
 
 ## FanCentro
 
-As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
+As of 2022-05-1, FanCentro returns false positives. Will later in new version of spectre.
 
 ```json
   "FanCentro": {
@@ -1788,7 +1788,7 @@ As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exs
 
 
 ## YouTube
-As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how Sherlock currently works
+As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how spectre currently works
 
 
 ```json

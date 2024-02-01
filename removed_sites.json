@@ -11,14 +11,7 @@
     "urlMain": "https://angel.co/",
     "username_claimed": "blue"
   },
-  "Basecamp": {
-    "errorMsg": "The account you were looking for doesn't exist",
-    "errorType": "message",
-    "url": "https://{}.basecamphq.com",
-    "urlMain": "https://basecamp.com/",
-    "username_claimed": "blue"
-  },
-  "BlackPlanet": {
+    "BlackPlanet": {
     "errorMsg": "My Hits",
     "errorType": "message",
     "url": "http://blackplanet.com/{}",
@@ -37,14 +30,7 @@
     "urlMain": "https://www.codementor.io/",
     "username_claimed": "blue"
   },
-  "EVE Online": {
-    "errorType": "response_url",
-    "errorUrl": "https://eveonline.com",
-    "url": "https://evewho.com/pilot/{}/",
-    "urlMain": "https://eveonline.com",
-    "username_claimed": "blue"
-  },
-  "fanpop": {
+    "fanpop": {
     "errorType": "response_url",
     "errorUrl": "http://www.fanpop.com/",
     "url": "http://www.fanpop.com/fans/{}",
@@ -79,20 +65,6 @@
     "url": "https://www.khanacademy.org/profile/{}",
     "urlMain": "https://www.khanacademy.org/",
     "username_claimed": "blue"
-  },
-  "KiwiFarms": {
-    "errorMsg": "The specified member cannot be found",
-    "errorType": "message",
-    "url": "https://kiwifarms.net/members/?username={}",
-    "urlMain": "https://kiwifarms.net/",
-    "username_claimed": "blue"
-  },
-  "Linkedin": {
-    "errorMsg": "could not be found",
-    "errorType": "message",
-    "url": "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex"
   },
   "NPM-Package": {
     "errorType": "status_code",
@@ -150,13 +122,6 @@
     "errorType": "message",
     "url": "https://market.yandex.ru/user/{}/achievements",
     "urlMain": "https://market.yandex.ru/",
-    "username_claimed": "blue"
-  },
-  "Insanejournal": {
-    "errorMsg": "Unknown user",
-    "errorType": "message",
-    "url": "http://{}.insanejournal.com/profile",
-    "urlMain": "insanejournal.com",
     "username_claimed": "blue"
   },
   "Trip": {
@@ -274,23 +239,6 @@
     "urlMain": "https://yandex.ru/collections/",
     "username_claimed": "blue"
   },
-  "PayPal": {
-    "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
-    "errorType": "message",
-    "url": "https://www.paypal.com/paypalme/{}",
-    "headers": {
-      "User-Agent": ""
-    },
-    "urlMain": "https://www.paypal.me/",
-    "username_claimed": "blue"
-  },
-  "ImageShack": {
-    "errorType": "response_url",
-    "errorUrl": "https://imageshack.us/",
-    "url": "https://imageshack.us/user/{}",
-    "urlMain": "https://imageshack.us/",
-    "username_claimed": "blue"
-  },
   "Aptoide": {
     "errorType": "status_code",
     "url": "https://{}.en.aptoide.com/",
@@ -327,13 +275,6 @@
     "urlMain": "http://fr.viadeo.com/en/",
     "username_claimed": "franck.patissier"
   },
-  "MeetMe": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.meetme.com/",
-    "url": "https://www.meetme.com/{}",
-    "urlMain": "https://www.meetme.com/",
-    "username_claimed": "blue"
-  },
   "tracr.co": {
     "errorMsg": "No search results",
     "errorType": "message",
@@ -347,12 +288,6 @@
     "regexCheck": "^[^.]*$",
     "url": "https://www.taringa.net/{}",
     "urlMain": "https://taringa.net/",
-    "username_claimed": "blue"
-  },
-  "Photobucket": {
-    "errorType": "status_code",
-    "url": "https://photobucket.com/user/{}/library",
-    "urlMain": "https://photobucket.com/",
     "username_claimed": "blue"
   },
   "4pda": {
@@ -443,20 +378,6 @@
     "urlMain": "https://forums.kali.org/",
     "username_claimed": "blue"
   },
-  "NameMC (Minecraft.net skins)": {
-    "errorMsg": "Profiles: 0 results",
-    "errorType": "message",
-    "url": "https://namemc.com/profile/{}",
-    "urlMain": "https://namemc.com/",
-    "username_claimed": "blue"
-  },
-  "Steamid": {
-    "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
-    "errorType": "message",
-    "url": "https://steamid.uk/profile/{}",
-    "urlMain": "https://steamid.uk/",
-    "username_claimed": "blue"
-  },
   "TripAdvisor": {
     "errorMsg": "This page is on vacation\u2026",
     "errorType": "message",
@@ -471,13 +392,6 @@
     "url": "https://www.house-mixes.com/profile/{}",
     "urlMain": "https://www.house-mixes.com/",
     "username_claimed": "blue"
-  },
-  "Quora": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
-    "url": "https://www.quora.com/profile/{}",
-    "urlMain": "https://www.quora.com/",
-    "username_claimed": "Matt-Riggsby"
   },
   "SparkPeople": {
     "errorMsg": "We couldn't find that user",
@@ -534,13 +448,6 @@
     "urlMain": "https://www.capfriendly.com/",
     "username_claimed": "thisactuallyexists"
   },
-  "Gab": {
-    "errorMsg": "The page you are looking for isn't here.",
-    "errorType": "message",
-    "url": "https://gab.com/{}",
-    "urlMain": "https://gab.com",
-    "username_claimed": "a"
-  },
   "FanCentro": {
     "errorMsg": "var environment",
     "errorType": "message",
@@ -571,13 +478,6 @@
     "errorType": "status_code",
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
-    "username_claimed": "blue"
-  },
-  "Steam": {
-    "errorMsg": "The specified profile could not be found",
-    "errorType": "message",
-    "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
   "Raidforums": {
@@ -677,26 +577,12 @@
     "urlMain": "https://g.dev/",
     "username_claimed": "blue"
   },
-  "mastodon.technology": {
-    "errorType": "status_code",
-    "url": "https://mastodon.technology/@{}",
-    "urlMain": "https://mastodon.xyz/",
-    "username_claimed": "ashfurrow"
-  },
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
     "errorType": "message",
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher"
-  },
-  "Facebook": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
-    "url": "https://www.facebook.com/{}",
-    "urlMain": "https://www.facebook.com/",
-    "urlProbe": "https://www.facebook.com/{}/videos/",
-    "username_claimed": "hackerman"
   },
   "BinarySearch": {
     "errorMsg": "{}",
@@ -729,16 +615,6 @@
     "urlMain": "https://weheartit.com/",
     "username_claimed": "ventivogue"
   },
-  "Tinder": {
-    "errorMsg": [
-      "<title data-react-helmet=\"true\">Tinder | Dating, Make Friends &amp; Meet New People</title>",
-      "<title data-react-helmet=\"true\">Tinder | Match. Chat. Date.</title>"
-    ],
-    "errorType": "message",
-    "url": "https://www.tinder.com/@{}",
-    "urlMain": "https://tinder.com/",
-    "username_claimed": "blue"
-  },
   "Coil": {
     "errorMsg": "User not found",
     "errorType": "message",
@@ -754,22 +630,6 @@
     "urlMain": "https://coil.com/",
     "urlProbe": "https://coil.com/gateway",
     "username_claimed": "adam"
-  },
-  "OnlyFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com/",
-    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
-    "username_claimed": "theemilylynne"
-  },
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
   },
   "OK": {
     "errorType": "status_code",
@@ -811,38 +671,11 @@
     "urlMain": "https://quizlet.com",
     "username_claimed": "blue"
   },
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "GunsAndAmmo": {
     "errorType": "status_code",
     "url": "https://forums.gunsandammo.com/profile/{}",
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam"
-  },
-  "TikTok": {
-    "errorType": "status_code",
-    "url": "https://tiktok.com/@{}",
-    "urlMain": "https://tiktok.com/",
-    "username_claimed": "red"
   },
   "Lolchess": {
     "errorMsg": "No search results",
@@ -867,7 +700,59 @@
   "ebio.gg": {
     "errorType": "status_code",
     "url": "https://ebio.gg/{}",
-    "urlMain": "https:/ebio.gg",
+    "urlMain": "https://ebio.gg",
     "username_claimed": "dev"
+  },
+  "xHamster": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://xhamster.com/users/{}",
+    "urlMain": "https://xhamster.com",
+    "username_claimed": "blue"
+  },
+  "AskFM": {
+    "errorMsg": "Well, apparently not anymore.",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{3,40}$",
+    "url": "https://ask.fm/{}",
+    "urlMain": "https://ask.fm/",
+    "username_claimed": "blue"
+  },
+  "8tracks": {
+    "errorMsg": "This page has vanished",
+    "errorType": "message",
+    "url": "https://8tracks.com/{}",
+    "urlMain": "https://8tracks.com/",
+    "username_claimed": "blue"
+  },
+  "CGTrader": {
+    "errorMsg": "3D models for CG digital design and artwork",
+    "errorType": "message",
+    "url": "https://www.cgtrader.com/{}",
+    "urlMain": "https://www.cgtrader.com",
+    "username_claimed": "blue"
+  },
+  "AllMyLinks": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue"
+  },
+  "Contently": {
+    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+    "url": "https://{}.contently.com/",
+    "urlMain": "https://contently.com/",
+    "username_claimed": "jordanteicher"
+  },
+  "Modelhub": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://www.modelhub.com/{}/videos",
+    "urlMain": "https://www.modelhub.com/",
+    "username_claimed": "secretcrush"
   }
 }
