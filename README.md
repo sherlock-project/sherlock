@@ -8,7 +8,7 @@
 
 <p align=center>
   <br>
-  <a href="https://github.com/sherlock-project/sherlock">This is a fork of Sherlock</a>
+  <a href="https://github.com/sherlock-project/sherlock">This is a fork of the Sherlock Project</a>
 </p>
 
 <p align="center">
