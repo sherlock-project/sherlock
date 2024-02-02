@@ -1184,7 +1184,7 @@
     "username_claimed": "blue"
   },
   "KiwiFarms": {
-    "errorMsg": "The specified member cannot be found",
+    "errorMsg": "Oops! We ran into some problems.",
     "errorType": "message",
     "url": "https://kiwifarms.st/members/{}",
     "urlMain": "https://kiwifarms.st/",
@@ -2146,7 +2146,7 @@
     "username_claimed": "blue"
   },
   "Velomania": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d \u0438 \u043d\u0435 \u0438\u043c\u0435\u0435\u0442 \u043f\u0440\u043e\u0444\u0438\u043b\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.",
+    "errorMsg": "500 Internal Server Error",
     "errorType": "message",
     "url": "https://forum.velomania.ru/member.php?username={}",
     "urlMain": "https://forum.velomania.ru/",
