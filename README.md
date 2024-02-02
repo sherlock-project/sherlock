@@ -2,7 +2,7 @@
   <br>
   <a href="https://github.com/Chris-Ross/spectre" target="_blank"><img src="https://i.imgur.com/gJzXIuX.png"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/chris-ross/spectre/blob/master/sites.md">social networks</a></span>
+  <span> Detect username accounts across a plethora of <a href="https://github.com/chris-ross/spectre/blob/master/sites.md">social networks</a></span>
   <br>
 </p>
 
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-<img width="70%" height="70%" src="https://user-images.githubusercontent.com/27065646/219638267-a5e11090-aa6e-4e77-87f7-0e95f6ad5978.png"/>
+<img width="70%" height="70%" src="https://i.imgur.com/21TYWm4.png"/>
 </a>
 </p>
 
