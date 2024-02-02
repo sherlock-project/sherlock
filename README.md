@@ -1,8 +1,8 @@
 <p align=center>
   <br>
-  <a href="https://spectre-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
+  <a href="https://github.com/Chris-Ross/spectre" target="_blank"><img src="https://imgur.com/a/PO8eKu8"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/spectre-project/spectre/blob/master/sites.md">social networks</a></span>
+  <span>Hunt down social media accounts by username across <a href="https://github.com/chris-ross/spectre/blob/master/sites.md">social networks</a></span>
   <br>
 </p>
 
