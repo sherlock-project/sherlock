@@ -1,6 +1,6 @@
 <p align=center>
   <br>
-  <a href="https://github.com/Chris-Ross/spectre" target="_blank"><img src="https://imgur.com/gallery/5osoJU3"/></a>
+  <a href="https://github.com/Chris-Ross/spectre" target="_blank"><img src="https://i.imgur.com/gJzXIuX.png"/></a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://github.com/chris-ross/spectre/blob/master/sites.md">social networks</a></span>
   <br>
