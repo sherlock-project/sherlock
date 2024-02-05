@@ -4,8 +4,13 @@ This module supports storing information about websites.
 This is the raw data that will be used to search for usernames.
 """
 import json
-import requests
 import secrets
+import sys
+
+import requests
+from requests.exceptions import Timeout
+from tqdm import tqdm
+
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
@@ -105,56 +110,48 @@ class SitesInformation:
         Return Value:
         Nothing.
         """
+        # sys.stdout.write("Loading...")
+        # sys.stdout.flush() 
+        data_file_url = data_file_path if data_file_path else "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
 
-        if not data_file_path:
-            # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
-            # this instead of the local one is so that the user has the most up-to-date data. This prevents
-            # users from creating issue about false positives which has already been fixed or having outdated data
-            data_file_path = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json"
+        try:
+            response = None
 
-        # Ensure that specified data file has correct extension.
-        if not data_file_path.lower().endswith(".json"):
-            raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
+            # Attempt to fetch data from the specified URL
+            if data_file_url.lower().startswith("http"):
+                sys.stdout.write("Establishing connection to data file URL...")
+                sys.stdout.flush()
+                try:
+                    response = requests.get(url=data_file_url, timeout=10)
+                    response.raise_for_status()  # Raise an exception for non-200 responses
+                except Timeout:
+                    sys.stdout.write("\rConnection timed out. Please check your internet connection.")
+                    sys.stdout.flush()
+                except requests.exceptions.RequestException as error:
+                    sys.stdout.write(f"\rAn error occurred while fetching data from URL: {error}")
+                    sys.stdout.flush()
 
-        # if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
-        if data_file_path.lower().startswith("http"):
-            # Reference is to a URL.
-            try:
-                response = requests.get(url=data_file_path)
-            except Exception as error:
-                raise FileNotFoundError(
-                    f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
-                )
-
-            if response.status_code != 200:
-                raise FileNotFoundError(f"Bad response while accessing "
-                                        f"data file URL '{data_file_path}'."
-                                        )
-            try:
+            if response and response.status_code == 200:
                 site_data = response.json()
-            except Exception as error:
-                raise ValueError(
-                    f"Problem parsing json contents at '{data_file_path}':  {error}."
-                )
-
-        else:
-            # Reference is to a file.
-            try:
+            else:
+                sys.stdout.write("\rFalling back to the local data file...")
+                sys.stdout.flush()
+                data_file_path = "sherlock/resources/data.json"
                 with open(data_file_path, "r", encoding="utf-8") as file:
-                    try:
-                        site_data = json.load(file)
-                    except Exception as error:
-                        raise ValueError(
-                            f"Problem parsing json contents at '{data_file_path}':  {error}."
-                        )
+                    site_data = json.load(file)
+        except Exception as error:
+            sys.stdout.write(f"\rAn error occurred while loading data: {error}")
+            sys.stdout.flush()
+            site_data = None
 
-            except FileNotFoundError:
-                raise FileNotFoundError(f"Problem while attempting to access "
-                                        f"data file '{data_file_path}'."
-                                        )
+        if not site_data:
+            raise ValueError("Failed to load site data.")
+
+        # Clear the previous message by overwriting it with spaces
+        sys.stdout.write('\r' + ' ' * 100 + '\r')
+        sys.stdout.flush()
 
         self.sites = {}
-
         # Add all site information from the json file to internal site list.
         for site_name in site_data:
             try:
