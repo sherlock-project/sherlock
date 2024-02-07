@@ -1,5 +1,12 @@
 #! /usr/bin/env python3
 
+''' 
+                              **Installation of pandas Module**
+Run the following command in the terminal
+Here is your command: 
+                     C:\Users\Home\AppData\Local\Programs\Python\Python310\Scripts\pip3 install pandas
+'''
+
 """
 Sherlock: Find Usernames Across Social Networks Module
 
