@@ -1,8 +1,10 @@
 {
-  "2Dimensions": {
-    "errorType": "status_code",
-    "url": "https://2Dimensions.com/a/{}",
-    "urlMain": "https://2Dimensions.com/",
+
+    "Threads": {
+    "errorMsg": "status_code",
+    "errorType": "message",
+    "url": "https://www.threads.net/@{}",
+    "urlMain": "https://www.threads.net/",
     "username_claimed": "blue"
   },
   "3dnews": {
