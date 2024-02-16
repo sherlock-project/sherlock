@@ -1,3 +1,4 @@
+rickyniepoetter
 #! /usr/bin/env python3
 
 """
@@ -10,7 +11,7 @@ networks.
 import csv
 import signal
 import pandas as pd
-import os
+import 
 import platform
 import re
 import sys
@@ -25,7 +26,8 @@ from result import QueryStatus
 from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
-from colorama import init
+from colorama import initrickyniepoetter
+
 from argparse import ArgumentTypeError
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
