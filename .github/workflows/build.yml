@@ -20,6 +20,8 @@ jobs:
           python-version: 3.12
       - name: Install dependencies
         run: pip install -r requirements.txt pyinstaller
+      - name: Remove __init__.py # It doesn't work with PyInstaller
+        run: rm sherlock/__init__.py
       - name: Build with pyinstaller
         run: pyinstaller sherlock/__init__.py
       - name: Upload build
