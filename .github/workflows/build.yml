@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install dependencies
+        run: pip install -r requirements.txt pyinstaller
+      - name: Build with pyinstaller
+        run: pyinstaller sherlock/__init__.py
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist/*
