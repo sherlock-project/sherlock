@@ -22,9 +22,8 @@ jobs:
         run: pip install -r requirements.txt pyinstaller
       - name: Build with pyinstaller
         run: pyinstaller sherlock/__init__.py
-      - name: Rename dist folder for artifact
-        run: mv dist ${{ matrix.os }}
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
-          path: ${{ matrix.os }}
+          path: dist
+          name: ${{ matrix.os }}
