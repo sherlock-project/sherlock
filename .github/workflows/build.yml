@@ -23,7 +23,7 @@ jobs:
       - name: Remove __init__.py # It doesn't work with PyInstaller
         run: rm sherlock/__init__.py
       - name: Build with pyinstaller
-        run: pyinstaller sherlock/__init__.py
+        run: pyinstaller sherlock/sherlock.py --onefile
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
