@@ -1851,7 +1851,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Virgool
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Virgool returns false positives.
 ```json
   "Virgool": {
     "errorMsg": "\u06f4\u06f0\u06f4",
@@ -1863,7 +1863,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Whonix Forum
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Whonix Forum returns false positives.
 ```json
   "Whonix Forum": {
     "errorType": "status_code",
@@ -1874,7 +1874,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Ebio
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Ebio returns false positives.
 ```json
   "ebio.gg": {
     "errorType": "status_code",
