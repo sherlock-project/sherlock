@@ -457,13 +457,6 @@
     "urlMain": "https://steamid.uk/",
     "username_claimed": "blue"
   },
-  "TripAdvisor": {
-    "errorMsg": "This page is on vacation\u2026",
-    "errorType": "message",
-    "url": "https://tripadvisor.com/members/{}",
-    "urlMain": "https://tripadvisor.com/",
-    "username_claimed": "blue"
-  },
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
