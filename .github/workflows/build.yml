@@ -24,5 +24,6 @@ jobs:
         run: pyinstaller sherlock/__init__.py
       - name: Upload build
         uses: actions/upload-artifact@v4
+        run: mv dist ${{ matrix.os }}
         with:
-          path: dist/*
+          path: ${{ matrix.os }}
