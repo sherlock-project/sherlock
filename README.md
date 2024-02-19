@@ -158,7 +158,7 @@ outputs, and instead shows the verbose output of the tests.
 
 ```console
 $ cd sherlock/sherlock
-$ python3 -m unittest tests.all --verbose
+$ python3 -m unittest tests/all.py --verbose
 ```
 
 Note that we do currently have 100% test coverage.  Unfortunately, some of
