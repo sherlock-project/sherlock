@@ -1827,7 +1827,7 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
 ```
 
 ## TikTok
-As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existance of usernames. Proxitok does not work either.
+As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existence of usernames. Proxitok does not work either.
 
 ```json
   "TikTok": {
