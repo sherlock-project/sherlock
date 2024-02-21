@@ -2671,5 +2671,30 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "forexfactory": {
+    "errorType": "status_code",
+    "url": "https://www.forexfactory.com/{}",
+    "urlMain": "https://www.forexfactory.com/"
+  },
+  "metalsmine": {
+    "errorType": "status_code",
+    "url": "https://www.metalsmine.com/{}",
+    "urlMain": "https://www.metalsmine.com/"
+  },
+  "energyexch": {
+    "errorType": "status_code",
+    "url": "https://www.energyexch.com/{}",
+    "urlMain": "https://www.energyexch.com/"
+  },
+  "cryptocraft": {
+    "errorType": "status_code",
+    "url": "https://www.cryptocraft.com/{}",
+    "urlMain": "https://www.cryptocraft.com/"
+  },
+  "myfxbook": {
+    "errorType": "status_code",
+    "url": "https://www.myfxbook.com/members/{}",
+    "urlMain": "https://www.myfxbook.com/"
   }
 }
