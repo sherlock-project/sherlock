@@ -1685,6 +1685,15 @@
     "urlMain": "https://rumble.com/",
     "username_claimed": "John"
   },
+  "Rule34Paheal": {
+    "errorMsg": "If you typed the ID by hand, try again; if you came from a link on this site, it might be bug report time...",
+    "errorType": "message",
+    "isNSFW": true,
+    "url": "https://rule34.paheal.net/user/{}",
+    "urlMain": "https://rule34.paheal.net/",
+    "username_claimed": "John",
+    "username_unclaimed": "noonewouldeverusethis778"
+  },
   "RuneScape": {
     "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
     "errorType": "message",
