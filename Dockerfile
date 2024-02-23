@@ -1,4 +1,4 @@
-FROM python:3.13.0a2-slim as build
+FROM python:3.13.0a3-slim as build
 WORKDIR /wheels
 
 COPY requirements.txt /opt/sherlock/
@@ -6,7 +6,7 @@ RUN apt-get update \
   && apt-get install -y build-essential \
   && pip3 wheel -r /opt/sherlock/requirements.txt
 
-FROM python:3.13.0a2-slim
+FROM python:3.13.0a3-slim
 WORKDIR /opt/sherlock
 
 ARG VCS_REF
