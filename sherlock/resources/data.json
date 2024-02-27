@@ -321,8 +321,7 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
-    "errorMsg": "3D models for CG digital design and artwork",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
     "username_claimed": "blue"
