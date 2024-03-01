@@ -1,0 +1,7 @@
+services:
+  api:
+    build: ./api
+    volumes:
+      - ./api/main.py:/app/main.py
+    ports:
+      - 8000:8000

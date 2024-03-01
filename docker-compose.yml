@@ -3,5 +3,6 @@ version: '2'
 services:
   sherlock:
     build: .
+    image: sherlock
     volumes:
       - "./results:/opt/sherlock/results"
