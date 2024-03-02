@@ -25,20 +25,13 @@
 ## Installation
 
 ```console
-# clone the repo
-$ git clone https://github.com/sherlock-project/sherlock.git
-
-# change the working directory to sherlock
-$ cd sherlock
-
-# install the requirements
-$ python3 -m pip install -r requirements.txt
+pip install git+https://github.com/sherlock-project/sherlock.git
 ```
 
 ## Usage
 
 ```console
-$ python3 sherlock --help
+$ sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
