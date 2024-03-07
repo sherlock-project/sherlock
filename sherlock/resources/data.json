@@ -2683,5 +2683,12 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "rpgmaker.net": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "url": "https://rpgmaker.net/users/{}",
+    "urlMain": "https://rpgmaker.net/",
+    "username_claimed": "ryuxyro"
   }
 }
