@@ -1863,7 +1863,7 @@ As of 2023.12.21, Virgool returns false positives.
 ```
 
 ## Whonix Forum
-As of 2023.12.21, Whonix returns false positives.
+As of 2023.12.21, Whonix Forum returns false positives.
 ```json
   "Whonix Forum": {
     "errorType": "status_code",
