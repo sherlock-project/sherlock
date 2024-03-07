@@ -201,6 +201,12 @@
     "urlMain": "https://blip.fm/",
     "username_claimed": "blue"
   },
+  "Blipfoto": {
+    "errorType": "status_code",
+    "url": "https://www.blipfoto.com/{}",
+    "urlMain": "https://www.blipfoto.com/",
+    "username_claimed": "blue"
+  },
   "BOOTH": {
     "errorType": "response_url",
     "errorUrl": "https://booth.pm/",
@@ -1201,6 +1207,12 @@
     "errorType": "message",
     "url": "https://letterboxd.com/{}",
     "urlMain": "https://letterboxd.com/",
+    "username_claimed": "blue"
+  },
+  "LibraryThing": {
+    "errorType": "status_code",
+    "url": "https://www.librarything.com/profile/{}",
+    "urlMain": "https://www.librarything.com/",
     "username_claimed": "blue"
   },
   "Lichess": {
