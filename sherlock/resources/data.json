@@ -596,6 +596,13 @@
     "urlMain": "https://www.discogs.com/",
     "username_claimed": "blue"
   },
+  "Discord": {
+    "errorMsg": "\"status\":2",
+    "errorType": "message",
+    "url": "https://api.lixqa.de/v3/discord/pomelo/{}",
+    "urlMain": "https://www.discord.com/",
+    "username_claimed": "thewever"
+  },
   "Discuss.Elastic.co": {
     "errorType": "status_code",
     "url": "https://discuss.elastic.co/u/{}",
