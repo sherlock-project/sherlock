@@ -2687,6 +2687,36 @@
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
   },
+  "forexfactory": {
+    "errorType": "status_code",
+    "url": "https://www.forexfactory.com/{}",
+    "urlMain": "https://www.forexfactory.com/",
+    "username_claimed": "blue"
+  },
+  "metalsmine": {
+    "errorType": "status_code",
+    "url": "https://www.metalsmine.com/{}",
+    "urlMain": "https://www.metalsmine.com/",
+    "username_claimed": "blue"
+  },
+  "energyexch": {
+    "errorType": "status_code",
+    "url": "https://www.energyexch.com/{}",
+    "urlMain": "https://www.energyexch.com/",
+    "username_claimed": "blue"
+  },
+  "cryptocraft": {
+    "errorType": "status_code",
+    "url": "https://www.cryptocraft.com/{}",
+    "urlMain": "https://www.cryptocraft.com/",
+    "username_claimed": "blue"
+  },
+  "myfxbook": {
+    "errorType": "status_code",
+    "url": "https://www.myfxbook.com/members/{}",
+    "urlMain": "https://www.myfxbook.com/",
+    "username_claimed": "blue"
+  },
   "rpgmaker.net": {
     "errorMsg": "Page Not Found",
     "errorType": "message",
