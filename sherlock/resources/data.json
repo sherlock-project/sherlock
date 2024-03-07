@@ -1304,13 +1304,6 @@
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny"
   },
-  "Modelhub": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.modelhub.com/{}/videos",
-    "urlMain": "https://www.modelhub.com/",
-    "username_claimed": "secretcrush"
-  },
   "Monkeytype": {
     "errorType": "status_code",
     "url": "https://monkeytype.com/profile/{}",
