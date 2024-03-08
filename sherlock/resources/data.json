@@ -2646,6 +2646,12 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue"
   },
+  "warframemarket": {
+    "errorType": "status_code",
+    "url": "https://warframe.market/profile/{}",
+    "urlMain": "https://warframe.market/",
+    "username_claimed": "AlexJuli"
+  },
   "wiki.vg": {
     "errorType": "status_code",
     "url": "https://wiki.vg/User:{}",
