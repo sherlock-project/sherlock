@@ -88,7 +88,7 @@ optional arguments:
 
 To search for only one user:
 ```
-python3 sherlock user123
+python3 sherlock Muneir Ali
 ```
 
 To search for more than one user:
@@ -96,7 +96,7 @@ To search for more than one user:
 python3 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in an individual text file with the corresponding username (e.g ```Muneir Ali.txt```).
 
 ## Anaconda (Windows) Notes
 
