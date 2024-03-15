@@ -40,7 +40,7 @@ $ python3 -m pip install -r requirements.txt
 ```console
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
-                [--output OUTPUT] [--tor] [--unique-tor] [--csv]
+                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
