@@ -1,0 +1,49 @@
+name: Update Site List 
+
+# Trigger the workflow when changes are pushed to the main branch
+# and the changes include the sherlock/resources/data.json file
+on:
+  push:
+    branches:
+      - master 
+    paths:
+      - sherlock/resources/data.json
+
+jobs:
+  sync-json-data:
+    # Use the latest version of Ubuntu as the runner environment
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the code at the specified pull request head commit
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      # Install Python 3
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' 
+
+      # Execute the site_list.py Python script
+      - name: Execute site_list.py
+        run: python site_list.py
+
+       # Commit any changes made by the script
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          if ! git diff --exit-code; then
+            git commit -a -m "Updated Site List"
+          fi
+
+      # Push the changes to the remote repository
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
