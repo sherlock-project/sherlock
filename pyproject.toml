@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+sherlock = "sherlock:main"
+
+[project.urls]
+Homepage = "http://sherlock-project.github.io/"
+Repository = "https://github.com/sherlock-project/sherlock.git"
+Issues = "https://github.com/sherlock-project/sherlock/issues"
+
+[project]
+name = "sherlock"
+readme = "README.md"
+license = {file = "LICENSE"}
+dynamic = ["dependencies", "version"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools]
+package-dir = {"" = "sherlock"}
