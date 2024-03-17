@@ -1156,6 +1156,14 @@
     "urlMain": "https://keybase.io/",
     "username_claimed": "blue"
   },
+  "Kick": {
+    "errorType": "status_code",
+    "url": "https://kick.com/{}",
+    "urlMain": "https://kick.com/",
+    "urlProbe": "https://kick.com/api/v2/channels/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Kik": {
     "errorMsg": "The page you requested was not found",
     "errorType": "message",
