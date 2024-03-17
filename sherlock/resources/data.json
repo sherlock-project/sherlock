@@ -2652,13 +2652,6 @@
     "urlMain": "https://wiki.vg/",
     "username_claimed": "Auri"
   },
-  "wykop.pl": {
-    "errorType": "status_code",
-    "regexCheck": "[a-z0-9-_]{4,35}",
-    "url": "https://www.wykop.pl/ludzie/{}",
-    "urlMain": "https://wykop.pl",
-    "username_claimed": "janusz-nowak"
-  },
   "xHamster": {
     "errorType": "status_code",
     "isNSFW": true,
