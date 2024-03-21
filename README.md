@@ -1,3 +1,4 @@
+python3 -m pip install -r requirements.txt
 <p align=center>
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
