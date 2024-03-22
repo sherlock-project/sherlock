@@ -1,0 +1,16 @@
+html,
+body,
+#__next {
+    background: #000000;
+}
+
+#__next {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: calc(100vw - 5vh);
+    height: 95vh;
+    margin: 2.5vh;
+}

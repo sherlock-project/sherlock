@@ -5,3 +5,16 @@ services:
       - ./api/main.py:/app/main.py
     ports:
       - 8000:8000
+
+  frontend:
+    build:
+      context: ../
+      dockerfile: ./sherlock-web/frontend/Dockerfile
+    command: npm run dev
+    volumes:
+      - ./frontend/app:/app/app/
+      - ./frontend/public:/app/public
+    ports:
+      - 8180:3000
+    depends_on:
+      - api
