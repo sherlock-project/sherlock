@@ -1,22 +1,35 @@
 import subprocess
 import sys
 from typing import Annotated
+from pydantic import BaseModel
 
 from fastapi import FastAPI, Query
 from fastapi.responses import StreamingResponse
 
 app = FastAPI()
 
-@app.get("/")
-async def root(
-    usernames: Annotated[list[str] | None, Query()] = None,
-    f: Annotated[list[str] | None, Query()] = None,
-):
+class Body(BaseModel):
+    usernames: list[str]
+    sites: list[str]
+    f: list[str]
+
+
+@app.post("/")
+async def root(body: Body):
     command = ["python3", "/opt/sherlock/sherlock/sherlock.py"]
+
+    usernames = body.usernames
+    sites = body.sites
+    f = body.f
 
     if usernames:
         for name in usernames:
             command.append(name)
+
+    if sites:
+        for site in sites:
+            command.append("--site")
+            command.append(site)
 
     if f:
         for flag in f:
