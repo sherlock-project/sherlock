@@ -15,6 +15,6 @@ services:
       - ./frontend/app:/app/app/
       - ./frontend/public:/app/public
     ports:
-      - 8180:3000
+      - 3000:3000
     depends_on:
       - api
