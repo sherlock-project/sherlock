@@ -53,6 +53,6 @@ async def root(body: Body):
 
         data = line.split(": ")
 
-        response.append(dict(name= data[0], link= data[1]))
+        response.append(dict(name= data[0], url= data[1]))
 
     return response
