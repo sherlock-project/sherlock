@@ -3,6 +3,11 @@ export async function POST(req: Request) {
 
     const { username, sites, withNSFW } = data;
 
+    const f = [];
+
+    if (withNSFW)
+        f.push("nsfw");
+
     return await fetch("http://api:8000", {
         method: "POST",
         headers: {
@@ -11,7 +16,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
             usernames: [username],
             sites,
-            f: ["nsfw"]
+            f
         })
     });
 }

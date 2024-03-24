@@ -1,38 +1,43 @@
 "use client"
-import { Grid, Input, Divider, Stack, Checkbox, Button } from "@mui/joy";
+import { Grid, Input, Divider, Stack, Checkbox, Button, Link, Typography } from "@mui/joy";
 
 import SiteCheckbox from "./siteCheckbox";
 
 import * as data from "../../data.json";
 import { ChangeEvent, FormEvent, useState } from "react";
-
-type pageList = {
-    name: string,
-    url: string
-}[];
+import { pageList } from "../page";
 
 let sites: pageList = [];
 let sitesWithNSFW: pageList = [];
 
 const checkedSitesDefault: Record<string, boolean> = {};
 
-for (const [name, values] of Object.entries(data)) {
+const dataEntries = Object.entries(data).sort(([a], [b]) => a.toUpperCase() > b.toUpperCase() ? 1 : -1);
+
+for (const [name, values] of dataEntries) {
+    if (name === "default") 
+        continue;
+
     const {url, isNSFW} = values as any;
 
     const parsedData = {name, url};
 
     sitesWithNSFW.push(parsedData);
 
-    checkedSitesDefault[name] = true;
+    checkedSitesDefault[name] = false;
     
     if (!isNSFW) 
         sites.push(parsedData)    
 }
 
-export default function Form() {
+type FormProps = {
+    setFoundData: (data: pageList) => void
+};
+
+export default function Form({setFoundData}: FormProps) {
     const [withNSFW, setWithNSFW] = useState(false);
     const [loading, setLoading] = useState(false);
-
+    
     const [checkedSites, setCheckedSites] = useState(checkedSitesDefault);
 
     const clickNSFW = (e: ChangeEvent<HTMLInputElement>) => setWithNSFW(e.target.checked);
@@ -59,9 +64,20 @@ export default function Form() {
             },
             body: JSON.stringify({
                 username: e.currentTarget.username.value,
-                sites: Object.entries(checkedSites).filter(([_, value]) => value).map(([key, _]) => key)
+                sites: Object.entries(checkedSites).filter(([_, value]) => value).map(([key, _]) => key),
+                withNSFW
             })
         });
+
+        let parsedData = await response.json();
+
+        parsedData = parsedData.sort((a: any, b: any) => a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1);
+
+        parsedData = parsedData.filter((item : any) => (item.url !== "Desired sites not found"));
+
+        setFoundData(parsedData);
+
+        setLoading(false);
     };
 
     const currentSite = withNSFW ? sitesWithNSFW : sites;
