@@ -1378,6 +1378,14 @@
     "urlMain": "https://www.needrom.com/",
     "username_claimed": "needrom"
   },
+  "Neocities": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://{}.neocities.org",
+    "urlMain": "https://neocities.org/",
+    "username_claimed": "that1archive",
+    "username_unclaimed": "propropropropropro"
+  },
   "Newgrounds": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
