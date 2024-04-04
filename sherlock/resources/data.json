@@ -1915,8 +1915,7 @@
     "username_claimed": "osk"
   },
   "Tilde.club": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://tilde.club/~{}",
     "urlMain": "https://tilde.club/",
     "username_claimed": "ape",
@@ -2211,6 +2210,14 @@
     "url": "https://www.wordnik.com/users/{}",
     "urlMain": "https://www.wordnik.com/",
     "username_claimed": "blue"
+  },
+  "WoW Forums": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url": "https://us.forums.blizzard.com/en/wow/u/{}/summary",
+    "urlMain": "https://us.forums.blizzard.com/en/wow/",
+    "username_claimed": "rive-turalyon",
+    "username_unclaimed": "fpwiefugij"
   },
   "Wykop": {
     "errorType": "status_code",
