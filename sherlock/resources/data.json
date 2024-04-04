@@ -940,6 +940,14 @@
     "urlMain": "https://forum.hackthebox.eu/",
     "username_claimed": "angar"
   },
+  "HackThisSite": {
+    "errorMsg": "Error!",
+    "errorType": "message",
+    "url": "https://hackthissite.org/user/view/{}",
+    "urlMain": "https://hackthissite.org/",
+    "username_claimed": "ace",
+    "username_unclaimed": "vkjwlekf"
+  },
   "Hackaday": {
     "errorType": "status_code",
     "url": "https://hackaday.io/{}",
