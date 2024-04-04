@@ -1898,6 +1898,14 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "Tilde.club": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://tilde.club/~{}",
+    "urlMain": "https://tilde.club/",
+    "username_claimed": "ape",
+    "username_unclaimed": "barkbark"
+  },
   "TLDR Legal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9]{3,20}$",
