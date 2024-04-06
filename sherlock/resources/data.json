@@ -259,13 +259,6 @@
     "urlMain": "https://bitbucket.org/",
     "username_claimed": "white"
   },
-  "BitCoinForum": {
-    "errorMsg": "The user whose profile you are trying to view does not exist.",
-    "errorType": "message",
-    "url": "https://bitcoinforum.com/profile/{}",
-    "urlMain": "https://bitcoinforum.com",
-    "username_claimed": "bitcoinforum.com"
-  },
   "Bitwarden Forum": {
     "errorType": "status_code",
     "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
