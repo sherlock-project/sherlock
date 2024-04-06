@@ -94,7 +94,7 @@
     "username_claimed": "pink"
   },
   "AllMyLinks": {
-    "errorMsg": "Not Found",
+    "errorMsg": "The link you followed may be broken, or the page may have been removed.",
     "errorType": "message",
     "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "url": "https://allmylinks.com/{}",
@@ -142,7 +142,7 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "cannot find account",
+    "errorMsg": "The search engine encountered an error, which might be related to your search query.",
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
@@ -260,7 +260,7 @@
     "username_claimed": "white"
   },
   "BitCoinForum": {
-    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorMsg": "The requested URL was not found on this server.",
     "errorType": "message",
     "url": "https://bitcoinforum.com/profile/{}",
     "urlMain": "https://bitcoinforum.com",
@@ -321,7 +321,7 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
-    "errorMsg": "3D models for CG digital design and artwork",
+    "errorMsg": "The page you requested could not be found.",
     "errorType": "message",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
@@ -502,7 +502,7 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
+    "errorMsg": "Contently’s powerful content marketing platform and award-winning content creation services empower you to align, scale, and optimize for content marketing success.",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
@@ -654,10 +654,10 @@
     "username_claimed": "JennyKrafts"
   },
   "Euw": {
-    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
+    "errorMsg": "Please double-check the game name and tag, and try again.",
     "errorType": "message",
-    "url": "https://euw.op.gg/summoner/userName={}",
-    "urlMain": "https://euw.op.gg/",
+    "url": "https://www.op.gg/summoners/search?q={}",
+    "urlMain": "https://op.gg/",
     "username_claimed": "blue"
   },
   "Exposure": {
@@ -947,7 +947,7 @@
     "username_claimed": "adam"
   },
   "HackerEarth": {
-    "errorMsg": "404. URL not found.",
+    "errorMsg": "The page you requested could not be found.",
     "errorType": "message",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
@@ -1033,7 +1033,7 @@
     "username_claimed": "Micheal"
   },
   "IFTTT": {
-    "errorMsg": "The requested page or file does not exist",
+    "errorMsg": "The requested page or file does not exist.",
     "errorType": "message",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "url": "https://www.ifttt.com/p/{}",
@@ -1211,10 +1211,11 @@
     "username_claimed": "blue"
   },
   "Linktree": {
-    "errorType": "status_code",
+    "errorMsg": "The page you’re looking for doesn’t exist.",
+    "errorType": "message",
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
-    "username_claimed": "anne"
+    "username_claimed": "notforuse"
   },
   "Listed": {
     "errorType": "response_url",
@@ -1353,14 +1354,14 @@
     "username_claimed": "jambert"
   },
   "NationStates Nation": {
-    "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
+    "errorMsg": "Nation Not Found",
     "errorType": "message",
     "url": "https://nationstates.net/nation={}",
     "urlMain": "https://nationstates.net",
     "username_claimed": "the_holy_principality_of_saint_mark"
   },
   "NationStates Region": {
-    "errorMsg": "does not exist.",
+    "errorMsg": "Region Not Found",
     "errorType": "message",
     "url": "https://nationstates.net/region={}",
     "urlMain": "https://nationstates.net",
@@ -1615,7 +1616,7 @@
     "username_claimed": "blue"
   },
   "Reddit": {
-    "errorMsg": "Sorry, nobody on Reddit goes by that name.",
+    "errorMsg": "This account may have been banned or the username is incorrect.",
     "errorType": "message",
     "headers": {
       "accept-language": "en-US,en;q=0.9"
@@ -1784,7 +1785,7 @@
     "username_claimed": "winchester"
   },
   "Smule": {
-    "errorMsg": "Smule | Page Not Found (404)",
+    "errorMsg": "Right tune, wrong note!",
     "errorType": "message",
     "url": "https://www.smule.com/{}",
     "urlMain": "https://www.smule.com/",
