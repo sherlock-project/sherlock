@@ -6,10 +6,19 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+import typing as T
 
 class SiteInformation:
-    def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+    def __init__(
+        self,
+        name: str,
+        url_home: str,
+        url_username_format: str,
+        username_claimed: str,
+        information: T.Dict,
+        is_nsfw: bool,
+        username_unclaimed: str = secrets.token_urlsafe(10)
+    ):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -72,7 +81,7 @@ class SiteInformation:
 
 
 class SitesInformation:
-    def __init__(self, data_file_path=None):
+    def __init__(self, data_file_path: T.Optional[str] = None):
         """Create Sites Information Object.
 
         Contains information about all supported websites.

@@ -16,6 +16,7 @@ import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
+import typing as T
 
 import requests
 
@@ -33,7 +34,7 @@ __version__ = "0.14.3"
 
 
 class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks=None, *args, **kwargs):
+    def request(self, method: str, url: str, hooks: T.Optional[T.Dict] = None, *args, **kwargs):
         """Request URL.
 
         This extends the FuturesSession request method to calculate a response
@@ -127,7 +128,7 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, exception_text
 
 
-def interpolate_string(input_object, username):
+def interpolate_string(input_object: T.Union[str, T.Dict, T.List], username: str):
     if isinstance(input_object, str):
         return input_object.replace("{}", username)
     elif isinstance(input_object, dict):
@@ -137,7 +138,7 @@ def interpolate_string(input_object, username):
     return input_object
 
 
-def check_for_parameter(username):
+def check_for_parameter(username: str):
     """checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username"""
     return "{?}" in username
@@ -147,7 +148,7 @@ checksymbols = []
 checksymbols = ["_", "-", "."]
 
 
-def multiple_usernames(username):
+def multiple_usernames(username: str):
     """replace the parameter with with symbols and return a list of usernames"""
     allUsernames = []
     for i in checksymbols:
@@ -156,13 +157,13 @@ def multiple_usernames(username):
 
 
 def sherlock(
-    username,
-    site_data,
-    query_notify,
-    tor=False,
-    unique_tor=False,
-    proxy=None,
-    timeout=60,
+    username: str,
+    site_data: T.Dict,
+    query_notify: QueryNotifyPrint,
+    tor: bool = False,
+    unique_tor: bool = False,
+    proxy: T.Optional[str] = None,
+    timeout: int = 60,
 ):
     """Run Sherlock Analysis.
 
@@ -455,7 +456,7 @@ def sherlock(
     return results_total
 
 
-def timeout_check(value):
+def timeout_check(value: float):
     """Check Timeout Argument.
 
     Checks timeout for validity.
