@@ -142,9 +142,10 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "cannot find account",
+    "errorMsg": "could not fetch an account with user item identifier",
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
+    "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "urlMain": "https://archive.org",
     "username_claimed": "blue"
   },
@@ -260,7 +261,11 @@
     "username_claimed": "white"
   },
   "BitCoinForum": {
-    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "::::README::::": "The fate of BCF is uncertain. Site offline 2024-03-24. If the site remains offline, this can be removed.",
+    "errorMsg": [
+      "The user whose profile you are trying to view does not exist.",
+      "Additionally, a 404 Not Found\nerror was encountered while trying to use an ErrorDocument to handle the request"
+    ],
     "errorType": "message",
     "url": "https://bitcoinforum.com/profile/{}",
     "urlMain": "https://bitcoinforum.com",
@@ -321,15 +326,13 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
-    "errorMsg": "3D models for CG digital design and artwork",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
     "username_claimed": "blue"
   },
   "CNET": {
-    "errorMsg": "null null - CNET",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
     "username_claimed": "elliottcnet"
@@ -502,8 +505,8 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://contently.com",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
     "urlMain": "https://contently.com/",
@@ -926,14 +929,6 @@
     "urlMain": "https://www.gutefrage.net/",
     "username_claimed": "gutefrage"
   },
-  "HEXRPG": {
-    "errorMsg": "Error : User ",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
-    "url": "https://www.hexrpg.com/userinfo/{}",
-    "urlMain": "https://www.hexrpg.com/",
-    "username_claimed": "blue"
-  },
   "HackTheBox": {
     "errorType": "status_code",
     "url": "https://forum.hackthebox.eu/profile/{}",
@@ -1033,8 +1028,7 @@
     "username_claimed": "Micheal"
   },
   "IFTTT": {
-    "errorMsg": "The requested page or file does not exist",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
@@ -1211,7 +1205,8 @@
     "username_claimed": "blue"
   },
   "Linktree": {
-    "errorType": "status_code",
+    "errorMsg": "\"statusCode\":404",
+    "errorType": "message",
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne"
@@ -1290,13 +1285,6 @@
     "urlMain": "https://www.mixcloud.com/",
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny"
-  },
-  "Modelhub": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.modelhub.com/{}/videos",
-    "urlMain": "https://www.modelhub.com/",
-    "username_claimed": "secretcrush"
   },
   "Monkeytype": {
     "errorType": "status_code",
@@ -1450,12 +1438,6 @@
     "urlMain": "https://opensource.com/",
     "username_claimed": "red"
   },
-  "Oracle Community": {
-    "errorType": "status_code",
-    "url": "https://community.oracle.com/people/{}",
-    "urlMain": "https://community.oracle.com",
-    "username_claimed": "dev"
-  },
   "OurDJTalk": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
@@ -1550,8 +1532,8 @@
     "username_claimed": "swiftstickler"
   },
   "Polymart": {
-    "errorMsg": "Looks like we couldn't find this user. Sorry!",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://polymart.org/user/-1",
     "url": "https://polymart.org/user/{}",
     "urlMain": "https://polymart.org/",
     "username_claimed": "craciu25yt"
@@ -2497,14 +2479,6 @@
     "urlMain": "https://www.mercadolivre.com.br",
     "username_claimed": "blue"
   },
-  "metacritic": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
-    "url": "https://www.metacritic.com/user/{}",
-    "urlMain": "https://www.metacritic.com/",
-    "username_claimed": "blue"
-  },
   "minds": {
     "errorMsg": "\"valid\":true",
     "errorType": "message",
@@ -2657,6 +2631,7 @@
     "isNSFW": true,
     "url": "https://xhamster.com/users/{}",
     "urlMain": "https://xhamster.com",
+    "urlProbe": "https://xhamster.com/users/{}?old_browser=true",
     "username_claimed": "blue"
   },
   "znanylekarz.pl": {

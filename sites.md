@@ -135,7 +135,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=http://en.gravatar.com/) [Gravatar](http://en.gravatar.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gumroad.com/) [Gumroad](https://www.gumroad.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.gutefrage.net/) [Gutefrage](https://www.gutefrage.net/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.hexrpg.com/) [HEXRPG](https://www.hexrpg.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.hackthebox.eu/) [HackTheBox](https://forum.hackthebox.eu/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://hackaday.io/) [Hackaday](https://hackaday.io/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://hackerearth.com/) [HackerEarth](https://hackerearth.com/) 
@@ -188,7 +187,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.memrise.com/) [Memrise](https://www.memrise.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://minecraft.net/) [Minecraft](https://minecraft.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.mixcloud.com/) [MixCloud](https://www.mixcloud.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://www.modelhub.com/) [Modelhub](https://www.modelhub.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://monkeytype.com/) [Monkeytype](https://monkeytype.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://motherless.com/) [Motherless](https://motherless.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.motorradfrage.net/) [Motorradfrage](https://www.motorradfrage.net/) 
@@ -212,7 +210,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://ogu.gg/) [OGUsers](https://ogu.gg/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.openstreetmap.org/) [OpenStreetMap](https://www.openstreetmap.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://opensource.com/) [Opensource](https://opensource.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://community.oracle.com) [Oracle Community](https://community.oracle.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://ourdjtalk.com/) [OurDJTalk](https://ourdjtalk.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://pcgamer.com) [PCGamer](https://pcgamer.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://psnprofiles.com/) [PSNProfiles.com](https://psnprofiles.com/) 

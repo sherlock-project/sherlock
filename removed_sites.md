@@ -1883,3 +1883,40 @@ As of 2023.12.21, Ebio returns false positives.
     "username_claimed": "dev"
   },
 ```
+
+## HexRPG
+__2024-04-07 :__ HexRPG behind authentication wall. Unable to check usernames without logging in.
+```json
+  "HexRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Oracle Communities
+__2024-04-07 :__ Oracle Communities behind authentication wall. Unable to check usernames without logging in.
+```json
+  "Oracle Communities": {
+    "errorType": "status_code",
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "dev"
+  }
+```
+
+## Metacritic
+__2024-04-07 :__ Non-existent users seemingly displayed as real users with no activity. Needs adjustment.
+```json
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue"
+  }
+```
