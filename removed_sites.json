@@ -869,5 +869,27 @@
     "url": "https://ebio.gg/{}",
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
+  },
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue"
+  },
+  "Oracle Communities": {
+    "errorType": "status_code",
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "dev"
+  },
+  "HexRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue"
   }
 }
