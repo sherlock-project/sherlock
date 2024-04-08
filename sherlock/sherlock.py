@@ -163,6 +163,7 @@ def sherlock(
     unique_tor=False,
     proxy=None,
     timeout=60,
+    max_workers:int=20
 ):
     """Run Sherlock Analysis.
 
@@ -209,9 +210,7 @@ def sherlock(
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
-    else:
+    if len(site_data) < max_workers:
         max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
@@ -643,6 +642,14 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=20,
+        dest="max_workers",
+        help="Set the maximum number of workers for Sherlock (Default: 20)"
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -764,6 +771,7 @@ def main():
             unique_tor=args.unique_tor,
             proxy=args.proxy,
             timeout=args.timeout,
+            max_workers=args.max_workers
         )
 
         if args.output:
