@@ -378,8 +378,18 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
+        # As WAFs advance and evolve, they will occasionally block Sherlock and lead to false positives
+        # and negatives. Fingerprints should be added here to filter results that fail to bypass WAFs.
+        # Fingerprints should be highly targetted. Comment at the end of each fingerprint to indicate target and date.
+        WAFHitMsgs = [
+            '.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark .big-button,body.dark .pow-button{background-color:#4693ff;color:#1d1d1d}body.dark #challenge-success-text{background-image:url(data:image/svg+xml;base64,' # 2024-04-08 Cloudflare
+        ]
+
         if error_text is not None:
             error_context = error_text
+
+        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
 
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
