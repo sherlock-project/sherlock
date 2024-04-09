@@ -84,6 +84,8 @@ optional arguments:
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
   --nsfw                Include checking of NSFW sites from default list.
+  --max-workers MAX_WORKERS
+                        Set the maximum number of workers for Sherlock (Default: 20)
 ```
 
 To search for only one user:
