@@ -2194,7 +2194,13 @@
     "username_claimed": "blue"
   },
   "YandexMusic": {
-    "errorType": "status_code",
+    "::::README::::": "The first and third errorMsg relate to geo-restrictions and bot detection/captchas.",
+    "errorMsg": [
+      "Ошибка 404",
+      "<meta name=\"description\" content=\"Открывайте новую музыку каждый день.",
+      "<input type=\"submit\" class=\"CheckboxCaptcha-Button\""
+    ],
+    "errorType": "message",
     "url": "https://music.yandex/users/{}/playlists",
     "urlMain": "https://music.yandex",
     "username_claimed": "ya.playlist"
