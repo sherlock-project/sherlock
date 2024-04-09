@@ -351,7 +351,6 @@ def sherlock(
 
         # Get the expected error type
         error_type = net_info["errorType"]
-        error_code = net_info.get("errorCode")
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -407,14 +406,19 @@ def sherlock(
             else:
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
-            # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
-            if error_code == r.status_code:
-                query_status = QueryStatus.AVAILABLE
+            query_status = QueryStatus.AVAILABLE
+            error_codes = net_info.get("errorCode")
+
+            if error_codes: # (if set in data.json)
+                if isinstance(error_codes, int):
+                    if error_codes != r.status_code:
+                        query_status = QueryStatus.CLAIMED
+                else:
+                    if r.status_code not in error_codes:
+                        query_status = QueryStatus.CLAIMED
             # Checks if the status code of the response is 2XX
             elif not r.status_code >= 300 or r.status_code < 200:
                 query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
