@@ -952,7 +952,11 @@
     "username_claimed": "naveennamani877"
   },
   "HackerNews": {
-    "errorMsg": "No such user.",
+    "::::README::::": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
