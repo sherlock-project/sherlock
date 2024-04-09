@@ -136,6 +136,7 @@
     "username_claimed": "jason"
   },
   "Archive of Our Own": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
@@ -326,6 +327,7 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
@@ -634,6 +636,7 @@
     "username_claimed": "blue"
   },
   "Eintracht Frankfurt Forum": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
@@ -920,6 +923,7 @@
     "username_claimed": "blue"
   },
   "Gumroad": {
+    "regexCheck": "^[^.]*?$",
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
     "url": "https://www.gumroad.com/{}",
@@ -970,6 +974,7 @@
     "username_claimed": "stok"
   },
   "HackerRank": {
+    "regexCheck": "^[^.]*?$",
     "errorMsg": "Something went wrong",
     "errorType": "message",
     "url": "https://hackerrank.com/{}",
@@ -1434,6 +1439,7 @@
     "username_claimed": "ogusers"
   },
   "OpenStreetMap": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://www.openstreetmap.org/user/{}",
     "urlMain": "https://www.openstreetmap.org/",
@@ -1500,6 +1506,7 @@
     "username_claimed": "blue"
   },
   "Pinkbike": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
@@ -1821,6 +1828,7 @@
     "username_claimed": "splice"
   },
   "Splits.io": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://splits.io/users/{}",
     "urlMain": "https://splits.io",
@@ -1868,6 +1876,7 @@
     "username_claimed": "blue"
   },
   "Strava": {
+    "regexCheck": "^[^.]*?$",
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
     "url": "https://www.strava.com/athletes/{}",
@@ -2315,6 +2324,7 @@
     "username_claimed": "blue"
   },
   "eintracht": {
+    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://eintracht.de",
