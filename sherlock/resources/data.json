@@ -1280,7 +1280,7 @@
     "username_claimed": "blue"
   },
   "Minecraft": {
-    "errorCode": 204,
+    "errorCode": [204, 404, 405],
     "errorType": "status_code",
     "url": "https://api.mojang.com/users/profiles/minecraft/{}",
     "urlMain": "https://minecraft.net/",
