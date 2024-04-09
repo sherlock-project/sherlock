@@ -245,8 +245,8 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.RED + "?" +
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" Blocked by WAF" +
-                      Fore.YELLOW + " (proxy recommended)")
+                      Fore.RED + " Blocked by bot detection" +
+                      Fore.YELLOW + " (proxy may help)")
 
         else:
             # It should be impossible to ever get here...
