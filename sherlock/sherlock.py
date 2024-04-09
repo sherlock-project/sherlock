@@ -555,7 +555,7 @@ def main():
         action="store_true",
         dest="xlsx",
         default=False,
-        help="Create the standard file for the modern Microsoft Excel spreadsheet (xslx).",
+        help="Create the standard file for the modern Microsoft Excel spreadsheet (xlsx).",
     )
     parser.add_argument(
         "--site",
