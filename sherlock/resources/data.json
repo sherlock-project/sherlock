@@ -821,6 +821,7 @@
   },
   "Genius (Artists)": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9-_]{5,50}$",
     "url": "https://genius.com/artists/{}",
     "urlMain": "https://genius.com/",
     "username_claimed": "genius"
