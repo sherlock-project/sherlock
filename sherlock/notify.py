@@ -224,7 +224,7 @@ class QueryNotifyPrint(QueryNotify):
         elif result.status == QueryStatus.UNKNOWN:
             if self.print_all:
                 print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "?" +
+                      Fore.RED + "-" +
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.RED + f" {self.result.context}" +
@@ -242,7 +242,7 @@ class QueryNotifyPrint(QueryNotify):
         elif result.status == QueryStatus.WAF:
             if self.print_all:
                 print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "?" +
+                      Fore.RED + "-" +
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.RED + " Blocked by bot detection" +
