@@ -334,7 +334,7 @@
   "CNET": {
     "errorMsg": "null null - CNET",
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z].*$",
+    "regexCheck": "^[a-z].*$",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
     "username_claimed": "melliott"
