@@ -2428,10 +2428,11 @@
     "username_claimed": "blue"
   },
   "jeuxvideo": {
-    "errorMsg": "Vous \u00eates",
-    "errorType": "message",
-    "url": "http://www.jeuxvideo.com/profil/{}?mode=infos",
-    "urlMain": "http://www.jeuxvideo.com",
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://www.jeuxvideo.com/profil/{}",
+    "urlMain": "https://www.jeuxvideo.com",
+    "urlProbe": "https://www.jeuxvideo.com/profil/{}?mode=infos",
     "username_claimed": "adam"
   },
   "kofi": {
