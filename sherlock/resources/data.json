@@ -817,8 +817,7 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorMsg": "<title>Login GeeksforGeeks</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
