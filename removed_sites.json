@@ -870,4 +870,11 @@
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
   }
+    "Polymart": {
+    "errorMsg": "Looks like we couldn't find this user. Sorry!",
+    "errorType": "message",
+    "url": "https://polymart.org/user/{}",
+    "urlMain": "https://polymart.org/",
+    "username_claimed": "craciu25yt"
+  },
 }
