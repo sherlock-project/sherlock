@@ -42,8 +42,8 @@ $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
-                [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
-                [--browse] [--local] [--nsfw]
+                [--workers WORKERS] [--timeout TIMEOUT] [--print-all]
+                [--print-found] [--no-color] [--browse] [--local] [--nsfw]
                 USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
@@ -77,6 +77,7 @@ optional arguments:
                         Make requests over a proxy. e.g. socks5://127.0.0.1:1080
   --json JSON_FILE, -j JSON_FILE
                         Load data from a JSON file or an online, valid, JSON file.
+  --workers WORKERS     Set the maximum number of workers (Default: 20)
   --timeout TIMEOUT     Time (in seconds) to wait for response to requests (Default: 60)
   --print-all           Output sites where the username was not found.
   --print-found         Output sites where the username was found.
@@ -84,8 +85,6 @@ optional arguments:
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
   --nsfw                Include checking of NSFW sites from default list.
-  --max-workers MAX_WORKERS
-                        Set the maximum number of workers for Sherlock (Default: 20)
 ```
 
 To search for only one user:

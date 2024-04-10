@@ -582,6 +582,13 @@ def main():
         help="Load data from a JSON file or an online, valid, JSON file.",
     )
     parser.add_argument(
+        "--workers",
+        type=int,
+        default=20,
+        dest="workers",
+        help="Set the maximum number of workers for Sherlock (Default: 20)"
+    )
+    parser.add_argument(
         "--timeout",
         action="store",
         metavar="TIMEOUT",
@@ -640,14 +647,6 @@ def main():
         action="store_true",
         default=False,
         help="Include checking of NSFW sites from default list.",
-    )
-
-    parser.add_argument(
-        "--max-workers",
-        type=int,
-        default=20,
-        dest="max_workers",
-        help="Set the maximum number of workers for Sherlock (Default: 20)"
     )
 
     args = parser.parse_args()
@@ -771,7 +770,7 @@ def main():
             unique_tor=args.unique_tor,
             proxy=args.proxy,
             timeout=args.timeout,
-            max_workers=args.max_workers
+            max_workers=args.workers
         )
 
         if args.output:
