@@ -694,6 +694,14 @@
     "urlMain": "https://f3.cool/",
     "username_claimed": "blue"
   },
+  "Faceit": {
+    "errorMsg": "Player not found!",
+    "errorType": "status_code",
+    "url": "https://faceittracker.net/players/{}",
+    "urlMain": "https://faceittracker.net/",
+    "username_claimed": "m0NESY",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Fameswap": {
     "errorType": "status_code",
     "url": "https://fameswap.com/user/{}",
