@@ -492,13 +492,6 @@
     "urlMain": "https://www.cloob.com/",
     "username_claimed": "blue"
   },
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko"
-  },
   "TM-Ladder": {
     "errorMsg": "player unknown or invalid",
     "errorType": "message",

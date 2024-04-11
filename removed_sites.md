@@ -1178,19 +1178,6 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
   }
 ```
 
-### 1337x
-As of 2021-11-21, 1337x seems to be down causing false positives.
-```json
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
