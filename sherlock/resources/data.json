@@ -136,8 +136,8 @@
     "username_claimed": "jason"
   },
   "Archive of Our Own": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test"
@@ -146,8 +146,8 @@
     "errorMsg": "could not fetch an account with user item identifier",
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
-    "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "urlMain": "https://archive.org",
+    "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
   "ArtStation": {
@@ -327,8 +327,8 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
     "username_claimed": "blue"
@@ -636,8 +636,8 @@
     "username_claimed": "blue"
   },
   "Eintracht Frankfurt Forum": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
@@ -915,9 +915,9 @@
     "username_claimed": "blue"
   },
   "Gumroad": {
-    "regexCheck": "^[^.]*?$",
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.gumroad.com/{}",
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue"
@@ -966,9 +966,9 @@
     "username_claimed": "stok"
   },
   "HackerRank": {
-    "regexCheck": "^[^.]*?$",
     "errorMsg": "Something went wrong",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://hackerrank.com/{}",
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
@@ -1165,8 +1165,8 @@
   "Kongregate": {
     "errorType": "status_code",
     "headers": {
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0",
-      "Accept": "text/html"
+      "Accept": "text/html",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
     },
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
@@ -1434,8 +1434,8 @@
     "username_claimed": "ogusers"
   },
   "OpenStreetMap": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.openstreetmap.org/user/{}",
     "urlMain": "https://www.openstreetmap.org/",
     "username_claimed": "blue"
@@ -1501,8 +1501,8 @@
     "username_claimed": "blue"
   },
   "Pinkbike": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
     "username_claimed": "blue"
@@ -1823,8 +1823,8 @@
     "username_claimed": "splice"
   },
   "Splits.io": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://splits.io/users/{}",
     "urlMain": "https://splits.io",
     "username_claimed": "cambosteve"
@@ -1871,9 +1871,9 @@
     "username_claimed": "blue"
   },
   "Strava": {
-    "regexCheck": "^[^.]*?$",
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
     "username_claimed": "blue"
@@ -2322,8 +2322,8 @@
     "username_claimed": "blue"
   },
   "eintracht": {
-    "regexCheck": "^[^.]*?$",
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://eintracht.de",
     "username_claimed": "blue"
