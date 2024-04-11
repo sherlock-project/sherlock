@@ -4,6 +4,21 @@ This module defines various objects for recording the results of queries.
 """
 from enum import Enum
 
+class QueryOptions(Enum):
+    """Query option and modifier enumeration
+    """
+    INVERT    = "invert"    # Invert the QueryStatus if CLAIMED or AVAILABLE (no effect on others)
+
+    def __str__(self):
+        """Convert Object To String.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        Nicely formatted string to get information about this object.
+        """
+        return self.value
 
 class QueryStatus(Enum):
     """Query Status Enumeration.

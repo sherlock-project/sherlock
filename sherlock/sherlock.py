@@ -22,6 +22,7 @@ import requests
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 from result import QueryStatus
+from result import QueryOptions
 from result import QueryResult
 from notify import QueryNotifyPrint
 from sites import SitesInformation
@@ -378,6 +379,26 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
+        # Check data type of target options, and ensure it's always a [str] rather than str
+        # Maintains type safety with arbitrary user input
+        target_opts=[]
+        if net_info.get("options") is not None:
+            if isinstance(net_info.get("options"), str):
+                target_opts = [f"{net_info.get("options")}"]
+            elif isinstance(net_info.get("options"), list) and all(isinstance(item, str) for item in net_info.get("options")):
+                target_opts = net_info.get("options")
+            else:
+                raise ValueError(
+                    f"Incompatible type {type(net_info.get("options"))} for " f"site '{social_network}' options"
+                )
+        
+        # Validate option values (they must exist)
+        # Prevents accidental regression by changing option availability and not updating the manifest
+        unk_opts = [opt for opt in target_opts if opt not in QueryOptions]
+        if unk_opts:
+            raise ValueError(f"Unkown query option {unk_opts} for site {social_network}.")
+        del unk_opts
+
         if error_text is not None:
             error_context = error_text
 
@@ -430,6 +451,13 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
+        
+        # Flips the claimed/available status of a username if option 'invert' is set in the manifest
+        if f"{QueryOptions.INVERT}" in target_opts:
+            if query_status is QueryStatus.CLAIMED:
+                query_status = QueryStatus.AVAILABLE
+            elif query_status is QueryStatus.AVAILABLE:
+                query_status = QueryStatus.CLAIMED
 
         # Notify caller about results of query.
         result = QueryResult(
