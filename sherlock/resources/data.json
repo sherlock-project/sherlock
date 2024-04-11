@@ -310,7 +310,6 @@
     "errorMsg": "researcher profile on Bugcrowd, a platform and team of experts",
     "errorType": "message",
     "options": "invert",
-    "regexCheck": "[a-zA-Z0-9]{3,15}",
     "url": "https://bugcrowd.com/{}",
     "urlMain": "https://bugcrowd.com/",
     "username_claimed": "mert"
