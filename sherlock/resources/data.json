@@ -1163,8 +1163,11 @@
     "username_claimed": "blue"
   },
   "Kongregate": {
-    "errorMsg": "Sorry, no account with that name was found.",
-    "errorType": "message",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0",
+      "Accept": "text/html"
+    },
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
     "urlMain": "https://www.kongregate.com/",
