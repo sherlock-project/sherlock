@@ -1920,3 +1920,16 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
     "username_claimed": "blue"
   }
 ```
+
+## G2G
+__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+```json
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user"
+  }
+```

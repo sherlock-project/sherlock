@@ -891,5 +891,13 @@
     "url": "https://www.hexrpg.com/userinfo/{}",
     "urlMain": "https://www.hexrpg.com/",
     "username_claimed": "blue"
+  },
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user"
   }
 }
