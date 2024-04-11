@@ -1,4 +1,4 @@
-## List Of Supported Sites (395 Sites In Total!)
+## List Of Supported Sites (396 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -44,6 +44,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://pt.bongacams.com) [BongaCams](https://pt.bongacams.com) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.bookcrossing.com/) [Bookcrossing](https://www.bookcrossing.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.brave.com/) [BraveCommunity](https://community.brave.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://bugcrowd.com/) [BugCrowd](https://bugcrowd.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.buymeacoffee.com/) [BuyMeACoffee](https://www.buymeacoffee.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://buzzfeed.com/) [BuzzFeed](https://buzzfeed.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.cgtrader.com) [CGTrader](https://www.cgtrader.com) 
