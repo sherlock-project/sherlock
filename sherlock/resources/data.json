@@ -215,6 +215,22 @@
     "urlMain": "https://www.bandcamp.com/",
     "username_claimed": "blue"
   },
+  "Battlefield 3": {
+    "errorMsg": "Sorry, that page doesn't exist",
+    "errorType": "message",
+    "url": "https://battlelog.battlefield.com/bf3/user/{}",
+    "urlMain": "https://battlelog.battlefield.com/bf3/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
+  "Battlefield 4": {
+    "errorMsg": "Sorry, that page doesn't exist",
+    "errorType": "message",
+    "url": "https://battlelog.battlefield.com/bf4/user/{}",
+    "urlMain": "https://battlelog.battlefield.com/bf4/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77"
+  },
   "Bazar.cz": {
     "errorType": "response_url",
     "errorUrl": "https://www.bazar.cz/error404.aspx",
