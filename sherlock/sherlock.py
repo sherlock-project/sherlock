@@ -406,19 +406,17 @@ def sherlock(
             else:
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
-            query_status = QueryStatus.AVAILABLE
             error_codes = net_info.get("errorCode")
+            query_status = QueryStatus.CLAIMED
 
-            if error_codes: # (if set in data.json)
-                if isinstance(error_codes, int):
-                    if error_codes != r.status_code:
-                        query_status = QueryStatus.CLAIMED
-                else:
-                    if r.status_code not in error_codes:
-                        query_status = QueryStatus.CLAIMED
-            # Checks if the status code of the response is 2XX
-            elif not r.status_code >= 300 or r.status_code < 200:
-                query_status = QueryStatus.CLAIMED
+            # Type consistency, allowing for both singlets and lists in manifest
+            if isinstance(error_codes, int):
+                error_codes = [error_codes]
+            
+            if r.status_code in error_codes:
+                query_status = QueryStatus.AVAILABLE
+            elif r.status_code >= 300 or r.status_code < 200:
+                query_status = QueryStatus.AVAILABLE
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
             # So, there is no need to check the response URL: it will always
