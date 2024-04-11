@@ -1906,12 +1906,15 @@
     "username_claimed": "traktrain"
   },
   "Telegram": {
-    "errorMsg": "<title>Telegram Messenger</title>",
+    "errorMsg": [
+      "<title>Telegram Messenger</title>",
+      "If you have <strong>Telegram</strong>, you can contact <a class=\"tgme_username_link\" href=\"tg://resolve?domain="
+    ],
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{5,32}[^_]$",
+    "regexCheck": "^[a-zA-Z0-9_]{3,32}[^_]$",
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
-    "username_claimed": "roopeshvs"
+    "username_claimed": "blue"
   },
   "Tellonym.me": {
     "errorType": "status_code",
