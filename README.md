@@ -31,6 +31,12 @@ $ git clone https://github.com/sherlock-project/sherlock.git
 # change the working directory to sherlock
 $ cd sherlock
 
+# Build a dedicated virtual environment 
+$ python -m venv env
+
+# Activate the virutal environment
+$ source env/bin/activate
+
 # install the requirements
 $ python3 -m pip install -r requirements.txt
 ```
