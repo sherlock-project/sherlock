@@ -27,10 +27,18 @@ from notify import QueryNotifyPrint
 from sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+from enum import Enum
+from urllib.parse import urlparse
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
 __version__ = "0.14.3"
 
+class ProxyType(Enum):
+    """Proxy type enumeration for special handling.
+
+    Names here will be occasionally presented to the user.
+    """
+    FLARESOLV = "FlareSolverr"   # Username Detected
 
 class SherlockFuturesSession(FuturesSession):
     def request(self, method, url, hooks=None, *args, **kwargs):
@@ -162,6 +170,7 @@ def sherlock(
     tor=False,
     unique_tor=False,
     proxy=None,
+    proxy_type:ProxyType=None,
     timeout=60,
 ):
     """Run Sherlock Analysis.
@@ -261,7 +270,22 @@ def sherlock(
             request_payload = net_info.get("request_payload")
             request = None
 
-            if request_method is not None:
+            if proxy_type is ProxyType.FLARESOLV:
+                request = session.post
+
+            if request_method is None:
+                if net_info["errorType"] == "status_code":
+                    # In most cases when we are detecting by status code,
+                    # it is not necessary to get the entire body:  we can
+                    # detect fine with just the HEAD response.
+                    request_method = "HEAD"
+                else:
+                    # Either this detect method needs the content associated
+                    # with the GET response, or this specific website will
+                    # not respond properly unless we request the whole page.
+                    request_method = "GET"
+
+            if request is None and request_method is not None:
                 if request_method == "GET":
                     request = session.get
                 elif request_method == "HEAD":
@@ -284,18 +308,6 @@ def sherlock(
                 # from where the user profile normally can be found.
                 url_probe = interpolate_string(url_probe, username)
 
-            if request is None:
-                if net_info["errorType"] == "status_code":
-                    # In most cases when we are detecting by status code,
-                    # it is not necessary to get the entire body:  we can
-                    # detect fine with just the HEAD response.
-                    request = session.head
-                else:
-                    # Either this detect method needs the content associated
-                    # with the GET response, or this specific website will
-                    # not respond properly unless we request the whole page.
-                    request = session.get
-
             if net_info["errorType"] == "response_url":
                 # Site forwards request to a different URL if username not
                 # found.  Disallow the redirect so we can capture the
@@ -307,7 +319,25 @@ def sherlock(
                 allow_redirects = True
 
             # This future starts running the request in a new thread, doesn't block the main thread
-            if proxy is not None:
+            if proxy_type is ProxyType.FLARESOLV:
+                if request_method == "HEAD":
+                    request_method = "GET"
+                if request_method not in ['GET', 'POST', 'PUT']:
+                    raise RuntimeError(f"Unsupported request_method for {url}")
+                timeout = 6000 if timeout < 6000 else timeout # Longer minimum timeout for CloudFlare
+                future = request(
+                    url=proxy,
+                    headers={"Content-Type": "application/json"},
+                    allow_redirects=allow_redirects,
+                    timeout=timeout,
+                    json={
+                        "cmd": f"request.{request_method.lower()}",
+                        "url": url_probe,
+                        "maxTimeout": timeout,
+                        "postData": request_payload
+                    },
+                )
+            elif proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
                 future = request(
                     url=url_probe,
@@ -377,6 +407,8 @@ def sherlock(
 
         query_status = QueryStatus.UNKNOWN
         error_context = None
+
+        print(r.text)
 
         if error_text is not None:
             error_context = error_text
@@ -671,9 +703,22 @@ def main():
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
-    # Make prompts
+    # Present proxy to user and detect known proxies that require special handling
+    proxy_type = None
     if args.proxy is not None:
-        print("Using the proxy: " + args.proxy)
+        print("Using the proxy: " + args.proxy, end="")
+        try:
+            proxy_parsedUrl = urlparse(args.proxy)
+            if proxy_parsedUrl.scheme == "http" or proxy_parsedUrl.scheme == "https":
+                proxy_rootUrl = f"{proxy_parsedUrl.scheme}://{proxy_parsedUrl.hostname}{f":{proxy_parsedUrl.port}" if proxy_parsedUrl.port is not None else ""}"
+                proxy_rootResponse = requests.get(proxy_rootUrl)
+                if "FlareSolverr is ready!" in proxy_rootResponse.content.decode('utf-8'):
+                    proxy_type = ProxyType.FLARESOLV
+        except:
+            pass
+        if proxy_type is not None:
+            print(f" (detected {proxy_type.value})", end="")
+        print()
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")
@@ -763,6 +808,7 @@ def main():
             tor=args.tor,
             unique_tor=args.unique_tor,
             proxy=args.proxy,
+            proxy_type=proxy_type,
             timeout=args.timeout,
         )
 
