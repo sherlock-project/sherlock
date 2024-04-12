@@ -16,6 +16,13 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
+  "PentesterLab": {
+    "errorType": "status_code",
+    "regexCheck": "^[\\w]{4,30}$",
+    "url": "https://pentesterlab.com/profile/{}",
+    "urlMain": "https://pentesterlab.com/",
+    "username_claimed": "0day"
+  },
   "HackenProof (Hackers)": {
     "errorMsg": "<title>Web3’s Largest Ethical Hackers Community | HackenProof</title>",
     "errorType": "message",
