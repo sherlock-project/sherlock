@@ -16,6 +16,15 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
+  "CyberDefenders": {
+    "errorMsg": "<title>Online Cyber Security Blue Team Training - CyberDefenders</title>",
+    "errorType": "message",
+    "request_method": "GET",
+    "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
+    "url": "https://cyberdefenders.org/p/{}",
+    "urlMain": "https://cyberdefenders.org/",
+    "username_claimed": "mlohn"
+  },
   "PentesterLab": {
     "errorType": "status_code",
     "regexCheck": "^[\\w]{4,30}$",
