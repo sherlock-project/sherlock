@@ -232,7 +232,7 @@ def sherlock(
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
         headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0",
         }
 
         if "headers" in net_info:
