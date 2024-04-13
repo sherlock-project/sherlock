@@ -14,6 +14,7 @@ import os
 import platform
 import re
 import sys
+import json
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
@@ -324,18 +325,19 @@ def sherlock(
                     request_method = "GET"
                 if request_method not in ['GET', 'POST', 'PUT']:
                     raise RuntimeError(f"Unsupported request_method for {url}")
+                req_data={}
+                req_data['cmd']=f"request.{request_method.lower()}"
+                req_data['url']=url_probe
+                req_data['maxTimeout']=timeout
+                if request_method == "POST":
+                    req_data['postData']=request_payload
                 timeout = 6000 if timeout < 6000 else timeout # Longer minimum timeout for CloudFlare
                 future = request(
                     url=proxy,
                     headers={"Content-Type": "application/json"},
                     allow_redirects=allow_redirects,
-                    timeout=timeout,
-                    json={
-                        "cmd": f"request.{request_method.lower()}",
-                        "url": url_probe,
-                        "maxTimeout": timeout,
-                        "postData": request_payload
-                    },
+                    timeout=timeout*1.1, # slight increase to allow for FlareSolverr's own timeout
+                    json=req_data
                 )
             elif proxy is not None:
                 proxies = {"http": proxy, "https": proxy}
@@ -383,6 +385,11 @@ def sherlock(
         error_type = net_info["errorType"]
         error_code = net_info.get("errorCode")
 
+        # Do not proxy incompatible errorTypes to FlareSolverr
+        if proxy_type is ProxyType.FLARESOLV and error_type != "message":
+            proxy = proxyType = None
+
+
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
         r, error_text, exception_text = get_response(
@@ -401,14 +408,24 @@ def sherlock(
         except Exception:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding or "UTF-8")
+            response_text = r.text
         except Exception:
             response_text = ""
 
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
-        print(r.text)
+        # Overwrite standard values if necessary for proxy type
+        if proxy_type is ProxyType.FLARESOLV:
+            try:
+                response_json = json.loads(r.text)
+                if response_json['status'] != 'ok':
+                    error_text = f"{ProxyType.FLARESOLV.value} {response_json['message']}"
+                else:
+                    response_text = response_json['solution']['response']
+                    http_status = response_json['solution']['status']
+            except:
+                print('somethin messed up')
 
         if error_text is not None:
             error_context = error_text
@@ -426,12 +443,12 @@ def sherlock(
             if isinstance(errors, str):
                 # Checks if the error message is in the HTML
                 # if error is present we will set flag to False
-                if errors in r.text:
+                if errors in response_text:
                     error_flag = False
             else:
                 # If it's list, it will iterate all the error message
                 for error in errors:
-                    if error in r.text:
+                    if error in response_text:
                         error_flag = False
                         break
             if error_flag:
@@ -440,10 +457,10 @@ def sherlock(
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
             # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
-            if error_code == r.status_code:
+            if error_code == http_status:
                 query_status = QueryStatus.AVAILABLE
             # Checks if the status code of the response is 2XX
-            elif not r.status_code >= 300 or r.status_code < 200:
+            elif not http_status >= 300 or http_status < 200:
                 query_status = QueryStatus.CLAIMED
             else:
                 query_status = QueryStatus.AVAILABLE
@@ -453,7 +470,7 @@ def sherlock(
             # match the request.  Instead, we will ensure that the response
             # code indicates that the request was successful (i.e. no 404, or
             # forward to some odd redirect).
-            if 200 <= r.status_code < 300:
+            if 200 <= http_status < 300:
                 query_status = QueryStatus.CLAIMED
             else:
                 query_status = QueryStatus.AVAILABLE
@@ -479,7 +496,7 @@ def sherlock(
 
         # Save results from request
         results_site["http_status"] = http_status
-        results_site["response_text"] = response_text
+        results_site["response_text"] = response_text.encode(r.encoding or "UTF-8")
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -719,6 +736,14 @@ def main():
         if proxy_type is not None:
             print(f" (detected {proxy_type.value})", end="")
         print()
+
+        #### FlareSolverr Development Warning
+        ## FlareSolverr sometimes returns slightly different results than the normal requests module.
+        ## While this is being improved upon, be aware that results may vary when compared to a normal
+        ## unproxied search.
+        if proxy_type is ProxyType.FLARESOLV:
+            print("!! FlareSolverr support is under active development. Results may vary.")
+            print("!! Only routing supported data types through FlareSolverr proxy.")
 
     if args.tor or args.unique_tor:
         print("Using Tor to make requests")

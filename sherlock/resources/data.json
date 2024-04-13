@@ -654,7 +654,7 @@
     "username_claimed": "JennyKrafts"
   },
   "Euw": {
-    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
+    "errorMsg": "<h2 class=\"header__title\">This summoner is not registered at OP.GG.",
     "errorType": "message",
     "url": "https://euw.op.gg/summoner/userName={}",
     "urlMain": "https://euw.op.gg/",
