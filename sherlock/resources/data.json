@@ -1501,6 +1501,13 @@
     "urlMain": "https://psnprofiles.com/",
     "username_claimed": "blue"
   },
+  "PUBGTracker": {
+    "errorMsg": "Player not found",
+    "errorType": "status_code",
+    "url": "https://tracker.gg/pubg/profile/steam/{}",
+    "urlMain": "https://tracker.gg/pubg",
+    "username_claimed": "tedmanios13"
+  },
   "Packagist": {
     "errorType": "response_url",
     "errorUrl": "https://packagist.org/search/?q={}&reason=vendor_not_found",
