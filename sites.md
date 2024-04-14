@@ -1,4 +1,4 @@
-## List Of Supported Sites (390 Sites In Total!)
+## List Of Supported Sites (389 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -37,7 +37,6 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.bikemap.net/) [Bikemap](https://www.bikemap.net/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.dangerousthings.com/) [BioHacking](https://forum.dangerousthings.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://bitbucket.org/) [BitBucket](https://bitbucket.org/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://bitcoinforum.com) [BitCoinForum](https://bitcoinforum.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://bitwarden.com/) [Bitwarden Forum](https://bitwarden.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.blogger.com/) [Blogger](https://www.blogger.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://bodyspace.bodybuilding.com/) [BodyBuilding](https://bodyspace.bodybuilding.com/) 
