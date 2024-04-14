@@ -899,5 +899,12 @@
     "url": "https://www.g2g.com/{}",
     "urlMain": "https://www.g2g.com/",
     "username_claimed": "user"
+  },
+  "BitCoinForum": {
+    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorType": "message",
+    "url": "https://bitcoinforum.com/profile/{}",
+    "urlMain": "https://bitcoinforum.com",
+    "username_claimed": "bitcoinforum.com"
   }
 }

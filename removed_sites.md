@@ -1933,3 +1933,15 @@ __2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup t
     "username_claimed": "user"
   }
 ```
+
+## Bitcoin Forum
+__2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
+```json
+"BitCoinForum": {
+    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorType": "message",
+    "url": "https://bitcoinforum.com/profile/{}",
+    "urlMain": "https://bitcoinforum.com",
+    "username_claimed": "bitcoinforum.com"
+  }
+```

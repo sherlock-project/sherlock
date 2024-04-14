@@ -261,17 +261,6 @@
     "urlMain": "https://bitbucket.org/",
     "username_claimed": "white"
   },
-  "BitCoinForum": {
-    "::::README::::": "The fate of BCF is uncertain. Site offline 2024-03-24. If the site remains offline, this can be removed.",
-    "errorMsg": [
-      "The user whose profile you are trying to view does not exist.",
-      "Additionally, a 404 Not Found\nerror was encountered while trying to use an ErrorDocument to handle the request"
-    ],
-    "errorType": "message",
-    "url": "https://bitcoinforum.com/profile/{}",
-    "urlMain": "https://bitcoinforum.com",
-    "username_claimed": "bitcoinforum.com"
-  },
   "Bitwarden Forum": {
     "errorType": "status_code",
     "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
