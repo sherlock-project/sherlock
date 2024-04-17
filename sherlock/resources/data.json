@@ -209,6 +209,12 @@
     "urlMain": "https://booth.pm/",
     "username_claimed": "blue"
   },
+  "Backloggery": {
+    "errorType": "status_code",
+    "url": "https://www.backloggery.com/{}",
+    "urlMain": "https://www.backloggery.com/",
+    "username_claimed": "Try4ce"
+  },
   "Bandcamp": {
     "errorType": "status_code",
     "url": "https://www.bandcamp.com/{}",
@@ -1313,6 +1319,13 @@
     "url": "https://motherless.com/m/{}",
     "urlMain": "https://motherless.com/",
     "username_claimed": "hacker"
+  },
+  "MusicBrainz": {
+    "errorMsg": "Editor not found",
+    "errorType": "message",
+    "url": "https://musicbrainz.org/user/{}",
+    "urlMain": "https://musicbrainz.org/",
+    "username_claimed": "musicbrainz"
   },
   "Motorradfrage": {
     "errorType": "status_code",
