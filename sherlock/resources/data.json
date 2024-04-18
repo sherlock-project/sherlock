@@ -34,7 +34,7 @@
   "APClips": {
     "errorMsg": "Amateur Porn Content Creators",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://apclips.com/{}",
     "urlMain": "https://apclips.com/",
     "username_claimed": "onlybbyraq"
@@ -55,7 +55,7 @@
   "AdmireMe.Vip": {
     "errorMsg": "Page Not Found",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://admireme.vip/{}",
     "urlMain": "https://admireme.vip/",
     "username_claimed": "DemiDevil"
@@ -88,7 +88,7 @@
   "All Things Worn": {
     "errorMsg": "Sell Used Panties",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.allthingsworn.com/profile/{}",
     "urlMain": "https://www.allthingsworn.com",
     "username_claimed": "pink"
@@ -289,7 +289,7 @@
   },
   "BongaCams": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://pt.bongacams.com/profile/{}",
     "urlMain": "https://pt.bongacams.com",
     "username_claimed": "asuna-black"
@@ -389,7 +389,7 @@
   },
   "ChaturBate": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://chaturbate.com/{}",
     "urlMain": "https://chaturbate.com",
     "username_claimed": "cute18cute"
@@ -398,6 +398,7 @@
     "errorMsg": "Username is valid",
     "errorType": "message",
     "regexCheck": "^[a-z1-9]{3,25}$",
+    "tags": "game",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
     "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
@@ -424,6 +425,7 @@
   "Clozemaster": {
     "errorMsg": "Oh no! Player not found.",
     "errorType": "message",
+    "tags": "game",
     "url": "https://www.clozemaster.com/players/{}",
     "urlMain": "https://www.clozemaster.com",
     "username_claimed": "green"
@@ -642,7 +644,7 @@
   },
   "Erome": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.erome.com/{}",
     "urlMain": "https://www.erome.com/",
     "username_claimed": "bob"
@@ -738,6 +740,7 @@
   },
   "FortniteTracker": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://fortnitetracker.com/profile/all/{}",
     "urlMain": "https://fortnitetracker.com/challenges",
     "username_claimed": "blue"
@@ -745,7 +748,7 @@
   "Forum Ophilia": {
     "errorMsg": "that user does not exist",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.forumophilia.com/profile.php?mode=viewprofile&u={}",
     "urlMain": "https://www.forumophilia.com/",
     "username_claimed": "bob"
@@ -798,6 +801,7 @@
   "GaiaOnline": {
     "errorMsg": "No user ID specified or user does not exist",
     "errorType": "message",
+    "tags": "game",
     "url": "https://www.gaiaonline.com/profiles/{}",
     "urlMain": "https://www.gaiaonline.com/",
     "username_claimed": "adam"
@@ -930,6 +934,7 @@
     "errorMsg": "Error : User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "tags": "game",
     "url": "https://www.hexrpg.com/userinfo/{}",
     "urlMain": "https://www.hexrpg.com/",
     "username_claimed": "blue"
@@ -989,7 +994,7 @@
   "Heavy-R": {
     "errorMsg": "Channel not found",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.heavy-r.com/user/{}",
     "urlMain": "https://www.heavy-r.com/",
     "username_claimed": "kilroy222"
@@ -1057,7 +1062,7 @@
   "Image Fap": {
     "errorMsg": "Not found",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.imagefap.com/profile/{}",
     "urlMain": "https://www.imagefap.com/",
     "username_claimed": "blue"
@@ -1168,6 +1173,7 @@
     "errorMsg": "Sorry, no account with that name was found.",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+    "tags": "game",
     "url": "https://www.kongregate.com/accounts/{}",
     "urlMain": "https://www.kongregate.com/",
     "username_claimed": "blue"
@@ -1206,6 +1212,7 @@
   "Lichess": {
     "errorMsg": "Page not found!",
     "errorType": "message",
+    "tags": "game",
     "url": "https://lichess.org/@/{}",
     "urlMain": "https://lichess.org",
     "username_claimed": "blue"
@@ -1245,13 +1252,14 @@
   },
   "LushStories": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.lushstories.com/profile/{}",
     "urlMain": "https://www.lushstories.com/",
     "username_claimed": "chris_brown"
   },
   "MMORPG Forum": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://forums.mmorpg.com/profile/{}",
     "urlMain": "https://forums.mmorpg.com/",
     "username_claimed": "goku"
@@ -1293,13 +1301,14 @@
   },
   "Modelhub": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.modelhub.com/{}/videos",
     "urlMain": "https://www.modelhub.com/",
     "username_claimed": "secretcrush"
   },
   "Monkeytype": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://monkeytype.com/profile/{}",
     "urlMain": "https://monkeytype.com/",
     "urlProbe": "https://api.monkeytype.com/users/{}/profile",
@@ -1309,7 +1318,7 @@
   "Motherless": {
     "errorMsg": "no longer a member",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://motherless.com/m/{}",
     "urlMain": "https://motherless.com/",
     "username_claimed": "hacker"
@@ -1381,6 +1390,7 @@
   "Newgrounds": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+    "tags": "game",
     "url": "https://{}.newgrounds.com",
     "urlMain": "https://newgrounds.com",
     "username_claimed": "blue"
@@ -1415,6 +1425,7 @@
   "NitroType": {
     "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
     "errorType": "message",
+    "tags": "game",
     "url": "https://www.nitrotype.com/racer/{}",
     "urlMain": "https://www.nitrotype.com/",
     "username_claimed": "jianclash"
@@ -1525,13 +1536,14 @@
   "PocketStars": {
     "errorMsg": "Join Your Favorite Adult Stars",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://pocketstars.com/{}",
     "urlMain": "https://pocketstars.com/",
     "username_claimed": "hacker"
   },
   "Pokemon Showdown": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://pokemonshowdown.com/users/{}",
     "urlMain": "https://pokemonshowdown.com",
     "username_claimed": "blue"
@@ -1558,7 +1570,7 @@
   },
   "Pornhub": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://pornhub.com/users/{}",
     "urlMain": "https://pornhub.com/",
     "username_claimed": "blue"
@@ -1603,7 +1615,7 @@
   },
   "RedTube": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.redtube.com/users/{}",
     "urlMain": "https://www.redtube.com/",
     "username_claimed": "hacker"
@@ -1654,6 +1666,7 @@
   "Roblox": {
     "errorMsg": "Page cannot be found or no longer exists",
     "errorType": "message",
+    "tags": "game",
     "url": "https://www.roblox.com/user.aspx?username={}",
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller"
@@ -1661,7 +1674,7 @@
   "RocketTube": {
     "errorMsg": "OOPS! Houston, we have a problem",
     "errorType": "message",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.rockettube.com/{}",
     "urlMain": "https://www.rockettube.com/",
     "username_claimed": "Tatteddick5600"
@@ -1689,6 +1702,7 @@
     "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
     "errorType": "message",
     "regexCheck": "^(?! )[\\w -]{1,12}(?<! )$",
+    "tags": "game",
     "url": "https://apps.runescape.com/runemetrics/app/overview/player/{}",
     "urlMain": "https://www.runescape.com/",
     "urlProbe": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
@@ -1866,6 +1880,7 @@
   "Star Citizen": {
     "errorMsg": "404",
     "errorType": "message",
+    "tags": "game",
     "url": "https://robertsspaceindustries.com/citizens/{}",
     "urlMain": "https://robertsspaceindustries.com/",
     "username_claimed": "blue"
@@ -1873,6 +1888,7 @@
   "SteamGroup": {
     "errorMsg": "No group could be retrieved for the given URL",
     "errorType": "message",
+    "tags": "game",
     "url": "https://steamcommunity.com/groups/{}",
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
@@ -1893,6 +1909,7 @@
   "TETR.IO": {
     "errorMsg": "No such user!",
     "errorType": "message",
+    "tags": "game",
     "url": "https://ch.tetr.io/u/{}",
     "urlMain": "https://tetr.io",
     "urlProbe": "https://ch.tetr.io/api/users/{}",
@@ -1940,7 +1957,7 @@
   },
   "TnAFlix": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://www.tnaflix.com/profile/{}",
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
@@ -2021,6 +2038,7 @@
   "Typeracer": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
+    "tags": "game",
     "url": "https://data.typeracer.com/pit/profile?user={}",
     "urlMain": "https://typeracer.com",
     "username_claimed": "blue"
@@ -2196,13 +2214,14 @@
   },
   "Xbox Gamertag": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://xboxgamertag.com/search/{}",
     "urlMain": "https://xboxgamertag.com/",
     "username_claimed": "red"
   },
   "Xvideos": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://xvideos.com/profiles/{}",
     "urlMain": "https://xvideos.com/",
     "username_claimed": "blue"
@@ -2229,7 +2248,7 @@
   },
   "YouPorn": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://youporn.com/uservids/{}",
     "urlMain": "https://youporn.com",
     "username_claimed": "blue"
@@ -2560,6 +2579,7 @@
   },
   "osu!": {
     "errorType": "status_code",
+    "tags": "game",
     "url": "https://osu.ppy.sh/users/{}",
     "urlMain": "https://osu.ppy.sh/",
     "username_claimed": "blue"
@@ -2654,7 +2674,7 @@
   },
   "xHamster": {
     "errorType": "status_code",
-    "isNSFW": true,
+    "tags": "nsfw",
     "url": "https://xhamster.com/users/{}",
     "urlMain": "https://xhamster.com",
     "username_claimed": "blue"

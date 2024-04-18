@@ -15,7 +15,7 @@ with open("sites.md", "w") as site_file:
     site_file.write(f"## List Of Supported Sites ({len(social_networks)} Sites In Total!)\n")
     for social_network, info in social_networks:
         url_main = info["urlMain"]
-        is_nsfw = "**(NSFW)**" if info.get("isNSFW") else ""
+        is_nsfw = "**(NSFW)**" if "nsfw" in info.get("tags","") else ""
         site_file.write(f"1. ![](https://www.google.com/s2/favicons?domain={url_main}) [{social_network}]({url_main}) {is_nsfw}\n")
 
 # Overwrite the data.json file with sorted data

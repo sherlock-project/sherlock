@@ -9,7 +9,7 @@ import secrets
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                information, tags, username_unclaimed=secrets.token_urlsafe(10)):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -41,7 +41,8 @@ class SiteInformation:
                                          be needed by the detection method,
                                          but it is only recorded in this
                                          object for future use.
-        is_nsfw                -- Boolean indicating if site is Not Safe For Work.
+        tags                   -- String or List of Strings containing 
+                                  categorization of the site.
 
         Return Value:
         Nothing.
@@ -54,7 +55,7 @@ class SiteInformation:
         self.username_claimed = username_claimed
         self.username_unclaimed = secrets.token_urlsafe(32)
         self.information = information
-        self.is_nsfw  = is_nsfw
+        self.tags  = tags
 
         return
 
@@ -165,7 +166,7 @@ class SitesInformation:
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name],
-                                    site_data[site_name].get("isNSFW",False)
+                                    site_data[site_name].get("tags","")
 
                                     )
             except KeyError as error:
@@ -177,7 +178,7 @@ class SitesInformation:
 
     def remove_nsfw_sites(self):
         """
-        Remove NSFW sites from the sites, if isNSFW flag is true for site
+        Remove NSFW sites from the sites, if site's "tags" contains "nsfw"
 
         Keyword Arguments:
         self                   -- This object.
@@ -187,7 +188,22 @@ class SitesInformation:
         """
         sites = {}
         for site in self.sites:
-            if self.sites[site].is_nsfw:
+            if "nsfw" in self.sites[site].tags:
+                continue
+            sites[site] = self.sites[site]  
+        self.sites =  sites
+
+    def keep_game_sites(self):
+        """
+        Keep only the game related from the sites, if site's "tags" contains "game"
+        Keyword Arguments:
+        self                   -- This object.
+        Return Value:
+        None
+        """
+        sites = {}
+        for site in self.sites:
+            if not "game" in self.sites[site].tags:            
                 continue
             sites[site] = self.sites[site]  
         self.sites =  sites
