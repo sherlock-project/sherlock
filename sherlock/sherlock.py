@@ -208,8 +208,7 @@ def sherlock(
         underlying_session = requests.session()
         underlying_request = requests.Request()
 
-    # Limit number of workers to 20.
-    # This is probably vastly overkill.
+    # Reduce worker count if greater than size of target pool
     if len(site_data) < max_workers:
         max_workers = len(site_data)
 
