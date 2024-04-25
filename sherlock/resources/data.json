@@ -2106,6 +2106,12 @@
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
   },
+  "Untappd": {
+    "errorType": "status_code",
+    "url": "https://untappd.com/user/{}",
+    "urlMain": "https://untappd.com/",
+    "username_claimed": "untappd"
+  },
   "VK": {
     "errorType": "response_url",
     "errorUrl": "https://www.quora.com/profile/{}",
