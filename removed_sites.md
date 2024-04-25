@@ -1687,20 +1687,6 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
   }
 ```
 
-## Instagram
-As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
-
-```json
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  }
-```
-
 ## OK
 As of 2023.04.21, Ok.ru returns false positives
 ```json

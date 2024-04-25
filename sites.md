@@ -1,4 +1,4 @@
-## List Of Supported Sites (403 Sites In Total!)
+## List Of Supported Sites (404 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.1337x.to/) [1337x](https://www.1337x.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
@@ -161,6 +161,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.imagefap.com/) [Image Fap](https://www.imagefap.com/) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://imgup.cz/) [ImgUp.cz](https://imgup.cz/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://imgur.com/) [Imgur](https://imgur.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://instagram.com/) [Instagram](https://instagram.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.instructables.com/) [Instructables](https://www.instructables.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://app.intigriti.com) [Intigriti](https://app.intigriti.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.ionicframework.com/) [Ionic Forum](https://forum.ionicframework.com/) 
