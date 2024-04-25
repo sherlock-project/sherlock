@@ -458,6 +458,12 @@
     "urlMain": "https://codesnippets.fandom.com",
     "username_claimed": "bob"
   },
+  "Codeberg": {
+    "errorType": "status_code",
+    "url": "https://codeberg.org/{}",
+    "urlMain": "https://codeberg.org/",
+    "username_claimed": "blue"
+  },
   "Codecademy": {
     "errorMsg": "This profile could not be found",
     "errorType": "message",

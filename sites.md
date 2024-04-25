@@ -1,4 +1,4 @@
-## List Of Supported Sites (402 Sites In Total!)
+## List Of Supported Sites (403 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.1337x.to/) [1337x](https://www.1337x.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
@@ -66,6 +66,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.clozemaster.com) [Clozemaster](https://www.clozemaster.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.clubhouse.com) [Clubhouse](https://www.clubhouse.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://codesnippets.fandom.com) [Code Snippet Wiki](https://codesnippets.fandom.com) 
+1. ![](https://www.google.com/s2/favicons?domain=https://codeberg.org/) [Codeberg](https://codeberg.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.codecademy.com/) [Codecademy](https://www.codecademy.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.codechef.com/) [Codechef](https://www.codechef.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://codeforces.com/) [Codeforces](https://codeforces.com/) 
