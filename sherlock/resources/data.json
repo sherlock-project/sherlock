@@ -6,7 +6,7 @@
     ],
     "errorType": "message",
     "regexCheck": "^[A-Za-z0-9]{4,12}$",
-    "url": "https://www.1337x.to/user/{}",
+    "url": "https://www.1337x.to/user/{}/",
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
