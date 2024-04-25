@@ -1,4 +1,4 @@
-## List Of Supported Sites (401 Sites In Total!)
+## List Of Supported Sites (402 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.1337x.to/) [1337x](https://www.1337x.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
@@ -49,6 +49,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://buzzfeed.com/) [BuzzFeed](https://buzzfeed.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.cgtrader.com) [CGTrader](https://www.cgtrader.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.cnet.com/) [CNET](https://www.cnet.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://cssbattle.dev) [CSSBattle](https://cssbattle.dev) 
 1. ![](https://www.google.com/s2/favicons?domain=https://ctan.org/) [CTAN](https://ctan.org/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://caddy.community/) [Caddy Community](https://caddy.community/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.cartalk.com/) [Car Talk Community](https://community.cartalk.com/) 
