@@ -346,7 +346,6 @@
     "username_claimed": "elliottcnet"
   },
   "CSSBattle": {
-    "errorMsg": "This page could not be found.",
     "errorType": "status_code",
     "url": "https://cssbattle.dev/player/{}",
     "urlMain": "https://cssbattle.dev",
