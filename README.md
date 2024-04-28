@@ -150,7 +150,7 @@ You can then build and start the web UI by entering "sherlock-web" folder and ru
 docker-compose up
 ```
 
-The command will create an API in port 8000 and a web UI that can be acessed by your preffered web browser in port 3000.
+The command will create an API that is only accessible by the frontend's server and a web UI that can be acessed by your preffered web browser in port 3000.
 
 Keep in mind this web version has no user credentials or any kind of security check, thus it is not nearly production ready.
 
