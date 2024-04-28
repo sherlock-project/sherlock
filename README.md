@@ -136,7 +136,15 @@ docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
 
 ### Web UI
-You can access the web UI by entering "sherlock-web" folder and running the command:
+Before starting the Web UI you need to have in your machine the base image of sherlock and you can do this by running this code in the root of this project:
+
+(In newer versions of docker you need to use "docker compose" instead.)
+
+```
+docker-compose build
+```
+
+You can then build and start the web UI by entering "sherlock-web" folder and running the command:
 
 ```
 docker-compose up
