@@ -52,7 +52,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self.assertEqual("message", site_data["errorType"])
 
         # Generate a valid username based on the regex for a username that the
-        # site supports that is *most likely* not taken. The regex is slighlty
+        # site supports that is *most likely* not taken. The regex is slightly
         # modified version of site_data["regexCheck"] as we want a username
         # that has the maximum length that is supported by the site. This way,
         # we wont generate a random username that might actually exist. This
@@ -109,7 +109,7 @@ class SherlockDetectTests(SherlockBaseTest):
         self.assertEqual("status_code", site_data["errorType"])
 
         # Generate a valid username based on the regex for a username that the
-        # site supports that is *most likely* not taken. The regex is slighlty
+        # site supports that is *most likely* not taken. The regex is slightly
         # modified version of site_data["regexCheck"] as we want a username
         # that has the maximum length that is supported by the site. This way,
         # we wont generate a random username that might actually exist. This

@@ -1,4 +1,4 @@
-## List Of Supported Sites (396 Sites In Total!)
+## List Of Supported Sites (395 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.7cups.com/) [7Cups](https://www.7cups.com/) 
@@ -392,6 +392,5 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.toster.ru/) [toster](https://www.toster.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://uid.me/) [uid](https://uid.me/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://wiki.vg/) [wiki.vg](https://wiki.vg/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://wykop.pl) [wykop.pl](https://wykop.pl) 
 1. ![](https://www.google.com/s2/favicons?domain=https://xhamster.com) [xHamster](https://xhamster.com) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://znanylekarz.pl) [znanylekarz.pl](https://znanylekarz.pl) 
