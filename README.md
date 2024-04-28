@@ -13,6 +13,8 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#docker-notes">Docker Notes</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#web-ui">Web UI</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contributing">Contributing</a>
 </p>
 
@@ -132,6 +134,17 @@ You can use the `docker-compose.yml` file from the repository and use this comma
 ```
 docker-compose run sherlock -o /opt/sherlock/results/text.txt user123
 ```
+
+### Web UI
+You can access the web UI by entering "sherlock-web" folder and running the command:
+
+```
+docker-compose up
+```
+
+The command will create an API in port 8000 and a web UI that can be acessed by your preffered web browser in port 3000.
+
+Keep in mind this web version has no user credentials or any kind of security check, thus it is not nearly production ready.
 
 ## Contributing
 We would love to have you help us with the development of Sherlock. Each and every contribution is greatly valued!
