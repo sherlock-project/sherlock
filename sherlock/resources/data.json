@@ -1549,13 +1549,6 @@
     "urlMain": "https://www.polygon.com/",
     "username_claimed": "swiftstickler"
   },
-  "Polymart": {
-    "errorMsg": "Looks like we couldn't find this user. Sorry!",
-    "errorType": "message",
-    "url": "https://polymart.org/user/{}",
-    "urlMain": "https://polymart.org/",
-    "username_claimed": "craciu25yt"
-  },
   "Pornhub": {
     "errorType": "status_code",
     "isNSFW": true,
