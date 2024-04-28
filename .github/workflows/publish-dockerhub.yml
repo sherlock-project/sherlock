@@ -1,0 +1,26 @@
+name: Publish on Docker Hub
+
+on: workflow_dispatch
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Login to Docker Hub
+              run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_KEY }}
+
+            - name: Build base Sherlock image
+              run: docker build -t sherlock .
+
+            - name: Build and push Sherlock API image
+              run: cd sherlock-web/api &&
+                docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/sherlock-api:latest . &&
+                docker push ${{ secrets.DOCKERHUB_USERNAME }}/sherlock-api:latest
+
+            - name: Build and push sherlock-frontend image
+              run: |
+                docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/sherlock-web:latest -f ./sherlock-web/frontend/Dockerfile . &&
+                docker push ${{ secrets.DOCKERHUB_USERNAME }}/sherlock-web:latest

@@ -11,7 +11,7 @@ COPY ./sherlock-web/frontend/next.config.mjs ./src/next.config.mjs
 COPY ./sherlock-web/frontend/app/ ./app/
 COPY ./sherlock-web/frontend/public/ ./public/
 
-COPY ./sherlock/resources/data.json ./
+COPY ./sherlock/resources/data.json ./data.json
 
 RUN npm run build
 
