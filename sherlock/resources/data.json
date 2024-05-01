@@ -142,9 +142,10 @@
     "username_claimed": "test"
   },
   "Archive.org": {
+    "urlProbe":" https://archive.org/details/@{}?noscript=true",
     "errorMsg": "could not fetch an account with user item identifier",
     "errorType": "message",
-    "url": "https://archive.org/details/@{}?noscript=true",
+    "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
     "username_claimed": "blue"
   },
