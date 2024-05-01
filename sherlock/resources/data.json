@@ -142,9 +142,9 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "cannot find account",
+    "errorMsg": "could not fetch an account with user item identifier",
     "errorType": "message",
-    "url": "https://archive.org/details/@{}",
+    "url": "https://archive.org/details/@{}?noscript=true",
     "urlMain": "https://archive.org",
     "username_claimed": "blue"
   },
