@@ -137,15 +137,17 @@
   },
   "Archive of Our Own": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://archiveofourown.org/users/{}",
     "urlMain": "https://archiveofourown.org/",
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "cannot find account",
+    "errorMsg": "could not fetch an account with user item identifier",
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
+    "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
   "ArtStation": {
@@ -259,13 +261,6 @@
     "urlMain": "https://bitbucket.org/",
     "username_claimed": "white"
   },
-  "BitCoinForum": {
-    "errorMsg": "The user whose profile you are trying to view does not exist.",
-    "errorType": "message",
-    "url": "https://bitcoinforum.com/profile/{}",
-    "urlMain": "https://bitcoinforum.com",
-    "username_claimed": "bitcoinforum.com"
-  },
   "Bitwarden Forum": {
     "errorType": "status_code",
     "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
@@ -321,8 +316,8 @@
     "username_claimed": "blue"
   },
   "CGTrader": {
-    "errorMsg": "3D models for CG digital design and artwork",
-    "errorType": "message",
+    "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.cgtrader.com/{}",
     "urlMain": "https://www.cgtrader.com",
     "username_claimed": "blue"
@@ -330,9 +325,10 @@
   "CNET": {
     "errorMsg": "null null - CNET",
     "errorType": "message",
+    "regexCheck": "^[a-z].*$",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
-    "username_claimed": "elliottcnet"
+    "username_claimed": "melliott"
   },
   "CTAN": {
     "errorType": "status_code",
@@ -502,8 +498,8 @@
     "username_claimed": "blue"
   },
   "Contently": {
-    "errorMsg": "<title>Leading Content Marketing Platform | Contently</title>",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://contently.com",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://{}.contently.com/",
     "urlMain": "https://contently.com/",
@@ -630,6 +626,7 @@
   },
   "Eintracht Frankfurt Forum": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
@@ -779,14 +776,6 @@
     "urlMain": "https://freesound.org/",
     "username_claimed": "blue"
   },
-  "G2G": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.g2g.com/{}",
-    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
-    "url": "https://www.g2g.com/{}",
-    "urlMain": "https://www.g2g.com/",
-    "username_claimed": "user"
-  },
   "GNOME VCS": {
     "errorType": "response_url",
     "errorUrl": "https://gitlab.gnome.org/{}",
@@ -809,20 +798,21 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorMsg": "<title>Login GeeksforGeeks</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
   },
   "Genius (Artists)": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]{5,50}$",
     "url": "https://genius.com/artists/{}",
     "urlMain": "https://genius.com/",
     "username_claimed": "genius"
   },
   "Genius (Users)": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]*?$",
     "url": "https://genius.com/{}",
     "urlMain": "https://genius.com/",
     "username_claimed": "genius"
@@ -916,6 +906,7 @@
   "Gumroad": {
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.gumroad.com/{}",
     "urlMain": "https://www.gumroad.com/",
     "username_claimed": "blue"
@@ -925,14 +916,6 @@
     "url": "https://www.gutefrage.net/nutzer/{}",
     "urlMain": "https://www.gutefrage.net/",
     "username_claimed": "gutefrage"
-  },
-  "HEXRPG": {
-    "errorMsg": "Error : User ",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
-    "url": "https://www.hexrpg.com/userinfo/{}",
-    "urlMain": "https://www.hexrpg.com/",
-    "username_claimed": "blue"
   },
   "HackTheBox": {
     "errorType": "status_code",
@@ -954,7 +937,11 @@
     "username_claimed": "naveennamani877"
   },
   "HackerNews": {
-    "errorMsg": "No such user.",
+    "::::README::::": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -970,6 +957,7 @@
   "HackerRank": {
     "errorMsg": "Something went wrong",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://hackerrank.com/{}",
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
@@ -1033,8 +1021,7 @@
     "username_claimed": "Micheal"
   },
   "IFTTT": {
-    "errorMsg": "The requested page or file does not exist",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
     "url": "https://www.ifttt.com/p/{}",
     "urlMain": "https://www.ifttt.com/",
@@ -1165,8 +1152,11 @@
     "username_claimed": "blue"
   },
   "Kongregate": {
-    "errorMsg": "Sorry, no account with that name was found.",
-    "errorType": "message",
+    "errorType": "status_code",
+    "headers": {
+      "Accept": "text/html",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
+    },
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
     "urlMain": "https://www.kongregate.com/",
@@ -1211,7 +1201,8 @@
     "username_claimed": "blue"
   },
   "Linktree": {
-    "errorType": "status_code",
+    "errorMsg": "\"statusCode\":404",
+    "errorType": "message",
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne"
@@ -1290,13 +1281,6 @@
     "urlMain": "https://www.mixcloud.com/",
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny"
-  },
-  "Modelhub": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.modelhub.com/{}/videos",
-    "urlMain": "https://www.modelhub.com/",
-    "username_claimed": "secretcrush"
   },
   "Monkeytype": {
     "errorType": "status_code",
@@ -1440,6 +1424,7 @@
   },
   "OpenStreetMap": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.openstreetmap.org/user/{}",
     "urlMain": "https://www.openstreetmap.org/",
     "username_claimed": "blue"
@@ -1449,12 +1434,6 @@
     "url": "https://opensource.com/users/{}",
     "urlMain": "https://opensource.com/",
     "username_claimed": "red"
-  },
-  "Oracle Community": {
-    "errorType": "status_code",
-    "url": "https://community.oracle.com/people/{}",
-    "urlMain": "https://community.oracle.com",
-    "username_claimed": "dev"
   },
   "OurDJTalk": {
     "errorMsg": "The specified member cannot be found",
@@ -1512,6 +1491,7 @@
   },
   "Pinkbike": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
     "username_claimed": "blue"
@@ -1550,8 +1530,8 @@
     "username_claimed": "swiftstickler"
   },
   "Polymart": {
-    "errorMsg": "Looks like we couldn't find this user. Sorry!",
-    "errorType": "message",
+    "errorType": "response_url",
+    "errorUrl": "https://polymart.org/user/-1",
     "url": "https://polymart.org/user/{}",
     "urlMain": "https://polymart.org/",
     "username_claimed": "craciu25yt"
@@ -1772,6 +1752,7 @@
     "username_claimed": "blue"
   },
   "Slides": {
+    "errorCode": 204,
     "errorType": "status_code",
     "url": "https://slides.com/{}",
     "urlMain": "https://slides.com/",
@@ -1832,6 +1813,7 @@
   },
   "Splits.io": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://splits.io/users/{}",
     "urlMain": "https://splits.io",
     "username_claimed": "cambosteve"
@@ -1880,6 +1862,7 @@
   "Strava": {
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
+    "regexCheck": "^[^.]*?$",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
     "username_claimed": "blue"
@@ -1912,12 +1895,15 @@
     "username_claimed": "traktrain"
   },
   "Telegram": {
-    "errorMsg": "<meta property=\"og:description\" content=\"\">",
+    "errorMsg": [
+      "<title>Telegram Messenger</title>",
+      "If you have <strong>Telegram</strong>, you can contact <a class=\"tgme_username_link\" href=\"tg://resolve?domain="
+    ],
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{5,32}[^_]$",
+    "regexCheck": "^[a-zA-Z0-9_]{3,32}[^_]$",
     "url": "https://t.me/{}",
     "urlMain": "https://t.me/",
-    "username_claimed": "roopeshvs"
+    "username_claimed": "blue"
   },
   "Tellonym.me": {
     "errorType": "status_code",
@@ -2208,7 +2194,13 @@
     "username_claimed": "blue"
   },
   "YandexMusic": {
-    "errorType": "status_code",
+    "::::README::::": "The first and third errorMsg relate to geo-restrictions and bot detection/captchas.",
+    "errorMsg": [
+      "Ошибка 404",
+      "<meta name=\"description\" content=\"Открывайте новую музыку каждый день.",
+      "<input type=\"submit\" class=\"CheckboxCaptcha-Button\""
+    ],
+    "errorType": "message",
     "url": "https://music.yandex/users/{}/playlists",
     "urlMain": "https://music.yandex",
     "username_claimed": "ya.playlist"
@@ -2320,6 +2312,7 @@
   },
   "eintracht": {
     "errorType": "status_code",
+    "regexCheck": "^[^.]*?$",
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://eintracht.de",
     "username_claimed": "blue"
@@ -2423,10 +2416,11 @@
     "username_claimed": "blue"
   },
   "jeuxvideo": {
-    "errorMsg": "Vous \u00eates",
-    "errorType": "message",
-    "url": "http://www.jeuxvideo.com/profil/{}?mode=infos",
-    "urlMain": "http://www.jeuxvideo.com",
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://www.jeuxvideo.com/profil/{}",
+    "urlMain": "https://www.jeuxvideo.com",
+    "urlProbe": "https://www.jeuxvideo.com/profil/{}?mode=infos",
     "username_claimed": "adam"
   },
   "kofi": {
@@ -2495,14 +2489,6 @@
     "errorType": "status_code",
     "url": "https://www.mercadolivre.com.br/perfil/{}",
     "urlMain": "https://www.mercadolivre.com.br",
-    "username_claimed": "blue"
-  },
-  "metacritic": {
-    "errorMsg": "User not found",
-    "errorType": "message",
-    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
-    "url": "https://www.metacritic.com/user/{}",
-    "urlMain": "https://www.metacritic.com/",
     "username_claimed": "blue"
   },
   "minds": {
@@ -2657,6 +2643,7 @@
     "isNSFW": true,
     "url": "https://xhamster.com/users/{}",
     "urlMain": "https://xhamster.com",
+    "urlProbe": "https://xhamster.com/users/{}?old_browser=true",
     "username_claimed": "blue"
   },
   "znanylekarz.pl": {
