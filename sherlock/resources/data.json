@@ -1,4 +1,15 @@
 {
+  "1337x": {
+    "errorMsg": [
+      "<title>Error something went wrong.</title>",
+      "<head><title>404 Not Found</title></head>"
+    ],
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{4,12}$",
+    "url": "https://www.1337x.to/user/{}/",
+    "urlMain": "https://www.1337x.to/",
+    "username_claimed": "FitGirl"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -330,6 +341,12 @@
     "urlMain": "https://www.cnet.com/",
     "username_claimed": "melliott"
   },
+  "CSSBattle": {
+    "errorType": "status_code",
+    "url": "https://cssbattle.dev/player/{}",
+    "urlMain": "https://cssbattle.dev",
+    "username_claimed": "beo"
+  },
   "CTAN": {
     "errorType": "status_code",
     "url": "https://ctan.org/author/{}",
@@ -436,6 +453,12 @@
     "url": "https://codesnippets.fandom.com/wiki/User:{}",
     "urlMain": "https://codesnippets.fandom.com",
     "username_claimed": "bob"
+  },
+  "Codeberg": {
+    "errorType": "status_code",
+    "url": "https://codeberg.org/{}",
+    "urlMain": "https://codeberg.org/",
+    "username_claimed": "blue"
   },
   "Codecademy": {
     "errorMsg": "This profile could not be found",
@@ -544,6 +567,15 @@
     "url": "https://cults3d.com/en/users/{}/creations",
     "urlMain": "https://cults3d.com/en",
     "username_claimed": "brown"
+  },
+  "CyberDefenders": {
+    "errorMsg": "<title>Online Cyber Security Blue Team Training - CyberDefenders</title>",
+    "errorType": "message",
+    "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
+    "request_method": "GET",
+    "url": "https://cyberdefenders.org/p/{}",
+    "urlMain": "https://cyberdefenders.org/",
+    "username_claimed": "mlohn"
   },
   "DEV Community": {
     "errorType": "status_code",
@@ -929,6 +961,14 @@
     "urlMain": "https://hackaday.io/",
     "username_claimed": "adam"
   },
+  "HackenProof (Hackers)": {
+    "errorMsg": "<title>Web3\u2019s Largest Ethical Hackers Community | HackenProof</title>",
+    "errorType": "message",
+    "regexCheck": "^[\\w-]{,34}$",
+    "url": "https://hackenproof.com/hackers/{}",
+    "urlMain": "https://hackenproof.com/",
+    "username_claimed": "blazezaria"
+  },
   "HackerEarth": {
     "errorMsg": "404. URL not found.",
     "errorType": "message",
@@ -1061,6 +1101,13 @@
     "urlMain": "https://imgur.com/",
     "urlProbe": "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
     "username_claimed": "blue"
+  },
+  "Instagram": {
+    "errorType": "status_code",
+    "url": "https://instagram.com/{}",
+    "urlMain": "https://instagram.com/",
+    "urlProbe": "https://www.picuki.com/profile/{}",
+    "username_claimed": "instagram"
   },
   "Instructables": {
     "errorType": "status_code",
@@ -1476,6 +1523,13 @@
     "urlMain": "https://www.patreon.com/",
     "username_claimed": "blue"
   },
+  "PentesterLab": {
+    "errorType": "status_code",
+    "regexCheck": "^[\\w]{4,30}$",
+    "url": "https://pentesterlab.com/profile/{}",
+    "urlMain": "https://pentesterlab.com/",
+    "username_claimed": "0day"
+  },
   "PepperIT": {
     "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
     "errorType": "message",
@@ -1805,6 +1859,12 @@
     "urlMain": "https://speedrun.com/",
     "username_claimed": "3Tau"
   },
+  "Spells8": {
+    "errorType": "status_code",
+    "url": "https://forum.spells8.com/u/{}",
+    "urlMain": "https://spells8.com",
+    "username_claimed": "susurrus"
+  },
   "Splice": {
     "errorType": "status_code",
     "url": "https://splice.com/{}",
@@ -1931,6 +1991,14 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
   },
+  "TorrentGalaxy": {
+    "errorMsg": "<title>TGx:Can't show details</title>",
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{3,15}$",
+    "url": "https://torrentgalaxy.to/profile/{}",
+    "urlMain": "https://torrentgalaxy.to/",
+    "username_claimed": "GalaxyRG"
+  },
   "TradingView": {
     "errorType": "status_code",
     "request_method": "GET",
@@ -2023,6 +2091,12 @@
     "url": "https://unsplash.com/@{}",
     "urlMain": "https://unsplash.com/",
     "username_claimed": "jenny"
+  },
+  "Untappd": {
+    "errorType": "status_code",
+    "url": "https://untappd.com/user/{}",
+    "urlMain": "https://untappd.com/",
+    "username_claimed": "untappd"
   },
   "VK": {
     "errorType": "response_url",

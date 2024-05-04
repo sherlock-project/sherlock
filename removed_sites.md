@@ -1178,19 +1178,6 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
   }
 ```
 
-### 1337x
-As of 2021-11-21, 1337x seems to be down causing false positives.
-```json
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
@@ -1697,20 +1684,6 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
     "urlMain": "https://onlyfans.com/",
     "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne"
-  }
-```
-
-## Instagram
-As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
-
-```json
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
   }
 ```
 
