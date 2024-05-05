@@ -133,6 +133,14 @@
     "urlProbe": "https://graphql.anilist.co/",
     "username_claimed": "Josh"
   },
+  "AniWorld": {
+    "errorMsg": "Dieses Profil ist nicht verfügbar",
+    "errorType": "message",
+    "url": "https://aniworld.to/user/profil/{}",
+    "urlMain": "https://aniworld.to/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Apple Developer": {
     "errorType": "status_code",
     "url": "https://developer.apple.com/forums/profile/{}",
