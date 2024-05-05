@@ -138,8 +138,7 @@
     "errorType": "message",
     "url": "https://aniworld.to/user/profil/{}",
     "urlMain": "https://aniworld.to/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_claimed": "blue"
   },
   "Apple Developer": {
     "errorType": "status_code",
