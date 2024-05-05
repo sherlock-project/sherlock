@@ -207,6 +207,13 @@
     "urlMain": "https://www.avizo.cz/",
     "username_claimed": "blue"
   },
+  "HudsonRock": {
+    "errorType": "message",
+    "errorMsg": "No results",
+    "urlMain": "https://hudsonrock.com",
+    "url": "https://cavalier.hudsonrock.com/api/json/v2/osint-tools/search-by-username?username={}",
+    "username_claimed": "testadmin"
+  },
   "BLIP.fm": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
