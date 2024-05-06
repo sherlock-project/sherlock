@@ -33,7 +33,7 @@
                 },
                 "request_method": {
                     "type": "string",
-                    "enum": [ "GET", "POST", "HEAD" ]
+                    "enum": [ "GET", "POST", "HEAD", "PUT" ]
                 },
                 "errorType": {
                     "type": "string",
