@@ -1752,35 +1752,6 @@ As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exs
   }
 ```
 
-
-## YouTube
-As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how Sherlock currently works
-
-
-```json
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ## GunsAndAmmo
 As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
 ```json
