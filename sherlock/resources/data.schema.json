@@ -69,6 +69,12 @@
                     "properties": { "errorType": { "const": "status_code" } }
                 }
             },
+            "if": { "properties": { "errorType": { "const": "message" } } },
+            "then": { "required": [ "errorMsg" ] },
+            "else": {
+                "if": { "properties": { "errorType": { "const": "response_url" } } },
+                "then": { "required": [ "errorUrl" ] }
+            },
             "additionalProperties": false
         }
     }
