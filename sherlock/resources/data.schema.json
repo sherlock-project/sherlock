@@ -16,6 +16,10 @@
                 "isNSFW": { "type": "boolean" },
                 "headers": { "type": "object" },
                 "request_payload": { "type": "object" },
+                "__comment__": {
+                    "type": "string",
+                    "description": "Used to clarify important target information if (and only if) a commit message would not suffice.\nThis key should not be parsed anywhere within Sherlock.",
+                },
                 "tags": {
                     "oneOf": [
                         {
