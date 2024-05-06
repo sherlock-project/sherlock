@@ -23,17 +23,8 @@
                 },
                 "tags": {
                     "oneOf": [
-                        {
-                            "type": "string",
-                            "enum": [ "adult", "gaming" ]
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [ "adult", "gaming" ]
-                            }
-                        }
+                        { "$ref": "#/$defs/tag" },
+                        { "type": "array", "items": { "$ref": "#/$defs/tag" } }
                     ]
                 },
                 "request_method": {
@@ -78,5 +69,8 @@
             },
             "additionalProperties": false
         }
+    },
+    "$defs": {
+        "tag": { "type": "string", "enum": [ "adult", "gaming" ] }
     }
 }
