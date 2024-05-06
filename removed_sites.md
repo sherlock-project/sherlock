@@ -339,13 +339,6 @@ user names were available.
   },
 ```
 
-## LinkedIn
-
-This was attempted to be added around 2019-08-26, but the pull request was never merged.
-It turns out that LinkedIn requires that you have an account before they will let you
-check for other account.  So, this site will not work with the current design of
-Sherlock.
-
 ## StreamMe
 
 On 2019-04-07, I get a Timed Out message from the website.  It has not
