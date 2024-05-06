@@ -1211,8 +1211,8 @@
     "username_claimed": "blue"
   },
   "Kick": {
-    "errorType": "message",
     "errorMsg": "Not Found",
+    "errorType": "message",
     "url": "https://kick.com/{}",
     "urlMain": "https://kick.com/",
     "urlProbe": "https://kick.com/api/v2/channels/{}",
