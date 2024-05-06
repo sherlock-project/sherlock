@@ -424,7 +424,7 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 ## InsaneJournal
 
 As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
-Since we were not able to find the critera for a valid username, the best thing to do now is to remove it.
+Since we were not able to find the criteria for a valid username, the best thing to do now is to remove it.
 
 ```json
   "InsaneJournal": {
@@ -625,7 +625,7 @@ removed
 
 ## Coderwall
 As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
-I have tried to find out what Coderwall's criteria is for a valid username, but unfortunetly I have not been able to 
+I have tried to find out what Coderwall's criteria is for a valid username, but unfortunately I have not been able to 
 find it and because of this, the best thing we can do now is to remove it.
 ```json
   "Coderwall": {
@@ -1178,19 +1178,6 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
   }
 ```
 
-### 1337x
-As of 2021-11-21, 1337x seems to be down causing false positives.
-```json
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
@@ -1700,20 +1687,6 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
   }
 ```
 
-## Instagram
-As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
-
-```json
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  }
-```
-
 ## OK
 As of 2023.04.21, Ok.ru returns false positives
 ```json
@@ -1827,7 +1800,7 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
 ```
 
 ## TikTok
-As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existance of usernames. Proxitok does not work either.
+As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existence of usernames. Proxitok does not work either.
 
 ```json
   "TikTok": {
@@ -1851,7 +1824,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Virgool
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Virgool returns false positives.
 ```json
   "Virgool": {
     "errorMsg": "\u06f4\u06f0\u06f4",
@@ -1863,7 +1836,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Whonix Forum
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Whonix Forum returns false positives.
 ```json
   "Whonix Forum": {
     "errorType": "status_code",
@@ -1874,7 +1847,7 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Ebio
-As of 2023.12.21, Lolchess returns false positives.
+As of 2023.12.21, Ebio returns false positives.
 ```json
   "ebio.gg": {
     "errorType": "status_code",
@@ -1882,4 +1855,66 @@ As of 2023.12.21, Lolchess returns false positives.
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
   },
+```
+
+## HexRPG
+__2024-04-07 :__ HexRPG behind authentication wall. Unable to check usernames without logging in.
+```json
+  "HexRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Oracle Communities
+__2024-04-07 :__ Oracle Communities behind authentication wall. Unable to check usernames without logging in.
+```json
+  "Oracle Communities": {
+    "errorType": "status_code",
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "dev"
+  }
+```
+
+## Metacritic
+__2024-04-07 :__ Non-existent users seemingly displayed as real users with no activity. Needs adjustment.
+```json
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## G2G
+__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+```json
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user"
+  }
+```
+
+## Bitcoin Forum
+__2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
+```json
+"BitCoinForum": {
+    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorType": "message",
+    "url": "https://bitcoinforum.com/profile/{}",
+    "urlMain": "https://bitcoinforum.com",
+    "username_claimed": "bitcoinforum.com"
+  }
 ```
