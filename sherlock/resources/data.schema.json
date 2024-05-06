@@ -6,6 +6,7 @@
     "patternProperties": {
         "^(?!\\$).*?$": {
             "type": "object",
+            "description": "User-friendly target name",
             "required": [ "url", "urlMain", "errorType", "username_claimed" ],
             "properties": {
                 "url": { "type": "string" },
