@@ -87,13 +87,6 @@
     "urlMain": "https://kiwifarms.net/",
     "username_claimed": "blue"
   },
-  "Linkedin": {
-    "errorMsg": "could not be found",
-    "errorType": "message",
-    "url": "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex"
-  },
   "NPM-Package": {
     "errorType": "status_code",
     "url": "https://www.npmjs.com/package/{}",
