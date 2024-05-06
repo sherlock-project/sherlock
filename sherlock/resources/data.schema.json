@@ -3,6 +3,9 @@
     "title": "Sherlock Targets",
     "description": "Social media target to probe for existence of usernames",
     "type": "object",
+    "properties": {
+        "$schema": { "type": "string" }
+    },
     "patternProperties": {
         "^(?!\\$).*?$": {
             "type": "object",
@@ -70,6 +73,7 @@
             "additionalProperties": false
         }
     },
+    "additionalProperties": false,
     "$defs": {
         "tag": { "type": "string", "enum": [ "adult", "gaming" ] }
     }
