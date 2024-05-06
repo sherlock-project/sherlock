@@ -90,15 +90,6 @@
     "urlMain": "https://www.airliners.net/",
     "username_claimed": "yushinlin"
   },
-  "YouTube": {
-    "errorType": "status_code",
-    "url": "https://www.youtube.com/@{}",
-    "urlMain": "https://www.youtube.com/",
-    "username_claimed": "youtube",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
-    }
-  },
   "Alik.cz": {
     "errorType": "status_code",
     "url": "https://www.alik.cz/u/{}",
@@ -2339,6 +2330,15 @@
     "url": "https://youporn.com/uservids/{}",
     "urlMain": "https://youporn.com",
     "username_claimed": "blue"
+  },
+  "YouTube": {
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
+    },
+    "url": "https://www.youtube.com/@{}",
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed": "youtube"
   },
   "Zhihu": {
     "errorMsg": "404",
