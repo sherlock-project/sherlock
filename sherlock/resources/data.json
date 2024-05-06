@@ -90,6 +90,16 @@
     "urlMain": "https://www.airliners.net/",
     "username_claimed": "yushinlin"
   },
+  "LinkedIn": {
+    "url": "https://linkedin.com/in/{}",
+    "urlMain": "https://linkedin.com",
+    "request_method": "GET",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
+    },
+    "username_claimed": "paulpfeister"
+  },
   "Alik.cz": {
     "errorType": "status_code",
     "url": "https://www.alik.cz/u/{}",
