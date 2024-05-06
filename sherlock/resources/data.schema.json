@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Sherlock Targets",
+    "description": "Social media target to probe for existence of usernames",
+    "type": "object",
+    "patternProperties": {
+        "^(?!\\$).*?$": {
+            "type": "object",
+            "required": [ "url", "urlMain", "errorType", "username_claimed" ],
+            "properties": {
+                "url": { "type": "string" },
+                "urlMain": { "type": "string" },
+                "urlProbe": { "type": "string" },
+                "username_claimed": { "type": "string" },
+                "regexCheck": { "type": "string" },
+                "isNSFW": { "type": "boolean" },
+                "headers": { "type": "object" },
+                "request_payload": { "type": "object" },
+                "tags": {
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "enum": [ "adult", "gaming" ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [ "adult", "gaming" ]
+                            }
+                        }
+                    ]
+                },
+                "request_method": {
+                    "type": "string",
+                    "enum": [ "GET", "POST", "HEAD" ]
+                },
+                "errorType": {
+                    "type": "string",
+                    "enum": [ "message", "response_url", "status_code" ]
+                },
+                "errorMsg": {
+                    "oneOf": [
+                        { "type": "string" },
+                        { "type": "array", "items": { "type": "string" } }
+                    ]
+                },
+                "errorCode": {
+                    "oneOf": [
+                        { "type": "integer" },
+                        { "type": "array", "items": { "type": "integer" } }
+                    ]
+                },
+                "errorUrl": { "type": "string" },
+                "response_url": { "type": "string" }
+            },
+            "additionalProperties": false
+        }
+    }
+}

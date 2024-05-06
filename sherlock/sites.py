@@ -152,6 +152,11 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
+        
+        try:
+            site_data.pop('$schema')
+        except:
+            pass
 
         self.sites = {}
 
