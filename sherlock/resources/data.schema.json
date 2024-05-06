@@ -18,7 +18,7 @@
                 "request_payload": { "type": "object" },
                 "__comment__": {
                     "type": "string",
-                    "description": "Used to clarify important target information if (and only if) a commit message would not suffice.\nThis key should not be parsed anywhere within Sherlock.",
+                    "description": "Used to clarify important target information if (and only if) a commit message would not suffice.\nThis key should not be parsed anywhere within Sherlock."
                 },
                 "tags": {
                     "oneOf": [
@@ -57,6 +57,17 @@
                 },
                 "errorUrl": { "type": "string" },
                 "response_url": { "type": "string" }
+            },
+            "dependencies": {
+                "errorMsg": {
+                    "properties" : { "errorType": { "const": "message" } }
+                },
+                "errorUrl": {
+                    "properties": { "errorType": { "const": "response_url" } }
+                },
+                "errorCode": {
+                    "properties": { "errorType": { "const": "status_code" } }
+                }
             },
             "additionalProperties": false
         }
