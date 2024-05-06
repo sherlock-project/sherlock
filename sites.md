@@ -1,4 +1,4 @@
-## List Of Supported Sites (404 Sites In Total!)
+## List Of Supported Sites (405 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.1337x.to/) [1337x](https://www.1337x.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
@@ -16,6 +16,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.allthingsworn.com) [All Things Worn](https://www.allthingsworn.com) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://allmylinks.com/) [AllMyLinks](https://allmylinks.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://aminoapps.com) [Amino](https://aminoapps.com) 
+1. ![](https://www.google.com/s2/favicons?domain=https://aniworld.to/) [AniWorld](https://aniworld.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://anilist.co/) [Anilist](https://anilist.co/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://developer.apple.com) [Apple Developer](https://developer.apple.com) 
 1. ![](https://www.google.com/s2/favicons?domain=https://discussions.apple.com) [Apple Discussions](https://discussions.apple.com) 
