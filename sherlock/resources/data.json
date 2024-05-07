@@ -325,6 +325,12 @@
     "urlMain": "https://community.brave.com/",
     "username_claimed": "blue"
   },
+  "BugCrowd": {
+    "errorType": "status_code",
+    "url": "https://bugcrowd.com/{}",
+    "urlMain": "https://bugcrowd.com/",
+    "username_claimed": "ppfeister"
+  },
   "BuyMeACoffee": {
     "errorType": "status_code",
     "regexCheck": "[a-zA-Z0-9]{3,15}",
@@ -1483,12 +1489,6 @@
     "urlMain": "https://ninjakiwi.com/",
     "username_claimed": "Kyruko"
   },
-  "BugCrowd": {
-    "url": "https://bugcrowd.com/{}",
-    "urlMain": "https://bugcrowd.com/",
-    "errorType": "status_code",
-    "username_claimed": "ppfeister"
-  },
   "NintendoLife": {
     "errorType": "status_code",
     "url": "https://www.nintendolife.com/users/{}",
@@ -1972,11 +1972,11 @@
     "username_claimed": "blue"
   },
   "Steam Community (User)": {
+    "errorMsg": "The specified profile could not be found",
+    "errorType": "message",
     "url": "https://steamcommunity.com/id/{}/",
     "urlMain": "https://steamcommunity.com/",
-    "username_claimed": "blue",
-    "errorType": "message",
-    "errorMsg":"The specified profile could not be found"
+    "username_claimed": "blue"
   },
   "Strava": {
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",

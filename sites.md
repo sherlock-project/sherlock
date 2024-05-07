@@ -1,4 +1,4 @@
-## List Of Supported Sites (406 Sites In Total!)
+## List Of Supported Sites (408 Sites In Total!)
 1. ![](https://www.google.com/s2/favicons?domain=https://www.1337x.to/) [1337x](https://www.1337x.to/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://2Dimensions.com/) [2Dimensions](https://2Dimensions.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=http://forum.3dnews.ru/) [3dnews](http://forum.3dnews.ru/) 
@@ -46,6 +46,7 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://pt.bongacams.com) [BongaCams](https://pt.bongacams.com) **(NSFW)**
 1. ![](https://www.google.com/s2/favicons?domain=https://www.bookcrossing.com/) [Bookcrossing](https://www.bookcrossing.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://community.brave.com/) [BraveCommunity](https://community.brave.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://bugcrowd.com/) [BugCrowd](https://bugcrowd.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.buymeacoffee.com/) [BuyMeACoffee](https://www.buymeacoffee.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://buzzfeed.com/) [BuzzFeed](https://buzzfeed.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.cgtrader.com) [CGTrader](https://www.cgtrader.com) 
@@ -284,7 +285,8 @@
 1. ![](https://www.google.com/s2/favicons?domain=https://www.sports.ru/) [SportsRU](https://www.sports.ru/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://open.spotify.com/) [Spotify](https://open.spotify.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://robertsspaceindustries.com/) [Star Citizen](https://robertsspaceindustries.com/) 
-1. ![](https://www.google.com/s2/favicons?domain=https://steamcommunity.com/) [SteamGroup](https://steamcommunity.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://steamcommunity.com/) [Steam Community (Group)](https://steamcommunity.com/) 
+1. ![](https://www.google.com/s2/favicons?domain=https://steamcommunity.com/) [Steam Community (User)](https://steamcommunity.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://www.strava.com/) [Strava](https://www.strava.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://forum.sublimetext.com/) [SublimeForum](https://forum.sublimetext.com/) 
 1. ![](https://www.google.com/s2/favicons?domain=https://tetr.io) [TETR.IO](https://tetr.io) 
