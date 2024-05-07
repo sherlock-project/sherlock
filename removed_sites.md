@@ -1311,20 +1311,6 @@ As og 2022-05-01, Countable returns false positives
   },
 ```
 
-## Steam
-
-As og 2022-05-01, Steam returns false positives
-```json
-  "Steam": {
-    "errorMsg": "The specified profile could not be found",
-    "errorType": "message",
-    "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## Raidforums
 
 Raidforums is [now run by the FBI](https://twitter.com/janomine/status/1499453777648234501?s=21)

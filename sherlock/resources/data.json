@@ -1483,6 +1483,12 @@
     "urlMain": "https://ninjakiwi.com/",
     "username_claimed": "Kyruko"
   },
+  "BugCrowd": {
+    "url": "https://bugcrowd.com/{}",
+    "urlMain": "https://bugcrowd.com/",
+    "errorType": "status_code",
+    "username_claimed": "ppfeister"
+  },
   "NintendoLife": {
     "errorType": "status_code",
     "url": "https://www.nintendolife.com/users/{}",
@@ -1958,12 +1964,19 @@
     "urlMain": "https://robertsspaceindustries.com/",
     "username_claimed": "blue"
   },
-  "SteamGroup": {
+  "Steam Community (Group)": {
     "errorMsg": "No group could be retrieved for the given URL",
     "errorType": "message",
     "url": "https://steamcommunity.com/groups/{}",
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
+  },
+  "Steam Community (User)": {
+    "url": "https://steamcommunity.com/id/{}/",
+    "urlMain": "https://steamcommunity.com/",
+    "username_claimed": "blue",
+    "errorType": "message",
+    "errorMsg":"The specified profile could not be found"
   },
   "Strava": {
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
