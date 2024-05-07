@@ -175,7 +175,7 @@ class SitesInformation:
 
         return
 
-    def remove_nsfw_sites(self):
+    def remove_nsfw_sites(self, do_not_remove: list[str] = []):
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
 
@@ -186,8 +186,9 @@ class SitesInformation:
         None
         """
         sites = {}
+        do_not_remove = [site.casefold() for site in do_not_remove]
         for site in self.sites:
-            if self.sites[site].is_nsfw:
+            if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
                 continue
             sites[site] = self.sites[site]  
         self.sites =  sites
