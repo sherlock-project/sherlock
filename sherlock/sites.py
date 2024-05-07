@@ -175,7 +175,7 @@ class SitesInformation:
 
         return
 
-    def remove_nsfw_sites(self, do_not_remove: list[str] = []):
+    def remove_nsfw_sites(self, do_not_remove: list = []):
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
 
