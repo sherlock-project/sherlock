@@ -1,4 +1,5 @@
 {
+  "$schema": "data.schema.json",
   "1337x": {
     "errorMsg": [
       "<title>Error something went wrong.</title>",
@@ -498,8 +499,7 @@
     "url": "https://codeforces.com/profile/{}",
     "urlMain": "https://codeforces.com/",
     "urlProbe": "https://codeforces.com/api/user.info?handles={}",
-    "username_claimed": "tourist",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_claimed": "tourist"
   },
   "Codepen": {
     "errorType": "status_code",
@@ -996,7 +996,7 @@
     "username_claimed": "naveennamani877"
   },
   "HackerNews": {
-    "::::README::::": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
+    "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
     "errorMsg": [
       "No such user.",
       "Sorry."
@@ -1098,8 +1098,7 @@
     "errorUrl": "https://irc-galleria.net/users/search?username={}",
     "url": "https://irc-galleria.net/user/{}",
     "urlMain": "https://irc-galleria.net/",
-    "username_claimed": "appas",
-    "username_unclaimed": "noonewouldeverusethis77"
+    "username_claimed": "appas"
   },
   "Icons8 Community": {
     "errorType": "status_code",
@@ -1186,7 +1185,6 @@
   },
   "Jimdo": {
     "errorType": "status_code",
-    "noPeriod": "True",
     "regexCheck": "^[a-zA-Z0-9@_-]$",
     "url": "https://{}.jimdosite.com",
     "urlMain": "https://jimdosite.com/",
@@ -1386,8 +1384,7 @@
     "url": "https://monkeytype.com/profile/{}",
     "urlMain": "https://monkeytype.com/",
     "urlProbe": "https://api.monkeytype.com/users/{}/profile",
-    "username_claimed": "Lost_Arrow",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_claimed": "Lost_Arrow"
   },
   "Motherless": {
     "errorMsg": "no longer a member",
@@ -2327,7 +2324,7 @@
     "username_claimed": "blue"
   },
   "YandexMusic": {
-    "::::README::::": "The first and third errorMsg relate to geo-restrictions and bot detection/captchas.",
+    "__comment__": "The first and third errorMsg relate to geo-restrictions and bot detection/captchas.",
     "errorMsg": [
       "\u041e\u0448\u0438\u0431\u043a\u0430 404",
       "<meta name=\"description\" content=\"\u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0439\u0442\u0435 \u043d\u043e\u0432\u0443\u044e \u043c\u0443\u0437\u044b\u043a\u0443 \u043a\u0430\u0436\u0434\u044b\u0439 \u0434\u0435\u043d\u044c.",
