@@ -1483,6 +1483,12 @@
     "urlMain": "https://ninjakiwi.com/",
     "username_claimed": "Kyruko"
   },
+  "BugCrowd": {
+    "url": "https://bugcrowd.com/{}",
+    "urlMain": "https://bugcrowd.com/",
+    "errorType": "status_code",
+    "username_claimed": "ppfeister"
+  },
   "NintendoLife": {
     "errorType": "status_code",
     "url": "https://www.nintendolife.com/users/{}",
