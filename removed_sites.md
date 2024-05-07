@@ -1088,21 +1088,6 @@ As of 2021-06-27, NameMC uses captcha through CloudFlare which prevents us from 
   },
 ```
 
-## SteamID
-
-As of 2021-06-27, Steam uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
-```json
-  "Steamid": {
-    "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
-    "errorType": "message",
-    "url": "https://steamid.uk/profile/{}",
-    "urlMain": "https://steamid.uk/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
-
 ## TripAdvisor
 
 As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
