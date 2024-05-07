@@ -240,7 +240,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username)
+        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
