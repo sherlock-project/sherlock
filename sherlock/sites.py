@@ -153,10 +153,7 @@ class SitesInformation:
                                         f"data file '{data_file_path}'."
                                         )
         
-        try:
-            site_data.pop('$schema')
-        except:
-            pass
+        site_data.pop('$schema', None)
 
         self.sites = {}
 
