@@ -9,7 +9,10 @@ with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
 
 # Removes schema-specific keywords for proper processing
 social_networks: dict = dict(data)
-social_networks.pop('$schema')
+try:
+    social_networks.pop('$schema')
+except:
+    pass
 
 # Sort the social networks in alphanumeric order
 social_networks: list = sorted(social_networks.items())
