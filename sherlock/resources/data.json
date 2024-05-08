@@ -354,8 +354,7 @@
     "username_claimed": "blue"
   },
   "CNET": {
-    "errorMsg": "null null - CNET",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-z].*$",
     "url": "https://www.cnet.com/profiles/{}/",
     "urlMain": "https://www.cnet.com/",
