@@ -177,6 +177,8 @@ class SitesInformation:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  Missing attribute {error}."
                 )
+            except TypeError as error:
+                print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
 
         return
 
