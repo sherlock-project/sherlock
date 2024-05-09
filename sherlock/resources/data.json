@@ -1296,9 +1296,9 @@
     "username_claimed": "paulpfeister"
   },
   "Linktree": {
-    "regexCheck": "^[\\w\\.]{2,30}$",
     "errorMsg": "\"statusCode\":404",
     "errorType": "message",
+    "regexCheck": "^[\\w\\.]{2,30}$",
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne"
