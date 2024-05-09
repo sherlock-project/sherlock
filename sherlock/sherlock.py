@@ -29,7 +29,7 @@ from colorama import init
 from argparse import ArgumentTypeError
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.3"
+__version__ = "0.14.4"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -423,7 +423,7 @@ def sherlock(
             # Type consistency, allowing for both singlets and lists in manifest
             if isinstance(error_codes, int):
                 error_codes = [error_codes]
-            
+
             if error_codes is not None and r.status_code in error_codes:
                 query_status = QueryStatus.AVAILABLE
             elif r.status_code >= 300 or r.status_code < 200:
