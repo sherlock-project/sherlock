@@ -163,6 +163,7 @@ def sherlock(
     unique_tor=False,
     proxy=None,
     timeout=60,
+    max_workers:int=20
 ):
     """Run Sherlock Analysis.
 
@@ -207,11 +208,8 @@ def sherlock(
         underlying_session = requests.session()
         underlying_request = requests.Request()
 
-    # Limit number of workers to 20.
-    # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
-    else:
+    # Reduce worker count if greater than size of target pool
+    if len(site_data) < max_workers:
         max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
@@ -596,6 +594,13 @@ def main():
         help="Load data from a JSON file or an online, valid, JSON file.",
     )
     parser.add_argument(
+        "--workers",
+        type=int,
+        default=20,
+        dest="workers",
+        help="Set the maximum number of workers for Sherlock (Default: 20)"
+    )
+    parser.add_argument(
         "--timeout",
         action="store",
         metavar="TIMEOUT",
@@ -777,6 +782,7 @@ def main():
             unique_tor=args.unique_tor,
             proxy=args.proxy,
             timeout=args.timeout,
+            max_workers=args.workers
         )
 
         if args.output:
