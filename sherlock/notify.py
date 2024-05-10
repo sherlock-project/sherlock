@@ -238,6 +238,15 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.YELLOW + f" {msg}")
+                
+        elif result.status == QueryStatus.WAF:
+            if self.print_all:
+                print(Style.BRIGHT + Fore.WHITE + "[" +
+                      Fore.RED + "-" +
+                      Fore.WHITE + "]" +
+                      Fore.GREEN + f" {self.result.site_name}:" +
+                      Fore.RED + " Blocked by bot detection" +
+                      Fore.YELLOW + " (proxy may help)")
 
         else:
             # It should be impossible to ever get here...

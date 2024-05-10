@@ -29,7 +29,7 @@ from colorama import init
 from argparse import ArgumentTypeError
 
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.3"
+__version__ = "0.14.4"
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -232,7 +232,7 @@ def sherlock(
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
         headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0",
         }
 
         if "headers" in net_info:
@@ -240,7 +240,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username)
+        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -351,7 +351,6 @@ def sherlock(
 
         # Get the expected error type
         error_type = net_info["errorType"]
-        error_code = net_info.get("errorCode")
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -378,8 +377,19 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
+        # As WAFs advance and evolve, they will occasionally block Sherlock and lead to false positives
+        # and negatives. Fingerprints should be added here to filter results that fail to bypass WAFs.
+        # Fingerprints should be highly targetted. Comment at the end of each fingerprint to indicate target and date.
+        WAFHitMsgs = [
+            '.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark .big-button,body.dark .pow-button{background-color:#4693ff;color:#1d1d1d}body.dark #challenge-success-text{background-image:url(data:image/svg+xml;base64,', # 2024-04-08 Cloudflare
+            '{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
+        ]
+
         if error_text is not None:
             error_context = error_text
+
+        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
 
         elif error_type == "message":
             # error_flag True denotes no error found in the HTML
@@ -407,13 +417,16 @@ def sherlock(
             else:
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "status_code":
-            # Checks if the Status Code is equal to the optional "errorCode" given in 'data.json'
-            if error_code == r.status_code:
+            error_codes = net_info.get("errorCode")
+            query_status = QueryStatus.CLAIMED
+
+            # Type consistency, allowing for both singlets and lists in manifest
+            if isinstance(error_codes, int):
+                error_codes = [error_codes]
+
+            if error_codes is not None and r.status_code in error_codes:
                 query_status = QueryStatus.AVAILABLE
-            # Checks if the status code of the response is 2XX
-            elif not r.status_code >= 300 or r.status_code < 200:
-                query_status = QueryStatus.CLAIMED
-            else:
+            elif r.status_code >= 300 or r.status_code < 200:
                 query_status = QueryStatus.AVAILABLE
         elif error_type == "response_url":
             # For this detection method, we have turned off the redirect.
@@ -562,7 +575,7 @@ def main():
         action="append",
         metavar="SITE_NAME",
         dest="site_list",
-        default=None,
+        default=[],
         help="Limit analysis to just the listed sites. Add multiple options to specify more than one site.",
     )
     parser.add_argument(
@@ -712,13 +725,13 @@ def main():
         sys.exit(1)
 
     if not args.nsfw:
-        sites.remove_nsfw_sites()
+        sites.remove_nsfw_sites(do_not_remove=args.site_list)
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
     site_data_all = {site.name: site.information for site in sites}
-    if args.site_list is None:
+    if args.site_list == []:
         # Not desired to look at a sub-set of sites
         site_data = site_data_all
     else:

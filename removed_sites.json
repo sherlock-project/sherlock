@@ -87,13 +87,6 @@
     "urlMain": "https://kiwifarms.net/",
     "username_claimed": "blue"
   },
-  "Linkedin": {
-    "errorMsg": "could not be found",
-    "errorType": "message",
-    "url": "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex"
-  },
   "NPM-Package": {
     "errorType": "status_code",
     "url": "https://www.npmjs.com/package/{}",
@@ -492,13 +485,6 @@
     "urlMain": "https://www.cloob.com/",
     "username_claimed": "blue"
   },
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko"
-  },
   "TM-Ladder": {
     "errorMsg": "player unknown or invalid",
     "errorType": "message",
@@ -571,13 +557,6 @@
     "errorType": "status_code",
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
-    "username_claimed": "blue"
-  },
-  "Steam": {
-    "errorMsg": "The specified profile could not be found",
-    "errorType": "message",
-    "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
   "Raidforums": {
@@ -763,14 +742,6 @@
     "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
     "username_claimed": "theemilylynne"
   },
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  },
   "OK": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
@@ -811,27 +782,6 @@
     "urlMain": "https://quizlet.com",
     "username_claimed": "blue"
   },
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
   "GunsAndAmmo": {
     "errorType": "status_code",
     "url": "https://forums.gunsandammo.com/profile/{}",
@@ -869,5 +819,42 @@
     "url": "https://ebio.gg/{}",
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
+  },
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue"
+  },
+  "Oracle Communities": {
+    "errorType": "status_code",
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "dev"
+  },
+  "HexRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue"
+  },
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user"
+  },
+  "BitCoinForum": {
+    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorType": "message",
+    "url": "https://bitcoinforum.com/profile/{}",
+    "urlMain": "https://bitcoinforum.com",
+    "username_claimed": "bitcoinforum.com"
   }
 }

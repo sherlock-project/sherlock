@@ -339,13 +339,6 @@ user names were available.
   },
 ```
 
-## LinkedIn
-
-This was attempted to be added around 2019-08-26, but the pull request was never merged.
-It turns out that LinkedIn requires that you have an account before they will let you
-check for other account.  So, this site will not work with the current design of
-Sherlock.
-
 ## StreamMe
 
 On 2019-04-07, I get a Timed Out message from the website.  It has not
@@ -1178,19 +1171,6 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
   }
 ```
 
-### 1337x
-As of 2021-11-21, 1337x seems to be down causing false positives.
-```json
-  "1337x": {
-    "errorMsg": "Bad Username",
-    "errorType": "message",
-    "url": "https://1337x.to/user/{}/",
-    "urlMain": "https://1337x.to",
-    "username_claimed": "TheMorozko",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ### TM-Ladder
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
@@ -1326,20 +1306,6 @@ As og 2022-05-01, Countable returns false positives
     "errorType": "status_code",
     "url": "https://www.countable.us/{}",
     "urlMain": "https://www.countable.us/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## Steam
-
-As og 2022-05-01, Steam returns false positives
-```json
-  "Steam": {
-    "errorMsg": "The specified profile could not be found",
-    "errorType": "message",
-    "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7"
   },
@@ -1700,20 +1666,6 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
   }
 ```
 
-## Instagram
-As of 2023.04.21, Instagram returns false positives as picuki.com was used to query for usernames but they now user Cloudflare
-
-```json
-  "Instagram": {
-    "errorMsg": "Nothing found!",
-    "errorType": "message",
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
-    "username_claimed": "blue"
-  }
-```
-
 ## OK
 As of 2023.04.21, Ok.ru returns false positives
 ```json
@@ -1786,35 +1738,6 @@ As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exs
   }
 ```
 
-
-## YouTube
-As of 2023.08.29, YouTube returns false positives as we need to accept their TOC but thats not possible with how Sherlock currently works
-
-
-```json
-  "Youtube Channel": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/c/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "mkbhd"
-  },
-  "Youtube User": {
-    "errorCode": 404,
-    "errorType": "status_code",
-    "headers": {
-      "Cookie": "CONSENT=YES+cb.20210418-17-p0.it+FX+917; "
-    },
-    "url": "https://www.youtube.com/user/{}",
-    "urlMain": "https://www.youtube.com",
-    "username_claimed": "pewdiepie",
-    "username_unclaimed": "noonewouldeverusethis7"
-  }
-```
-
 ## GunsAndAmmo
 As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
 ```json
@@ -1882,4 +1805,66 @@ As of 2023.12.21, Ebio returns false positives.
     "urlMain": "https:/ebio.gg",
     "username_claimed": "dev"
   },
+```
+
+## HexRPG
+__2024-04-07 :__ HexRPG behind authentication wall. Unable to check usernames without logging in.
+```json
+  "HexRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Oracle Communities
+__2024-04-07 :__ Oracle Communities behind authentication wall. Unable to check usernames without logging in.
+```json
+  "Oracle Communities": {
+    "errorType": "status_code",
+    "url": "https://community.oracle.com/people/{}",
+    "urlMain": "https://community.oracle.com",
+    "username_claimed": "dev"
+  }
+```
+
+## Metacritic
+__2024-04-07 :__ Non-existent users seemingly displayed as real users with no activity. Needs adjustment.
+```json
+  "metacritic": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "regexCheck": "^(?![-_].)[A-Za-z0-9-_]{3,15}$",
+    "url": "https://www.metacritic.com/user/{}",
+    "urlMain": "https://www.metacritic.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## G2G
+__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+```json
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{2,11}$",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user"
+  }
+```
+
+## Bitcoin Forum
+__2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
+```json
+"BitCoinForum": {
+    "errorMsg": "The user whose profile you are trying to view does not exist.",
+    "errorType": "message",
+    "url": "https://bitcoinforum.com/profile/{}",
+    "urlMain": "https://bitcoinforum.com",
+    "username_claimed": "bitcoinforum.com"
+  }
 ```
