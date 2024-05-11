@@ -14,6 +14,9 @@ __pycache__/
 # Pip
 src/
 
+# Pip / PyProject Devel & Installation
+*.egg-info/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb
