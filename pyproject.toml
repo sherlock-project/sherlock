@@ -44,3 +44,6 @@ version = { attr = "sherlock.__version__" }
 
 [tool.setuptools]
 package-dir = {"" = "sherlock"}
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]
