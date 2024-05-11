@@ -40,17 +40,17 @@ $ python3 -m pip install -r requirements.txt
 ```console
 $ python3 sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
-                [--output OUTPUT] [--tor] [--unique-tor] [--csv]
+                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.14.2)
+Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
-                        Check similar usernames using {%} (replace to '_', '-', '.').
+                        Check similar usernames using {?} (replace to '_', '-', '.').
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -70,7 +70,7 @@ optional arguments:
                         path.
   --csv                 Create Comma-Separated Values (CSV) File.
   --xlsx                Create the standard file for the modern Microsoft Excel
-                        spreadsheet (xslx).
+                        spreadsheet (xlsx).
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to
                         specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
@@ -170,9 +170,13 @@ If some sites are failing due to connection problems (site is down, in maintenan
 you can exclude them from tests by creating a `tests/.excluded_sites` file with a
 list of sites to ignore (one site name per line).
 
-## Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/sherlock-project/sherlock.svg)](https://starchart.cc/sherlock-project/sherlock)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date" />
+  <img alt="Sherlock Project Star History Chart" src="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date" />
+</picture>
 
 ## License
 

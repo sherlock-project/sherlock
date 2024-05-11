@@ -152,6 +152,8 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
+        
+        site_data.pop('$schema', None)
 
         self.sites = {}
 
@@ -172,10 +174,12 @@ class SitesInformation:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  Missing attribute {error}."
                 )
+            except TypeError as error:
+                print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
 
         return
 
-    def remove_nsfw_sites(self):
+    def remove_nsfw_sites(self, do_not_remove: list = []):
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
 
@@ -186,8 +190,9 @@ class SitesInformation:
         None
         """
         sites = {}
+        do_not_remove = [site.casefold() for site in do_not_remove]
         for site in self.sites:
-            if self.sites[site].is_nsfw:
+            if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
                 continue
             sites[site] = self.sites[site]  
         self.sites =  sites
