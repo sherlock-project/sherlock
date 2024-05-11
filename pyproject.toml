@@ -42,8 +42,8 @@ classifiers = [
 dependencies = { file = [ "requirements.txt" ] }
 version = { attr = "sherlock.__version__" }
 
-[tool.setuptools.packages.find]
-where = ["sherlock"]
+[tool.setuptools]
+package-dir = {"" = "sherlock"}
 
 [tool.setuptools.package-data]
 "*" = ["*.json"]
