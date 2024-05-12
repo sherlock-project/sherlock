@@ -28,8 +28,18 @@ from sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
 
+try:
+    spec_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../', 'sherlock.spec'))
+    with open(spec_path, 'r') as specfile:
+        specfile_text = specfile.read()
+        spec_version = str(re.findall(r'(?:%global pkg_version ((?:\d{1,3}\.){2}[\w-]{1,15}))', specfile_text)[0])
+        spec_build = str(re.findall(r'(?:%global pkg_build (\d{1,5}))', specfile_text)[0])
+except:
+    spec_version = spec_build = "Err"
+
 module_name = "Sherlock: Find Usernames Across Social Networks"
-__version__ = "0.14.4"
+
+__version__ = spec_version
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -503,9 +513,9 @@ def handler(signal_received, frame):
 
 def main():
     version_string = (
-        f"%(prog)s {__version__}\n"
-        + f"{requests.__description__}:  {requests.__version__}\n"
-        + f"Python:  {platform.python_version()}"
+        f"Sherlock  {__version__}-{spec_build}\n"
+        + f"Requests  {requests.__version__}\n"
+        + f"Python    {platform.python_version()}"
     )
 
     parser = ArgumentParser(
