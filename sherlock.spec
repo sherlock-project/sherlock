@@ -66,6 +66,7 @@ cd ..
 %files -n python3-%{friendly_name}
 %license LICENSE
 %doc README.md
+sherlock.spec
 %{_bindir}/sherlock
 %{python3_sitelib}/__init__.py
 %{python3_sitelib}/__main__.py
