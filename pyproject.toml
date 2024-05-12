@@ -23,7 +23,8 @@ maintainers = [
 ]
 description = "Hunt down social media accounts by username across social networks"
 readme = "README.md"
-license = {file = "LICENSE"}
+# Do not set license to file. Causes issues with rpm packaging for some reason.
+license = {text = "MIT"}
 dynamic = ["dependencies", "version"]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
@@ -34,7 +35,6 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Topic :: Communications",
     "Topic :: Security"
 ]
 
