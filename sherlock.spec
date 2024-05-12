@@ -76,7 +76,7 @@ cd ..
 %{python3_sitelib}/sites.py
 %{python3_sitelib}/resources
 %{python3_sitelib}/tests
-%{python3_sitelib}/sherlock-py%{python3_version}.egg-info
+%{python3_sitelib}/Sherlock.egg-info
 
 %changelog
 * Sun May 12 2024 Paul Pfeister - 0.14.4
