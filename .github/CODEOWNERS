@@ -6,3 +6,5 @@
 # impact packaging pipelines. Code owners may need time to verify or adapt.
 /pyproject.toml @ppfeister @sdushantha
 /setup.cfg @ppfeister @sdushantha
+/setup.py @ppfeister
+/*.spec @ppfeister
