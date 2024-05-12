@@ -15,9 +15,6 @@ BugURL:         https://github.com/sherlock-project/sherlock/issues
 Source0:        https://github.com/sherlock-project/sherlock/archive/%{source_ref}.tar.gz
 BuildArch:      noarch
 
-Vendor: Sherlock Project
-Packager: Paul Pfeister (https://pfeister.dev)
-
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(certifi) >= 2019.6.16
 BuildRequires:  python3dist(colorama) >= 0.4.1
