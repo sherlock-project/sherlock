@@ -32,7 +32,7 @@ Hunt down social media accounts by username across social networks
 
 %package -n     python3-%{friendly_name}
 Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
+%{?python_provide:%python_provide python3-%{friendly_name}}
 
 Requires:       python3dist(certifi) >= 2019.6.16
 Requires:       python3dist(colorama) >= 0.4.1
