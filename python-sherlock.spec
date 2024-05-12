@@ -11,8 +11,12 @@ Summary:        Hunt down social media accounts by username across social networ
 
 License:        MIT
 URL:            http://sherlock-project.github.io/
+BugURL:         https://github.com/sherlock-project/sherlock/issues
 Source0:        https://github.com/sherlock-project/sherlock/archive/%{source_ref}.tar.gz
 BuildArch:      noarch
+
+Vendor: Sherlock Project
+Packager: Paul Pfeister (https://pfeister.dev)
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(certifi) >= 2019.6.16
@@ -27,8 +31,11 @@ BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(stem) >= 1.8
 BuildRequires:  python3dist(torrequest) >= 0.1
 
+%global _long_description Hunt down social media accounts by username across social networks
+
+
 %description
-Hunt down social media accounts by username across social networks
+%{_long_description}
 
 %package -n     python3-%{friendly_name}
 Summary:        %{summary}
@@ -46,7 +53,7 @@ Requires:       python3dist(setuptools)
 Requires:       python3dist(stem) >= 1.8
 Requires:       python3dist(torrequest) >= 0.1
 %description -n python3-%{friendly_name}
-Hunt down social media accounts by username across social networks
+%{_long_description}
 
 
 %prep
