@@ -11,18 +11,17 @@ Repository = "https://github.com/sherlock-project/sherlock.git"
 Issues = "https://github.com/sherlock-project/sherlock/issues"
 
 [project]
-name = "Sherlock"
+name = "sherlock-project"
 authors = [
-    { name = "Sherlock Project" }
+    { name = "Siddharth Dushantha" }
 ]
 maintainers = [
-    { name = "Siddharth Dushantha" },
     { name = "Matheus Felipe" },
     { name = "Sondre Karlsen Dyrnes" },
     { name = "Paul Pfeister" }
 ]
 description = "Hunt down social media accounts by username across social networks"
-readme = "README.md"
+readme = "docs/pyproj/README.md"
 # Do not set license to file. Causes issues with rpm packaging for some reason.
 license = {text = "MIT"}
 dynamic = ["dependencies", "version"]
