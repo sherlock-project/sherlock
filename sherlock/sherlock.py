@@ -200,7 +200,12 @@ def sherlock(
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
-        underlying_request = TorRequest()
+        try:
+            underlying_request = TorRequest()
+        except OSError:
+            print("Tor not found in system path. Unable to continue.\n")
+            sys.exit(query_notify.finish())
+
         underlying_session = underlying_request.session
     else:
         # Normal requests
