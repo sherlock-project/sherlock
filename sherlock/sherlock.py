@@ -203,7 +203,7 @@ def sherlock(
         try:
             underlying_request = TorRequest()
         except OSError:
-            print("Tor is not available on your system!")
+            print("Tor not found in system path. Unable to continue.\n")
             sys.exit(query_notify.finish())
 
         underlying_session = underlying_request.session
