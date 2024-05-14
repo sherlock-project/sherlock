@@ -34,7 +34,8 @@ websites. New targets are tested and implemented regularly.
 %pyproject_install
 %pyproject_save_files -l sherlock sites result notify __init__ __main__
 
-sed -r -i '1{/^#!/d}' '%{buildroot}%{python3_sitelib}/*.py'
+# Problematic
+# sed -r -i '1{/^#!/d}' '%%{buildroot}%%{python3_sitelib}/*.py'
 
 %check
 # Tests fail when pwd isn't sherlock. Relative pathing need fix upstream.
