@@ -63,7 +63,7 @@ cd ..
 %{_bindir}/sherlock
 %{python3_sitelib}/resources
 %pycached %{python3_sitelib}/tests/*.py
-%{_mandir}/man1/sherlock
+%{_mandir}/man1/sherlock.1*
 
 
 %changelog
