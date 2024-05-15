@@ -1,5 +1,6 @@
 ### REPOSITORY
 /.github/CODEOWNERS @sdushantha
+/LICENSE @sdushantha
 
 ### PACKAGING
 # Changes made to these items without code owner approval may negatively
