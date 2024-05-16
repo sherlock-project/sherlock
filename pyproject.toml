@@ -50,7 +50,7 @@ repository = "https://github.com/sherlock-project/sherlock.git"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-certifi = "^2019.6.16"
+certifi = ">2019.6.16"
 colorama = "^0.4.1"
 PySocks = "^1.7.0"
 requests = "^2.22.0"
