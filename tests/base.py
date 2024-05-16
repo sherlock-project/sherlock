@@ -5,7 +5,7 @@ This module contains various utilities for running tests.
 import os
 import os.path
 import unittest
-import sherlock
+from sherlock import sherlock
 from sherlock.result import QueryStatus
 from sherlock.notify import QueryNotify
 from sherlock.sites import SitesInformation
@@ -30,7 +30,7 @@ class SherlockBaseTest(unittest.TestCase):
         warnings.simplefilter("ignore", ResourceWarning)
 
         # Create object with all information about sites we are aware of.
-        sites = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../resources/data.json"))
+        sites = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../sherlock/resources/data.json"))
 
         # Create original dictionary from SitesInformation() object.
         # Eventually, the rest of the code will be updated to use the new object
