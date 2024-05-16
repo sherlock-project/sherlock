@@ -6,9 +6,9 @@ import os
 import os.path
 import unittest
 import sherlock
-from result import QueryStatus
-from notify import QueryNotify
-from sites import SitesInformation
+from sherlock.result import QueryStatus
+from sherlock.notify import QueryNotify
+from sherlock.sites import SitesInformation
 import warnings
 
 

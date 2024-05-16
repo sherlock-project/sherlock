@@ -27,11 +27,11 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/sherlock-project?logo=PyPi&label=PyPI&color=darkgreen)][ext_pypi] [![Docker Image Version](https://img.shields.io/docker/v/sherlock/sherlock?sort=semver&logo=docker&label=Docker&color=darkgreen)][docs_docker] [![homebrew version](https://img.shields.io/homebrew/v/sherlock?logo=Homebrew&color=darkgreen)][ext_brew]
 
 
-| Method | Command | Notes |
+| | Command | Notes |
 | - | - | - |
-| pypi | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
-| brew | `brew install sherlock` | Community supported |
-| docker | `docker pull sherlock/sherlock` | |
+| PyPI | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
+| Homebrew | `brew install sherlock` | Community supported |
+| Docker | `docker pull sherlock/sherlock` | |
 
 ### Alternative guides and methods
 

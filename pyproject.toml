@@ -1,30 +1,26 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
-build-backend = "setuptools.build_meta"
+requires = [ "poetry-core>=1.8.0", "poetry-dynamic-versioning>1.0.0,<2.0.0" ]
+build-backend = "poetry_dynamic_versioning.backend"
 
-[project.scripts]
-sherlock = "sherlock:main"
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
 
-[project.urls]
-Homepage = "http://sherlock-project.github.io/"
-Repository = "https://github.com/sherlock-project/sherlock.git"
-Issues = "https://github.com/sherlock-project/sherlock/issues"
-
-[project]
+[tool.poetry]
 name = "sherlock-project"
+version = "0.0.0"
+description = "Hunt down social media accounts by username across social networks"
+license = "MIT"
 authors = [
-    { name = "Siddharth Dushantha" }
+    "Siddharth Dushantha"
 ]
 maintainers = [
-    { name = "Matheus Felipe" },
-    { name = "Sondre Karlsen Dyrnes" },
-    { name = "Paul Pfeister" }
+    "Paul Pfeister",
+    "Matheus Felipe",
+    "Sondre Karlsen Dyrnes"
 ]
-description = "Hunt down social media accounts by username across social networks"
 readme = "docs/pyproj/README.md"
-# Do not set license to file. Causes issues with rpm packaging for some reason.
-license = {text = "MIT"}
-dynamic = ["dependencies", "version"]
+packages = [ { include = "sherlock" } ]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -37,12 +33,24 @@ classifiers = [
     "Topic :: Security"
 ]
 
-[tool.setuptools.dynamic]
-dependencies = { file = [ "requirements.txt" ] }
-version = { attr = "sherlock.__version__" }
 
-[tool.setuptools]
-package-dir = {"" = "sherlock"}
+[tool.poetry.urls]
+Homepage = "http://sherlock-project.github.io/"
+Repository = "https://github.com/sherlock-project/sherlock.git"
+Issues = "https://github.com/sherlock-project/sherlock/issues"
 
-[tool.setuptools.package-data]
-"*" = ["*.json"]
+[tool.poetry.dependencies]
+python = "^3.8"
+certifi = "^2019.6.16"
+colorama = "^0.4.1"
+PySocks = "^1.7.0"
+requests = "^2.22.0"
+requests-futures = "^1.0.0"
+stem = "^1.8.0"
+torrequest = "^0.1.0"
+pandas = ">1.0.0"
+openpyxl = "^3.0.10"
+exrex = "^0.11.0"
+
+[tool.poetry.scripts]
+sherlock = 'sherlock.sherlock:main'
