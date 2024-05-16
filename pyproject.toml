@@ -1,6 +1,7 @@
 [build-system]
-requires = [ "poetry-core>=1.8.0", "poetry-dynamic-versioning>1.0.0,<2.0.0" ]
+requires = [ "poetry-core>=1.6.0", "poetry-dynamic-versioning>1.0.0,<2.0.0" ]
 build-backend = "poetry_dynamic_versioning.backend"
+# poetry-core 1.8 not available in .fc39. Can upgrade to 1.8.0 at .fc39 EOL
 
 [tool.poetry-dynamic-versioning]
 enable = false
