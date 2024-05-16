@@ -20,7 +20,7 @@ maintainers = [
     "Sondre Karlsen Dyrnes"
 ]
 readme = "docs/pyproj/README.md"
-packages = [ { include = "sherlock" } ]
+packages = [ { include = "sherlock"} ]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
