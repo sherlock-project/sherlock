@@ -510,9 +510,9 @@ def handler(signal_received, frame):
 
 def main():
     version_string = (
-        f"%(prog)s {__version__}\n"
-        + f"{requests.__description__}:  {requests.__version__}\n"
-        + f"Python:  {platform.python_version()}"
+        f"Sherlock  {__version__}\n"
+        + f"Requests  {requests.__version__}\n"
+        + f"Python    {platform.python_version()}"
     )
 
     parser = ArgumentParser(
