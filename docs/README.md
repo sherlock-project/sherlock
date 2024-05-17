@@ -133,15 +133,10 @@ Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 [docs_install]: /docs/install.md
 [docs_docker]: /docs/install.md#docker
-[docs_docker_dockerhub]: /docs/install.md#docker
-[docs_docker_compose]: /docs/install.md#using-compose
-[docs_docker_source]: /docs/install.md#build-image-from-source-useful-for-contributors
 [docs_py]: /docs/install.md#python
-[docs_py_build]: /docs/install.md#build-python-package-from-source-useful-for-contributors
 [docs_contrib]: /docs/CONTRIBUTING.md
 [docs_contrib_adding_targets]: /docs/CONTRIBUTING.md#adding-targets
 [docs_contrib_removing_targets]: /docs/CONTRIBUTING.md#removing-targets
 [docs_contrib_restoring_targets]: /docs/CONTRIBUTING.md#restoring-targets
 [ext_pypi]: https://pypi.org/project/sherlock-project/
 [ext_brew]: https://formulae.brew.sh/formula/sherlock
-
