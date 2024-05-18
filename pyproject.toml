@@ -31,8 +31,8 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Security"
 ]
-homepage = "http://sherlock-project.github.io/"
-repository = "https://github.com/sherlock-project/sherlock.git"
+homepage = "https://sherlock-project.github.io/"
+repository = "https://github.com/sherlock-project/sherlock"
 
 
 [tool.poetry.urls]
