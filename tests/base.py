@@ -51,8 +51,6 @@ class SherlockBaseTest(unittest.TestCase):
         # Create notify object for query results.
         self.query_notify = QueryNotify()
 
-        self.tor = False
-        self.unique_tor = False
         self.timeout = None
         self.skip_error_sites = True
 
@@ -115,8 +113,6 @@ class SherlockBaseTest(unittest.TestCase):
             results = sherlock.sherlock(username,
                                         site_data,
                                         self.query_notify,
-                                        tor=self.tor,
-                                        unique_tor=self.unique_tor,
                                         timeout=self.timeout
                                        )
             for site, result in results.items():
