@@ -1,8 +1,9 @@
-# Virtual Environment
+# Virtual Environments
 venv/
 bin/
 lib/
 pyvenv.cfg
+poetry.lock
 
 # Editor Configurations
 .vscode/
