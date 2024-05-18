@@ -1,23 +1,14 @@
 [build-system]
-requires = [ "poetry-core>=1.6.0", "poetry-dynamic-versioning>1.0.0,<2.0.0" ]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = [ "poetry-core>=1.2.0" ]
+build-backend = "poetry.core.masonry.api"
 # poetry-core 1.8 not available in .fc39. Can upgrade to 1.8.0 at .fc39 EOL
 
-[tool.poetry-dynamic-versioning]
-enable = false
-metadata = false
-strict = true
-vcs = "git"
-# Matched tags:
-# v0.0.0  followed by optional  -rc0 (release candidate)  OR  -b0 (public beta)
-pattern = "^v(?P<base>\\d+(?:\\.\\d+){2})(?:-(?P<stage>(?:rc|b)\\d+?))??$"
-
-[tool.poetry-dynamic-versioning.substitution]
-folders = [ { path = "sherlock" } ]
+[tool.poetry-version-plugin]
+source = "init"
 
 [tool.poetry]
 name = "sherlock-project"
-version = "0.14.4"
+version = "0" # single source of truth is __version__.py
 description = "Hunt down social media accounts by username across social networks"
 license = "MIT"
 authors = [
