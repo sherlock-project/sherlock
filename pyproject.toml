@@ -15,9 +15,9 @@ authors = [
     "Siddharth Dushantha"
 ]
 maintainers = [
-    "Paul Pfeister",
-    "Matheus Felipe",
-    "Sondre Karlsen Dyrnes"
+    "Paul Pfeister <code@pfeister.dev>",
+    "Matheus Felipe <matheusfelipeog@protonmail.com>",
+    "Sondre Karlsen Dyrnes <sondre@villdyr.no>"
 ]
 readme = "docs/pyproj/README.md"
 packages = [ { include = "sherlock"} ]
