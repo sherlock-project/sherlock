@@ -31,6 +31,7 @@ from .__init__ import (
 )
 
 from requests_futures.sessions import FuturesSession
+from torrequest import TorRequest
 from sherlock.result import QueryStatus
 from sherlock.result import QueryResult
 from sherlock.notify import QueryNotifyPrint
@@ -166,6 +167,8 @@ def sherlock(
     username,
     site_data,
     query_notify,
+    tor=False,
+    unique_tor=False,
     proxy=None,
     timeout=60,
 ):
@@ -180,6 +183,8 @@ def sherlock(
     query_notify           -- Object with base type of QueryNotify().
                               This will be used to notify the caller about
                               query results.
+    tor                    -- Boolean indicating whether to use a tor circuit for the requests.
+    unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
@@ -200,10 +205,20 @@ def sherlock(
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
+    # Create session based on request methodology
+    if tor or unique_tor:
+        # Requests using Tor obfuscation
+        try:
+            underlying_request = TorRequest()
+        except OSError:
+            print("Tor not found in system path. Unable to continue.\n")
+            sys.exit(query_notify.finish())
 
-    # Normal requests
-    underlying_session = requests.session()
-    underlying_request = requests.Request()
+        underlying_session = underlying_request.session
+    else:
+        # Normal requests
+        underlying_session = requests.session()
+        underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -327,10 +342,15 @@ def sherlock(
             # Store future in data for access later
             net_info["request_future"] = future
 
+            # Reset identify for tor (if needed)
+            if unique_tor:
+                underlying_request.reset_identity()
+
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
 
     # Open the file containing account links
+    # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
     for social_network, net_info in site_data.items():
         # Retrieve results again
         results_site = results_total.get(social_network)
@@ -536,6 +556,22 @@ def main():
         help="If using single username, the output of the result will be saved to this file.",
     )
     parser.add_argument(
+        "--tor",
+        "-t",
+        action="store_true",
+        dest="tor",
+        default=False,
+        help="Make requests over Tor; increases runtime; requires Tor to be installed and in system path.",
+    )
+    parser.add_argument(
+        "--unique-tor",
+        "-u",
+        action="store_true",
+        dest="unique_tor",
+        default=False,
+        help="Make requests over Tor with new Tor circuit after each request; increases runtime; requires Tor to be installed and in system path.",
+    )
+    parser.add_argument(
         "--csv",
         action="store_true",
         dest="csv",
@@ -658,9 +694,21 @@ def main():
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
 
+    # Argument check
+    # TODO regex check on args.proxy
+    if args.tor and (args.proxy is not None):
+        raise Exception("Tor and Proxy cannot be set at the same time.")
+
     # Make prompts
     if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
+
+    if args.tor or args.unique_tor:
+        print("Using Tor to make requests")
+
+        print(
+            "Warning: some websites might refuse connecting over Tor, so note that using this option might increase connection errors."
+        )
 
     if args.no_color:
         # Disable color output.
@@ -740,6 +788,8 @@ def main():
             username,
             site_data,
             query_notify,
+            tor=args.tor,
+            unique_tor=args.unique_tor,
             proxy=args.proxy,
             timeout=args.timeout,
         )
