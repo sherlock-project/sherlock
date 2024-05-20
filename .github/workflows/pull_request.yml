@@ -10,6 +10,7 @@ jobs:
   regression-testing:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false # We want to know what version it fails on
       matrix:
         os: [
           ubuntu-latest,
