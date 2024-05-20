@@ -42,13 +42,3 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
-
-
-
-#def test_area(self):
-#    test_usernames = ["test{?}test" , "test{?feo" , "test"]
-#    for name in test_usernames:
-#        if(sh.check_for_parameter(name)):
-#            self.assertAlmostEqual(sh.multiple_usernames(name), ["test_test" , "test-test" , "test.test"])
-#        else:
-#            self.assertAlmostEqual(name, name)
