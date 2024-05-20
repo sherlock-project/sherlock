@@ -20,4 +20,3 @@ class Interactives:
                     if pattern.search(f.read()):
                         matching_files.append(file_path)
         return matching_files
-    
