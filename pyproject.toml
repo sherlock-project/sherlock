@@ -51,7 +51,6 @@ torrequest = "^0.1.0"
 # pandas can likely be bumped up to ^2.0.0 after fc39 EOL
 pandas = ">=1.0.0,<3.0.0"
 openpyxl = "^3.0.10"
-exrex = "^0.11.0"
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
