@@ -1,5 +1,4 @@
 import pytest
-import subprocess
 from sherlock import sherlock
 from sherlock_interactives import Interactives
 from sherlock_interactives import InteractivesSubprocessError

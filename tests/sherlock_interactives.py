@@ -13,7 +13,8 @@ class Interactives:
         except subprocess.CalledProcessError as e:
             raise InteractivesSubprocessError(e.output.decode())
 
-    def walk_sherlock_for_files_with(pattern: str) -> list[str]:
+    # -> list[str] is prefered, but will require deprecation of support for Python 3.8
+    def walk_sherlock_for_files_with(pattern: str) -> list:
         """Check all files within the Sherlock package for matching patterns"""
         pattern: re.Pattern = re.compile(pattern)
         matching_files: list[str] = []
