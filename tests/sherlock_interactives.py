@@ -4,11 +4,17 @@ import subprocess
 
 class Interactives:
     def run_cli(args: str = "") -> str:
+        """Pass arguments to Sherlock as a normal user on the command line"""
         command = [f"sherlock {args}"]
-        proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-        return proc_out.decode()
+        proc_out: str = ""
+        try:
+            proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+            return proc_out.decode()
+        except subprocess.CalledProcessError as e:
+            raise InteractivesSubprocessError(e.output.decode())
 
     def walk_sherlock_for_files_with(pattern: str) -> list[str]:
+        """Check all files within the Sherlock package for matching patterns"""
         pattern: re.Pattern = re.compile(pattern)
         matching_files: list[str] = []
         for root, dirs, files in os.walk("sherlock"):
@@ -20,3 +26,6 @@ class Interactives:
                     if pattern.search(f.read()):
                         matching_files.append(file_path)
         return matching_files
+
+class InteractivesSubprocessError(Exception):
+    pass

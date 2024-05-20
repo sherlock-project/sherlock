@@ -6,3 +6,7 @@
 # Changes made to these items without code owner approval may negatively
 # impact packaging pipelines. Code owners may need time to verify or adapt.
 /pyproject.toml @ppfeister @sdushantha
+
+### REGRESSION
+/tox.ini @ppfeister
+/tests/ @ppfeister

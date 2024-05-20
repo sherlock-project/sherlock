@@ -1,4 +1,6 @@
 import os
+import json
+import urllib
 import pytest
 from sherlock.sites import SitesInformation
 
@@ -12,3 +14,10 @@ def sites_info():
     sites_obj = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../sherlock/resources/data.json"))
     sites_iterable = {site.name: site.information for site in sites_obj}
     yield sites_iterable
+
+@pytest.fixture(scope="session")
+def remote_schema():
+    schema_url: str = 'https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.schema.json'
+    with urllib.request.urlopen(schema_url) as remoteschema:
+        schemadat = json.load(remoteschema)
+    yield schemadat
