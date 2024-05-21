@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ master ]
   push:
-    branches: [ master ]
+    branches: [ master, feature/tox ]
 
 jobs:
   regression-testing:
@@ -14,7 +14,8 @@ jobs:
       matrix:
         os: [
           ubuntu-latest,
-          #windows-latest,  # Need to adapt test_no_usernames_provided, test_versioning
+          windows-latest,
+          macos-latest,
         ]
         python-version: [
           '3.8',
