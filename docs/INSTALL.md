@@ -48,7 +48,7 @@ Note that the version number will be 0.0.0 for pipx local builds unless manually
 pipx install -e .
 ```
 
-### Run package from source (no install)
+### Run package from source (without installing)
 
 If you'd rather not install directly to your system, you can import the module at runtime with `-m`.
 
