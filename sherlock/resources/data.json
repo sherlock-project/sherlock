@@ -1592,6 +1592,12 @@
     "urlMain": "https://www.periscope.tv/",
     "username_claimed": "blue"
   },
+  "Picsart": {
+    "errorType": "status_code",
+    "url": "https://picsart.com/u/{}",
+    "urlMain": "https://picsart.com/",
+    "username_claimed": "hxfcfe7m"
+  },
   "Pinkbike": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
