@@ -3,7 +3,7 @@ requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-sherlock = "sherlock:main"
+sherlock = "sherlock.sherlock:main"
 
 [project.urls]
 Homepage = "http://sherlock-project.github.io/"
@@ -39,10 +39,10 @@ classifiers = [
 
 [tool.setuptools.dynamic]
 dependencies = { file = [ "requirements.txt" ] }
-version = { attr = "sherlock.__version__" }
+version = { attr = "sherlock.sherlock.__version__" }
 
 [tool.setuptools]
-package-dir = {"" = "sherlock"}
+packages = [ "sherlock" ]
 
 [tool.setuptools.package-data]
 "*" = ["*.json"]
