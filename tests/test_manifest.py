@@ -19,6 +19,7 @@ def test_validate_manifest_against_local_schema():
     validate(instance=jsondat, schema=schemadat)
 
 
+@pytest.mark.online
 def test_validate_manifest_against_remote_schema(remote_schema):
     """Ensures that the manifest matches the remote schema, so as to not unexpectedly break clients."""
     json_relative: str = '../sherlock/resources/data.json'
