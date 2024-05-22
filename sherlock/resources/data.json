@@ -2600,6 +2600,12 @@
     "urlMain": "https://www.livelib.ru/",
     "username_claimed": "blue"
   },
+  "makromusic": {
+    "errorType": "status_code",
+    "url": "https://makromusic.com/u/{}",
+    "urlMain": "https://makromusic.com/",
+    "username_claimed": "makromusic"
+  },
   "mastodon.cloud": {
     "errorType": "status_code",
     "url": "https://mastodon.cloud/@{}",
