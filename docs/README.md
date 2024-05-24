@@ -2,7 +2,7 @@
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">400+ social networks</a></span>
+  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/docs/sites.md">400+ social networks</a></span>
   <br>
 </p>
 
@@ -11,7 +11,7 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/sherlock-project/sherlock#usage">Usage</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/ppfeister/sherlock/blob/feature/docu/docs/install.md#docker">Docker</a>
+  <a href="https://github.com/ppfeister/sherlock/blob/feature/docu/docs/INSTALL.md#docker">Docker</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/ppfeister/sherlock/blob/feature/docu/docs/CONTRIBUTING.md">Contributing</a>
 </p>
@@ -131,13 +131,13 @@ Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 <!-- Reference Links -->
 
-[docs_install]: /docs/install.md
-[docs_docker]: /docs/install.md#docker
-[docs_docker_dockerhub]: /docs/install.md#docker
-[docs_docker_compose]: /docs/install.md#using-compose
-[docs_docker_source]: /docs/install.md#build-image-from-source-useful-for-contributors
-[docs_py]: /docs/install.md#python
-[docs_py_build]: /docs/install.md#build-python-package-from-source-useful-for-contributors
+[docs_install]: /docs/INSTALL.md
+[docs_docker]: /docs/INSTALL.md#docker
+[docs_docker_dockerhub]: /docs/INSTALL.md#docker
+[docs_docker_compose]: /docs/INSTALL.md#using-compose
+[docs_docker_source]: /docs/INSTALL.md#build-image-from-source-useful-for-contributors
+[docs_py]: /docs/INSTALL.md#python
+[docs_py_build]: /docs/INSTALL.md#build-python-package-from-source-useful-for-contributors
 [docs_contrib]: /docs/CONTRIBUTING.md
 [docs_contrib_adding_targets]: /docs/CONTRIBUTING.md#adding-targets
 [docs_contrib_removing_targets]: /docs/CONTRIBUTING.md#removing-targets
