@@ -30,7 +30,7 @@ jobs:
 
       # Execute the site_list.py Python script
       - name: Execute site-list.py
-        run: python scripts/site-list.py
+        run: python devel/site-list.py
 
        # Commit any changes made by the script
       - name: Commit files
