@@ -1,7 +1,0 @@
-version: '2'
-
-services:
-  sherlock:
-    build: .
-    volumes:
-      - "./results:/opt/sherlock/results"
