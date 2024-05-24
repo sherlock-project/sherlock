@@ -11,7 +11,7 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/sherlock-project/sherlock#usage">Usage</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/sherlock-project/sherlock/docs/install.md#docker">Docker</a>
+  <a href="https://github.com/sherlock-project/sherlock/docs/INSTALL.md#docker">Docker</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <strong><a href="https://github.com/sherlock-project/sherlock/docs/CONTRIBUTING.md">Contributing</a></strong>
 </p>
