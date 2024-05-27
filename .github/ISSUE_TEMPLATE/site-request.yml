@@ -1,0 +1,20 @@
+name: Site Support 
+description: Request a site Sherlock should support
+labels: ["site request"]
+body:
+  - type: input
+    id: site-name
+    attributes:
+      label: Site name
+      description: What site should Sherlock support?
+      placeholder: Reddit
+    validations:
+      required: True
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: If you have suggestions on how Sherlock should detect for usernames, please explain below
+      placeholder: Sherlock can detect if a username exists on Reddit by checking for...
+    validations:
+      required: false

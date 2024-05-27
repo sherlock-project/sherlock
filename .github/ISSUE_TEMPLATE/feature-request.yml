@@ -1,0 +1,12 @@
+name: Feature Request
+description: Request a feature
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature you are requesting
+      placeholder: I'd like Sherlock to be able to do xyz
+    validations:
+      required: true
