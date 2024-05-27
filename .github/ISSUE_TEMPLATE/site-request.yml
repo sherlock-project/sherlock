@@ -1,6 +1,6 @@
 name: Site Support 
 description: Request a site Sherlock should support
-labels: ["site request"]
+labels: ["site support request"]
 body:
   - type: input
     id: site-name
