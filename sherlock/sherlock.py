@@ -143,7 +143,6 @@ def check_for_parameter(username):
     return "{?}" in username
 
 
-checksymbols = []
 checksymbols = ["_", "-", "."]
 
 
