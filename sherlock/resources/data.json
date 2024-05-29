@@ -161,7 +161,11 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "could not fetch an account with user item identifier",
+    "__comment__": "'The resource could not be found' relates to archive downtime",
+    "errorMsg": [
+      "could not fetch an account with user item identifier",
+      "The resource could not be found"
+    ],
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
