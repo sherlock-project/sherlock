@@ -717,7 +717,8 @@
     "username_claimed": "jonasjacobsson"
   },
   "EyeEm": {
-    "errorType": "status_code",
+    "errorMsg": "Whoops! We can&#x27;t find the page you&#x27;re looking for...",
+    "errorType": "message",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue"
