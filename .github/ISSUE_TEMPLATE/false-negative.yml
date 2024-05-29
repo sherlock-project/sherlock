@@ -1,0 +1,20 @@
+name: False Negative
+description: Report a site that is returning false negative results
+labels: ["false negative"]
+body:
+  - type: input
+    id: site-name
+    attributes:
+      label: Site name
+      description: What site is returning false negatives?
+      placeholder: Reddit
+    validations:
+      required: True
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: If you know why the site is returning false negatives, please explain
+      placeholder: Reddit is returning false negatives because...
+    validations:
+      required: false
