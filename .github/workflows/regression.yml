@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  regression-testing:
+  tox-matrix:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false # We want to know what version it fails on
