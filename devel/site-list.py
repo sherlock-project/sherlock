@@ -4,7 +4,7 @@
 import json
 
 # Read the data.json file
-with open("../sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
+with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
     data: dict = json.load(data_file)
 
 # Removes schema-specific keywords for proper processing
@@ -23,7 +23,7 @@ with open("../sites.md", "w") as site_file:
         site_file.write(f"1. ![](https://www.google.com/s2/favicons?domain={url_main}) [{social_network}]({url_main}) {is_nsfw}\n")
 
 # Overwrite the data.json file with sorted data
-with open("../sherlock/resources/data.json", "w") as data_file:
+with open("sherlock/resources/data.json", "w") as data_file:
     sorted_data = json.dumps(data, indent=2, sort_keys=True)
     data_file.write(sorted_data)
     data_file.write("\n")
