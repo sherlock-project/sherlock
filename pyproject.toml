@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+sherlock = "sherlock:main"
+
+[project.urls]
+Homepage = "http://sherlock-project.github.io/"
+Repository = "https://github.com/sherlock-project/sherlock.git"
+Issues = "https://github.com/sherlock-project/sherlock/issues"
+
+[project]
+name = "sherlock-project"
+authors = [
+    { name = "Siddharth Dushantha" }
+]
+maintainers = [
+    { name = "Matheus Felipe" },
+    { name = "Sondre Karlsen Dyrnes" },
+    { name = "Paul Pfeister" }
+]
+description = "Hunt down social media accounts by username across social networks"
+readme = "docs/pyproj/README.md"
+# Do not set license to file. Causes issues with rpm packaging for some reason.
+license = {text = "MIT"}
+dynamic = ["dependencies", "version"]
+keywords = [ "osint", "reconnaissance", "information gathering" ]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security"
+]
+
+[tool.setuptools.dynamic]
+dependencies = { file = [ "requirements.txt" ] }
+version = { attr = "sherlock.__version__" }
+
+[tool.setuptools]
+package-dir = {"" = "sherlock"}
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]

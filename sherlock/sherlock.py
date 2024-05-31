@@ -143,7 +143,6 @@ def check_for_parameter(username):
     return "{?}" in username
 
 
-checksymbols = []
 checksymbols = ["_", "-", "."]
 
 
@@ -200,7 +199,12 @@ def sherlock(
     # Create session based on request methodology
     if tor or unique_tor:
         # Requests using Tor obfuscation
-        underlying_request = TorRequest()
+        try:
+            underlying_request = TorRequest()
+        except OSError:
+            print("Tor not found in system path. Unable to continue.\n")
+            sys.exit(query_notify.finish())
+
         underlying_session = underlying_request.session
     else:
         # Normal requests
@@ -377,11 +381,13 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
-        # As WAFs advance and evolve, they will occasionally block Sherlock and lead to false positives
-        # and negatives. Fingerprints should be added here to filter results that fail to bypass WAFs.
-        # Fingerprints should be highly targetted. Comment at the end of each fingerprint to indicate target and date.
+        # As WAFs advance and evolve, they will occasionally block Sherlock and
+        # lead to false positives and negatives. Fingerprints should be added
+        # here to filter results that fail to bypass WAFs. Fingerprints should
+        # be highly targetted. Comment at the end of each fingerprint to
+        # indicate target and date fingerprinted.
         WAFHitMsgs = [
-            '.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark .big-button,body.dark .pow-button{background-color:#4693ff;color:#1d1d1d}body.dark #challenge-success-text{background-image:url(data:image/svg+xml;base64,', # 2024-04-08 Cloudflare
+            '.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
             '{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
 

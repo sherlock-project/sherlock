@@ -161,7 +161,11 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "errorMsg": "could not fetch an account with user item identifier",
+    "__comment__": "'The resource could not be found' relates to archive downtime",
+    "errorMsg": [
+      "could not fetch an account with user item identifier",
+      "The resource could not be found"
+    ],
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
@@ -713,7 +717,8 @@
     "username_claimed": "jonasjacobsson"
   },
   "EyeEm": {
-    "errorType": "status_code",
+    "errorMsg": "Whoops! We can&#x27;t find the page you&#x27;re looking for...",
+    "errorType": "message",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue"
@@ -1213,6 +1218,7 @@
     "username_claimed": "blue"
   },
   "Kick": {
+    "__comment__": "Cloudflare. Only viable when proxied.",
     "errorMsg": "Not Found",
     "errorType": "message",
     "url": "https://kick.com/{}",

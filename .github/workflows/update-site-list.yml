@@ -29,8 +29,8 @@ jobs:
           python-version: '3.x' 
 
       # Execute the site_list.py Python script
-      - name: Execute site_list.py
-        run: python site_list.py
+      - name: Execute site-list.py
+        run: python devel/site-list.py
 
        # Commit any changes made by the script
       - name: Commit files
