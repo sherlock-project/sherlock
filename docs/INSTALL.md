@@ -44,7 +44,7 @@ Building an editable (or live) package links the entry point to your current dir
 Note that the version number will be 0.0.0 for pipx local builds unless manually changed in the pyproject file (it will prompt the user for an update).
 
 ```bash
-# Assumes repository cloned, and pwd is repository root
+# Assumes repository cloned, and current working directory is repository root
 pipx install -e .
 ```
 
@@ -53,7 +53,7 @@ pipx install -e .
 If you'd rather not install directly to your system, you can import the module at runtime with `-m`.
 
 ```bash
-# Assumes repository cloned, and pwd is repository root
+# Assumes repository cloned, and current working directory is repository root
 python3 -m sherlock user123 user789
 ```
 
