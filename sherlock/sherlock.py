@@ -508,12 +508,6 @@ def handler(signal_received, frame):
 
 
 def main():
-    version_string = (
-        f"%(prog)s {__version__}\n"
-        + f"{requests.__description__}:  {requests.__version__}\n"
-        + f"Python:  {platform.python_version()}"
-    )
-
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
         description=f"{module_name} (Version {__version__})",
@@ -521,7 +515,7 @@ def main():
     parser.add_argument(
         "--version",
         action="version",
-        version=version_string,
+        version=f"Sherlock v{__version__}",
         help="Display version information and dependencies.",
     )
     parser.add_argument(
