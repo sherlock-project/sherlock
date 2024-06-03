@@ -29,7 +29,6 @@ body:
         - What you were trying to do
         - What you expected to happen
         - What actually happened
-        - Any additional information that might help us diagnose the problem
       placeholder: |
         When doing {action}, the expected result should be {expected result}.
         When doing {action}, however, the actual result was {actual result}.
