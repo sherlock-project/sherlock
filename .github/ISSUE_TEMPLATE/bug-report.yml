@@ -2,13 +2,6 @@ name: Bug report
 description: File a bug report
 labels: ["bug"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-
-        Thoughtfully filled out reports with detailed steps to reproduce are much more likely to be fixed.
-        We can't fix what we can't reproduce!
   - type: dropdown
     id: package
     attributes:
