@@ -1,0 +1,40 @@
+name: Regression Testing
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+  tox-matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false # We want to know what version it fails on
+      matrix:
+        os: [
+          ubuntu-latest,
+          windows-latest,
+          macos-latest,
+        ]
+        python-version: [
+          '3.8',
+          '3.9',
+          '3.10',
+          '3.11',
+          '3.12',
+        ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up environment ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install tox and related dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install tox
+          pip install tox-gh-actions
+      - name: Run tox
+        run: tox

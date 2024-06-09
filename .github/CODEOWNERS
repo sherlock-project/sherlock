@@ -1,11 +1,15 @@
 ### REPOSITORY
 /.github/CODEOWNERS @sdushantha
+./github/FUNDING.yml @sdushantha
 /LICENSE @sdushantha
 
 ### PACKAGING
 # Changes made to these items without code owner approval may negatively
-# impact packaging pipelines. Code owners may need time to verify or adapt.
+# impact packaging pipelines.
 /pyproject.toml @ppfeister @sdushantha
-/setup.cfg @ppfeister @sdushantha
-/setup.py @ppfeister
-/*.spec @ppfeister
+
+### REGRESSION
+/.github/workflows/regression.yml @ppfeister
+/tox.ini @ppfeister
+/pytest.ini @ppfeister
+/tests/ @ppfeister

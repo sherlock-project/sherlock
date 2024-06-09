@@ -2,17 +2,12 @@
 
 <p align=center>
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
+  <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://www.kali.org/tools/sherlock/images/sherlock-logo.svg" width="25%"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">social networks</a></span>
+  <strong><span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">400+ social networks</a></span></strong>
+  <br><br>
+  <span>Additional documentation can be found at our <a href="https://github.com/sherlock-project/sherlock/">GitHub repository</a></span>
   <br>
-  <span>Additional documentation can be found on our <a href="https://github.com/sherlock-project/sherlock/">GitHub repository</a></span>
-  <br>
-</p>
-
-<p align="center">
-<img width="70%" height="70%" src="https://user-images.githubusercontent.com/27065646/219638267-a5e11090-aa6e-4e77-87f7-0e95f6ad5978.png"/>
-</a>
 </p>
 
 ## Usage
@@ -36,11 +31,12 @@ To search for more than one user:
 ```bash
 $ sherlock user1 user2 user3
 ```
+<br>
 
-## Star History
+___
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date" />
-  <img alt="Sherlock Project Star History Chart" src="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date" />
-</picture>
+<br>
+<p align="center">
+<img width="70%" height="70%" src="https://user-images.githubusercontent.com/27065646/219638267-a5e11090-aa6e-4e77-87f7-0e95f6ad5978.png"/>
+</a>
+</p>

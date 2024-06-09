@@ -19,17 +19,27 @@ from time import monotonic
 
 import requests
 
-from requests_futures.sessions import FuturesSession
-from torrequest import TorRequest
-from result import QueryStatus
-from result import QueryResult
-from notify import QueryNotifyPrint
-from sites import SitesInformation
-from colorama import init
-from argparse import ArgumentTypeError
-
-module_name = "Sherlock: Find Usernames Across Social Networks"
+# Removing __version__ here will trigger update message for users
+# Do not remove until ready to trigger that message
+# When removed, also remove all the noqa: E402 comments for linting
 __version__ = "0.14.4"
+del __version__
+
+from .__init__ import ( # noqa: E402
+    __shortname__,
+    __longname__,
+    __version__
+)
+
+from requests_futures.sessions import FuturesSession    # noqa: E402
+from torrequest import TorRequest                       # noqa: E402
+from sherlock.result import QueryStatus                 # noqa: E402
+from sherlock.result import QueryResult                 # noqa: E402
+from sherlock.notify import QueryNotify                 # noqa: E402
+from sherlock.notify import QueryNotifyPrint            # noqa: E402
+from sherlock.sites import SitesInformation             # noqa: E402
+from colorama import init                               # noqa: E402
+from argparse import ArgumentTypeError                  # noqa: E402
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -157,9 +167,9 @@ def multiple_usernames(username):
 def sherlock(
     username,
     site_data,
-    query_notify,
-    tor=False,
-    unique_tor=False,
+    query_notify: QueryNotify,
+    tor: bool = False,
+    unique_tor: bool = False,
     proxy=None,
     timeout=60,
 ):
@@ -510,7 +520,7 @@ def handler(signal_received, frame):
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
-        description=f"{module_name} (Version {__version__})",
+        description=f"{__longname__} (Version {__version__})",
     )
     parser.add_argument(
         "--version",
@@ -664,10 +674,10 @@ def main():
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/sherlock.py"
+            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/__init__.py"
         )
 
-        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
+        remote_version = str(re.findall('__version__ *= *"(.*)"', r.text)[0])
         local_version = __version__
 
         if remote_version != local_version:
