@@ -1522,6 +1522,12 @@
     "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers"
   },
+  "One.lt": {
+    "errorType": "status_code",
+    "url": "https://www.one.lt/{}",
+    "urlMain": "https://www.one.lt",
+    "username_claimed": "lietuvis"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
