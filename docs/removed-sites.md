@@ -1868,3 +1868,14 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
     "username_claimed": "bitcoinforum.com"
   }
 ```
+## Euw
+__2024-06-09 :__ errorMsg detection doesn't work anymore, because the error message is included in HTTP request body, even in successful search
+```json
+"Euw": {
+    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
+    "errorType": "message",
+    "url": "https://euw.op.gg/summoner/userName={}",
+    "urlMain": "https://euw.op.gg/",
+    "username_claimed": "blue"
+  }
+```

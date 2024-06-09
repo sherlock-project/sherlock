@@ -703,13 +703,6 @@
     "urlMain": "https://www.etsy.com/",
     "username_claimed": "JennyKrafts"
   },
-  "Euw": {
-    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
-    "errorType": "message",
-    "url": "https://euw.op.gg/summoner/userName={}",
-    "urlMain": "https://euw.op.gg/",
-    "username_claimed": "blue"
-  },
   "Exposure": {
     "errorType": "status_code",
     "url": "https://{}.exposure.co/",
