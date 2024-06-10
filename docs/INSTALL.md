@@ -39,6 +39,15 @@ pipx install sherlock-project
 
 ### Build live package from source (useful for contributors)
 
+> [!Note]
+> With the switch to Poetry, Sherlock no longer requires a `requirements.txt` file. Dependencies are now specified within the `pyproject.toml` file.
+> 
+> If the legacy `requirements.txt` file is still desired, it can be dynamically generated:
+> ```bash
+> # Append `--with dev` or `--only dev` to include dev dependencies
+> poetry export --without-hashes -f requirements.txt --output requirements.txt
+> ```
+
 Building an editable (or live) package links the entry point to your current directory, rather than to the standard install location. This is often useful when working with the code base, as changes are reflected immediately without reinstallation.
 
 Note that the version number will be 0.0.0 for pipx local builds unless manually changed in the pyproject file (it will prompt the user for an update).

@@ -30,8 +30,11 @@
 | | Command | Notes |
 | - | - | - |
 | PyPI | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
-| Homebrew | `brew install sherlock` | Community supported |
 | Docker | `docker pull sherlock/sherlock` | |
+| Debian family | `apt install sherlock` | Kali, Parrot, BlackArch, Testing, Sid |
+| Homebrew | `brew install sherlock` | |
+
+PyPI and DockerHub images are mainaintenced by the Sherlock Project. Others are community supported.
 
 ### Alternative guides and methods
 
