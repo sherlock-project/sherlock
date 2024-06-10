@@ -1879,3 +1879,13 @@ __2024-06-09 :__ errorMsg detection doesn't work anymore, because the error mess
     "username_claimed": "blue"
   }
 ```
+## Etsy
+__2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the connection, so it doesn't work anymore
+```json
+"Etsy": {
+    "errorType": "status_code",
+    "url": "https://www.etsy.com/shop/{}",
+    "urlMain": "https://www.etsy.com/",
+    "username_claimed": "JennyKrafts"
+  }
+```

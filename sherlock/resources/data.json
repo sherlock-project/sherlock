@@ -697,12 +697,6 @@
     "urlMain": "https://www.erome.com/",
     "username_claimed": "bob"
   },
-  "Etsy": {
-    "errorType": "status_code",
-    "url": "https://www.etsy.com/shop/{}",
-    "urlMain": "https://www.etsy.com/",
-    "username_claimed": "JennyKrafts"
-  },
   "Exposure": {
     "errorType": "status_code",
     "url": "https://{}.exposure.co/",
