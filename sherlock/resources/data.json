@@ -1231,77 +1231,77 @@
     "urlMain": "https://www.livejournal.com/",
     "username_claimed": "blue"
   },
-  "LoLKr": {
+  "LoLBr": {
     "errorMsg": "Not Found",
     "errorType": "message",
-    "url": "https://www.leagueofgraphs.com/summoner/kr/{}",
+    "tag_required": true,
+    "url": "https://www.leagueofgraphs.com/summoner/br/{}",
     "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "NS+Callme-KR1",
-    "tag_required": true
+    "username_claimed": "frosty-KR3"
   },
   "LoLEune": {
     "errorMsg": "Not Found",
     "errorType": "message",
+    "tag_required": true,
     "url": "https://www.leagueofgraphs.com/summoner/eune/{}-#",
     "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "NotPurple-EUNE",
-    "tag_required": true
+    "username_claimed": "NotPurple-EUNE"
   },
   "LoLEuw": {
     "errorMsg": "Not Found",
     "errorType": "message",
+    "tag_required": true,
     "url": "https://www.leagueofgraphs.com/summoner/euw/{}",
     "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "KC+NEXT+ADKING-EUW",
-    "tag_required": true
-  },
-  "LoLNa": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "url": "https://www.leagueofgraphs.com/summoner/na/{}",
-    "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "Sheiden-0001",
-    "tag_required": true
-  },
-  "LoLVn": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "url": "https://www.leagueofgraphs.com/summoner/vn/{}",
-    "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "Shirou-2K5",
-    "tag_required": true
-  },
-  "LoLBr": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "url": "https://www.leagueofgraphs.com/summoner/br/{}",
-    "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "frosty-KR3",
-    "tag_required": true
-  },
-  "LoLTr": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "url": "https://www.leagueofgraphs.com/summoner/tr/{}",
-    "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "Hide+on+bush-MBM0",
-    "tag_required": true
+    "username_claimed": "KC+NEXT+ADKING-EUW"
   },
   "LoLJp": {
     "errorMsg": "Not Found",
     "errorType": "message",
+    "tag_required": true,
     "url": "https://www.leagueofgraphs.com/summoner/jp/{}",
     "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "Ninja+of+Ninjas-JP1",
-    "tag_required": true
+    "username_claimed": "Ninja+of+Ninjas-JP1"
+  },
+  "LoLKr": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "tag_required": true,
+    "url": "https://www.leagueofgraphs.com/summoner/kr/{}",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "NS+Callme-KR1"
+  },
+  "LoLNa": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "tag_required": true,
+    "url": "https://www.leagueofgraphs.com/summoner/na/{}",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Sheiden-0001"
   },
   "LoLOce": {
     "errorMsg": "Not Found",
     "errorType": "message",
+    "tag_required": true,
     "url": "https://www.leagueofgraphs.com/summoner/oce/{}",
     "urlMain": "https://www.leagueofgraphs.com/",
-    "username_claimed": "Stop+here-OCE",
-    "tag_required": true
+    "username_claimed": "Stop+here-OCE"
+  },
+  "LoLTr": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "tag_required": true,
+    "url": "https://www.leagueofgraphs.com/summoner/tr/{}",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Hide+on+bush-MBM0"
+  },
+  "LoLVn": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "tag_required": true,
+    "url": "https://www.leagueofgraphs.com/summoner/vn/{}",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Shirou-2K5"
   },
   "Lobsters": {
     "errorType": "status_code",
