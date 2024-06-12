@@ -1210,6 +1210,42 @@
     "urlMain": "https://www.kaggle.com/",
     "username_claimed": "dansbecker"
   },
+  "Kakao Chat": {
+    "errorMsg": "This chatroom is no longer available.",
+    "errorType": "message",
+    "url": "https://open.kakao.com/me/{}",
+    "urlMain": "https://open.kakao.com/",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Kakao Story Account": {
+    "errorMsg": [
+        "\"error\":\"profile_not_found\""
+    ],
+    "errorType": "message",
+    "url": "https://story.kakao.com/{}",
+    "urlMain": "https://story.kakao.com/",
+    "urlProbe": "https://story.kakao.com/a/profiles/{}",
+    "headers": {
+        "X-Requested-With": "XMLHttpRequest"
+	},
+    "username_claimed": "shippingsa",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
+  "Kakao Story Channel": {
+    "errorMsg": [
+        "\"error\":\"profile_not_found\""
+    ],
+    "errorType": "message",
+    "url": "https://story.kakao.com/ch/{}",
+    "urlMain": "https://story.kakao.com/",
+    "urlProbe": "https://story.kakao.com/a/profiles/@{}",
+    "headers": {
+        "X-Requested-With": "XMLHttpRequest"
+	},
+    "username_claimed": "dalpangeshop",
+    "username_unclaimed": "noonewouldeverusethis"
+  },
   "Keybase": {
     "errorType": "status_code",
     "url": "https://keybase.io/{}",
@@ -2368,6 +2404,24 @@
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
+  },
+  "YouTube Channel": {
+    "errorType": "status_code",
+    "request_method": "GET",
+    "urlProbe": "https://invidious.slipfox.xyz/c/{}",
+    "url": "https://youtube.com/c/{}/",
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed": "electroboom",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
+  "YouTube User": {
+    "errorType": "status_code",
+    "request_method": "GET",
+    "urlProbe": "https://invidious.slipfox.xyz/user/{}",
+    "url": "https://youtube.com/user/{}/",
+    "urlMain": "https://www.youtube.com/",
+    "username_claimed": "pewdiepie",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "Zhihu": {
     "errorMsg": "404",
