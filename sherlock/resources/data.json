@@ -172,6 +172,13 @@
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
+  "Armor Games": {
+    "errorType": "status_code",
+    "url": "https://armorgames.com/user/{}",
+    "urlMain": "https://armorgames.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -1255,6 +1262,13 @@
     "url": "https://launchpad.net/~{}",
     "urlMain": "https://launchpad.net/",
     "username_claimed": "blue"
+  },
+  "League of Legends Tracker": {
+    "errorType": "status_code",
+    "url": "https://tracker.gg/lol/profile/riot/NA/{}/overview",
+    "urlMain": "https://tracker.gg/lol/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
   },
   "LeetCode": {
     "errorType": "status_code",
