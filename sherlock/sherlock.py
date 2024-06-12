@@ -142,9 +142,6 @@ def interpolate_string(input_object, username, has_tag):
         if has_tag and '#' in username:
             username, tag = username.split('#')
             input_object = input_object.replace("<>", tag)
-        elif has_tag:
-            print("Flag --tag was set, but the tag wasn't provided or was provided in an incorrect format. Please use "
-                  "'username#tag'")
         return input_object.replace("{}", username)
     elif isinstance(input_object, dict):
         return {k: interpolate_string(v, username, has_tag) for k, v in input_object.items()}
@@ -260,6 +257,11 @@ def sherlock(
             # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
+        # if --tag flag is set but username doesn't contain tag, no need to make any requests
+        if has_tag and '#' not in username:
+            print("Flag --tag was set, but the tag wasn't provided. Please use "
+                  "'username#tag' format")
+            return results_total
         # URL of user on site (if it exists)
         url = interpolate_string(net_info["url"], username.replace(' ', '%20'), has_tag)
 
