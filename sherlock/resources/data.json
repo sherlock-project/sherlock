@@ -1256,6 +1256,69 @@
     "urlMain": "https://launchpad.net/",
     "username_claimed": "blue"
   },
+  "LoLKr": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/kr/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "NS Callme#KR1"
+  },
+  "LoLEune": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/eune/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "NotPurple#EUNE"
+  },
+  "LoLEuw": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/euw/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "KC NEXT ADKING#EUW"
+  },
+  "LoLNa": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/na/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Sheiden#0001"
+  },
+  "LoLVn": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/vn/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Shirou#2K5"
+  },
+  "LoLBr": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/br/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "frosty#KR3"
+  },
+  "LoLTr": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/tr/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Hide on bush#MBM0"
+  },
+  "LoLJp": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/jp/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Ninja of Ninjas#JP1"
+  },
+  "LoLOce": {
+    "errorType": "status_code",
+    "isTagRequired": true,
+    "url": "https://www.leagueofgraphs.com/summoner/oce/{}-<>",
+    "urlMain": "https://www.leagueofgraphs.com/",
+    "username_claimed": "Stop here#OCE"
+  },
   "LeetCode": {
     "errorType": "status_code",
     "url": "https://leetcode.com/{}",
@@ -2794,12 +2857,5 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "LeagueOfLegends": {
-    "errorType": "status_code",
-    "url": "https://www.leagueofgraphs.com/summoner/vn/{}-<>",
-    "isTagRequired": true,
-    "urlMain": "https://www.leagueofgraphs.com",
-    "username_claimed": "Sophie#1911"
   }
 }
