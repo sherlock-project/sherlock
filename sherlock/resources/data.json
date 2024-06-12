@@ -2794,5 +2794,12 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "LeagueOfLegends": {
+    "errorType": "status_code",
+    "url": "https://www.leagueofgraphs.com/summoner/vn/{}-<>",
+    "isTagRequired": true,
+    "urlMain": "https://www.leagueofgraphs.com",
+    "username_claimed": "Sophie#1911"
   }
 }

@@ -9,7 +9,7 @@ import secrets
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                information, is_nsfw, is_tag_required, username_unclaimed=secrets.token_urlsafe(10)):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -55,6 +55,7 @@ class SiteInformation:
         self.username_unclaimed = secrets.token_urlsafe(32)
         self.information = information
         self.is_nsfw  = is_nsfw
+        self.is_tag_required = is_tag_required
 
         return
 
@@ -67,7 +68,7 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        
+
         return f"{self.name} ({self.url_home})"
 
 
@@ -152,7 +153,7 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
-        
+
         site_data.pop('$schema', None)
 
         self.sites = {}
@@ -167,7 +168,8 @@ class SitesInformation:
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name],
-                                    site_data[site_name].get("isNSFW",False)
+                                    site_data[site_name].get("isNSFW", False),
+                                    site_data[site_name].get("isTagRequired", False)
 
                                     )
             except KeyError as error:
@@ -178,6 +180,30 @@ class SitesInformation:
                 print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
 
         return
+
+    def filter_websites_based_on_tag(self, site_list, tag_required):
+        """
+        Filter websites based on '--tag' flag, if it's provided, the result is a list
+        of websites that have isTagRequired set to True, and if '--tag' is not provided,
+        the result is a list of all websites that don't have isTagRequired set to True.
+
+        Keyword Arguments:
+        self              -- This object.
+        site_list         -- sites provided with '--site' flag
+        tag_required      -- boolean value, True if '--tag' flag is provided
+
+        Return Value:
+        None
+        """
+        sites_requiring_tag = set(site for site in self.sites if self.sites[site].is_tag_required)
+        if not tag_required and sites_requiring_tag and site_list:
+            print("Some websites require a tag, but the tag flag is not set.")
+        filtered_sites = {}
+        for site in self.sites:
+            if (tag_required and site in sites_requiring_tag) or \
+                    (not tag_required and site not in sites_requiring_tag):
+                filtered_sites[site] = self.sites[site]
+        self.sites = filtered_sites
 
     def remove_nsfw_sites(self, do_not_remove: list = []):
         """
@@ -194,7 +220,7 @@ class SitesInformation:
         for site in self.sites:
             if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
                 continue
-            sites[site] = self.sites[site]  
+            sites[site] = self.sites[site]
         self.sites =  sites
 
     def site_name_list(self):
