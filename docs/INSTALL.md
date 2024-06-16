@@ -39,6 +39,14 @@ pipx install sherlock-project
 
 ### Build live package from source (useful for contributors)
 
+> [!Note]
+> With the use of Poetry, there is no need for a requirements.txt file. Dependencies are specified within the pyproject file, which is referenced by pip during the build process.
+> 
+> If needed for some workflow, this file can be generated dynamically via the following...
+> ```bash
+> poetry export --without-hashes -f requirements.txt --output requirements.txt
+> ```
+
 Building an editable (or live) package links the entry point to your current directory, rather than to the standard install location. This is often useful when working with the code base, as changes are reflected immediately without reinstallation.
 
 Note that the version number will be 0.0.0 for pipx local builds unless manually changed in the pyproject file (it will prompt the user for an update).
@@ -56,6 +64,7 @@ If you'd rather not install directly to your system, you can import the module a
 # Assumes repository cloned, and current working directory is repository root
 python3 -m sherlock user123 user789
 ```
+
 
 <h2>
 Docker
