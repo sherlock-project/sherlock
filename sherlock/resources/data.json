@@ -590,7 +590,7 @@
     "username_claimed": "brown"
   },
   "CyberDefenders": {
-    "errorMsg": "<title>Online Cyber Security Blue Team Training - CyberDefenders</title>",
+    "errorMsg": "<title>Blue Team Training for SOC analysts and DFIR - CyberDefenders</title>",
     "errorType": "message",
     "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
     "request_method": "GET",
