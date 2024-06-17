@@ -3,8 +3,18 @@ name: Regression Testing
 on:
   pull_request:
     branches: [ master ]
+    paths:
+      - '**/*.json'
+      - '**/*.py'
+      - '**/*.ini'
+      - '**/*.toml'
   push:
     branches: [ master ]
+    paths:
+      - '**/*.json'
+      - '**/*.py'
+      - '**/*.ini'
+      - '**/*.toml'
 
 jobs:
   tox-matrix:
