@@ -1,6 +1,6 @@
 ### REPOSITORY
 /.github/CODEOWNERS @sdushantha
-./github/FUNDING.yml @sdushantha
+/.github/FUNDING.yml @sdushantha
 /LICENSE @sdushantha
 
 ### PACKAGING
