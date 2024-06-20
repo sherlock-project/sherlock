@@ -33,14 +33,14 @@ jobs:
         run: python devel/site-list.py
 
       - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: sdushantha/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'output'
           destination-github-username: 'sherlock-project'
-          commit-message: "Updated site list"
+          commit-message: 'Updated site list'
           destination-repository-name: 'sherlockproject.xyz'
           user-email: siddharth.dushantha@gmail.com
           target-branch: master
