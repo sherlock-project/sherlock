@@ -1,6 +1,6 @@
 <p align=center>
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://user-images.githubusercontent.com/27065646/53551960-ae4dff80-3b3a-11e9-9075-cef786c69364.png"/></a>
+  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/docs/sites.md">400+ social networks</a></span>
   <br>
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-<img width="70%" height="70%" src="https://user-images.githubusercontent.com/27065646/219638267-a5e11090-aa6e-4e77-87f7-0e95f6ad5978.png"/>
+<img width="70%" height="70%" src="images/preview.png"/>
 </a>
 </p>
 
@@ -27,11 +27,15 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/sherlock-project?logo=PyPi&label=PyPI&color=darkgreen)][ext_pypi] [![Docker Image Version](https://img.shields.io/docker/v/sherlock/sherlock?sort=semver&logo=docker&label=Docker&color=darkgreen)][docs_docker] [![homebrew version](https://img.shields.io/homebrew/v/sherlock?logo=Homebrew&color=darkgreen)][ext_brew]
 
 
-| Method | Command | Notes |
+| | Command | Notes |
 | - | - | - |
-| pypi | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
-| brew | `brew install sherlock` | Community supported |
-| docker | `docker pull sherlock/sherlock` | |
+| PyPI | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
+| Docker | `docker pull sherlock/sherlock` | |
+| Debian family | `apt install sherlock` | Kali, Parrot, Debian Testing and Sid |
+| BlackArch | `pacman -S sherlock` |  |
+| Homebrew | `brew install sherlock` | |
+
+PyPI and DockerHub images are mainaintenced by the Sherlock Project. Others are community supported.
 
 ### Alternative guides and methods
 
@@ -133,15 +137,10 @@ Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 [docs_install]: /docs/INSTALL.md
 [docs_docker]: /docs/INSTALL.md#docker
-[docs_docker_dockerhub]: /docs/INSTALL.md#docker
-[docs_docker_compose]: /docs/INSTALL.md#using-compose
-[docs_docker_source]: /docs/INSTALL.md#build-image-from-source-useful-for-contributors
 [docs_py]: /docs/INSTALL.md#python
-[docs_py_build]: /docs/INSTALL.md#build-python-package-from-source-useful-for-contributors
 [docs_contrib]: /docs/CONTRIBUTING.md
 [docs_contrib_adding_targets]: /docs/CONTRIBUTING.md#adding-targets
 [docs_contrib_removing_targets]: /docs/CONTRIBUTING.md#removing-targets
 [docs_contrib_restoring_targets]: /docs/CONTRIBUTING.md#restoring-targets
 [ext_pypi]: https://pypi.org/project/sherlock-project/
 [ext_brew]: https://formulae.brew.sh/formula/sherlock
-

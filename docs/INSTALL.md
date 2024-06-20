@@ -37,13 +37,33 @@ Python
 pipx install sherlock-project
 ```
 
-### Build python package from source (useful for contributors)
+### Build live package from source (useful for contributors)
+
+> [!Note]
+> With the switch to Poetry, Sherlock no longer requires a `requirements.txt` file. Dependencies are now specified within the `pyproject.toml` file.
+> 
+> If the legacy `requirements.txt` file is still desired, it can be dynamically generated:
+> ```bash
+> # Append `--with dev` or `--only dev` to include dev dependencies
+> poetry export --without-hashes -f requirements.txt --output requirements.txt
+> ```
+
+Building an editable (or live) package links the entry point to your current directory, rather than to the standard install location. This is often useful when working with the code base, as changes are reflected immediately without reinstallation.
+
+Note that the version number will be 0.0.0 for pipx local builds unless manually changed in the pyproject file (it will prompt the user for an update).
 
 ```bash
-# pipx is recommended, but pip may suffice if pipx is unavailable
-git clone https://github.com/sherlock-project/sherlock.git
-cd sherlock
-pipx install .
+# Assumes repository cloned, and current working directory is repository root
+pipx install -e .
+```
+
+### Run package from source (without installing)
+
+If you'd rather not install directly to your system, you can import the module at runtime with `-m`.
+
+```bash
+# Assumes repository cloned, and current working directory is repository root
+python3 -m sherlock user123 user789
 ```
 
 <h2>

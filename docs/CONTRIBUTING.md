@@ -68,7 +68,7 @@ Sherlock.  This invocation hides the progress text that Sherlock normally
 outputs, and instead shows the verbose output of the tests.
 
 ```console
-$ cd sherlock/sherlock
+# Assumes current working directory is respository root
 $ python3 -m unittest tests.all --verbose
 ```
 

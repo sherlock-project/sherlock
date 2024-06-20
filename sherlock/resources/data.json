@@ -590,7 +590,7 @@
     "username_claimed": "brown"
   },
   "CyberDefenders": {
-    "errorMsg": "<title>Online Cyber Security Blue Team Training - CyberDefenders</title>",
+    "errorMsg": "<title>Blue Team Training for SOC analysts and DFIR - CyberDefenders</title>",
     "errorType": "message",
     "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
     "request_method": "GET",
@@ -717,8 +717,7 @@
     "username_claimed": "jonasjacobsson"
   },
   "EyeEm": {
-    "errorMsg": "Whoops! We can&#x27;t find the page you&#x27;re looking for...",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue"
@@ -2128,8 +2127,8 @@
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
+    "url": "https://x.com/{}",
+    "urlMain": "https://x.com/",
     "urlProbe": "https://nitter.net/{}",
     "username_claimed": "blue"
   },

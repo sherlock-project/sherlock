@@ -1,11 +1,11 @@
-name: Update Site List 
+name: Update Site List
 
 # Trigger the workflow when changes are pushed to the main branch
 # and the changes include the sherlock/resources/data.json file
 on:
   push:
     branches:
-      - master 
+      - master
     paths:
       - sherlock/resources/data.json
 
@@ -26,24 +26,21 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x' 
+          python-version: '3.x'
 
       # Execute the site_list.py Python script
       - name: Execute site-list.py
         run: python devel/site-list.py
 
-       # Commit any changes made by the script
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          if ! git diff --exit-code; then
-            git commit -a -m "Updated Site List"
-          fi
-
-      # Push the changes to the remote repository
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Pushes to another repository
+        uses: sdushantha/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          source-directory: 'output'
+          destination-github-username: 'sherlock-project'
+          commit-message: 'Updated site list'
+          destination-repository-name: 'sherlockproject.xyz'
+          user-email: siddharth.dushantha@gmail.com
+          target-branch: master
