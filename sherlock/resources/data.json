@@ -2123,7 +2123,7 @@
     "urlProbe": "https://m.twitch.tv/{}",
     "username_claimed": "jenny"
   },
-  "X (Twitter)": {
+  "Twitter": {
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
