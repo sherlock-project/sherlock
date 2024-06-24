@@ -2579,13 +2579,6 @@
     "urlMain": "https://www.kwork.ru/",
     "username_claimed": "blue"
   },
-  "labpentestit": {
-    "errorType": "response_url",
-    "errorUrl": "https://lab.pentestit.ru/{}",
-    "url": "https://lab.pentestit.ru/profile/{}",
-    "urlMain": "https://lab.pentestit.ru/",
-    "username_claimed": "CSV"
-  },
   "last.fm": {
     "errorType": "status_code",
     "url": "https://last.fm/user/{}",
