@@ -8,6 +8,8 @@ on:
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
+      - '**/*.yml'
+      - '**/*.yaml'
   push:
     branches: [ master ]
     paths:
@@ -15,6 +17,8 @@ on:
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
+      - '**/*.yml'
+      - '**/*.yaml'
 
 jobs:
   tox-matrix:
