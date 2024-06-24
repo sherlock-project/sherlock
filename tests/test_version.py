@@ -10,8 +10,8 @@ def test_versioning() -> None:
     found:list = Interactives.walk_sherlock_for_files_with(r'__version__ *= *')
     expected:list = [
         # Normalization is REQUIRED for Windows ( / vs \ )
-        os.path.normpath("sherlock/__init__.py"),
-        os.path.normpath("sherlock/sherlock.py"),
+        os.path.normpath("sherlock_project/__init__.py"),
+        os.path.normpath("sherlock_project/sherlock.py"),
     ]
     # Sorting is REQUIRED for Mac
     assert sorted(found) == sorted(expected)
