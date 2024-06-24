@@ -2480,8 +2480,7 @@
     "username_claimed": "red"
   },
   "freecodecamp": {
-    "errorMsg": "{}",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.freecodecamp.org/{}",
     "urlMain": "https://www.freecodecamp.org/",
     "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
