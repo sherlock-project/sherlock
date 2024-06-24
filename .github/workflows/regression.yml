@@ -21,10 +21,25 @@ on:
       - '**/*.yaml'
 
 jobs:
+  tox-lint:
+    # Linting is ran through tox to ensure that the same linter is used by local runners
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up linting environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install tox and related dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install tox
+      - name: Run tox linting environment
+        run: tox -e lint
   tox-matrix:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false # We want to know what version it fails on
+      fail-fast: false # We want to know what specicic versions it fails on
       matrix:
         os: [
           ubuntu-latest,
@@ -38,7 +53,6 @@ jobs:
           '3.11',
           '3.12',
         ]
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up environment ${{ matrix.python-version }}
@@ -51,6 +65,4 @@ jobs:
           pip install tox
           pip install tox-gh-actions
       - name: Run tox
-        run: |
-          tox -e lint
-          tox
+        run: tox
