@@ -4,21 +4,19 @@ on:
   pull_request:
     branches: [ master ]
     paths:
+      - '.github/workflows/regression.yml'
       - '**/*.json'
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
-      - '**/*.yml'
-      - '**/*.yaml'
   push:
     branches: [ master ]
     paths:
+      - '.github/workflows/regression.yml'
       - '**/*.json'
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
-      - '**/*.yml'
-      - '**/*.yaml'
 
 jobs:
   tox-lint:
