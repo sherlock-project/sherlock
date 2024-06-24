@@ -5,6 +5,10 @@ lib/
 pyvenv.cfg
 poetry.lock
 
+# Regression Testing
+.coverage
+.tox/
+
 # Editor Configurations
 .vscode/
 .idea/

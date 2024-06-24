@@ -1868,3 +1868,17 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
     "username_claimed": "bitcoinforum.com"
   }
 ```
+
+## Penetestit
+
+As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site structures
+
+```json
+  "labpentestit": {
+    "errorType": "response_url",
+    "errorUrl": "https://lab.pentestit.ru/{}",
+    "url": "https://lab.pentestit.ru/profile/{}",
+    "urlMain": "https://lab.pentestit.ru/",
+    "username_claimed": "CSV"
+  }
+```

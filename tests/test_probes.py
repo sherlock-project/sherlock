@@ -45,7 +45,7 @@ class TestLiveTargets:
     # Known positives should only use sites trusted to be reliable and unchanging
     @pytest.mark.parametrize('site,username',[
         ('BodyBuilding', 'blue'),
-        ('labpentestit', 'CSV'),
+        ('devRant', 'blue'),
     ])
     def test_known_positives_via_response_url(self, sites_info, site, username):
         assert simple_query(sites_info=sites_info, site=site, username=username) is QueryStatus.CLAIMED
