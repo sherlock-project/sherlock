@@ -47,4 +47,6 @@ jobs:
           pip install tox
           pip install tox-gh-actions
       - name: Run tox
-        run: tox
+        run: |
+          tox -e lint
+          tox
