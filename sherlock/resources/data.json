@@ -1276,7 +1276,7 @@
     "username_claimed": "blue"
   },
   "LibraryThing": {
-    "errorMsg": "This user doesn't exist",
+    "errorMsg": "Catalog your books online",
     "errorType": "message",
     "url": "https://www.librarything.com/profile/{}",
     "urlMain": "https://www.librarything.com/",
@@ -2369,13 +2369,6 @@
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
   },
-  "Zhihu": {
-    "errorMsg": "404",
-    "errorType": "message",
-    "url": "https://www.zhihu.com/people/{}",
-    "urlMain": "https://www.zhihu.com/",
-    "username_claimed": "blue"
-  },
   "akniga": {
     "errorType": "status_code",
     "url": "https://akniga.org/profile/{}",
@@ -2480,8 +2473,7 @@
     "username_claimed": "red"
   },
   "freecodecamp": {
-    "errorMsg": "{}",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.freecodecamp.org/{}",
     "urlMain": "https://www.freecodecamp.org/",
     "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",

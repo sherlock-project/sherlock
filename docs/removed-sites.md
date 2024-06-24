@@ -1869,6 +1869,19 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
   }
 ```
 
+## Zhihu
+As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats returned. Checking for patterns may allow us to find a way to detect the existans of a user, this will be need to be worked on later
+```json
+
+  "Zhihu": {
+    "errorMsg": "用户不存在",
+    "errorType": "message",
+    "url": "https://www.zhihu.com/people/{}",
+    "urlMain": "https://www.zhihu.com/",
+    "username_claimed": "blue"
+  }
+```
+
 ## Penetestit
 
 As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site structures
