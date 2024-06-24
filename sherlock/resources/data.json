@@ -2369,13 +2369,6 @@
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
   },
-  "Zhihu": {
-    "errorMsg": "404",
-    "errorType": "message",
-    "url": "https://www.zhihu.com/people/{}",
-    "urlMain": "https://www.zhihu.com/",
-    "username_claimed": "blue"
-  },
   "akniga": {
     "errorType": "status_code",
     "url": "https://akniga.org/profile/{}",
