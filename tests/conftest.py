@@ -2,7 +2,7 @@ import os
 import json
 import urllib
 import pytest
-from sherlock.sites import SitesInformation
+from sherlock_project.sites import SitesInformation
 
 @pytest.fixture()
 def sites_obj():
