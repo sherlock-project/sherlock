@@ -20,7 +20,7 @@ os.mkdir("output")
 
 # Write the list of supported sites to sites.md
 with open("output/sites.mdx", "w") as site_file:
-    site_file.write(f"---\ntitle: 'List of supported sites'\nsidebarTitle: 'Supported sites'\nicon: 'globe'\ndescription: 'Sherlock currently supports **400+** sites'\n---\n\n")
+    site_file.write("---\ntitle: 'List of supported sites'\nsidebarTitle: 'Supported sites'\nicon: 'globe'\ndescription: 'Sherlock currently supports **400+** sites'\n---\n\n")
     for social_network, info in social_networks:
         url_main = info["urlMain"]
         is_nsfw = "**(NSFW)**" if info.get("isNSFW") else ""

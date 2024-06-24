@@ -11,7 +11,6 @@ import csv
 import signal
 import pandas as pd
 import os
-import platform
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
@@ -26,7 +25,6 @@ __version__ = "0.14.4"
 del __version__
 
 from .__init__ import ( # noqa: E402
-    __shortname__,
     __longname__,
     __version__
 )
