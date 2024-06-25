@@ -7,4 +7,4 @@ networks.
 
 __shortname__   = "Sherlock"
 __longname__    = "Sherlock: Find Usernames Across Social Networks"
-__version__     = "0.14.4"
+__version__     = "0.15.0"

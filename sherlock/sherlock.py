@@ -26,7 +26,8 @@ del __version__
 
 from .__init__ import ( # noqa: E402
     __longname__,
-    __version__
+    __shortname__,
+    __version__,
 )
 
 from requests_futures.sessions import FuturesSession    # noqa: E402
@@ -523,7 +524,7 @@ def main():
     parser.add_argument(
         "--version",
         action="version",
-        version=f"Sherlock v{__version__}",
+        version=f"{__shortname__} v{__version__}",
         help="Display version information and dependencies.",
     )
     parser.add_argument(
