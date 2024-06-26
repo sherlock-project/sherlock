@@ -25,7 +25,7 @@ class Interactives:
         """Check all files within the Sherlock package for matching patterns"""
         pattern:re.Pattern = re.compile(pattern)
         matching_files:list[str] = []
-        for root, dirs, files in os.walk("sherlock"):
+        for root, dirs, files in os.walk("sherlock_project"):
             for file in files:
                 file_path = os.path.join(root,file)
                 if "__pycache__" in file_path:

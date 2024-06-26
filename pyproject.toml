@@ -20,8 +20,8 @@ maintainers = [
     "Matheus Felipe <matheusfelipeog@protonmail.com>",
     "Sondre Karlsen Dyrnes <sondre@villdyr.no>"
 ]
-readme = "docs/pyproj/README.md"
-packages = [ { include = "sherlock"} ]
+readme = "docs/pyproject/README.md"
+packages = [ { include = "sherlock_project"} ]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -32,7 +32,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Security"
 ]
-homepage = "https://sherlock-project.github.io/"
+homepage = "https://sherlockproject.xyz/"
 repository = "https://github.com/sherlock-project/sherlock"
 
 
@@ -56,4 +56,4 @@ openpyxl = "^3.0.10"
 jsonschema = "^4.0.0"
 
 [tool.poetry.scripts]
-sherlock = 'sherlock.sherlock:main'
+sherlock = 'sherlock_project.sherlock:main'

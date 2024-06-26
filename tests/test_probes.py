@@ -2,9 +2,9 @@ import pytest
 import random
 import string
 import re
-from sherlock.sherlock import sherlock
-from sherlock.notify import QueryNotify
-from sherlock.result import QueryStatus
+from sherlock_project.sherlock import sherlock
+from sherlock_project.notify import QueryNotify
+from sherlock_project.result import QueryStatus
 #from sherlock_interactives import Interactives
 
 
