@@ -1258,7 +1258,7 @@
   },
   "LeetCode": {
     "errorType": "status_code",
-    "url": "https://leetcode.com/{}",
+    "url": "https://leetcode.com/u/{}",
     "urlMain": "https://leetcode.com/",
     "username_claimed": "blue"
   },
