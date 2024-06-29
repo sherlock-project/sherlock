@@ -618,7 +618,7 @@ removed
 
 ## Coderwall
 As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
-I have tried to find out what Coderwall's criteria is for a valid username, but unfortunately I have not been able to 
+I have tried to find out what Coderwall's criteria is for a valid username, but unfortunately I have not been able to
 find it and because of this, the best thing we can do now is to remove it.
 ```json
   "Coderwall": {
@@ -666,15 +666,15 @@ As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato take
 ## Mixer
 As of 2020-07-22, the Mixer service has closed down.
 ```json
-  "mixer.com": { 
-    "errorType": "status_code", 
-    "rank": 1544, 
-    "url": "https://mixer.com/{}", 
-    "urlMain": "https://mixer.com/", 
-    "urlProbe": "https://mixer.com/api/v1/channels/{}", 
-    "username_claimed": "blue", 
-    "username_unclaimed": "noonewouldeverusethis7" 
-  }, 
+  "mixer.com": {
+    "errorType": "status_code",
+    "rank": 1544,
+    "url": "https://mixer.com/{}",
+    "urlMain": "https://mixer.com/",
+    "urlProbe": "https://mixer.com/api/v1/channels/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
 ```
 
 
@@ -1300,7 +1300,7 @@ As og 2022-05-01, Smashcast is down
 
 ## Countable
 
-As og 2022-05-01, Countable returns false positives 
+As og 2022-05-01, Countable returns false positives
 ```json
   "Countable": {
     "errorType": "status_code",
@@ -1893,5 +1893,29 @@ As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site
     "url": "https://lab.pentestit.ru/profile/{}",
     "urlMain": "https://lab.pentestit.ru/",
     "username_claimed": "CSV"
+  }
+```
+
+
+## Euw
+__2024-06-09 :__ errorMsg detection doesn't work anymore, because the error message is included in HTTP request body, even in successful search
+```json
+"Euw": {
+    "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
+    "errorType": "message",
+    "url": "https://euw.op.gg/summoner/userName={}",
+    "urlMain": "https://euw.op.gg/",
+    "username_claimed": "blue"
+  }
+```
+
+## Etsy
+__2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the connection, so it doesn't work anymore
+```json
+"Etsy": {
+    "errorType": "status_code",
+    "url": "https://www.etsy.com/shop/{}",
+    "urlMain": "https://www.etsy.com/",
+    "username_claimed": "JennyKrafts"
   }
 ```
