@@ -202,7 +202,6 @@ def sherlock(
 
     # Normal requests
     underlying_session = requests.session()
-    underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -527,7 +526,7 @@ def main():
         "-o",
         dest="output",
         help="If using single username, the output of the result will be saved to this file.",
-    ),
+    )
     parser.add_argument(
         "--csv",
         action="store_true",
