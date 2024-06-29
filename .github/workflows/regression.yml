@@ -2,7 +2,9 @@ name: Regression Testing
 
 on:
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - release/**
     paths:
       - '.github/workflows/regression.yml'
       - '**/*.json'
@@ -10,7 +12,9 @@ on:
       - '**/*.ini'
       - '**/*.toml'
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - release/**
     paths:
       - '.github/workflows/regression.yml'
       - '**/*.json'
