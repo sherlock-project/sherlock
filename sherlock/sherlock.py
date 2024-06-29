@@ -17,28 +17,17 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
 import requests
+from requests_futures.sessions import FuturesSession
+from torrequest import TorRequest
 
-# Removing __version__ here will trigger update message for users
-# Do not remove until ready to trigger that message
-# When removed, also remove all the noqa: E402 comments for linting
-__version__ = "0.14.4"
-del __version__
-
-from .__init__ import ( # noqa: E402
-    __longname__,
-    __shortname__,
-    __version__,
-)
-
-from requests_futures.sessions import FuturesSession    # noqa: E402
-from torrequest import TorRequest                       # noqa: E402
-from sherlock.result import QueryStatus                 # noqa: E402
-from sherlock.result import QueryResult                 # noqa: E402
-from sherlock.notify import QueryNotify                 # noqa: E402
-from sherlock.notify import QueryNotifyPrint            # noqa: E402
-from sherlock.sites import SitesInformation             # noqa: E402
-from colorama import init                               # noqa: E402
-from argparse import ArgumentTypeError                  # noqa: E402
+from sherlock.__init__ import __longname__, __shortname__, __version__
+from sherlock.result import QueryStatus
+from sherlock.result import QueryResult
+from sherlock.notify import QueryNotify
+from sherlock.notify import QueryNotifyPrint
+from sherlock.sites import SitesInformation
+from colorama import init
+from argparse import ArgumentTypeError
 
 
 class SherlockFuturesSession(FuturesSession):
