@@ -18,6 +18,7 @@
                 "username_claimed": { "type": "string" },
                 "regexCheck": { "type": "string" },
                 "isNSFW": { "type": "boolean" },
+                "isTagRequired": { "type": "boolean"},
                 "headers": { "type": "object" },
                 "request_payload": { "type": "object" },
                 "__comment__": {

@@ -135,13 +135,16 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, exception_text
 
 
-def interpolate_string(input_object, username):
+def interpolate_string(input_object, username, has_tag):
     if isinstance(input_object, str):
+        if has_tag and '#' in username:
+            username, tag = username.split('#')
+            input_object = input_object.replace("<>", tag)
         return input_object.replace("{}", username)
     elif isinstance(input_object, dict):
-        return {k: interpolate_string(v, username) for k, v in input_object.items()}
+        return {k: interpolate_string(v, username, has_tag) for k, v in input_object.items()}
     elif isinstance(input_object, list):
-        return [interpolate_string(i, username) for i in input_object]
+        return [interpolate_string(i, username, has_tag) for i in input_object]
     return input_object
 
 
@@ -166,6 +169,7 @@ def sherlock(
     username,
     site_data,
     query_notify: QueryNotify,
+    has_tag: bool = False,
     tor: bool = False,
     unique_tor: bool = False,
     proxy=None,
@@ -251,8 +255,13 @@ def sherlock(
             # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
+        # if --tag flag is set but username doesn't contain tag, no need to make any requests
+        if has_tag and '#' not in username:
+            print("Flag --tag was set, but the tag wasn't provided. Please use "
+                  "'username#tag' format")
+            return results_total
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], username.replace(' ', '%20'), has_tag)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -286,7 +295,7 @@ def sherlock(
                     raise RuntimeError(f"Unsupported request_method for {url}")
 
             if request_payload is not None:
-                request_payload = interpolate_string(request_payload, username)
+                request_payload = interpolate_string(request_payload, username, has_tag)
 
             if url_probe is None:
                 # Probe URL is normal one seen by people out on the web.
@@ -294,7 +303,7 @@ def sherlock(
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = interpolate_string(url_probe, username)
+                url_probe = interpolate_string(url_probe, username, has_tag)
 
             if request is None:
                 if net_info["errorType"] == "status_code":
@@ -664,6 +673,15 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--tag",
+        action="store_true",
+        dest="tag",
+        default=False,
+        help="Search for a user name including a user tag (e.g. League of Legends, Valorant). "
+             "Username has to be entered in format 'username#tag'."
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -735,6 +753,11 @@ def main():
     if not args.nsfw:
         sites.remove_nsfw_sites(do_not_remove=args.site_list)
 
+    if args.tag:
+        sites.filter_websites_based_on_tag(args.site_list, tag_required=True)
+    else:
+        sites.filter_websites_based_on_tag(args.site_list, tag_required=False)
+
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
@@ -758,7 +781,10 @@ def main():
                 site_missing.append(f"'{site}'")
 
         if site_missing:
-            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            if args.tag:
+                print(f"Error: '--tag' flag was set, but {', '.join(site_missing)} usernames don't have tags.")
+            else:
+                print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
 
         if not site_data:
             sys.exit(1)
@@ -781,6 +807,7 @@ def main():
             username,
             site_data,
             query_notify,
+            args.tag,
             tor=args.tor,
             unique_tor=args.unique_tor,
             proxy=args.proxy,
