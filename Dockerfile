@@ -25,6 +25,6 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 
 RUN pip3 install --no-cache-dir sherlock-project==$VERSION_TAG
 
-WORKDIR /opt/sherlock/sherlock
+WORKDIR /sherlock
 
 ENTRYPOINT ["sherlock"]
