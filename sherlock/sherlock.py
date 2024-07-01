@@ -30,7 +30,6 @@ from .__init__ import ( # noqa: E402
 )
 
 from requests_futures.sessions import FuturesSession    # noqa: E402
-from torrequest import TorRequest                       # noqa: E402
 from sherlock.result import QueryStatus                 # noqa: E402
 from sherlock.result import QueryResult                 # noqa: E402
 from sherlock.notify import QueryNotify                 # noqa: E402
@@ -206,6 +205,15 @@ def sherlock(
     query_notify.start(username)
     # Create session based on request methodology
     if tor or unique_tor:
+        try:
+            from torrequest import TorRequest  # noqa: E402
+        except ImportError:
+            print("Important!")
+            print("> Dependencies for --tor and --unique-tor are now optional, and WILL BE DEPRECATED in a future release of Sherlock.")
+            print("> If you've installed Sherlock via pipx, you can install the dependency with `pipx install sherlock-project[tor]`.")
+            print("> Other packages should refer to their packager maintainer's documentation, or install separately with `pipx install torrequest`.\n")
+            sys.exit(query_notify.finish())
+
         # Requests using Tor obfuscation
         try:
             underlying_request = TorRequest()
