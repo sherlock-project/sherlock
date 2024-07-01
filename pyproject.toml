@@ -52,6 +52,9 @@ torrequest = "^0.1.0"
 pandas = ">=1.0.0,<3.0.0"
 openpyxl = "^3.0.10"
 
+[tool.poetry.extras]
+tor = ["torrequest"]
+
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
 
