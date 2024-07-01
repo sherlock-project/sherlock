@@ -168,6 +168,7 @@ def sherlock(
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
+    dump_response: bool = False,
     proxy=None,
     timeout=60,
 ):
@@ -457,6 +458,34 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
+        
+        if dump_response:
+            print("+++++++++++++++++++++")
+            print(f"TARGET NAME   : {social_network}")
+            print(f"USERNAME      : {username}")
+            print(f"TARGET URL    : {url}")
+            print(f"TEST METHOD   : {error_type}")
+            try:
+                print(f"STATUS CODES  : {net_info['errorCode']}")
+            except KeyError:
+                pass
+            print("Results...")
+            try:
+                print(f"RESPONSE CODE : {r.status_code}")
+            except Exception:
+                pass
+            try:
+                print(f"ERROR TEXT    : {net_info['errorMsg']}")
+            except KeyError:
+                pass
+            print(">>>>> BEGIN RESPONSE TEXT")
+            try:
+                print(r.text)
+            except Exception:
+                pass
+            print("<<<<< END RESPONSE TEXT")
+            print("VERDICT       : " + str(query_status))
+            print("+++++++++++++++++++++")
 
         # Notify caller about results of query.
         result = QueryResult(
@@ -594,6 +623,13 @@ def main():
         dest="proxy",
         default=None,
         help="Make requests over a proxy. e.g. socks5://127.0.0.1:1080",
+    )
+    parser.add_argument(
+        "--dump-response",
+        action="store_true",
+        dest="dump_response",
+        default=False,
+        help="Dump the HTTP response to stdout for targeted debugging.",
     )
     parser.add_argument(
         "--json",
@@ -783,6 +819,7 @@ def main():
             query_notify,
             tor=args.tor,
             unique_tor=args.unique_tor,
+            dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
         )
