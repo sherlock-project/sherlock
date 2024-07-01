@@ -210,7 +210,7 @@ def sherlock(
         except ImportError:
             print("Important!")
             print("> Dependencies for --tor and --unique-tor are now optional, and WILL BE DEPRECATED in a future release of Sherlock.")
-            print("> If you've installed Sherlock via pipx, you can install the dependency with `pipx install sherlock-project[tor]`.")
+            print("> If you've installed Sherlock via pipx, you can install the dependency with `pip install sherlock-project[tor]`.")
             print("> Other packages should refer to their packager maintainer's documentation, or install separately with `pipx install torrequest`.\n")
             sys.exit(query_notify.finish())
 
