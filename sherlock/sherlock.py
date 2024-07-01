@@ -20,7 +20,14 @@ import requests
 from requests_futures.sessions import FuturesSession
 from torrequest import TorRequest
 
-from sherlock.__init__ import __longname__, __shortname__, __version__
+from sherlock.__init__ import (
+    __longname__,
+    __shortname__,
+    __version__,
+    forgeReleaseUrlPrefix,
+    #forgeApiLatestReleaseUrl,
+)
+
 from sherlock.result import QueryStatus
 from sherlock.result import QueryResult
 from sherlock.notify import QueryNotify
@@ -666,12 +673,11 @@ def main():
         )
 
         remote_version = str(re.findall('__version__ *= *"(.*)"', r.text)[0])
-        local_version = __version__
 
-        if remote_version != local_version:
+        if remote_version != __version__:
             print(
-                "Update Available!\n"
-                + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock"
+                f"Update available! {__version__} --> {remote_version}"
+                f"\n{forgeReleaseUrlPrefix}v{remote_version}"
             )
 
     except Exception as error:
