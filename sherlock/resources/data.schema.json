@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Sherlock Targets",
-    "description": "Social media target to probe for existence of usernames",
+    "title": "Sherlock Target Manifest",
+    "description": "Social media targets to probe for the existence of known usernames",
     "type": "object",
     "properties": {
         "$schema": { "type": "string" }
@@ -9,7 +9,7 @@
     "patternProperties": {
         "^(?!\\$).*?$": {
             "type": "object",
-            "description": "User-friendly target name",
+            "description": "Target name and associated information (key should be human readable name)",
             "required": [ "url", "urlMain", "errorType", "username_claimed" ],
             "properties": {
                 "url": { "type": "string" },
