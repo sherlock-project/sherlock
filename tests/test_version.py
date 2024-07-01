@@ -11,7 +11,6 @@ def test_versioning() -> None:
     expected:list = [
         # Normalization is REQUIRED for Windows ( / vs \ )
         os.path.normpath("sherlock/__init__.py"),
-        os.path.normpath("sherlock/sherlock.py"),
     ]
     # Sorting is REQUIRED for Mac
     assert sorted(found) == sorted(expected)

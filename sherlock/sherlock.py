@@ -14,6 +14,7 @@ import os
 import re
 import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from json import loads as json_loads
 from time import monotonic
 
 import requests
@@ -24,8 +25,7 @@ from sherlock.__init__ import (
     __longname__,
     __shortname__,
     __version__,
-    forgeReleaseUrlPrefix,
-    #forgeApiLatestReleaseUrl,
+    forgeApiLatestReleaseUrl,
 )
 
 from sherlock.result import QueryStatus
@@ -668,16 +668,14 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/__init__.py"
-        )
+        latestReleaseJsonRaw = requests.get(forgeApiLatestReleaseUrl).text
+        latestReleaseJsonData = json_loads(latestReleaseJsonRaw)
+        latestRemoteTag = latestReleaseJsonData["tag_name"]
 
-        remote_version = str(re.findall('__version__ *= *"(.*)"', r.text)[0])
-
-        if remote_version != __version__:
+        if latestRemoteTag[1:] != __version__:
             print(
-                f"Update available! {__version__} --> {remote_version}"
-                f"\n{forgeReleaseUrlPrefix}v{remote_version}"
+                f"Update available! {__version__} --> {latestRemoteTag[1:]}"
+                f"\n{latestReleaseJsonData['html_url']}"
             )
 
     except Exception as error:
