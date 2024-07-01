@@ -1,26 +1,30 @@
-FROM python:3.11-slim-bullseye as build
-WORKDIR /wheels
+# Release instructions:
+  # 1. Update the version tag in the Dockerfile to match the version in sherlock/__init__.py
+  # 2. Update the VCS_REF tag to match the tagged version's FULL commit hash
+  # 3. Build image with BOTH latest and version tags
+    # i.e. `docker build -t sherlock/sherlock:0.15.0 -t sherlock/sherlock:latest .`
 
-COPY requirements.txt /opt/sherlock/
+FROM python:3.12-slim-bullseye as build
+WORKDIR /sherlock
+
 RUN apt-get update \
-  && apt-get install -y build-essential \
-  && pip3 wheel -r /opt/sherlock/requirements.txt
+  pip3 install --no-cache-dir --upgrade pip
 
-FROM python:3.11-slim-bullseye
-WORKDIR /opt/sherlock
+FROM python:3.12-slim-bullseye
+WORKDIR /sherlock
 
-ARG VCS_REF
+ARG VCS_REF= # CHANGE ME ON UPDATE
 ARG VCS_URL="https://github.com/sherlock-project/sherlock"
+ARG VERSION_TAG= # CHANGE ME ON UPDATE
 
 LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url=$VCS_URL
+      org.label-schema.vcs-url=$VCS_URL \
+      org.label-schema.name="Sherlock" \
+      org.label-schema.version=$VERSION_TAG \
+      website="https://sherlockproject.xyz"
 
-COPY --from=build /wheels /wheels
-COPY . /opt/sherlock/
+RUN pip3 install --no-cache-dir sherlock-project==$VERSION_TAG
 
-RUN pip3 install --no-cache-dir . -f /wheels \
-  && rm -rf /wheels
-
-WORKDIR /opt/sherlock/sherlock
+WORKDIR /sherlock
 
 ENTRYPOINT ["sherlock"]
