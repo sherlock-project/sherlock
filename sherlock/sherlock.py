@@ -144,6 +144,9 @@ def interpolate_string(input_object, username):
         return [interpolate_string(i, username) for i in input_object]
     return input_object
 
+def interpolate_tag(input_object, tag):
+    return input_object.replace("#", tag)
+
 
 def check_for_parameter(username):
     """checks if {?} exists in the username
@@ -166,6 +169,7 @@ def sherlock(
     username,
     site_data,
     query_notify: QueryNotify,
+    tag="",
     tor: bool = False,
     unique_tor: bool = False,
     proxy=None,
@@ -182,6 +186,8 @@ def sherlock(
     query_notify           -- Object with base type of QueryNotify().
                               This will be used to notify the caller about
                               query results.
+    tag                    -- String indicating accompanying to the username tag,
+                              empty string if --tag not given
     tor                    -- Boolean indicating whether to use a tor circuit for the requests.
     unique_tor             -- Boolean indicating whether to use a new tor circuit for each request.
     proxy                  -- String indicating the proxy URL
@@ -254,6 +260,9 @@ def sherlock(
         # URL of user on site (if it exists)
         url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
 
+        if net_info.get("tag_required") and tag is not None:
+            url = interpolate_tag(url, tag)
+
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
@@ -295,6 +304,8 @@ def sherlock(
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
                 url_probe = interpolate_string(url_probe, username)
+                if net_info.get("tag_required"):
+                    url = interpolate_tag(url_probe, tag)
 
             if request is None:
                 if net_info["errorType"] == "status_code":
@@ -664,6 +675,13 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--tag",
+        action="store",
+        dest="tag",
+        help="Add a tag to the username",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -781,6 +799,7 @@ def main():
             username,
             site_data,
             query_notify,
+            tag = args.tag,
             tor=args.tor,
             unique_tor=args.unique_tor,
             proxy=args.proxy,
