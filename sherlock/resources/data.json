@@ -1186,6 +1186,14 @@
     "urlMain": "https://discourse.joplinapp.org/",
     "username_claimed": "laurent"
   },
+  "JSFiddle": {
+    "errorMsg": "That page doesn't exist.",
+    "errorType": "status_code",
+    "url": "https://jsfiddle.net/user/{}",
+    "urlMain": "https://jsfiddle.net/",
+    "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7"
+  },
   "KEAKR": {
     "errorType": "status_code",
     "url": "https://www.keakr.com/en/profile/{}",
