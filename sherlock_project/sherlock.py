@@ -10,7 +10,7 @@ networks.
 import sys
 
 try:
-    from sherlock.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
     print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
@@ -211,6 +211,18 @@ def sherlock(
     query_notify.start(username)
     # Create session based on request methodology
     if tor or unique_tor:
+        try:
+            from torrequest import TorRequest  # noqa: E402
+        except ImportError:
+            print("Important!")
+            print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock.")
+            print("> If you've installed Sherlock via pip, you can include the optional dependency via `pip install 'sherlock-project[tor]'`.")
+            print("> Other packages should refer to their documentation, or install it separately with `pip install torrequest`.\n")
+            sys.exit(query_notify.finish())
+
+        print("Important!")
+        print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock.")
+
         # Requests using Tor obfuscation
         try:
             underlying_request = TorRequest()
