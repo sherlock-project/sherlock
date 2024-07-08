@@ -22,30 +22,26 @@ import pandas as pd
 import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from json import loads as json_loads
 from time import monotonic
 
 import requests
+from requests_futures.sessions import FuturesSession
 
-# Removing __version__ here will trigger update message for users
-# Do not remove until ready to trigger that message
-# When removed, also remove all the noqa: E402 comments for linting
-__version__ = "0.14.4"
-del __version__
-
-from sherlock_project.__init__ import ( # noqa: E402
+from sherlock_project.__init__ import (
     __longname__,
-    __version__
+    __shortname__,
+    __version__,
+    forge_api_latest_release,
 )
 
-from requests_futures.sessions import FuturesSession    # noqa: E402
-from torrequest import TorRequest                       # noqa: E402
-from sherlock_project.result import QueryStatus                 # noqa: E402
-from sherlock_project.result import QueryResult                 # noqa: E402
-from sherlock_project.notify import QueryNotify                 # noqa: E402
-from sherlock_project.notify import QueryNotifyPrint            # noqa: E402
-from sherlock_project.sites import SitesInformation             # noqa: E402
-from colorama import init                               # noqa: E402
-from argparse import ArgumentTypeError                  # noqa: E402
+from sherlock_project.result import QueryStatus
+from sherlock_project.result import QueryResult
+from sherlock_project.notify import QueryNotify
+from sherlock_project.notify import QueryNotifyPrint
+from sherlock_project.sites import SitesInformation
+from colorama import init
+from argparse import ArgumentTypeError
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -560,7 +556,7 @@ def main():
     parser.add_argument(
         "--version",
         action="version",
-        version=f"Sherlock v{__version__}",
+        version=f"{__shortname__} v{__version__}",
         help="Display version information and dependencies.",
     )
     parser.add_argument(
@@ -715,17 +711,14 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        r = requests.get(
-            "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/__init__.py"
-        )
+        latest_release_raw = requests.get(forge_api_latest_release).text
+        latest_release_json = json_loads(latest_release_raw)
+        latest_remote_tag = latest_release_json["tag_name"]
 
-        remote_version = str(re.findall('__version__ *= *"(.*)"', r.text)[0])
-        local_version = __version__
-
-        if remote_version != local_version:
+        if latest_remote_tag[1:] != __version__:
             print(
-                "Update Available!\n"
-                + f"You are running version {local_version}. Version {remote_version} is available at https://github.com/sherlock-project/sherlock"
+                f"Update available! {__version__} --> {latest_remote_tag[1:]}"
+                f"\n{latest_release_json['html_url']}"
             )
 
     except Exception as error:
