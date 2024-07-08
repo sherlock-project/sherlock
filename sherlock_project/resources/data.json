@@ -1,4 +1,5 @@
 {
+  "$schema": "data.schema.json",
   "1337x": {
     "errorMsg": [
       "<title>Error something went wrong.</title>",
