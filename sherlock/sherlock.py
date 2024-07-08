@@ -25,7 +25,7 @@ from sherlock.__init__ import (
     __longname__,
     __shortname__,
     __version__,
-    forgeApiLatestReleaseUrl,
+    forge_api_latest_release,
 )
 
 from sherlock.result import QueryStatus
@@ -668,14 +668,14 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        latestReleaseJsonRaw = requests.get(forgeApiLatestReleaseUrl).text
-        latestReleaseJsonData = json_loads(latestReleaseJsonRaw)
-        latestRemoteTag = latestReleaseJsonData["tag_name"]
+        latest_release_raw = requests.get(forge_api_latest_release).text
+        latest_release_json = json_loads(latest_release_raw)
+        latest_remote_tag = latest_release_json["tag_name"]
 
-        if latestRemoteTag[1:] != __version__:
+        if latest_remote_tag[1:] != __version__:
             print(
-                f"Update available! {__version__} --> {latestRemoteTag[1:]}"
-                f"\n{latestReleaseJsonData['html_url']}"
+                f"Update available! {__version__} --> {latest_remote_tag[1:]}"
+                f"\n{latest_release_json['html_url']}"
             )
 
     except Exception as error:
