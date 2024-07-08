@@ -17,6 +17,8 @@ ARG VCS_REF= # CHANGE ME ON UPDATE
 ARG VCS_URL="https://github.com/sherlock-project/sherlock"
 ARG VERSION_TAG= # CHANGE ME ON UPDATE
 
+ENV SHERLOCK_ENV=docker
+
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url=$VCS_URL \
       org.label-schema.name="Sherlock" \
