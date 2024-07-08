@@ -7,12 +7,20 @@ This module contains the main logic to search for usernames at social
 networks.
 """
 
+import sys
+
+try:
+    from sherlock.__init__ import import_error_test_var # noqa: F401
+except ImportError:
+    print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
+    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
+    sys.exit(1)
+
 import csv
 import signal
 import pandas as pd
 import os
 import re
-import sys
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from time import monotonic
 
