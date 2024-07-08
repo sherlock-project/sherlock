@@ -2736,6 +2736,13 @@
     "urlMain": "https://www.svidbook.ru/",
     "username_claimed": "green"
   },
+  "threads": {
+    "errorMsg": "Sorry, this page isn't available",
+    "errorType": "message",
+    "url": "https://www.threads.net/@{}",
+    "urlMain": "https://www.threads.net/",
+    "username_claimed": "zuck"
+  },
   "toster": {
     "errorType": "status_code",
     "url": "https://www.toster.ru/user/{}/answers",
