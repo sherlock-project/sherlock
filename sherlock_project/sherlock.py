@@ -24,18 +24,18 @@ import requests
 __version__ = "0.14.4"
 del __version__
 
-from .__init__ import ( # noqa: E402
+from sherlock_project.__init__ import ( # noqa: E402
     __longname__,
     __version__
 )
 
 from requests_futures.sessions import FuturesSession    # noqa: E402
 from torrequest import TorRequest                       # noqa: E402
-from sherlock.result import QueryStatus                 # noqa: E402
-from sherlock.result import QueryResult                 # noqa: E402
-from sherlock.notify import QueryNotify                 # noqa: E402
-from sherlock.notify import QueryNotifyPrint            # noqa: E402
-from sherlock.sites import SitesInformation             # noqa: E402
+from sherlock_project.result import QueryStatus                 # noqa: E402
+from sherlock_project.result import QueryResult                 # noqa: E402
+from sherlock_project.notify import QueryNotify                 # noqa: E402
+from sherlock_project.notify import QueryNotifyPrint            # noqa: E402
+from sherlock_project.sites import SitesInformation             # noqa: E402
 from colorama import init                               # noqa: E402
 from argparse import ArgumentTypeError                  # noqa: E402
 
