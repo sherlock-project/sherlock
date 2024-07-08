@@ -6,7 +6,7 @@ networks.
 """
 
 # This variable is only used to check for ImportErrors induced by users running as script rather than as module or package
-importErrTestVar = None
+import_error_test_var = None
 
 __shortname__   = "Sherlock"
 __longname__    = "Sherlock: Find Usernames Across Social Networks"
