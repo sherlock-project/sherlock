@@ -209,10 +209,13 @@ def sherlock(
             from torrequest import TorRequest  # noqa: E402
         except ImportError:
             print("Important!")
-            print("> Dependencies for --tor and --unique-tor are now optional, and WILL BE DEPRECATED in a future release of Sherlock.")
-            print("> If you've installed Sherlock via pip, you can install with the dependency with `pip install sherlock-project[tor]`.")
-            print("> Other packages should refer to their documentation, or install separately with `pip install torrequest`.\n")
+            print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock.")
+            print("> If you've installed Sherlock via pip, you can include the optional dependency via `pip install sherlock-project[tor]`.")
+            print("> Other packages should refer to their documentation, or install it separately with `pip install torrequest`.\n")
             sys.exit(query_notify.finish())
+
+        print("Important!")
+        print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock."))
 
         # Requests using Tor obfuscation
         try:
