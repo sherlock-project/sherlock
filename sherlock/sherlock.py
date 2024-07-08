@@ -14,7 +14,6 @@ try:
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
     print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
-    print("Most users can simply run `pipx install sherlock-project`, but other options are detailed on the website.")
     sys.exit(1)
 
 import csv
