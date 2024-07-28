@@ -1311,6 +1311,12 @@
     "urlMain": "https://lobste.rs/",
     "username_claimed": "jcs"
   },
+  "League of Legends": {
+    "errorType": "status_code",
+    "url": "https://lolprofile.net/summoner/world/{}",
+    "urlMain": "https://lolprofile.net/",
+    "username_claimed": "Faker"
+  },
   "LottieFiles": {
     "errorType": "status_code",
     "url": "https://lottiefiles.com/{}",
