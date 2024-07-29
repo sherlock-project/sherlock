@@ -2736,6 +2736,16 @@
     "urlMain": "https://www.svidbook.ru/",
     "username_claimed": "green"
   },
+  "threads": {
+    "errorMsg": "<title>Threads</title>",
+    "errorType": "message",
+    "headers": {
+      "Sec-Fetch-Mode": "navigate"
+    },
+    "url": "https://www.threads.net/@{}",
+    "urlMain": "https://www.threads.net/",
+    "username_claimed": "zuck"
+  },
   "toster": {
     "errorType": "status_code",
     "url": "https://www.toster.ru/user/{}/answers",
