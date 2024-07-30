@@ -958,6 +958,14 @@
     "urlMain": "https://forum.hackthebox.eu/",
     "username_claimed": "angar"
   },
+  "HackThisSite": {
+    "errorMsg": "Error!",
+    "errorType": "message",
+    "url": "https://hackthissite.org/user/view/{}",
+    "urlMain": "https://hackthissite.org/",
+    "username_claimed": "ace",
+    "username_unclaimed": "vkjwlekf"
+  },
   "Hackaday": {
     "errorType": "status_code",
     "url": "https://hackaday.io/{}",
@@ -1443,6 +1451,14 @@
     "url": "https://www.needrom.com/author/{}/",
     "urlMain": "https://www.needrom.com/",
     "username_claimed": "needrom"
+  },
+  "Neocities": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://{}.neocities.org",
+    "urlMain": "https://neocities.org/",
+    "username_claimed": "that1archive",
+    "username_unclaimed": "propropropropropro"
   },
   "Newgrounds": {
     "errorType": "status_code",
@@ -1983,6 +1999,13 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "Tilde.club": {
+    "errorType": "status_code",
+    "url": "https://tilde.club/~{}",
+    "urlMain": "https://tilde.club/",
+    "username_claimed": "ape",
+    "username_unclaimed": "barkbark"
+  },
   "TLDR Legal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9]{3,20}$",
@@ -2289,6 +2312,14 @@
     "url": "https://www.wordnik.com/users/{}",
     "urlMain": "https://www.wordnik.com/",
     "username_claimed": "blue"
+  },
+  "WoW Forums": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url": "https://us.forums.blizzard.com/en/wow/u/{}/summary",
+    "urlMain": "https://us.forums.blizzard.com/en/wow/",
+    "username_claimed": "rive-turalyon",
+    "username_unclaimed": "fpwiefugij"
   },
   "Wykop": {
     "errorType": "status_code",
