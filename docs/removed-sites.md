@@ -1919,3 +1919,6 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
     "username_claimed": "JennyKrafts"
   }
 ```
+
+## Alik.cz
+__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock. This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.

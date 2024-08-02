@@ -91,12 +91,6 @@
     "urlMain": "https://www.airliners.net/",
     "username_claimed": "yushinlin"
   },
-  "Alik.cz": {
-    "errorType": "status_code",
-    "url": "https://www.alik.cz/u/{}",
-    "urlMain": "https://www.alik.cz/",
-    "username_claimed": "julian"
-  },
   "All Things Worn": {
     "errorMsg": "Sell Used Panties",
     "errorType": "message",
