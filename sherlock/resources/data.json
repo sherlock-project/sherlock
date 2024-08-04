@@ -2109,9 +2109,9 @@
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
-    "url": "https://x.com/{}",
-    "urlMain": "https://x.com/",
-    "urlProbe": "https://nitter.net/{}",
+    "url": "https://twitter.com/{}",
+    "urlMain": "https://twitter.com/",
+    "urlProbe": "https://sotwe.com/search/{}",
     "username_claimed": "blue"
   },
   "Typeracer": {
