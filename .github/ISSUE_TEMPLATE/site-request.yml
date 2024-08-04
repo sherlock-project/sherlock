@@ -1,0 +1,35 @@
+name: Reuest a new website
+description: Request that Sherlock add support for a new website
+title: "Requesting support for: "
+labels: ["site support request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ensure that the site name is in the title of your request. Requests without this information will be **closed**.
+  - type: input
+    id: site-url
+    attributes:
+      label: Site URL
+      description: |
+        What is the URL of the website indicated in your title?
+        Websites sometimes have similar names. This helps constributors find the correct site.
+      placeholder: https://reddit.com
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: If you have suggestions on how Sherlock should detect for usernames, please explain below
+      placeholder: Sherlock can detect if a username exists on Reddit by checking for...
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/sherlock-project/sherlock/blob/master/docs/CODE_OF_CONDUCT.md). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

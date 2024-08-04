@@ -1,0 +1,28 @@
+name: False positive
+description: Report a site that is returning false positive results
+title: "False positive for: "
+labels: ["false positive"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please include the site name in the title of your issue.
+        Submit **one site per report** for faster resolution. If you have multiple sites in the same report, it often takes longer to fix.
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: If you know why the site is returning false positives, or noticed any patterns, please explain.
+      placeholder: |
+        Reddit is returning false positives because...
+        False positives only occur after x searches...
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/sherlock-project/sherlock/blob/master/docs/CODE_OF_CONDUCT.md). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

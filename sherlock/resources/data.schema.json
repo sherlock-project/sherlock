@@ -1,0 +1,80 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Sherlock Target Manifest",
+    "description": "Social media targets to probe for the existence of known usernames",
+    "type": "object",
+    "properties": {
+        "$schema": { "type": "string" }
+    },
+    "patternProperties": {
+        "^(?!\\$).*?$": {
+            "type": "object",
+            "description": "Target name and associated information (key should be human readable name)",
+            "required": [ "url", "urlMain", "errorType", "username_claimed" ],
+            "properties": {
+                "url": { "type": "string" },
+                "urlMain": { "type": "string" },
+                "urlProbe": { "type": "string" },
+                "username_claimed": { "type": "string" },
+                "regexCheck": { "type": "string" },
+                "isNSFW": { "type": "boolean" },
+                "headers": { "type": "object" },
+                "request_payload": { "type": "object" },
+                "__comment__": {
+                    "type": "string",
+                    "description": "Used to clarify important target information if (and only if) a commit message would not suffice.\nThis key should not be parsed anywhere within Sherlock."
+                },
+                "tags": {
+                    "oneOf": [
+                        { "$ref": "#/$defs/tag" },
+                        { "type": "array", "items": { "$ref": "#/$defs/tag" } }
+                    ]
+                },
+                "request_method": {
+                    "type": "string",
+                    "enum": [ "GET", "POST", "HEAD", "PUT" ]
+                },
+                "errorType": {
+                    "type": "string",
+                    "enum": [ "message", "response_url", "status_code" ]
+                },
+                "errorMsg": {
+                    "oneOf": [
+                        { "type": "string" },
+                        { "type": "array", "items": { "type": "string" } }
+                    ]
+                },
+                "errorCode": {
+                    "oneOf": [
+                        { "type": "integer" },
+                        { "type": "array", "items": { "type": "integer" } }
+                    ]
+                },
+                "errorUrl": { "type": "string" },
+                "response_url": { "type": "string" }
+            },
+            "dependencies": {
+                "errorMsg": {
+                    "properties" : { "errorType": { "const": "message" } }
+                },
+                "errorUrl": {
+                    "properties": { "errorType": { "const": "response_url" } }
+                },
+                "errorCode": {
+                    "properties": { "errorType": { "const": "status_code" } }
+                }
+            },
+            "if": { "properties": { "errorType": { "const": "message" } } },
+            "then": { "required": [ "errorMsg" ] },
+            "else": {
+                "if": { "properties": { "errorType": { "const": "response_url" } } },
+                "then": { "required": [ "errorUrl" ] }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "$defs": {
+        "tag": { "type": "string", "enum": [ "adult", "gaming" ] }
+    }
+}

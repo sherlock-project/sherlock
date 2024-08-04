@@ -634,6 +634,24 @@
     "urlMain": "https://www.discogs.com/",
     "username_claimed": "blue"
   },
+  "Discord": {
+    "errorType": "message",
+    "url": "https://discord.com",
+    "urlMain": "https://discord.com/",
+    "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
+    "errorMsg": [
+      "{\"taken\":false}",
+      "The resource is being rate limited"
+    ],
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "username_claimed": "blue"
+  },
   "Discuss.Elastic.co": {
     "errorType": "status_code",
     "url": "https://discuss.elastic.co/u/{}",
@@ -2109,9 +2127,9 @@
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
-    "urlProbe": "https://sotwe.com/search/{}",
+    "url": "https://x.com/{}",
+    "urlMain": "https://x.com/",
+    "urlProbe": "https://nitter.net/{}",
     "username_claimed": "blue"
   },
   "Typeracer": {
