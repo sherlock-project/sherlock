@@ -5,7 +5,7 @@ import json
 import os
 
 # Read the data.json file
-with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
+with open("sherlock_project/resources/data.json", "r", encoding="utf-8") as data_file:
     data: dict = json.load(data_file)
 
 # Removes schema-specific keywords for proper processing
