@@ -1082,6 +1082,13 @@
     "urlMain": "https://hudsonrock.com",
     "username_claimed": "testadmin"
   },
+  "HuggingFace": {
+    "errorMsg": "status_code",
+    "errorType": "message",
+    "url": "https://huggingface.co/{}",
+    "urlMain": "https://huggingface.co",
+    "username_claimed": "Pasanlaksitha"
+  },
   "ICQ": {
     "errorType": "status_code",
     "url": "https://icq.im/{}/en",
