@@ -716,6 +716,14 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--no-txt",
+        action="store_true",
+        dest="no_txt",
+        default=False,
+        help="Disable creation of a txt file",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -847,14 +855,15 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        with open(result_file, "w", encoding="utf-8") as file:
-            exists_counter = 0
-            for website_name in results:
-                dictionary = results[website_name]
-                if dictionary.get("status").status == QueryStatus.CLAIMED:
-                    exists_counter += 1
-                    file.write(dictionary["url_user"] + "\n")
-            file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+        if not args.no_txt:
+            with open(result_file, "w", encoding="utf-8") as file:
+                exists_counter = 0
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        file.write(dictionary["url_user"] + "\n")
+                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
             result_file = f"{username}.csv"
