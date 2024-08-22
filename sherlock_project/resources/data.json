@@ -1082,12 +1082,6 @@
     "urlMain": "https://hudsonrock.com",
     "username_claimed": "testadmin"
   },
-  "ICQ": {
-    "errorType": "status_code",
-    "url": "https://icq.im/{}/en",
-    "urlMain": "https://icq.com/",
-    "username_claimed": "Micheal"
-  },
   "IFTTT": {
     "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
