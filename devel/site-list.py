@@ -4,8 +4,11 @@
 import json
 import os
 
+
+DATA_REL_URI: str = "sherlock_project/resources/data.json"
+
 # Read the data.json file
-with open("sherlock_project/resources/data.json", "r", encoding="utf-8") as data_file:
+with open(DATA_REL_URI, "r", encoding="utf-8") as data_file:
     data: dict = json.load(data_file)
 
 # Removes schema-specific keywords for proper processing
@@ -27,7 +30,7 @@ with open("output/sites.mdx", "w") as site_file:
         site_file.write(f"1. [{social_network}]({url_main}) {is_nsfw}\n")
 
 # Overwrite the data.json file with sorted data
-with open("sherlock/resources/data.json", "w") as data_file:
+with open(DATA_REL_URI, "w") as data_file:
     sorted_data = json.dumps(data, indent=2, sort_keys=True)
     data_file.write(sorted_data)
     data_file.write("\n")
