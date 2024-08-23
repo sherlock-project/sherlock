@@ -1273,19 +1273,6 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
   },
 ```
 
-## Codeforces
-As og 2022-05-01, Codeforces returns false positives
-```json
-  "Codeforces": {
-    "errorType": "response_url",
-    "errorUrl": "https://codeforces.com/",
-    "url": "https://codeforces.com/profile/{}",
-    "urlMain": "https://www.codeforces.com/",
-    "username_claimed": "tourist",
-    "username_unclaimed": "noonewouldeverusethis789"
-  },
-```
-
 ## Smashcast
 As og 2022-05-01, Smashcast is down
 ```json
