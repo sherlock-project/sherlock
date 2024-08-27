@@ -916,6 +916,12 @@
     "urlProbe": "https://gitlab.com/api/v4/users?username={}",
     "username_claimed": "blue"
   },
+  "Gitea": {
+    "errorType": "status_code",
+    "url": "https://gitea.com/{}",
+    "urlMain": "https://gitea.com/",
+    "username_claimed": "xorm"
+  },
   "Gitee": {
     "errorType": "status_code",
     "url": "https://gitee.com/{}",
