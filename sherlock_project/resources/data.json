@@ -1204,6 +1204,12 @@
     "urlMain": "https://www.kaggle.com/",
     "username_claimed": "dansbecker"
   },
+    "kaskus": {
+    "errorType": "status_code",
+    "url": "https://www.kaskus.co.id/@{}",
+    "urlMain": "https://www.kaskus.co.id/",
+    "username_claimed": "l0mbart"
+  },
   "Keybase": {
     "errorType": "status_code",
     "url": "https://keybase.io/{}",
