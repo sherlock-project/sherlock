@@ -84,22 +84,6 @@ As of 2020-02-23, all usernames are reported as not existing.
   },
 ```
 
-## Fanpop
-
-As of 2020-02-23, all usernames are reported as not existing.
-
-```json
-  "fanpop": {
-    "errorType": "response_url",
-    "errorUrl": "http://www.fanpop.com/",
-    "rank": 9454,
-    "url": "http://www.fanpop.com/fans/{}",
-    "urlMain": "http://www.fanpop.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewould_everusethis7"
-  },
-```
-
 ## Canva
 
 As of 2020-02-23, all usernames are reported as not existing.
