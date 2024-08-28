@@ -7,8 +7,7 @@
 FROM python:3.12-slim-bullseye as build
 WORKDIR /sherlock
 
-RUN apt-get update \
-  pip3 install --no-cache-dir --upgrade pip
+RUN pip3 install --no-cache-dir --upgrade pip
 
 FROM python:3.12-slim-bullseye
 WORKDIR /sherlock
