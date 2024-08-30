@@ -173,7 +173,7 @@ def sherlock(
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
-    proxy: str = None,
+    proxy: Optional[str] = None,
     timeout: int = 60,
 ):
     """Run Sherlock Analysis.
