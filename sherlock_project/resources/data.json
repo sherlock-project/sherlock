@@ -716,6 +716,12 @@
     "urlMain": "https://exposure.co/",
     "username_claimed": "jonasjacobsson"
   },
+  "exophase": {
+    "errorType": "status_code",
+    "url": "https://www.exophase.com/user/{}/",
+    "urlMain": "https://www.exophase.com/",
+    "username_claimed": "blue"
+  },
   "EyeEm": {
     "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
