@@ -682,9 +682,7 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
-    },
+
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -754,8 +752,7 @@
     "username_claimed": "finanzfrage"
   },
   "Fiverr": {
-    "errorMsg": "\"status\":\"success\"",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
     "request_method": "POST",
     "request_payload": {
@@ -996,7 +993,7 @@
     "username_claimed": "adam"
   },
   "HackenProof (Hackers)": {
-    "errorMsg": "<title>Web3\u2019s Largest Ethical Hackers Community | HackenProof</title>",
+    "errorMsg": "Page not found",
     "errorType": "message",
     "regexCheck": "^[\\w-]{,34}$",
     "url": "https://hackenproof.com/hackers/{}",
@@ -1069,8 +1066,7 @@
     "username_claimed": "red"
   },
   "Houzz": {
-    "errorMsg": "The page you requested was not found.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://houzz.com/user/{}",
     "urlMain": "https://houzz.com/",
     "username_claimed": "blue"
@@ -1089,7 +1085,7 @@
     "username_claimed": "blue"
   },
   "HudsonRock": {
-    "errorMsg": "No results",
+    "errorMsg": "This username is not associated",
     "errorType": "message",
     "url": "https://cavalier.hudsonrock.com/api/json/v2/osint-tools/search-by-username?username={}",
     "urlMain": "https://hudsonrock.com",
@@ -1231,8 +1227,7 @@
   },
   "Kick": {
     "__comment__": "Cloudflare. Only viable when proxied.",
-    "errorMsg": "Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://kick.com/{}",
     "urlMain": "https://kick.com/",
     "urlProbe": "https://kick.com/api/v2/channels/{}",
@@ -1249,8 +1244,7 @@
   "Kongregate": {
     "errorType": "status_code",
     "headers": {
-      "Accept": "text/html",
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
+      "Accept": "text/html"
     },
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
     "url": "https://www.kongregate.com/accounts/{}",
@@ -1289,24 +1283,24 @@
     "username_claimed": "blue"
   },
   "LibraryThing": {
-    "errorMsg": "Catalog your books online",
+    "errorMsg": "<p>Error: This user doesn't exist</p>",
     "errorType": "message",
+    "headers": {
+      "Cookie": "LTAnonSessionID=3159599315; LTUnifiedCookie=%7B%22areyouhuman%22%3A1%7D; "
+    },
     "url": "https://www.librarything.com/profile/{}",
     "urlMain": "https://www.librarything.com/",
     "username_claimed": "blue"
   },
   "Lichess": {
-    "errorMsg": "Page not found!",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://lichess.org/@/{}",
     "urlMain": "https://lichess.org",
     "username_claimed": "blue"
   },
   "LinkedIn": {
     "errorType": "status_code",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
-    },
+
     "regexCheck": "^[a-zA-Z0-9]{3,100}$",
     "request_method": "GET",
     "url": "https://linkedin.com/in/{}",
@@ -1964,9 +1958,7 @@
   },
   "Spotify": {
     "errorType": "status_code",
-    "headers": {
-      "user-agent": "PostmanRuntime/7.29.2"
-    },
+
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue"
@@ -2205,7 +2197,8 @@
     "username_claimed": "jenny"
   },
   "Vero": {
-    "errorType": "status_code",
+    "errorMsg": "Not Found",
+    "errorType": "message",
     "request_method": "GET",
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
@@ -2375,9 +2368,7 @@
   },
   "YouTube": {
     "errorType": "status_code",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/W.X.Y.Z Safari/537.36"
-    },
+
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
