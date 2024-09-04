@@ -2802,5 +2802,11 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "v0.dev": {
+    "errorType": "status_code",
+    "url": "https://v0.dev",
+    "urlMain": "https://v0.dev",
+    "username_claimed": "t3dotgg"
   }
 }
