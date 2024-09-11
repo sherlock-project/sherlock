@@ -1095,6 +1095,12 @@
     "urlMain": "https://hudsonrock.com",
     "username_claimed": "testadmin"
   },
+  "Hugging Face": {
+    "errorType": "status_code",
+    "url": "https://huggingface.co/{}",
+    "urlMain": "https://huggingface.co/",
+    "username_claimed": "Pasanlaksitha"
+  },
   "IFTTT": {
     "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
