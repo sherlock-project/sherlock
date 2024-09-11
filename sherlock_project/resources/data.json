@@ -2748,14 +2748,6 @@
     "urlMain": "https://social.tchncs.de/",
     "username_claimed": "Milan"
   },
-  "speedrun":{
-    "errorType": "status_code",
-    "url":"https://speedrun.com/users/{}",
-    "urlMain":"https://speedrun.com/",
-    "username_claimed": "example",
-    "request_method": "GET",
-    "username_unclaimed":""
-  },
   "spletnik": {
     "errorType": "status_code",
     "url": "https://spletnik.ru/user/{}",
