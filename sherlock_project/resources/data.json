@@ -148,6 +148,18 @@
     "urlMain": "https://discussions.apple.com",
     "username_claimed": "jason"
   },
+  "Apple Music": {
+    "errorType": "status_code",
+    "url": "https://music.apple.com/profile/{}",
+    "urlMain": "https://music.apple.com",
+    "username_claimed": "jason"
+  },
+  "ArchDaily": {
+    "errorType": "status_code",
+    "url": "https://my.archdaily.com/us/@{}",
+    "urlMain": "https://archdaily.com/",
+    "username_claimed": "blue"
+  },
   "Archive of Our Own": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -376,6 +388,12 @@
     "urlMain": "https://caddy.community/",
     "username_claimed": "taako_magnusen"
   },
+  "Canva": {
+    "errorType": "status_code",
+    "url": "https://www.canva.com/p/{}/",
+    "urlMain": "https://www.canva.com/",
+    "username_claimed": "canva"
+  },
   "Car Talk Community": {
     "errorType": "status_code",
     "url": "https://community.cartalk.com/u/{}/summary",
@@ -534,6 +552,18 @@
     "errorType": "status_code",
     "url": "https://www.colourlovers.com/lover/{}",
     "urlMain": "https://www.colourlovers.com/",
+    "username_claimed": "blue"
+  },
+  "ComeUp": {
+    "errorType": "status_code",
+    "url": "https://comeup.com/en/@{}",
+    "urlMain": "https://comeup.com",
+    "username_claimed": "LFD"
+  },
+  "Comment Ça Marche": {
+    "errorType": "status_code",
+    "url": "https://forums.commentcamarche.net/profile/user/{}",
+    "urlMain": "https://commentcamarche.net",
     "username_claimed": "blue"
   },
   "Contently": {
@@ -747,11 +777,23 @@
     "urlMain": "https://www.fanpop.com/",
     "username_claimed": "blue"
   },
+  "Figma": {
+    "errorType": "status_code",
+    "url": "https://www.figma.com/@{}",
+    "urlMain": "https://www.figma.com/",
+    "username_claimed": "figma"
+  },
   "Finanzfrage": {
     "errorType": "status_code",
     "url": "https://www.finanzfrage.net/nutzer/{}",
     "urlMain": "https://www.finanzfrage.net/",
     "username_claimed": "finanzfrage"
+  },
+  "Finary": {
+    "errorType": "status_code",
+    "url": "https://community.finary.com/u/{}/summary",
+    "urlMain": "https://www.finary.com/",
+    "username_claimed": "mounir"
   },
   "Fiverr": {
     "errorMsg": "\"status\":\"success\"",
@@ -1609,6 +1651,12 @@
     "urlMain": "https://www.periscope.tv/",
     "username_claimed": "blue"
   },
+  "Pexels": {
+    "errorType": "status_code",
+    "url": "https://www.pexels.com/@{}/",
+    "urlMain": "https://www.pexels.com/",
+    "username_claimed": "blue"
+  },
   "Pinkbike": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -1844,6 +1892,12 @@
     "urlMain": "https://sketchfab.com/",
     "username_claimed": "blue"
   },
+  "Skillshare": {
+    "errorType": "status_code",
+    "url": "https://www.skillshare.com/en/user/{}",
+    "urlMain": "https://www.skillshare.com/",
+    "username_claimed": "blue"
+  },
   "Slack": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -1978,6 +2032,12 @@
     "urlMain": "https://robertsspaceindustries.com/",
     "username_claimed": "blue"
   },
+  "stats.fm": {
+    "errorType": "status_code",
+    "url": "https://stats.fm/{}",
+    "urlMain": "https://stats.fm/",
+    "username_claimed": "blue"
+  },
   "Steam Community (Group)": {
     "errorMsg": "No group could be retrieved for the given URL",
     "errorType": "message",
@@ -2026,6 +2086,12 @@
     "url": "https://traktrain.com/{}",
     "urlMain": "https://traktrain.com/",
     "username_claimed": "traktrain"
+  },
+  "TripAdvisor": {
+    "errorType": "status_code",
+    "url": "https://www.tripadvisor.com/Profile/{}",
+    "urlMain": "https://www.tripadvisor.com",
+    "username_claimed": "blue"
   },
   "Telegram": {
     "errorMsg": [
@@ -2223,6 +2289,12 @@
     "url": "https://www.virustotal.com/gui/user/{}",
     "urlMain": "https://www.virustotal.com/",
     "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
+    "username_claimed": "blue"
+  },
+  "Volt.fm": {
+    "errorType": "status_code",
+    "url": "https://volt.fm/{}",
+    "urlMain": "https://volt.fm/",
     "username_claimed": "blue"
   },
   "WICG Forum": {
@@ -2511,6 +2583,13 @@
     "urlMain": "https://gfycat.com/",
     "username_claimed": "Test"
   },
+  "Habbo": {
+    "errorMsg": "OH BOBBA! PAGE NOT FOUND.",
+    "errorType": "message",
+    "url": "https://www.habbo.com/profile/{}",
+    "urlMain": "https://www.habbo.com/",
+    "username_claimed": "sherlock"
+  },
   "habr": {
     "errorType": "status_code",
     "url": "https://habr.com/ru/users/{}",
@@ -2736,12 +2815,17 @@
     "urlMain": "https://sessionize.com/",
     "username_claimed": "jason-mayes"
   },
-  "skyrock": {
+  "Shutterstock":
     "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9@_-]$",
-    "url": "https://{}.skyrock.com/",
-    "urlMain": "https://skyrock.com/",
-    "username_claimed": "red"
+    "url": "https://www.shutterstock.com/g/{}/about",
+    "urlMain": "https://www.shutterstock.com/",
+    "username_claimed": "blue"
+  },
+  "SkyPixel": {
+    "errorType": "status_code",
+    "url": "https://www.skypixel.com/users/{}",
+    "urlMain": "https://www.skypixel.com/",
+    "username_claimed": "france"
   },
   "social.tchncs.de": {
     "errorType": "status_code",
