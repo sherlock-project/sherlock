@@ -2,7 +2,7 @@
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
+  <span>Sherlock hunts down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks.</a> By entering a username, Sherlock searches across popular websites and returns any accounts with matching usernames. It's an essential tool for situations such as personal investigations, security checks, or ensuring your brand’s unique identity across various platforms.</span>
   <br>
 </p>
 
@@ -32,6 +32,33 @@
 | Homebrew | `brew install sherlock` | |
 
 See all alternative installation methods [here](https://sherlockproject.xyz/installation)
+
+### Common Installation Issues
+1. **'pip' command not found**
+   - **Solution**: Make sure that `pip` is installed with Python. You can install `pip` by following these instructions:
+     - **On Linux/macOS**:
+       ```bash
+       sudo apt-get install python3-pip
+       ```
+     - **On Windows**: Download and install `pip` from the official [pip website](https://pip.pypa.io/en/stable/installation/).
+
+2. **Permission Denied on Linux/macOS**
+   - **Solution**: You may need to run the installation commands with `sudo` to give administrative privileges. Use the following command:
+     ```bash
+     sudo pip install sherlock-project
+     ```
+3. **Outdated `pip` Version**
+   - **Solution**: Upgrade `pip` to the latest version using the following command:
+     ```bash
+     pip install --upgrade pip
+     ```
+4. **Outdated Python Version**
+   - **Solution**: Update Python version using the following command:
+     ```bash
+     sudo apt-get install python3
+     ```
+5. **Firewall or Antivirus Blocking Access**
+   - **Solution**: Ensure that your firewall or antivirus settings allow Docker and Python installations to proceed without interruption.
 
 ## Usage
 
