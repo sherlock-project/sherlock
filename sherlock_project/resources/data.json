@@ -2802,5 +2802,12 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "Bluesky": {
+    "errorMsg": "<title>@{} — Bluesky</title>",
+    "errorType": "message",
+    "url": "https://bsky.app/profile/{}.bsky.social",
+    "urlMain": "https://bsky.app/",
+    "username_claimed": "kanaratron"
   }
 }
