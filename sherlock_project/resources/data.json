@@ -2064,6 +2064,13 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
   },
+  "Topcoder": {
+    "errorMsg": "We were unable to locate that profile",
+    "errorType": "message",
+    "url": "https://profiles.topcoder.com/{}",
+    "urlMain": "https://www.topcoder.com/",
+    "username_claimed": "tourist"
+  },
   "TorrentGalaxy": {
     "errorMsg": "<title>TGx:Can't show details</title>",
     "errorType": "message",
