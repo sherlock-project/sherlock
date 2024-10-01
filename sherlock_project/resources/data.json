@@ -2225,6 +2225,12 @@
     "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
     "username_claimed": "blue"
   },
+  "VLR": {
+    "errorMsg": "status_code",
+    "url": "https://www.vlr.gg/user/{}",
+    "urlMain": "https://www.vlr.gg",
+    "username_claimed": "optms"
+  },
   "WICG Forum": {
     "errorType": "status_code",
     "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
