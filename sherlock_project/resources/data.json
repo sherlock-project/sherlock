@@ -1510,8 +1510,7 @@
     "username_claimed": "goku"
   },
   "NitroType": {
-    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.nitrotype.com/racer/{}",
     "urlMain": "https://www.nitrotype.com/",
     "username_claimed": "jianclash"
