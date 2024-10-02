@@ -628,6 +628,13 @@
     "urlMain": "https://deviantart.com",
     "username_claimed": "blue"
   },
+  "DigitalSpy": {
+    "errorMsg": "The page you were looking for could not be found.",
+    "errorType": "message",
+    "url": "https://forums.digitalspy.com/profile/{}",
+    "urlMain": "https://forums.digitalspy.com/",
+    "username_claimed": "papita69"
+  },
   "Discogs": {
     "errorType": "status_code",
     "url": "https://www.discogs.com/user/{}",
