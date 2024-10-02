@@ -1296,8 +1296,7 @@
     "username_claimed": "blue"
   },
   "Lichess": {
-    "errorMsg": "Page not found!",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://lichess.org/@/{}",
     "urlMain": "https://lichess.org",
     "username_claimed": "blue"
