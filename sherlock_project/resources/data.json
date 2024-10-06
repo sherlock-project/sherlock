@@ -193,6 +193,12 @@
     "urlMain": "https://ask.fm/",
     "username_claimed": "blue"
   },
+  "Atcoder": {
+    "errorType": "status_code",
+    "url": "https://atcoder.jp/users/{}",
+    "urlMain": "https://atcoder.jp/",
+    "username_claimed": "ksun48"
+  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
