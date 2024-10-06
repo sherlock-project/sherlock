@@ -194,7 +194,7 @@
     "username_claimed": "blue"
   },
   "Atcoder": {
-    "errorMsg": "status_code",
+    "errorType": "status_code",
     "url": "https://atcoder.jp/users/{}",
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
