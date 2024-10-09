@@ -1137,7 +1137,8 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg":"Sorry, this page isn't available",
     "url": "https://instagram.com/{}",
     "urlMain": "https://instagram.com/",
     "urlProbe": "https://www.picuki.com/profile/{}",
