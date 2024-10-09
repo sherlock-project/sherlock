@@ -2186,7 +2186,7 @@
   },
   "Velog": {
     "errorType": "status_code",
-    "url": "https://velog.io/{}/posts",
+    "url": "https://velog.io/@{}/posts",
     "urlMain": "https://velog.io/",
     "username_claimed": "nuung"
   },
