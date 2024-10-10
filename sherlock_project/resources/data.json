@@ -2226,7 +2226,7 @@
     "username_claimed": "blue"
   },
   "VLR": {
-    "errorMsg": "status_code",
+    "errorType": "status_code",
     "url": "https://www.vlr.gg/user/{}",
     "urlMain": "https://www.vlr.gg",
     "username_claimed": "optms"
