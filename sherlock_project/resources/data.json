@@ -1289,7 +1289,7 @@
     "username_claimed": "blue"
   },
   "LibraryThing": {
-    "errorMsg": "Catalog your books online",
+    "errorMsg": "Error: This user doesn't exist",
     "errorType": "message",
     "url": "https://www.librarything.com/profile/{}",
     "urlMain": "https://www.librarything.com/",
