@@ -7,7 +7,7 @@ class Interactives:
     def run_cli(args:str = "") -> str:
         """Pass arguments to Sherlock as a normal user on the command line"""
         # Adapt for platform differences (Windows likes to be special)
-        if platform.system == "Windows":
+        if platform.system() == "Windows":
             command:str = f"py -m sherlock {args}"
         else:
             command:str = f"sherlock {args}"
