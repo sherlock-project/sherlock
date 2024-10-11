@@ -1689,6 +1689,12 @@
     "urlMain": "https://www.rajce.idnes.cz/",
     "username_claimed": "blue"
   },
+  "Rarible.com": {
+    "errorType": "status_code",
+    "url": "https://rarible.com/marketplace/api/v4/urls/{}",
+    "urlMain": "https://rarible.com/",
+    "username_claimed": "blue"
+  },
   "Rate Your Music": {
     "errorType": "status_code",
     "url": "https://rateyourmusic.com/~{}",
