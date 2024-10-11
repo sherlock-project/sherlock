@@ -1616,6 +1616,13 @@
     "urlMain": "https://www.pinkbike.com/",
     "username_claimed": "blue"
   },
+  "Pinterest":{
+    "errorMsg": "We can’t find that idea! Try searching for one just like it.",
+    "errorType": "message",
+    "url": "https://in.pinterest.com/{}/",
+    "urlMain": "https://in.pinterest.com",
+    "username_claimed": "steve"
+  },  
   "PlayStore": {
     "errorType": "status_code",
     "url": "https://play.google.com/store/apps/developer?id={}",
