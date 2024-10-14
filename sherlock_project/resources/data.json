@@ -613,6 +613,13 @@
     "urlMain": "https://www.dailymotion.com/",
     "username_claimed": "blue"
   },
+  "DailyDev":{
+    "errorType": "message",
+    "errorMsg":"Page not found.",
+    "url": "https://app.daily.dev/{}",
+    "urlMain": "https://app.daily.dev/",
+    "username_claimed": "nj05"
+  },
   "Dealabs": {
     "errorMsg": "La page que vous essayez",
     "errorType": "message",
@@ -2776,6 +2783,13 @@
     "url": "https://www.toster.ru/user/{}/answers",
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "adam"
+  },
+  "udemy": {
+    "errorMsg": "Page not found",
+    "errorType": "message",
+    "url":"https://www.udemy.com/user/{}",
+    "urlMain": "https://www.udemy.com/",
+    "username_claimed": "adfadf"
   },
   "uid": {
     "errorType": "status_code",
