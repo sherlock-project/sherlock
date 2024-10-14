@@ -30,13 +30,6 @@
     "urlMain": "https://www.7cups.com/",
     "username_claimed": "blue"
   },
-  "8tracks": {
-    "errorMsg": "This page has vanished",
-    "errorType": "message",
-    "url": "https://8tracks.com/{}",
-    "urlMain": "https://8tracks.com/",
-    "username_claimed": "blue"
-  },
   "9GAG": {
     "errorType": "status_code",
     "url": "https://www.9gag.com/u/{}",
