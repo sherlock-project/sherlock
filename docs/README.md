@@ -98,11 +98,11 @@ optional arguments:
 
 In case installation fails:
 ```bash
-python -m sherlock_project <username1> <username2> 
+python -m sherlock_project user1 user2 user3 
 ```
 or
 ```bash
-python3 -m sherlock_project <username1> <username2>
+python3 -m sherlock_project user1 user2 user3
 ```
 ## Credits
 
