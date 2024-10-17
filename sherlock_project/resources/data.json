@@ -2142,7 +2142,7 @@
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://x.com/{}",
     "urlMain": "https://x.com/",
-    "urlProbe": "https://nitter.net/{}",
+    "urlProbe": "https://nitter.privacydev.net/{}",
     "username_claimed": "blue"
   },
   "Typeracer": {
