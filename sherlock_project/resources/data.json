@@ -33,6 +33,7 @@
   "8tracks": {
     "errorMsg": "This page has vanished",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,15}$",
     "url": "https://8tracks.com/{}",
     "urlMain": "https://8tracks.com/",
     "username_claimed": "blue"
@@ -109,6 +110,7 @@
   },
   "Amino": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{3,20}$",
     "url": "https://aminoapps.com/u/{}",
     "urlMain": "https://aminoapps.com",
     "username_claimed": "blue"
@@ -162,6 +164,7 @@
       "The resource could not be found"
     ],
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]{3,20}$",
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
@@ -261,6 +264,7 @@
   },
   "Bikemap": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
     "url": "https://www.bikemap.net/en/u/{}/routes/created/",
     "urlMain": "https://www.bikemap.net/",
     "username_claimed": "bikemap"
@@ -636,6 +640,7 @@
   },
   "Discord": {
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{2,32}$",
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
@@ -985,6 +990,7 @@
   },
   "HackTheBox": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{3,20}$",
     "url": "https://forum.hackthebox.eu/profile/{}",
     "urlMain": "https://forum.hackthebox.eu/",
     "username_claimed": "angar"
@@ -1091,6 +1097,7 @@
   "HudsonRock": {
     "errorMsg": "No results",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]{4,20}$",
     "url": "https://cavalier.hudsonrock.com/api/json/v2/osint-tools/search-by-username?username={}",
     "urlMain": "https://hudsonrock.com",
     "username_claimed": "testadmin"
@@ -1233,6 +1240,7 @@
     "__comment__": "Cloudflare. Only viable when proxied.",
     "errorMsg": "Not Found",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{3,15}$",
     "url": "https://kick.com/{}",
     "urlMain": "https://kick.com/",
     "urlProbe": "https://kick.com/api/v2/channels/{}",
@@ -1291,6 +1299,7 @@
   "LibraryThing": {
     "errorMsg": "Catalog your books online",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,20}$",
     "url": "https://www.librarything.com/profile/{}",
     "urlMain": "https://www.librarything.com/",
     "username_claimed": "blue"
@@ -1512,6 +1521,7 @@
   "NitroType": {
     "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{3,15}$",
     "url": "https://www.nitrotype.com/racer/{}",
     "urlMain": "https://www.nitrotype.com/",
     "username_claimed": "jianclash"
@@ -1666,6 +1676,7 @@
   "ProductHunt": {
     "errorMsg": "We seem to have lost this page",
     "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9]{5,30}$",
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
@@ -1827,6 +1838,7 @@
   },
   "Shpock": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]{3,15}$",
     "url": "https://www.shpock.com/shop/{}/items",
     "urlMain": "https://www.shpock.com/",
     "username_claimed": "user"
@@ -1995,7 +2007,7 @@
   "Strava": {
     "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
     "errorType": "message",
-    "regexCheck": "^[^.]*?$",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,20}$",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
     "username_claimed": "blue"
@@ -2131,6 +2143,7 @@
   },
   "Twitch": {
     "errorType": "status_code",
+    "regexCheck": "^[a-z0-9_]{4,25}$",
     "url": "https://www.twitch.tv/{}",
     "urlMain": "https://www.twitch.tv/",
     "urlProbe": "https://m.twitch.tv/{}",
@@ -2207,6 +2220,7 @@
   "Vero": {
     "errorType": "status_code",
     "request_method": "GET",
+    "regexCheck": "^[a-zA-Z0-9_]{3,15}$",
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
     "username_claimed": "blue"
