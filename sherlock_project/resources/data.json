@@ -2802,5 +2802,11 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "velog": {
+    "errorType": "status_code",
+    "url": "https://velog.io/@{}",
+    "urlMain": "https://velog.io/",
+    "username_claimed": "blue"
   }
 }
