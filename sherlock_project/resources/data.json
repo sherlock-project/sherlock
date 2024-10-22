@@ -705,6 +705,12 @@
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
   },
+  "Empretienda AR": {
+    "errorType": "status_code",
+    "url": "https://{}.empretienda.com.ar",
+    "urlMain": "https://empretienda.com",
+    "username_claimed": "camalote"
+  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
