@@ -2021,6 +2021,14 @@
     "urlMain": "https://tldrlegal.com/",
     "username_claimed": "kevin"
   },
+  "Topcoder": {
+    "errorType": "status_code",
+    "url": "https://profiles.topcoder.com/{}/",
+    "urlMain": "https://topcoder.com/",
+    "username_claimed": "USER",
+    "urlProbe": "https://api.topcoder.com/v5/members/{}",
+    "regexCheck": "[a-zA-Z0-9 ]"
+  },
   "TRAKTRAIN": {
     "errorType": "status_code",
     "url": "https://traktrain.com/{}",
