@@ -2028,6 +2028,12 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "Tiendanube": {
+    "url": "https://{}.mitiendanube.com/",
+    "urlMain": "https://www.tiendanube.com/",
+    "errorType": "status_code",
+    "username_claimed": "blue"
+  },
   "TLDR Legal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9]{3,20}$",
