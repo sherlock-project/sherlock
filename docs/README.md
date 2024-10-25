@@ -96,9 +96,10 @@ optional arguments:
   --nsfw                Include checking of NSFW sites from default list.
 ```
 
-## Credits
+### Credits
 
-Thank you to everyone who has contributed to Sherlock! ❤️
+Thank you to everyone who has contributed to Sherlock!
+Let's make  sherlock better together❤️
 
 <a href="https://github.com/sherlock-project/sherlock/graphs/contributors">
   <img src="https://contrib.rocks/image?&columns=25&max=10000&&repo=sherlock-project/sherlock" noZoom />
