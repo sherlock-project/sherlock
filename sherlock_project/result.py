@@ -25,6 +25,7 @@ class QueryStatus(Enum):
         Return Value:
         Nicely formatted string to get information about this object.
         """
+        self=str(self)
         return self.value
 
 class QueryResult():
