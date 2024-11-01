@@ -8,7 +8,7 @@ class Interactives:
         """Pass arguments to Sherlock as a normal user on the command line"""
         # Adapt for platform differences (Windows likes to be special)
         if platform.system() == "Windows":
-            command:str = f"py -m sherlock {args}"
+            command:str = f"py -m sherlock_project {args}"
         else:
             command:str = f"sherlock {args}"
 
