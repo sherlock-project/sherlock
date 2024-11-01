@@ -298,6 +298,14 @@
     "urlMain": "https://www.blogger.com/",
     "username_claimed": "blue"
   },
+  "BoardGameGeek": {
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]*$",
+    "errorMsg": "User not found",
+    "url": "https://boardgamegeek.com/user/{}",
+    "urlMain": "https://boardgamegeek.com",
+    "username_claimed": "blue"
+  },
   "BodyBuilding": {
     "errorType": "response_url",
     "errorUrl": "https://bodyspace.bodybuilding.com/",
@@ -696,6 +704,12 @@
     "url": "https://community.eintracht.de/fans/{}",
     "urlMain": "https://community.eintracht.de/",
     "username_claimed": "mmammu"
+  },
+  "Empretienda AR": {
+    "errorType": "status_code",
+    "url": "https://{}.empretienda.com.ar",
+    "urlMain": "https://empretienda.com",
+    "username_claimed": "camalote"
   },
   "Envato Forum": {
     "errorType": "status_code",
@@ -2014,12 +2028,26 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "Tiendanube": {
+    "url": "https://{}.mitiendanube.com/",
+    "urlMain": "https://www.tiendanube.com/",
+    "errorType": "status_code",
+    "username_claimed": "blue"
+  },
   "TLDR Legal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9]{3,20}$",
     "url": "https://tldrlegal.com/users/{}/",
     "urlMain": "https://tldrlegal.com/",
     "username_claimed": "kevin"
+  },
+  "Topcoder": {
+    "errorType": "status_code",
+    "url": "https://profiles.topcoder.com/{}/",
+    "urlMain": "https://topcoder.com/",
+    "username_claimed": "USER",
+    "urlProbe": "https://api.topcoder.com/v5/members/{}",
+    "regexCheck": "[a-zA-Z0-9 ]"
   },
   "TRAKTRAIN": {
     "errorType": "status_code",
