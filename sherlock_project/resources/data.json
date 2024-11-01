@@ -1951,11 +1951,10 @@
     "username_claimed": "adam"
   },
   "Speedrun.com": {
-    "errorMsg": "Not found",
-    "errorType": "message",
-    "url": "https://speedrun.com/user/{}",
+    "errorType": "status_code",
+    "url": "https://speedrun.com/users/{}",
     "urlMain": "https://speedrun.com/",
-    "username_claimed": "3Tau"
+    "username_claimed": "example"
   },
   "Spells8": {
     "errorType": "status_code",
