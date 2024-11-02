@@ -22,14 +22,18 @@
 
 ## Installation
 
+> [!WARNING]  
+> Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
+> Users of these systems should defer to pipx/pip or Docker.
 
-| | Command | Notes |
+| Method | Notes | Status |
 | - | - | - |
-| PyPI | `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
-| Docker | `docker pull sherlock/sherlock` | |
-| Debian family | `apt install sherlock` | Kali, Parrot, Debian Testing and Sid |
-| BlackArch | `pacman -S sherlock` |  |
-| Homebrew | `brew install sherlock` | |
+| `pipx install sherlock-project` | `pip` may be used in place of `pipx` | Official |
+| `docker run -it sherlock/sherlock` | | Official |
+| `dnf install sherlock-project` | | Official |
+| `apt install sherlock` | | Community |
+| `pacman -S sherlock` |  | Community |
+| `brew install sherlock` | | Community |
 
 See all alternative installation methods [here](https://sherlockproject.xyz/installation)
 
