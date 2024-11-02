@@ -167,14 +167,14 @@ def multiple_usernames(username):
 
 
 def sherlock(
-    username,
-    site_data,
+    username: str,
+    site_data: dict,
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
-    proxy=None,
-    timeout=60,
+    proxy: Optional[str] = None,
+    timeout: int = 60,
 ):
     """Run Sherlock Analysis.
 
@@ -474,7 +474,7 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
-        
+
         if dump_response:
             print("+++++++++++++++++++++")
             print(f"TARGET NAME   : {social_network}")
