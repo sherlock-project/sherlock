@@ -656,6 +656,14 @@ def main():
         help="Load data from a JSON file or an online, valid, JSON file.",
     )
     parser.add_argument(
+        "--pull-request",
+        "-pr",
+        action="store",
+        dest="pull_request",
+        default=None,
+        help="Load data.json file from a specific pull request.",
+    )
+    parser.add_argument(
         "--timeout",
         action="store",
         metavar="TIMEOUT",
@@ -779,12 +787,25 @@ def main():
 
     # Create object with all information about sites we are aware of.
     try:
-        if args.local:
+        if args.local and args.pull_request is None:
             sites = SitesInformation(
                 os.path.join(os.path.dirname(__file__), "resources/data.json")
             )
         else:
-            sites = SitesInformation(args.json_file)
+            # Check for conflicting --json and --pull-request arguments
+            if args.json_file is not None and args.pull_request is not None:
+                print("You cannot use both --json and --pull-request at the same time.")
+                sys.exit(1)
+
+            json_file_location = args.json_file
+            if args.pull_request is not None:
+                pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{args.pull_request}"
+                pull_request_raw = requests.get(pull_url).text
+                pull_request_json = json_loads(pull_request_raw)
+                head_commit_sha = pull_request_json["head"]["sha"]
+                json_file_location = f"https://raw.githubusercontent.com/sherlock-project/sherlock/{head_commit_sha}/sherlock_project/resources/data.json"
+
+            sites = SitesInformation(json_file_location)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
