@@ -19,6 +19,15 @@ body:
         - Other (indicate below)
     validations:
       required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: |
+        Knowing the version of the package you are using can help us diagnose your issue more quickly.
+        You can find the version by running `sherlock --version`.
+    validations:
+      required: true
   - type: textarea
     id: description
     attributes:
