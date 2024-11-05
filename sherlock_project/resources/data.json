@@ -316,13 +316,6 @@
     "urlMain": "https://boardgamegeek.com",
     "username_claimed": "blue"
   },
-  "BodyBuilding": {
-    "errorType": "response_url",
-    "errorUrl": "https://bodyspace.bodybuilding.com/",
-    "url": "https://bodyspace.bodybuilding.com/{}",
-    "urlMain": "https://bodyspace.bodybuilding.com/",
-    "username_claimed": "blue"
-  },
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
