@@ -6,6 +6,246 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## Vero
+
+As of 2024-11-07, Twitch gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "Vero": {
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://vero.co/{}",
+    "urlMain": "https://vero.co/",
+    "username_claimed": "blue"
+  },
+'''
+
+## Twitch
+
+As of 2024-11-07, Twitch gives a false positive probably because their website was changed after being introduced in the data.json file. This site should be relisted since it is very popular.
+
+'''json   
+  "Twitch": {
+    "errorType": "status_code",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv/",
+    "urlProbe": "https://m.twitch.tv/{}",
+    "username_claimed": "jenny"
+  },
+'''
+
+## TLDR Legal
+
+As of 2024-11-07, TLDR Legal gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "TLDR Legal": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]{3,20}$",
+    "url": "https://tldrlegal.com/users/{}/",
+    "urlMain": "https://tldrlegal.com/",
+    "username_claimed": "kevin"
+  },
+'''
+
+## Strava
+
+As of 2024-11-07, Strava gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "Strava": {
+    "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
+    "errorType": "message",
+    "regexCheck": "^[^.]*?$",
+    "url": "https://www.strava.com/athletes/{}",
+    "urlMain": "https://www.strava.com/",
+    "username_claimed": "blue"
+  },
+'''
+
+## SlideShare
+
+As of 2024-11-07, SlideShare gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "SlideShare": {
+    "errorType": "status_code",
+    "url": "https://slideshare.net/{}",
+    "urlMain": "https://slideshare.net/",
+    "username_claimed": "blue"
+  },
+'''
+
+## Shpock
+
+As of 2024-11-07, Shpock gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json 
+  "Shpock": {
+    "errorType": "status_code",
+    "url": "https://www.shpock.com/shop/{}/items",
+    "urlMain": "https://www.shpock.com/",
+    "username_claimed": "user"
+  },
+'''
+
+## ProductHunt
+
+As of 2024-11-07, ProductHunt gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json  
+  "ProductHunt": {
+    "errorMsg": "We seem to have lost this page",
+    "errorType": "message",
+    "url": "https://www.producthunt.com/@{}",
+    "urlMain": "https://www.producthunt.com/",
+    "username_claimed": "jenny"
+  },
+'''
+
+## NitroType
+
+As of 2024-11-07, NitroType gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "NitroType": {
+    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
+    "errorType": "message",
+    "url": "https://www.nitrotype.com/racer/{}",
+    "urlMain": "https://www.nitrotype.com/",
+    "username_claimed": "jianclash"
+  },
+'''
+
+## Lichess
+
+As of 2024-11-07, Lichess gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "Lichess": {
+    "errorMsg": "Page not found!",
+    "errorType": "message",
+    "url": "https://lichess.org/@/{}",
+    "urlMain": "https://lichess.org",
+    "username_claimed": "blue"
+  },
+'''
+## Kick
+
+As of 2024-11-07, Kick gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "Kick": {
+    "__comment__": "Cloudflare. Only viable when proxied.",
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://kick.com/{}",
+    "urlMain": "https://kick.com/",
+    "urlProbe": "https://kick.com/api/v2/channels/{}",
+    "username_claimed": "blue"
+  },
+'''
+
+## HudsonRock
+
+As of 2024-11-07, HudsonRock gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json
+  "HudsonRock": {
+    "errorMsg": "No results",
+    "errorType": "message",
+    "url": "https://cavalier.hudsonrock.com/api/json/v2/osint-tools/search-by-username?username={}",
+    "urlMain": "https://hudsonrock.com",
+    "username_claimed": "testadmin"
+  },
+'''
+## Houzz
+
+As of 2024-11-07, Houzz gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json
+   "Houzz": {
+    "errorMsg": "The page you requested was not found.",
+    "errorType": "message",
+    "url": "https://houzz.com/user/{}",
+    "urlMain": "https://houzz.com/",
+    "username_claimed": "blue"
+  },
+'''
+
+## HackenProof
+
+As of 2024-11-07, HackenProof gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json   
+  "HackenProof (Hackers)": {
+    "errorMsg": "<title>Web3\u2019s Largest Ethical Hackers Community | HackenProof</title>",
+    "errorType": "message",
+    "regexCheck": "^[\\w-]{,34}$",
+    "url": "https://hackenproof.com/hackers/{}",
+    "urlMain": "https://hackenproof.com/",
+    "username_claimed": "blazezaria"
+  },
+'''
+
+## Hackthebox
+
+As of 2024-11-07, Hackthebox gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json 
+  "HackTheBox": {
+    "errorType": "status_code",
+    "url": "https://forum.hackthebox.eu/profile/{}",
+    "urlMain": "https://forum.hackthebox.eu/",
+    "username_claimed": "angar"
+  },
+'''
+
+
+## Bikemap.net
+
+As of 2024-11-07, Aminoapps gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json
+  "Bikemap": {
+    "errorType": "status_code",
+    "url": "https://www.bikemap.net/en/u/{}/routes/created/",
+    "urlMain": "https://www.bikemap.net/",
+    "username_claimed": "bikemap"
+  },
+'''
+
+## Aminoapps.com
+
+As of 2024-11-07, Aminoapps gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json
+  "Amino": {
+    "errorType": "status_code",
+    "url": "https://aminoapps.com/u/{}",
+    "urlMain": "https://aminoapps.com",
+    "username_claimed": "blue"
+  },
+'''
+
+## 8tracks.com
+
+As of 2024-11-07, 8track gives a false positive probably because their website was changed after being introduced in the data.json file.
+
+'''json
+  "8tracks": {
+      "errorType": "message",
+      "errorMsg": "\"available\":true",
+      "headers": {
+        "Accept-Language": "en-US,en;q=0.5"
+      },
+      "url": "https://8tracks.com/{}",
+      "urlProbe": "https://8tracks.com/users/check_username?login={}&format=jsonh",
+      "urlMain": "https://8tracks.com/",
+      "username_claimed": "blue"
+    },
+'''
+
 ## gpodder.net
 
 As of 2020-05-25, all usernames are reported as available.

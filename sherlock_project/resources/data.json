@@ -30,17 +30,6 @@
     "urlMain": "https://www.7cups.com/",
     "username_claimed": "blue"
   },
-  "8tracks": {
-    "errorType": "message",
-    "errorMsg": "\"available\":true",
-    "headers": {
-      "Accept-Language": "en-US,en;q=0.5"
-    },
-    "url": "https://8tracks.com/{}",
-    "urlProbe": "https://8tracks.com/users/check_username?login={}&format=jsonh",
-    "urlMain": "https://8tracks.com/",
-    "username_claimed": "blue"
-  },
   "9GAG": {
     "errorType": "status_code",
     "url": "https://www.9gag.com/u/{}",
@@ -109,12 +98,6 @@
     "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "url": "https://allmylinks.com/{}",
     "urlMain": "https://allmylinks.com/",
-    "username_claimed": "blue"
-  },
-  "Amino": {
-    "errorType": "status_code",
-    "url": "https://aminoapps.com/u/{}",
-    "urlMain": "https://aminoapps.com",
     "username_claimed": "blue"
   },
   "AniWorld": {
@@ -268,12 +251,6 @@
     "url": "https://www.biggerpockets.com/users/{}",
     "urlMain": "https://www.biggerpockets.com/",
     "username_claimed": "blue"
-  },
-  "Bikemap": {
-    "errorType": "status_code",
-    "url": "https://www.bikemap.net/en/u/{}/routes/created/",
-    "urlMain": "https://www.bikemap.net/",
-    "username_claimed": "bikemap"
   },
   "BioHacking": {
     "errorType": "status_code",
@@ -1006,25 +983,11 @@
     "urlMain": "https://www.gutefrage.net/",
     "username_claimed": "gutefrage"
   },
-  "HackTheBox": {
-    "errorType": "status_code",
-    "url": "https://forum.hackthebox.eu/profile/{}",
-    "urlMain": "https://forum.hackthebox.eu/",
-    "username_claimed": "angar"
-  },
   "Hackaday": {
     "errorType": "status_code",
     "url": "https://hackaday.io/{}",
     "urlMain": "https://hackaday.io/",
     "username_claimed": "adam"
-  },
-  "HackenProof (Hackers)": {
-    "errorMsg": "<title>Web3\u2019s Largest Ethical Hackers Community | HackenProof</title>",
-    "errorType": "message",
-    "regexCheck": "^[\\w-]{,34}$",
-    "url": "https://hackenproof.com/hackers/{}",
-    "urlMain": "https://hackenproof.com/",
-    "username_claimed": "blazezaria"
   },
   "HackerEarth": {
     "errorMsg": "404. URL not found.",
@@ -1091,13 +1054,6 @@
     "urlProbe": "https://www.holopin.io/api/auth/username",
     "username_claimed": "red"
   },
-  "Houzz": {
-    "errorMsg": "The page you requested was not found.",
-    "errorType": "message",
-    "url": "https://houzz.com/user/{}",
-    "urlMain": "https://houzz.com/",
-    "username_claimed": "blue"
-  },
   "HubPages": {
     "errorType": "status_code",
     "url": "https://hubpages.com/@{}",
@@ -1110,13 +1066,6 @@
     "url": "https://hubski.com/user/{}",
     "urlMain": "https://hubski.com/",
     "username_claimed": "blue"
-  },
-  "HudsonRock": {
-    "errorMsg": "No results",
-    "errorType": "message",
-    "url": "https://cavalier.hudsonrock.com/api/json/v2/osint-tools/search-by-username?username={}",
-    "urlMain": "https://hudsonrock.com",
-    "username_claimed": "testadmin"
   },
   "IFTTT": {
     "errorType": "status_code",
@@ -1252,15 +1201,6 @@
     "urlMain": "https://keybase.io/",
     "username_claimed": "blue"
   },
-  "Kick": {
-    "__comment__": "Cloudflare. Only viable when proxied.",
-    "errorMsg": "Not Found",
-    "errorType": "message",
-    "url": "https://kick.com/{}",
-    "urlMain": "https://kick.com/",
-    "urlProbe": "https://kick.com/api/v2/channels/{}",
-    "username_claimed": "blue"
-  },
   "Kik": {
     "errorMsg": "The page you requested was not found",
     "errorType": "message",
@@ -1316,13 +1256,6 @@
     "errorType": "message",
     "url": "https://www.librarything.com/profile/{}",
     "urlMain": "https://www.librarything.com/",
-    "username_claimed": "blue"
-  },
-  "Lichess": {
-    "errorMsg": "Page not found!",
-    "errorType": "message",
-    "url": "https://lichess.org/@/{}",
-    "urlMain": "https://lichess.org",
     "username_claimed": "blue"
   },
   "LinkedIn": {
@@ -1532,13 +1465,6 @@
     "urlMain": "https://www.nintendolife.com/",
     "username_claimed": "goku"
   },
-  "NitroType": {
-    "errorMsg": "<title>Nitro Type | Competitive Typing Game | Race Your Friends</title>",
-    "errorType": "message",
-    "url": "https://www.nitrotype.com/racer/{}",
-    "urlMain": "https://www.nitrotype.com/",
-    "username_claimed": "jianclash"
-  },
   "NotABug.org": {
     "errorType": "status_code",
     "url": "https://notabug.org/{}",
@@ -1685,13 +1611,6 @@
     "url": "https://pornhub.com/users/{}",
     "urlMain": "https://pornhub.com/",
     "username_claimed": "blue"
-  },
-  "ProductHunt": {
-    "errorMsg": "We seem to have lost this page",
-    "errorType": "message",
-    "url": "https://www.producthunt.com/@{}",
-    "urlMain": "https://www.producthunt.com/",
-    "username_claimed": "jenny"
   },
   "PromoDJ": {
     "errorType": "status_code",
@@ -1854,12 +1773,6 @@
     "urlMain": "https://www.shitpostbot.com/",
     "username_claimed": "blue"
   },
-  "Shpock": {
-    "errorType": "status_code",
-    "url": "https://www.shpock.com/shop/{}/items",
-    "urlMain": "https://www.shpock.com/",
-    "username_claimed": "user"
-  },
   "Signal": {
     "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
@@ -1892,19 +1805,6 @@
     "errorType": "message",
     "url": "https://slashdot.org/~{}",
     "urlMain": "https://slashdot.org",
-    "username_claimed": "blue"
-  },
-  "SlideShare": {
-    "errorType": "status_code",
-    "url": "https://slideshare.net/{}",
-    "urlMain": "https://slideshare.net/",
-    "username_claimed": "blue"
-  },
-  "Slides": {
-    "errorCode": 204,
-    "errorType": "status_code",
-    "url": "https://slides.com/{}",
-    "urlMain": "https://slides.com/",
     "username_claimed": "blue"
   },
   "SmugMug": {
@@ -2020,14 +1920,6 @@
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
-  "Strava": {
-    "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
-    "errorType": "message",
-    "regexCheck": "^[^.]*?$",
-    "url": "https://www.strava.com/athletes/{}",
-    "urlMain": "https://www.strava.com/",
-    "username_claimed": "blue"
-  },
   "SublimeForum": {
     "errorType": "status_code",
     "url": "https://forum.sublimetext.com/u/{}",
@@ -2047,13 +1939,6 @@
     "urlMain": "https://www.tiendanube.com/",
     "errorType": "status_code",
     "username_claimed": "blue"
-  },
-  "TLDR Legal": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9]{3,20}$",
-    "url": "https://tldrlegal.com/users/{}/",
-    "urlMain": "https://tldrlegal.com/",
-    "username_claimed": "kevin"
   },
   "Topcoder": {
     "errorType": "status_code",
@@ -2171,13 +2056,6 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
-  "Twitch": {
-    "errorType": "status_code",
-    "url": "https://www.twitch.tv/{}",
-    "urlMain": "https://www.twitch.tv/",
-    "urlProbe": "https://m.twitch.tv/{}",
-    "username_claimed": "jenny"
-  },
   "Twitter": {
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",
@@ -2251,13 +2129,6 @@
     "urlMain": "https://venmo.com/",
     "urlProbe": "https://test1.venmo.com/u/{}",
     "username_claimed": "jenny"
-  },
-  "Vero": {
-    "errorType": "status_code",
-    "request_method": "GET",
-    "url": "https://vero.co/{}",
-    "urlMain": "https://vero.co/",
-    "username_claimed": "blue"
   },
   "Vimeo": {
     "errorType": "status_code",
