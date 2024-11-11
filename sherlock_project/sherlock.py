@@ -24,6 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
+from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
