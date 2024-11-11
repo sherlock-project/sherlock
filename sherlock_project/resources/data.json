@@ -163,7 +163,8 @@
     "__comment__": "'The resource could not be found' relates to archive downtime",
     "errorMsg": [
       "could not fetch an account with user item identifier",
-      "The resource could not be found"
+      "The resource could not be found",
+      "Internet Archive services are temporarily offline"
     ],
     "errorType": "message",
     "url": "https://archive.org/details/@{}",
