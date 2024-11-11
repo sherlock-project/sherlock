@@ -26,18 +26,17 @@
 > Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
 > Users of these systems should defer to pipx/pip or Docker.
 
-| Method | Notes | Status |
-| - | - | - |
-| `pipx install sherlock-project` | `pip` may be used in place of `pipx` | Official |
-| `docker run -it sherlock/sherlock` | | Official |
-| `dnf install sherlock-project` | | Official |
-| `apt install sherlock` | | Community |
-| `pacman -S sherlock` |  | Community |
-| `brew install sherlock` | | Community |
+| Method | Notes |
+| - | - |
+| `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
+| `docker run -it --rm sherlock/sherlock` |
+| `dnf install sherlock-project` | |
+
+Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, and BlackArch. These packages are not directly supported or maintained by the Sherlock Project.
 
 See all alternative installation methods [here](https://sherlockproject.xyz/installation)
 
-## Usage
+## General usage
 
 To search for only one user:
 ```bash
