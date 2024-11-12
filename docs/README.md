@@ -99,6 +99,14 @@ optional arguments:
   --nsfw                Include checking of NSFW sites from default list.
 ```
 
+In case installation fails:
+```bash
+python -m sherlock_project user1 user2 user3 
+```
+or
+```bash
+python3 -m sherlock_project user1 user2 user3
+```
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
