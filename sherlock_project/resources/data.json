@@ -728,6 +728,7 @@
   },
   "Exposure": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9-]{1,63}$",
     "url": "https://{}.exposure.co/",
     "urlMain": "https://exposure.co/",
     "username_claimed": "jonasjacobsson"
@@ -1909,6 +1910,7 @@
   },
   "SmugMug": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z]{1,35}$",
     "url": "https://{}.smugmug.com",
     "urlMain": "https://smugmug.com",
     "username_claimed": "winchester"
@@ -2314,6 +2316,7 @@
   },
   "Weebly": {
     "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9-]{1,63}$",
     "url": "https://{}.weebly.com/",
     "urlMain": "https://weebly.com/",
     "username_claimed": "blue"
