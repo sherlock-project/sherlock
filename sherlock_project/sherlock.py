@@ -24,6 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
+from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -167,14 +168,14 @@ def multiple_usernames(username):
 
 
 def sherlock(
-    username,
-    site_data,
+    username: str,
+    site_data: dict,
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
-    proxy=None,
-    timeout=60,
+    proxy: Optional[str] = None,
+    timeout: int = 60,
 ):
     """Run Sherlock Analysis.
 
@@ -474,7 +475,7 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
-        
+
         if dump_response:
             print("+++++++++++++++++++++")
             print(f"TARGET NAME   : {social_network}")
@@ -784,7 +785,24 @@ def main():
                 os.path.join(os.path.dirname(__file__), "resources/data.json")
             )
         else:
-            sites = SitesInformation(args.json_file)
+            json_file_location = args.json_file
+            if args.json_file:
+                # If --json parameter is a number, interpret it as a pull request number
+                if args.json_file.isnumeric():
+                    pull_number = args.json_file
+                    pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{pull_number}"
+                    pull_request_raw = requests.get(pull_url).text
+                    pull_request_json = json_loads(pull_request_raw)
+
+                    # Check if it's a valid pull request
+                    if "message" in pull_request_json:
+                        print(f"ERROR: Pull request #{pull_number} not found.")
+                        sys.exit(1)
+
+                    head_commit_sha = pull_request_json["head"]["sha"]
+                    json_file_location = f"https://raw.githubusercontent.com/sherlock-project/sherlock/{head_commit_sha}/sherlock_project/resources/data.json"
+
+            sites = SitesInformation(json_file_location)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
