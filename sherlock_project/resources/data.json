@@ -31,8 +31,7 @@
     "username_claimed": "blue"
   },
   "8tracks": {
-    "errorType": "message",
-    "errorMsg": "\"available\":true",
+    "errorType": "status_code",
     "headers": {
       "Accept-Language": "en-US,en;q=0.5"
     },
