@@ -414,7 +414,7 @@ def sherlock(
         # indicate target and date fingerprinted.
         WAFHitMsgs = [
             r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">Enable JavaScript and cookies to continue', # 2024-11-11 Cloudflare error page
+            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
             r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
             r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
