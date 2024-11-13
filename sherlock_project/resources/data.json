@@ -111,12 +111,6 @@
     "urlMain": "https://allmylinks.com/",
     "username_claimed": "blue"
   },
-  "Amino": {
-    "errorType": "status_code",
-    "url": "https://aminoapps.com/u/{}",
-    "urlMain": "https://aminoapps.com",
-    "username_claimed": "blue"
-  },
   "AniWorld": {
     "errorMsg": "Dieses Profil ist nicht verf\u00fcgbar",
     "errorType": "message",
@@ -269,12 +263,6 @@
     "url": "https://www.biggerpockets.com/users/{}",
     "urlMain": "https://www.biggerpockets.com/",
     "username_claimed": "blue"
-  },
-  "Bikemap": {
-    "errorType": "status_code",
-    "url": "https://www.bikemap.net/en/u/{}/routes/created/",
-    "urlMain": "https://www.bikemap.net/",
-    "username_claimed": "bikemap"
   },
   "BioHacking": {
     "errorType": "status_code",
@@ -1012,8 +1000,8 @@
   },
   "HackTheBox": {
     "errorType": "status_code",
-    "url": "https://forum.hackthebox.eu/profile/{}",
-    "urlMain": "https://forum.hackthebox.eu/",
+    "url": "https://forum.hackthebox.com/u/{}",
+    "urlMain": "https://forum.hackthebox.com/",
     "username_claimed": "angar"
   },
   "Hackaday": {
