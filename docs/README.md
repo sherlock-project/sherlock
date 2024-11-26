@@ -1,10 +1,10 @@
 <p align=center>
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
+  <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-5ujSNENxW3xta7D0DSnmCZeb_eCp5_ASgQiNBIIuGkuZ0B9axO8hoQF2SCzPTroQcM&usqp=CAU"/></a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
   <br>
-</p>
+</p>"
 
 <p align="center">
   <a href="https://sherlockproject.xyz/installation">Installation</a>
