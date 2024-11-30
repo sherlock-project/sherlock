@@ -8,8 +8,7 @@ source = "init"
 
 [tool.poetry]
 name = "sherlock-project"
-# single source of truth for version is __init__.py
-version = "0"
+version = "0.15.0"
 description = "Hunt down social media accounts by username across social networks"
 license = "MIT"
 authors = [
