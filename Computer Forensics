@@ -1,0 +1,83 @@
+<?php
+// log_analyzer.php
+
+// Function to handle file upload
+function handleFileUpload() {
+    if (isset($_FILES['logfile']) && $_FILES['logfile']['error'] == 0) {
+        $fileTmpPath = $_FILES['logfile']['tmp_name'];
+        $fileName = $_FILES['logfile']['name'];
+        $fileSize = $_FILES['logfile']['size'];
+        $fileType = $_FILES['logfile']['type'];
+
+        // Validate file type
+        $allowedTypes = ['text/plain', 'application/octet-stream'];
+        if (in_array($fileType, $allowedTypes)) {
+            return file_get_contents($fileTmpPath);
+        } else {
+            return "Invalid file type. Please upload a plain text file.";
+        }
+    }
+    return null;
+}
+
+// Function to search for keywords in the log content
+function searchInLogs($logContent, $keyword) {
+    $lines = explode("\n", $logContent);
+    $results = [];
+    foreach ($lines as $lineNumber => $line) {
+        if (stripos($line, $keyword) !== false) {
+            $results[] = [
+                'line' => $lineNumber + 1,
+                'content' => htmlspecialchars($line)
+            ];
+        }
+    }
+    return $results;
+}
+
+// Handle form submission
+$logContent = handleFileUpload();
+$searchResults = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['keyword'])) {
+    $keyword = trim($_POST['keyword']);
+    if ($logContent) {
+        $searchResults = searchInLogs($logContent, $keyword);
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Analyzer Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input[type="text"], input[type="file"] { width: 100%; margin: 10px 0; }
+        textarea { width: 100%; height: 200px; }
+        .result { margin-top: 20px; }
+        .result div { background: #f0f0f0; padding: 10px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Log Analyzer Tool</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="logfile" required>
+        <input type="text" name="keyword" placeholder="Enter keyword to search" required>
+        <input type="submit" value="Analyze">
+    </form>
+
+    <?php if (!empty($searchResults)): ?>
+        <div class="result">
+            <h2>Search Results:</h2>
+            <?php foreach ($searchResults as $result): ?>
+                <div>Line <?php echo $result['line']; ?>: <?php echo $result['content']; ?></div>
+            <?php endforeach; ?>
+            <?php if (empty($searchResults)): ?>
+                <div>No results found for "<?php echo htmlspecialchars($keyword); ?>"</div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+</body>
+</html>
