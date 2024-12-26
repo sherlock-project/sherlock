@@ -2009,8 +2009,7 @@
     "username_claimed": "blue"
   },
   "Strava": {
-    "errorMsg": "Strava | Running, Cycling &amp; Hiking App - Train, Track &amp; Share",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
