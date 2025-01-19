@@ -1690,7 +1690,7 @@
   },
   "PyPi": {
     "errorType": "status_code",
-    "url": "https://pypi.org/user/{}",
+    "url": "https://pypi.org/_includes/administer-user-include/{}",
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
   },
