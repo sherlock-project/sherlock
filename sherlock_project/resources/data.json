@@ -18,7 +18,7 @@
     "username_claimed": "blue"
   },
   "3dnews": {
-    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d \u0438 \u043d\u0435 \u0438\u043c\u0435\u0435\u0442 \u043f\u0440\u043e\u0444\u0438\u043b\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.",
     "errorType": "message",
     "url": "http://forum.3dnews.ru/member.php?username={}",
     "urlMain": "http://forum.3dnews.ru/",
@@ -77,7 +77,7 @@
     "username_claimed": "DemiDevil"
   },
   "Air Pilot Life": {
-    "errorMsg": "Oops! That page doesn’t exist or is private",
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private",
     "errorType": "message",
     "url": "https://airlinepilot.life/u/{}",
     "urlMain": "https://airlinepilot.life/",
@@ -112,7 +112,7 @@
     "username_claimed": "blue"
   },
   "AniWorld": {
-    "errorMsg": "Dieses Profil ist nicht verfügbar",
+    "errorMsg": "Dieses Profil ist nicht verf\u00fcgbar",
     "errorType": "message",
     "url": "https://aniworld.to/user/profil/{}",
     "urlMain": "https://aniworld.to/",
@@ -391,7 +391,7 @@
     "username_claimed": "jenny"
   },
   "Career.habr": {
-    "errorMsg": "<h1>Ошибка 404</h1>",
+    "errorMsg": "<h1>\u041e\u0448\u0438\u0431\u043a\u0430 404</h1>",
     "errorType": "message",
     "url": "https://career.habr.com/{}",
     "urlMain": "https://career.habr.com/",
@@ -410,7 +410,7 @@
     "username_claimed": "ordnung"
   },
   "Chatujme.cz": {
-    "errorMsg": "Neexistujicí profil",
+    "errorMsg": "Neexistujic\u00ed profil",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "url": "https://profil.chatujme.cz/{}",
@@ -682,6 +682,7 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
+
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -801,7 +802,7 @@
     "username_claimed": "blue"
   },
   "Football": {
-    "errorMsg": "Пользователь с таким именем не найден",
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0441 \u0442\u0430\u043a\u0438\u043c \u0438\u043c\u0435\u043d\u0435\u043c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
     "errorType": "message",
     "url": "https://www.rusfootball.info/user/{}/",
     "urlMain": "https://www.rusfootball.info/",
@@ -1293,7 +1294,7 @@
     "username_claimed": "blue"
   },
   "Letterboxd": {
-    "errorMsg": "Sorry, we can’t find the page you’ve requested.",
+    "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
     "errorType": "message",
     "url": "https://letterboxd.com/{}",
     "urlMain": "https://letterboxd.com/",
@@ -1317,6 +1318,7 @@
   },
   "LinkedIn": {
     "errorType": "status_code",
+
     "regexCheck": "^[a-zA-Z0-9]{3,100}$",
     "request_method": "GET",
     "url": "https://linkedin.com/in/{}",
@@ -1688,7 +1690,7 @@
   },
   "PyPi": {
     "errorType": "status_code",
-    "url": "https://pypi.org/_includes/administer-user-include/{}",
+    "url": "https://pypi.org/user/{}",
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
   },
@@ -1848,7 +1850,7 @@
     "username_claimed": "user"
   },
   "Signal": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
     "url": "https://community.signalusers.org/u/{}",
     "urlMain": "https://community.signalusers.org",
@@ -1980,6 +1982,7 @@
   },
   "Spotify": {
     "errorType": "status_code",
+
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue"
@@ -2218,7 +2221,7 @@
     "username_claimed": "qlgks1"
   },
   "Velomania": {
-    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d \u0438 \u043d\u0435 \u0438\u043c\u0435\u0435\u0442 \u043f\u0440\u043e\u0444\u0438\u043b\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.",
     "errorType": "message",
     "url": "https://forum.velomania.ru/member.php?username={}",
     "urlMain": "https://forum.velomania.ru/",
@@ -2384,8 +2387,8 @@
   "YandexMusic": {
     "__comment__": "The first and third errorMsg relate to geo-restrictions and bot detection/captchas.",
     "errorMsg": [
-      "Ошибка 404",
-      "<meta name=\"description\" content=\"Открывайте новую музыку каждый день.",
+      "\u041e\u0448\u0438\u0431\u043a\u0430 404",
+      "<meta name=\"description\" content=\"\u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0439\u0442\u0435 \u043d\u043e\u0432\u0443\u044e \u043c\u0443\u0437\u044b\u043a\u0443 \u043a\u0430\u0436\u0434\u044b\u0439 \u0434\u0435\u043d\u044c.",
       "<input type=\"submit\" class=\"CheckboxCaptcha-Button\""
     ],
     "errorType": "message",
@@ -2416,6 +2419,7 @@
   },
   "YouTube": {
     "errorType": "status_code",
+
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
@@ -2433,7 +2437,7 @@
     "username_claimed": "blue"
   },
   "babyRU": {
-    "errorMsg": "Страница, которую вы искали, не найдена",
+    "errorMsg": "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
     "errorType": "message",
     "url": "https://www.baby.ru/u/{}/",
     "urlMain": "https://www.baby.ru/",
@@ -2562,7 +2566,7 @@
     "username_claimed": "blue"
   },
   "hunting": {
-    "errorMsg": "Указанный пользователь не найден. Пожалуйста, введите другое имя.",
+    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
     "errorType": "message",
     "url": "https://www.hunting.ru/forum/members/?username={}",
     "urlMain": "https://www.hunting.ru/forum/",
@@ -2576,7 +2580,7 @@
     "username_claimed": "blue"
   },
   "igromania": {
-    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d \u0438 \u043d\u0435 \u0438\u043c\u0435\u0435\u0442 \u043f\u0440\u043e\u0444\u0438\u043b\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.",
     "errorType": "message",
     "url": "http://forum.igromania.ru/member.php?username={}",
     "urlMain": "http://forum.igromania.ru/",
@@ -2716,7 +2720,7 @@
     "username_claimed": "kennethsweezy"
   },
   "opennet": {
-    "errorMsg": "Имя участника не найдено",
+    "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
     "errorType": "message",
     "regexCheck": "^[^-]*$",
     "url": "https://www.opennet.ru/~{}",
@@ -2730,7 +2734,7 @@
     "username_claimed": "blue"
   },
   "phpRU": {
-    "errorMsg": "Указанный пользователь не найден. Пожалуйста, введите другое имя.",
+    "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
     "errorType": "message",
     "url": "https://php.ru/forum/members/?username={}",
     "urlMain": "https://php.ru/forum/",
