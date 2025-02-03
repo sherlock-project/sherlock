@@ -1909,3 +1909,14 @@ __2025-02-02 :__ Might be dead again. Nobody knows for sure.
     "username_claimed": "blue"
   }
 ```
+
+## Shpock
+__2025-02-02 :__ Can likely be added back with a new endpoint (source username availability endpoint from mobile app reg flow?)
+```json
+"Shpock": {
+    "errorType": "status_code",
+    "url": "https://www.shpock.com/shop/{}/items",
+    "urlMain": "https://www.shpock.com/",
+    "username_claimed": "user"
+  }
+```
