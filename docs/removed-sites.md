@@ -1933,3 +1933,25 @@ __2025-02-02 :__
     "username_claimed": "jenny"
   }
 ```
+
+## Fiverr
+__2025-02-02 :__ Fiverr added CSRF protections that messed with this test
+```json
+"Fiverr": {
+    "errorMsg": "\"status\":\"success\"",
+    "errorType": "message",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "urlProbe": "https://www.fiverr.com/validate_username",
+    "username_claimed": "blueman"
+  }
+```

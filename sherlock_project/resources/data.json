@@ -754,23 +754,6 @@
     "urlMain": "https://www.finanzfrage.net/",
     "username_claimed": "finanzfrage"
   },
-  "Fiverr": {
-    "errorMsg": "\"status\":\"success\"",
-    "errorType": "message",
-    "headers": {
-      "Content-Type": "application/json",
-      "Accept-Language": "en-US,en;q=0.9"
-    },
-    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
-    "request_method": "POST",
-    "request_payload": {
-      "username": "{}"
-    },
-    "url": "https://www.fiverr.com/{}",
-    "urlMain": "https://www.fiverr.com/",
-    "urlProbe": "https://www.fiverr.com/validate_username",
-    "username_claimed": "blueman"
-  },
   "Flickr": {
     "errorType": "status_code",
     "url": "https://www.flickr.com/people/{}",
@@ -2414,7 +2397,10 @@
     "username_claimed": "blue"
   },
   "babyRU": {
-    "errorMsg": "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
+    "errorMsg": [
+      "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
+      "Доступ с вашего IP-адреса временно ограничен"
+    ],
     "errorType": "message",
     "url": "https://www.baby.ru/u/{}/",
     "urlMain": "https://www.baby.ru/",
