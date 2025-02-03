@@ -1892,4 +1892,20 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
 ```
 
 ## Alik.cz
-__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock. This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+
+## 8tracks
+__2025-02-02 :__ Might be dead again. Nobody knows for sure.
+```json
+"8tracks": {
+    "errorType": "message",
+    "errorMsg": "\"available\":true",
+    "headers": {
+      "Accept-Language": "en-US,en;q=0.5"
+    },
+    "url": "https://8tracks.com/{}",
+    "urlProbe": "https://8tracks.com/users/check_username?login={}&format=jsonh",
+    "urlMain": "https://8tracks.com/",
+    "username_claimed": "blue"
+  }
+```

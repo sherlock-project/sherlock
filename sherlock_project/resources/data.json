@@ -30,17 +30,6 @@
     "urlMain": "https://www.7cups.com/",
     "username_claimed": "blue"
   },
-  "8tracks": {
-    "errorType": "message",
-    "errorMsg": "\"available\":true",
-    "headers": {
-      "Accept-Language": "en-US,en;q=0.5"
-    },
-    "url": "https://8tracks.com/{}",
-    "urlProbe": "https://8tracks.com/users/check_username?login={}&format=jsonh",
-    "urlMain": "https://8tracks.com/",
-    "username_claimed": "blue"
-  },
   "9GAG": {
     "errorType": "status_code",
     "url": "https://www.9gag.com/u/{}",
