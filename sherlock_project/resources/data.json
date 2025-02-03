@@ -901,10 +901,11 @@
     "username_claimed": "bob"
   },
   "Giphy": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "<title> GIFs - Find &amp; Share on GIPHY</title>",
     "url": "https://giphy.com/{}",
     "urlMain": "https://giphy.com/",
-    "username_claimed": "blue"
+    "username_claimed": "red"
   },
   "GitBook": {
     "errorType": "status_code",
