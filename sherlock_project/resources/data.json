@@ -2027,13 +2027,6 @@
     "errorType": "status_code",
     "username_claimed": "blue"
   },
-  "TLDR Legal": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9]{3,20}$",
-    "url": "https://tldrlegal.com/users/{}/",
-    "urlMain": "https://tldrlegal.com/",
-    "username_claimed": "kevin"
-  },
   "Topcoder": {
     "errorType": "status_code",
     "url": "https://profiles.topcoder.com/{}/",
