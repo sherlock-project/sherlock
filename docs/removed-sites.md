@@ -1892,4 +1892,66 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
 ```
 
 ## Alik.cz
-__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock. This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+
+## 8tracks
+__2025-02-02 :__ Might be dead again. Nobody knows for sure.
+```json
+"8tracks": {
+    "errorType": "message",
+    "errorMsg": "\"available\":true",
+    "headers": {
+      "Accept-Language": "en-US,en;q=0.5"
+    },
+    "url": "https://8tracks.com/{}",
+    "urlProbe": "https://8tracks.com/users/check_username?login={}&format=jsonh",
+    "urlMain": "https://8tracks.com/",
+    "username_claimed": "blue"
+  }
+```
+
+## Shpock
+__2025-02-02 :__ Can likely be added back with a new endpoint (source username availability endpoint from mobile app reg flow?)
+```json
+"Shpock": {
+    "errorType": "status_code",
+    "url": "https://www.shpock.com/shop/{}/items",
+    "urlMain": "https://www.shpock.com/",
+    "username_claimed": "user"
+  }
+```
+
+## Twitch
+__2025-02-02 :__
+```json
+"Twitch": {
+    "errorType": "message",
+    "errorMsg": "components.availability-tracking.warn-unavailable.component",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv/",
+    "urlProbe": "https://m.twitch.tv/{}",
+    "username_claimed": "jenny"
+  }
+```
+
+## Fiverr
+__2025-02-02 :__ Fiverr added CSRF protections that messed with this test
+```json
+"Fiverr": {
+    "errorMsg": "\"status\":\"success\"",
+    "errorType": "message",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}"
+    },
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "urlProbe": "https://www.fiverr.com/validate_username",
+    "username_claimed": "blueman"
+  }
+```

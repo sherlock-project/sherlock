@@ -24,6 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
+from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -167,14 +168,14 @@ def multiple_usernames(username):
 
 
 def sherlock(
-    username,
-    site_data,
+    username: str,
+    site_data: dict,
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
-    proxy=None,
-    timeout=60,
+    proxy: Optional[str] = None,
+    timeout: int = 60,
 ):
     """Run Sherlock Analysis.
 
@@ -261,7 +262,7 @@ def sherlock(
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
         headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
         }
 
         if "headers" in net_info:
@@ -412,8 +413,10 @@ def sherlock(
         # be highly targetted. Comment at the end of each fingerprint to
         # indicate target and date fingerprinted.
         WAFHitMsgs = [
-            '.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            '{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
+            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
+            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
+            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
 
         if error_text is not None:
@@ -474,7 +477,7 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
-        
+
         if dump_response:
             print("+++++++++++++++++++++")
             print(f"TARGET NAME   : {social_network}")
@@ -784,7 +787,24 @@ def main():
                 os.path.join(os.path.dirname(__file__), "resources/data.json")
             )
         else:
-            sites = SitesInformation(args.json_file)
+            json_file_location = args.json_file
+            if args.json_file:
+                # If --json parameter is a number, interpret it as a pull request number
+                if args.json_file.isnumeric():
+                    pull_number = args.json_file
+                    pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{pull_number}"
+                    pull_request_raw = requests.get(pull_url).text
+                    pull_request_json = json_loads(pull_request_raw)
+
+                    # Check if it's a valid pull request
+                    if "message" in pull_request_json:
+                        print(f"ERROR: Pull request #{pull_number} not found.")
+                        sys.exit(1)
+
+                    head_commit_sha = pull_request_json["head"]["sha"]
+                    json_file_location = f"https://raw.githubusercontent.com/sherlock-project/sherlock/{head_commit_sha}/sherlock_project/resources/data.json"
+
+            sites = SitesInformation(json_file_location)
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)

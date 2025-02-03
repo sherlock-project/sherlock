@@ -44,7 +44,7 @@ class TestLiveTargets:
 
     # Known positives should only use sites trusted to be reliable and unchanging
     @pytest.mark.parametrize('site,username',[
-        ('BodyBuilding', 'blue'),
+        ('Keybase', 'blue'),
         ('devRant', 'blue'),
     ])
     def test_known_positives_via_response_url(self, sites_info, site, username):

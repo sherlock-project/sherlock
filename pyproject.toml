@@ -40,7 +40,7 @@ repository = "https://github.com/sherlock-project/sherlock"
 "Bug Tracker" = "https://github.com/sherlock-project/sherlock/issues"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 certifi = ">=2019.6.16"
 colorama = "^0.4.1"
 PySocks = "^1.7.0"
@@ -48,8 +48,7 @@ requests = "^2.22.0"
 requests-futures = "^1.0.0"
 stem = "^1.8.0"
 torrequest = "^0.1.0"
-# pandas can likely be bumped up to ^2.0.0 after fc39 EOL
-pandas = ">=1.0.0,<3.0.0"
+pandas = "^2.2.1"
 openpyxl = "^3.0.10"
 
 [tool.poetry.extras]

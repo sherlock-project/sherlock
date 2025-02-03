@@ -7,8 +7,8 @@ class Interactives:
     def run_cli(args:str = "") -> str:
         """Pass arguments to Sherlock as a normal user on the command line"""
         # Adapt for platform differences (Windows likes to be special)
-        if platform.system == "Windows":
-            command:str = f"py -m sherlock {args}"
+        if platform.system() == "Windows":
+            command:str = f"py -m sherlock_project {args}"
         else:
             command:str = f"sherlock {args}"
 
@@ -20,8 +20,7 @@ class Interactives:
             raise InteractivesSubprocessError(e.output.decode())
 
 
-    # -> list[str] is prefered, but will require deprecation of support for Python 3.8
-    def walk_sherlock_for_files_with(pattern: str) -> list:
+    def walk_sherlock_for_files_with(pattern: str) -> list[str]:
         """Check all files within the Sherlock package for matching patterns"""
         pattern:re.Pattern = re.compile(pattern)
         matching_files:list[str] = []
