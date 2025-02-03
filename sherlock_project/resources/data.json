@@ -1875,7 +1875,8 @@
     "username_claimed": "blue"
   },
   "SlideShare": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "<title>Username available</title>",
     "url": "https://slideshare.net/{}",
     "urlMain": "https://slideshare.net/",
     "username_claimed": "blue"
