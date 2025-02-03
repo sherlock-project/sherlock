@@ -2143,13 +2143,6 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
-  "Twitch": {
-    "errorType": "status_code",
-    "url": "https://www.twitch.tv/{}",
-    "urlMain": "https://www.twitch.tv/",
-    "urlProbe": "https://m.twitch.tv/{}",
-    "username_claimed": "jenny"
-  },
   "Twitter": {
     "errorMsg": "<div class=\"error-panel\"><span>User ",
     "errorType": "message",

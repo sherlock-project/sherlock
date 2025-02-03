@@ -1920,3 +1920,16 @@ __2025-02-02 :__ Can likely be added back with a new endpoint (source username a
     "username_claimed": "user"
   }
 ```
+
+## Twitch
+__2025-02-02 :__
+```json
+"Twitch": {
+    "errorType": "message",
+    "errorMsg": "components.availability-tracking.warn-unavailable.component",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv/",
+    "urlProbe": "https://m.twitch.tv/{}",
+    "username_claimed": "jenny"
+  }
+```
