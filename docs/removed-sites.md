@@ -1955,3 +1955,18 @@ __2025-02-02 :__ Fiverr added CSRF protections that messed with this test
     "username_claimed": "blueman"
   }
 ```
+
+## BabyRU
+__2025-02-02 :__ Just being problematic
+```json
+"babyRU": {
+    "errorMsg": [
+      "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
+      "Доступ с вашего IP-адреса временно ограничен"
+    ],
+    "errorType": "message",
+    "url": "https://www.baby.ru/u/{}/",
+    "urlMain": "https://www.baby.ru/",
+    "username_claimed": "blue"
+  }
+```
