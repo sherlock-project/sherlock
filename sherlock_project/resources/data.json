@@ -65,13 +65,6 @@
     "urlMain": "https://admireme.vip/",
     "username_claimed": "DemiDevil"
   },
-  "Air Pilot Life": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private",
-    "errorType": "message",
-    "url": "https://airlinepilot.life/u/{}",
-    "urlMain": "https://airlinepilot.life/",
-    "username_claimed": "chris"
-  },
   "Airbit": {
     "errorType": "status_code",
     "url": "https://airbit.com/{}",
