@@ -166,14 +166,6 @@
     "urlMain": "https://ask.fedoraproject.org/",
     "username_claimed": "red"
   },
-  "AskFM": {
-    "errorMsg": "Well, apparently not anymore.",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{3,40}$",
-    "url": "https://ask.fm/{}",
-    "urlMain": "https://ask.fm/",
-    "username_claimed": "blue"
-  },
   "Atcoder": {
     "errorType": "status_code",
     "url": "https://atcoder.jp/users/{}",
@@ -1134,7 +1126,7 @@
     "errorType": "status_code",
     "url": "https://instagram.com/{}",
     "urlMain": "https://instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
+    "urlProbe": "https://imginn.com/{}",
     "username_claimed": "instagram"
   },
   "Instructables": {
