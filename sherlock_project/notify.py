@@ -3,6 +3,7 @@
 This module defines the objects for notifying the caller about the
 results of queries.
 """
+
 from sherlock_project.result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
@@ -155,13 +156,21 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Checking username"
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {message}" +
-              Fore.GREEN + " on:")
+        print(
+            Style.BRIGHT
+            + Fore.GREEN
+            + "["
+            + Fore.YELLOW
+            + "*"
+            + Fore.GREEN
+            + f"] {title}"
+            + Fore.WHITE
+            + f" {message}"
+            + Fore.GREEN
+            + " on:"
+        )
         # An empty line between first line and the result(more clear output)
-        print('\r')
+        print("\r")
 
         return
 
@@ -201,52 +210,92 @@ class QueryNotifyPrint(QueryNotify):
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
-            print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
-                  Fore.GREEN +
-                  f" {self.result.site_name}: " +
-                  Style.RESET_ALL +
-                  f"{self.result.site_url_user}")
+            print(
+                Style.BRIGHT
+                + Fore.WHITE
+                + "["
+                + Fore.GREEN
+                + "+"
+                + Fore.WHITE
+                + "]"
+                + response_time_text
+                + Fore.GREEN
+                + f" {self.result.site_name}: "
+                + Style.RESET_ALL
+                + f"{self.result.site_url_user}"
+            )
             if self.browse:
                 webbrowser.open(self.result.site_url_user, 2)
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      response_time_text +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + " Not Found!")
+                print(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + response_time_text
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.YELLOW
+                    + " Not Found!"
+                )
 
         elif result.status == QueryStatus.UNKNOWN:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + " ")
+                print(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.RED
+                    + f" {self.result.context}"
+                    + Fore.YELLOW
+                    + " "
+                )
 
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_all:
                 msg = "Illegal Username Format For This Site!"
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + f" {msg}")
-                
+                print(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.YELLOW
+                    + f" {msg}"
+                )
+
         elif result.status == QueryStatus.WAF:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + " Blocked by bot detection" +
-                      Fore.YELLOW + " (proxy may help)")
+                print(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.RED
+                    + " Blocked by bot detection"
+                    + Fore.YELLOW
+                    + " (proxy may help)"
+                )
 
         else:
             # It should be impossible to ever get here...
@@ -267,12 +316,20 @@ class QueryNotifyPrint(QueryNotify):
         """
         NumberOfResults = self.countResults() - 1
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + "] Search completed with" +
-              Fore.WHITE + f" {NumberOfResults} " +
-              Fore.GREEN + "results" + Style.RESET_ALL
-              )
+        print(
+            Style.BRIGHT
+            + Fore.GREEN
+            + "["
+            + Fore.YELLOW
+            + "*"
+            + Fore.GREEN
+            + "] Search completed with"
+            + Fore.WHITE
+            + f" {NumberOfResults} "
+            + Fore.GREEN
+            + "results"
+            + Style.RESET_ALL
+        )
 
     def __str__(self):
         """Convert Object To String.
