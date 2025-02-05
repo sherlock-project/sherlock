@@ -1126,7 +1126,7 @@
     "errorType": "status_code",
     "url": "https://instagram.com/{}",
     "urlMain": "https://instagram.com/",
-    "urlProbe": "https://www.picuki.com/profile/{}",
+    "urlProbe": "https://imginn.com/{}",
     "username_claimed": "instagram"
   },
   "Instructables": {
