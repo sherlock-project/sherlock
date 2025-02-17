@@ -1957,7 +1957,7 @@ __2025-02-02 :__ Fiverr added CSRF protections that messed with this test
 ```
 
 ## BabyRU
-__2025-02-02 :__ Just being problematic
+__2025-02-02 :__ Just being problematic (possibly related to errorMsg encoding?)
 ```json
 "babyRU": {
     "errorMsg": [
