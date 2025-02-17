@@ -1970,3 +1970,15 @@ __2025-02-02 :__ Just being problematic
     "username_claimed": "blue"
   }
 ```
+
+## v0.dev
+__2025-02-16 :__ Unsure if any way to view profiles exists now
+```json
+"v0.dev": {
+    "errorType": "message",
+    "errorMsg": "<title>v0 by Vercel</title>",
+    "url": "https://v0.dev/{}",
+    "urlMain": "https://v0.dev",
+    "username_claimed": "t3dotgg"
+  }
+```

@@ -2809,13 +2809,6 @@
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
   },
-  "v0.dev": {
-    "errorType": "message",
-    "errorMsg": "<title>v0 by Vercel</title>",
-    "url": "https://v0.dev/{}",
-    "urlMain": "https://v0.dev",
-    "username_claimed": "t3dotgg"
-  },
   "Bluesky": {
     "errorType": "status_code",
     "url": "https://bsky.app/profile/{}.bsky.social",
