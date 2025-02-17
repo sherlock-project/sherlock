@@ -686,6 +686,7 @@
     "username_claimed": "mmammu"
   },
   "Empretienda AR": {
+    "__comment__": "Note that Error Connecting responses may be indicative of unclaimed handles",
     "errorType": "status_code",
     "url": "https://{}.empretienda.com.ar",
     "urlMain": "https://empretienda.com",
