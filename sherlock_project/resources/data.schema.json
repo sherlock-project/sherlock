@@ -15,7 +15,8 @@
                 "url": { "type": "string" },
                 "urlMain": { "type": "string" },
                 "urlProbe": { "type": "string" },
-                "username_claimed": { "type": "string" },
+                "username_claimed": { "type": "string" },darry ien
+              
                 "regexCheck": { "type": "string" },
                 "isNSFW": { "type": "boolean" },
                 "headers": { "type": "object" },
