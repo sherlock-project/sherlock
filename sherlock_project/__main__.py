@@ -5,11 +5,13 @@ Sherlock: Find Usernames Across Social Networks Module
 
 This module contains the main logic to search for usernames at social
 networks.
+
+USE THIS FILE TO RUN
 """
 
 import sys
 
-
+# Cannot be imported/ran from other files
 if __name__ == "__main__":
     # Check if the user is using the correct version of Python
     python_version = sys.version.split()[0]
