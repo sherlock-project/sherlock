@@ -1299,6 +1299,12 @@
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne"
   },
+  "LinuxFR.org": {
+    "errorType": "status_code",
+    "url": "https://linuxfr.org/users/{}",
+    "urlMain": "https://linuxfr.org/",
+    "username_claimed": "pylapp"
+  },
   "Listed": {
     "errorType": "response_url",
     "errorUrl": "https://listed.to/@{}",
