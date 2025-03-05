@@ -1339,6 +1339,13 @@
     "urlMain": "https://forums.mmorpg.com/",
     "username_claimed": "goku"
   },
+  "Mamot": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
+    "url": "https://mamot.fr/@{}",
+    "urlMain": "https://mamot.fr/",
+    "username_claimed": "anciensEnssat"
+  },
   "Medium": {
     "errorMsg": "<body",
     "errorType": "message",
