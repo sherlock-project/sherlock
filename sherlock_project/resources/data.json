@@ -1290,7 +1290,6 @@
   },
   "LinkedIn": {
     "errorType": "status_code",
-
     "regexCheck": "^[a-zA-Z0-9]{3,100}$",
     "request_method": "GET",
     "url": "https://linkedin.com/in/{}",
