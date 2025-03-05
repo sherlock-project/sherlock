@@ -1629,8 +1629,8 @@
   },
   "Pronouns.page": {
     "errorType": "status_code",
-    "url": "https://en.pronouns.page/@{}",
-    "urlMain": "https://en.pronouns.page/",
+    "url": "https://pronouns.page/@{}",
+    "urlMain": "https://pronouns.page/",
     "username_claimed": "andrea"
   },
   "PyPi": {
