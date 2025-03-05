@@ -1878,6 +1878,12 @@
     "urlMain": "https://soylentnews.org",
     "username_claimed": "adam"
   },
+  "SpeakerDeck": {
+    "errorType": "status_code",
+    "url": "https://speakerdeck.com/{}",
+    "urlMain": "https://speakerdeck.com/",
+    "username_claimed": "pylapp"
+  },
   "Speedrun.com": {
     "errorType": "status_code",
     "url": "https://speedrun.com/users/{}",
