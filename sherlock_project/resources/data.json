@@ -1525,6 +1525,13 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
+  "Open Collective": {
+    "errorMsg": "Oops! Page not found",
+    "errorType": "message",
+    "url": "https://opencollective.com/{}",
+    "urlMain": "https://opencollective.com/",
+    "username_claimed": "pylapp"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
