@@ -781,6 +781,13 @@
     "urlMain": "https://fosstodon.org/",
     "username_claimed": "blue"
   },
+  "Framapiaf": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
+    "url": "https://framapiaf.org/@{}",
+    "urlMain": "https://framapiaf.org",
+    "username_claimed": "pylapp"
+  },  
   "Freelance.habr": {
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
