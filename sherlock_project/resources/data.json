@@ -1641,6 +1641,13 @@
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
   },
+  "programming.dev": {
+    "errorMsg": "Error!",
+    "errorType": "message",
+    "url": "https://programming.dev/u/{}",
+    "urlMain": "https://programming.dev",
+    "username_claimed": "pylapp"
+  },  
   "PromoDJ": {
     "errorType": "status_code",
     "url": "http://promodj.com/{}",
