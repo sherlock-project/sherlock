@@ -806,7 +806,7 @@
     "url": "https://framapiaf.org/@{}",
     "urlMain": "https://framapiaf.org",
     "username_claimed": "pylapp"
-  },  
+  },
   "Freelance.habr": {
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
@@ -1658,6 +1658,13 @@
     "url": "https://www.producthunt.com/@{}",
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
+  },
+  "programming.dev": {
+    "errorMsg": "Error!",
+    "errorType": "message",
+    "url": "https://programming.dev/u/{}",
+    "urlMain": "https://programming.dev",
+    "username_claimed": "pylapp"
   },
   "Pychess": {
   "errorType": "message",
@@ -2771,7 +2778,7 @@
     "url": "https://write.as/{}",
     "urlMain": "https://write.as",
     "username_claimed": "pylapp"
-  },  
+  },
   "xHamster": {
     "errorType": "status_code",
     "isNSFW": true,
