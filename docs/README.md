@@ -3,7 +3,31 @@
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
-  <br>
+  <br>pip install --user sherlock-project
+  command = "python3 sherlock.py keishatonasket"
+print(command)If you want to use Sherlock to find social media accounts associated with the username keishatonasket, you can use the following Python command:
+
+command = "python3 sherlock.py keishatonasket"
+print(command)
+
+Or, if you want to execute it directly in Python:
+
+import os
+
+username = "keishatonasket"
+os.system(f"python3 sherlock.py {username}")
+
+Make sure you have Sherlock installed before running this. If you haven't installed it yet, follow these steps:
+
+git clone https://github.com/sherlock-project/sherlock.git
+cd sherlock
+pip install -r requirements.txt
+python3 sherlock.py keishatonasket
+
+This will search for social media accounts linked to that username. Let me know if you need further assistance!
+
+
+
 </p>
 
 <p align="center">
@@ -41,9 +65,10 @@ See all alternative installation methods [here](https://sherlockproject.xyz/inst
 To search for only one user:
 ```bash
 sherlock user123
-```
+```keishadianetonasket
 
-To search for more than one user:
+To search for more than one user:666keishadiane666
+
 ```bash
 sherlock user1 user2 user3
 ```
