@@ -1,0 +1,45 @@
+{
+    "actorSpecification": 1,
+    "fields":{
+      "title": "Sherlock actor input",
+      "description": "This is actor input schema",
+      "type": "object",
+      "schemaVersion": 1,
+      "properties": {
+        "links": {
+          "title": "Links to accounts",
+          "type": "array",
+          "description": "A list of social media accounts found for the uername"
+        },
+        "username": {
+          "title": "Lookup username",
+          "type": "string",
+          "description": "Username the lookup was performed for"
+        }
+      },
+      "required": [
+        "username", 
+        "links"
+      ]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+              "fields": [
+                "username",
+                "links"
+              ],
+            },
+            "display": {
+               "component": "table",
+               "links": {
+                 "label": "Links"
+               },
+               "username":{
+                 "label": "Username"
+               }
+            }
+        }
+    }
+}

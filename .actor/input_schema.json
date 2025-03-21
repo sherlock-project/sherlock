@@ -1,0 +1,18 @@
+{
+  "title": "Sherlock actor input",
+  "description": "This is actor input schema",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "usernames": {
+      "title": "Usernames to hunt down",
+      "type": "array",
+      "description": "A list of usernames to be checked for existence across social media",
+      "editor": "stringList",
+      "prefill": ["johndoe"]
+    }
+  },
+  "required": [
+    "usernames"
+  ]
+}
