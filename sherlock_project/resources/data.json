@@ -2737,5 +2737,11 @@
     "urlProbe": "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={}.bsky.social",
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
+  },
+  "Modrinth": {
+    "errorType": "status_code",
+    "url": "https://modrinth.com/user/{}",
+    "urlMain": "https://modrinth.com/",
+    "username_claimed": "thevoidblock"
   }
 }
