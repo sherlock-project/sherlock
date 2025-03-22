@@ -257,6 +257,13 @@
     "urlMain": "https://www.blogger.com/",
     "username_claimed": "blue"
   },
+  "Bluesky": {
+    "errorType": "status_code",
+    "url": "https://bsky.app/profile/{}.bsky.social",
+    "urlProbe": "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={}.bsky.social",
+    "urlMain": "https://bsky.app/",
+    "username_claimed": "mcuban"
+  },  
   "BoardGameGeek": {
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]*$",
@@ -595,7 +602,7 @@
       "urlMain": "https://forums.digitalspy.com/",
       "username_claimed": "blue",
       "regexCheck": "^\\w{3,20}$"
-    },
+  },
   "Discogs": {
     "errorType": "status_code",
     "url": "https://www.discogs.com/user/{}",
@@ -781,6 +788,13 @@
     "urlMain": "https://fosstodon.org/",
     "username_claimed": "blue"
   },
+  "Framapiaf": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
+    "url": "https://framapiaf.org/@{}",
+    "urlMain": "https://framapiaf.org",
+    "username_claimed": "pylapp"
+  },  
   "Freelance.habr": {
     "errorMsg": "<div class=\"icon_user_locked\"></div>",
     "errorType": "message",
@@ -1271,7 +1285,6 @@
   },
   "LinkedIn": {
     "errorType": "status_code",
-
     "regexCheck": "^[a-zA-Z0-9]{3,100}$",
     "request_method": "GET",
     "url": "https://linkedin.com/in/{}",
@@ -1285,6 +1298,12 @@
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne"
+  },
+  "LinuxFR.org": {
+    "errorType": "status_code",
+    "url": "https://linuxfr.org/users/{}",
+    "urlMain": "https://linuxfr.org/",
+    "username_claimed": "pylapp"
   },
   "Listed": {
     "errorType": "response_url",
@@ -1325,6 +1344,13 @@
     "url": "https://forums.mmorpg.com/profile/{}",
     "urlMain": "https://forums.mmorpg.com/",
     "username_claimed": "goku"
+  },
+  "Mamot": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
+    "url": "https://mamot.fr/@{}",
+    "urlMain": "https://mamot.fr/",
+    "username_claimed": "anciensEnssat"
   },
   "Medium": {
     "errorMsg": "<body",
@@ -1487,6 +1513,13 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
+  "Open Collective": {
+    "errorMsg": "Oops! Page not found",
+    "errorType": "message",
+    "url": "https://opencollective.com/{}",
+    "urlMain": "https://opencollective.com/",
+    "username_claimed": "pylapp"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -1507,6 +1540,13 @@
     "urlMain": "https://ourdjtalk.com/",
     "username_claimed": "steve"
   },
+  "Outgress": {
+    "errorMsg": "Outgress - Error",
+    "errorType": "message",
+    "url": "https://outgress.com/agents/{}",
+    "urlMain": "https://outgress.com/",
+    "username_claimed": "pylapp"
+  },  
   "PCGamer": {
     "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
     "errorType": "message",
@@ -1541,6 +1581,13 @@
     "urlMain": "https://www.patreon.com/",
     "username_claimed": "blue"
   },
+  "PayPal.me": {
+    "errorMsg": "We can't find this profile",
+    "errorType": "message",
+    "url": "https://www.paypal.com/paypalme/{}",
+    "urlMain": "https://www.paypal.com/",
+    "username_claimed": "pylapp"
+  },  
   "PentesterLab": {
     "errorType": "status_code",
     "regexCheck": "^[\\w]{4,30}$",
@@ -1567,6 +1614,12 @@
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
     "username_claimed": "blue"
+  },
+  "pixelfed.social": {
+    "errorType": "status_code",
+    "url": "https://pixelfed.social/{}/",
+    "urlMain": "https://pixelfed.social",
+    "username_claimed": "pylapp"
   },
   "PlayStore": {
     "errorType": "status_code",
@@ -1621,6 +1674,13 @@
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
   },
+  "programming.dev": {
+    "errorMsg": "Error!",
+    "errorType": "message",
+    "url": "https://programming.dev/u/{}",
+    "urlMain": "https://programming.dev",
+    "username_claimed": "pylapp"
+  },  
   "PromoDJ": {
     "errorType": "status_code",
     "url": "http://promodj.com/{}",
@@ -1871,6 +1931,12 @@
     "url": "https://soylentnews.org/~{}",
     "urlMain": "https://soylentnews.org",
     "username_claimed": "adam"
+  },
+  "SpeakerDeck": {
+    "errorType": "status_code",
+    "url": "https://speakerdeck.com/{}",
+    "urlMain": "https://speakerdeck.com/",
+    "username_claimed": "pylapp"
   },
   "Speedrun.com": {
     "errorType": "status_code",
@@ -2717,6 +2783,12 @@
     "urlMain": "https://uid.me/",
     "username_claimed": "blue"
   },
+  "write.as": {
+    "errorType": "status_code",
+    "url": "https://write.as/{}",
+    "urlMain": "https://write.as",
+    "username_claimed": "pylapp"
+  },  
   "xHamster": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -2730,12 +2802,5 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "Bluesky": {
-    "errorType": "status_code",
-    "url": "https://bsky.app/profile/{}.bsky.social",
-    "urlProbe": "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={}.bsky.social",
-    "urlMain": "https://bsky.app/",
-    "username_claimed": "mcuban"
   }
 }
