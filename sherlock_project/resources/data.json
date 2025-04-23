@@ -2198,6 +2198,13 @@
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano"
   },
+  "Wakatime": {
+    "errorType": "status_code",
+    "regexCheck": "^[@a-zA-Z0-9._-]{1,}$",
+    "url": "https://wakatime.com/@{username}",
+    "urlMain": "https://wakatime.com/",
+    "username_claimed": "Vikranth3140"
+  },
   "Warrior Forum": {
     "errorType": "status_code",
     "url": "https://www.warriorforum.com/members/{}.html",
