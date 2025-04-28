@@ -564,6 +564,7 @@ def handler(signal_received, frame):
 
 
 def main():
+    """Main entry point for Sherlock."""
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
         description=f"{__longname__} (Version {__version__})",
@@ -868,9 +869,6 @@ def main():
         if args.output:
             result_file = args.output
         elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         else:
             result_file = f"{username}.txt"
@@ -886,12 +884,10 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
             if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
+                result_file = os.path.join(args.folderoutput, f"{username}.csv")
+            else:
+                result_file = f"{username}.csv"
 
             with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
@@ -915,8 +911,6 @@ def main():
                         continue
 
                     response_time_s = results[site]["status"].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
                     writer.writerow(
                         [
                             username,
@@ -925,18 +919,17 @@ def main():
                             results[site]["url_user"],
                             str(results[site]["status"].status),
                             results[site]["http_status"],
-                            response_time_s,
+                            response_time_s if response_time_s is not None else "",
                         ]
                     )
-        if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
-            exists = []
-            http_status = []
-            response_time_s = []
 
+        if args.xlsx:
+            if args.folderoutput:
+                result_file = os.path.join(args.folderoutput, f"{username}.xlsx")
+            else:
+                result_file = f"{username}.xlsx"
+
+            result_data = []
             for site in results:
                 if (
                     args.print_found
@@ -945,29 +938,32 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
-
+                result_data.append(
+                    [
+                        username,
+                        site,
+                        results[site]["url_main"],
+                        results[site]["url_user"],
+                        str(results[site]["status"].status),
+                        results[site]["http_status"],
+                        results[site]["status"].query_time
+                        if results[site]["status"].query_time is not None
+                        else "",
+                    ]
+                )
             DataFrame = pd.DataFrame(
-                {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": url_main,
-                    "url_user": url_user,
-                    "exists": exists,
-                    "http_status": http_status,
-                    "response_time_s": response_time_s,
-                }
+                result_data,
+                columns=[
+                    "username",
+                    "name",
+                    "url_main",
+                    "url_user",
+                    "exists",
+                    "http_status",
+                    "response_time_s",
+                ],
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            DataFrame.to_excel(result_file, sheet_name="sheet1", index=False)
 
         print()
     query_notify.finish()
