@@ -1,0 +1,22 @@
+name: Format Code
+
+on: [pull_request]
+
+jobs:
+  black-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Black
+        run: pip install black
+
+      - name: Run Black
+        run: black --check .
