@@ -112,7 +112,7 @@ $ echo '{"usernames":["user123"]}' | apify call -so netmilk/sherlock
     "https://www.1337x.to/user/user123/",
     ...
   ]
-}]s
+}]
 ```
 
 Read more about the [Sherlock Actor](../.actor/README.md), including how to use it programmaticaly via the Apify [API](https://apify.com/netmilk/sherlock/api?fpr=sherlock), [CLI](https://docs.apify.com/cli/?fpr=sherlock) and [JS/TS and Python SDKs](https://docs.apify.com/sdk?fpr=sherlock).
