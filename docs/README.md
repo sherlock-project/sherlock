@@ -1,6 +1,7 @@
 <p align=center>
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
+  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png" alt="Sherlock logo"/>
+</a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
   <br>
@@ -15,7 +16,7 @@
 </p>
 
 <p align="center">
-<img width="70%" height="70%" src="images/demo.png"/>
+<img width="70%" height="70%" src="images/demo.png" alt="Sherlock demo"/>
 </a>
 </p>
 
@@ -48,7 +49,7 @@ To search for more than one user:
 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Sherlock saves the results in a text file named after the username  (e.g ```user123.txt```).
 
 ```console
 $ sherlock --help
