@@ -2073,6 +2073,13 @@
     "urlProbe": "https://tryhackme.com/api/user/exist/{}",
     "username_claimed": "ashu"
   },
+  "Tistory": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-z0-9]{4,40}$",
+    "url": "https://{}.tistory.com/",
+    "urlMain": "https://www.tistory.com/",
+    "username_claimed": "ravenkim97"
+  },
   "Tuna": {
     "errorType": "status_code",
     "regexCheck": "^[a-z0-9]{4,40}$",
