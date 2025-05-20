@@ -589,13 +589,13 @@
     "username_claimed": "blue"
   },
   "DigitalSpy": {
-      "errorMsg": "The page you were looking for could not be found.",
-      "errorType": "message",
-      "url": "https://forums.digitalspy.com/profile/{}",
-      "urlMain": "https://forums.digitalspy.com/",
-      "username_claimed": "blue",
-      "regexCheck": "^\\w{3,20}$"
-    },
+    "errorMsg": "The page you were looking for could not be found.",
+    "errorType": "message",
+    "url": "https://forums.digitalspy.com/profile/{}",
+    "urlMain": "https://forums.digitalspy.com/",
+    "username_claimed": "blue",
+    "regexCheck": "^\\w{3,20}$"
+  },
   "Discogs": {
     "errorType": "status_code",
     "url": "https://www.discogs.com/user/{}",
@@ -607,10 +607,7 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": [
-      "{\"taken\":false}",
-      "The resource is being rate limited"
-    ],
+    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -619,6 +616,12 @@
       "Content-Type": "application/json"
     },
     "username_claimed": "blue"
+  },
+  "Discord Invite": {
+    "errorType": "status_code",
+    "url": "https://discord.gg/{}",
+    "urlMain": "https://discord.com/invite",
+    "username_claimed": "minecraft"
   },
   "Discuss.Elastic.co": {
     "errorType": "status_code",
@@ -980,10 +983,7 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": [
-      "No such user.",
-      "Sorry."
-    ],
+    "errorMsg": ["No such user.", "Sorry."],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -2151,9 +2151,7 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": [
-      "Venmo | Page Not Found"
-    ],
+    "errorMsg": ["Venmo | Page Not Found"],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
