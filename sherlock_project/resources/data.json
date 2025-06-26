@@ -1574,6 +1574,12 @@
     "urlMain": "https://play.google.com/store",
     "username_claimed": "Facebook"
   },
+  "Playstrategy": {
+    "errorType": "status_code",
+    "url": "https://playstrategy.org/@/{}",
+    "urlMain": "https://playstrategy.org",
+    "username_claimed": "oruro"
+  },
   "PocketStars": {
     "errorMsg": "Join Your Favorite Adult Stars",
     "errorType": "message",
