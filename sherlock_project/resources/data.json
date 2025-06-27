@@ -478,6 +478,12 @@
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
   },
+  "Code Sandbox": {
+    "errorType": "status_code",
+    "url": "https://codesandbox.io/u/{}",
+    "urlMain": "https://codesandbox.io",
+    "username_claimed": "icyjoseph"
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
