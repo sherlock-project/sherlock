@@ -1621,6 +1621,13 @@
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
   },
+  "Pychess": {
+  "errorType": "message",
+  "errorMsg": "404",
+  "url": "https://www.pychess.org/@/{}",
+  "urlMain": "https://www.pychess.org",
+  "username_claimed": "gbtami"
+  },
   "PromoDJ": {
     "errorType": "status_code",
     "url": "http://promodj.com/{}",
