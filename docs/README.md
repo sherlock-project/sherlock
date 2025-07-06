@@ -1,4 +1,4 @@
-<p align=center>
+<p align="center">
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
   <br>
@@ -15,8 +15,7 @@
 </p>
 
 <p align="center">
-<img width="70%" height="70%" src="images/demo.png"/>
-</a>
+  <img width="70%" height="70%" src="images/demo.png"/>
 </p>
 
 
@@ -115,7 +114,7 @@ $ echo '{"usernames":["user123"]}' | apify call -so netmilk/sherlock
 }]
 ```
 
-Read more about the [Sherlock Actor](../.actor/README.md), including how to use it programmaticaly via the Apify [API](https://apify.com/netmilk/sherlock/api?fpr=sherlock), [CLI](https://docs.apify.com/cli/?fpr=sherlock) and [JS/TS and Python SDKs](https://docs.apify.com/sdk?fpr=sherlock).
+Read more about the [Sherlock Actor](../.actor/README.md), including how to use it programmatically via the Apify [API](https://apify.com/netmilk/sherlock/api?fpr=sherlock), [CLI](https://docs.apify.com/cli/?fpr=sherlock) and [JS/TS and Python SDKs](https://docs.apify.com/sdk?fpr=sherlock).
 
 ## Credits
 
