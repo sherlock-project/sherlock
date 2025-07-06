@@ -2028,14 +2028,6 @@
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
   },
-  "TorrentGalaxy": {
-    "errorMsg": "<title>TGx:Can't show details</title>",
-    "errorType": "message",
-    "regexCheck": "^[A-Za-z0-9]{3,15}$",
-    "url": "https://torrentgalaxy.to/profile/{}",
-    "urlMain": "https://torrentgalaxy.to/",
-    "username_claimed": "GalaxyRG"
-  },
   "TradingView": {
     "errorType": "status_code",
     "request_method": "GET",
