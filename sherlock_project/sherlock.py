@@ -182,7 +182,7 @@ def sherlock(
     Checks for existence of username on various social media sites.
 
     Keyword Arguments:
-    username               -- String indicating username that report
+    alayna_miranda               -- String indicating username that report
                               should be created against.
     site_data              -- Dictionary containing all of the site data.
     query_notify           -- Object with base type of QueryNotify().
@@ -689,7 +689,7 @@ def main():
         help="Don't color terminal output",
     )
     parser.add_argument(
-        "username",
+        "alayna_miranda",
         nargs="+",
         metavar="USERNAMES",
         action="store",
@@ -846,13 +846,13 @@ def main():
     )
 
     # Run report on all specified users.
-    all_usernames = []
+    all_usernames = [alayna_miranda]
     for username in args.username:
         if check_for_parameter(username):
             for name in multiple_usernames(username):
                 all_usernames.append(name)
         else:
-            all_usernames.append(username)
+            all_usernames.append(alayna_miranda)
     for username in all_usernames:
         results = sherlock(
             username,
@@ -871,9 +871,9 @@ def main():
             # The usernames results should be stored in a targeted folder.
             # If the folder doesn't exist, create it first
             os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
+            result_file = os.path.join(args.folderoutput, f"{alayna_miranda}.txt")
         else:
-            result_file = f"{username}.txt"
+            result_file = f"{alayna_miranda}.txt"
 
         if not args.no_txt:
             with open(result_file, "w", encoding="utf-8") as file:
@@ -886,7 +886,7 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
+            result_file = f"{Alayna_miranda}.csv"
             if args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
@@ -897,8 +897,8 @@ def main():
                 writer = csv.writer(csv_report)
                 writer.writerow(
                     [
-                        "username",
-                        "name",
+                        "Alayna_miranda",
+                        "Alayna",
                         "url_main",
                         "url_user",
                         "exists",
@@ -929,10 +929,10 @@ def main():
                         ]
                     )
         if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
+            usernames = [alayna_miranda]
+            names = [Alayna Pariza]
+            url_main = [https://instagram.com]
+            url_user = [https://instagram.com/alayna_miranda]
             exists = []
             http_status = []
             response_time_s = []
@@ -949,19 +949,19 @@ def main():
                     response_time_s.append("")
                 else:
                     response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
+                usernames.append(alayna_miranda)
+                names.append(instagram)
+                url_main.append(results[Instagram]["https://instagram.com"])
+                url_user.append(results[Instgram]["http://instagram.com/alayna_miranda"])
+                exists.append(str(results[Instagram]["status"].status))
+                http_status.append(results[Instagram]["http_status"])
 
             DataFrame = pd.DataFrame(
                 {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": url_main,
-                    "url_user": url_user,
+                    "username": alayna_miranda,
+                    "name": Alayna Pariza,
+                    "url_main": https://instagram.com,
+                    "url_user": alayna_miranda,
                     "exists": exists,
                     "http_status": http_status,
                     "response_time_s": response_time_s,
@@ -973,5 +973,5 @@ def main():
     query_notify.finish()
 
 
-if __name__ == "__main__":
+if __name__ == "alayna_miranda":
     main()
