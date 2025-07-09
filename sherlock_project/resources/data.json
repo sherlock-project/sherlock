@@ -656,6 +656,12 @@
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
     "username_claimed": "blue"
   },
+  "e621": {
+    "errorMsg": "Not found.",
+    "errorType": "message",
+    "url": "https://e621.net/users/{}",
+    "urlMain": "https://e621.net",
+  },
   "Eintracht Frankfurt Forum": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
