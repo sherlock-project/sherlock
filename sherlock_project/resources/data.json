@@ -659,6 +659,7 @@
   "e621": {
     "errorMsg": "Not found.",
     "errorType": "message",
+    "isNSFW": true,
     "url": "https://e621.net/users/{}",
     "urlMain": "https://e621.net",
   },
