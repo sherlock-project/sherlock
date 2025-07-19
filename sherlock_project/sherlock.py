@@ -656,7 +656,7 @@ def main():
         metavar="JSON_FILE",
         dest="json_file",
         default=None,
-        help="Load data from a JSON file or an online, valid, JSON file.",
+        help="Load data from a JSON file or an online, valid, JSON file. Upstream PR numbers also accepted.",
     )
     parser.add_argument(
         "--timeout",
