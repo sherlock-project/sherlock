@@ -1574,6 +1574,13 @@
     "urlMain": "https://play.google.com/store",
     "username_claimed": "Facebook"
   },
+  "Plurk": {
+    "errorMsg": "User Not Found!",
+    "errorType": "message",
+    "url": "https://www.plurk.com/{}",
+    "urlMain": "https://www.plurk.com/",
+    "username_claimed": "plurkoffice"
+  },
   "PocketStars": {
     "errorMsg": "Join Your Favorite Adult Stars",
     "errorType": "message",
