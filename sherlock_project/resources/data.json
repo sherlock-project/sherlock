@@ -2711,6 +2711,12 @@
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "adam"
   },
+  "tumblr": {
+    "errorType": "status_code",
+    "url": "https://{}.tumblr.com/",
+    "urlMain": "https://www.tumblr.com/",
+    "username_claimed": "goku"
+},
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
