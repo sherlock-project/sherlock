@@ -1970,6 +1970,14 @@
     "errorType": "status_code",
     "username_claimed": "blue"
   },
+  "Tiktok": {
+    "errorMsg": "Couldn't find this account\nLooking for videos? Try browsing our trending creators, hashtags, and sounds.",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{2,24}$",
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "tiktok"
+  },
   "Topcoder": {
     "errorType": "status_code",
     "url": "https://profiles.topcoder.com/{}/",
