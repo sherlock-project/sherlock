@@ -142,3 +142,6 @@ Original Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 [ext_pypi]: https://pypi.org/project/sherlock-project/
 [ext_brew]: https://formulae.brew.sh/formula/sherlock
+git clone https://github.com/sundowndev/phoneinfoga
+cd phoneinfoga
+go run main.go scan -n +77075430973
