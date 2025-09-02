@@ -251,9 +251,12 @@ def sherlock(
 
     # Results from analysis of all sites
     results_total = {}
+    
+    # List containing all the iterable data except $schema key
+    iterable_data: list = list(site_data.items())[1:]
 
     # First create futures for all requests. This allows for the requests to run in parallel
-    for social_network, net_info in site_data.items():
+    for social_network, net_info in iterable_data:
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
 
@@ -368,7 +371,7 @@ def sherlock(
 
     # Open the file containing account links
     # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
-    for social_network, net_info in site_data.items():
+    for social_network, net_info in iterable_data:
         # Retrieve results again
         results_site = results_total.get(social_network)
 
