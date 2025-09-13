@@ -1347,8 +1347,8 @@
     "username_claimed": "blue"
   },
   "Minecraft": {
-    "errorCode": 204,
-    "errorType": "status_code",
+    "errorMsg": "Couldn't find any profile with name",
+    "errorType": "message",
     "url": "https://api.mojang.com/users/profiles/minecraft/{}",
     "urlMain": "https://minecraft.net/",
     "username_claimed": "blue"
