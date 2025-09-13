@@ -363,6 +363,13 @@
     "urlMain": "https://career.habr.com/",
     "username_claimed": "blue"
   },
+  "CashApp": {
+    "errorType": "status_code",
+    "url": "https://cash.app/${}",
+    "urlMain": "https://cash.app",
+    "username_claimed": "hotdiggitydog",
+    "username_unclaimed": "HelloItsADell"
+  },
   "Championat": {
     "errorType": "status_code",
     "url": "https://www.championat.com/user/{}",
