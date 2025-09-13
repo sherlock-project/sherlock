@@ -250,6 +250,12 @@
     "urlMain": "https://www.blipfoto.com/",
     "username_claimed": "blue"
   },
+  "Blitz Tactics": {
+    "errorType": "status_code",
+    "url": "https://blitztactics.com/{}",
+    "urlMain": "https://blitztactics.com/",
+    "username_claimed": "Lance5500"
+  },
   "Blogger": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -1580,6 +1586,13 @@
     "urlMain": "https://playstrategy.org",
     "username_claimed": "oruro"
   },
+  "Plurk": {
+    "errorMsg": "User Not Found!",
+    "errorType": "message",
+    "url": "https://www.plurk.com/{}",
+    "urlMain": "https://www.plurk.com/",
+    "username_claimed": "plurkoffice"
+  },
   "PocketStars": {
     "errorMsg": "Join Your Favorite Adult Stars",
     "errorType": "message",
@@ -2717,6 +2730,12 @@
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "adam"
   },
+  "tumblr": {
+    "errorType": "status_code",
+    "url": "https://{}.tumblr.com/",
+    "urlMain": "https://www.tumblr.com/",
+    "username_claimed": "goku"
+},
   "uid": {
     "errorType": "status_code",
     "url": "http://uid.me/{}",
