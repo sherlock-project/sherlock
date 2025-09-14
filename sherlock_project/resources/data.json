@@ -1582,7 +1582,7 @@
     "username_claimed": "blue"
   },
   "PayPal.me": {
-    "errorMsg": "We can't find this profile",
+    "errorMsg": "We can’t find this profile",
     "errorType": "message",
     "url": "https://www.paypal.com/paypalme/{}",
     "urlMain": "https://www.paypal.com/",
