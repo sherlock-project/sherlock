@@ -2825,5 +2825,20 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "Bluesky": {
+    "errorType": "status_code",
+    "url": "https://bsky.app/profile/{}.bsky.social",
+    "urlProbe": "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={}.bsky.social",
+    "urlMain": "https://bsky.app/",
+    "username_claimed": "mcuban"
+  },
+  "Platzi": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "url": "https://platzi.com/p/{}/",
+    "urlMain": "https://platzi.com/",
+    "username_claimed": "freddier",
+    "request_method": "GET"
   }
 }
