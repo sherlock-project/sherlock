@@ -2740,8 +2740,10 @@
   },
   "Platzi": {
     "errorType": "status_code",
-    "url": "https://platzi.com/p/{}",
+    "errorCode": 404,
+    "url": "https://platzi.com/p/{}/",
     "urlMain": "https://platzi.com/",
-    "username_claimed": "juan"
-}
+    "username_claimed": "freddier",
+    "request_method": "GET"
+  }
 }
