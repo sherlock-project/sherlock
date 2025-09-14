@@ -58,6 +58,7 @@ def false_negative_check(sites_info: dict[str, dict[str, str]], site: str) -> Qu
 @pytest.mark.online
 class Test_All_Targets:
 
+    @pytest.mark.validate_targets_fp
     def test_manifest_false_pos(self, chunked_sites: dict[str, dict[str, str]]):
         """Iterate through all sites in the manifest to discover possible false-positive inducting targets."""
         pattern: str
@@ -69,6 +70,7 @@ class Test_All_Targets:
             result: QueryStatus = false_positive_check(chunked_sites, site, pattern)
             assert result is QueryStatus.AVAILABLE, f"{site} produced false positive with pattern {pattern}, result was {result}"
 
+    @pytest.mark.validate_targets_fn
     def test_manifest_false_neg(self, chunked_sites: dict[str, dict[str, str]]):
         """Iterate through all sites in the manifest to discover possible false-negative inducting targets."""
         for site in chunked_sites:
