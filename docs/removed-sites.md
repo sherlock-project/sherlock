@@ -1982,3 +1982,16 @@ __2025-02-16 :__ Unsure if any way to view profiles exists now
     "username_claimed": "t3dotgg"
   }
 ```
+
+## TorrentGalaxy
+__2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
+```json
+  "TorrentGalaxy": {
+    "errorMsg": "<title>TGx:Can't show details</title>",
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z0-9]{3,15}$",
+    "url": "https://torrentgalaxy.to/profile/{}",
+    "urlMain": "https://torrentgalaxy.to/",
+    "username_claimed": "GalaxyRG"
+  },
+```

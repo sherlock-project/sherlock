@@ -367,7 +367,7 @@
     "errorType": "status_code",
     "url": "https://cash.app/${}",
     "urlMain": "https://cash.app",
-    "username_claimed": "hotdiggitydog",
+    "username_claimed": "hotdiggitydog"
   },
   "Championat": {
     "errorType": "status_code",
@@ -1646,6 +1646,13 @@
     "urlMain": "https://www.producthunt.com/",
     "username_claimed": "jenny"
   },
+  "Pychess": {
+  "errorType": "message",
+  "errorMsg": "404",
+  "url": "https://www.pychess.org/@/{}",
+  "urlMain": "https://www.pychess.org",
+  "username_claimed": "gbtami"
+  },
   "PromoDJ": {
     "errorType": "status_code",
     "url": "http://promodj.com/{}",
@@ -2045,14 +2052,6 @@
     "url": "https://www.tnaflix.com/profile/{}",
     "urlMain": "https://www.tnaflix.com/",
     "username_claimed": "hacker"
-  },
-  "TorrentGalaxy": {
-    "errorMsg": "<title>TGx:Can't show details</title>",
-    "errorType": "message",
-    "regexCheck": "^[A-Za-z0-9]{3,15}$",
-    "url": "https://torrentgalaxy.to/profile/{}",
-    "urlMain": "https://torrentgalaxy.to/",
-    "username_claimed": "GalaxyRG"
   },
   "TradingView": {
     "errorType": "status_code",
