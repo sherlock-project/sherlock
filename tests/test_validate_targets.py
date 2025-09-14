@@ -11,11 +11,10 @@ FALSE_POSITIVE_ATTEMPTS: int = 2    # Since the usernames are randomly generated
 
 def false_positive_check(sites_info: dict[str, dict[str, str]], site: str, pattern: str) -> QueryStatus:
     """Check if a site is likely to produce false positives."""
-    attempts: int = 1
     status: QueryStatus = QueryStatus.UNKNOWN
 
-    for _ in range(attempts):
-        query_notify = QueryNotify()
+    for _ in range(FALSE_POSITIVE_ATTEMPTS):
+        query_notify: QueryNotify = QueryNotify()
         username: str = rstr.xeger(pattern)
 
         result: QueryResult | str = sherlock(
@@ -36,12 +35,31 @@ def false_positive_check(sites_info: dict[str, dict[str, str]], site: str, patte
     return status
 
 
+def false_negative_check(sites_info: dict[str, dict[str, str]], site: str) -> QueryStatus:
+    """Check if a site is likely to produce false negatives."""
+    status: QueryStatus = QueryStatus.UNKNOWN
+    query_notify: QueryNotify = QueryNotify()
+
+    result: QueryResult | str = sherlock(
+        username=sites_info[site]['username_claimed'],
+        site_data=sites_info,
+        query_notify=query_notify,
+    )[site]['status']
+
+    if not hasattr(result, 'status'):
+            raise TypeError(f"Result for site {site} does not have 'status' attribute. Actual result: {result}")
+    if type(result.status) is not QueryStatus: # type: ignore
+        raise TypeError(f"Result status for site {site} is not of type QueryStatus. Actual type: {type(result.status)}") # type: ignore
+    status = result.status # type: ignore
+
+    return status
+
 @pytest.mark.validate_targets
 @pytest.mark.online
 class Test_All_Targets:
 
     def test_manifest_false_pos(self, chunked_sites: dict[str, dict[str, str]]):
-        """Ensures that the manifest matches the local schema, for situations where the schema is being changed."""
+        """Iterate through all sites in the manifest to discover possible false-positive inducting targets."""
         pattern: str
         for site in chunked_sites:
             try:
@@ -50,4 +68,10 @@ class Test_All_Targets:
                 pattern = r'^[a-zA-Z0-9._-]{7,20}$'
             result: QueryStatus = false_positive_check(chunked_sites, site, pattern)
             assert result is QueryStatus.AVAILABLE, f"{site} produced false positive with pattern {pattern}, result was {result}"
+
+    def test_manifest_false_neg(self, chunked_sites: dict[str, dict[str, str]]):
+        """Iterate through all sites in the manifest to discover possible false-negative inducting targets."""
+        for site in chunked_sites:
+            result: QueryStatus = false_negative_check(chunked_sites, site)
+            assert result is QueryStatus.CLAIMED, f"{site} produced false negative, result was {result}"
 
