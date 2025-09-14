@@ -56,6 +56,9 @@ tor = ["torrequest"]
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
+rstr = "^3.2.2"
+pytest = "^8.4.2"
+pytest-xdist = "^3.8.0"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'

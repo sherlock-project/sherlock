@@ -169,14 +169,14 @@ def multiple_usernames(username):
 
 def sherlock(
     username: str,
-    site_data: dict,
+    site_data: dict[str, dict[str, str]],
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-):
+) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -507,7 +507,7 @@ def sherlock(
             print("+++++++++++++++++++++")
 
         # Notify caller about results of query.
-        result = QueryResult(
+        result: QueryResult = QueryResult(
             username=username,
             site_name=social_network,
             site_url_user=url,

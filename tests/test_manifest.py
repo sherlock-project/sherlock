@@ -7,7 +7,7 @@ def test_validate_manifest_against_local_schema():
     """Ensures that the manifest matches the local schema, for situations where the schema is being changed."""
     json_relative: str = '../sherlock_project/resources/data.json'
     schema_relative: str = '../sherlock_project/resources/data.schema.json'
-    
+
     json_path: str = os.path.join(os.path.dirname(__file__), json_relative)
     schema_path: str = os.path.join(os.path.dirname(__file__), schema_relative)
 
