@@ -10,10 +10,12 @@ networks.
 import sys
 
 try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var  # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
+    print(
+        "This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions."
+    )
     sys.exit(1)
 
 import csv
@@ -216,13 +218,21 @@ def sherlock(
             from torrequest import TorRequest  # noqa: E402
         except ImportError:
             print("Important!")
-            print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock.")
-            print("> If you've installed Sherlock via pip, you can include the optional dependency via `pip install 'sherlock-project[tor]'`.")
-            print("> Other packages should refer to their documentation, or install it separately with `pip install torrequest`.\n")
+            print(
+                "> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock."
+            )
+            print(
+                "> If you've installed Sherlock via pip, you can include the optional dependency via `pip install 'sherlock-project[tor]'`."
+            )
+            print(
+                "> Other packages should refer to their documentation, or install it separately with `pip install torrequest`.\n"
+            )
             sys.exit(query_notify.finish())
 
         print("Important!")
-        print("> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock.")
+        print(
+            "> --tor and --unique-tor are now DEPRECATED, and may be removed in a future release of Sherlock."
+        )
 
         # Requests using Tor obfuscation
         try:
@@ -270,7 +280,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], username.replace(" ", "%20"))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -413,10 +423,10 @@ def sherlock(
         # be highly targetted. Comment at the end of each fingerprint to
         # indicate target and date fingerprinted.
         WAFHitMsgs = [
-            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
-            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
+            r".loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark",  # 2024-05-13 Cloudflare
+            r'<span id="challenge-error-text">',  # 2024-11-11 Cloudflare error page
+            r"AwsWafIntegration.forceRefreshToken",  # 2024-11-11 Cloudfront (AWS)
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:',  # 2024-04-09 PerimeterX / Human Security
         ]
 
         if error_text is not None:

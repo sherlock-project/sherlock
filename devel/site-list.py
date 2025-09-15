@@ -13,7 +13,7 @@ with open(DATA_REL_URI, "r", encoding="utf-8") as data_file:
 
 # Removes schema-specific keywords for proper processing
 social_networks: dict = dict(data)
-social_networks.pop('$schema', None)
+social_networks.pop("$schema", None)
 
 # Sort the social networks in alphanumeric order
 social_networks: list = sorted(social_networks.items())
@@ -23,7 +23,9 @@ os.mkdir("output")
 
 # Write the list of supported sites to sites.md
 with open("output/sites.mdx", "w") as site_file:
-    site_file.write("---\ntitle: 'List of supported sites'\nsidebarTitle: 'Supported sites'\nicon: 'globe'\ndescription: 'Sherlock currently supports **400+** sites'\n---\n\n")
+    site_file.write(
+        "---\ntitle: 'List of supported sites'\nsidebarTitle: 'Supported sites'\nicon: 'globe'\ndescription: 'Sherlock currently supports **400+** sites'\n---\n\n"
+    )
     for social_network, info in social_networks:
         url_main = info["urlMain"]
         is_nsfw = "**(NSFW)**" if info.get("isNSFW") else ""
@@ -36,4 +38,3 @@ with open(DATA_REL_URI, "w") as data_file:
     data_file.write("\n")
 
 print("Finished updating supported site listing!")
-
