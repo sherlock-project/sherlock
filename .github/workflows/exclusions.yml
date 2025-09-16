@@ -72,7 +72,7 @@ jobs:
           git config user.email "code@pfeister.dev"
 
           git fetch origin exclusions || true # Allows creation of branch if deleted
-          git checkout -B exclusions origin/exclusions || git checkout --orphan exclusions
+          git checkout -B exclusions origin/exclusions || (git checkout --orphan exclusions && git rm -rf .)
 
           git add false_positive_exclusions.txt
 
