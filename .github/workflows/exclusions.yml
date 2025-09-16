@@ -1,0 +1,64 @@
+name: Exclusions Updater
+
+on:
+  schedule:
+    #- cron: '0 5 * * 0'  # Runs at 05:00 every Sunday
+    - cron: '0 5 * * *' # Runs at 05:00 every day
+  workflow_dispatch:
+
+jobs:
+  update-exclusions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: 'latest'
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --with dev
+
+      - name: Run false positive tests
+        run: |
+          $(poetry env activate)
+          pytest -q --tb no -m validate_targets_fp -n 20 | tee fp_test_results.txt
+          deactivate
+
+      - name: Parse false positive detections by desired categories
+        id: parse_detections
+        run: |
+          grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was Claimed)' fp_test_results.txt \
+            | sort -u > false_positive_exclusions.txt
+          grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was WAF)' fp_test_results.txt \
+            | sort -u > waf_hits.txt
+
+      - name: Quantify and display results
+        run: |
+          FP_COUNT=$(wc -l < false_positive_exclusions.txt | xargs)
+          WAF_COUNT=$(wc -l < waf_hits.txt | xargs)
+          echo ">>> Found $FP_COUNT false positives and $WAF_COUNT WAF hits."
+          echo ">>> False positive exclusions:" && cat false_positive_exclusions.txt
+          echo ">>> WAF hits:" && cat waf_hits.txt
+
+      - name: Commit and push exclusions list
+        if: steps.parse_detections.outputs.changed == 'true' || steps.parse_detections.outputs.changed == 'true'
+        run: |
+          git config user.name "Paul Pfeister (automation)"
+          git config user.email "code@pfeister.dev"
+
+          git fetch origin exclusions || true # Allows creation of branch if deleted
+          git checkout -B exclusions origin/exclusions || git checkout --orphan exclusions
+
+          git add false_positive_exclusions.txt
+
+          git commit -m "auto: Update exclusions list" || echo "No changes to commit"
+          git push origin exclusions
