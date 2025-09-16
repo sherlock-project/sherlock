@@ -34,12 +34,34 @@ jobs:
           deactivate
 
       - name: Parse false positive detections by desired categories
-        id: parse_detections
         run: |
           grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was Claimed)' fp_test_results.txt \
             | sort -u > false_positive_exclusions.txt
           grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was WAF)' fp_test_results.txt \
             | sort -u > waf_hits.txt
+
+      - name: Detect if exclusions list changed
+        id: detect_changes
+        run: |
+          git fetch origin exclusions || true
+
+          if git show origin/exclusions:exclusions.txt >/dev/null 2>&1; then
+            # If the exclusions branch and file exist, compare
+            if git diff --quiet origin/exclusions -- exclusions.txt; then
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            # If the exclusions branch or file do not exist, treat as changed
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+          if git diff --quiet false_positive_exclusions.txt; then
+            echo "exclusions_changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "exclusions_changed=true" >> $GITHUB_OUTPUT
+          fi
 
       - name: Quantify and display results
         run: |
@@ -50,7 +72,7 @@ jobs:
           echo ">>> WAF hits:" && cat waf_hits.txt
 
       - name: Commit and push exclusions list
-        if: steps.parse_detections.outputs.changed == 'true' || steps.parse_detections.outputs.changed == 'true'
+        if: steps.detect_changes.outputs.exclusions_changed == 'true'
         run: |
           git config user.name "Paul Pfeister (automation)"
           git config user.email "code@pfeister.dev"
