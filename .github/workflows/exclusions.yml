@@ -76,5 +76,5 @@ jobs:
 
           git add false_positive_exclusions.txt
 
-          git commit -m "auto: Update exclusions list" || echo "No changes to commit"
+          git commit -m "auto: update exclusions list" || echo "No changes to commit"
           git push origin exclusions

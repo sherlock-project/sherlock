@@ -7,6 +7,10 @@ import json
 import requests
 import secrets
 
+
+MANIFEST_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.json"
+EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/refs/heads/exclusions/false_positive_exclusions.txt"
+
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
                 information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
@@ -67,12 +71,17 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        
+
         return f"{self.name} ({self.url_home})"
 
 
 class SitesInformation:
-    def __init__(self, data_file_path=None):
+    def __init__(
+            self,
+            data_file_path: str|None = None,
+            honor_exclusions: bool = True,
+            do_not_exclude: list[str] = [],
+        ):
         """Create Sites Information Object.
 
         Contains information about all supported websites.
@@ -110,7 +119,7 @@ class SitesInformation:
             # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
             # this instead of the local one is so that the user has the most up-to-date data. This prevents
             # users from creating issue about false positives which has already been fixed or having outdated data
-            data_file_path = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.json"
+            data_file_path = MANIFEST_URL
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
@@ -152,8 +161,30 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
-        
+
         site_data.pop('$schema', None)
+
+        if honor_exclusions:
+            try:
+                response = requests.get(url=EXCLUSIONS_URL)
+                if response.status_code == 200:
+                    exclusions = response.text.splitlines()
+                    exclusions = [exclusion.strip() for exclusion in exclusions]
+
+                    for site in do_not_exclude:
+                        if site in exclusions:
+                            exclusions.remove(site)
+
+                    for exclusion in exclusions:
+                        try:
+                            site_data.pop(exclusion, None)
+                        except KeyError:
+                            pass
+
+            except Exception:
+                # If there was any problem loading the exclusions, just continue without them
+                print("Warning: Could not load exclusions, continuing without them.")
+                honor_exclusions = False
 
         self.sites = {}
 
@@ -194,7 +225,7 @@ class SitesInformation:
         for site in self.sites:
             if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
                 continue
-            sites[site] = self.sites[site]  
+            sites[site] = self.sites[site]
         self.sites =  sites
 
     def site_name_list(self):
