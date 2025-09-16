@@ -48,19 +48,13 @@ jobs:
           if git show origin/exclusions:exclusions.txt >/dev/null 2>&1; then
             # If the exclusions branch and file exist, compare
             if git diff --quiet origin/exclusions -- exclusions.txt; then
-              echo "changed=false" >> "$GITHUB_OUTPUT"
+              echo "exclusions_changed=false" >> "$GITHUB_OUTPUT"
             else
-              echo "changed=true" >> "$GITHUB_OUTPUT"
+              echo "exclusions_changed=true" >> "$GITHUB_OUTPUT"
             fi
           else
             # If the exclusions branch or file do not exist, treat as changed
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-          if git diff --quiet false_positive_exclusions.txt; then
-            echo "exclusions_changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "exclusions_changed=true" >> $GITHUB_OUTPUT
+            echo "exclusions_changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Quantify and display results
