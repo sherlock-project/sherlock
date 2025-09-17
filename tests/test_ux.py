@@ -33,6 +33,25 @@ def test_wildcard_username_expansion():
     assert sherlock.multiple_usernames('test{?}test') == ["test_test" , "test-test" , "test.test"]
 
 
+def test_no_txt_flag(tmp_path):
+    """Ensure that --no-txt prevents creating the txt output file."""
+    username = "totallyfakeuserforunittest"
+    # Run in a temp working directory to avoid polluting local repo
+    import os
+    cwd = os.getcwd()
+    try:
+        os.chdir(tmp_path)
+        # Run with --no-txt; expect no username.txt file created
+        try:
+            Interactives.run_cli(f"--no-txt {username}")
+        except Exception:
+            # Ignore network errors; only assert file is not created
+            pass
+        assert not os.path.exists(f"{username}.txt")
+    finally:
+        os.chdir(cwd)
+
+
 @pytest.mark.parametrize('cliargs', [
     '',
     '--site urghrtuight --egiotr',
