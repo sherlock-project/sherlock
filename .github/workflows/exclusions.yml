@@ -83,6 +83,7 @@ jobs:
 
           mv false_positive_exclusions.txt.tmp false_positive_exclusions.txt
 
+          git rm -f false_positive_exclusions.txt.tmp || true
           git add false_positive_exclusions.txt
           git commit -m "auto: update exclusions list" || echo "No changes to commit"
           git push origin exclusions
