@@ -71,7 +71,8 @@ jobs:
           git config user.name "Paul Pfeister (automation)"
           git config user.email "code@pfeister.dev"
 
-          git stash push -m "stash false positive exclusion list" --include-untracked -- false_positive_exclusions.txt
+          git add -f false_positive_exclusions.txt # -f required to override .gitignore
+          git stash push -m "stash false positive exclusion list" -- false_positive_exclusions.txt
 
           git fetch origin exclusions || true # Allows creation of branch if deleted
           git checkout -B exclusions origin/exclusions || (git checkout --orphan exclusions && git rm -rf .)
