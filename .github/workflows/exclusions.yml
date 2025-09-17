@@ -45,9 +45,9 @@ jobs:
         run: |
           git fetch origin exclusions || true
 
-          if git show origin/exclusions:exclusions.txt >/dev/null 2>&1; then
+          if git show origin/exclusions:false_positive_exclusions.txt >/dev/null 2>&1; then
             # If the exclusions branch and file exist, compare
-            if git diff --quiet origin/exclusions -- exclusions.txt; then
+            if git diff --quiet origin/exclusions -- false_positive_exclusions.txt; then
               echo "exclusions_changed=false" >> "$GITHUB_OUTPUT"
             else
               echo "exclusions_changed=true" >> "$GITHUB_OUTPUT"
@@ -71,10 +71,12 @@ jobs:
           git config user.name "Paul Pfeister (automation)"
           git config user.email "code@pfeister.dev"
 
+          git stash push -m "stash false positive exclusion list" --include-untracked -- false_positive_exclusions.txt
+
           git fetch origin exclusions || true # Allows creation of branch if deleted
           git checkout -B exclusions origin/exclusions || (git checkout --orphan exclusions && git rm -rf .)
 
-          git add false_positive_exclusions.txt
+          git stash pop || true
 
           git commit -m "auto: update exclusions list" || echo "No changes to commit"
           git push origin exclusions
