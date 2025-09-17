@@ -1,4 +1,6 @@
 APClips
+Coders Rank
+CyberDefenders
 Freelance.habr
 GNOME VCS
 Giphy
@@ -8,6 +10,7 @@ Heavy-R
 LessWrong
 LushStories
 Mydramalist
+Newgrounds
 PepperIT
 PocketStars
 Reddit
@@ -20,6 +23,5 @@ Topcoder
 Weblate
 YandexMusic
 kaskus
-opennet
 svidbook
 threads
