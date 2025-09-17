@@ -121,6 +121,12 @@
     "urlMain": "https://discussions.apple.com",
     "username_claimed": "jason"
   },
+  "Aparat": {
+    "errorType": "status_code",
+    "url": "https://www.aparat.com/{}/",
+    "urlMain": "https://www.aparat.com/",
+    "username_claimed": "jadi"
+  },
   "Archive of Our Own": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
