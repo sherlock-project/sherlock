@@ -1254,6 +1254,13 @@
     "urlMain": "https://linux.org.ru/",
     "username_claimed": "red"
   },
+  "Laracast": {
+    "errorType":"status_code",
+    "url": "https://laracasts.com/@{}",
+    "urlMain": "https://laracasts.com/",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,}$",
+    "username_claimed": "user1"
+  },
   "Launchpad": {
     "errorType": "status_code",
     "url": "https://launchpad.net/~{}",
@@ -1558,7 +1565,7 @@
     "url": "https://outgress.com/agents/{}",
     "urlMain": "https://outgress.com/",
     "username_claimed": "pylapp"
-  },  
+  },
   "PCGamer": {
     "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
     "errorType": "message",
