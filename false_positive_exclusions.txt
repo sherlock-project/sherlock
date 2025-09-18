@@ -5,17 +5,15 @@ Freelance.habr
 GNOME VCS
 Giphy
 HackerEarth
-HackerRank
 Heavy-R
 LessWrong
 LushStories
 Mydramalist
-Newgrounds
 PepperIT
 PocketStars
 Reddit
-Roblox
 RocketTube
+RuneScape
 SlideShare
 Splice
 Spotify
@@ -23,5 +21,6 @@ Topcoder
 Weblate
 YandexMusic
 kaskus
+opennet
 svidbook
 threads
