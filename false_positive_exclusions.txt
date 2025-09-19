@@ -1,6 +1,5 @@
 APClips
 Coders Rank
-CyberDefenders
 Freelance.habr
 GNOME VCS
 Giphy
@@ -12,8 +11,8 @@ Mydramalist
 PepperIT
 PocketStars
 Reddit
+Roblox
 RocketTube
-RuneScape
 SlideShare
 Splice
 Spotify
