@@ -73,13 +73,11 @@ jobs:
         id: prepare-summary
         run: |
           $(poetry env activate)
-          python devel/summarize_site_validation.py validation_results.xml
           summary=$(
             python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
           )
           deactivate
           echo "$summary" > validation_summary.md
-          cat validation_summary.md
 
       - name: Announce validation results
         if: steps.discover-modified.outputs.changed_targets != ''

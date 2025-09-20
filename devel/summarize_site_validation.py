@@ -19,7 +19,7 @@ def summarize_junit_xml(xml_path: Path) -> str:
 
     summary_lines: list[str] = []
     summary_lines.append("#### Automatic validation of changes\n")
-    summary_lines.append("| | F- Check | F+ Check |")
+    summary_lines.append("| Target | F+ Check | F- Check |")
     summary_lines.append("|---|---|---|")
 
     failures = int(suite.get('failures', 0))
@@ -45,7 +45,7 @@ def summarize_junit_xml(xml_path: Path) -> str:
             errors_detected = True
 
     for result in results:
-        summary_lines.append(f"| {result} | {results[result].get('F- Check', 'Error!')} | {results[result].get('F+ Check', 'Error!')} |")
+        summary_lines.append(f"| {result} | {results[result].get('F+ Check', 'Error!')} | {results[result].get('F- Check', 'Error!')} |")
 
     if failures > 0:
         summary_lines.append("\n___\n" +
