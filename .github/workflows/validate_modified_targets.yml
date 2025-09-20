@@ -14,6 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -38,13 +39,21 @@ jobs:
 
           # Discover changes
           git show origin/${{ github.base_ref }}:sherlock_project/resources/data.json > data.json.base
+          cp sherlock_project/resources/data.json data.json.head
+
           CHANGED=$(
-            jq -r --slurpfile base data.json.base --slurpfile head sherlock_project/resources/data.json '
-              [
-                ($head[0] | keys_unsorted[]) as $key
-                | select(($base[0][$key] != $head[0][$key]) or ($base[0][$key] | not))
-                | $key
-              ] | unique | join(",")'
+            python - <<'EOF'
+          import json
+          with open("data.json.base") as f: base = json.load(f)
+          with open("data.json.head") as f: head = json.load(f)
+
+          changed = []
+          for k, v in head.items():
+              if k not in base or base[k] != v:
+                  changed.append(k)
+
+          print(",".join(sorted(changed)))
+          EOF
           )
 
           # Preserve changelist
