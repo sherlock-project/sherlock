@@ -73,24 +73,26 @@ jobs:
         id: prepare-summary
         run: |
           $(poetry env activate)
+          python devel/summarize_site_validation.py validation_results.xml
           summary=$(
-            python devel/summarize_site_validation.py validation_results.xml > summary.md || echo "Failed to generate summary of test results"
+            python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
           )
           deactivate
-          echo "summary<<EOF" >> $GITHUB_OUTPUT
-          echo "$summary" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "$summary" > validation_summary.md
+          cat validation_summary.md
 
       - name: Announce validation results
         if: steps.discover-modified.outputs.changed_targets != ''
         uses: actions/github-script@v8
         with:
           script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('validation_summary.md', 'utf8');
             github.rest.issues.createComment({
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `${{ steps.prepare-summary.outputs.summary }}`
+              body: body,
             });
 
       - name: This step shows as ran when no modifications are found
