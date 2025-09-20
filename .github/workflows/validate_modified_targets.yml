@@ -39,7 +39,7 @@ jobs:
           # Discover changes
           git show origin/${{ github.base_ref }}:sherlock_project/resources/data.json > data.json.base
           CHANGED=$(
-            jq --slurpfile base data.json.base --slurpfile head sherlock_project/resources/data.json '
+            jq -r --slurpfile base data.json.base --slurpfile head sherlock_project/resources/data.json '
               [
                 ($head[0] | keys_unsorted[]) as $key
                 | select(($base[0][$key] != $head[0][$key]) or ($base[0][$key] | not))
@@ -48,7 +48,7 @@ jobs:
           )
 
           # Preserve changelist
-          echo ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
+          echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
           echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
 
       - name: Validate modified targets
