@@ -807,14 +807,6 @@
     "urlMain": "https://framapiaf.org",
     "username_claimed": "pylapp"
   },
-  "Freelance.habr": {
-    "errorMsg": "<div class=\"icon_user_locked\"></div>",
-    "errorType": "message",
-    "regexCheck": "^((?!\\.).)*$",
-    "url": "https://freelance.habr.com/freelancers/{}",
-    "urlMain": "https://freelance.habr.com/",
-    "username_claimed": "adam"
-  },
   "Freelancer": {
     "errorMsg": "\"users\":{}",
     "errorType": "message",
