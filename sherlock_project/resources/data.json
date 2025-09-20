@@ -1144,6 +1144,7 @@
   },
   "Instapaper": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.instapaper.com/p/{}",
     "urlMain": "https://www.instapaper.com/",
     "username_claimed": "john"
