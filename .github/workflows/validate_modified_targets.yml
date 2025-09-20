@@ -62,12 +62,38 @@ jobs:
 
       - name: Validate modified targets
         if: steps.discover-modified.outputs.changed_targets != ''
+        continue-on-error: true
         run: |
           $(poetry env activate)
-          pytest -q --tb no -rA -m validate_targets -n 20 --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}"
+          pytest -q --tb no -rA -m validate_targets -n 20 --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" --junitxml=validation_results.xml
           deactivate
 
-      - name: Announce skip if no modified targets
+      - name: Prepare validation summary
+        if: steps.discover-modified.outputs.changed_targets != ''
+        id: prepare-summary
+        run: |
+          $(poetry env activate)
+          summary=$(
+            python devel/summarize_site_validation.py validation_results.xml > summary.md || echo "Failed to generate summary of test results"
+          )
+          deactivate
+          echo "summary<<EOF" >> $GITHUB_OUTPUT
+          echo "$summary" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Announce validation results
+        if: steps.discover-modified.outputs.changed_targets != ''
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `${{ steps.prepare-summary.outputs.summary }}`
+            });
+
+      - name: This step shows as ran when no modifications are found
         if: steps.discover-modified.outputs.changed_targets == ''
         run: |
           echo "No modified targets found"
