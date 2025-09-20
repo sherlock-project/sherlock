@@ -1142,6 +1142,12 @@
     "urlProbe": "https://imginn.com/{}",
     "username_claimed": "instagram"
   },
+  "Instapaper": {
+    "errorType": "status_code",
+    "url": "https://www.instapaper.com/p/{}",
+    "urlMain": "https://www.instapaper.com/",
+    "username_claimed": "john"
+  },
   "Instructables": {
     "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
