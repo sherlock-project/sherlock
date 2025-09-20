@@ -1558,7 +1558,7 @@
     "url": "https://outgress.com/agents/{}",
     "urlMain": "https://outgress.com/",
     "username_claimed": "pylapp"
-  },  
+  },
   "PCGamer": {
     "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
     "errorType": "message",
