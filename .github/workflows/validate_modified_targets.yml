@@ -1,0 +1,64 @@
+name: Modified Target Validation
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "sherlock_project/resources/data.json"
+
+jobs:
+  validate-modified-targets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: 'latest'
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --with dev
+
+      - name: Discover modified targets
+        id: discover-modified
+        run: |
+          # Fetch the upstream branch
+          git fetch origin ${{ github.base_ref }} --depth=1
+
+          # Discover changes
+          git show origin/${{ github.base_ref }}:sherlock_project/resources/data.json > data.json.base
+          CHANGED=$(
+            jq --slurpfile base data.json.base --slurpfile head sherlock_project/resources/data.json '
+              [
+                ($head[0] | keys_unsorted[]) as $key
+                | select(($base[0][$key] != $head[0][$key]) or ($base[0][$key] | not))
+                | $key
+              ] | unique | join(",")'
+          )
+
+          # Preserve changelist
+          echo ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
+          echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Validate modified targets
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          $(poetry env activate)
+          pytest -q --tb no -rA -m validate_targets -n 20 --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}"
+          deactivate
+
+      - name: Announce skip if no modified targets
+        if: steps.discover-modified.outputs.changed_targets == ''
+        run: |
+          echo "No modified targets found"
