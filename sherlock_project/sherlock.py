@@ -18,7 +18,6 @@ except ImportError:
 
 import csv
 import signal
-import pandas as pd
 import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
@@ -27,7 +26,9 @@ from time import monotonic
 from typing import Optional
 
 import requests
+from requests.adapters import HTTPAdapter
 from requests_futures.sessions import FuturesSession
+from urllib3.util.retry import Retry
 
 from sherlock_project.__init__ import (
     __longname__,
@@ -109,6 +110,35 @@ class SherlockFuturesSession(FuturesSession):
             method, url, hooks=hooks, *args, **kwargs
         )
 
+
+def _mount_session_with_retries(session: requests.Session) -> requests.Session:
+    """Configure retries, backoff, and connection pooling on a requests session."""
+    retry = Retry(
+        total=3,
+        backoff_factor=0.5,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["HEAD", "GET", "OPTIONS", "POST", "PUT"],
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(pool_connections=100, pool_maxsize=100, max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
+
+
+def _is_valid_proxy_url(proxy_url: str) -> bool:
+    """Basic validation for proxy URLs.
+
+    Accept common schemes and require a netloc.
+    """
+    from urllib.parse import urlparse
+
+    parsed = urlparse(proxy_url)
+    if parsed.scheme not in {"http", "https", "socks5", "socks5h", "socks4"}:
+        return False
+    if not parsed.netloc:
+        return False
+    return True
 
 def get_response(request_future, error_type, social_network):
     # Default for Response object if some failure occurs.
@@ -236,6 +266,9 @@ def sherlock(
         # Normal requests
         underlying_session = requests.session()
         underlying_request = requests.Request()
+
+    # Mount retries/connection pooling for robustness and performance
+    underlying_session = _mount_session_with_retries(underlying_session)
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -756,12 +789,15 @@ def main():
         print(f"A problem occurred while checking for an update: {error}")
 
     # Argument check
-    # TODO regex check on args.proxy
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
     # Make prompts
     if args.proxy is not None:
+        if not _is_valid_proxy_url(args.proxy):
+            raise ArgumentTypeError(
+                f"Invalid proxy URL: {args.proxy}. Expected scheme://host:port with scheme in http, https, socks4, socks5, socks5h."
+            )
         print("Using the proxy: " + args.proxy)
 
     if args.tor or args.unique_tor:
@@ -942,6 +978,8 @@ def main():
                         ]
                     )
         if args.xlsx:
+            # Lazy import to reduce startup time and optional dependency overhead
+            import pandas as pd
             usernames = []
             names = []
             url_main = []
