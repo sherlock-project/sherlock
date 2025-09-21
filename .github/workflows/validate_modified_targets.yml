@@ -1,7 +1,7 @@
 name: Modified Target Validation
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - master
     paths:
@@ -11,13 +11,14 @@ jobs:
   validate-modified-targets:
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+          ref: ${{ github.base_ref }}
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -33,16 +34,16 @@ jobs:
         run: |
           poetry install --no-interaction --with dev
 
+      - name: Drop in place updated manifest from base
+        run: |
+          cp sherlock_project/resources/data.json data.json.base
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr --depth=1
+          git show pr:sherlock_project/resources/data.json > sherlock_project/resources/data.json
+          cp sherlock_project/resources/data.json data.json.head
+
       - name: Discover modified targets
         id: discover-modified
         run: |
-          # Fetch the upstream branch
-          git fetch origin ${{ github.base_ref }} --depth=1
-
-          # Discover changes
-          git show origin/${{ github.base_ref }}:sherlock_project/resources/data.json > data.json.base
-          cp sherlock_project/resources/data.json data.json.head
-
           CHANGED=$(
             python - <<'EOF'
           import json
@@ -66,30 +67,27 @@ jobs:
         if: steps.discover-modified.outputs.changed_targets != ''
         continue-on-error: true
         run: |
-          $(poetry env activate)
-          pytest -q --tb no -rA -m validate_targets -n 20 --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" --junitxml=validation_results.xml
-          deactivate
+          poetry run pytest -q --tb no -rA -m validate_targets -n 20 \
+            --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" \
+            --junitxml=validation_results.xml
 
       - name: Prepare validation summary
         if: steps.discover-modified.outputs.changed_targets != ''
         id: prepare-summary
         run: |
-          $(poetry env activate)
           summary=$(
-            python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
+            poetry run python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
           )
-          deactivate
           echo "$summary" > validation_summary.md
 
       - name: Announce validation results
         if: steps.discover-modified.outputs.changed_targets != ''
         uses: actions/github-script@v8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const body = fs.readFileSync('validation_summary.md', 'utf8');
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
