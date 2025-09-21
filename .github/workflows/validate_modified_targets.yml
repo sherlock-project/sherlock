@@ -85,6 +85,7 @@ jobs:
         if: steps.discover-modified.outputs.changed_targets != ''
         uses: actions/github-script@v8
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const body = fs.readFileSync('validation_summary.md', 'utf8');
