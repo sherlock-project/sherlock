@@ -8,8 +8,7 @@ source = "init"
 
 [tool.poetry]
 name = "sherlock-project"
-# single source of truth for version is __init__.py
-version = "0"
+version = "0.16.0"
 description = "Hunt down social media accounts by username across social networks"
 license = "MIT"
 authors = [
@@ -50,12 +49,20 @@ stem = "^1.8.0"
 torrequest = "^0.1.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
+tomli = "^2.2.1"
 
 [tool.poetry.extras]
 tor = ["torrequest"]
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
+rstr = "^3.2.2"
+pytest = "^8.4.2"
+pytest-xdist = "^3.8.0"
+
+
+[tool.poetry.group.ci.dependencies]
+defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
