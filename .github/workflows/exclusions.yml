@@ -1,0 +1,89 @@
+name: Exclusions Updater
+
+on:
+  schedule:
+    #- cron: '0 5 * * 0'  # Runs at 05:00 every Sunday
+    - cron: '0 5 * * *' # Runs at 05:00 every day
+  workflow_dispatch:
+
+jobs:
+  update-exclusions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: 'latest'
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --with dev
+
+      - name: Run false positive tests
+        run: |
+          $(poetry env activate)
+          pytest -q --tb no -m validate_targets_fp -n 20 | tee fp_test_results.txt
+          deactivate
+
+      - name: Parse false positive detections by desired categories
+        run: |
+          grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was Claimed)' fp_test_results.txt \
+            | sort -u > false_positive_exclusions.txt
+          grep -oP '(?<=test_false_pos\[)[^\]]+(?=\].*result was WAF)' fp_test_results.txt \
+            | sort -u > waf_hits.txt
+
+      - name: Detect if exclusions list changed
+        id: detect_changes
+        run: |
+          git fetch origin exclusions || true
+
+          if git show origin/exclusions:false_positive_exclusions.txt >/dev/null 2>&1; then
+            # If the exclusions branch and file exist, compare
+            if git diff --quiet origin/exclusions -- false_positive_exclusions.txt; then
+              echo "exclusions_changed=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "exclusions_changed=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            # If the exclusions branch or file do not exist, treat as changed
+            echo "exclusions_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Quantify and display results
+        run: |
+          FP_COUNT=$(wc -l < false_positive_exclusions.txt | xargs)
+          WAF_COUNT=$(wc -l < waf_hits.txt | xargs)
+          echo ">>> Found $FP_COUNT false positives and $WAF_COUNT WAF hits."
+          echo ">>> False positive exclusions:" && cat false_positive_exclusions.txt
+          echo ">>> WAF hits:" && cat waf_hits.txt
+
+      - name: Commit and push exclusions list
+        if: steps.detect_changes.outputs.exclusions_changed == 'true'
+        run: |
+          git config user.name "Paul Pfeister (automation)"
+          git config user.email "code@pfeister.dev"
+
+          mv false_positive_exclusions.txt false_positive_exclusions.txt.tmp
+
+          git add -f false_positive_exclusions.txt.tmp # -f required to override .gitignore
+          git stash push -m "stash false positive exclusion list" -- false_positive_exclusions.txt.tmp
+
+          git fetch origin exclusions || true # Allows creation of branch if deleted
+          git checkout -B exclusions origin/exclusions || (git checkout --orphan exclusions && git rm -rf .)
+
+          git stash pop || true
+
+          mv false_positive_exclusions.txt.tmp false_positive_exclusions.txt
+
+          git rm -f false_positive_exclusions.txt.tmp || true
+          git add false_positive_exclusions.txt
+          git commit -m "auto: update exclusions list" || echo "No changes to commit"
+          git push origin exclusions

@@ -169,14 +169,14 @@ def multiple_usernames(username):
 
 def sherlock(
     username: str,
-    site_data: dict,
+    site_data: dict[str, dict[str, str]],
     query_notify: QueryNotify,
     tor: bool = False,
     unique_tor: bool = False,
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-):
+) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -507,7 +507,7 @@ def sherlock(
             print("+++++++++++++++++++++")
 
         # Notify caller about results of query.
-        result = QueryResult(
+        result: QueryResult = QueryResult(
             username=username,
             site_name=social_network,
             site_url_user=url,
@@ -727,6 +727,14 @@ def main():
         help="Disable creation of a txt file",
     )
 
+    parser.add_argument(
+        "--ignore-exclusions",
+        action="store_true",
+        dest="ignore_exclusions",
+        default=False,
+        help="Ignore upstream exclusions (may return more false positives)",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -784,7 +792,8 @@ def main():
     try:
         if args.local:
             sites = SitesInformation(
-                os.path.join(os.path.dirname(__file__), "resources/data.json")
+                os.path.join(os.path.dirname(__file__), "resources/data.json"),
+                honor_exclusions=False,
             )
         else:
             json_file_location = args.json_file
@@ -804,7 +813,11 @@ def main():
                     head_commit_sha = pull_request_json["head"]["sha"]
                     json_file_location = f"https://raw.githubusercontent.com/sherlock-project/sherlock/{head_commit_sha}/sherlock_project/resources/data.json"
 
-            sites = SitesInformation(json_file_location)
+            sites = SitesInformation(
+                data_file_path=json_file_location,
+                honor_exclusions=not args.ignore_exclusions,
+                do_not_exclude=args.site_list,
+            )
     except Exception as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
