@@ -1,0 +1,99 @@
+name: Modified Target Validation
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "sherlock_project/resources/data.json"
+
+jobs:
+  validate-modified-targets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: 'latest'
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --with dev
+
+      - name: Discover modified targets
+        id: discover-modified
+        run: |
+          # Fetch the upstream branch
+          git fetch origin ${{ github.base_ref }} --depth=1
+
+          # Discover changes
+          git show origin/${{ github.base_ref }}:sherlock_project/resources/data.json > data.json.base
+          cp sherlock_project/resources/data.json data.json.head
+
+          CHANGED=$(
+            python - <<'EOF'
+          import json
+          with open("data.json.base") as f: base = json.load(f)
+          with open("data.json.head") as f: head = json.load(f)
+
+          changed = []
+          for k, v in head.items():
+              if k not in base or base[k] != v:
+                  changed.append(k)
+
+          print(",".join(sorted(changed)))
+          EOF
+          )
+
+          # Preserve changelist
+          echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
+          echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Validate modified targets
+        if: steps.discover-modified.outputs.changed_targets != ''
+        continue-on-error: true
+        run: |
+          $(poetry env activate)
+          pytest -q --tb no -rA -m validate_targets -n 20 --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" --junitxml=validation_results.xml
+          deactivate
+
+      - name: Prepare validation summary
+        if: steps.discover-modified.outputs.changed_targets != ''
+        id: prepare-summary
+        run: |
+          $(poetry env activate)
+          summary=$(
+            python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
+          )
+          deactivate
+          echo "$summary" > validation_summary.md
+
+      - name: Announce validation results
+        if: steps.discover-modified.outputs.changed_targets != ''
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('validation_summary.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body,
+            });
+
+      - name: This step shows as ran when no modifications are found
+        if: steps.discover-modified.outputs.changed_targets == ''
+        run: |
+          echo "No modified targets found"
