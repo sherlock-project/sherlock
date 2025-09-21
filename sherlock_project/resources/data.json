@@ -123,8 +123,10 @@
   },
   "Aparat": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.aparat.com/{}/",
     "urlMain": "https://www.aparat.com/",
+    "urlProbe": "https://www.aparat.com/api/fa/v1/user/user/information/username/{}",
     "username_claimed": "jadi"
   },
   "Archive of Our Own": {
