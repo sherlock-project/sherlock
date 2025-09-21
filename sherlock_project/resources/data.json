@@ -2876,7 +2876,7 @@
     "urlMain": "https://sessionize.com/",
     "username_claimed": "jason-mayes"
   },
-  "Shutterstock":
+  "Shutterstock": {
     "errorType": "status_code",
     "url": "https://www.shutterstock.com/g/{}/about",
     "urlMain": "https://www.shutterstock.com/",
