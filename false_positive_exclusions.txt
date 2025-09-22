@@ -6,6 +6,7 @@ Giphy
 HackerEarth
 Heavy-R
 LessWrong
+LiveJournal
 LushStories
 Mydramalist
 PepperIT
@@ -16,9 +17,11 @@ RocketTube
 SlideShare
 Splice
 Spotify
+Topcoder
 Weblate
 YandexMusic
 kaskus
+nnRU
+opennet
 svidbook
 threads
-xHamster
