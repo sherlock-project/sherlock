@@ -690,7 +690,7 @@ def main():
     )
     parser.add_argument(
         "username",
-        nargs="+",
+        nargs="*",
         metavar="USERNAMES",
         action="store",
         help="One or more usernames to check with social networks. Check similar usernames using {?} (replace to '_', '-', '.').",
@@ -733,6 +733,35 @@ def main():
         dest="ignore_exclusions",
         default=False,
         help="Ignore upstream exclusions (may return more false positives)",
+    )
+
+    parser.add_argument(
+        "--validate-site",
+        metavar="SITE_NAME",
+        dest="validate_site",
+        help="Validate a specific site for false positives.",
+    )
+
+    parser.add_argument(
+        "--validate-list",
+        action="store_true",
+        dest="validate_list",
+        default=False,
+        help="Validate all sites for false positives.",
+    )
+    parser.add_argument(
+        "--test-excluded",
+        action="store_true", 
+        dest="test_excluded",
+        default=False,
+        help="Test sites that are currently excluded to see if they can be fixed.",
+    )
+    
+    parser.add_argument(
+        "--validation-report",
+        metavar="REPORT_FILE",
+        dest="validation_report",
+        help="Save validation report to specified file.",
     )
 
     args = parser.parse_args()
@@ -787,6 +816,160 @@ def main():
     if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
         sys.exit(1)
+
+     # Handle validation commands BEFORE normal username processing
+
+    """
+    # Test a specific site
+    python validate_sites.py Reddit
+
+    # Test all sites from your list (comprehensive)
+    python comprehensive_validation.py
+
+    # Quick test of a few sites
+    python quick_validation.py
+
+    # Using the main sherlock with validation (once dependencies are resolved)
+    python sherlock_project/sherlock.py --validate-site GitHub
+    python sherlock_project/sherlock.py --validate-list
+    """
+    if args.validate_site or args.validate_list or args.test_excluded:
+        try:
+            # Import validation module only when needed
+            try:
+                from sherlock_project.validation import FalsePositiveDetector
+            except ImportError:
+                # Fallback for direct execution
+                from validation import FalsePositiveDetector
+            
+            # Load sites for validation
+            if args.test_excluded or args.validate_site:
+                # Include excluded sites when testing excluded sites or validating specific sites
+                sites = SitesInformation(
+                    data_file_path=args.json_file,
+                    honor_exclusions=False,  # Include excluded sites
+                )
+            else:
+                # For validate_list, respect exclusions unless ignore_exclusions is set
+                sites = SitesInformation(
+                    data_file_path=args.json_file,
+                    honor_exclusions=not args.ignore_exclusions,
+                )
+            
+            detector = FalsePositiveDetector(sites)
+            
+            if args.validate_site:
+                # Validate specific site
+                print(f"Validating {args.validate_site}...")
+                result = detector.test_site_accuracy(args.validate_site)
+                
+                if "error" in result:
+                    print(f"Error: {result['error']}")
+                else:
+                    print(f"\nResults for {args.validate_site}:")
+                    analysis = result.get('analysis', {})
+                    print(f"  Confidence: {analysis.get('confidence', 'unknown')}")
+                    
+                    if analysis.get('potential_false_positive'):
+                        print("  ⚠️  POTENTIAL FALSE POSITIVE DETECTED")
+                        for issue in analysis.get('issues', []):
+                            print(f"    - {issue}")
+                    else:
+                        print("  ✅ Site appears to be working correctly")
+                    
+                    # Show test details
+                    print(f"\nTest Details:")
+                    for username, test_result in result.get('tests', {}).items():
+                        if 'error' in test_result:
+                            print(f"  {username}: ERROR - {test_result['error']}")
+                        else:
+                            print(f"  {username}: {test_result.get('detected_as', 'UNKNOWN')} "
+                                  f"(HTTP {test_result.get('status_code', '?')})")
+            
+            elif args.validate_list:
+                # Validate the specific sites from your list
+                target_sites = [
+                    "APClips", "CyberDefenders", "GNOME VCS", "Giphy", "HackerEarth", 
+                    "Heavy-R", "Itch.io", "LessWrong", "LushStories", "Mydramalist", 
+                    "PepperIT", "PocketStars", "Reddit", "Roblox", "RocketTube", 
+                    "SlideShare", "SoylentNews", "Splice", "Spotify", "Topcoder", 
+                    "Weblate", "YandexMusic", "kaskus", "opennet", "svidbook", "threads"
+                ]
+                
+                results = detector.test_specific_sites(target_sites)
+                
+                # Generate and display report
+                report = detector.generate_report(results)
+                print(report)
+                
+                # Save report if requested
+                if args.validation_report:
+                    with open(args.validation_report, 'w', encoding='utf-8') as f:
+                        f.write(report)
+                    print(f"\nReport saved to: {args.validation_report}")
+            
+            elif args.test_excluded:
+                print("Testing currently excluded sites...")
+                excluded_results = detector.test_excluded_sites()
+                
+                if "error" in excluded_results:
+                    print(f"Error: {excluded_results['error']}")
+                else:
+                    results = excluded_results.get("excluded_sites_tested", {})
+                    
+                    # Show summary for excluded sites
+                    ready_for_inclusion = []
+                    still_problematic = []
+                    error_sites = []
+                    
+                    for site_name, result in results.items():
+                        if "error" in result:
+                            error_sites.append(site_name)
+                        else:
+                            analysis = result.get('analysis', {})
+                            if not analysis.get('potential_false_positive'):
+                                ready_for_inclusion.append(site_name)
+                            else:
+                                still_problematic.append(site_name)
+                    
+                    print(f"\n📊 EXCLUDED SITES ANALYSIS:")
+                    print(f"  Total in exclusions list: {excluded_results.get('total_excluded', 0)}")
+                    print(f"  Sites tested: {excluded_results.get('tested_count', 0)}")
+                    print(f"  Ready for re-inclusion: {len(ready_for_inclusion)}")
+                    print(f"  Still problematic: {len(still_problematic)}")
+                    print(f"  Errors during testing: {len(error_sites)}")
+                    
+                    if ready_for_inclusion:
+                        print(f"\n✅ READY FOR RE-INCLUSION:")
+                        for site in ready_for_inclusion:
+                            print(f"    - {site}")
+                    
+                    if still_problematic:
+                        print(f"\n❌ STILL NEED WORK:")
+                        for site in still_problematic:
+                            print(f"    - {site}")
+                    
+                    if error_sites:
+                        print(f"\n⚠️  ERRORS DURING TESTING:")
+                        for site in error_sites:
+                            print(f"    - {site}")
+                    
+                    missing = excluded_results.get('missing_from_manifest', [])
+                    if missing:
+                        print(f"\n❓ EXCLUDED SITES NOT IN CURRENT MANIFEST:")
+                        for site in missing[:10]:  # Show first 10
+                            print(f"    - {site}")
+                        if len(missing) > 10:
+                            print(f"    ... and {len(missing) - 10} more")
+        
+        except Exception as error:
+            print(f"Validation Error: {error}")
+        
+        return 
+
+    # Check if usernames are provided for normal operation
+    if not args.username:
+        parser.error("the following arguments are required: USERNAMES (unless using validation commands)")
 
     # Create object with all information about sites we are aware of.
     try:

@@ -96,6 +96,9 @@ optional arguments:
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
   --nsfw                Include checking of NSFW sites from default list.
+  --validate-site       Validates a single website as per the argument by sending dummy usernames can provide your own username to check also
+  --validate-list       Checks a list of sites for potential breakage
+  --test-excluded       Test the excluded sites from the actual mappings if working to have potential to be reincluded
 ```
 ## Apify Actor Usage [![Sherlock Actor](https://apify.com/actor-badge?actor=netmilk/sherlock)](https://apify.com/netmilk/sherlock?fpr=sherlock)
 
