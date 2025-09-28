@@ -2,7 +2,9 @@ APClips
 GNOME VCS
 Giphy
 HackerEarth
+HackerRank
 Heavy-R
+Itch.io
 LessWrong
 LushStories
 Mydramalist
@@ -14,11 +16,9 @@ RocketTube
 SlideShare
 Splice
 Spotify
-Topcoder
 Weblate
 YandexMusic
 kaskus
 opennet
 svidbook
 threads
-xHamster
