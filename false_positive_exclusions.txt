@@ -1,10 +1,10 @@
 APClips
+Audiojungle
+Coders Rank
 GNOME VCS
 Giphy
 HackerEarth
-HackerRank
 Heavy-R
-Itch.io
 LessWrong
 LushStories
 Mydramalist
@@ -16,6 +16,7 @@ RocketTube
 SlideShare
 Splice
 Spotify
+Topcoder
 Weblate
 YandexMusic
 kaskus
