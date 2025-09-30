@@ -1,8 +1,9 @@
 APClips
-Audiojungle
 Coders Rank
+CyberDefenders
 GNOME VCS
 Giphy
+Gravatar
 HackerEarth
 Heavy-R
 LessWrong
@@ -20,6 +21,5 @@ Topcoder
 Weblate
 YandexMusic
 kaskus
-opennet
 svidbook
 threads
