@@ -600,6 +600,12 @@
     "urlMain": "https://www.dailymotion.com/",
     "username_claimed": "blue"
   },
+  "dcinside": {
+    "errorType": "status_code",
+    "url": "https://gallog.dcinside.com/{}",
+    "urlMain": "https://www.dcinside.com/",
+    "username_claimed": "anrbrb"
+  },
   "Dealabs": {
     "errorMsg": "La page que vous essayez",
     "errorType": "message",
