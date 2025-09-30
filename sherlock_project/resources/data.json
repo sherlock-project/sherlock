@@ -1465,6 +1465,12 @@
     "urlMain": "https://www.native-instruments.com/forum/",
     "username_claimed": "jambert"
   },
+  "namuwiki": {
+    "errorType": "status_code",
+    "url": "https://namu.wiki/w/%EC%82%AC%EC%9A%A9%EC%9E%90:{}",
+    "urlMain": "https://namu.wiki/",
+    "username_claimed": "namu"
+  },
   "NationStates Nation": {
     "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
     "errorType": "message",
