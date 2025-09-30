@@ -1964,6 +1964,13 @@
     "urlMain": "https://www.snapchat.com",
     "username_claimed": "teamsnapchat"
   },
+  "SOOP": {
+    "errorType": "status_code",
+    "url": "https://www.sooplive.co.kr/station/{}",
+    "urlMain": "https://www.sooplive.co.kr/",
+    "urlProbe": "https://api-channel.sooplive.co.kr/v1.1/channel/{}/station",
+    "username_claimed": "udkn"
+  },
   "SoundCloud": {
     "errorType": "status_code",
     "url": "https://soundcloud.com/{}",
