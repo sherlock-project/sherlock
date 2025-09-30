@@ -2138,6 +2138,12 @@
     "urlMain": "https://themeforest.net/",
     "username_claimed": "user"
   },
+  "tistory": {
+    "errorType": "status_code",
+    "url": "https://{}.tistory.com/",
+    "urlMain": "https://www.tistory.com/",
+    "username_claimed": "notice"
+  },
   "TnAFlix": {
     "errorType": "status_code",
     "isNSFW": true,
