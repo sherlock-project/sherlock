@@ -3,7 +3,6 @@ Coders Rank
 CyberDefenders
 GNOME VCS
 Giphy
-Gravatar
 HackerEarth
 Heavy-R
 LessWrong
