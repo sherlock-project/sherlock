@@ -1460,12 +1460,12 @@
     "username_claimed": "jambert"
   },
   "NationStates Nation": {
-    "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
-    "errorType": "message",
-    "url": "https://nationstates.net/nation={}",
-    "urlMain": "https://nationstates.net",
-    "username_claimed": "the_holy_principality_of_saint_mark"
-  },
+  "errorMsg": "Nation Not Found",
+  "errorType": "message",
+  "url": "https://nationstates.net/nation={}",
+  "urlMain": "https://nationstates.net",
+  "username_claimed": "the_holy_principality_of_saint_mark"
+},
   "NationStates Region": {
     "errorMsg": "does not exist.",
     "errorType": "message",
