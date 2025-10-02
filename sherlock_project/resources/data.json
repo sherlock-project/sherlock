@@ -600,6 +600,12 @@
     "urlMain": "https://www.dailymotion.com/",
     "username_claimed": "blue"
   },
+  "dcinside": {
+    "errorType": "status_code",
+    "url": "https://gallog.dcinside.com/{}",
+    "urlMain": "https://www.dcinside.com/",
+    "username_claimed": "anrbrb"
+  },
   "Dealabs": {
     "errorMsg": "La page que vous essayez",
     "errorType": "message",
@@ -1459,6 +1465,13 @@
     "urlMain": "https://www.native-instruments.com/forum/",
     "username_claimed": "jambert"
   },
+  "namuwiki": {
+    "__comment__": "This is a Korean site and it's expected to return false negatives in certain other regions.",
+    "errorType": "status_code",
+    "url": "https://namu.wiki/w/%EC%82%AC%EC%9A%A9%EC%9E%90:{}",
+    "urlMain": "https://namu.wiki/",
+    "username_claimed": "namu"
+  },
   "NationStates Nation": {
     "errorMsg": "Was this your nation? It may have ceased to exist due to inactivity, but can rise again!",
     "errorType": "message",
@@ -1952,6 +1965,13 @@
     "urlMain": "https://www.snapchat.com",
     "username_claimed": "teamsnapchat"
   },
+  "SOOP": {
+    "errorType": "status_code",
+    "url": "https://www.sooplive.co.kr/station/{}",
+    "urlMain": "https://www.sooplive.co.kr/",
+    "urlProbe": "https://api-channel.sooplive.co.kr/v1.1/channel/{}/station",
+    "username_claimed": "udkn"
+  },
   "SoundCloud": {
     "errorType": "status_code",
     "url": "https://soundcloud.com/{}",
@@ -2118,6 +2138,12 @@
     "url": "https://themeforest.net/user/{}",
     "urlMain": "https://themeforest.net/",
     "username_claimed": "user"
+  },
+  "tistory": {
+    "errorType": "status_code",
+    "url": "https://{}.tistory.com/",
+    "urlMain": "https://www.tistory.com/",
+    "username_claimed": "notice"
   },
   "TnAFlix": {
     "errorType": "status_code",
