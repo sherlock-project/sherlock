@@ -1467,12 +1467,12 @@
     "username_claimed": "the_holy_principality_of_saint_mark"
   },
   "NationStates Region": {
-    "errorMsg": "does not exist.",
-    "errorType": "message",
-    "url": "https://nationstates.net/region={}",
-    "urlMain": "https://nationstates.net",
-    "username_claimed": "the_west_pacific"
-  },
+  "errorMsg": "Region Not Found",
+  "errorType": "message",
+  "url": "https://nationstates.net/region={}",
+  "urlMain": "https://nationstates.net",
+  "username_claimed": "the_west_pacific"
+},
   "Naver": {
     "errorType": "status_code",
     "url": "https://blog.naver.com/{}",
