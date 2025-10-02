@@ -1,0 +1,30 @@
+{
+  "config": {
+    "global_threshold": 0.6,
+    "default_label": "unknown",
+    "labels": {
+      "low": "low",
+      "ai": "ai-flagged",
+      "impersonation": "impersonation",
+      "phishing": "phishing"
+    },
+    "site_overrides": {
+      "GitHub": {
+        "keywords": [
+          { "pattern": "suspicious activity", "weight": 0.4, "label": "phishing" },
+          { "pattern": "impersonating", "weight": 0.6, "label": "impersonation" }
+        ]
+      }
+    }
+  },
+  "hints": {
+    "default": {
+      "keywords": [
+        { "pattern": "report this account", "weight": 0.5, "label": "phishing" }
+      ]
+    },
+    "multimodal": {
+      "model": "provide/path/to/onnx-model.onnx"
+    }
+  }
+}
