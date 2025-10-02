@@ -150,11 +150,12 @@
     "username_claimed": "blue"
   },
   "ArtStation": {
-    "errorType": "status_code",
-    "url": "https://www.artstation.com/{}",
-    "urlMain": "https://www.artstation.com/",
-    "username_claimed": "Blue"
-  },
+  "errorType": "message",
+  "errorMsg": "Page not found!",
+  "url": "https://www.artstation.com/{}",
+  "urlMain": "https://www.artstation.com/",
+  "username_claimed": "Blue"
+},
   "Asciinema": {
     "errorType": "status_code",
     "url": "https://asciinema.org/~{}",
