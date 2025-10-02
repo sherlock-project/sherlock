@@ -1440,12 +1440,12 @@
     "username_claimed": "blue"
   },
   "Mydramalist": {
-    "errorMsg": "Sign in - MyDramaList",
-    "errorType": "message",
-    "url": "https://www.mydramalist.com/profile/{}",
-    "urlMain": "https://mydramalist.com",
-    "username_claimed": "elhadidy12398"
-  },
+  "errorMsg": "The requested page was not found",
+  "errorType": "message",
+  "url": "https://www.mydramalist.com/profile/{}",
+  "urlMain": "https://mydramalist.com",
+  "username_claimed": "elhadidy12398"
+},
   "Myspace": {
     "errorType": "status_code",
     "url": "https://myspace.com/{}",
