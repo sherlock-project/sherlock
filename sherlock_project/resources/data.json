@@ -1466,6 +1466,7 @@
     "username_claimed": "jambert"
   },
   "namuwiki": {
+    "__comment__": "This is a Korean site and it's expected to return false negatives in certain other regions.",
     "errorType": "status_code",
     "url": "https://namu.wiki/w/%EC%82%AC%EC%9A%A9%EC%9E%90:{}",
     "urlMain": "https://namu.wiki/",
