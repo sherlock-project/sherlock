@@ -1,11 +1,11 @@
 APClips
-Coders Rank
+BoardGameGeek
 CyberDefenders
 GNOME VCS
 Giphy
 HackerEarth
 Heavy-R
-LessWrong
+Itch.io
 LushStories
 Mydramalist
 PepperIT
@@ -20,5 +20,6 @@ Topcoder
 Weblate
 YandexMusic
 kaskus
+opennet
 svidbook
 threads
