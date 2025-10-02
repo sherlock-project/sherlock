@@ -608,14 +608,13 @@
     "urlMain": "https://www.dealabs.com/",
     "username_claimed": "blue"
   },
-  "DeviantArt": {
+ "DeviantArt": {
   "errorType": "message",
   "errorMsg": "Llama Not Found",
   "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
   "url": "https://www.deviantart.com/{}",
   "urlMain": "https://www.deviantart.com/",
-  "username_claimed": "blue",
-  "username_unclaimed": "noonewouldeverusethis"
+  "username_claimed": "blue"
 },
   "DigitalSpy": {
       "errorMsg": "The page you were looking for could not be found.",
