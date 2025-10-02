@@ -17,7 +17,8 @@ $ sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
-                [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
+                [--timeout TIMEOUT] [--risk] [--risk-config RISK_CONFIG]
+                [--print-all] [--print-found] [--no-color]
                 [--browse] [--local] [--nsfw]
                 USERNAMES [USERNAMES ...]
 ```
@@ -32,6 +33,13 @@ To search for more than one user:
 $ sherlock user1 user2 user3
 ```
 <br>
+
+### Optional risk assessment
+
+Install the extra dependencies with `pip install "sherlock-project[risk]"` to enable
+AI-assisted signal processing. Run Sherlock with `--risk` to attach risk scores to
+claimed accounts, and provide a JSON configuration (see `docs/examples/risk.json`)
+via `--risk-config` to tune thresholds, keywords, or model settings.
 
 ___
 

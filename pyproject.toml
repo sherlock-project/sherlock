@@ -53,6 +53,7 @@ tomli = "^2.2.1"
 
 [tool.poetry.extras]
 tor = ["torrequest"]
+risk = ["onnxruntime", "transformers", "beautifulsoup4", "tldextract"]
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
