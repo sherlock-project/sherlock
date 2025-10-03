@@ -2671,12 +2671,6 @@
     "urlMain": "https://www.livelib.ru/",
     "username_claimed": "blue"
   },
-  "mastodon.cloud": {
-    "errorType": "status_code",
-    "url": "https://mastodon.cloud/@{}",
-    "urlMain": "https://mastodon.cloud/",
-    "username_claimed": "TheAdmin"
-  },
   "mastodon.social": {
     "errorType": "status_code",
     "url": "https://mastodon.social/@{}",
