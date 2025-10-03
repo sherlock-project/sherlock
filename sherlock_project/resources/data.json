@@ -572,7 +572,7 @@
     "username_claimed": "brown"
   },
   "CyberDefenders": {
-    "errorMsg": "<title>Blue Team Training for SOC analysts and DFIR - CyberDefenders</title>",
+    "errorMsg": "User Not Found",
     "errorType": "message",
     "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
     "request_method": "GET",
@@ -1005,11 +1005,11 @@
     "username_claimed": "blazezaria"
   },
   "HackerEarth": {
-    "errorMsg": "404. URL not found.",
+    "errorMsg": "Profile not found",
     "errorType": "message",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
-    "username_claimed": "naveennamani877"
+    "username_claimed": "s_agnik1511"
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
@@ -1288,8 +1288,9 @@
     "username_claimed": "blue"
   },
   "LessWrong": {
-    "errorType": "status_code",
-    "url": "https://www.lesswrong.com/users/@{}",
+    "errorType": "message",
+    "errorMsg": "<h3>Sorry, we couldn&#x27;t find what you were looking for.</h3>",
+    "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
     "username_claimed": "blue"
   },
@@ -1823,8 +1824,7 @@
     "username_claimed": "blue"
   },
   "Roblox": {
-    "errorMsg": "Page cannot be found or no longer exists",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.roblox.com/user.aspx?username={}",
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller"
@@ -1932,7 +1932,7 @@
   },
   "SlideShare": {
     "errorType": "message",
-    "errorMsg": "<title>Username available</title>",
+    "errorMsg": "<title>Page no longer exists</title>",
     "url": "https://slideshare.net/{}",
     "urlMain": "https://slideshare.net/",
     "username_claimed": "blue"
