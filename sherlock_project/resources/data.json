@@ -2509,6 +2509,7 @@
     "username_claimed": "blue"
   },
   "dailykos": {
+    "__comment__": "This site uses CloudFront geo-restrictions that may cause false positives in certain regions.",
     "errorMsg": "{\"result\":true,\"message\":null}",
     "errorType": "message",
     "url": "https://www.dailykos.com/user/{}",
