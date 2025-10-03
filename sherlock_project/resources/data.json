@@ -2263,6 +2263,7 @@
       "<div class=\"error-panel\"><span>User ",
       "<title>429 Too Many Requests</title>"
     ],
+    "aliases": ["X"],
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://x.com/{}",
