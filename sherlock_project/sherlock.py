@@ -742,7 +742,7 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        latest_release_raw = requests.get(forge_api_latest_release).text
+        latest_release_raw = requests.get(forge_api_latest_release, timeout=10).text
         latest_release_json = json_loads(latest_release_raw)
         latest_remote_tag = latest_release_json["tag_name"]
 
@@ -802,7 +802,7 @@ def main():
                 if args.json_file.isnumeric():
                     pull_number = args.json_file
                     pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{pull_number}"
-                    pull_request_raw = requests.get(pull_url).text
+                    pull_request_raw = requests.get(pull_url, timeout=10).text
                     pull_request_json = json_loads(pull_request_raw)
 
                     # Check if it's a valid pull request
