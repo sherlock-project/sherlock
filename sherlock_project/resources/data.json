@@ -1932,7 +1932,7 @@
   },
   "SlideShare": {
     "errorType": "message",
-    "errorMsg": "<title>Page no longer exists</title>,
+    "errorMsg": "<title>Page no longer exists</title>",
     "url": "https://slideshare.net/{}",
     "urlMain": "https://slideshare.net/",
     "username_claimed": "blue"
