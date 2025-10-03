@@ -1005,8 +1005,7 @@
     "username_claimed": "blazezaria"
   },
   "HackerEarth": {
-    "errorMsg": "Profile not found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
     "username_claimed": "s_agnik1511"
