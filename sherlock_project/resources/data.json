@@ -259,7 +259,8 @@
     "username_claimed": "blue"
   },
   "Blitz Tactics": {
-    "errorType": "status_code",
+    "errorMsg": "That page doesn't exist",
+    "errorType": "message",
     "url": "https://blitztactics.com/{}",
     "urlMain": "https://blitztactics.com/",
     "username_claimed": "Lance5500"
@@ -279,7 +280,7 @@
     "username_claimed": "mcuban"
   },
   "BoardGameGeek": {
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]*$",
     "errorMsg": "User not found",
     "url": "https://boardgamegeek.com/user/{}",
