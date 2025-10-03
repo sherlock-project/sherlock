@@ -2357,7 +2357,7 @@
     "username_claimed": "blue"
   },
   "Wikidot": {
-    "errorMsg": "User does not exist.",
+    "errorMsg": "User Information",
     "errorType": "message",
     "url": "http://www.wikidot.com/user:info/{}",
     "urlMain": "http://www.wikidot.com/",
