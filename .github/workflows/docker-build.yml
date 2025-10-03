@@ -1,0 +1,16 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ master, rc ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t sherlock:test .
+
+
