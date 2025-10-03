@@ -129,7 +129,7 @@ class SitesInformation:
         if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
             try:
-                response = requests.get(url=data_file_path)
+                response = requests.get(url=data_file_path, timeout=30)
             except Exception as error:
                 raise FileNotFoundError(
                     f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
@@ -166,7 +166,7 @@ class SitesInformation:
 
         if honor_exclusions:
             try:
-                response = requests.get(url=EXCLUSIONS_URL)
+                response = requests.get(url=EXCLUSIONS_URL, timeout=10)
                 if response.status_code == 200:
                     exclusions = response.text.splitlines()
                     exclusions = [exclusion.strip() for exclusion in exclusions]
