@@ -1620,6 +1620,14 @@
     "urlMain": "https://www.patreon.com/",
     "username_claimed": "blue"
   },
+  "PayPal.me": {
+  "errorType": "status_code",
+  "url": "https://www.paypal.me/{}",
+  "urlMain": "https://www.paypal.me/",
+  "errorMsg": "Page Not Found",
+  "regexCheck": "^[A-Za-z0-9]{1,20}$",
+  "username_claimed": "blue"
+},
   "PentesterLab": {
     "errorType": "status_code",
     "regexCheck": "^[\\w]{4,30}$",
