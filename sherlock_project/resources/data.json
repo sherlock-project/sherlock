@@ -278,6 +278,15 @@
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
   },
+  "BoardGameGeek": {
+    "errorMsg": "[]",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]*$",
+    "url": "https://boardgamegeek.com/profile/{}",
+    "urlMain": "https://boardgamegeek.com",
+    "urlProbe": "https://api.geekdo.com/api/users?username={}",
+    "username_claimed": "blue"
+  },
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
