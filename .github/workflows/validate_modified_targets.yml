@@ -14,13 +14,11 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Checkout PR branch
+      - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          # Check out the actual PR code, not the base branch
-          ref: ${{ github.event.pull_request.head.sha }}
-          # Fetch all history so we can find the common ancestor (merge-base)
-          fetch-depth: 0
+          # This is the original, secure checkout of the base branch.
+          ref: ${{ github.base_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -38,17 +36,21 @@ jobs:
 
       - name: Prepare JSON versions for comparison
         run: |
-          # Fetch the target branch to ensure we can compare against it
-          git fetch origin ${{ github.base_ref }}
+          # Fetch the PR's branch head and give it a local name 'pr'
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr
 
-          # Find the exact commit where this branch split from the target branch
-          MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} HEAD)
-          echo "Comparing HEAD against merge-base commit: $MERGE_BASE"
+          # The initial checkout may be shallow. To find a merge-base,
+          # we need more history. We can 'unshallow' the repository if needed.
+          git fetch --unshallow || true
 
-          # Copy the version of the file from the current PR branch (HEAD)
-          cp sherlock_project/resources/data.json data.json.head
+          # Find the merge-base commit between the target branch (master) and the PR branch (pr)
+          MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} pr)
+          echo "Comparing PR head against merge-base commit: $MERGE_BASE"
 
-          # Extract the version of the file from the merge-base commit
+          # Safely extract the version of the file from the PR's head without checking it out
+          git show pr:sherlock_project/resources/data.json > data.json.head
+
+          # Safely extract the version of the file from the merge-base commit
           git show $MERGE_BASE:sherlock_project/resources/data.json > data.json.base
 
       - name: Discover modified targets
@@ -57,8 +59,16 @@ jobs:
           CHANGED=$(
             python - <<'EOF'
           import json
-          with open("data.json.base") as f: base = json.load(f)
-          with open("data.json.head") as f: head = json.load(f)
+          import sys
+          try:
+              with open("data.json.base") as f: base = json.load(f)
+              with open("data.json.head") as f: head = json.load(f)
+          except FileNotFoundError as e:
+              print(f"Error: Could not find {e.filename}", file=sys.stderr)
+              sys.exit(1)
+          except json.JSONDecodeError as e:
+              print(f"Error: Could not decode JSON from a file - {e}", file=sys.stderr)
+              sys.exit(1)
 
           changed = []
           for k, v in head.items():
