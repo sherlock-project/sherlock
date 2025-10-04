@@ -14,32 +14,42 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Checkout repository
+      - name: Checkout PR branch
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.base_ref }}
-          fetch-depth: 1
+          # Check out the actual PR code, not the base branch
+          ref: ${{ github.event.pull_request.head.sha }}
+          # Fetch all history so we can find the common ancestor (merge-base)
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: "3.13"
 
       - name: Install Poetry
         uses: abatilo/actions-poetry@v4
         with:
-          poetry-version: 'latest'
+          poetry-version: "latest"
 
       - name: Install dependencies
         run: |
           poetry install --no-interaction --with dev
 
-      - name: Drop in place updated manifest from base
+      - name: Prepare JSON versions for comparison
         run: |
-          cp sherlock_project/resources/data.json data.json.base
-          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr --depth=1
-          git show pr:sherlock_project/resources/data.json > sherlock_project/resources/data.json
+          # Fetch the target branch to ensure we can compare against it
+          git fetch origin ${{ github.base_ref }}
+
+          # Find the exact commit where this branch split from the target branch
+          MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} HEAD)
+          echo "Comparing HEAD against merge-base commit: $MERGE_BASE"
+
+          # Copy the version of the file from the current PR branch (HEAD)
           cp sherlock_project/resources/data.json data.json.head
+
+          # Extract the version of the file from the merge-base commit
+          git show $MERGE_BASE:sherlock_project/resources/data.json > data.json.base
 
       - name: Discover modified targets
         id: discover-modified
