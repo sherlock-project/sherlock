@@ -3,6 +3,10 @@
 This module defines various objects for recording the results of queries.
 """
 from enum import Enum
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:  # pragma: no cover - import for type hints only
+    from sherlock_project.risk.types import RiskAssessment
 
 
 class QueryStatus(Enum):
@@ -32,8 +36,16 @@ class QueryResult():
 
     Describes result of query about a given username.
     """
-    def __init__(self, username, site_name, site_url_user, status,
-                 query_time=None, context=None):
+    def __init__(
+        self,
+        username,
+        site_name,
+        site_url_user,
+        status,
+        query_time=None,
+        context=None,
+        risk: Optional["RiskAssessment"] = None,
+    ):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
@@ -57,6 +69,9 @@ class QueryResult():
                                   an error, this might indicate the type of
                                   error that occurred.
                                   Default of None.
+        risk                   -- Optional RiskAssessment describing post-processing
+                                  insights, typically produced by the risk module.
+                                  Default of None.
 
         Return Value:
         Nothing.
@@ -68,6 +83,7 @@ class QueryResult():
         self.status        = status
         self.query_time    = query_time
         self.context       = context
+        self.risk          = risk
 
         return
 
@@ -85,5 +101,11 @@ class QueryResult():
             # There is extra context information available about the results.
             # Append it to the normal response text.
             status += f" ({self.context})"
+
+        if self.risk is not None:
+            risk_text = self.risk.label
+            if self.risk.score is not None:
+                risk_text += f"={self.risk.score:.2f}"
+            status += f" [risk: {risk_text}]"
 
         return status

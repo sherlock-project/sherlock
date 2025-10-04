@@ -34,6 +34,40 @@
                     "type": "string",
                     "enum": [ "GET", "POST", "HEAD", "PUT" ]
                 },
+                "riskHints": {
+                    "type": "object",
+                    "properties": {
+                        "label": { "type": "string" },
+                        "threshold": { "type": "number" },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "pattern": { "type": "string" },
+                                    "weight": { "type": "number" },
+                                    "label": { "type": "string" }
+                                },
+                                "required": [ "pattern" ],
+                                "additionalProperties": false
+                            }
+                        },
+                        "regex": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "pattern": { "type": "string" },
+                                    "weight": { "type": "number" },
+                                    "label": { "type": "string" }
+                                },
+                                "required": [ "pattern" ],
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "additionalProperties": true
+                },
                 "errorType": {
                     "type": "string",
                     "enum": [ "message", "response_url", "status_code" ]
