@@ -381,6 +381,8 @@ def sherlock(
 
         # Get the expected error type
         error_type = net_info["errorType"]
+        if isinstance(error_type, str):
+            error_type: list[str] = [error_type]
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -425,58 +427,63 @@ def sherlock(
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
 
-        elif error_type == "message":
-            # error_flag True denotes no error found in the HTML
-            # error_flag False denotes error found in the HTML
-            error_flag = True
-            errors = net_info.get("errorMsg")
-            # errors will hold the error message
-            # it can be string or list
-            # by isinstance method we can detect that
-            # and handle the case for strings as normal procedure
-            # and if its list we can iterate the errors
-            if isinstance(errors, str):
-                # Checks if the error message is in the HTML
-                # if error is present we will set flag to False
-                if errors in r.text:
-                    error_flag = False
-            else:
-                # If it's list, it will iterate all the error message
-                for error in errors:
-                    if error in r.text:
-                        error_flag = False
-                        break
-            if error_flag:
-                query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
-        elif error_type == "status_code":
-            error_codes = net_info.get("errorCode")
-            query_status = QueryStatus.CLAIMED
-
-            # Type consistency, allowing for both singlets and lists in manifest
-            if isinstance(error_codes, int):
-                error_codes = [error_codes]
-
-            if error_codes is not None and r.status_code in error_codes:
-                query_status = QueryStatus.AVAILABLE
-            elif r.status_code >= 300 or r.status_code < 200:
-                query_status = QueryStatus.AVAILABLE
-        elif error_type == "response_url":
-            # For this detection method, we have turned off the redirect.
-            # So, there is no need to check the response URL: it will always
-            # match the request.  Instead, we will ensure that the response
-            # code indicates that the request was successful (i.e. no 404, or
-            # forward to some odd redirect).
-            if 200 <= r.status_code < 300:
-                query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
         else:
-            # It should be impossible to ever get here...
-            raise ValueError(
-                f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
-            )
+            if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
+                # It should be impossible to ever get here...
+                raise ValueError(
+                    f"Unknown Error Type '{error_type}' for "
+                    f"site '{social_network}'"
+                )
+
+            if "message" in error_type:
+                # error_flag True denotes no error found in the HTML
+                # error_flag False denotes error found in the HTML
+                error_flag = True
+                errors = net_info.get("errorMsg")
+                # errors will hold the error message
+                # it can be string or list
+                # by isinstance method we can detect that
+                # and handle the case for strings as normal procedure
+                # and if its list we can iterate the errors
+                if isinstance(errors, str):
+                    # Checks if the error message is in the HTML
+                    # if error is present we will set flag to False
+                    if errors in r.text:
+                        error_flag = False
+                else:
+                    # If it's list, it will iterate all the error message
+                    for error in errors:
+                        if error in r.text:
+                            error_flag = False
+                            break
+                if error_flag:
+                    query_status = QueryStatus.CLAIMED
+                else:
+                    query_status = QueryStatus.AVAILABLE
+
+            if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
+                error_codes = net_info.get("errorCode")
+                query_status = QueryStatus.CLAIMED
+
+                # Type consistency, allowing for both singlets and lists in manifest
+                if isinstance(error_codes, int):
+                    error_codes = [error_codes]
+
+                if error_codes is not None and r.status_code in error_codes:
+                    query_status = QueryStatus.AVAILABLE
+                elif r.status_code >= 300 or r.status_code < 200:
+                    query_status = QueryStatus.AVAILABLE
+
+            if "response_url" in error_type and query_status is not QueryStatus.AVAILABLE:
+                # For this detection method, we have turned off the redirect.
+                # So, there is no need to check the response URL: it will always
+                # match the request.  Instead, we will ensure that the response
+                # code indicates that the request was successful (i.e. no 404, or
+                # forward to some odd redirect).
+                if 200 <= r.status_code < 300:
+                    query_status = QueryStatus.CLAIMED
+                else:
+                    query_status = QueryStatus.AVAILABLE
 
         if dump_response:
             print("+++++++++++++++++++++")
