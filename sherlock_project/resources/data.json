@@ -2818,7 +2818,7 @@
     "username_claimed": "green"
   },
   "threads": {
-    "errorMsg": "<title>Threads</title>",
+    "errorMsg": "<title>Threads • Log in</title>",
     "errorType": "message",
     "headers": {
       "Sec-Fetch-Mode": "navigate"
