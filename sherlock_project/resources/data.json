@@ -492,12 +492,11 @@
     "username_claimed": "blue"
   },
   "Coders Rank": {
-    "errorMsg": "not a registered member",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
-    "url": "https://profile.codersrank.io/user/{}/",
-    "urlMain": "https://codersrank.io/",
-    "username_claimed": "rootkit7628"
+   "errorType": "There was an error loading the profile",
+  "errorCode": 404,
+  "url": "https://profile.codersrank.io/user/{}/",
+  "urlMain": "https://codersrank.io/",
+  "username_claimed": "rootkit7628"
   },
   "Coderwall": {
     "errorType": "status_code",
@@ -1288,10 +1287,11 @@
     "username_claimed": "blue"
   },
   "LessWrong": {
-    "errorType": "status_code",
-    "url": "https://www.lesswrong.com/users/@{}",
-    "urlMain": "https://www.lesswrong.com/",
-    "username_claimed": "blue"
+   "excluded": "returns empty response - cannot distinguish real from fake users",
+  "errorType": "status_code",
+  "url": "https://www.lesswrong.com/users/@{}",
+  "urlMain": "https://www.lesswrong.com/",
+  "username_claimed": "blue"
   },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
