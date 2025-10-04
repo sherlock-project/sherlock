@@ -756,7 +756,12 @@ def main():
         print(f"A problem occurred while checking for an update: {error}")
 
     # Argument check
-    # TODO regex check on args.proxy
+    if args.proxy is not None:
+        # Validate proxy URL format
+        proxy_pattern = r'^(https?|socks[45])://[^\s/$.?#].[^\s]*$'
+        if not re.match(proxy_pattern, args.proxy):
+            raise ValueError(f"Invalid proxy URL format: {args.proxy}. Expected format: protocol://host:port (e.g., socks5://127.0.0.1:1080)")
+    
     if args.tor and (args.proxy is not None):
         raise Exception("Tor and Proxy cannot be set at the same time.")
 
