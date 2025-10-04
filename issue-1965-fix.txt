@@ -1,0 +1,47 @@
+Step 1: Update Facebook errorMsg in site data
+If you maintain a local data.json, update the Facebook entry like this:
+
+
+data.json
+
+...
+"Facebook": {
+    "errorType": "message",
+    "errorMsg": "<meta name=\"description\" content=\"Log into Facebook to start sharing and connecting with your friends, family and people you know.\">",
+    "regexCheck": "^[a-zA-Z0-9\\.]{3,49}(?<!\\.com|\\.org|\\.net)$",
+    "url": "https://www.facebook.com/{}",
+    "urlMain": "https://www.facebook.com/",
+    "urlProbe": "https://www.facebook.com/{}/videos/",
+    "username_claimed": "hackerman",
+    "username_unclaimed": "noonewouldeverusethis7"
+},
+...
+
+
+If you use the remote manifest, you may need to patch this in your runtime logic.
+
+Step 2: Ensure errorMsg is checked in detection logic
+Your detection logic for "message" errorType is already set up to check for errorMsg in the HTML response. Confirm this in sherlock.py:
+
+# ...existing code...
+elif error_type == "message":
+    error_flag = True
+    errors = net_info.get("errorMsg")
+    if errors:
+        if isinstance(errors, str):
+            errors = [errors]
+        for error in errors:
+            if error in r.text:
+                error_flag = False
+                error_context = error
+                break
+    # ...existing code...
+# ...existing code...
+
+This code will now correctly detect non-existent Facebook profiles using the updated errorMsg.
+
+Summary:
+
+Update the Facebook entry in your site data to use the HTML snippet as errorMsg.
+The detection logic in sherlock.py will now correctly identify non-existent Facebook profiles.
+You can find the Facebook entry in your site data file (sherlock_project/resources/data.json), and the detection logic in sherlock.py.
