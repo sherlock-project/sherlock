@@ -1005,7 +1005,8 @@
     "username_claimed": "blazezaria"
   },
   "HackerEarth": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "__next_error__",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
     "username_claimed": "s_agnik1511"
