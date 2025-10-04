@@ -572,8 +572,7 @@
     "username_claimed": "brown"
   },
   "CyberDefenders": {
-    "errorMsg": "<title>Blue Team Training for SOC analysts and DFIR - CyberDefenders</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
     "request_method": "GET",
     "url": "https://cyberdefenders.org/p/{}",
