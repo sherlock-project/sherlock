@@ -1365,13 +1365,7 @@
     "urlMain": "https://lottiefiles.com/",
     "username_claimed": "lottiefiles"
   },
-  "LushStories": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.lushstories.com/profile/{}",
-    "urlMain": "https://www.lushstories.com/",
-    "username_claimed": "chris_brown"
-  },
+  
   "MMORPG Forum": {
     "errorType": "status_code",
     "url": "https://forums.mmorpg.com/profile/{}",
