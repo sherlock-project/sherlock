@@ -206,9 +206,15 @@ def sherlock(
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
+<<<<<<< HEAD
     # Create session using standard requests (Tor deprecated)
     underlying_session = requests.session()
     underlying_request = requests.Request()
+=======
+
+    # Normal requests
+    underlying_session = requests.session()
+>>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -332,13 +338,15 @@ def sherlock(
             # Store future in data for access later
             net_info["request_future"] = future
 
+<<<<<<< HEAD
             # Tor support removed; no per-request identity reset
 
+=======
+>>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
 
     # Open the file containing account links
-    # Core logic: If tor requests, make them here. If multi-threaded requests, wait for responses
     for social_network, net_info in site_data.items():
         # Retrieve results again
         results_site = results_total.get(social_network)
@@ -352,6 +360,8 @@ def sherlock(
 
         # Get the expected error type
         error_type = net_info["errorType"]
+        if isinstance(error_type, str):
+            error_type: list[str] = [error_type]
 
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
@@ -396,58 +406,60 @@ def sherlock(
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
 
-        elif error_type == "message":
-            # error_flag True denotes no error found in the HTML
-            # error_flag False denotes error found in the HTML
-            error_flag = True
-            errors = net_info.get("errorMsg")
-            # errors will hold the error message
-            # it can be string or list
-            # by isinstance method we can detect that
-            # and handle the case for strings as normal procedure
-            # and if its list we can iterate the errors
-            if isinstance(errors, str):
-                # Checks if the error message is in the HTML
-                # if error is present we will set flag to False
-                if errors in r.text:
-                    error_flag = False
-            else:
-                # If it's list, it will iterate all the error message
-                for error in errors:
-                    if error in r.text:
-                        error_flag = False
-                        break
-            if error_flag:
-                query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
-        elif error_type == "status_code":
-            error_codes = net_info.get("errorCode")
-            query_status = QueryStatus.CLAIMED
-
-            # Type consistency, allowing for both singlets and lists in manifest
-            if isinstance(error_codes, int):
-                error_codes = [error_codes]
-
-            if error_codes is not None and r.status_code in error_codes:
-                query_status = QueryStatus.AVAILABLE
-            elif r.status_code >= 300 or r.status_code < 200:
-                query_status = QueryStatus.AVAILABLE
-        elif error_type == "response_url":
-            # For this detection method, we have turned off the redirect.
-            # So, there is no need to check the response URL: it will always
-            # match the request.  Instead, we will ensure that the response
-            # code indicates that the request was successful (i.e. no 404, or
-            # forward to some odd redirect).
-            if 200 <= r.status_code < 300:
-                query_status = QueryStatus.CLAIMED
-            else:
-                query_status = QueryStatus.AVAILABLE
         else:
-            # It should be impossible to ever get here...
-            raise ValueError(
-                f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
-            )
+            if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
+                error_context = f"Unknown error type '{error_type}' for {social_network}"
+                query_status = QueryStatus.UNKNOWN
+            else:
+                if "message" in error_type:
+                    # error_flag True denotes no error found in the HTML
+                    # error_flag False denotes error found in the HTML
+                    error_flag = True
+                    errors = net_info.get("errorMsg")
+                    # errors will hold the error message
+                    # it can be string or list
+                    # by isinstance method we can detect that
+                    # and handle the case for strings as normal procedure
+                    # and if its list we can iterate the errors
+                    if isinstance(errors, str):
+                        # Checks if the error message is in the HTML
+                        # if error is present we will set flag to False
+                        if errors in r.text:
+                            error_flag = False
+                    else:
+                        # If it's list, it will iterate all the error message
+                        for error in errors:
+                            if error in r.text:
+                                error_flag = False
+                                break
+                    if error_flag:
+                        query_status = QueryStatus.CLAIMED
+                    else:
+                        query_status = QueryStatus.AVAILABLE
+
+                if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
+                    error_codes = net_info.get("errorCode")
+                    query_status = QueryStatus.CLAIMED
+
+                    # Type consistency, allowing for both singlets and lists in manifest
+                    if isinstance(error_codes, int):
+                        error_codes = [error_codes]
+
+                    if error_codes is not None and r.status_code in error_codes:
+                        query_status = QueryStatus.AVAILABLE
+                    elif r.status_code >= 300 or r.status_code < 200:
+                        query_status = QueryStatus.AVAILABLE
+
+                if "response_url" in error_type and query_status is not QueryStatus.AVAILABLE:
+                    # For this detection method, we have turned off the redirect.
+                    # So, there is no need to check the response URL: it will always
+                    # match the request.  Instead, we will ensure that the response
+                    # code indicates that the request was successful (i.e. no 404, or
+                    # forward to some odd redirect).
+                    if 200 <= r.status_code < 300:
+                        query_status = QueryStatus.CLAIMED
+                    else:
+                        query_status = QueryStatus.AVAILABLE
 
         if dump_response:
             print("+++++++++++++++++++++")
@@ -567,7 +579,10 @@ def main():
         dest="output",
         help="If using single username, the output of the result will be saved to this file.",
     )
+<<<<<<< HEAD
     # Tor options removed in 0.17.0
+=======
+>>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
     parser.add_argument(
         "--csv",
         action="store_true",
@@ -675,12 +690,22 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
+    # in future release
     parser.add_argument(
         "--no-txt",
         action="store_true",
         dest="no_txt",
         default=False,
-        help="Disable creation of a txt file",
+        help="Disable creation of a txt file - WILL BE DEPRECATED",
+    )
+
+    parser.add_argument(
+        "--txt",
+        action="store_true",
+        dest="output_txt",
+        default=False,
+        help="Enable creation of a txt file",
     )
 
     parser.add_argument(
@@ -698,7 +723,7 @@ def main():
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
-        latest_release_raw = requests.get(forge_api_latest_release).text
+        latest_release_raw = requests.get(forge_api_latest_release, timeout=10).text
         latest_release_json = json_loads(latest_release_raw)
         latest_remote_tag = latest_release_json["tag_name"]
 
@@ -724,8 +749,11 @@ def main():
     if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
 
+<<<<<<< HEAD
     # Tor messaging removed
 
+=======
+>>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
     if args.no_color:
         # Disable color output.
         init(strip=True, convert=False)
@@ -757,7 +785,7 @@ def main():
                 if args.json_file.isnumeric():
                     pull_number = args.json_file
                     pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{pull_number}"
-                    pull_request_raw = requests.get(pull_url).text
+                    pull_request_raw = requests.get(pull_url, timeout=10).text
                     pull_request_json = json_loads(pull_request_raw)
 
                     # Check if it's a valid pull request
@@ -841,7 +869,7 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        if not args.no_txt:
+        if args.output_txt:
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:

@@ -572,8 +572,7 @@
     "username_claimed": "brown"
   },
   "CyberDefenders": {
-    "errorMsg": "<title>Blue Team Training for SOC analysts and DFIR - CyberDefenders</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[^\\/:*?\"<>|@]{3,50}$",
     "request_method": "GET",
     "url": "https://cyberdefenders.org/p/{}",
@@ -1823,8 +1822,7 @@
     "username_claimed": "blue"
   },
   "Roblox": {
-    "errorMsg": "Page cannot be found or no longer exists",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.roblox.com/user.aspx?username={}",
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller"
@@ -1932,7 +1930,7 @@
   },
   "SlideShare": {
     "errorType": "message",
-    "errorMsg": "<title>Username available</title>",
+    "errorMsg": "<title>Page no longer exists</title>",
     "url": "https://slideshare.net/{}",
     "urlMain": "https://slideshare.net/",
     "username_claimed": "blue"
@@ -2820,7 +2818,7 @@
     "username_claimed": "green"
   },
   "threads": {
-    "errorMsg": "<title>Threads</title>",
+    "errorMsg": "<title>Threads • Log in</title>",
     "errorType": "message",
     "headers": {
       "Sec-Fetch-Mode": "navigate"
