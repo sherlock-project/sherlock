@@ -723,16 +723,6 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
-    # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
-    # in future release
-    parser.add_argument(
-        "--no-txt",
-        action="store_true",
-        dest="no_txt",
-        default=False,
-        help="Disable creation of a txt file - WILL BE DEPRECATED",
-    )
-
     parser.add_argument(
         "--txt",
         action="store_true",
