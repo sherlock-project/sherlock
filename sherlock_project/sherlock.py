@@ -206,15 +206,9 @@ def sherlock(
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-<<<<<<< HEAD
     # Create session using standard requests (Tor deprecated)
     underlying_session = requests.session()
     underlying_request = requests.Request()
-=======
-
-    # Normal requests
-    underlying_session = requests.session()
->>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
@@ -338,11 +332,7 @@ def sherlock(
             # Store future in data for access later
             net_info["request_future"] = future
 
-<<<<<<< HEAD
             # Tor support removed; no per-request identity reset
-
-=======
->>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
 
@@ -579,10 +569,7 @@ def main():
         dest="output",
         help="If using single username, the output of the result will be saved to this file.",
     )
-<<<<<<< HEAD
     # Tor options removed in 0.17.0
-=======
->>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
     parser.add_argument(
         "--csv",
         action="store_true",
@@ -749,11 +736,7 @@ def main():
     if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
 
-<<<<<<< HEAD
     # Tor messaging removed
-
-=======
->>>>>>> f38a2341d24411a2589c3a4ee9c251c2e42f97a2
     if args.no_color:
         # Disable color output.
         init(strip=True, convert=False)
