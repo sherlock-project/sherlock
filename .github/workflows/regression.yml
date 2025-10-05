@@ -11,6 +11,7 @@ on:
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
+      - 'Dockerfile'
   push:
     branches:
       - master
@@ -21,11 +22,13 @@ on:
       - '**/*.py'
       - '**/*.ini'
       - '**/*.toml'
+      - 'Dockerfile'
 
 jobs:
   tox-lint:
-    # Linting is ran through tox to ensure that the same linter is used by local runners
     runs-on: ubuntu-latest
+    # Linting is ran through tox to ensure that the same linter
+    # is used by local runners
     steps:
       - uses: actions/checkout@v4
       - name: Set up linting environment
@@ -41,7 +44,8 @@ jobs:
   tox-matrix:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false # We want to know what specicic versions it fails on
+      # We want to know what specicic versions it fails on
+      fail-fast: false
       matrix:
         os: [
           ubuntu-latest,
@@ -49,10 +53,10 @@ jobs:
           macos-latest,
         ]
         python-version: [
-          '3.9',
           '3.10',
           '3.11',
           '3.12',
+          '3.13',
         ]
     steps:
       - uses: actions/checkout@v4
@@ -67,3 +71,22 @@ jobs:
           pip install tox-gh-actions
       - name: Run tox
         run: tox
+  docker-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Get version from pyproject.toml
+        id: get-version
+        run: |
+          VERSION=$(grep -m1 'version = ' pyproject.toml | cut -d'"' -f2)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg VERSION_TAG=${{ steps.get-version.outputs.version }} \
+            -t sherlock-test:latest .
+      - name: Test Docker image runs
+        run: docker run --rm sherlock-test:latest --version
