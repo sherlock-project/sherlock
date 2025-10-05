@@ -1435,9 +1435,9 @@
   },
   "MuseScore": {
   "errorType": "status_code",
-  "url": "https://musescore.com/{}",
+  "url": "https://musescore.com/user/{}",
   "urlMain": "https://musescore.com/",
-  "username_claimed": "musescore"
+  "username_claimed": "arrangeme"
 },
   "MyAnimeList": {
     "errorType": "status_code",
