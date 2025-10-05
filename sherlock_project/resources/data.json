@@ -291,6 +291,14 @@
     "urlMain": "https://www.bookcrossing.com/",
     "username_claimed": "blue"
   },
+  "BoardGameGeek": {
+    "errorMsg": "\"isValid\":true",
+    "errorType": "message",
+    "url": "https://boardgamegeek.com/user/{}",
+    "urlMain": "https://boardgamegeek.com/",
+    "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
+    "username_claimed": "blue"
+  },
   "BraveCommunity": {
     "errorType": "status_code",
     "url": "https://community.brave.com/u/{}/",
