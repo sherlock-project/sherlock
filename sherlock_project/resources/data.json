@@ -494,6 +494,12 @@
     "urlProbe": "https://codeforces.com/api/user.info?handles={}",
     "username_claimed": "tourist"
   },
+  "Codementor": {
+    "errorType": "status_code",
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "username_claimed": "blue"
+  },
   "Codepen": {
     "errorType": "status_code",
     "url": "https://codepen.io/{}",
