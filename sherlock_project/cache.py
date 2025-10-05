@@ -5,7 +5,6 @@ This module handles SQLite-based caching for username lookup results.
 """
 
 import sqlite3
-import json
 import time
 from pathlib import Path
 from typing import Optional, Dict, Any
