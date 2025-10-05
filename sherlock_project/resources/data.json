@@ -1435,7 +1435,7 @@
   },
   "MuseScore": {
   "errorType": "status_code",
-  "url": "https://musescore.com/user/{}",
+  "url": "https://musescore.com/{}",
   "urlMain": "https://musescore.com/",
   "username_claimed": "arrangeme"
 },
