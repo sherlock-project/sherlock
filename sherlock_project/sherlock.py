@@ -723,12 +723,22 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
+    # in future release
     parser.add_argument(
         "--no-txt",
         action="store_true",
         dest="no_txt",
         default=False,
-        help="Disable creation of a txt file",
+        help="Disable creation of a txt file - WILL BE DEPRECATED",
+    )
+
+    parser.add_argument(
+        "--txt",
+        action="store_true",
+        dest="output_txt",
+        default=False,
+        help="Enable creation of a txt file",
     )
 
     parser.add_argument(
@@ -892,7 +902,7 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        if not args.no_txt:
+        if args.output_txt:
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:
