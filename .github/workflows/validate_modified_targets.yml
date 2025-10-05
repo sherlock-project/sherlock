@@ -17,8 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          # This is the original, secure checkout of the base branch.
+          # Checkout the base branch but fetch all history to avoid a second fetch call
           ref: ${{ github.base_ref }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -36,22 +37,20 @@ jobs:
 
       - name: Prepare JSON versions for comparison
         run: |
-          # Fetch the PR's branch head and give it a local name 'pr'
+          # Fetch only the PR's branch head (single network call in this step)
           git fetch origin pull/${{ github.event.pull_request.number }}/head:pr
 
-          # The initial checkout may be shallow. To find a merge-base,
-          # we need more history. We can 'unshallow' the repository if needed.
-          git fetch --unshallow || true
-
-          # Find the merge-base commit between the target branch (master) and the PR branch (pr)
+          # Find the merge-base commit between the target branch and the PR branch
           MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} pr)
           echo "Comparing PR head against merge-base commit: $MERGE_BASE"
 
-          # Safely extract the version of the file from the PR's head without checking it out
+          # Safely extract the file from the PR's head and the merge-base commit
           git show pr:sherlock_project/resources/data.json > data.json.head
-
-          # Safely extract the version of the file from the merge-base commit
           git show $MERGE_BASE:sherlock_project/resources/data.json > data.json.base
+
+          # CRITICAL FIX: Overwrite the checked-out data.json with the one from the PR
+          # This ensures that pytest runs against the new, updated file.
+          cp data.json.head sherlock_project/resources/data.json
 
       - name: Discover modified targets
         id: discover-modified
@@ -82,6 +81,8 @@ jobs:
           # Preserve changelist
           echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
           echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      # --- The rest of the steps below are unchanged ---
 
       - name: Validate modified targets
         if: steps.discover-modified.outputs.changed_targets != ''
