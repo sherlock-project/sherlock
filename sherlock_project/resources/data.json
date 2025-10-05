@@ -1433,6 +1433,12 @@
     "urlMain": "https://www.motorradfrage.net/",
     "username_claimed": "gutefrage"
   },
+  "MuseScore": {
+  "errorType": "status_code",
+  "url": "https://musescore.com/{}",
+  "urlMain": "https://musescore.com/",
+  "username_claimed": "musescore"
+},
   "MyAnimeList": {
     "errorType": "status_code",
     "url": "https://myanimelist.net/profile/{}",
