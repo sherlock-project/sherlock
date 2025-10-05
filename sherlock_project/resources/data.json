@@ -259,7 +259,8 @@
     "username_claimed": "blue"
   },
   "Blitz Tactics": {
-    "errorType": "status_code",
+    "errorMsg": "That page doesn't exist",
+    "errorType": "message",
     "url": "https://blitztactics.com/{}",
     "urlMain": "https://blitztactics.com/",
     "username_claimed": "Lance5500"
@@ -278,6 +279,7 @@
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
   },
+
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
