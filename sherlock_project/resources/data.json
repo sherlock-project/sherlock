@@ -2880,7 +2880,7 @@
     "username_claimed": "freddier",
     "request_method": "GET"
   },
-   "BabyRu": {
+ "BabyRu": {
     "url": "https://www.baby.ru/u/{}",
     "urlMain": "https://www.baby.ru/",
     "errorType": "message",
@@ -2888,7 +2888,8 @@
         "Страница, которую вы искали, не найдена",
         "Доступ с вашего IP-адреса временно ограничен"
     ],
-    "regexCheck": false
+    "regexCheck": false,
+    "username_claimed": null
 }
 
 }
