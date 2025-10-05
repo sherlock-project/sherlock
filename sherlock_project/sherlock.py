@@ -176,6 +176,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    max_workers: Optional[int] = None,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -193,6 +194,9 @@ def sherlock(
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
+    max_workers            -- Integer indicating maximum number of concurrent workers.
+                              Default is None (uses automatic logic: 20 for large site lists,
+                              or number of sites if less than 20).
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -237,16 +241,20 @@ def sherlock(
         underlying_session = requests.session()
         underlying_request = requests.Request()
 
-    # Limit number of workers to 20.
-    # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
+    # Set number of workers based on user preference or default logic
+    if max_workers is not None:
+        # User specified max workers, use it (already validated by argument parser)
+        workers_count = max_workers
+    elif len(site_data) >= 20:
+        # Default behavior: limit to 20 workers for large site lists
+        workers_count = 20
     else:
-        max_workers = len(site_data)
+        # Use number of sites if less than 20
+        workers_count = len(site_data)
 
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(
-        max_workers=max_workers, session=underlying_session
+        max_workers=workers_count, session=underlying_session
     )
 
     # Results from analysis of all sites
@@ -555,6 +563,34 @@ def timeout_check(value):
     return float_value
 
 
+def max_workers_check(value):
+    """Check Max Workers Argument.
+
+    Validates max workers value for concurrent requests.
+
+    Keyword Arguments:
+    value                  -- Integer indicating maximum number of workers.
+
+    Return Value:
+    Integer representing the validated max workers value.
+
+    NOTE:  Will raise an exception if the max workers value is invalid.
+    """
+    int_value = int(value)
+
+    if int_value <= 0:
+        raise ArgumentTypeError(
+            f"Invalid max workers value: {value}. Max workers must be a positive integer."
+        )
+
+    if int_value > 100:
+        raise ArgumentTypeError(
+            f"Invalid max workers value: {value}. Max workers cannot exceed 100 to prevent overwhelming target servers."
+        )
+
+    return int_value
+
+
 def handler(signal_received, frame):
     """Exit gracefully without throwing errors
 
@@ -735,6 +771,15 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--max-workers",
+        action="store",
+        dest="max_workers",
+        type=max_workers_check,
+        default=None,
+        help="Maximum number of concurrent workers for requests (default: 20, or number of sites if less than 20)",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -876,6 +921,7 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            max_workers=args.max_workers,
         )
 
         if args.output:
