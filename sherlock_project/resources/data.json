@@ -2889,7 +2889,7 @@
         "Доступ с вашего IP-адреса временно ограничен"
     ],
     "regexCheck": false,
-    "username_claimed": null
+    "username_claimed": "example"
 }
 
 }
