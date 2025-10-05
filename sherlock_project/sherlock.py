@@ -21,6 +21,7 @@ import signal
 import pandas as pd
 import os
 import re
+import random
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
@@ -43,6 +44,38 @@ from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+
+# Modern user-agent strings for better compatibility and detection avoidance
+DEFAULT_USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0",
+]
+
+
+def get_user_agent(custom_user_agent: Optional[str] = None, rotate: bool = False) -> str:
+    """Get user agent string for requests.
+    
+    Keyword Arguments:
+    custom_user_agent    -- Custom user agent string to use (if provided)
+    rotate              -- Whether to randomly rotate between default user agents
+    
+    Return Value:
+    String containing the user agent to use for requests.
+    """
+    if custom_user_agent:
+        return custom_user_agent
+    
+    if rotate:
+        return random.choice(DEFAULT_USER_AGENTS)
+    
+    # Return the first (most common) user agent by default
+    return DEFAULT_USER_AGENTS[0]
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -176,6 +209,8 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    user_agent: Optional[str] = None,
+    rotate_user_agent: bool = False,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -193,6 +228,10 @@ def sherlock(
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
+    user_agent             -- String indicating custom user agent to use for requests.
+                              Default is None (uses default modern user agent).
+    rotate_user_agent      -- Boolean indicating whether to rotate between different
+                              user agents for each request. Default is False.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -262,7 +301,7 @@ def sherlock(
         # A user agent is needed because some sites don't return the correct
         # information since they think that we are bots (Which we actually are...)
         headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
+            "User-Agent": get_user_agent(user_agent, rotate_user_agent),
         }
 
         if "headers" in net_info:
@@ -735,6 +774,22 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--user-agent",
+        action="store",
+        dest="user_agent",
+        default=None,
+        help="Custom user agent string to use for requests",
+    )
+
+    parser.add_argument(
+        "--rotate-user-agent",
+        action="store_true",
+        dest="rotate_user_agent",
+        default=False,
+        help="Rotate between different user agents for each request to avoid detection",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -876,6 +931,8 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            user_agent=args.user_agent,
+            rotate_user_agent=args.rotate_user_agent,
         )
 
         if args.output:
