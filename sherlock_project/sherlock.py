@@ -25,6 +25,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
+from sherlock_project.cache import SherlockCache
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -174,6 +175,9 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    use_cache=True,  
+    force_check=False,
+    cache_duration=86400,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -204,6 +208,14 @@ def sherlock(
                        there was an HTTP error when checking for existence.
     """
 
+    """Run Sherlock Analysis with caching support."""
+    
+    # Initialize cache if enabled
+    cache = None
+    if use_cache:
+        cache = SherlockCache(cache_duration=cache_duration)
+        cache.cleanup_expired()  # Clean up old entries
+
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
@@ -229,6 +241,30 @@ def sherlock(
     for social_network, net_info in site_data.items():
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
+
+        # Check cache first (if enabled and not forcing check)
+        if cache and not force_check:
+            cached_result = cache.get(username, social_network)
+            if cached_result:
+                # Use cached result
+                result = QueryResult(
+                    username=username,
+                    site_name=social_network,
+                    site_url_user=cached_result.get('url'),
+                    status=cached_result['status'],
+                    query_time=0,  # Cached, no query time
+                    context="Cached result"
+                )
+                query_notify.update(result)
+                
+                # Save status of request
+                results_site["status"] = result
+                results_site["http_status"] = "cached"
+                results_site["response_text"] = None
+                
+                # Save this site's results into final dictionary
+                results_total[social_network] = results_site
+                continue
 
         # Record URL of main site
 
@@ -489,6 +525,15 @@ def sherlock(
         )
         query_notify.update(result)
 
+        # Cache the result if enabled
+        if cache and result.status in [QueryStatus.CLAIMED, QueryStatus.AVAILABLE]:
+            cache.set(
+                username=username,
+                site=social_network,
+                status=result.status,
+                url=result.site_url_user if result.status == QueryStatus.CLAIMED else None
+            )
+
         # Save status of request
         results_site["status"] = result
 
@@ -675,6 +720,31 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--no-cache",
+        action="store_true",
+        dest="no_cache",
+        default=False,
+        help="Disable caching of results (don't read or write cache)",
+    )
+    
+    parser.add_argument(
+        "--force-check",
+        action="store_true",
+        dest="force_check",
+        default=False,
+        help="Ignore cached results and force fresh checks for all sites",
+    )
+    
+    parser.add_argument(
+        "--cache-duration",
+        action="store",
+        type=int,
+        dest="cache_duration",
+        default=86400,
+        help="Cache duration in seconds (default: 86400 = 24 hours)",
+    )
+
     # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
     # in future release
     parser.add_argument(
@@ -828,6 +898,9 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            use_cache=not args.no_cache,
+            force_check=args.force_check,
+            cache_duration=args.cache_duration,
         )
 
         if args.output:

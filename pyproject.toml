@@ -62,3 +62,4 @@ defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
+sherlock-cache = "sherlock_project.cache_cli:main"
