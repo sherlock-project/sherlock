@@ -2320,6 +2320,12 @@
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano"
   },
+  "Wakatime": {
+    "errorType": "status_code",
+    "url": "https://wakatime.com/@{}",
+    "urlMain": "https://wakatime.com/",
+    "username_claimed": "blue"
+  },
   "Warrior Forum": {
     "errorType": "status_code",
     "url": "https://www.warriorforum.com/members/{}.html",
