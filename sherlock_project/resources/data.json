@@ -2880,5 +2880,17 @@
     "urlMain": "https://platzi.com/",
     "username_claimed": "freddier",
     "request_method": "GET"
+  },
+  "Coomer (OnlyFans)": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://coomer.st/onlyfans/user/{}",
+    "urlMain": "https://coomer.st/",
+    "urlProbe": "https://coomer.st/api/v1/onlyfans/user/{}/profile",
+    "headers": {
+      "Accept": "text/css"
+    },
+    "username_claimed": "belledelphine",
+    "__comment__": "username_unclaimed was excluded due to schema validation failure (Additional properties not allowed)"
   }
 }
