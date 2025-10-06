@@ -2890,7 +2890,6 @@
     "headers": {
       "Accept": "text/css"
     },
-    "username_claimed": "belledelphine",
-    "__comment__": "username_unclaimed was excluded due to schema validation failure (Additional properties not allowed)"
+    "username_claimed": "belledelphine"
   }
 }
