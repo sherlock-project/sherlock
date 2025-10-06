@@ -1069,7 +1069,6 @@
   "Hive Blog": {
     "errorMsg": "<title>User Not Found - Hive</title>",
     "errorType": "message",
-    "isNSFW": true,
     "url": "https://hive.blog/@{}",
     "urlMain": "https://hive.blog/",
     "username_claimed": "mango-juice"
