@@ -1,10 +1,12 @@
 APClips
-BoardGameGeek
+Coders Rank
 DeviantArt
 GNOME VCS
 Giphy
 HackerEarth
+HackerRank
 Heavy-R
+LiveJournal
 LushStories
 PepperIT
 PocketStars
