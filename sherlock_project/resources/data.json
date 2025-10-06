@@ -510,6 +510,7 @@
   "Code Sandbox": {
     "errorType": "message",
     "errorMsg": "Not Found",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
     "url": "https://codesandbox.io/u/{}",
     "urlMain": "https://codesandbox.io",
     "username_claimed": "icyjoseph"
