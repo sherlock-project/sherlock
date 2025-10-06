@@ -55,7 +55,6 @@ jsonschema = "^4.0.0"
 rstr = "^3.2.2"
 pytest = "^8.4.2"
 pytest-xdist = "^3.8.0"
-tox = "^4.30.3"
 
 
 [tool.poetry.group.ci.dependencies]
