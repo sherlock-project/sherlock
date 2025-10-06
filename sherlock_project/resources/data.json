@@ -1741,6 +1741,12 @@
     "urlMain": "http://promodj.com/",
     "username_claimed": "blue"
   },
+  "Pronouns.page": {
+    "errorType": "status_code",
+    "url": "https://pronouns.page/@{}",
+    "urlMain": "https://pronouns.page/",
+    "username_claimed": "andrea"
+  },
   "PyPi": {
     "errorType": "status_code",
     "url": "https://pypi.org/user/{}",
