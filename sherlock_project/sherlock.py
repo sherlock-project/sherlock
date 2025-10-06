@@ -208,7 +208,6 @@ def sherlock(
     query_notify.start(username)
     # Create session using standard requests (Tor deprecated)
     underlying_session = requests.session()
-    underlying_request = requests.Request()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
