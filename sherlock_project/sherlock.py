@@ -377,24 +377,8 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
-        # As WAFs advance and evolve, they will occasionally block Sherlock and
-        # lead to false positives and negatives. Fingerprints should be added
-        # here to filter results that fail to bypass WAFs. Fingerprints should
-        # be highly targetted. Comment at the end of each fingerprint to
-        # indicate target and date fingerprinted.
-        WAFHitMsgs = [
-            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
-            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
-        ]
-
         if error_text is not None:
             error_context = error_text
-
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
-            query_status = QueryStatus.WAF
-
         else:
             if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
                 error_context = f"Unknown error type '{error_type}' for {social_network}"
@@ -449,6 +433,27 @@ def sherlock(
                         query_status = QueryStatus.CLAIMED
                     else:
                         query_status = QueryStatus.AVAILABLE
+
+        # As WAFs advance and evolve, they will occasionally block Sherlock and
+        # lead to false positives and negatives. Fingerprints should be added
+        # here to filter results that fail to bypass WAFs. Fingerprints should
+        # be highly targetted. Comment at the end of each fingerprint to
+        # indicate target and date fingerprinted.
+        WAFHitMsgs = [
+            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark',  # 2024-05-13 Cloudflare
+            r'<span id="challenge-error-text">',  # 2024-11-11 Cloudflare error page
+            r'AwsWafIntegration.forceRefreshToken',  # 2024-11-11 Cloudfront (AWS)
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:',  # 2024-04-09 PerimeterX / Human Security
+        ]
+
+        # Only override with WAF if we didn't confidently detect a claim
+        if query_status in (QueryStatus.AVAILABLE, QueryStatus.UNKNOWN):
+            try:
+                if any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+                    query_status = QueryStatus.WAF
+            except Exception:
+                # If response text isn't accessible, keep prior status
+                pass
 
         if dump_response:
             print("+++++++++++++++++++++")
