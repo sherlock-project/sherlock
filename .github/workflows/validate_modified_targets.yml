@@ -60,7 +60,7 @@ jobs:
             python - <<'EOF'
           import json
           import sys
-          from jsonschema import validate
+          from jsonschema import validate, SchemaError, ValidationError
           try:
               with open("data.json.base") as f: base = json.load(f)
               with open("data.schema.json.base") as f: schema = json.load(f)
