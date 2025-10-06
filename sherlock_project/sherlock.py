@@ -25,7 +25,6 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
-from sherlock_project.cache import SherlockCache
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -42,6 +41,7 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
+from sherlock_project.cache import SherlockCache
 from colorama import init
 from argparse import ArgumentTypeError
 

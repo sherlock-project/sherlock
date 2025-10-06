@@ -1,74 +1,364 @@
-"""Tests for cache functionality."""
+"""Tests for cache functionality using mocks."""
 
-import pytest
 import time
+import unittest
+from pathlib import Path
+from unittest.mock import MagicMock, Mock, patch
+
 from sherlock_project.cache import SherlockCache
 from sherlock_project.result import QueryStatus
 
 
-@pytest.fixture
-def cache(tmp_path):
-    """Create temporary cache for testing."""
-    cache_path = str(tmp_path / "test_cache.db")
-    return SherlockCache(cache_path=cache_path, cache_duration=2)
-
-
-def test_cache_set_and_get(cache):
-    """Test basic cache set and get operations."""
-    cache.set("testuser", "GitHub", QueryStatus.CLAIMED, "https://github.com/testuser")
+class TestCacheInitialization(unittest.TestCase):
+    """Test cache initialization and security."""
     
-    result = cache.get("testuser", "GitHub")
-    assert result is not None
-    assert result['status'] == QueryStatus.CLAIMED
-    assert result['url'] == "https://github.com/testuser"
+    @patch('sherlock_project.cache.Path.mkdir')
+    @patch('sherlock_project.cache.sqlite3')
+    @patch('sherlock_project.cache.Path.home')
+    def test_init_creates_database(
+        self,
+        mock_home: Mock,
+        mock_sqlite: Mock,
+        mock_mkdir: Mock
+    ) -> None:
+        """Test database initialization."""
+        mock_home.return_value = Path("/home/user")
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache()
+        
+        assert cache is not None
 
-
-def test_cache_expiration(cache):
-    """Test that cache entries expire correctly."""
-    cache.set("testuser", "GitHub", QueryStatus.CLAIMED, "https://github.com/testuser")
+        # Verify database operations
+        assert mock_cursor.execute.call_count >= 2
+        calls = [str(call) for call in mock_cursor.execute.call_args_list]
+        assert any('CREATE TABLE' in str(call) for call in calls)
+        assert any('CREATE INDEX' in str(call) for call in calls)
     
-    # Should be cached
-    result = cache.get("testuser", "GitHub")
-    assert result is not None
+    def test_init_rejects_negative_duration(self) -> None:
+        """Test cache_duration validation."""
+        with self.assertRaises(ValueError) as cm:
+            SherlockCache(cache_duration=0)
+        self.assertIn("positive", str(cm.exception))
+        
+        with self.assertRaises(ValueError) as cm:
+            SherlockCache(cache_duration=-100)
+        self.assertIn("positive", str(cm.exception))
     
-    # Wait for expiration (cache_duration is 2 seconds)
-    time.sleep(3)
-    
-    # Should be expired
-    result = cache.get("testuser", "GitHub")
-    assert result is None
+    @patch('sherlock_project.cache.Path.home')
+    def test_init_prevents_path_traversal(self, mock_home: Mock) -> None:
+        """Test path traversal attack prevention."""
+        mock_home.return_value = Path("/home/user")
+        
+        # Attempt path traversal
+        with self.assertRaises(ValueError) as cm:
+            SherlockCache(cache_path="/etc/passwd")
+        self.assertIn("must be within", str(cm.exception))
+        
+        with self.assertRaises(ValueError) as cm:
+            SherlockCache(cache_path="../../../etc/passwd")
+        self.assertIn("must be within", str(cm.exception))
 
 
-def test_cache_clear_all(cache):
-    """Test clearing entire cache."""
-    cache.set("user1", "GitHub", QueryStatus.CLAIMED, "https://github.com/user1")
-    cache.set("user2", "Twitter", QueryStatus.AVAILABLE, None)
+@patch('sherlock_project.cache.sqlite3')
+@patch('sherlock_project.cache.Path.mkdir')
+@patch('sherlock_project.cache.Path.home')
+class TestCacheOperations(unittest.TestCase):
+    """Test cache get/set operations."""
     
-    cache.clear()
+    def test_set_uses_parameterized_query(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test SQL injection protection via parameterized queries."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        cache.set("testuser", "GitHub", QueryStatus.CLAIMED, "https://github.com/testuser")
+        
+        # Verify parameterized query was used (prevents SQL injection)
+        call_args = mock_cursor.execute.call_args
+        self.assertIn("INSERT OR REPLACE", call_args[0][0])
+        self.assertEqual(
+            call_args[0][1][:4],
+            ("testuser", "GitHub", "CLAIMED", "https://github.com/testuser")
+        )
     
-    assert cache.get("user1", "GitHub") is None
-    assert cache.get("user2", "Twitter") is None
+    def test_set_rejects_control_characters(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test rejection of control characters in username."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        
+        # Test various control characters
+        with self.assertRaises(ValueError) as cm:
+            cache.set("user\x00name", "GitHub", QueryStatus.CLAIMED, "https://example.com")
+        self.assertIn("null byte", str(cm.exception))
+        
+        with self.assertRaises(ValueError) as cm:
+            cache.set("user\x01name", "GitHub", QueryStatus.CLAIMED, "https://example.com")
+        self.assertIn("control characters", str(cm.exception))
+    
+    def test_set_rejects_null_bytes(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test null byte rejection."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        
+        with self.assertRaises(ValueError) as cm:
+            cache.set("user\x00injection", "GitHub", QueryStatus.CLAIMED, "https://example.com")
+        self.assertIn("null byte", str(cm.exception))
+    
+    def test_set_validates_url_length(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test URL length validation."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        
+        long_url = "https://example.com/" + ("a" * 3000)
+        
+        with self.assertRaises(ValueError) as cm:
+            cache.set("user", "Site", QueryStatus.CLAIMED, long_url)
+        self.assertIn("maximum length", str(cm.exception))
+    
+    def test_get_uses_parameterized_query(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test SQL injection protection in get() via parameterized queries."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        current_time = int(time.time())
+        mock_cursor.fetchone.return_value = (
+            "CLAIMED",
+            "https://github.com/testuser",
+            current_time,
+            86400
+        )
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        result = cache.get("testuser", "GitHub")
+        
+        assert result is not None
+
+        # Verify parameterized query (prevents SQL injection)
+        call_args = mock_cursor.execute.call_args
+        self.assertIn("SELECT", call_args[0][0])
+        self.assertIn("WHERE username = ? AND site = ?", call_args[0][0])
+        self.assertEqual(call_args[0][1], ("testuser", "GitHub"))
+    
+    def test_get_returns_none_for_expired(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test expired entries return None."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        old_timestamp = int(time.time()) - (2 * 86400)
+        mock_cursor.fetchone.return_value = (
+            "CLAIMED",
+            "https://github.com/testuser",
+            old_timestamp,
+            86400
+        )
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        result = cache.get("testuser", "GitHub")
+        
+        self.assertIsNone(result)
+    
+    def test_get_returns_valid_entry(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test valid entry is returned correctly."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        current_time = int(time.time())
+        mock_cursor.fetchone.return_value = (
+            "CLAIMED",
+            "https://github.com/testuser",
+            current_time - 1000,
+            86400
+        )
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache(cache_duration=86400)
+        result = cache.get("testuser", "GitHub")
+        
+        self.assertIsNotNone(result)
+        self.assertEqual(result['status'], QueryStatus.CLAIMED)
+        self.assertEqual(result['url'], "https://github.com/testuser")
 
 
-def test_cache_clear_username(cache):
-    """Test clearing cache for specific username."""
-    cache.set("user1", "GitHub", QueryStatus.CLAIMED, "https://github.com/user1")
-    cache.set("user1", "Twitter", QueryStatus.AVAILABLE, None)
-    cache.set("user2", "GitHub", QueryStatus.CLAIMED, "https://github.com/user2")
+@patch('sherlock_project.cache.sqlite3')
+@patch('sherlock_project.cache.Path.mkdir')
+@patch('sherlock_project.cache.Path.home')
+class TestCacheClear(unittest.TestCase):
+    """Test cache clearing functionality."""
     
-    cache.clear(username="user1")
+    def test_clear_all(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test clearing entire cache."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache()
+        cache.clear()
+        
+        call_args = mock_cursor.execute.call_args
+        self.assertEqual(call_args[0][0], 'DELETE FROM results')
     
-    assert cache.get("user1", "GitHub") is None
-    assert cache.get("user1", "Twitter") is None
-    assert cache.get("user2", "GitHub") is not None
+    def test_clear_by_username(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test clearing by username."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache()
+        cache.clear(username="testuser")
+        
+        call_args = mock_cursor.execute.call_args
+        self.assertIn("WHERE username = ?", call_args[0][0])
+        self.assertEqual(call_args[0][1], ("testuser",))
+    
+    def test_clear_validates_input(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test input validation in clear()."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache()
+        
+        with self.assertRaises(ValueError):
+            cache.clear(username="user\x00injection")
 
 
-def test_cache_stats(cache):
+@patch('sherlock_project.cache.sqlite3')
+@patch('sherlock_project.cache.Path.mkdir')
+@patch('sherlock_project.cache.Path.home')
+class TestCacheStats(unittest.TestCase):
     """Test cache statistics."""
-    cache.set("user1", "GitHub", QueryStatus.CLAIMED, "https://github.com/user1")
-    cache.set("user2", "Twitter", QueryStatus.AVAILABLE, None)
     
-    stats = cache.get_stats()
-    assert stats['total_entries'] == 2
-    assert stats['valid_entries'] == 2
-    assert stats['expired_entries'] == 0
+    def test_stats_calculation(
+        self,
+        mock_home: Mock,
+        mock_mkdir: Mock,
+        mock_sqlite: Mock
+    ) -> None:
+        """Test statistics calculation."""
+        mock_home.return_value = Path("/home/user")
+        
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_cursor.fetchone.side_effect = [(10,), (7,)]
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.__exit__.return_value = None
+        mock_sqlite.connect.return_value = mock_conn
+        
+        cache = SherlockCache()
+        stats = cache.get_stats()
+        
+        self.assertEqual(stats['total_entries'], 10)
+        self.assertEqual(stats['valid_entries'], 7)
+        self.assertEqual(stats['expired_entries'], 3)
+        self.assertIn('cache_path', stats)
