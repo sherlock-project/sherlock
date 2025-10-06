@@ -74,10 +74,10 @@ jobs:
               print(f"Error: Could not decode JSON from a file - {e}", file=sys.stderr)
               sys.exit(1)
           except jsonschema.exceptions.SchemaError  as e:
-              print(f"Error: Could not locate valid JSON schema for data.json - {e}", file=sys.stderr)
+              print(f"Error: Could not locate local JSON schema for validation - {e}", file=sys.stderr)
               sys.exit(1)
           except jsonschema.exceptions.ValidationError  as e:
-              print(f"Error: Could not validate JSON against schema - {e}", file=sys.stderr)
+              print(f"Error: Could not validate remote manifest against local schema - {e}", file=sys.stderr)
               sys.exit(1)
 
           changed = []
