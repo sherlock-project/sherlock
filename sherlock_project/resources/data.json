@@ -259,7 +259,8 @@
     "username_claimed": "blue"
   },
   "Blitz Tactics": {
-    "errorType": "status_code",
+    "errorMsg": "That page doesn't exist",
+    "errorType": "message",
     "url": "https://blitztactics.com/{}",
     "urlMain": "https://blitztactics.com/",
     "username_claimed": "Lance5500"
@@ -278,14 +279,7 @@
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
   },
-  "BoardGameGeek": {
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]*$",
-    "errorMsg": "User not found",
-    "url": "https://boardgamegeek.com/user/{}",
-    "urlMain": "https://boardgamegeek.com",
-    "username_claimed": "blue"
-  },
+
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -297,6 +291,14 @@
     "errorType": "status_code",
     "url": "https://www.bookcrossing.com/mybookshelf/{}/",
     "urlMain": "https://www.bookcrossing.com/",
+    "username_claimed": "blue"
+  },
+  "BoardGameGeek": {
+    "errorMsg": "\"isValid\":true",
+    "errorType": "message",
+    "url": "https://boardgamegeek.com/user/{}",
+    "urlMain": "https://boardgamegeek.com/",
+    "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
     "username_claimed": "blue"
   },
   "BraveCommunity": {
@@ -1739,6 +1741,12 @@
     "urlMain": "http://promodj.com/",
     "username_claimed": "blue"
   },
+  "Pronouns.page": {
+    "errorType": "status_code",
+    "url": "https://pronouns.page/@{}",
+    "urlMain": "https://pronouns.page/",
+    "username_claimed": "andrea"
+  },
   "PyPi": {
     "errorType": "status_code",
     "url": "https://pypi.org/user/{}",
@@ -2320,6 +2328,12 @@
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano"
   },
+  "Wakatime": {
+    "errorType": "status_code",
+    "url": "https://wakatime.com/@{}",
+    "urlMain": "https://wakatime.com/",
+    "username_claimed": "blue"
+  },
   "Warrior Forum": {
     "errorType": "status_code",
     "url": "https://www.warriorforum.com/members/{}.html",
@@ -2864,13 +2878,6 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
-  },
-  "Bluesky": {
-    "errorType": "status_code",
-    "url": "https://bsky.app/profile/{}.bsky.social",
-    "urlProbe": "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={}.bsky.social",
-    "urlMain": "https://bsky.app/",
-    "username_claimed": "mcuban"
   },
   "Platzi": {
     "errorType": "status_code",
