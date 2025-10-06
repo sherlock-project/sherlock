@@ -548,6 +548,13 @@
     "urlMain": "https://coroflot.com/",
     "username_claimed": "blue"
   },
+  "Cplusplus": {
+    "errorType": "message",
+    "errorMsg": "<title>404 Page Not Found</title>",
+    "url": "https://cplusplus.com/user/{}",
+    "urlMain": "https://cplusplus.com",
+    "username_claimed": "mbozzi"
+  },
   "Cracked": {
     "errorType": "response_url",
     "errorUrl": "https://www.cracked.com/",
@@ -1234,6 +1241,13 @@
     "urlMain": "https://discourse.joplinapp.org/",
     "username_claimed": "laurent"
   },
+  "Jupyter Community Forum": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discourse.jupyter.org/u/{}/summary",
+    "urlMain": "https://discourse.jupyter.org",
+    "username_claimed": "choldgraf"
+  },
   "Kaggle": {
     "errorType": "status_code",
     "url": "https://www.kaggle.com/{}",
@@ -1769,6 +1783,13 @@
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
   },
+  "Python.org Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.python.org/u/{}/summary",
+    "urlMain": "https://discuss.python.org",
+    "username_claimed": "pablogsal"
+  },
   "Rajce.net": {
     "errorType": "status_code",
     "regexCheck": "^[\\w@-]+?$",
@@ -1863,6 +1884,13 @@
     "url": "https://royalcams.com/profile/{}",
     "urlMain": "https://royalcams.com",
     "username_claimed": "asuna-black"
+  },
+  "Ruby Forums": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://ruby-forum.com/u/{}/summary",
+    "urlMain": "https://ruby-forums.com",
+    "username_claimed": "rishard"
   },
   "RubyGems": {
     "errorType": "status_code",
@@ -2267,6 +2295,13 @@
     "url": "https://untappd.com/user/{}",
     "urlMain": "https://untappd.com/",
     "username_claimed": "untappd"
+  },
+  "Valorant Forums": {
+    "errorMsg": "The page you requested could not be found.",
+    "errorType": "message",
+    "url": "https://valorantforums.com/u/{}",
+    "urlMain": "https://valorantforums.com",
+    "username_claimed": "Wolves"
   },
   "VK": {
     "errorType": "response_url",
