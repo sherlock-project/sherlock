@@ -507,6 +507,15 @@
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
   },
+  "Code Sandbox": {
+    "errorType": "message",
+    "errorMsg": "Could not find user with username",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
+    "url": "https://codesandbox.io/u/{}",
+    "urlProbe": "https://codesandbox.io/api/v1/users/{}",
+    "urlMain": "https://codesandbox.io",
+    "username_claimed": "icyjoseph"
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
@@ -685,7 +694,6 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
-
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -1057,6 +1065,13 @@
     "url": "https://www.heavy-r.com/user/{}",
     "urlMain": "https://www.heavy-r.com/",
     "username_claimed": "kilroy222"
+  },
+  "Hive Blog": {
+    "errorMsg": "<title>User Not Found - Hive</title>",
+    "errorType": "message",
+    "url": "https://hive.blog/@{}",
+    "urlMain": "https://hive.blog/",
+    "username_claimed": "mango-juice"
   },
   "Holopin": {
     "errorMsg": "true",
@@ -2049,7 +2064,6 @@
   },
   "Spotify": {
     "errorType": "status_code",
-
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue"
@@ -2478,7 +2492,6 @@
   },
   "YouTube": {
     "errorType": "status_code",
-
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
