@@ -1808,12 +1808,14 @@
     "urlMain": "https://www.reisefrage.net/",
     "username_claimed": "reisefrage"
   },
-  "Replit.com": {
+  "Replit": {
     "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9_-]{2,30}$",
     "url": "https://replit.com/@{}",
     "urlMain": "https://replit.com/",
-    "username_claimed": "blue"
+    "username_claimed": "guruprasadpand"
   },
+
   "ResearchGate": {
     "errorType": "response_url",
     "errorUrl": "https://www.researchgate.net/directory/profiles",
