@@ -509,7 +509,7 @@
   },
   "Code Sandbox": {
     "errorType": "message",
-    "errorMsg": "Whoops, page not found",
+    "errorMsg": "Not Found",
     "url": "https://codesandbox.io/u/{}",
     "urlMain": "https://codesandbox.io",
     "username_claimed": "icyjoseph"
