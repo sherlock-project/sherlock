@@ -779,10 +779,7 @@ def main():
     if not args.nsfw:
         sites.remove_nsfw_sites(do_not_remove=args.site_list)
 
-    # Create original dictionary from SitesInformation() object.
-    # Eventually, the rest of the code will be updated to use the new object
-    # directly, but this will glue the two pieces together.
-    site_data_all = {site.name: site.information for site in sites}
+    
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
