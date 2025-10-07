@@ -1,5 +1,13 @@
-# Virtual Environment
+# Virtual Environments
 venv/
+bin/
+lib/
+pyvenv.cfg
+poetry.lock
+
+# Regression Testing
+.coverage
+.tox/
 
 # Editor Configurations
 .vscode/
@@ -11,6 +19,10 @@ __pycache__/
 # Pip
 src/
 
+# Devel, Build, and Installation
+*.egg-info/
+dist/**
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb
@@ -21,6 +33,9 @@ src/
 
 # Comma-Separated Values (CSV) Reports
 *.csv
+
+#XLSX Reports
+*.xlsx
 
 # Excluded sites list
 tests/.excluded_sites

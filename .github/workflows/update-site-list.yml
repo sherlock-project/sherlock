@@ -1,0 +1,46 @@
+name: Update Site List
+
+# Trigger the workflow when changes are pushed to the main branch
+# and the changes include the sherlock_project/resources/data.json file
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - sherlock_project/resources/data.json
+
+jobs:
+  sync-json-data:
+    # Use the latest version of Ubuntu as the runner environment
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the code at the specified pull request head commit
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      # Install Python 3
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Execute the site_list.py Python script
+      - name: Execute site-list.py
+        run: python devel/site-list.py
+
+      - name: Pushes to another repository
+        uses: sdushantha/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'output'
+          destination-github-username: 'sherlock-project'
+          commit-message: 'Updated site list'
+          destination-repository-name: 'sherlockproject.xyz'
+          user-email: siddharth.dushantha@gmail.com
+          target-branch: master

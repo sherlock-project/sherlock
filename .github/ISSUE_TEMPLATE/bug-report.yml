@@ -1,0 +1,71 @@
+name: Bug report
+description: File a bug report
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Installation method
+      description: |
+        Some packages are maintained by the community, rather than by the Sherlock Project.
+        Knowing which packages are affected helps us diagnose package-specific bugs.
+      options:
+        - Select one
+        - PyPI (via pip)
+        - Homebrew
+        - Docker
+        - Kali repository (via apt)
+        - Built from source
+        - Other (indicate below)
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: |
+        Knowing the version of the package you are using can help us diagnose your issue more quickly.
+        You can find the version by running `sherlock --version`.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Detailed descriptions that help contributors understand and reproduce your bug are much more likely to lead to a fix.
+        Please include the following information:
+        - What you were trying to do
+        - What you expected to happen
+        - What actually happened
+      placeholder: |
+        When doing {action}, the expected result should be {expected result}.
+        When doing {action}, however, the actual result was {actual result}.
+        This is undesirable because {reason}.
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Write a step by step list that will allow us to reproduce this bug.
+      placeholder: |
+        1. Do something
+        2. Then do something else
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: If you have some additional information, please write it here.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/sherlock-project/sherlock/blob/master/docs/CODE_OF_CONDUCT.md). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

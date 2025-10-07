@@ -1,28 +1,31 @@
-FROM python:3.7-alpine as build
-WORKDIR /wheels
-RUN apk add --no-cache \
-    g++ \
-    gcc \
-    git \
-    libxml2 \
-    libxml2-dev \
-    libxslt-dev \
-    linux-headers
-COPY requirements.txt /opt/sherlock/
-RUN pip3 wheel -r /opt/sherlock/requirements.txt
+# Release instructions:
+  # 1. Update the version tag in the Dockerfile to match the version in sherlock/__init__.py
+  # 2. Update the VCS_REF tag to match the tagged version's FULL commit hash
+  # 3. Build image with BOTH latest and version tags
+    # i.e. `docker build -t sherlock/sherlock:0.16.0 -t sherlock/sherlock:latest .`
 
+FROM python:3.12-slim-bullseye AS build
+WORKDIR /sherlock
 
-FROM python:3.7-alpine
-WORKDIR /opt/sherlock
-ARG VCS_REF
+RUN pip3 install --no-cache-dir --upgrade pip
+
+FROM python:3.12-slim-bullseye
+WORKDIR /sherlock
+
+ARG VCS_REF= # CHANGE ME ON UPDATE
 ARG VCS_URL="https://github.com/sherlock-project/sherlock"
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url=$VCS_URL
-COPY --from=build /wheels /wheels
-COPY . /opt/sherlock/
-RUN pip3 install -r requirements.txt -f /wheels \
-  && rm -rf /wheels \
-  && rm -rf /root/.cache/pip/*
-WORKDIR /opt/sherlock/sherlock
+ARG VERSION_TAG= # CHANGE ME ON UPDATE
 
-ENTRYPOINT ["python", "sherlock.py"]
+ENV SHERLOCK_ENV=docker
+
+LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url=$VCS_URL \
+      org.label-schema.name="Sherlock" \
+      org.label-schema.version=$VERSION_TAG \
+      website="https://sherlockproject.xyz"
+
+RUN pip3 install --no-cache-dir sherlock-project==$VERSION_TAG
+
+WORKDIR /sherlock
+
+ENTRYPOINT ["sherlock"]
