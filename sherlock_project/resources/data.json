@@ -259,7 +259,8 @@
     "username_claimed": "blue"
   },
   "Blitz Tactics": {
-    "errorType": "status_code",
+    "errorMsg": "That page doesn't exist",
+    "errorType": "message",
     "url": "https://blitztactics.com/{}",
     "urlMain": "https://blitztactics.com/",
     "username_claimed": "Lance5500"
@@ -278,14 +279,7 @@
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
   },
-  "BoardGameGeek": {
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]*$",
-    "errorMsg": "User not found",
-    "url": "https://boardgamegeek.com/user/{}",
-    "urlMain": "https://boardgamegeek.com",
-    "username_claimed": "blue"
-  },
+
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -297,6 +291,14 @@
     "errorType": "status_code",
     "url": "https://www.bookcrossing.com/mybookshelf/{}/",
     "urlMain": "https://www.bookcrossing.com/",
+    "username_claimed": "blue"
+  },
+  "BoardGameGeek": {
+    "errorMsg": "\"isValid\":true",
+    "errorType": "message",
+    "url": "https://boardgamegeek.com/user/{}",
+    "urlMain": "https://boardgamegeek.com/",
+    "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
     "username_claimed": "blue"
   },
   "BraveCommunity": {
@@ -505,6 +507,15 @@
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
   },
+  "Code Sandbox": {
+    "errorType": "message",
+    "errorMsg": "Could not find user with username",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
+    "url": "https://codesandbox.io/u/{}",
+    "urlProbe": "https://codesandbox.io/api/v1/users/{}",
+    "urlMain": "https://codesandbox.io",
+    "username_claimed": "icyjoseph"
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
@@ -536,6 +547,13 @@
     "url": "https://www.coroflot.com/{}",
     "urlMain": "https://coroflot.com/",
     "username_claimed": "blue"
+  },
+  "Cplusplus": {
+    "errorType": "message",
+    "errorMsg": "<title>404 Page Not Found</title>",
+    "url": "https://cplusplus.com/user/{}",
+    "urlMain": "https://cplusplus.com",
+    "username_claimed": "mbozzi"
   },
   "Cracked": {
     "errorType": "response_url",
@@ -683,7 +701,6 @@
   "Duolingo": {
     "errorMsg": "{\"users\":[]}",
     "errorType": "message",
-
     "url": "https://www.duolingo.com/profile/{}",
     "urlMain": "https://duolingo.com/",
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
@@ -1056,6 +1073,13 @@
     "urlMain": "https://www.heavy-r.com/",
     "username_claimed": "kilroy222"
   },
+  "Hive Blog": {
+    "errorMsg": "<title>User Not Found - Hive</title>",
+    "errorType": "message",
+    "url": "https://hive.blog/@{}",
+    "urlMain": "https://hive.blog/",
+    "username_claimed": "mango-juice"
+  },
   "Holopin": {
     "errorMsg": "true",
     "errorType": "message",
@@ -1216,6 +1240,13 @@
     "url": "https://discourse.joplinapp.org/u/{}",
     "urlMain": "https://discourse.joplinapp.org/",
     "username_claimed": "laurent"
+  },
+  "Jupyter Community Forum": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discourse.jupyter.org/u/{}/summary",
+    "urlMain": "https://discourse.jupyter.org",
+    "username_claimed": "choldgraf"
   },
   "Kaggle": {
     "errorType": "status_code",
@@ -1739,12 +1770,25 @@
     "urlMain": "http://promodj.com/",
     "username_claimed": "blue"
   },
+  "Pronouns.page": {
+    "errorType": "status_code",
+    "url": "https://pronouns.page/@{}",
+    "urlMain": "https://pronouns.page/",
+    "username_claimed": "andrea"
+  },
   "PyPi": {
     "errorType": "status_code",
     "url": "https://pypi.org/user/{}",
     "urlProbe": "https://pypi.org/_includes/administer-user-include/{}",
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue"
+  },
+  "Python.org Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.python.org/u/{}/summary",
+    "urlMain": "https://discuss.python.org",
+    "username_claimed": "pablogsal"
   },
   "Rajce.net": {
     "errorType": "status_code",
@@ -1840,6 +1884,13 @@
     "url": "https://royalcams.com/profile/{}",
     "urlMain": "https://royalcams.com",
     "username_claimed": "asuna-black"
+  },
+  "Ruby Forums": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://ruby-forum.com/u/{}/summary",
+    "urlMain": "https://ruby-forums.com",
+    "username_claimed": "rishard"
   },
   "RubyGems": {
     "errorType": "status_code",
@@ -2041,7 +2092,6 @@
   },
   "Spotify": {
     "errorType": "status_code",
-
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
     "username_claimed": "blue"
@@ -2246,6 +2296,13 @@
     "urlMain": "https://untappd.com/",
     "username_claimed": "untappd"
   },
+  "Valorant Forums": {
+    "errorMsg": "The page you requested could not be found.",
+    "errorType": "message",
+    "url": "https://valorantforums.com/u/{}",
+    "urlMain": "https://valorantforums.com",
+    "username_claimed": "Wolves"
+  },
   "VK": {
     "errorType": "response_url",
     "errorUrl": "https://www.quora.com/profile/{}",
@@ -2319,6 +2376,12 @@
     "url": "https://discourse.wicg.io/u/{}/summary",
     "urlMain": "https://discourse.wicg.io/",
     "username_claimed": "stefano"
+  },
+  "Wakatime": {
+    "errorType": "status_code",
+    "url": "https://wakatime.com/@{}",
+    "urlMain": "https://wakatime.com/",
+    "username_claimed": "blue"
   },
   "Warrior Forum": {
     "errorType": "status_code",
@@ -2464,7 +2527,6 @@
   },
   "YouTube": {
     "errorType": "status_code",
-
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
