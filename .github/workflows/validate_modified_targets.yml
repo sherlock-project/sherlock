@@ -83,6 +83,10 @@ jobs:
           echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
 
       # --- The rest of the steps below are unchanged ---
+      - name: Validate remote manifest against local schema
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          poetry run pytest tests/test_manifest.py::test_validate_manifest_against_local_schema
 
       - name: Validate modified targets
         if: steps.discover-modified.outputs.changed_targets != ''
