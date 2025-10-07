@@ -86,8 +86,9 @@ jobs:
         if: steps.discover-modified.outputs.changed_targets != ''
         run: |
           poetry run pytest tests/test_manifest.py::test_validate_manifest_against_local_schema
-          
+
       # --- The rest of the steps below are unchanged ---
+      
       - name: Validate modified targets
         if: steps.discover-modified.outputs.changed_targets != ''
         continue-on-error: true
