@@ -2,22 +2,33 @@
 Sherlock Cache Module
 
 This module handles SQLite-based caching for username lookup results.
+Uses platform-specific cache directories following XDG Base Directory spec.
 """
 
+import os
 import sqlite3
 import time
 from pathlib import Path
 from typing import Optional
 
+from platformdirs import user_cache_dir
+
 from sherlock_project.result import QueryStatus
+
+
+# Database schema version (increment when schema changes)
+SCHEMA_VERSION = 1
 
 
 class SherlockCache:
     """
     Manages SQLite cache for Sherlock results.
     
-    Implements parameterized queries to prevent SQL injection and path
-    validation to prevent directory traversal attacks.
+    Uses platform-specific cache directories:
+    - Linux/macOS: ~/.cache/sherlock/cache.sqlite3
+    - Windows: %LOCALAPPDATA%\\sherlock\\cache.sqlite3
+    
+    Implements parameterized queries to prevent SQL injection.
     """
     
     def __init__(
@@ -29,37 +40,42 @@ class SherlockCache:
         Initialize the cache.
         
         Args:
-            cache_path: Path to SQLite database. Defaults to ~/.sherlock/cache.db
-                       Must be a simple filename or full path within ~/.sherlock
+            cache_path: Custom path to SQLite database. If None, uses platform default.
+                       Can be full path with filename or directory (will add cache.sqlite3)
             cache_duration: Cache TTL in seconds (default: 86400 = 24 hours)
         
         Raises:
             ValueError: If cache_duration <= 0 or cache_path is invalid
+            RuntimeError: If database initialization fails
         """
         if cache_duration <= 0:
             raise ValueError("cache_duration must be positive")
         
         self.cache_duration = cache_duration
         
-        # Set default cache path
+        # Determine cache path
         if cache_path is None:
-            cache_dir = Path.home() / ".sherlock"
-            cache_path = str(cache_dir / "cache.db")
+            # Use environment variable if set, otherwise platform default
+            cache_path = os.environ.get('SHERLOCK_CACHE_PATH')
         
-        # Security: Validate cache path
+        if cache_path is None:
+            # Use platform-specific cache directory
+            cache_dir = Path(user_cache_dir("sherlock", "sherlock_project"))
+            cache_path = str(cache_dir / "cache.sqlite3")
+        else:
+            # User provided path - check if it's a directory or full path
+            cache_path_obj = Path(cache_path)
+            if cache_path_obj.is_dir() or (not cache_path_obj.suffix):
+                # It's a directory, add filename
+                cache_path = str(cache_path_obj / "cache.sqlite3")
+        
+        # Validate and create directory
         cache_path_obj = Path(cache_path).resolve()
-        sherlock_dir = (Path.home() / ".sherlock").resolve()
         
-        # Ensure cache is ONLY in ~/.sherlock directory
         try:
-            cache_path_obj.relative_to(sherlock_dir)
-        except ValueError as e:
-            raise ValueError(
-                f"Cache path must be within {sherlock_dir}"
-            ) from e
-        
-        # Create cache directory if needed
-        cache_path_obj.parent.mkdir(parents=True, exist_ok=True)
+            cache_path_obj.parent.mkdir(parents=True, exist_ok=True)
+        except (OSError, PermissionError) as e:
+            raise RuntimeError(f"Cannot create cache directory: {e}") from e
         
         self.cache_path = str(cache_path_obj)
         self._init_database()
@@ -67,7 +83,7 @@ class SherlockCache:
     def _init_database(self) -> None:
         """
         Initialize the SQLite database with required tables.
-        Handles migration from old schema without cache_duration column.
+        Runs migrations if needed.
         
         Raises:
             RuntimeError: If database initialization fails
@@ -76,7 +92,7 @@ class SherlockCache:
             with sqlite3.connect(self.cache_path) as conn:
                 cursor = conn.cursor()
                 
-                # Create results table with proper schema
+                # Create results table
                 cursor.execute('''
                     CREATE TABLE IF NOT EXISTS results (
                         username TEXT NOT NULL,
@@ -89,17 +105,6 @@ class SherlockCache:
                     )
                 ''')
                 
-                # Migration: Check if cache_duration column exists
-                cursor.execute("PRAGMA table_info(results)")
-                columns = [row[1] for row in cursor.fetchall()]
-                
-                if 'cache_duration' not in columns:
-                    # Add cache_duration column to existing table
-                    cursor.execute('''
-                        ALTER TABLE results 
-                        ADD COLUMN cache_duration INTEGER NOT NULL DEFAULT 86400
-                    ''')
-                    
                 # Create index for faster timestamp queries
                 cursor.execute('''
                     CREATE INDEX IF NOT EXISTS idx_timestamp 
@@ -107,9 +112,56 @@ class SherlockCache:
                 ''')
                 
                 conn.commit()
+                
+                # Run migrations
+                self._migrate_schema(conn)
+                
         except sqlite3.Error as e:
             raise RuntimeError(f"Failed to initialize cache database: {e}") from e
-
+    
+    def _migrate_schema(self, conn: sqlite3.Connection) -> None:
+        """
+        Handle database schema migrations using PRAGMA user_version.
+        
+        Args:
+            conn: Active database connection
+            
+        Raises:
+            RuntimeError: If migration fails
+        """
+        cursor = conn.cursor()
+        
+        # Get current schema version
+        cursor.execute("PRAGMA user_version")
+        current_version = cursor.fetchone()[0]
+        
+        if current_version == SCHEMA_VERSION:
+            # Already up to date
+            return
+        
+        if current_version == 0:
+            # Fresh database or pre-versioning database
+            # Check if cache_duration column exists (migration from v0)
+            cursor.execute("PRAGMA table_info(results)")
+            columns = [row[1] for row in cursor.fetchall()]
+            
+            if 'cache_duration' not in columns:
+                # Migrate from v0: Add cache_duration column
+                try:
+                    cursor.execute('''
+                        ALTER TABLE results 
+                        ADD COLUMN cache_duration INTEGER NOT NULL DEFAULT 86400
+                    ''')
+                    conn.commit()
+                except sqlite3.OperationalError:
+                    # Column already exists (shouldn't happen, but be safe)
+                    pass
+        
+        # Add future migrations here as elif current_version == X:
+        
+        # Update schema version
+        cursor.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+        conn.commit()
     
     def get(
         self,
@@ -206,6 +258,42 @@ class SherlockCache:
                 VALUES (?, ?, ?, ?, ?, ?)
                 ''',
                 (username, site, status.name, url, current_time, self.cache_duration)
+            )
+            
+            conn.commit()
+    
+    def set_batch(
+        self,
+        results: list[tuple[str, str, QueryStatus, Optional[str]]]
+    ) -> None:
+        """
+        Store multiple results in cache (for post-run bulk insert).
+        
+        Args:
+            results: List of (username, site, status, url) tuples
+        """
+        if not results:
+            return
+        
+        current_time = int(time.time())
+        
+        with sqlite3.connect(self.cache_path) as conn:
+            cursor = conn.cursor()
+            
+            # Prepare batch data
+            batch_data = [
+                (username, site, status.name, url, current_time, self.cache_duration)
+                for username, site, status, url in results
+            ]
+            
+            # Batch insert
+            cursor.executemany(
+                '''
+                INSERT OR REPLACE INTO results 
+                (username, site, status, url, timestamp, cache_duration)
+                VALUES (?, ?, ?, ?, ?, ?)
+                ''',
+                batch_data
             )
             
             conn.commit()

@@ -175,10 +175,9 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-    use_cache=True,  
-    force_check=False,
-    cache_duration=86400,
-) -> dict[str, dict[str, str | QueryResult]]:
+    cache: Optional[SherlockCache] = None,
+    ignore_cache: bool = False,
+) -> dict[str, dict[str, str] | QueryResult]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -210,11 +209,6 @@ def sherlock(
 
     """Run Sherlock Analysis with caching support."""
     
-    # Initialize cache if enabled
-    cache = None
-    if use_cache:
-        cache = SherlockCache(cache_duration=cache_duration)
-        cache.cleanup_expired()  # Clean up old entries
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
@@ -242,29 +236,30 @@ def sherlock(
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
 
-        # Check cache first (if enabled and not forcing check)
-        if cache and not force_check:
+        # Check cache first (if enabled and not ignoring cache)
+        if cache and not ignore_cache:
             cached_result = cache.get(username, social_network)
             if cached_result:
                 # Use cached result
                 result = QueryResult(
                     username=username,
                     site_name=social_network,
-                    site_url_user=cached_result.get('url'),
-                    status=cached_result['status'],
+                    site_url_user=cached_result.get("url"),
+                    status=cached_result["status"],
                     query_time=0,  # Cached, no query time
                     context="Cached result"
                 )
                 query_notify.update(result)
                 
-                # Save status of request
+                # Store in results_total
                 results_site["status"] = result
-                results_site["http_status"] = "cached"
-                results_site["response_text"] = None
-                
-                # Save this site's results into final dictionary
+                results_site["url_main"] = net_info.get("urlMain")
+                results_site["url_user"] = result.site_url_user
+                results_site["http_status"] = ""
+                results_site["response_text"] = ""
                 results_total[social_network] = results_site
-                continue
+                
+                continue  # Skip to next site
 
         # Record URL of main site
 
@@ -525,14 +520,6 @@ def sherlock(
         )
         query_notify.update(result)
 
-        # Cache the result if enabled
-        if cache and result.status in [QueryStatus.CLAIMED, QueryStatus.AVAILABLE]:
-            cache.set(
-                username=username,
-                site=social_network,
-                status=result.status,
-                url=result.site_url_user if result.status == QueryStatus.CLAIMED else None
-            )
 
         # Save status of request
         results_site["status"] = result
@@ -544,6 +531,22 @@ def sherlock(
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
+    # Bulk cache results after all checks complete (prevents race conditions)
+    if cache:
+        cache_results = [
+            (username, site, result.status, result.site_url_user if result.status == QueryStatus.CLAIMED else None)
+            for site, result_dict in results_total.items()
+            if "status" in result_dict
+            for result in [result_dict["status"]]
+            if result.status in (QueryStatus.CLAIMED, QueryStatus.AVAILABLE)
+        ]
+        if cache_results:
+            try:
+                cache.set_batch(cache_results)
+            except Exception as e:
+                # Don't fail the entire run if caching fails
+                query_notify.warning(f"Failed to cache results: {e}")
+        
     return results_total
 
 
@@ -721,19 +724,17 @@ def main():
     )
 
     parser.add_argument(
-        "--no-cache",
+        "--skip-cache",
         action="store_true",
-        dest="no_cache",
-        default=False,
-        help="Disable caching of results (don't read or write cache)",
+        dest="skip_cache",
+        help="Disable result caching (cache will not be read or written)."
     )
-    
+
     parser.add_argument(
-        "--force-check",
+        "--ignore-cache",
         action="store_true",
-        dest="force_check",
-        default=False,
-        help="Ignore cached results and force fresh checks for all sites",
+        dest="ignore_cache",
+        help="Ignore cached results and force fresh checks (cache will still be updated)."
     )
     
     parser.add_argument(
@@ -882,6 +883,25 @@ def main():
         result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
     )
 
+    # Initialize cache if enabled
+    cache = None
+    if not args.skip_cache:
+        # Check environment variable for cache disable
+        cache_disabled = os.environ.get('SHERLOCK_CACHE_DISABLE', '').lower() in ('true', '1', 'yes')
+        
+        if not cache_disabled:
+            # Get cache TTL from environment or args
+            cache_ttl = int(os.environ.get('SHERLOCK_CACHE_TTL', args.cache_duration))
+            
+            # Get custom cache path from environment
+            cache_path = os.environ.get('SHERLOCK_CACHE_PATH', None)
+            
+            try:
+                cache = SherlockCache(cache_path=cache_path, cache_duration=cache_ttl)
+                cache.cleanup_expired()  # Clean up old entries
+            except (ValueError, RuntimeError) as e:
+                query_notify.warning(f"Failed to initialize cache: {e}")
+
     # Run report on all specified users.
     all_usernames = []
     for username in args.username:
@@ -898,9 +918,8 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
-            use_cache=not args.no_cache,
-            force_check=args.force_check,
-            cache_duration=args.cache_duration,
+            cache=cache,
+            ignore_cache=args.ignore_cache,
         )
 
         if args.output:

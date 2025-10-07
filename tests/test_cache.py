@@ -2,7 +2,6 @@
 
 import time
 import unittest
-from pathlib import Path
 from unittest.mock import MagicMock, Mock, patch
 
 from sherlock_project.cache import SherlockCache
@@ -14,15 +13,15 @@ class TestCacheInitialization(unittest.TestCase):
     
     @patch('sherlock_project.cache.Path.mkdir')
     @patch('sherlock_project.cache.sqlite3')
-    @patch('sherlock_project.cache.Path.home')
+    @patch('sherlock_project.cache.user_cache_dir')
     def test_init_creates_database(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_sqlite: Mock,
         mock_mkdir: Mock
     ) -> None:
         """Test database initialization."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
         mock_conn.cursor.return_value = mock_cursor
@@ -49,35 +48,48 @@ class TestCacheInitialization(unittest.TestCase):
             SherlockCache(cache_duration=-100)
         self.assertIn("positive", str(cm.exception))
     
-    @patch('sherlock_project.cache.Path.home')
-    def test_init_prevents_path_traversal(self, mock_home: Mock) -> None:
-        """Test path traversal attack prevention."""
-        mock_home.return_value = Path("/home/user")
+    @patch('sherlock_project.cache.Path.mkdir')
+    @patch('sherlock_project.cache.sqlite3')
+    @patch('sherlock_project.cache.user_cache_dir')
+    def test_uses_platform_cache_dir(
+        self,
+        mock_cache_dir: Mock,
+        mock_sqlite: Mock,
+        mock_mkdir: Mock
+    ) -> None:
+        """Test platform-specific cache directory usage."""
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
-        # Attempt path traversal
-        with self.assertRaises(ValueError) as cm:
-            SherlockCache(cache_path="/etc/passwd")
-        self.assertIn("must be within", str(cm.exception))
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_conn.cursor.return_value = mock_cursor
+        mock_conn.__enter__.return_value = mock_conn
+        mock_sqlite.connect.return_value = mock_conn
         
-        with self.assertRaises(ValueError) as cm:
-            SherlockCache(cache_path="../../../etc/passwd")
-        self.assertIn("must be within", str(cm.exception))
+        cache = SherlockCache()
+        
+        # Verify platformdirs was called
+        mock_cache_dir.assert_called_once_with("sherlock", "sherlock_project")
+        
+        # Verify cache path ends with cache.sqlite3
+        assert cache.cache_path.endswith("cache.sqlite3")
+        assert cache is not None
 
 
 @patch('sherlock_project.cache.sqlite3')
 @patch('sherlock_project.cache.Path.mkdir')
-@patch('sherlock_project.cache.Path.home')
+@patch('sherlock_project.cache.user_cache_dir')
 class TestCacheOperations(unittest.TestCase):
     """Test cache get/set operations."""
     
     def test_set_uses_parameterized_query(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test SQL injection protection via parameterized queries."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -99,12 +111,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_set_rejects_control_characters(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test rejection of control characters in username."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -125,12 +137,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_set_rejects_null_bytes(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test null byte rejection."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -146,12 +158,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_set_validates_url_length(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test URL length validation."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -169,12 +181,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_get_uses_parameterized_query(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test SQL injection protection in get() via parameterized queries."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -203,12 +215,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_get_returns_none_for_expired(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test expired entries return None."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -231,12 +243,12 @@ class TestCacheOperations(unittest.TestCase):
     
     def test_get_returns_valid_entry(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test valid entry is returned correctly."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -262,18 +274,18 @@ class TestCacheOperations(unittest.TestCase):
 
 @patch('sherlock_project.cache.sqlite3')
 @patch('sherlock_project.cache.Path.mkdir')
-@patch('sherlock_project.cache.Path.home')
+@patch('sherlock_project.cache.user_cache_dir')
 class TestCacheClear(unittest.TestCase):
     """Test cache clearing functionality."""
     
     def test_clear_all(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test clearing entire cache."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -290,12 +302,12 @@ class TestCacheClear(unittest.TestCase):
     
     def test_clear_by_username(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test clearing by username."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -313,12 +325,12 @@ class TestCacheClear(unittest.TestCase):
     
     def test_clear_validates_input(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test input validation in clear()."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
         
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -334,31 +346,41 @@ class TestCacheClear(unittest.TestCase):
 
 @patch('sherlock_project.cache.sqlite3')
 @patch('sherlock_project.cache.Path.mkdir')
-@patch('sherlock_project.cache.Path.home')
+@patch('sherlock_project.cache.user_cache_dir')
 class TestCacheStats(unittest.TestCase):
     """Test cache statistics."""
     
     def test_stats_calculation(
         self,
-        mock_home: Mock,
+        mock_cache_dir: Mock,
         mock_mkdir: Mock,
         mock_sqlite: Mock
     ) -> None:
         """Test statistics calculation."""
-        mock_home.return_value = Path("/home/user")
+        mock_cache_dir.return_value = "/home/user/.cache/sherlock"
+        
+        # Create separate cursors for init and stats
+        init_cursor = MagicMock()
+        stats_cursor = MagicMock()
+        
+        # Stats cursor should return values for the two SELECT COUNT queries
+        stats_cursor.fetchone.side_effect = [(10,), (7,)]
         
         mock_conn = MagicMock()
-        mock_cursor = MagicMock()
-        mock_cursor.fetchone.side_effect = [(10,), (7,)]
-        mock_conn.cursor.return_value = mock_cursor
+        # Return different cursor for stats call
+        mock_conn.cursor.return_value = init_cursor
         mock_conn.__enter__.return_value = mock_conn
         mock_conn.__exit__.return_value = None
         mock_sqlite.connect.return_value = mock_conn
         
         cache = SherlockCache()
+        
+        # Now set up for the stats call
+        mock_conn.cursor.return_value = stats_cursor
         stats = cache.get_stats()
         
         self.assertEqual(stats['total_entries'], 10)
         self.assertEqual(stats['valid_entries'], 7)
         self.assertEqual(stats['expired_entries'], 3)
         self.assertIn('cache_path', stats)
+

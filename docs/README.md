@@ -55,7 +55,7 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
-                [--browse] [--local] [--nsfw] [--no-cache] [--force-check]
+                [--browse] [--local] [--nsfw] [--skip-cache] [--ignore-cache]
                 [--cache-duration CACHE_DURATION]
                 USERNAMES [USERNAMES ...]
 
