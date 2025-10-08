@@ -392,10 +392,29 @@ def sherlock(
         if error_text is not None:
             error_context = error_text
 
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
-            query_status = QueryStatus.WAF
-
         else:
+            # Use regex matching for WAF fingerprints (the WAFHitMsgs entries
+            # are intended as regex patterns). Using substring membership here
+            # produced false positives on some targets. Try a regex search and
+            # ignore any bad patterns silently.
+            try:
+                if any(re.search(hitMsg, r.text) for hitMsg in WAFHitMsgs):
+                    query_status = QueryStatus.WAF
+            except re.error:
+                # If any of the WAF patterns are invalid regexes, ignore them
+                # and continue with normal detection rather than failing.
+                pass
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
             if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
                 error_context = f"Unknown error type '{error_type}' for {social_network}"
                 query_status = QueryStatus.UNKNOWN
