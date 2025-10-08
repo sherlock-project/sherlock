@@ -286,7 +286,6 @@
     "urlMain": "https://bsky.app/",
     "username_claimed": "mcuban"
   },
-
   "BongaCams": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -2942,32 +2941,20 @@
     "username_claimed": "freddier",
     "request_method": "GET"
   },
-"AtCoder": {
-    "urlMain": "https://atcoder.jp",
-    "url": "https://atcoder.jp/users/{username}",
-    "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "tourist",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
-  },
   "Ko-fi": {
     "urlMain": "https://ko-fi.com",
     "url": "https://ko-fi.com/{username}",
-    "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "kofi",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
-  },
-  "Modrinth": {
-    "urlMain": "https://modrinth.com",
-    "url": "https://modrinth.com/user/{username}",
-    "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "modrinth",
+    "errorType": [
+      "message",
+      "status_code"
+    ],
+    "errorMsg": [
+      "REPLACE_WITH_NOT_FOUND_TEXT"
+    ],
+    "errorCode": [
+      404
+    ],
+  "username_claimed": "REPLACE_WITH_REAL_KOFI_HANDLE",
     "headers": {
       "User-Agent": "Mozilla/5.0"
     }
@@ -2975,9 +2962,53 @@
   "StackBlitz": {
     "urlMain": "https://stackblitz.com",
     "url": "https://stackblitz.com/@{username}",
-    "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "stackblitz",
+    "errorType": [
+      "message",
+      "status_code"
+    ],
+    "errorMsg": [
+      "REPLACE_WITH_NOT_FOUND_TEXT"
+    ],
+    "errorCode": [
+      404
+    ],
+  "username_claimed": "stackblitz",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "Modrinth": {
+    "urlMain": "https://modrinth.com",
+    "url": "https://modrinth.com/user/{username}",
+    "errorType": [
+      "status_code",
+      "message"
+    ],
+    "errorCode": [
+      404
+    ],
+    "errorMsg": [
+      "REPLACE_WITH_NOT_FOUND_TEXT"
+    ],
+  "username_claimed": "modrinth",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "AtCoder": {
+    "urlMain": "https://atcoder.jp",
+    "url": "https://atcoder.jp/users/{username}",
+    "errorType": [
+      "status_code",
+      "message"
+    ],
+    "errorCode": [
+      404
+    ],
+    "errorMsg": [
+      "REPLACE_WITH_NOT_FOUND_TEXT"
+    ],
+  "username_claimed": "tourist",
     "headers": {
       "User-Agent": "Mozilla/5.0"
     }
