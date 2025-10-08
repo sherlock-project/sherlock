@@ -678,6 +678,13 @@
     },
     "username_claimed": "blue"
   },
+  "Discord.bio": {
+    "errorType": "message",
+    "errorMsg": "<title>Server Error (500)</title>",
+    "url": "https://discords.com/api-v2/bio/details/{}",
+    "urlMain": "https://discord.bio/",
+    "username_claimed": "robert"
+  },
   "Discuss.Elastic.co": {
     "errorType": "status_code",
     "url": "https://discuss.elastic.co/u/{}",
