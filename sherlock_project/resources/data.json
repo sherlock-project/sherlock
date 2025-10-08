@@ -294,11 +294,11 @@
     "username_claimed": "blue"
   },
   "BoardGameGeek": {
-    "errorMsg": "\"isValid\":true",
+    "errorMsg": "[]",
     "errorType": "message",
-    "url": "https://boardgamegeek.com/user/{}",
+    "url": "https://boardgamegeek.com/profile/{}",
     "urlMain": "https://boardgamegeek.com/",
-    "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
+    "urlProbe": "https://api.geekdo.com/api/users?username={}",
     "username_claimed": "blue"
   },
   "BraveCommunity": {
