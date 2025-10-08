@@ -299,7 +299,8 @@
     "url": "https://boardgamegeek.com/user/{}",
     "urlMain": "https://boardgamegeek.com/",
     "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
-    "username_claimed": "blue"
+    "username_claimed": "blue",
+    "isProblematic": true
   },
   "BraveCommunity": {
     "errorType": "status_code",
@@ -1434,7 +1435,9 @@
     "errorType": "message",
     "url": "https://api.mojang.com/users/profiles/minecraft/{}",
     "urlMain": "https://minecraft.net/",
-    "username_claimed": "blue"
+    "username_claimed": "blue",
+    "isProblematic": true
+
   },
   "MixCloud": {
     "errorType": "status_code",
@@ -2574,7 +2577,8 @@
     "url": "https://www.dailykos.com/user/{}",
     "urlMain": "https://www.dailykos.com",
     "urlProbe": "https://www.dailykos.com/signup/check_nickname?nickname={}",
-    "username_claimed": "blue"
+    "username_claimed": "blue",
+    "isProblematic": true
   },
   "datingRU": {
     "errorType": "status_code",
@@ -2735,7 +2739,8 @@
     "errorType": "status_code",
     "url": "https://mastodon.cloud/@{}",
     "urlMain": "https://mastodon.cloud/",
-    "username_claimed": "TheAdmin"
+    "username_claimed": "TheAdmin",
+    "isProblematic": true
   },
   "mastodon.social": {
     "errorType": "status_code",
@@ -2806,7 +2811,8 @@
     "url": "https://{}.omg.lol",
     "urlMain": "https://home.omg.lol",
     "urlProbe": "https://api.omg.lol/address/{}/availability",
-    "username_claimed": "adam"
+    "username_claimed": "adam",
+    "isProblematic": true
   },
   "opennet": {
     "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
