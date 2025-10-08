@@ -2946,10 +2946,16 @@
     "url": "https://ko-fi.com/{}",
     "request_method": "GET",
     "errorType": ["message", "status_code"],
-    "errorMsg": ["Page Not Found"],
+    "errorMsg": [
+      "Page Not Found",
+      "We couldn't find the page",
+      "This page could not be found"
+    ],
     "errorCode": [404],
     "username_claimed": "ko_fi",
-    "headers": { "User-Agent": "Mozilla/5.0" }
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
   },
 
   "Modrinth": {
