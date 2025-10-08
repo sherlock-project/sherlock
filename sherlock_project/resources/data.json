@@ -2943,74 +2943,32 @@
   },
   "Ko-fi": {
     "urlMain": "https://ko-fi.com",
-    "url": "https://ko-fi.com/{username}",
-    "errorType": [
-      "message",
-      "status_code"
-    ],
-    "errorMsg": [
-      "REPLACE_WITH_NOT_FOUND_TEXT"
-    ],
-    "errorCode": [
-      404
-    ],
-  "username_claimed": "REPLACE_WITH_REAL_KOFI_HANDLE",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
+    "url": "https://ko-fi.com/{}",
+    "request_method": "GET",
+    "errorType": ["message", "status_code"],
+    "errorMsg": ["Page Not Found"],
+    "errorCode": [404],
+    "username_claimed": "ko_fi",
+    "headers": { "User-Agent": "Mozilla/5.0" }
   },
-  "StackBlitz": {
-    "urlMain": "https://stackblitz.com",
-    "url": "https://stackblitz.com/@{username}",
-    "errorType": [
-      "message",
-      "status_code"
-    ],
-    "errorMsg": [
-      "REPLACE_WITH_NOT_FOUND_TEXT"
-    ],
-    "errorCode": [
-      404
-    ],
-  "username_claimed": "stackblitz",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
-  },
+
   "Modrinth": {
     "urlMain": "https://modrinth.com",
-    "url": "https://modrinth.com/user/{username}",
-    "errorType": [
-      "status_code",
-      "message"
-    ],
-    "errorCode": [
-      404
-    ],
-    "errorMsg": [
-      "REPLACE_WITH_NOT_FOUND_TEXT"
-    ],
-  "username_claimed": "modrinth",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
+    "url": "https://modrinth.com/user/{}",
+    "errorType": ["status_code", "message"],
+    "errorCode": [404],
+    "errorMsg": ["Not Found"],
+    "username_claimed": "modrinth",
+    "headers": { "User-Agent": "Mozilla/5.0" }
   },
-  "AtCoder": {
-    "urlMain": "https://atcoder.jp",
-    "url": "https://atcoder.jp/users/{username}",
-    "errorType": [
-      "status_code",
-      "message"
-    ],
-    "errorCode": [
-      404
-    ],
-    "errorMsg": [
-      "REPLACE_WITH_NOT_FOUND_TEXT"
-    ],
-  "username_claimed": "tourist",
-    "headers": {
-      "User-Agent": "Mozilla/5.0"
-    }
+
+  "StackBlitz": {
+    "urlMain": "https://stackblitz.com",
+    "url": "https://stackblitz.com/@{}",
+    "errorType": ["message", "status_code"],
+    "errorMsg": ["Not Found"],
+    "errorCode": [404],
+    "username_claimed": "stackblitz",
+    "headers": { "User-Agent": "Mozilla/5.0" }
   }
 }
