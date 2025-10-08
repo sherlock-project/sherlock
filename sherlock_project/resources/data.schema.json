@@ -16,7 +16,6 @@
         "urlMain": { "type": "string" },
         "urlProbe": { "type": "string" },
         "username_claimed": { "type": "string" },
-        "username_unclaimed": { "type": "string" },
         "regexCheck": { "type": "string" },
         "isNSFW": { "type": "boolean" },
         "headers": { "type": "object" },
