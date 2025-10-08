@@ -2941,5 +2941,45 @@
     "urlMain": "https://platzi.com/",
     "username_claimed": "freddier",
     "request_method": "GET"
+  },
+"AtCoder": {
+    "urlMain": "https://atcoder.jp",
+    "url": "https://atcoder.jp/users/{username}",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "tourist",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "Ko-fi": {
+    "urlMain": "https://ko-fi.com",
+    "url": "https://ko-fi.com/{username}",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "kofi",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "Modrinth": {
+    "urlMain": "https://modrinth.com",
+    "url": "https://modrinth.com/user/{username}",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "modrinth",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "StackBlitz": {
+    "urlMain": "https://stackblitz.com",
+    "url": "https://stackblitz.com/@{username}",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "stackblitz",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
   }
 }
