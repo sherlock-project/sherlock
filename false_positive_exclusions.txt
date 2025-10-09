@@ -1,20 +1,19 @@
 APClips
+DeviantArt
 GNOME VCS
 Giphy
 HackerEarth
 Heavy-R
-LessWrong
 LushStories
 PepperIT
 PocketStars
-Rajce.net
 Reddit
 RocketTube
-Smule
 Splice
 Spotify
 Topcoder
 Weblate
+Wordnik
 YandexMusic
 kaskus
 opennet
