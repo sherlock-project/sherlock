@@ -8,6 +8,7 @@ networks.
 """
 
 import sys
+from collections.abc import Mapping
 
 try:
     from sherlock_project.__init__ import import_error_test_var # noqa: F401
@@ -394,6 +395,14 @@ def sherlock(
 
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
+
+        
+        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
+
+        elif isinstance(r.headers, Mapping) and r.headers.get('cf-mitigated') == 'challenge':
+            query_status = QueryStatus.WAF
+
 
         else:
             if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
