@@ -2808,12 +2808,6 @@
     "urlMain": "https://note.com/",
     "username_claimed": "blue"
   },
-  "npm": {
-    "errorType": "status_code",
-    "url": "https://www.npmjs.com/~{}",
-    "urlMain": "https://www.npmjs.com/",
-    "username_claimed": "kennethsweezy"
-  },
   "omg.lol": {
     "errorMsg": "\"available\": true",
     "errorType": "message",
