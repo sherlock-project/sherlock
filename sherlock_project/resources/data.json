@@ -2146,13 +2146,15 @@
     "username_claimed": "osk"
   },
   
-  "TikTok": {
+"TikTok": {
     "url": "https://www.tiktok.com/@{}",
     "urlMain": "https://www.tiktok.com",
-    "errorMsg": "User not found",
     "errorType": "message",
+    "errorMsg": "\"statusCode\":10221",
     "username_claimed": "charlidamelio"
-  },
+},
+
+
   "Tiendanube": {
     "url": "https://{}.mitiendanube.com/",
     "urlMain": "https://www.tiendanube.com/",
