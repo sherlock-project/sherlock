@@ -2134,6 +2134,12 @@
     "urlMain": "https://robertsspaceindustries.com/",
     "username_claimed": "blue"
   },
+  "Status Cafe": {
+    "errorType": "status_code",
+    "url": "https://status.cafe/users/{}",
+    "urlMain": "https://status.cafe/",
+    "username_claimed": "blue"
+  },
   "Steam Community (Group)": {
     "errorMsg": "No group could be retrieved for the given URL",
     "errorType": "message",
