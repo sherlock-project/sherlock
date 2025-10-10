@@ -2135,7 +2135,8 @@
     "username_claimed": "blue"
   },
   "Status Cafe": {
-    "errorType": "status_code",
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
     "url": "https://status.cafe/users/{}",
     "urlMain": "https://status.cafe/",
     "username_claimed": "blue"
