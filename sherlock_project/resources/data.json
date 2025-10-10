@@ -1271,7 +1271,9 @@
   "kaskus": {
     "errorType": "status_code",
     "url": "https://www.kaskus.co.id/@{}",
-    "urlMain": "https://www.kaskus.co.id/",
+    "urlMain": "https://www.kaskus.co.id",
+    "urlProbe": "https://www.kaskus.co.id/api/users?username={}",
+    "request_method": "GET",
     "username_claimed": "l0mbart"
   },
   "Keybase": {
