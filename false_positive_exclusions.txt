@@ -1,4 +1,5 @@
 APClips
+Coders Rank
 DeviantArt
 GNOME VCS
 Giphy
@@ -9,12 +10,14 @@ PepperIT
 PocketStars
 Reddit
 RocketTube
+RuneScape
+Snapchat
 Splice
 Spotify
 Topcoder
 Weblate
-Wordnik
 YandexMusic
 kaskus
 opennet
 svidbook
+xHamster
