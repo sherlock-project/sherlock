@@ -167,7 +167,7 @@
     "urlMain": "https://ask.fedoraproject.org/",
     "username_claimed": "red"
   },
-  "Atcoder": {
+ "Atcoder": {
     "errorType": "status_code",
     "url": "https://atcoder.jp/users/{}",
     "urlMain": "https://atcoder.jp/",
