@@ -16,6 +16,7 @@ def set_pattern_upper_bound(pattern: str, upper_bound: int = FALSE_POSITIVE_QUAN
     """Set upper bound for regex patterns that use quantifiers such as `+` `*` or `{n,}`."""
     def replace_upper_bound(match: re.Match) -> str: # type: ignore
         lower_bound: int = int(match.group(1)) if match.group(1) else 0 # type: ignore
+        nonlocal upper_bound
         upper_bound = upper_bound if lower_bound < upper_bound else lower_bound # type: ignore  # noqa: F823
         return f'{{{lower_bound},{upper_bound}}}'
 
