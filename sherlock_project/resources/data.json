@@ -2176,10 +2176,10 @@
     "username_claimed": "blue"
   },
   "TikTok": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
     "url": "https://www.tiktok.com/@{}",
     "urlMain": "https://www.tiktok.com/",
+    "errorMsg": "\"statusCode\":10221",
+    "errorType": "message",
     "username_claimed": "blue"
   },
   "Topcoder": {
@@ -2873,6 +2873,14 @@
     "urlMain": "https://pikabu.ru/",
     "username_claimed": "blue"
   },
+  "Pinterest": {
+  "errorType": "status_code",
+  "errorUrl": "https://www.pinterest.com/",
+  "url": "https://www.pinterest.com/{}/",
+  "urlProbe": "https://www.pinterest.com/oembed.json?url=https://www.pinterest.com/{}/",
+  "urlMain": "https://www.pinterest.com/",
+  "username_claimed": "blue"
+},
   "pr0gramm": {
     "errorType": "status_code",
     "url": "https://pr0gramm.com/user/{}",
