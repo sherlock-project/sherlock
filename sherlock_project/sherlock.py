@@ -779,6 +779,7 @@ def main():
     if not args.nsfw:
         sites.remove_nsfw_sites(do_not_remove=args.site_list)
 
+    
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
     # directly, but this will glue the two pieces together.
@@ -791,15 +792,25 @@ def main():
         # Make sure that the sites are supported & build up pruned site database.
         site_data = {}
         site_missing = []
-        for site in args.site_list:
-            counter = 0
-            for existing_site in site_data_all:
-                if site.lower() == existing_site.lower():
-                    site_data[existing_site] = site_data_all[existing_site]
-                    counter += 1
-            if counter == 0:
-                # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
+        
+        # Create a mapping from all site names and aliases (in lowercase) to their proper names
+        site_map = {}
+        for site_name, site_info in site_data_all.items():
+            site_map[site_name.lower()] = site_name
+            if "aliases" in site_info:
+                for alias in site_info["aliases"]:
+                    site_map[alias.lower()] = site_name
+
+        for site_name_from_user in args.site_list:
+            # Find the proper site name from the user's input (which could be an alias)
+            proper_site_name = site_map.get(site_name_from_user.lower())
+            
+            if proper_site_name:
+                # If a match was found, add the site's data to our list
+                site_data[proper_site_name] = site_data_all[proper_site_name]
+            else:
+                # If no match was found for the name or any alias
+                site_missing.append(f"'{site_name_from_user}'")
 
         if site_missing:
             print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
