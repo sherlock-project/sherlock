@@ -671,10 +671,7 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": [
-      "{\"taken\":false}",
-      "The resource is being rate limited"
-    ],
+    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -1049,10 +1046,7 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": [
-      "No such user.",
-      "Sorry."
-    ],
+    "errorMsg": ["No such user.", "Sorry."],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -1152,10 +1146,10 @@
     "username_claimed": "blue"
   },
   "Ifunny": {
-    "errorType":"status_code",
-    "url":"https://ifunny.co/user/{}",
-    "urlMain":"https://ifunny.co/",
-    "username_claimed":"agua"
+    "errorType": "status_code",
+    "url": "https://ifunny.co/user/{}",
+    "urlMain": "https://ifunny.co/",
+    "username_claimed": "agua"
   },
   "IRC-Galleria": {
     "errorType": "response_url",
@@ -1498,14 +1492,13 @@
     "urlMain": "https://www.motorradfrage.net/",
     "username_claimed": "gutefrage"
   },
-      "MuseScore": {
-        "errorType": "status_code",
-        "url": "https://musescore.com/{}",
-        "urlMain": "https://musescore.com/",
-        "username_claimed": "arrangeme",
-        "request_method": "GET"
-    },
-
+  "MuseScore": {
+    "errorType": "status_code",
+    "url": "https://musescore.com/{}",
+    "urlMain": "https://musescore.com/",
+    "username_claimed": "arrangeme",
+    "request_method": "GET"
+  },
 
   "MyAnimeList": {
     "errorType": "status_code",
@@ -2188,17 +2181,16 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
-  
   "TikTok": {
-      "url": "https://www.tiktok.com/@{}",
-      "urlMain": "https://www.tiktok.com",
-      "errorType": "message",
-      "errorMsg": ["\"statusCode\":10221","Govt. of India decided to block 59 apps"],
-      "username_claimed": "charlidamelio"
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com",
+    "errorType": "message",
+    "errorMsg": [
+      "\"statusCode\":10221",
+      "Govt. of India decided to block 59 apps"
+    ],
+    "username_claimed": "charlidamelio"
   },
-
-
-
   "Tiendanube": {
     "url": "https://{}.mitiendanube.com/",
     "urlMain": "https://www.tiendanube.com/",
@@ -2391,9 +2383,7 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": [
-      "Venmo | Page Not Found"
-    ],
+    "errorMsg": ["Venmo | Page Not Found"],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
@@ -2897,13 +2887,13 @@
     "username_claimed": "blue"
   },
   "Pinterest": {
-  "errorType": "status_code",
-  "errorUrl": "https://www.pinterest.com/",
-  "url": "https://www.pinterest.com/{}/",
-  "urlProbe": "https://www.pinterest.com/oembed.json?url=https://www.pinterest.com/{}/",
-  "urlMain": "https://www.pinterest.com/",
-  "username_claimed": "blue"
-},
+    "errorType": "status_code",
+    "errorUrl": "https://www.pinterest.com/",
+    "url": "https://www.pinterest.com/{}/",
+    "urlProbe": "https://www.pinterest.com/oembed.json?url=https://www.pinterest.com/{}/",
+    "urlMain": "https://www.pinterest.com/",
+    "username_claimed": "blue"
+  },
   "pr0gramm": {
     "errorType": "status_code",
     "url": "https://pr0gramm.com/user/{}",
