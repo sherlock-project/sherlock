@@ -163,6 +163,7 @@
   },
   "Ask Fedora": {
     "errorType": "status_code",
+    "feiogjreg": [],
     "url": "https://ask.fedoraproject.org/u/{}",
     "urlMain": "https://ask.fedoraproject.org/",
     "username_claimed": "red"
