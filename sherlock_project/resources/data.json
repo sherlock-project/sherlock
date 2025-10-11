@@ -2999,5 +2999,15 @@
     "urlMain": "https://platzi.com/",
     "username_claimed": "freddier",
     "request_method": "GET"
+  },
+ "BabyRu": {
+    "url": "https://www.baby.ru/u/{}",
+    "urlMain": "https://www.baby.ru/",
+    "errorType": "message",
+    "errorMsg": [
+        "Страница, которую вы искали, не найдена",
+        "Доступ с вашего IP-адреса временно ограничен"
+    ],
+    "username_claimed": "example"
   }
-}
+  }
