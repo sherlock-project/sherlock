@@ -38,8 +38,8 @@ See all alternative installation methods [here](https://sherlockproject.xyz/inst
 ## General usage
 
 To search for only one user:
-```bash
-sherlock user123
+```bash 8sahdunker
+sherlock 8sahdunker -- site tiktok github -- csv
 ```
 
 To search for more than one user:
@@ -47,7 +47,7 @@ To search for more than one user:
 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in an individual text file with the corresponding username (e.g ```8sahdunker.txt```).
 
 ```console
 $ sherlock --help
