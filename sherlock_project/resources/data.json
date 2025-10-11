@@ -2194,13 +2194,6 @@
     "errorType": "status_code",
     "username_claimed": "blue"
   },
-  "TikTok": {
-    "url": "https://www.tiktok.com/@{}",
-    "urlMain": "https://www.tiktok.com/",
-    "errorMsg": "\"statusCode\":10221",
-    "errorType": "message",
-    "username_claimed": "blue"
-  },
   "Topcoder": {
     "errorType": "status_code",
     "url": "https://profiles.topcoder.com/{}/",
