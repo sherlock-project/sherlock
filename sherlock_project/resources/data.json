@@ -1696,11 +1696,74 @@
     "username_claimed": "0day"
   },
   "PepperIT": {
-    "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
     "errorType": "message",
+    "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
     "url": "https://www.pepper.it/profile/{}/overview",
     "urlMain": "https://www.pepper.it",
     "username_claimed": "asoluinostrisca"
+  },
+  "HotUKdeals": {
+    "errorType": "status_code",
+    "url": "https://www.hotukdeals.com/profile/{}",
+    "urlMain": "https://www.hotukdeals.com/",
+    "username_claimed": "Blue",
+    "request_method": "GET"
+  },
+  "Mydealz": {
+    "errorType": "status_code",
+    "url": "https://www.mydealz.de/profile/{}",
+    "urlMain": "https://www.mydealz.de/",
+    "username_claimed": "blue",
+    "request_method": "GET"
+  },
+  "Chollometro": {
+    "errorType": "status_code",
+    "url": "https://www.chollometro.com/profile/{}",
+    "urlMain": "https://www.chollometro.com/",
+    "username_claimed": "blue",
+    "request_method": "GET"
+  },
+  "PepperNL": {
+    "errorType": "status_code",
+    "url": "https://nl.pepper.com/profile/{}",
+    "urlMain": "https://nl.pepper.com/",
+    "username_claimed": "Dynaw",
+    "request_method": "GET"
+  },
+  "PepperPL": {
+    "errorType": "status_code",
+    "url": "https://www.pepper.pl/profile/{}",
+    "urlMain": "https://www.pepper.pl/",
+    "username_claimed": "FireChicken",
+    "request_method": "GET"
+  },
+  "Preisjaeger": {
+    "errorType": "status_code",
+    "url": "https://www.preisjaeger.at/profile/{}",
+    "urlMain": "https://www.preisjaeger.at/",
+    "username_claimed": "Stefan",
+    "request_method": "GET"
+  },
+  "Pepperdeals": {
+    "errorType": "status_code",
+    "url": "https://www.pepperdeals.se/profile/{}",
+    "urlMain": "https://www.pepperdeals.se/",
+    "username_claimed": "Mark",
+    "request_method": "GET"
+  },
+  "PepperealsUS": {
+    "errorType": "status_code",
+    "url": "https://www.pepperdeals.com/profile/{}",
+    "urlMain": "https://www.pepperdeals.com/",
+    "username_claimed": "Stepan",
+    "request_method": "GET"
+  },
+  "Promodescuentos": {
+    "errorType": "status_code",
+    "url": "https://www.promodescuentos.com/profile/{}",
+    "urlMain": "https://www.promodescuentos.com/",
+    "username_claimed": "blue",
+    "request_method": "GET"
   },
   "Periscope": {
     "errorType": "status_code",
