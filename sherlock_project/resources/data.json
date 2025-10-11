@@ -2146,13 +2146,14 @@
     "username_claimed": "osk"
   },
   
-"TikTok": {
-    "url": "https://www.tiktok.com/@{}",
-    "urlMain": "https://www.tiktok.com",
-    "errorType": "message",
-    "errorMsg": "\"statusCode\":10221",
-    "username_claimed": "charlidamelio"
-},
+  "TikTok": {
+      "url": "https://www.tiktok.com/@{}",
+      "urlMain": "https://www.tiktok.com",
+      "errorType": "message",
+      "errorMsg": ["\"statusCode\":10221","Govt. of India decided to block 59 apps"],
+      "username_claimed": "charlidamelio"
+  },
+
 
 
   "Tiendanube": {
