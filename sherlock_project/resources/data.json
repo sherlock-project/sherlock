@@ -2175,6 +2175,13 @@
     "errorType": "status_code",
     "username_claimed": "blue"
   },
+  "TikTok": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "url": "https://www.tiktok.com/@{}",
+    "urlMain": "https://www.tiktok.com/",
+    "username_claimed": "blue"
+  },
   "Topcoder": {
     "errorType": "status_code",
     "url": "https://profiles.topcoder.com/{}/",
