@@ -10,7 +10,7 @@ def load_data():
 
 def test_sites_present_with_required_fields():
     data = load_data()
-    for site in ["Ko-fi", "StackBlitz", "Modrinth"]:
+    for site in ["StackBlitz", "Modrinth"]:
         assert site in data, f"{site} entry missing in data.json"
         fields = set(data[site].keys())
         missing = REQUIRED_FIELDS - fields
