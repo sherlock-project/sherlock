@@ -2188,6 +2188,17 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  
+  "TikTok": {
+      "url": "https://www.tiktok.com/@{}",
+      "urlMain": "https://www.tiktok.com",
+      "errorType": "message",
+      "errorMsg": ["\"statusCode\":10221","Govt. of India decided to block 59 apps"],
+      "username_claimed": "charlidamelio"
+  },
+
+
+
   "Tiendanube": {
     "url": "https://{}.mitiendanube.com/",
     "urlMain": "https://www.tiendanube.com/",
