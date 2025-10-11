@@ -1695,13 +1695,6 @@
     "urlMain": "https://pentesterlab.com/",
     "username_claimed": "0day"
   },
-  "PepperIT": {
-    "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
-    "errorType": "message",
-    "url": "https://www.pepper.it/profile/{}/overview",
-    "urlMain": "https://www.pepper.it",
-    "username_claimed": "asoluinostrisca"
-  },
   "Periscope": {
     "errorType": "status_code",
     "url": "https://www.periscope.tv/{}/",
