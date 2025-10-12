@@ -19,7 +19,7 @@
   },
   "Game Jolt": {
   "errorType": "message",
-  "errorMsg": "\"user\":null",
+  "errorMsg": "\"payload\": []",
   "url": "https://gamejolt.com/@{}",
   "urlMain": "https://gamejolt.com/",
   "urlProbe": "https://gamejolt.com/site-api/web/profile/@{}",
