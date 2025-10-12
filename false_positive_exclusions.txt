@@ -1,11 +1,8 @@
 APClips
 Coders Rank
-DeviantArt
-Flipboard
 GNOME VCS
 Giphy
 HackerEarth
-HackerRank
 Heavy-R
 Itch.io
 LushStories
@@ -17,5 +14,7 @@ Splice
 Spotify
 Topcoder
 Weblate
+Wordnik
 YandexMusic
+opennet
 svidbook
