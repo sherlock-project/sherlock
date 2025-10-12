@@ -1347,7 +1347,7 @@
   },
   "LessWrong": {
     "errorType": "status_code",
-    "url": "https://www.lesswrong.com/users/@{}",
+    "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
     "username_claimed": "blue"
   },
