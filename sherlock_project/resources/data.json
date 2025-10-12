@@ -18,13 +18,14 @@
     "username_claimed": "blue"
   },
   "Game Jolt": {
-    "errorType": "status_code",
-    "request_method": "GET",
-    "url": "https://gamejolt.com/@{}",
-    "urlMain": "https://gamejolt.com/",
-    "urlProbe": "https://gamejolt.com/site-api/web/profile/@{}",
-    "username_claimed": "blue"
-  },
+  "errorType": "message",
+  "errorMsg": "\"payload\":[]",
+  "url": "https://gamejolt.com/@{}",
+  "urlMain": "https://gamejolt.com/",
+  "urlProbe": "https://gamejolt.com/site-api/web/profile/@{}",
+  "username_claimed": "red",
+  "request_method": "GET"
+},
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
