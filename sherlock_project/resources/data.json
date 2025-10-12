@@ -18,12 +18,12 @@
     "username_claimed": "blue"
   },
   "GameJolt": {
-  "errorMsg": "You found a secret! But on further inspection, you realize it's just an empty page.",
+  "errorMsg": "Page Not Found",
   "errorType": "message",
   "regexCheck": "^[a-zA-Z0-9_-]{1,30}$",
   "url": "https://gamejolt.com/@{}",
   "urlMain": "https://gamejolt.com/",
-  "username_claimed": "KaiAllAlone"
+  "username_claimed": "blue"
 },
   "7Cups": {
     "errorType": "status_code",
