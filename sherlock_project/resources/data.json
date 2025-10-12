@@ -17,14 +17,13 @@
     "urlMain": "https://2Dimensions.com/",
     "username_claimed": "blue"
   },
-  "GameJolt": {
-  "errorMsg": "You found a secret! But on further inspection, you realize it's just an empty page.",
-  "errorType": ["message","status_code"],
-  "regexCheck": "^[a-zA-Z0-9_-]{1,30}$",
-  "url": "https://gamejolt.com/@{}",
-  "urlMain": "https://gamejolt.com/",
-  "username_claimed": "red"
-},
+  "Misskey": {
+  "errorType": "status_code",
+  "regexCheck": "^[a-zA-Z0-9_]{1,20}$",
+  "url": "https://misskey.io/@{}",
+  "urlMain": "https://misskey.io/",
+  "username_claimed": "syuilo"
+   },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
