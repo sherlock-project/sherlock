@@ -12,7 +12,7 @@
     "username_claimed": "FitGirl"
   },
   "Terraria Forums": {
-    "errorMsg": "Oops! We ran into some problems.",
+    "errorMsg": "The following members could not be found",
     "errorType": "message",
     "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
     "urlMain": "https://forums.terraria.org/index.php",
