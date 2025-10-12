@@ -87,6 +87,64 @@ jobs:
         run: |
           poetry run pytest tests/test_manifest.py::test_validate_manifest_against_local_schema
 
+      - name: Check for duplicate sites
+        id: check-duplicates
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          COMMENT_BODY=$(
+            python - <<'EOF'
+          import json
+          import sys
+          try:
+              with open("data.json.base", "r", encoding="utf-8") as f: base = json.load(f)
+              with open("data.json.head", "r", encoding="utf-8") as f: head = json.load(f)
+          except (FileNotFoundError, json.JSONDecodeError) as e:
+              sys.exit(0)
+
+          base_keys = set(base.keys())
+          head_keys = set(head.keys())
+
+          new_sites = head_keys - base_keys
+
+          if not new_sites:
+              print("##Site Uniqueness Check Passed\n\nNo new sites were added. Skipping duplicate check.")
+              sys.exit(0)
+
+          existing_sites_lower = {k.lower(): k for k in base_keys}
+
+          duplicates = []
+          for site in new_sites:
+              if site.lower() in existing_sites_lower:
+                  original_site_casing = existing_sites_lower[site.lower()]
+                  duplicates.append(f"- Proposed: `{site}` (already exists as `{original_site_casing}`)")
+
+          if duplicates:
+              print("##Duplicate Sites Found\n")
+              print("The following proposed sites appear to be duplicates of existing ones. Site names must be unique (case-insensitive).\n")
+              print("\n".join(sorted(duplicates)))
+              print("\nPlease remove them from your pull request to proceed.")
+          else:
+              print("##Site Uniqueness Check Passed\n")
+              print("All newly proposed sites are unique.")
+          EOF
+          )
+          echo "comment_body<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$COMMENT_BODY" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Announce duplicate check results
+        if: steps.check-duplicates.outputs.comment_body != ''
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const body = `${{ steps.check-duplicates.outputs.comment_body }}`;
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body,
+            });
+
       # --- The rest of the steps below are unchanged ---
 
       - name: Validate modified targets
