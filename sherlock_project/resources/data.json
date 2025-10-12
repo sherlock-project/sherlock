@@ -18,10 +18,12 @@
     "username_claimed": "blue"
   },
   "GameJolt": {
-  "errorType": "status_code",
+  "errorMsg": "\"success\":false",
+  "errorType": "message",
   "regexCheck": "^[a-zA-Z0-9_-]{1,30}$",
   "url": "https://gamejolt.com/@{}",
   "urlMain": "https://gamejolt.com/",
+  "urlProbe": "https://gamejolt.com/api/game/v1_2/users/?username={}",
   "username_claimed": "red"
 },
   "7Cups": {
