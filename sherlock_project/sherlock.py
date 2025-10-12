@@ -25,6 +25,9 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
+import threading
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -535,6 +538,265 @@ def handler(signal_received, frame):
     sys.exit(0)
 
 
+def process_username(
+    username,
+    site_data,
+    args,
+    query_notify,
+    site_data_offset=0,
+    total_sites=None,
+    print_lock=None
+):
+    """Process a single username across all sites.
+    
+    Keyword Arguments:
+    username           -- Username to search for
+    site_data          -- Dictionary of all site data
+    args               -- Command line arguments
+    query_notify       -- Notification object
+    site_data_offset   -- Starting offset for site batching (for parallel processing)
+    total_sites        -- Total number of sites (for wrapping around)
+    print_lock         -- Threading lock for synchronized output
+    
+    Return Value:
+    Results dictionary from sherlock() call
+    """
+    # Create a reordered site_data if offset is provided (for batch offsetting)
+    if site_data_offset > 0 and total_sites:
+        site_items = list(site_data.items())
+        # Rotate the list by offset
+        reordered_items = site_items[site_data_offset:] + site_items[:site_data_offset]
+        site_data_to_use = dict(reordered_items)
+    else:
+        site_data_to_use = site_data
+    
+    # For parallel processing, capture output in buffer
+    if print_lock:
+        import sys
+        from io import StringIO
+        
+        # Capture stdout
+        old_stdout = sys.stdout
+        sys.stdout = output_buffer = StringIO()
+    
+    results = sherlock(
+        username,
+        site_data_to_use,
+        query_notify,
+        dump_response=args.dump_response,
+        proxy=args.proxy,
+        timeout=args.timeout,
+    )
+    
+    # Restore stdout if we were buffering
+    if print_lock:
+        buffered_output = output_buffer.getvalue()
+        sys.stdout = old_stdout
+
+    if args.output:
+        result_file = args.output
+    elif args.folderoutput:
+        # The usernames results should be stored in a targeted folder.
+        # If the folder doesn't exist, create it first
+        os.makedirs(args.folderoutput, exist_ok=True)
+        result_file = os.path.join(args.folderoutput, f"{username}.txt")
+    else:
+        result_file = f"{username}.txt"
+
+    if args.output_txt:
+        with open(result_file, "w", encoding="utf-8") as file:
+            exists_counter = 0
+            for website_name in results:
+                dictionary = results[website_name]
+                if dictionary.get("status").status == QueryStatus.CLAIMED:
+                    exists_counter += 1
+                    file.write(dictionary["url_user"] + "\n")
+            file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+
+    if args.csv:
+        result_file = f"{username}.csv"
+        if args.folderoutput:
+            os.makedirs(args.folderoutput, exist_ok=True)
+            result_file = os.path.join(args.folderoutput, result_file)
+
+        with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
+            writer = csv.writer(csv_report)
+            writer.writerow(
+                [
+                    "username",
+                    "name",
+                    "url_main",
+                    "url_user",
+                    "exists",
+                    "http_status",
+                    "response_time_s",
+                ]
+            )
+            for site in results:
+                if (
+                    args.print_found
+                    and not args.print_all
+                    and results[site]["status"].status != QueryStatus.CLAIMED
+                ):
+                    continue
+
+                response_time_s = results[site]["status"].query_time
+                if response_time_s is None:
+                    response_time_s = ""
+                writer.writerow(
+                    [
+                        username,
+                        site,
+                        results[site]["url_main"],
+                        results[site]["url_user"],
+                        str(results[site]["status"].status),
+                        results[site]["http_status"],
+                        response_time_s,
+                    ]
+                )
+                
+    if args.xlsx:
+        usernames = []
+        names = []
+        url_main = []
+        url_user = []
+        exists = []
+        http_status = []
+        response_time_s = []
+
+        for site in results:
+            if (
+                args.print_found
+                and not args.print_all
+                and results[site]["status"].status != QueryStatus.CLAIMED
+            ):
+                continue
+
+            if response_time_s is None:
+                response_time_s.append("")
+            else:
+                response_time_s.append(results[site]["status"].query_time)
+            usernames.append(username)
+            names.append(site)
+            url_main.append(results[site]["url_main"])
+            url_user.append(results[site]["url_user"])
+            exists.append(str(results[site]["status"].status))
+            http_status.append(results[site]["http_status"])
+
+        DataFrame = pd.DataFrame(
+            {
+                "username": usernames,
+                "name": names,
+                "url_main": url_main,
+                "url_user": url_user,
+                "exists": exists,
+                "http_status": http_status,
+                "response_time_s": response_time_s,
+            }
+        )
+        DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+
+    # Print separator between users when in parallel mode
+    if print_lock:
+        # Don't print anything here, we'll print buffered output later
+        pass
+    else:
+        print()
+    
+    # Return both results and buffered output for parallel processing
+    if print_lock:
+        return results, buffered_output
+    return results
+
+
+def process_users_in_parallel(usernames, site_data, args, query_notify, batch_size=2):
+    """Process multiple usernames in parallel batches with offset site checking.
+    
+    Keyword Arguments:
+    usernames      -- List of usernames to process
+    site_data      -- Dictionary of all site data
+    args           -- Command line arguments
+    query_notify   -- Notification object
+    batch_size     -- Number of users to process simultaneously
+    
+    Return Value:
+    None
+    """
+    total_sites = len(site_data)
+    num_users = len(usernames)
+    
+    if batch_size <= 0:
+        batch_size = 1
+    
+    # Calculate how many sites to offset for each user in a batch
+    # This ensures users in the same batch check different sites at the same time
+    sites_per_worker = 20  # Default max workers in sherlock()
+    
+    print(f"\n[*] Processing {num_users} username(s) in parallel (batches of {batch_size})")
+    print(f"[*] Total sites to check: {total_sites}")
+    print(f"[*] Using offset batching to minimize rate limiting\n")
+    
+    # Create a lock for synchronized output
+    print_lock = Lock()
+    
+    # Process users in batches
+    for batch_start in range(0, num_users, batch_size):
+        batch_end = min(batch_start + batch_size, num_users)
+        batch = usernames[batch_start:batch_end]
+        
+        with ThreadPoolExecutor(max_workers=batch_size) as executor:
+            # Submit all tasks in the batch
+            future_to_username = {}
+            for idx, username in enumerate(batch):
+                # Calculate offset for this user to avoid site collision
+                # Each user in the batch gets offset by sites_per_worker * their position
+                offset = (idx * sites_per_worker) % total_sites
+                
+                future = executor.submit(
+                    process_username,
+                    username,
+                    site_data,
+                    args,
+                    query_notify,
+                    offset,
+                    total_sites,
+                    print_lock
+                )
+                future_to_username[future] = username
+            
+            # Collect results in order of completion, but store them
+            completed_results = {}
+            for future in as_completed(future_to_username):
+                username = future_to_username[future]
+                try:
+                    result = future.result()
+                    # Result is a tuple of (results_dict, buffered_output)
+                    results, buffered_output = result
+                    completed_results[username] = {
+                        'results': results,
+                        'output': buffered_output
+                    }
+                except Exception as e:
+                    print(f"[✗] Error processing {username}: {e}")
+                    completed_results[username] = None
+            
+            # Now print results in the original order (not completion order)
+            for username in batch:
+                if username in completed_results and completed_results[username]:
+                    data = completed_results[username]
+                    results = data['results']
+                    buffered_output = data['output']
+                    
+                    # Print the buffered output for this user
+                    print(buffered_output, end="")
+                    
+                    # Count how many sites were found
+                    found_count = sum(1 for site in results.values() 
+                                    if site.get("status") and 
+                                    site["status"].status == QueryStatus.CLAIMED)
+                    print(f"[✓] Completed: {username} ({found_count} sites found)\n")
+
+
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
@@ -701,6 +963,17 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--parallel",
+        "-P",
+        action="store",
+        metavar="BATCH_SIZE",
+        dest="parallel_batch_size",
+        type=int,
+        default=None,
+        help="Process multiple usernames in parallel batches. Specify batch size (e.g., 2 for 2 users at a time). Default: auto (2 for multiple users, 1 for single user). Recommended: 2-4 to avoid rate limiting.",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -820,121 +1093,37 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
-    for username in all_usernames:
-        results = sherlock(
-            username,
-            site_data,
-            query_notify,
-            dump_response=args.dump_response,
-            proxy=args.proxy,
-            timeout=args.timeout,
-        )
-
-        if args.output:
-            result_file = args.output
-        elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
+    
+    # Auto-determine batch size if not specified
+    if args.parallel_batch_size is None:
+        # Automatically use batch size of 2 for multiple users
+        if len(all_usernames) >= 2:
+            args.parallel_batch_size = 2
         else:
-            result_file = f"{username}.txt"
-
-        if args.output_txt:
-            with open(result_file, "w", encoding="utf-8") as file:
-                exists_counter = 0
-                for website_name in results:
-                    dictionary = results[website_name]
-                    if dictionary.get("status").status == QueryStatus.CLAIMED:
-                        exists_counter += 1
-                        file.write(dictionary["url_user"] + "\n")
-                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
-
-        if args.csv:
-            result_file = f"{username}.csv"
-            if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
-
-            with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(
-                    [
-                        "username",
-                        "name",
-                        "url_main",
-                        "url_user",
-                        "exists",
-                        "http_status",
-                        "response_time_s",
-                    ]
-                )
-                for site in results:
-                    if (
-                        args.print_found
-                        and not args.print_all
-                        and results[site]["status"].status != QueryStatus.CLAIMED
-                    ):
-                        continue
-
-                    response_time_s = results[site]["status"].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow(
-                        [
-                            username,
-                            site,
-                            results[site]["url_main"],
-                            results[site]["url_user"],
-                            str(results[site]["status"].status),
-                            results[site]["http_status"],
-                            response_time_s,
-                        ]
-                    )
-        if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
-            exists = []
-            http_status = []
-            response_time_s = []
-
-            for site in results:
-                if (
-                    args.print_found
-                    and not args.print_all
-                    and results[site]["status"].status != QueryStatus.CLAIMED
-                ):
-                    continue
-
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
-
-            DataFrame = pd.DataFrame(
-                {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": url_main,
-                    "url_user": url_user,
-                    "exists": exists,
-                    "http_status": http_status,
-                    "response_time_s": response_time_s,
-                }
+            args.parallel_batch_size = 1
+    
+    # Process users in parallel if batch size > 1 and multiple users, otherwise sequential
+    if args.parallel_batch_size > 1 and len(all_usernames) > 1:
+        process_users_in_parallel(
+            all_usernames,
+            site_data,
+            args,
+            query_notify,
+            batch_size=args.parallel_batch_size
+        )
+    else:
+        # Sequential processing (original behavior for single user)
+        for username in all_usernames:
+            process_username(
+                username,
+                site_data,
+                args,
+                query_notify,
+                site_data_offset=0,
+                total_sites=None,
+                print_lock=None
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
-
-        print()
+    
     query_notify.finish()
 
 
