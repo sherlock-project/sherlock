@@ -17,6 +17,13 @@
     "urlMain": "https://2Dimensions.com/",
     "username_claimed": "blue"
   },
+  "Whop": {
+  "errorMsg": "The page you're looking for does not exist.",
+  "errorType": "message",
+  "url": "https://whop.com/@{}/",
+  "urlMain": "https://whop.com/",
+  "username_claimed": "red"
+  },
   "GameJolt": {
   "errorMsg": "\"success\":false",
   "errorType": "message",
@@ -25,7 +32,7 @@
   "urlMain": "https://gamejolt.com/",
   "urlProbe": "https://gamejolt.com/api/game/v1_2/users/?username={}",
   "username_claimed": "red"
-},
+  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
