@@ -11,12 +11,12 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
-  "Pokemon Forums": {
-    "errorMsg": "User Not Found",
+  "Terraria Forums": {
+    "errorMsg": "Oops! We ran into some problems.",
     "errorType": "message",
-    "url": "https://community.pokemon.com/en-us/profile/{}",
-    "urlMain": "https://community.pokemon.com/en-us/",
-    "username_claimed": "mod_ginger"
+    "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
+    "urlMain": "https://forums.terraria.org/index.php",
+    "username_claimed": "blue"
   },
   "2Dimensions": {
     "errorType": "status_code",
