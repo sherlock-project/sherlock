@@ -18,8 +18,8 @@
     "username_claimed": "blue"
   },
   "Game Jolt": {
-  "errorType": "status_code",
-  "errorCode": 404,
+  "errorType": "message",
+  "errorMsg": "\"payload\":{\"user\":{",
   "url": "https://gamejolt.com/@{}",
   "urlMain": "https://gamejolt.com/",
   "urlProbe": "https://gamejolt.com/site-api/web/profile/@{}",
