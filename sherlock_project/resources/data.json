@@ -18,14 +18,14 @@
     "username_claimed": "blue"
   },
   "Game Jolt": {
-  "errorType": "message",
-  "errorMsg": "\"payload\": []",
+  "errorType": "status_code",
+  "errorCode": 404,
   "url": "https://gamejolt.com/@{}",
   "urlMain": "https://gamejolt.com/",
   "urlProbe": "https://gamejolt.com/site-api/web/profile/@{}",
   "username_claimed": "red",
   "request_method": "GET"
-  },
+   },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
