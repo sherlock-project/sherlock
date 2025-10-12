@@ -2994,15 +2994,26 @@
     "username_claimed": "freddier",
     "request_method": "GET"
   },
-"BabyRu": {
+  "BabyRu": {
     "url": "https://www.baby.ru/u/{}",
     "urlMain": "https://www.baby.ru/",
     "errorType": "message",
     "errorMsg": [
-        "\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u044b \u0438\u0441\u043a\u0430\u043b\u0438, \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430",
-        "\u0414\u043e\u0441\u0442\u0443\u043f \u0441 \u0432\u0430\u0448\u0435\u0433\u043e IP-\u0430\u0434\u0440\u0435\u0441\u0430 \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d"
+      "\\u0421\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u0430, \\u043a\\u043e\\u0442\\u043e\\u0440\\u0443\\u044e \\u0432\\u044b \\u0438\\u0441\\u043a\\u0430\\u043b\\u0438, \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d\\u0430",
+      "\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f \\u0441 \\u0432\\u0430\\u0448\\u0435\\u0433\\u043e IP-\\u0430\\u0434\\u0440\\u0435\\u0441\\u0430 \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u043e \\u043e\\u0433\\u0440\\u0430\\u043d\\u0438\\u0447\\u0435\\u043d"
     ],
     "regexCheck": "",
     "username_claimed": "example"
- }
- }
+  },
+  "Coomer (OnlyFans)": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://coomer.st/onlyfans/user/{}",
+    "urlMain": "https://coomer.st/",
+    "urlProbe": "https://coomer.st/api/v1/onlyfans/user/{}/profile",
+    "headers": {
+      "Accept": "text/css"
+    },
+    "username_claimed": "belledelphine"
+  }
+}
