@@ -56,9 +56,10 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = secrets.token_urlsafe(32)
+        self.username_unclaimed = username_unclaimed or secrets.token_urlsafe(32)
         self.information = information
-        self.is_nsfw  = is_nsfw
+        self.is_nsfw = is_nsfw
+
 
         return
 
