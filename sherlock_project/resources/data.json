@@ -1047,11 +1047,11 @@
     "username_claimed": "blazezaria"
   },
   "HackerEarth": {
-    "errorMsg": "404. URL not found.",
+    "errorMsg": "__next_error__",
     "errorType": "message",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
-    "username_claimed": "naveennamani877"
+    "username_claimed": "s_agnik1511"
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
