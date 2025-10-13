@@ -1697,6 +1697,13 @@
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue"
   },
+    "Patched": {
+    "errorMsg": "The member you specified is either invalid or doesn't exist.",
+    "errorType": "message",
+    "url": "https://patched.sh/User/{}",
+    "urlMain": "https://patched.sh/",
+    "username_claimed": "blue"
+  },
   "Patreon": {
     "errorType": "status_code",
     "url": "https://www.patreon.com/{}",
