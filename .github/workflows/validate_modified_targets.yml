@@ -17,29 +17,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
+          # Checkout the base branch but fetch all history to avoid a second fetch call
           ref: ${{ github.base_ref }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: "3.13"
 
       - name: Install Poetry
         uses: abatilo/actions-poetry@v4
         with:
-          poetry-version: 'latest'
+          poetry-version: "latest"
 
       - name: Install dependencies
         run: |
           poetry install --no-interaction --with dev
 
-      - name: Drop in place updated manifest from base
+      - name: Prepare JSON versions for comparison
         run: |
-          cp sherlock_project/resources/data.json data.json.base
-          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr --depth=1
-          git show pr:sherlock_project/resources/data.json > sherlock_project/resources/data.json
-          cp sherlock_project/resources/data.json data.json.head
+          # Fetch only the PR's branch head (single network call in this step)
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr
+
+          # Find the merge-base commit between the target branch and the PR branch
+          MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} pr)
+          echo "Comparing PR head against merge-base commit: $MERGE_BASE"
+
+          # Safely extract the file from the PR's head and the merge-base commit
+          git show pr:sherlock_project/resources/data.json > data.json.head
+          git show $MERGE_BASE:sherlock_project/resources/data.json > data.json.base
+
+          # CRITICAL FIX: Overwrite the checked-out data.json with the one from the PR
+          # This ensures that pytest runs against the new, updated file.
+          cp data.json.head sherlock_project/resources/data.json
 
       - name: Discover modified targets
         id: discover-modified
@@ -47,8 +58,16 @@ jobs:
           CHANGED=$(
             python - <<'EOF'
           import json
-          with open("data.json.base") as f: base = json.load(f)
-          with open("data.json.head") as f: head = json.load(f)
+          import sys
+          try:
+              with open("data.json.base") as f: base = json.load(f)
+              with open("data.json.head") as f: head = json.load(f)
+          except FileNotFoundError as e:
+              print(f"Error: Could not find {e.filename}", file=sys.stderr)
+              sys.exit(1)
+          except json.JSONDecodeError as e:
+              print(f"Error: Could not decode JSON from a file - {e}", file=sys.stderr)
+              sys.exit(1)
 
           changed = []
           for k, v in head.items():
@@ -62,6 +81,13 @@ jobs:
           # Preserve changelist
           echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
           echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Validate remote manifest against local schema
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          poetry run pytest tests/test_manifest.py::test_validate_manifest_against_local_schema
+
+      # --- The rest of the steps below are unchanged ---
 
       - name: Validate modified targets
         if: steps.discover-modified.outputs.changed_targets != ''
