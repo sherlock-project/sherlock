@@ -581,6 +581,13 @@
     "urlMain": "https://www.cracked.com/",
     "username_claimed": "blue"
   },
+    "Cracked Forum": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.cracked.sh/",
+    "url": "https://www.cracked.sh/{}/",
+    "urlMain": "https://www.cracked.sh/",
+    "username_claimed": "blue"
+  },
   "Crevado": {
     "errorType": "status_code",
     "regexCheck": "^[\\w@-]+?$",
