@@ -582,8 +582,8 @@
     "username_claimed": "blue"
   },
     "Cracked Forum": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.cracked.sh/",
+    "errorMsg": "The member you specified is either invalid or doesn't exist",
+    "errorType": "message",
     "url": "https://www.cracked.sh/{}/",
     "urlMain": "https://www.cracked.sh/",
     "username_claimed": "blue"
