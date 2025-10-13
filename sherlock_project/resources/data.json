@@ -327,7 +327,7 @@
     "username_claimed": "blue"
   },
   "BreachSta.rs Forum": {
-    "errorMsg": "Not found",
+    "errorMsg": "<title>Error - BreachStars</title>",
     "errorType": "message",
     "url": "https://breachsta.rs/profile/{}",
     "urlMain": "https://breachsta.rs//",
