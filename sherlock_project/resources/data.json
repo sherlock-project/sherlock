@@ -1047,8 +1047,7 @@
     "username_claimed": "blazezaria"
   },
   "HackerEarth": {
-    "errorMsg": "404. URL not found.",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://hackerearth.com/@{}",
     "urlMain": "https://hackerearth.com/",
     "username_claimed": "naveennamani877"
