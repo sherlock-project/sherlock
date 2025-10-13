@@ -1630,8 +1630,7 @@
     "username_claimed": "blue"
   },
   "OGUser": {
-    "errorMsg": "The member you specified is either invalid or doesn't exist",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://oguser.com/{}",
     "urlMain": "https://oguser.com/",
     "username_claimed": "blue"
