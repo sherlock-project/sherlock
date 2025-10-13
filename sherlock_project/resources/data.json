@@ -1704,13 +1704,6 @@
     "urlMain": "https://pentesterlab.com/",
     "username_claimed": "0day"
   },
-  "PepperIT": {
-    "errorType": "message",
-    "errorMsg": "La pagina che hai provato a raggiungere non si trova qui",
-    "url": "https://www.pepper.it/profile/{}/overview",
-    "urlMain": "https://www.pepper.it",
-    "username_claimed": "asoluinostrisca"
-  },
   "HotUKdeals": {
     "errorType": "status_code",
     "url": "https://www.hotukdeals.com/profile/{}",
