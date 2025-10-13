@@ -584,9 +584,9 @@
     "Cracked Forum": {
     "errorMsg": "The member you specified is either invalid or doesn't exist",
     "errorType": "message",
-    "url": "https://cracked.sh/{}/",
+    "url": "https://cracked.sh/{}",
     "urlMain": "https://cracked.sh/",
-    "username_claimed": "blue"
+    "username_claimed": "Blue"
   },
   "Crevado": {
     "errorType": "status_code",
