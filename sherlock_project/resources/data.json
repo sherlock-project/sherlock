@@ -326,6 +326,13 @@
     "urlMain": "https://community.brave.com/",
     "username_claimed": "blue"
   },
+  "BreachSta.rs Forum": {
+    "errorMsg": "<title>Error - BreachStars</title>",
+    "errorType": "message",
+    "url": "https://breachsta.rs/profile/{}",
+    "urlMain": "https://breachsta.rs/",
+    "username_claimed": "Sleepybubble"
+  },
   "BugCrowd": {
     "errorType": "status_code",
     "url": "https://bugcrowd.com/{}",
