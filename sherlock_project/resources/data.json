@@ -11,6 +11,13 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
+  "Pokemon Forums": {
+    "errorMsg": "User Not Found",
+    "errorType": "message",
+    "url": "https://community.pokemon.com/en-us/profile/{}",
+    "urlMain": "https://community.pokemon.com/en-us/",
+    "username_claimed": "mod_ginger"
+  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
