@@ -717,6 +717,15 @@
     "urlMain": "https://discuss.elastic.co/",
     "username_claimed": "blue"
   },
+  "Diskusjon.no": {
+    "errorMsg": "{\"result\":\"ok\"}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_.-]{3,40}$",
+    "urlProbe": "https://www.diskusjon.no/?app=core&module=system&controller=ajax&do=usernameExists&input={}",
+    "url": "https://www.diskusjon.no",
+    "urlMain": "https://www.diskusjon.no",
+    "username_claimed": "blue"
+  },
   "Disqus": {
     "errorType": "status_code",
     "url": "https://disqus.com/{}",
@@ -1333,6 +1342,15 @@
     "url": "https://kik.me/{}",
     "urlMain": "http://kik.me/",
     "urlProbe": "https://ws2.kik.com/user/{}",
+    "username_claimed": "blue"
+  },
+  "Kvinneguiden": {
+    "errorMsg": "{\"result\":\"ok\"}",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_.-]{3,40}$",
+    "urlProbe": "https://forum.kvinneguiden.no/?app=core&module=system&controller=ajax&do=usernameExists&input={}",
+    "url": "https://forum.kvinneguiden.no",
+    "urlMain": "https://forum.kvinneguiden.no",
     "username_claimed": "blue"
   },
   "Kongregate": {
