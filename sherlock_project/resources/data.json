@@ -609,6 +609,13 @@
     "urlMain": "https://crowdin.com/",
     "username_claimed": "blue"
   },
+  "CryptoHack": {
+    "errorType": "response_url",
+    "errorUrl": "https://cryptohack.org/",
+    "url": "https://cryptohack.org/user/{}/",
+    "urlMain": "https://cryptohack.org/",
+    "username_claimed": "blue"
+  },
   "Cryptomator Forum": {
     "errorType": "status_code",
     "url": "https://community.cryptomator.org/u/{}",
