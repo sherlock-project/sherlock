@@ -774,8 +774,7 @@
     "username_claimed": "bob"
   },
   "Etsy": {
-    "errorMsg": "Sorry, the member",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.etsy.com/people/{}",
     "urlMain": "https://www.etsy.com/",
     "username_claimed": "blue"
