@@ -1371,10 +1371,11 @@
     "username_claimed": "blue"
   },
   "LessWrong": {
-    "errorType": "status_code",
-    "url": "https://www.lesswrong.com/users/@{}",
+    "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
-    "username_claimed": "blue"
+    "errorType": "response_url",
+    "errorUrl": "https://www.lesswrong.com/",
+    "username_claimed": "habryka"
   },
   "Letterboxd": {
     "errorMsg": "Sorry, we can\u2019t find the page you\u2019ve requested.",
