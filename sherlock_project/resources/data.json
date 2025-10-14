@@ -1092,6 +1092,12 @@
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
   },
+  "HackMD": {
+    "errorType": "status_code",
+    "url": "https://hackmd.io/@{}",
+    "urlMain": "https://hackmd.io/",
+    "username_claimed": "blue"
+  },
   "Harvard Scholar": {
     "errorType": "status_code",
     "url": "https://scholar.harvard.edu/{}",
