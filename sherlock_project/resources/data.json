@@ -1357,7 +1357,7 @@
   "Kvinneguiden": {
     "errorMsg": "{\"result\":\"ok\"}",
     "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_.-]{3,40}$",
+    "regexCheck": "^[a-zA-Z0-9_.-]{3,18}$",
     "urlProbe": "https://forum.kvinneguiden.no/?app=core&module=system&controller=ajax&do=usernameExists&input={}",
     "url": "https://forum.kvinneguiden.no",
     "urlMain": "https://forum.kvinneguiden.no",
