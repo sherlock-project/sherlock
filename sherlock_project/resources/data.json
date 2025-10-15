@@ -353,6 +353,12 @@
     "urlMain": "https://buzzfeed.com/",
     "username_claimed": "blue"
   },
+  "Cfx.re Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.cfx.re/u/{}/summary",
+    "urlMain": "https://forum.cfx.re",
+    "username_claimed": "hightowerlssd"
+  },
   "CGTrader": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
