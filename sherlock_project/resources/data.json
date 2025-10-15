@@ -2328,7 +2328,7 @@
     "urlMain": "https://topcoder.com/",
     "username_claimed": "USER",
     "urlProbe": "https://api.topcoder.com/v5/members/{}",
-    "regexCheck": "[a-zA-Z0-9 ]"
+    "regexCheck": "^[A-Za-z0-9 _-]{1,50}$"
   },
   "TRAKTRAIN": {
     "errorType": "status_code",
