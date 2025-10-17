@@ -10,10 +10,12 @@ networks.
 import sys
 
 try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var  # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
+    print(
+        "This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions."
+    )
     sys.exit(1)
 
 import csv
@@ -243,7 +245,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], username.replace(" ", "%20"))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
