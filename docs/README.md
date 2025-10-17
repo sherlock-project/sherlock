@@ -38,19 +38,20 @@ See all alternative installation methods [here](https://sherlockproject.xyz/inst
 ## General usage
 
 To search for only one user:
-```bash
+```console
 sherlock user123
 ```
 
 To search for more than one user:
-```bash
+```console
 sherlock user1 user2 user3
 ```
 
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ```console
-$ sherlock --help
+sherlock --help
+
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
@@ -103,7 +104,7 @@ optional arguments:
 
 You can run Sherlock in the cloud without installation using the [Sherlock Actor](https://apify.com/netmilk/sherlock?fpr=sherlock) on [Apify](https://apify.com?fpr=sherlock) free of charge.
 
-``` bash
+``` console
 $ echo '{"usernames":["user123"]}' | apify call -so netmilk/sherlock
 [{
   "username": "user123",
