@@ -1439,10 +1439,11 @@
   },
   "LinkedIn": {
     "errorType": "status_code",
+    "errorCode": 999,
     "regexCheck": "^[a-zA-Z0-9]{3,100}$",
     "request_method": "GET",
-    "url": "https://linkedin.com/in/{}",
-    "urlMain": "https://linkedin.com",
+    "url": "https://www.linkedin.com/in/{}",
+    "urlMain": "https://www.linkedin.com",
     "username_claimed": "paulpfeister"
   },
   "Linktree": {
