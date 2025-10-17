@@ -1,7 +1,8 @@
 APClips
+Cults3D
 DeviantArt
+GNOME VCS
 Giphy
-Heavy-R
 LushStories
 PocketStars
 Reddit
@@ -12,5 +13,5 @@ Topcoder
 Weblate
 YandexMusic
 opennet
+phpRU
 svidbook
-xHamster
