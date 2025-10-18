@@ -109,16 +109,15 @@ class SherlockFuturesSession(FuturesSession):
             method, url, hooks=hooks, *args, **kwargs
         )
     
+    # Called when the 'with' block in sherlock is entered (necessary for using 'with').
     def __enter__(self):
-        # Called when the 'with' block is entered.
-        # It just returns the instance itself.
+        # Just returns the instance itself.
         return self
 
+    # Called when the 'with' block in sherlock is exited, regardless of success or exception.
     def __exit__(self, exc_type, exc_val, exc_tb):
-        # Called when the 'with' block is exited, regardless of success or exception.
-        
         # If an exception occurred and the exception is a Keyboard Interrupt exception,
-        # do a fast shutdown of the thread.
+        # do a fast shutdown of the thread and cancel all futures.
         if exc_type is not None:
             if exc_type is KeyboardInterrupt:
                 print("\nCtrl+C detected. Initiating thread shutdown...")
@@ -241,7 +240,8 @@ def sherlock(
         max_workers = len(site_data)
 
     # Use 'with' to trigger the explicit shutdown of the thread pool (executor). 
-    # This is faster (approx. 14s) and cleaner than waiting for Python's default cleanup.
+    # This is faster (approx. 15-30s vs. 60s+) and cleaner than waiting for Python's
+    # default cleanup.
     with SherlockFuturesSession(max_workers=max_workers, session=underlying_session) as session:
         # Results from analysis of all sites
         results_total = {}
