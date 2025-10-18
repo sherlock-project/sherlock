@@ -19,12 +19,13 @@
     "username_claimed": "blue"
   },
   "Warframe Market": {
-    "errorMsg": "https://warframe.market/profile/{} [GET]",
-    "errorType": "message",
-    "url": "https://warframe.market/profile/{}",
-    "urlMain": "https://warframe.market",
-    "username_claimed": "blue"
-  },
+  "errorType": "message",
+  "errorMsg": "app.user.notFound",
+  "url": "https://warframe.market/profile/{}",
+  "urlMain": "https://warframe.market/",
+  "urlProbe": "https://api.warframe.market/v2/user/{}",
+  "username_claimed": "kaiallalone",
+},
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
