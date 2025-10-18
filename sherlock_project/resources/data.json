@@ -19,8 +19,8 @@
     "username_claimed": "blue"
   },
   "Warframe Market": {
-  "errorType": "message",
-  "errorMsg": "app.user.notFound",
+  "errorType": "status_code",
+  "request_method": "GET",
   "url": "https://warframe.market/profile/{}",
   "urlMain": "https://warframe.market/",
   "urlProbe": "https://api.warframe.market/v2/user/{}",
