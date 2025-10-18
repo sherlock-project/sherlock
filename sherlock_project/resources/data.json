@@ -594,7 +594,7 @@
     "urlMain": "https://www.cracked.com/",
     "username_claimed": "blue"
   },
-    "Cracked Forum": {
+  "Cracked Forum": {
     "errorMsg": "The member you specified is either invalid or doesn't exist",
     "errorType": "message",
     "url": "https://cracked.sh/{}",
@@ -1321,7 +1321,7 @@
     "username_claimed": "laurent"
   },
   "Jupyter Community Forum": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
     "url": "https://discourse.jupyter.org/u/{}/summary",
     "urlMain": "https://discourse.jupyter.org",
@@ -1694,6 +1694,13 @@
     "urlMain": "https://www.openstreetmap.org/",
     "username_claimed": "blue"
   },
+  "Odysee": {
+    "errorMsg": "<link rel=\"canonical\" content=\"odysee.com\"/>",
+    "errorType": "message",
+    "url": "https://odysee.com/@{}",
+    "urlMain": "https://odysee.com/",
+    "username_claimed": "Odysee"
+  },
   "Opensource": {
     "errorType": "status_code",
     "url": "https://opensource.com/users/{}",
@@ -1742,7 +1749,7 @@
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue"
   },
-    "Patched": {
+  "Patched": {
     "errorMsg": "The member you specified is either invalid or doesn't exist.",
     "errorType": "message",
     "url": "https://patched.sh/User/{}",
@@ -1944,7 +1951,7 @@
     "username_claimed": "Blue"
   },
   "Python.org Discussions": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
     "url": "https://discuss.python.org/u/{}/summary",
     "urlMain": "https://discuss.python.org",
@@ -2053,7 +2060,7 @@
     "username_claimed": "asuna-black"
   },
   "Ruby Forums": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
     "errorType": "message",
     "url": "https://ruby-forum.com/u/{}/summary",
     "urlMain": "https://ruby-forums.com",
@@ -3072,7 +3079,7 @@
     "username_claimed": "green"
   },
   "threads": {
-    "errorMsg": "<title>Threads • Log in</title>",
+    "errorMsg": "<title>Threads \u2022 Log in</title>",
     "errorType": "message",
     "headers": {
       "Sec-Fetch-Mode": "navigate"
