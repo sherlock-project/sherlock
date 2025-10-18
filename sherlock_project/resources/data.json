@@ -1321,7 +1321,7 @@
     "username_claimed": "laurent"
   },
   "Jupyter Community Forum": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
+    "errorMsg": "Oops! That page doesn't exist or is private.",
     "errorType": "message",
     "url": "https://discourse.jupyter.org/u/{}/summary",
     "urlMain": "https://discourse.jupyter.org",
@@ -1951,7 +1951,7 @@
     "username_claimed": "Blue"
   },
   "Python.org Discussions": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
+    "errorMsg": "Oops! That page doesn't exist or is private.",
     "errorType": "message",
     "url": "https://discuss.python.org/u/{}/summary",
     "urlMain": "https://discuss.python.org",
@@ -2060,7 +2060,7 @@
     "username_claimed": "asuna-black"
   },
   "Ruby Forums": {
-    "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
+    "errorMsg": "Oops! That page doesn't exist or is private.",
     "errorType": "message",
     "url": "https://ruby-forum.com/u/{}/summary",
     "urlMain": "https://ruby-forums.com",
@@ -3079,7 +3079,7 @@
     "username_claimed": "green"
   },
   "threads": {
-    "errorMsg": "<title>Threads \u2022 Log in</title>",
+    "errorMsg": "<title>Threads • Log in</title>",
     "errorType": "message",
     "headers": {
       "Sec-Fetch-Mode": "navigate"
