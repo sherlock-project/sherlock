@@ -925,8 +925,8 @@ def main():
                 {
                     "username": usernames,
                     "name": names,
-                    "url_main": url_main,
-                    "url_user": url_user,
+                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
+                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
                     "exists": exists,
                     "http_status": http_status,
                     "response_time_s": response_time_s,
