@@ -17,7 +17,6 @@ except ImportError:
     sys.exit(1)
 
 import csv
-import signal
 import pandas as pd
 import os
 import re
