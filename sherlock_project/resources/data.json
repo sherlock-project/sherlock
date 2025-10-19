@@ -11,13 +11,6 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
-  "Terraria Forums": {
-    "errorMsg": "The following members could not be found",
-    "errorType": "message",
-    "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
-    "urlMain": "https://forums.terraria.org/index.php",
-    "username_claimed": "blue"
-  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -2380,6 +2373,13 @@
     "url": "https://tenor.com/users/{}",
     "urlMain": "https://tenor.com/",
     "username_claimed": "red"
+  },
+  "Terraria Forums": {
+    "errorMsg": "The following members could not be found",
+    "errorType": "message",
+    "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
+    "urlMain": "https://forums.terraria.org/index.php",
+    "username_claimed": "blue"
   },
   "ThemeForest": {
     "errorType": "status_code",
