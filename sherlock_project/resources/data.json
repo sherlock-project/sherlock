@@ -1689,6 +1689,14 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
+  "OGUser": {
+   "errorType": "status_code",
+   "errorCode": 404,
+   "url": "https://oguser.com/{}",
+   "urlMain": "https://oguser.com",
+   "username_claimed": "blue",
+   "request_method": "GET"
+  },
   "Open Collective": {
     "errorType": "status_code",
     "url": "https://opencollective.com/{}",
