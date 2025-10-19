@@ -539,7 +539,7 @@
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
   },
-  "Code Sandbox": {
+  "CodeSandbox": {
     "errorType": "message",
     "errorMsg": "Could not find user with username",
     "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
