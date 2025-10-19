@@ -2349,7 +2349,7 @@
     "urlMain": "https://topcoder.com/",
     "username_claimed": "USER",
     "urlProbe": "https://api.topcoder.com/v5/members/{}",
-    "regexCheck": "[a-zA-Z0-9 ]"
+    "regexCheck": "^[a-zA-Z0-9_.]+$"
   },
   "TRAKTRAIN": {
     "errorType": "status_code",
