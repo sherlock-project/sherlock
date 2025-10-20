@@ -2276,7 +2276,7 @@
     "errorType": "status_code",
     "url": "https://open.spotify.com/user/{}",
     "urlMain": "https://open.spotify.com/",
-    "username_claimed": "blue"
+    "username_claimed": "spotify"
   },
   "Star Citizen": {
     "errorMsg": "404",
