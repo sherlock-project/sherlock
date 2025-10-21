@@ -228,8 +228,8 @@
     "username_claimed": "blue"
   },
   "BandLab": {
-    "errorType": "status_code",
-    "request_method": "GET",
+    "errorType": "response_url",
+    "errorUrl": "https://www.bandlab.com/404",
     "url": "https://www.bandlab.com/{}",
     "urlMain": "https://www.bandlab.com/",
     "username_claimed": "constvar"
