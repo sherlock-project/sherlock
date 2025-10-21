@@ -229,7 +229,7 @@
   },
   "BandLab": {
     "errorType": "message",
-    "errorMsg": "Couldn't find any matching element, it might be deleted",
+    "errorMsg": "Unable to find the page you are looking for",
     "url": "https://www.bandlab.com/{}",
     "urlMain": "https://www.bandlab.com/",
     "username_claimed": "constvar"
