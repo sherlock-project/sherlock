@@ -156,12 +156,6 @@
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
-  "Arduino Forum": {
-    "errorType": "status_code",
-    "url": "https://forum.arduino.cc/u/{}/summary",
-    "urlMain": "https://forum.arduino.cc/",
-    "username_claimed": "constvar"
-  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -1119,6 +1113,12 @@
     "url": "https://hackerrank.com/{}",
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
+  },
+  "HackerSploit": {
+    "errorType": "status_code",
+    "url": "https://forum.hackersploit.org/u/{}",
+    "urlMain": "https://forum.hackersploit.org/",
+    "username_claimed": "red"
   },
   "HackMD": {
     "errorType": "status_code",
