@@ -2254,6 +2254,13 @@
     "urlMain": "https://splits.io",
     "username_claimed": "cambosteve"
   },
+    "Spoj": {
+    "errorMsg": "Sign up &amp; Start coding!",
+    "errorType": "message",
+    "url": "https://www.spoj.com/users/{}/",
+    "urlMain": "https://www.spoj.com/",
+    "username_claimed": "hitesh161993"
+  },
   "Sporcle": {
     "errorType": "status_code",
     "url": "https://www.sporcle.com/user/{}/people",
