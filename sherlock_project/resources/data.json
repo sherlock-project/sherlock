@@ -156,6 +156,12 @@
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
+  "Arduino Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.arduino.cc/u/{}/summary",
+    "urlMain": "https://forum.arduino.cc/",
+    "username_claimed": "constvar"
+  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -2105,12 +2111,6 @@
     "url": "https://www.scribd.com/{}",
     "urlMain": "https://www.scribd.com/",
     "username_claimed": "blue"
-  },
-  "SEOForum": {
-    "errorType": "status_code",
-    "url": "https://seoforum.com/@{}",
-    "urlMain": "https://www.seoforum.com/",
-    "username_claimed": "ko"
   },
   "ShitpostBot5000": {
     "errorType": "status_code",
