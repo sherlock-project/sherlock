@@ -1995,3 +1995,15 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## ArtStation
+__2025-10-22 :__ ArtStation returns false positives because both existing and non-existing users return HTTP 200 status with empty content. The site appears to be loading content dynamically with JavaScript, making it impossible to distinguish between valid and invalid usernames using the current status_code detection method.
+
+```json
+  "ArtStation": {
+    "errorType": "status_code",
+    "url": "https://www.artstation.com/{}",
+    "urlMain": "https://www.artstation.com/",
+    "username_claimed": "Blue"
+  }
+```
