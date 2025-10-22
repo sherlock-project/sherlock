@@ -1,14 +1,16 @@
 APClips
-Coders Rank
+BoardGameGeek
+BreachSta.rs Forum
+DeviantArt
 GNOME VCS
 Giphy
 LushStories
 PocketStars
 Reddit
 RocketTube
-Slack
 Splice
 Spotify
+Velomania
 Weblate
 YandexMusic
 opennet
