@@ -1689,6 +1689,13 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
+  "ObservableHQ": {
+    "errorType": "message",
+    "errorMsg": "Page not found",
+    "url": "https://observablehq.com/@{}",
+    "urlMain": "https://observablehq.com/",
+    "username_claimed": "mbostock"
+  },
   "Open Collective": {
     "errorType": "status_code",
     "url": "https://opencollective.com/{}",
