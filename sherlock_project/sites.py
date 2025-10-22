@@ -60,7 +60,6 @@ class SiteInformation:
         self.information = information
         self.is_nsfw  = is_nsfw
 
-        return
 
     def __str__(self):
         """Convert Object To String.
@@ -208,7 +207,6 @@ class SitesInformation:
             except TypeError:
                 print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
 
-        return
 
     def remove_nsfw_sites(self, do_not_remove: list = []):
         """
