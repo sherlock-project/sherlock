@@ -2255,8 +2255,8 @@
     "username_claimed": "cambosteve"
   },
   "Spoj": {
-    "errorMsg": "Sign up &amp; Start coding!",
     "errorType": "message",
+    "errorMsg": "<strong>Become a true programming master</strong>",
     "url": "https://www.spoj.com/users/{}/",
     "urlMain": "https://www.spoj.com/",
     "username_claimed": "hitesh161993"
