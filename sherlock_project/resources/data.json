@@ -2254,7 +2254,7 @@
     "urlMain": "https://splits.io",
     "username_claimed": "cambosteve"
   },
-    "Spoj": {
+  "Spoj": {
     "errorMsg": "Sign up &amp; Start coding!",
     "errorType": "message",
     "url": "https://www.spoj.com/users/{}/",
