@@ -935,6 +935,12 @@
     "urlMain": "https://www.gamespot.com/",
     "username_claimed": "blue"
   },
+  "GameFAQs": {
+    "errorType": "status_code",
+    "url": "https://gamefaqs.gamespot.com/community/{}",
+    "urlMain": "https://gamefaqs.gamespot.com",
+    "username_claimed": "blue"
+  },
   "GeeksforGeeks": {
     "errorType": "status_code",
     "url": "https://auth.geeksforgeeks.org/user/{}",
