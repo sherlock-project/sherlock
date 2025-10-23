@@ -2476,6 +2476,15 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
+"Twitch": {
+     "errorMsg": "<meta property=\"og:video:type\"",
+    "errorType": "message",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv",
+    "username_claimed": "xqc"
+},
+
+
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
