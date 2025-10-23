@@ -2477,7 +2477,7 @@
     "username_claimed": "femme"
   },
 "Twitch": {
-     "errorMsg": "<meta property=\"og:video:type\"",
+    "errorMsg":  "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
     "errorType": "message",
     "url": "https://www.twitch.tv/{}",
     "urlMain": "https://www.twitch.tv",
