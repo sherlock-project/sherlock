@@ -2491,6 +2491,15 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
+"Twitch": {
+    "errorMsg":  "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
+    "errorType": "message",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv",
+    "username_claimed": "xqc"
+},
+
+
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
