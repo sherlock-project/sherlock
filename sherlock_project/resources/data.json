@@ -705,10 +705,7 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": [
-      "{\"taken\":false}",
-      "The resource is being rate limited"
-    ],
+    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -1002,13 +999,13 @@
     "username_claimed": "blue"
   },
   "Warframe Market": {
-  "errorType": "status_code",
-  "request_method": "GET",
-  "url": "https://warframe.market/profile/{}",
-  "urlMain": "https://warframe.market/",
-  "urlProbe": "https://api.warframe.market/v2/user/{}",
-  "username_claimed": "kaiallalone"
-},
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://warframe.market/profile/{}",
+    "urlMain": "https://warframe.market/",
+    "urlProbe": "https://api.warframe.market/v2/user/{}",
+    "username_claimed": "kaiallalone"
+  },
   "GitLab": {
     "errorMsg": "[]",
     "errorType": "message",
@@ -1105,10 +1102,7 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": [
-      "No such user.",
-      "Sorry."
-    ],
+    "errorMsg": ["No such user.", "Sorry."],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -2491,14 +2485,13 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
-"Twitch": {
-    "errorMsg":  "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
+  "Twitch": {
+    "errorMsg": "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
     "errorType": "message",
     "url": "https://www.twitch.tv/{}",
     "urlMain": "https://www.twitch.tv",
     "username_claimed": "xqc"
-},
-
+  },
 
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
@@ -2579,9 +2572,7 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": [
-      "Venmo | Page Not Found"
-    ],
+    "errorMsg": ["Venmo | Page Not Found"],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
