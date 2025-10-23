@@ -547,6 +547,14 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
+  "Codolio": {
+    "errorType": "message",
+    "errorMsg": "<title>Page Not Found | Codolio</title>",
+    "url": "https://codolio.com/profile/{}",
+    "urlMain": "https://codolio.com/",
+    "username_claimed": "testuser",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$"
+  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
