@@ -554,6 +554,13 @@
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
   },
+  "Coffeete": {
+    "errorType": "message",
+    "errorMsg": "Error 404",
+    "url": "https://www.coffeete.ir/{}",
+    "urlMain": "https://www.coffeete.ir",
+    "username_claimed": "solocode"
+  },
   "Coinvote": {
     "errorType": "status_code",
     "url": "https://coinvote.cc/profile/{}",
