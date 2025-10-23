@@ -1,6 +1,4 @@
 APClips
-BoardGameGeek
-BreachSta.rs Forum
 DeviantArt
 GNOME VCS
 Giphy
@@ -10,7 +8,6 @@ Reddit
 RocketTube
 Splice
 Spotify
-Velomania
 Weblate
 YandexMusic
 opennet
