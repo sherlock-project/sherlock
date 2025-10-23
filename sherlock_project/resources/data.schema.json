@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Sherlock Target Manifest",
   "description": "Social media targets to probe for the existence of known usernames",
@@ -70,6 +71,77 @@
             { "properties": { "errorType": { "const": "message" } } },
             {
               "properties": {
+=======
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Sherlock Target Manifest",
+    "description": "Social media targets to probe for the existence of known usernames",
+    "type": "object",
+    "properties": {
+        "$schema": { "type": "string" }
+    },
+    "patternProperties": {
+        "^(?!\\$).*?$": {
+            "type": "object",
+            "description": "Target name and associated information (key should be human readable name)",
+            "required": [ "url", "urlMain", "errorType", "username_claimed" ],
+            "properties": {
+                "url": { "type": "string" },
+                "urlMain": { "type": "string" },
+                "urlProbe": { "type": "string" },
+                "username_claimed": { "type": "string" },
+                "regexCheck": { "type": "string" },
+                "isNSFW": { "type": "boolean" },
+                "headers": { "type": "object" },
+                "request_payload": { "type": "object" },
+                "__comment__": {
+                    "type": "string",
+                    "description": "Used to clarify important target information if (and only if) a commit message would not suffice.\nThis key should not be parsed anywhere within Sherlock."
+                },
+                "tags": {
+                    "oneOf": [
+                        { "$ref": "#/$defs/tag" },
+                        { "type": "array", "items": { "$ref": "#/$defs/tag" } }
+                    ]
+                },
+                "request_method": {
+                    "type": "string",
+                    "enum": [ "GET", "POST", "HEAD", "PUT" ]
+                },
+                "riskHints": {
+                    "type": "object",
+                    "properties": {
+                        "label": { "type": "string" },
+                        "threshold": { "type": "number" },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "pattern": { "type": "string" },
+                                    "weight": { "type": "number" },
+                                    "label": { "type": "string" }
+                                },
+                                "required": [ "pattern" ],
+                                "additionalProperties": false
+                            }
+                        },
+                        "regex": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "pattern": { "type": "string" },
+                                    "weight": { "type": "number" },
+                                    "label": { "type": "string" }
+                                },
+                                "required": [ "pattern" ],
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "additionalProperties": true
+                },
+>>>>>>> 2a59dff (Add optional risk scoring and data export support to Sherlock (#2508))
                 "errorType": {
                   "type": "array",
                   "contains": { "const": "message" }

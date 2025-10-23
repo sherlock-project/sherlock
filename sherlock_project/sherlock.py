@@ -24,7 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -41,8 +41,12 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
+from sherlock_project.risk import RiskAssessment, build_risk_analyzer
 from colorama import init
 from argparse import ArgumentTypeError
+
+if TYPE_CHECKING:  # pragma: no cover - imported only for typing
+    from sherlock_project.risk import RiskAnalyzer
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -174,7 +178,8 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+    risk_analyzer: "RiskAnalyzer | None" = None,
+) -> dict[str, dict[str, object]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -189,6 +194,8 @@ def sherlock(
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
+    risk_analyzer          -- Optional RiskAnalyzer to attach risk assessments
+                              to claimed accounts.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -202,6 +209,7 @@ def sherlock(
                        site.
         response_text: Text that came back from request.  May be None if
                        there was an HTTP error when checking for existence.
+        risk:          RiskAssessment() object describing an optional risk verdict.
     """
 
     # Notify caller that we are starting the query.
@@ -228,7 +236,7 @@ def sherlock(
     # First create futures for all requests. This allows for the requests to run in parallel
     for social_network, net_info in site_data.items():
         # Results from analysis of this specific site
-        results_site = {"url_main": net_info.get("urlMain")}
+        results_site = {"url_main": net_info.get("urlMain"), "risk": None}
 
         # Record URL of main site
 
@@ -370,7 +378,7 @@ def sherlock(
         except Exception:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding or "UTF-8")
+            response_text = r.text
         except Exception:
             response_text = ""
 
@@ -478,6 +486,15 @@ def sherlock(
             print("VERDICT       : " + str(query_status))
             print("+++++++++++++++++++++")
 
+        risk_assessment: RiskAssessment | None = None
+        if risk_analyzer is not None and query_status == QueryStatus.CLAIMED:
+            risk_assessment = risk_analyzer.evaluate(
+                username=username,
+                site_name=social_network,
+                response_text=response_text,
+                site_metadata=net_info,
+            )
+
         # Notify caller about results of query.
         result: QueryResult = QueryResult(
             username=username,
@@ -486,6 +503,7 @@ def sherlock(
             status=query_status,
             query_time=response_time,
             context=error_context,
+            risk=risk_assessment,
         )
         query_notify.update(result)
 
@@ -495,6 +513,7 @@ def sherlock(
         # Save results from request
         results_site["http_status"] = http_status
         results_site["response_text"] = response_text
+        results_site["risk"] = risk_assessment
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -622,6 +641,20 @@ def main():
         type=timeout_check,
         default=60,
         help="Time (in seconds) to wait for response to requests (Default: 60)",
+    )
+    parser.add_argument(
+        "--risk",
+        action="store_true",
+        dest="risk",
+        default=False,
+        help="Enable AI-driven risk assessment for claimed accounts.",
+    )
+    parser.add_argument(
+        "--risk-config",
+        metavar="RISK_CONFIG",
+        dest="risk_config",
+        default=None,
+        help="Path to a JSON risk configuration file.",
     )
     parser.add_argument(
         "--print-all",
@@ -807,6 +840,12 @@ def main():
         if not site_data:
             sys.exit(1)
 
+    risk_engine = build_risk_analyzer(
+        enabled=args.risk,
+        config_path=args.risk_config,
+        site_data=site_data_all,
+    )
+
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
         result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
@@ -828,6 +867,7 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            risk_analyzer=risk_engine,
         )
 
         if args.output:
@@ -847,7 +887,17 @@ def main():
                     dictionary = results[website_name]
                     if dictionary.get("status").status == QueryStatus.CLAIMED:
                         exists_counter += 1
-                        file.write(dictionary["url_user"] + "\n")
+                        risk = dictionary.get("risk")
+                        if isinstance(risk, RiskAssessment):
+                            risk_parts = [risk.label]
+                            if risk.score is not None:
+                                risk_parts.append(f"{risk.score:.2f}")
+                            if risk.confidence is not None:
+                                risk_parts.append(f"conf={risk.confidence:.2f}")
+                            risk_summary = " ".join(risk_parts)
+                            file.write(f"{dictionary['url_user']} [risk: {risk_summary}]\n")
+                        else:
+                            file.write(dictionary["url_user"] + "\n")
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
@@ -869,6 +919,9 @@ def main():
                         "exists",
                         "http_status",
                         "response_time_s",
+                        "risk_label",
+                        "risk_score",
+                        "risk_confidence",
                     ]
                 )
                 for site in results:
@@ -882,6 +935,15 @@ def main():
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
+                    risk = results[site].get("risk")
+                    if isinstance(risk, RiskAssessment):
+                        risk_label = risk.label
+                        risk_score = f"{risk.score:.2f}" if risk.score is not None else ""
+                        risk_confidence = f"{risk.confidence:.2f}" if risk.confidence is not None else ""
+                    else:
+                        risk_label = ""
+                        risk_score = ""
+                        risk_confidence = ""
                     writer.writerow(
                         [
                             username,
@@ -891,16 +953,24 @@ def main():
                             str(results[site]["status"].status),
                             results[site]["http_status"],
                             response_time_s,
+                            risk_label,
+                            risk_score,
+                            risk_confidence,
                         ]
                     )
         if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
-            exists = []
-            http_status = []
-            response_time_s = []
+            rows = {
+                "username": [],
+                "name": [],
+                "url_main": [],
+                "url_user": [],
+                "exists": [],
+                "http_status": [],
+                "response_time_s": [],
+                "risk_label": [],
+                "risk_score": [],
+                "risk_confidence": [],
+            }
 
             for site in results:
                 if (
@@ -910,28 +980,26 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
+                status_obj = results[site]["status"]
+                rows["username"].append(username)
+                rows["name"].append(site)
+                rows["url_main"].append(results[site]["url_main"])
+                rows["url_user"].append(results[site]["url_user"])
+                rows["exists"].append(str(status_obj.status))
+                rows["http_status"].append(results[site]["http_status"])
+                rows["response_time_s"].append(status_obj.query_time)
 
-            DataFrame = pd.DataFrame(
-                {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": url_main,
-                    "url_user": url_user,
-                    "exists": exists,
-                    "http_status": http_status,
-                    "response_time_s": response_time_s,
-                }
-            )
+                risk = results[site].get("risk")
+                if isinstance(risk, RiskAssessment):
+                    rows["risk_label"].append(risk.label)
+                    rows["risk_score"].append(risk.score)
+                    rows["risk_confidence"].append(risk.confidence)
+                else:
+                    rows["risk_label"].append("")
+                    rows["risk_score"].append(None)
+                    rows["risk_confidence"].append(None)
+
+            DataFrame = pd.DataFrame(rows)
             DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
 
         print()

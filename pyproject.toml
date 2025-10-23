@@ -54,6 +54,13 @@ pandas = "^2.2.1"
 openpyxl = "^3.0.10"
 tomli = "^2.2.1"
 
+<<<<<<< HEAD
+=======
+[tool.poetry.extras]
+tor = ["torrequest"]
+risk = ["onnxruntime", "transformers", "beautifulsoup4", "tldextract"]
+
+>>>>>>> 2a59dff (Add optional risk scoring and data export support to Sherlock (#2508))
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
 rstr = "^3.2.2"
