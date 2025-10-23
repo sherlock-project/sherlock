@@ -2959,8 +2959,7 @@
     "errorType": "status_code",
     "url": "https://mstdn.social/@{}",
     "urlMain": "https://mstdn.social/",
-    "username_claimed": "MagicLike",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_claimed": "MagicLike"
   },
   "mercadolivre": {
     "errorType": "status_code",
