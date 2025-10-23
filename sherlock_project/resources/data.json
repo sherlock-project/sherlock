@@ -2470,6 +2470,13 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
+  "Trovo": {
+    "errorMsg": "Uh Ohhh...",
+    "errorType": "message",
+    "url": "https://trovo.live/s/{}/",
+    "urlMain": "https://trovo.live",
+    "username_claimed": "Aimilios"
+  },
   "Twitter": {
     "errorMsg": [
       "<div class=\"error-panel\"><span>User ",
