@@ -1702,6 +1702,12 @@
     "urlMain": "https://opencollective.com/",
     "username_claimed": "sindresorhus"
   },
+  "OpenGameArt": {
+    "errorType": "status_code",
+    "url": "https://opengameart.org/users/{}",
+    "urlMain": "https://opengameart.org",
+    "username_claimed": "ski"
+  },
   "OpenStreetMap": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
