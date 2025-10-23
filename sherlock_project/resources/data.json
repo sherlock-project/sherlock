@@ -1422,6 +1422,13 @@
     "urlMain": "https://leetcode.com/",
     "username_claimed": "blue"
   },
+  "LemmyWorld": {
+    "errorType": "message",
+    "errorMsg": "<h1>Error!</h1>",
+    "url": "https://lemmy.world/u/{}",
+    "urlMain": "https://lemmy.world",
+    "username_claimed": "blue"
+  },
   "LessWrong": {
     "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
