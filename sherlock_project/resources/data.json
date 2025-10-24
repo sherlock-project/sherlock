@@ -2106,6 +2106,12 @@
     "urlMain": "https://www.scribd.com/",
     "username_claimed": "blue"
   },
+  "SEOForum": {
+    "errorType": "status_code",
+    "url": "https://seoforum.com/@{}",
+    "urlMain": "https://www.seoforum.com/",
+    "username_claimed": "ko"
+  },
   "ShitpostBot5000": {
     "errorType": "status_code",
     "url": "https://www.shitpostbot.com/user/{}",
