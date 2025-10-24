@@ -156,6 +156,12 @@
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
+  "Arduino Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.arduino.cc/u/{}/summary",
+    "urlMain": "https://forum.arduino.cc/",
+    "username_claimed": "system"
+  },
   "ArtStation": {
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
@@ -1113,6 +1119,12 @@
     "url": "https://hackerrank.com/{}",
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
+  },
+  "HackerSploit": {
+    "errorType": "status_code",
+    "url": "https://forum.hackersploit.org/u/{}",
+    "urlMain": "https://forum.hackersploit.org/",
+    "username_claimed": "hackersploit"
   },
   "HackMD": {
     "errorType": "status_code",
@@ -2964,6 +2976,12 @@
     "url": "https://www.nairaland.com/{}",
     "urlMain": "https://www.nairaland.com/",
     "username_claimed": "red"
+  },
+  "n8n Community": {
+    "errorType": "status_code",
+    "url": "https://community.n8n.io/u/{}/summary",
+    "urlMain": "https://community.n8n.io/",
+    "username_claimed": "n8n"
   },
   "nnRU": {
     "errorType": "status_code",
