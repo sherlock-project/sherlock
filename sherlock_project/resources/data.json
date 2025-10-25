@@ -149,12 +149,6 @@
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
   },
-  "ArtStation": {
-    "errorType": "status_code",
-    "url": "https://www.artstation.com/{}",
-    "urlMain": "https://www.artstation.com/",
-    "username_claimed": "Blue"
-  },
   "Asciinema": {
     "errorType": "status_code",
     "url": "https://asciinema.org/~{}",
