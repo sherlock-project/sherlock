@@ -2378,6 +2378,12 @@
     "urlProbe": "https://api.topcoder.com/v5/members/{}",
     "regexCheck": "^[a-zA-Z0-9_.]+$"
   },
+  "Topmate": {
+    "errorType": "status_code",
+    "url": "https://topmate.io/{}",
+    "urlMain": "https://topmate.io/",
+    "username_claimed": "blue"
+  },
   "TRAKTRAIN": {
     "errorType": "status_code",
     "url": "https://traktrain.com/{}",
