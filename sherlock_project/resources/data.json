@@ -2324,6 +2324,12 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "TheMovieDB": {
+    "errorType": "status_code",
+    "url": "https://www.themoviedb.org/u/{}",
+    "urlMain": "https://www.themoviedb.org/",
+    "username_claimed": "blue"
+  },
   "TikTok": {
     "url": "https://www.tiktok.com/@{}",
     "urlMain": "https://www.tiktok.com",
