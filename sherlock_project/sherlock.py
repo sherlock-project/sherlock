@@ -121,6 +121,9 @@ def get_response(request_future, error_type, social_network):
         if response.status_code:
             # Status code exists in response object
             error_context = None
+    except UnicodeDecodeError as err_unicode:
+        error_context = "Unicode Decode Error"
+        exception_text = str(err_unicode)
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
         exception_text = str(errh)
