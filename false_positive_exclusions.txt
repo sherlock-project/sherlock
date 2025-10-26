@@ -1,5 +1,4 @@
 APClips
-Coders Rank
 DeviantArt
 GNOME VCS
 Giphy
@@ -12,6 +11,4 @@ Spotify
 Trovo
 Weblate
 YandexMusic
-opennet
 svidbook
-xHamster
