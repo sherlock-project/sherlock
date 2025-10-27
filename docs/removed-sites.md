@@ -1995,3 +1995,14 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+## Giphy
+__2025-10-28 :__ cloudflare protection
+```json
+  "Giphy": {
+    "errorType": "message",
+    "errorMsg": "<title> GIFs - Find &amp; Share on GIPHY</title>",
+    "url": "https://giphy.com/{}",
+    "urlMain": "https://giphy.com/",
+    "username_claimed": "red"
+  },
+```
