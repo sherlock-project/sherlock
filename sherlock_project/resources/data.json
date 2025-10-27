@@ -1703,6 +1703,12 @@
     "urlProbe": "https://notabug.org/{}/followers",
     "username_claimed": "red"
   },
+  "Nothing Community": {
+    "errorType": "status_code",
+    "url": "https://nothing.community/u/{}",
+    "urlMain": "https://nothing.community/",
+    "username_claimed": "Carl"
+  },
   "Nyaa.si": {
     "errorType": "status_code",
     "url": "https://nyaa.si/user/{}",
