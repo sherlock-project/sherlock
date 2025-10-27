@@ -1,4 +1,5 @@
 APClips
+Blogger
 DeviantArt
 GNOME VCS
 Giphy
