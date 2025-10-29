@@ -113,6 +113,10 @@ class SherlockFuturesSession(FuturesSession):
 def get_response(request_future, error_type, social_network):
     # Default for Response object if some failure occurs.
     response = None
+    """
+    Waits for an asynchronous HTTP request to complete and returns the response.
+    Handles timeouts and connection errors safely.
+    """
 
     error_context = "General Unknown Error"
     exception_text = None
