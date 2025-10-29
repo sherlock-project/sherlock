@@ -11,13 +11,6 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
-  "Terraria Forums": {
-    "errorMsg": "The following members could not be found",
-    "errorType": "message",
-    "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
-    "urlMain": "https://forums.terraria.org/index.php",
-    "username_claimed": "blue"
-  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -155,6 +148,12 @@
     "urlMain": "https://archive.org",
     "urlProbe": "https://archive.org/details/@{}?noscript=true",
     "username_claimed": "blue"
+  },
+  "Arduino Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.arduino.cc/u/{}/summary",
+    "urlMain": "https://forum.arduino.cc/",
+    "username_claimed": "system"
   },
   "ArtStation": {
     "errorType": "status_code",
@@ -539,7 +538,7 @@
     "urlMain": "https://coderwall.com",
     "username_claimed": "hacker"
   },
-  "Code Sandbox": {
+  "CodeSandbox": {
     "errorType": "message",
     "errorMsg": "Could not find user with username",
     "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
@@ -553,6 +552,14 @@
     "url": "https://www.codewars.com/users/{}",
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example"
+  },
+  "Codolio": {
+    "errorType": "message",
+    "errorMsg": "<title>Page Not Found | Codolio</title>",
+    "url": "https://codolio.com/profile/{}",
+    "urlMain": "https://codolio.com/",
+    "username_claimed": "testuser",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$"
   },
   "Coinvote": {
     "errorType": "status_code",
@@ -594,7 +601,7 @@
     "urlMain": "https://www.cracked.com/",
     "username_claimed": "blue"
   },
-    "Cracked Forum": {
+  "Cracked Forum": {
     "errorMsg": "The member you specified is either invalid or doesn't exist",
     "errorType": "message",
     "url": "https://cracked.sh/{}",
@@ -704,10 +711,7 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": [
-      "{\"taken\":false}",
-      "The resource is being rate limited"
-    ],
+    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -935,6 +939,12 @@
     "urlMain": "https://www.gamespot.com/",
     "username_claimed": "blue"
   },
+  "GameFAQs": {
+    "errorType": "status_code",
+    "url": "https://gamefaqs.gamespot.com/community/{}",
+    "urlMain": "https://gamefaqs.gamespot.com",
+    "username_claimed": "blue"
+  },
   "GeeksforGeeks": {
     "errorType": "status_code",
     "url": "https://auth.geeksforgeeks.org/user/{}",
@@ -993,6 +1003,14 @@
     "url": "https://www.github.com/{}",
     "urlMain": "https://www.github.com/",
     "username_claimed": "blue"
+  },
+  "Warframe Market": {
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://warframe.market/profile/{}",
+    "urlMain": "https://warframe.market/",
+    "urlProbe": "https://api.warframe.market/v2/user/{}",
+    "username_claimed": "kaiallalone"
   },
   "GitLab": {
     "errorMsg": "[]",
@@ -1097,10 +1115,7 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": [
-      "No such user.",
-      "Sorry."
-    ],
+    "errorMsg": ["No such user.", "Sorry."],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -1120,6 +1135,12 @@
     "url": "https://hackerrank.com/{}",
     "urlMain": "https://hackerrank.com/",
     "username_claimed": "satznova"
+  },
+  "HackerSploit": {
+    "errorType": "status_code",
+    "url": "https://forum.hackersploit.org/u/{}",
+    "urlMain": "https://forum.hackersploit.org/",
+    "username_claimed": "hackersploit"
   },
   "HackMD": {
     "errorType": "status_code",
@@ -1414,6 +1435,13 @@
     "urlMain": "https://leetcode.com/",
     "username_claimed": "blue"
   },
+  "LemmyWorld": {
+    "errorType": "message",
+    "errorMsg": "<h1>Error!</h1>",
+    "url": "https://lemmy.world/u/{}",
+    "urlMain": "https://lemmy.world",
+    "username_claimed": "blue"
+  },
   "LessWrong": {
     "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
@@ -1688,11 +1716,24 @@
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue"
   },
+  "ObservableHQ": {
+    "errorType": "message",
+    "errorMsg": "Page not found",
+    "url": "https://observablehq.com/@{}",
+    "urlMain": "https://observablehq.com/",
+    "username_claimed": "mbostock"
+  },
   "Open Collective": {
     "errorType": "status_code",
     "url": "https://opencollective.com/{}",
     "urlMain": "https://opencollective.com/",
     "username_claimed": "sindresorhus"
+  },
+  "OpenGameArt": {
+    "errorType": "status_code",
+    "url": "https://opengameart.org/users/{}",
+    "urlMain": "https://opengameart.org",
+    "username_claimed": "ski"
   },
   "OpenStreetMap": {
     "errorType": "status_code",
@@ -1700,6 +1741,13 @@
     "url": "https://www.openstreetmap.org/user/{}",
     "urlMain": "https://www.openstreetmap.org/",
     "username_claimed": "blue"
+  },
+  "Odysee": {
+    "errorMsg": "<link rel=\"canonical\" content=\"odysee.com\"/>",
+    "errorType": "message",
+    "url": "https://odysee.com/@{}",
+    "urlMain": "https://odysee.com/",
+    "username_claimed": "Odysee"
   },
   "Opensource": {
     "errorType": "status_code",
@@ -1749,7 +1797,7 @@
     "urlMain": "https://pastebin.com/",
     "username_claimed": "blue"
   },
-    "Patched": {
+  "Patched": {
     "errorMsg": "The member you specified is either invalid or doesn't exist.",
     "errorType": "message",
     "url": "https://patched.sh/User/{}",
@@ -2113,6 +2161,12 @@
     "urlMain": "https://www.scribd.com/",
     "username_claimed": "blue"
   },
+  "SEOForum": {
+    "errorType": "status_code",
+    "url": "https://seoforum.com/@{}",
+    "urlMain": "https://www.seoforum.com/",
+    "username_claimed": "ko"
+  },
   "ShitpostBot5000": {
     "errorType": "status_code",
     "url": "https://www.shitpostbot.com/user/{}",
@@ -2319,6 +2373,12 @@
     "urlProbe": "https://ch.tetr.io/api/users/{}",
     "username_claimed": "osk"
   },
+  "TheMovieDB": {
+    "errorType": "status_code",
+    "url": "https://www.themoviedb.org/u/{}",
+    "urlMain": "https://www.themoviedb.org/",
+    "username_claimed": "blue"
+  },
   "TikTok": {
     "url": "https://www.tiktok.com/@{}",
     "urlMain": "https://www.tiktok.com",
@@ -2341,7 +2401,13 @@
     "urlMain": "https://topcoder.com/",
     "username_claimed": "USER",
     "urlProbe": "https://api.topcoder.com/v5/members/{}",
-    "regexCheck": "[a-zA-Z0-9 ]"
+    "regexCheck": "^[a-zA-Z0-9_.]+$"
+  },
+  "Topmate": {
+    "errorType": "status_code",
+    "url": "https://topmate.io/{}",
+    "urlMain": "https://topmate.io/",
+    "username_claimed": "blue"
   },
   "TRAKTRAIN": {
     "errorType": "status_code",
@@ -2372,6 +2438,13 @@
     "url": "https://tenor.com/users/{}",
     "urlMain": "https://tenor.com/",
     "username_claimed": "red"
+  },
+  "Terraria Forums": {
+    "errorMsg": "The following members could not be found",
+    "errorType": "message",
+    "url": "https://forums.terraria.org/index.php?search/42798315/&c[users]={}&o=relevance",
+    "urlMain": "https://forums.terraria.org/index.php",
+    "username_claimed": "blue"
   },
   "ThemeForest": {
     "errorType": "status_code",
@@ -2449,6 +2522,21 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
+  "Twitch": {
+    "errorMsg": "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
+    "errorType": "message",
+    "url": "https://www.twitch.tv/{}",
+    "urlMain": "https://www.twitch.tv",
+    "username_claimed": "xqc"
+  },
+
+  "Trovo": {
+    "errorMsg": "Uh Ohhh...",
+    "errorType": "message",
+    "url": "https://trovo.live/s/{}/",
+    "urlMain": "https://trovo.live",
+    "username_claimed": "Aimilios"
+  },
   "Twitter": {
     "errorMsg": [
       "<div class=\"error-panel\"><span>User ",
@@ -2521,9 +2609,7 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": [
-      "Venmo | Page Not Found"
-    ],
+    "errorMsg": ["Venmo | Page Not Found"],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
@@ -2940,6 +3026,12 @@
     "urlMain": "https://mastodon.xyz/",
     "username_claimed": "TheKinrar"
   },
+  "mstdn.social": {
+    "errorType": "status_code",
+    "url": "https://mstdn.social/@{}",
+    "urlMain": "https://mstdn.social/",
+    "username_claimed": "MagicLike"
+  },
   "mercadolivre": {
     "errorType": "status_code",
     "url": "https://www.mercadolivre.com.br/perfil/{}",
@@ -2971,6 +3063,12 @@
     "url": "https://www.nairaland.com/{}",
     "urlMain": "https://www.nairaland.com/",
     "username_claimed": "red"
+  },
+  "n8n Community": {
+    "errorType": "status_code",
+    "url": "https://community.n8n.io/u/{}/summary",
+    "urlMain": "https://community.n8n.io/",
+    "username_claimed": "n8n"
   },
   "nnRU": {
     "errorType": "status_code",
