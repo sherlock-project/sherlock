@@ -1551,6 +1551,7 @@
   "Minecraft": {
     "errorMsg": "Couldn't find any profile with name",
     "errorType": "message",
+    "regexCheck": "^.{1,25}$",
     "url": "https://api.mojang.com/users/profiles/minecraft/{}",
     "urlMain": "https://minecraft.net/",
     "username_claimed": "blue"
