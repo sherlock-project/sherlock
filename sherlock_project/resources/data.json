@@ -711,7 +711,10 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
+    "errorMsg": [
+      "{\"taken\":false}",
+      "The resource is being rate limited"
+    ],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -983,6 +986,13 @@
     "urlMain": "https://www.giantbomb.com/",
     "username_claimed": "bob"
   },
+  "Giphy": {
+    "errorType": "response_url",
+    "errorUrl": "https://giphy.com/explore/{}",
+    "url": "https://giphy.com/{}",
+    "urlMain": "https://giphy.com/",
+    "username_claimed": "red"
+  },
   "GitBook": {
     "errorType": "status_code",
     "regexCheck": "^[\\w@-]+?$",
@@ -1101,7 +1111,10 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": ["No such user.", "Sorry."],
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -2515,7 +2528,6 @@
     "urlMain": "https://www.twitch.tv",
     "username_claimed": "xqc"
   },
-
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
@@ -2595,7 +2607,9 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": ["Venmo | Page Not Found"],
+    "errorMsg": [
+      "Venmo | Page Not Found"
+    ],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
