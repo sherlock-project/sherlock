@@ -1557,6 +1557,7 @@
   "Minecraft": {
     "errorMsg": "Couldn't find any profile with name",
     "errorType": "message",
+    "regexCheck": "^.{1,25}$",
     "url": "https://api.mojang.com/users/profiles/minecraft/{}",
     "urlMain": "https://minecraft.net/",
     "username_claimed": "blue"
@@ -1708,6 +1709,12 @@
     "urlMain": "https://notabug.org/",
     "urlProbe": "https://notabug.org/{}/followers",
     "username_claimed": "red"
+  },
+  "Nothing Community": {
+    "errorType": "status_code",
+    "url": "https://nothing.community/u/{}",
+    "urlMain": "https://nothing.community/",
+    "username_claimed": "Carl"
   },
   "Nyaa.si": {
     "errorType": "status_code",
