@@ -28,6 +28,7 @@ from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
+from difflib import get_close_matches
 
 from sherlock_project.__init__ import (
     __longname__,
@@ -803,6 +804,12 @@ def main():
 
         if site_missing:
             print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            
+            available_site_names =  [site.name for site in sites]
+            for m in site_missing:
+                matches = get_close_matches(m, available_site_names, n = 2, cutoff=0.4)
+                if matches:
+                    print(f"Did you mean: {', '.join(matches)}.")
 
         if not site_data:
             sys.exit(1)
