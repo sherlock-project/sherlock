@@ -9,9 +9,9 @@ Reddit
 RocketTube
 Splice
 Spotify
-Strava
 Trovo
 Weblate
 YandexMusic
 opennet
+phpRU
 svidbook
