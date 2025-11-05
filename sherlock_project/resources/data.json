@@ -1876,7 +1876,6 @@
     "Pi-Hole Userspace": {
     "errorType": "message",
     "errorMsg": "Oops! That page doesn't exist or is private.",
-    "regexCheck": "^[a-zA-Z0-9_-]{3,30}$",
     "url": "https://discourse.pi-hole.net/u/{}/summary",
     "urlProbe": "https://discourse.pi-hole.net/u/{}.json",
     "urlMain": "https://discourse.pi-hole.net",
