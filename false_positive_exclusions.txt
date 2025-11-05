@@ -1,15 +1,19 @@
 APClips
-CGTrader
 Coders Rank
+DeviantArt
 GNOME VCS
 Giphy
+Itch.io
 LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
 Splice
 Spotify
+Strava
+Trovo
 Weblate
 YandexMusic
-phpRU
+opennet
 svidbook
