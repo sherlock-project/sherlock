@@ -1875,10 +1875,11 @@
   },
     "Pi-Hole Userspace": {
     "errorType": "message",
-    "errorMsg": "The requested URL or resource could not be found.",
+    "errorMsg": "Oops! That page doesn't exist or is private.",
+    "url": "https://discourse.pi-hole.net/u/{}/summary",
     "urlProbe": "https://discourse.pi-hole.net/u/{}.json",
     "urlMain": "https://discourse.pi-hole.net",
-    "username_claimed": "DanSchaper"
+    "username_claimed": "danschaper"
   },
   "Promodescuentos": {
     "errorType": "status_code",
