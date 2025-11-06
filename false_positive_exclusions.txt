@@ -1,9 +1,8 @@
 APClips
-Coders Rank
+Blogger
 DeviantArt
 GNOME VCS
 Giphy
-Itch.io
 LushStories
 Minecraft
 PocketStars
@@ -11,9 +10,9 @@ Reddit
 RocketTube
 Splice
 Spotify
-Strava
 Trovo
 Weblate
 YandexMusic
 opennet
+phpRU
 svidbook
