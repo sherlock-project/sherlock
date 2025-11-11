@@ -3,15 +3,15 @@ Archive.org
 DeviantArt
 GNOME VCS
 Giphy
-LiveJournal
+LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
-Slack
+Snapchat
 Splice
 Spotify
 Trovo
 Weblate
 YandexMusic
-opennet
 svidbook
