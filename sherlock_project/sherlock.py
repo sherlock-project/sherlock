@@ -837,11 +837,14 @@ def main():
                 else:
                     result_file = args.output  # Filename already exists and is overwritten.
             else:
-                parent_dir = os.path.dirname(args.output)
-                if parent_dir:
-                    os.makedirs(parent_dir, exist_ok=True)
-
-                result_file = args.output
+                parent_dir = os.path.dirname(args.output.rstrip("/"))
+                if args.output.endswith(os.sep):
+                    os.makedirs(args.output, exist_ok=True)
+                    result_file = os.path.join(args.output, f"{username}")
+                else:
+                    if parent_dir:
+                        os.makedirs(parent_dir, exist_ok=True)
+                    result_file = args.output
 
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
