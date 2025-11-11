@@ -831,7 +831,27 @@ def main():
         )
 
         if args.output:
-            result_file = args.output
+            if os.path.exists(args.output):  # Check if given filepath exists.
+                if os.path.isdir(args.output):  # Filename exists and is a directory.
+                    result_file = os.path.join(args.output, f"{username}")
+                else:
+                    result_file = args.output  # Filename already exists and is overwritten.
+            else:
+                parent_dir = os.path.dirname(args.output)
+                if parent_dir:
+                    os.makedirs(parent_dir, exist_ok=True)
+
+                result_file = args.output
+
+            with open(result_file, "w", encoding="utf-8") as file:
+                exists_counter = 0
+                for website_name in results:
+                    dictionary = results[website_name]
+                    if dictionary.get("status").status == QueryStatus.CLAIMED:
+                        exists_counter += 1
+                        file.write(dictionary["url_user"] + "\n")
+                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+
         elif args.folderoutput:
             # The usernames results should be stored in a targeted folder.
             # If the folder doesn't exist, create it first
@@ -841,6 +861,7 @@ def main():
             result_file = f"{username}.txt"
 
         if args.output_txt:
+            print("args.output_txt here")
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:
