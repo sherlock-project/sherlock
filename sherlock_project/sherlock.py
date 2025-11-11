@@ -861,7 +861,6 @@ def main():
             result_file = f"{username}.txt"
 
         if args.output_txt:
-            print("args.output_txt here")
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:
