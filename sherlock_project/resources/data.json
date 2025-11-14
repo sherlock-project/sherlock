@@ -608,6 +608,12 @@
     "urlMain": "https://cracked.sh/",
     "username_claimed": "Blue"
   },
+  "Credly": {
+    "errorType": "status_code",
+    "url": "https://www.credly.com/users/{}",
+    "urlMain": "https://www.credly.com/",
+    "username_claimed": "credly"
+  },
   "Crevado": {
     "errorType": "status_code",
     "regexCheck": "^[\\w@-]+?$",
