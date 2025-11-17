@@ -3,10 +3,9 @@ Archive.org
 DeviantArt
 GNOME VCS
 Giphy
-Harvard Scholar
-Minecraft
-Motherless
+LushStories
 PocketStars
+Rajce.net
 Reddit
 RocketTube
 Splice
@@ -14,5 +13,5 @@ Spotify
 Trovo
 Weblate
 YandexMusic
-phpRU
+opennet
 svidbook
