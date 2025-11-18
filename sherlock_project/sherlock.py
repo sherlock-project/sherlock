@@ -380,7 +380,7 @@ def sherlock(
         # As WAFs advance and evolve, they will occasionally block Sherlock and
         # lead to false positives and negatives. Fingerprints should be added
         # here to filter results that fail to bypass WAFs. Fingerprints should
-        # be highly targetted. Comment at the end of each fingerprint to
+        # be highly targeted. Comment at the end of each fingerprint to
         # indicate target and date fingerprinted.
         WAFHitMsgs = [
             r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
