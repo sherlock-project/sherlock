@@ -1,11 +1,9 @@
 APClips
 Archive.org
-BoardGameGeek
 Coders Rank
 GNOME VCS
 Giphy
 LushStories
-Minecraft
 PocketStars
 Reddit
 RocketTube
@@ -14,3 +12,4 @@ Spotify
 Weblate
 YandexMusic
 svidbook
+xHamster
