@@ -1,6 +1,5 @@
 APClips
 Archive.org
-Audiojungle
 Coders Rank
 GNOME VCS
 GeeksforGeeks
@@ -10,7 +9,9 @@ Reddit
 RocketTube
 Splice
 Spotify
+Strava
 Weblate
 YandexMusic
 opennet
 svidbook
+xHamster
