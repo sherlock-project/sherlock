@@ -1,14 +1,16 @@
 APClips
 Archive.org
+Blogger
 Code Snippet Wiki
 Coders Rank
 DeviantArt
 GNOME VCS
 GeeksforGeeks
 Giphy
-Gravatar
 Hubski
+LiveJournal
 LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
@@ -18,4 +20,3 @@ Trovo
 Weblate
 YandexMusic
 svidbook
-xHamster
