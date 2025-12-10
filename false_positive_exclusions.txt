@@ -5,8 +5,10 @@ DeviantArt
 GNOME VCS
 GeeksforGeeks
 Giphy
+HackerRank
 Hubski
 LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
