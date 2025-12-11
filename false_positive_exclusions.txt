@@ -1,21 +1,22 @@
 APClips
 Archive.org
+Audiojungle
+Blogger
 Code Snippet Wiki
-DeviantArt
+Coders Rank
 GNOME VCS
 GeeksforGeeks
 Giphy
-HackerRank
 Hubski
 LushStories
-Minecraft
 PocketStars
 Reddit
 RocketTube
 Splice
 Spotify
-Trovo
 Weblate
 YandexMusic
 opennet
 svidbook
+threads
+xHamster
