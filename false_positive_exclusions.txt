@@ -1,5 +1,6 @@
 APClips
 Archive.org
+Blogger
 Code Snippet Wiki
 Coders Rank
 DeviantArt
@@ -9,11 +10,9 @@ GeeksforGeeks
 Giphy
 Hubski
 LushStories
-Minecraft
 PocketStars
 Reddit
 RocketTube
-RuneScape
 Splice
 Spotify
 Trovo
