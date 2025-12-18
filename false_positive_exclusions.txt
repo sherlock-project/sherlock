@@ -1,19 +1,19 @@
 APClips
 Archive.org
 Code Snippet Wiki
-Coders Rank
 DeviantArt
+Dribbble
 Fandom
 GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
 LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
 SlideShare
-SpeakerDeck
 Splice
 Spotify
 Trovo
@@ -21,3 +21,4 @@ Weblate
 YandexMusic
 opennet
 svidbook
+xHamster
