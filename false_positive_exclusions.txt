@@ -11,12 +11,12 @@ LushStories
 PocketStars
 Reddit
 RocketTube
+Scribd
 SlideShare
 Splice
 Spotify
 Trovo
 Weblate
-Wordnik
 YandexMusic
 opennet
 svidbook
