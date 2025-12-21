@@ -1,8 +1,8 @@
 APClips
-Archive.org
 Code Snippet Wiki
-DeviantArt
+Eintracht Frankfurt Forum
 Fandom
+Freelancer
 GNOME VCS
 GeeksforGeeks
 Giphy
@@ -15,8 +15,8 @@ Scribd
 SlideShare
 Splice
 Spotify
-Trovo
 Weblate
-YandexMusic
 opennet
+phpRU
 svidbook
+xHamster
