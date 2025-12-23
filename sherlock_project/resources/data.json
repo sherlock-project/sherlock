@@ -2136,6 +2136,12 @@
     "urlProbe": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
     "username_claimed": "L33"
   },
+  "Salesforce": {
+    "errorType": "status_code",
+    "url": "https://{}.my.salesforce.com",
+    "urlMain": "https://www.salesforce.com/",
+    "username_claimed": "amazon"
+  },
   "SWAPD": {
     "errorType": "status_code",
     "url": "https://swapd.co/u/{}",
