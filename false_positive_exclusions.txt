@@ -8,6 +8,7 @@ GeeksforGeeks
 Giphy
 Hubski
 LushStories
+Minecraft
 PocketStars
 Reddit
 RocketTube
@@ -20,3 +21,4 @@ Weblate
 YandexMusic
 phpRU
 svidbook
+threads
