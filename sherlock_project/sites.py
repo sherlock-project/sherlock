@@ -145,6 +145,9 @@ class SitesInformation:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  {error}."
                 )
+                
+            # Validate remote manifest against local schema
+            self._validate_remote_manifest(site_data, data_file_path)
 
         else:
             # Reference is to a file.
@@ -209,6 +212,22 @@ class SitesInformation:
                 print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
 
         return
+
+    def _validate_remote_manifest(self, manifest_data, data_file_path):
+        """Validate remote manifest against local schema to prevent runtime errors from schema drift."""
+        try:
+            from jsonschema import validate, ValidationError
+            import os
+            schema_path = os.path.join(os.path.dirname(__file__), "resources", "data.schema.json")
+            with open(schema_path, "r", encoding="utf-8") as f:
+                schema = json.load(f)
+            validate(instance=manifest_data, schema=schema)
+        except ImportError:
+            print("Warning: jsonschema not available, skipping manifest validation.")
+        except ValidationError as e:
+            raise ValueError(f"Remote manifest validation failed: {e.message}\nThis may indicate schema drift.")
+        except FileNotFoundError:
+            print("Warning: Local schema file not found, skipping validation.")
 
     def remove_nsfw_sites(self, do_not_remove: list = []):
         """
