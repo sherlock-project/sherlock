@@ -10,7 +10,6 @@ LushStories
 PocketStars
 Reddit
 RocketTube
-RuneScape
 Scribd
 SlideShare
 Splice
