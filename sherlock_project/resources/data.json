@@ -955,7 +955,7 @@
     "errorType": "response_url",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
-    "errorUrl": "https://www.geeksforgeeks.org/connect/explore",
+    "errorUrl": "www.geeksforgeeks.org/profile/{}",
     "username_claimed": "adam"
   },
   "Genius (Artists)": {
