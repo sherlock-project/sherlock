@@ -952,9 +952,10 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorType": "status_code",
+    "errorType": "response_url",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
+    "errorUrl": "https://www.geeksforgeeks.org/connect/explore",
     "username_claimed": "adam"
   },
   "Genius (Artists)": {
