@@ -2004,5 +2004,5 @@ __2026-01-07 :__ Site is problematic and results in false due to the fact that n
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
-  },
+  }
 ```
