@@ -1995,3 +1995,14 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## GeeksforGeeks
+__2026-01-07 :__ Site is problematic and results in false positives for users due to the fact that neither current `status_code`, `message`, or `redirect_url` methodologies can be leveraged to accurately verify whether or not usernames exit at the moment.
+```json
+  "GeeksforGeeks": {
+    "errorType": "status_code",
+    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "urlMain": "https://www.geeksforgeeks.org/",
+    "username_claimed": "adam"
+  }
+```
