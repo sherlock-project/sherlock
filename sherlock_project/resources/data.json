@@ -956,7 +956,7 @@
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "errorUrl": "https://auth.geeksforgeeks.org/user/{}",
-    "username_claimed": "blue"
+    "username_claimed": "adam"
   },
   "Genius (Artists)": {
     "errorType": "status_code",
