@@ -801,10 +801,14 @@
   },
   "EksiSozluk": {
     "errorType": "message",
-    "errorMsg": "böyle bir yazar yok",
+    "errorMsg": "böyle bir kullanıcı yok",
     "url": "https://eksisozluk.com/biri/{}",
     "urlMain": "https://eksisozluk.com/",
-    "username_claimed": "ssg"
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "ssg",
+    "username_unclaimed": "bu-kullanici-yok-12345"
   },
   "Empretienda AR": {
     "__comment__": "Note that Error Connecting responses may be indicative of unclaimed handles",
@@ -1413,10 +1417,14 @@
   },
   "KizlarSoruyor": {
     "errorType": "message",
-    "errorMsg": "Sayfa bulunamadı, özür dileriz",
+    "errorMsg": "Böyle Bir Üye Yok",
     "url": "https://www.kizlarsoruyor.com/uye/{}",
     "urlMain": "https://www.kizlarsoruyor.com/",
-    "username_claimed": "ksbence"
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "ksbence",
+    "username_unclaimed": "bu-kullanici-yok-123456"
   },
   "Kongregate": {
     "errorType": "status_code",
@@ -2597,10 +2605,15 @@
     "username_claimed": "blue"
   },
   "UludagSozluk": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "böyle bir yazar yok",
     "url": "https://www.uludagsozluk.com/yazar/{}",
     "urlMain": "https://www.uludagsozluk.com/",
-    "username_claimed": "zall"
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "zall",
+    "username_unclaimed": "bu-kullanici-yok-123456"
   },
   "Unsplash": {
     "errorType": "status_code",
