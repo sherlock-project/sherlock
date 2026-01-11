@@ -1,6 +1,6 @@
-<p align=center>
+<p align="center">
   <br>
-  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png"/></a>
+  <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png" alt="sherlock"/></a>
   <br>
   <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
   <br>
@@ -15,8 +15,7 @@
 </p>
 
 <p align="center">
-<img width="70%" height="70%" src="images/demo.png"/>
-</a>
+<img width="70%" height="70%" src="images/demo.png" alt="demo"/>
 </p>
 
 
@@ -115,17 +114,17 @@ $ echo '{"usernames":["user123"]}' | apify call -so netmilk/sherlock
 }]
 ```
 
-Read more about the [Sherlock Actor](../.actor/README.md), including how to use it programmaticaly via the Apify [API](https://apify.com/netmilk/sherlock/api?fpr=sherlock), [CLI](https://docs.apify.com/cli/?fpr=sherlock) and [JS/TS and Python SDKs](https://docs.apify.com/sdk?fpr=sherlock).
+Read more about the [Sherlock Actor](../.actor/README.md), including how to use it programmatically via the Apify [API](https://apify.com/netmilk/sherlock/api?fpr=sherlock), [CLI](https://docs.apify.com/cli/?fpr=sherlock) and [JS/TS and Python SDKs](https://docs.apify.com/sdk?fpr=sherlock).
 
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
 
 <a href="https://github.com/sherlock-project/sherlock/graphs/contributors">
-  <img src="https://contrib.rocks/image?&columns=25&max=10000&&repo=sherlock-project/sherlock" noZoom />
+  <img src="https://contrib.rocks/image?&columns=25&max=10000&&repo=sherlock-project/sherlock" alt="contributors"/>
 </a>
 
-## Star history
+## Star History
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sherlock-project/sherlock&type=Date&theme=dark" />

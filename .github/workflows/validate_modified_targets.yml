@@ -1,0 +1,126 @@
+name: Modified Target Validation
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    paths:
+      - "sherlock_project/resources/data.json"
+
+jobs:
+  validate-modified-targets:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          # Checkout the base branch but fetch all history to avoid a second fetch call
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: "latest"
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --with dev
+
+      - name: Prepare JSON versions for comparison
+        run: |
+          # Fetch only the PR's branch head (single network call in this step)
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr
+
+          # Find the merge-base commit between the target branch and the PR branch
+          MERGE_BASE=$(git merge-base origin/${{ github.base_ref }} pr)
+          echo "Comparing PR head against merge-base commit: $MERGE_BASE"
+
+          # Safely extract the file from the PR's head and the merge-base commit
+          git show pr:sherlock_project/resources/data.json > data.json.head
+          git show $MERGE_BASE:sherlock_project/resources/data.json > data.json.base
+
+          # CRITICAL FIX: Overwrite the checked-out data.json with the one from the PR
+          # This ensures that pytest runs against the new, updated file.
+          cp data.json.head sherlock_project/resources/data.json
+
+      - name: Discover modified targets
+        id: discover-modified
+        run: |
+          CHANGED=$(
+            python - <<'EOF'
+          import json
+          import sys
+          try:
+              with open("data.json.base") as f: base = json.load(f)
+              with open("data.json.head") as f: head = json.load(f)
+          except FileNotFoundError as e:
+              print(f"Error: Could not find {e.filename}", file=sys.stderr)
+              sys.exit(1)
+          except json.JSONDecodeError as e:
+              print(f"Error: Could not decode JSON from a file - {e}", file=sys.stderr)
+              sys.exit(1)
+
+          changed = []
+          for k, v in head.items():
+              if k not in base or base[k] != v:
+                  changed.append(k)
+
+          print(",".join(sorted(changed)))
+          EOF
+          )
+
+          # Preserve changelist
+          echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
+          echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Validate remote manifest against local schema
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          poetry run pytest tests/test_manifest.py::test_validate_manifest_against_local_schema
+
+      # --- The rest of the steps below are unchanged ---
+
+      - name: Validate modified targets
+        if: steps.discover-modified.outputs.changed_targets != ''
+        continue-on-error: true
+        run: |
+          poetry run pytest -q --tb no -rA -m validate_targets -n 20 \
+            --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" \
+            --junitxml=validation_results.xml
+
+      - name: Prepare validation summary
+        if: steps.discover-modified.outputs.changed_targets != ''
+        id: prepare-summary
+        run: |
+          summary=$(
+            poetry run python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
+          )
+          echo "$summary" > validation_summary.md
+
+      - name: Announce validation results
+        if: steps.discover-modified.outputs.changed_targets != ''
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('validation_summary.md', 'utf8');
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body,
+            });
+
+      - name: This step shows as ran when no modifications are found
+        if: steps.discover-modified.outputs.changed_targets == ''
+        run: |
+          echo "No modified targets found"
