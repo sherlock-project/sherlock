@@ -8,6 +8,7 @@ GeeksforGeeks
 Giphy
 Hubski
 LushStories
+Minecraft
 PocketStars
 Realmeye
 Reddit
@@ -17,6 +18,7 @@ SlideShare
 Smule
 Splice
 Spotify
+Strava
 Trovo
 Weblate
 YandexMusic
