@@ -2,7 +2,7 @@
   "$schema": "data.schema.json",
   "1000Kitap": {
     "errorType": "message",
-    "errorMsg": "Kayıt bulunamadı.",
+    "errorMsg": "Kay\u0131t bulunamad\u0131.",
     "url": "https://1000kitap.com/{}",
     "urlMain": "https://1000kitap.com/",
     "username_claimed": "1000Kitap"
@@ -266,7 +266,7 @@
   },
   "Bionluk": {
     "errorType": "message",
-    "errorMsg": "Kullanıcı artık aktif değil.",
+    "errorMsg": "Kullan\u0131c\u0131 art\u0131k aktif de\u011fil.",
     "url": "https://bionluk.com/{}",
     "urlMain": "https://bionluk.com/",
     "username_claimed": "bionluk"
@@ -801,7 +801,7 @@
   },
   "EksiSozluk": {
     "errorType": "message",
-    "errorMsg": "böyle bir kullanıcı yok",
+    "errorMsg": "b\u00f6yle bir kullan\u0131c\u0131 yok",
     "url": "https://eksisozluk.com/biri/{}",
     "urlMain": "https://eksisozluk.com/",
     "headers": {
@@ -1417,7 +1417,7 @@
   },
   "KizlarSoruyor": {
     "errorType": "message",
-    "errorMsg": "Böyle Bir Üye Yok",
+    "errorMsg": "B\u00f6yle Bir \u00dcye Yok",
     "url": "https://www.kizlarsoruyor.com/uye/{}",
     "urlMain": "https://www.kizlarsoruyor.com/",
     "headers": {
@@ -2606,7 +2606,7 @@
   },
   "UludagSozluk": {
     "errorType": "message",
-    "errorMsg": "böyle bir yazar yok",
+    "errorMsg": "b\u00f6yle bir yazar yok",
     "url": "https://www.uludagsozluk.com/yazar/{}",
     "urlMain": "https://www.uludagsozluk.com/",
     "headers": {
