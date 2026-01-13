@@ -4,6 +4,9 @@
     "errorType": "status_code",
     "url": "https://1000kitap.com/{}",
     "urlMain": "https://1000kitap.com/",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+    },
     "username_claimed": "1000Kitap"
   },
   "1337x": {
@@ -264,9 +267,13 @@
     "username_claimed": "blue"
   },
   "Bionluk": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "Yetenekli Freelancer Platformu | Bionluk",
     "url": "https://bionluk.com/{}",
     "urlMain": "https://bionluk.com/",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+    },
     "username_claimed": "bionluk"
   },
   "BitBucket": {
