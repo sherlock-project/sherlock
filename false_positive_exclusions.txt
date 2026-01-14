@@ -7,8 +7,11 @@ GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
-LiveJournal
+Itch.io
+LushStories
+Minecraft
 PocketStars
+Rajce.net
 Realmeye
 Reddit
 RocketTube
@@ -17,7 +20,6 @@ SlideShare
 Smule
 Splice
 Spotify
-Strava
 Trovo
 Weblate
 YandexMusic
