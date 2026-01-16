@@ -137,7 +137,7 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "__comment__": "'The resource could not be found' relates to archive downtime",
+    "__comment__": "Non-existent users return a backend error instead of 404. Also handles archive downtime.",
     "errorMsg": [
       "could not fetch an account with user item identifier",
       "The resource could not be found",
