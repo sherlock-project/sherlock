@@ -137,18 +137,19 @@
     "username_claimed": "test"
   },
   "Archive.org": {
-    "__comment__": "Non-existent users return a backend error instead of 404. Also handles archive downtime.",
-    "errorMsg": [
-      "could not fetch an account with user item identifier",
-      "The resource could not be found",
-      "Internet Archive services are temporarily offline"
-    ],
-    "errorType": "message",
-    "url": "https://archive.org/details/@{}",
-    "urlMain": "https://archive.org",
-    "urlProbe": "https://archive.org/details/@{}?noscript=true",
-    "username_claimed": "blue"
-  },
+  "__comment__": "Non-existent users return a backend error instead of 404. Also handles archive downtime.",
+  "errorMsg": [
+    "backend_request account_extra_info",
+    "could not fetch an account with user item identifier",
+    "The resource could not be found",
+    "Internet Archive services are temporarily offline"
+  ],
+  "errorType": "message",
+  "url": "https://archive.org/details/@{}",
+  "urlMain": "https://archive.org",
+  "urlProbe": "https://archive.org/details/@{}?noscript=true",
+  "username_claimed": "blue"
+}
   "Arduino Forum": {
     "errorType": "status_code",
     "url": "https://forum.arduino.cc/u/{}/summary",
