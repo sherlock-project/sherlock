@@ -1,7 +1,7 @@
 APClips
 Archive.org
-BoardGameGeek
 Code Snippet Wiki
+CyberDefenders
 DeviantArt
 Fandom
 GNOME VCS
@@ -9,7 +9,7 @@ GeeksforGeeks
 Giphy
 Hubski
 LushStories
-OurDJTalk
+Minecraft
 PocketStars
 Realmeye
 Reddit
@@ -17,6 +17,7 @@ RocketTube
 Scribd
 SlideShare
 Smule
+SpeakerDeck
 Splice
 Spotify
 Trovo
@@ -26,3 +27,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
