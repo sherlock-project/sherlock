@@ -1,7 +1,6 @@
 APClips
 Archive.org
 Code Snippet Wiki
-CyberDefenders
 DeviantArt
 Fandom
 GNOME VCS
@@ -17,7 +16,6 @@ RocketTube
 Scribd
 SlideShare
 Smule
-SpeakerDeck
 Splice
 Spotify
 Trovo
@@ -27,4 +25,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
