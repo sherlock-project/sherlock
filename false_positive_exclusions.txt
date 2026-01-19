@@ -6,8 +6,9 @@ Fandom
 GNOME VCS
 GeeksforGeeks
 Giphy
+GitHub
+Gumroad
 Hubski
-LushStories
 Minecraft
 PocketStars
 Realmeye
@@ -22,6 +23,5 @@ Trovo
 Weblate
 YandexMusic
 mercadolivre
-opennet
 phpRU
 svidbook
