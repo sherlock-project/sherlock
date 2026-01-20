@@ -855,13 +855,6 @@
     "urlMain": "https://www.finanzfrage.net/",
     "username_claimed": "finanzfrage"
   },
-  "Fiverr": {
-    "errorType": "message",
-    "errorMsg": "Well, this isn't what you were looking for",
-    "url": "https://www.fiverr.com/{}",
-    "urlMain": "https://www.fiverr.com/",
-    "username_claimed": "blue"
-  },
   "Flickr": {
     "errorType": "status_code",
     "url": "https://www.flickr.com/people/{}",
@@ -2382,13 +2375,6 @@
     "errorType": "status_code",
     "url": "https://forum.sublimetext.com/u/{}",
     "urlMain": "https://forum.sublimetext.com/",
-    "username_claimed": "blue"
-  },
-  "Substack": {
-    "errorType": "response_url",
-    "errorUrl": "https://substack.com/search/",
-    "url": "https://substack.com/@{}",
-    "urlMain": "https://substack.com/",
     "username_claimed": "blue"
   },
   "TETR.IO": {
