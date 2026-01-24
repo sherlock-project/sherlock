@@ -2173,6 +2173,12 @@
     "urlMain": "https://www.seoforum.com/",
     "username_claimed": "ko"
   },
+  "Shelf": {
+    "errorType": "status_code",
+    "url": "https://www.shelf.im/{}",
+    "urlMain": "https://www.shelf.im/",
+    "username_claimed": "blue"
+  },
   "ShitpostBot5000": {
     "errorType": "status_code",
     "url": "https://www.shitpostbot.com/user/{}",
