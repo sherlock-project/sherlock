@@ -1441,6 +1441,13 @@
     "urlMain": "https://lemmy.world",
     "username_claimed": "blue"
   },
+    "Lemon8": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9._-]{2,30}$",
+    "url": "https://www.lemon8-app.com/@{}",
+    "urlMain": "https://www.lemon8-app.com/",
+    "username_claimed": "luniaa_0"
+  },
   "LessWrong": {
     "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
