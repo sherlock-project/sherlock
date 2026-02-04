@@ -1,6 +1,5 @@
 APClips
 Archive.org
-Audiojungle
 Code Snippet Wiki
 DeviantArt
 Fandom
@@ -26,4 +25,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
