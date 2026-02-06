@@ -3021,7 +3021,9 @@
     "username_claimed": "blue"
   },
   "mastodon.cloud": {
-    "errorType": "status_code",
+    "__comment__": "response_url handles responses in unsupported regions, whereas status_code handles supported regions.",
+    "errorType": ["status_code", "response_url"],
+    "errorUrl": "https://media.mastodon.cloud/cloud-093img.html",
     "url": "https://mastodon.cloud/@{}",
     "urlMain": "https://mastodon.cloud/",
     "username_claimed": "TheAdmin"
