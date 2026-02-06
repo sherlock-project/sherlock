@@ -700,6 +700,12 @@ def main():
         default=False,
         help="Ignore upstream exclusions (may return more false positives)",
     )
+    parser.add_argument(
+        "--filename-prefix",
+        "-fp",
+        dest="filename_prefix",
+        help="Add a prefix to the output file names.",
+    )
 
     args = parser.parse_args()
 
@@ -838,7 +844,10 @@ def main():
             os.makedirs(args.folderoutput, exist_ok=True)
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         else:
-            result_file = f"{username}.txt"
+            if args.filename_prefix:
+                result_file = f"{args.filename_prefix}{username}.txt"
+            else:
+                result_file = f"{username}.txt"
 
         if args.output_txt:
             with open(result_file, "w", encoding="utf-8") as file:
