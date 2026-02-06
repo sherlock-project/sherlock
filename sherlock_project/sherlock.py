@@ -206,8 +206,7 @@ def sherlock(
 
     # Notify caller that we are starting the query.
     query_notify.start(username)
-
-    # Normal requests
+    # Create session using standard requests (Tor deprecated)
     underlying_session = requests.session()
 
     # Limit number of workers to 20.
@@ -332,6 +331,7 @@ def sherlock(
             # Store future in data for access later
             net_info["request_future"] = future
 
+            # Tor support removed; no per-request identity reset
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
 
@@ -377,24 +377,8 @@ def sherlock(
         query_status = QueryStatus.UNKNOWN
         error_context = None
 
-        # As WAFs advance and evolve, they will occasionally block Sherlock and
-        # lead to false positives and negatives. Fingerprints should be added
-        # here to filter results that fail to bypass WAFs. Fingerprints should
-        # be highly targetted. Comment at the end of each fingerprint to
-        # indicate target and date fingerprinted.
-        WAFHitMsgs = [
-            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
-            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
-        ]
-
         if error_text is not None:
             error_context = error_text
-
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
-            query_status = QueryStatus.WAF
-
         else:
             if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
                 error_context = f"Unknown error type '{error_type}' for {social_network}"
@@ -449,6 +433,27 @@ def sherlock(
                         query_status = QueryStatus.CLAIMED
                     else:
                         query_status = QueryStatus.AVAILABLE
+
+        # As WAFs advance and evolve, they will occasionally block Sherlock and
+        # lead to false positives and negatives. Fingerprints should be added
+        # here to filter results that fail to bypass WAFs. Fingerprints should
+        # be highly targetted. Comment at the end of each fingerprint to
+        # indicate target and date fingerprinted.
+        WAFHitMsgs = [
+            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark',  # 2024-05-13 Cloudflare
+            r'<span id="challenge-error-text">',  # 2024-11-11 Cloudflare error page
+            r'AwsWafIntegration.forceRefreshToken',  # 2024-11-11 Cloudfront (AWS)
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:',  # 2024-04-09 PerimeterX / Human Security
+        ]
+
+        # Only override with WAF if we didn't confidently detect a claim
+        if query_status in (QueryStatus.AVAILABLE, QueryStatus.UNKNOWN):
+            try:
+                if any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+                    query_status = QueryStatus.WAF
+            except Exception:
+                # If response text isn't accessible, keep prior status
+                pass
 
         if dump_response:
             print("+++++++++++++++++++++")
@@ -568,6 +573,7 @@ def main():
         dest="output",
         help="If using single username, the output of the result will be saved to this file.",
     )
+    # Tor options removed in 0.17.0
     parser.add_argument(
         "--csv",
         action="store_true",
@@ -721,10 +727,20 @@ def main():
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
 
+    # Argument check
+    if args.proxy is not None:
+        # Validate proxy URL format
+        proxy_pattern = r'^(https?|socks[45])://[^\s/$.?#].[^\s]*$'
+        if not re.match(proxy_pattern, args.proxy):
+            raise ValueError(f"Invalid proxy URL format: {args.proxy}. Expected format: protocol://host:port (e.g., socks5://127.0.0.1:1080)")
+    
+    # Tor support removed; no need to check Tor/Proxy exclusivity
+
     # Make prompts
     if args.proxy is not None:
         print("Using the proxy: " + args.proxy)
 
+    # Tor messaging removed
     if args.no_color:
         # Disable color output.
         init(strip=True, convert=False)
