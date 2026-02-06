@@ -28,6 +28,7 @@ from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
+from urllib.parse import quote
 
 from sherlock_project.__init__ import (
     __longname__,
@@ -136,6 +137,10 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)
+    except UnicodeDecodeError as erru:
+        error_context = "Unicode Decode Error"
+        exception_text = str(erru)
+    
 
     return response, error_context, exception_text
 
@@ -243,7 +248,8 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        username_safe = quote(username)
+        url = interpolate_string(net_info["url"], username_safe)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
