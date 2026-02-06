@@ -137,7 +137,6 @@ class QueryNotifyPrint(QueryNotify):
         self.print_all = print_all
         self.browse = browse
 
-        return
 
     def start(self, message):
         """Notify Start.
@@ -163,7 +162,6 @@ class QueryNotifyPrint(QueryNotify):
         # An empty line between first line and the result(more clear output)
         print('\r')
 
-        return
 
     def countResults(self):
         """This function counts the number of results. Every time the function is called,
@@ -254,7 +252,6 @@ class QueryNotifyPrint(QueryNotify):
                 f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
             )
 
-        return
 
     def finish(self, message="The processing has been finished."):
         """Notify Start.

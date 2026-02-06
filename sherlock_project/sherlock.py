@@ -85,7 +85,6 @@ class SherlockFuturesSession(FuturesSession):
             """
             resp.elapsed = monotonic() - start
 
-            return
 
         # Install hook to execute when response completes.
         # Make sure that the time measurement hook is first, so we will not
