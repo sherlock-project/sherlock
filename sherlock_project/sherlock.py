@@ -41,6 +41,7 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
+from sherlock_project.cache import SherlockCache
 from colorama import init
 from argparse import ArgumentTypeError
 
@@ -174,7 +175,9 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+    cache: Optional[SherlockCache] = None,
+    ignore_cache: bool = False,
+) -> dict[str, dict[str, str] | QueryResult]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -204,6 +207,9 @@ def sherlock(
                        there was an HTTP error when checking for existence.
     """
 
+    """Run Sherlock Analysis with caching support."""
+    
+
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
@@ -229,6 +235,31 @@ def sherlock(
     for social_network, net_info in site_data.items():
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
+
+        # Check cache first (if enabled and not ignoring cache)
+        if cache and not ignore_cache:
+            cached_result = cache.get(username, social_network)
+            if cached_result:
+                # Use cached result
+                result = QueryResult(
+                    username=username,
+                    site_name=social_network,
+                    site_url_user=cached_result.get("url"),
+                    status=cached_result["status"],
+                    query_time=0,  # Cached, no query time
+                    context="Cached result"
+                )
+                query_notify.update(result)
+                
+                # Store in results_total
+                results_site["status"] = result
+                results_site["url_main"] = net_info.get("urlMain")
+                results_site["url_user"] = result.site_url_user
+                results_site["http_status"] = ""
+                results_site["response_text"] = ""
+                results_total[social_network] = results_site
+                
+                continue  # Skip to next site
 
         # Record URL of main site
 
@@ -489,6 +520,7 @@ def sherlock(
         )
         query_notify.update(result)
 
+
         # Save status of request
         results_site["status"] = result
 
@@ -499,6 +531,22 @@ def sherlock(
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
 
+    # Bulk cache results after all checks complete (prevents race conditions)
+    if cache:
+        cache_results = [
+            (username, site, result.status, result.site_url_user if result.status == QueryStatus.CLAIMED else None)
+            for site, result_dict in results_total.items()
+            if "status" in result_dict
+            for result in [result_dict["status"]]
+            if result.status in (QueryStatus.CLAIMED, QueryStatus.AVAILABLE)
+        ]
+        if cache_results:
+            try:
+                cache.set_batch(cache_results)
+            except Exception as e:
+                # Don't fail the entire run if caching fails
+                query_notify.warning(f"Failed to cache results: {e}")
+        
     return results_total
 
 
@@ -675,6 +723,29 @@ def main():
         help="Include checking of NSFW sites from default list.",
     )
 
+    parser.add_argument(
+        "--skip-cache",
+        action="store_true",
+        dest="skip_cache",
+        help="Disable result caching (cache will not be read or written)."
+    )
+
+    parser.add_argument(
+        "--ignore-cache",
+        action="store_true",
+        dest="ignore_cache",
+        help="Ignore cached results and force fresh checks (cache will still be updated)."
+    )
+    
+    parser.add_argument(
+        "--cache-duration",
+        action="store",
+        type=int,
+        dest="cache_duration",
+        default=86400,
+        help="Cache duration in seconds (default: 86400 = 24 hours)",
+    )
+
     # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
     # in future release
     parser.add_argument(
@@ -812,6 +883,25 @@ def main():
         result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
     )
 
+    # Initialize cache if enabled
+    cache = None
+    if not args.skip_cache:
+        # Check environment variable for cache disable
+        cache_disabled = os.environ.get('SHERLOCK_CACHE_DISABLE', '').lower() in ('true', '1', 'yes')
+        
+        if not cache_disabled:
+            # Get cache TTL from environment or args
+            cache_ttl = int(os.environ.get('SHERLOCK_CACHE_TTL', args.cache_duration))
+            
+            # Get custom cache path from environment
+            cache_path = os.environ.get('SHERLOCK_CACHE_PATH', None)
+            
+            try:
+                cache = SherlockCache(cache_path=cache_path, cache_duration=cache_ttl)
+                cache.cleanup_expired()  # Clean up old entries
+            except (ValueError, RuntimeError) as e:
+                query_notify.warning(f"Failed to initialize cache: {e}")
+
     # Run report on all specified users.
     all_usernames = []
     for username in args.username:
@@ -828,6 +918,8 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            cache=cache,
+            ignore_cache=args.ignore_cache,
         )
 
         if args.output:

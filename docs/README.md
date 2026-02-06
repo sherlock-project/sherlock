@@ -55,10 +55,11 @@ usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
                 [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
                 [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
-                [--browse] [--local] [--nsfw]
+                [--browse] [--local] [--nsfw] [--skip-cache] [--ignore-cache]
+                [--cache-duration CACHE_DURATION]
                 USERNAMES [USERNAMES ...]
 
-Sherlock: Find Usernames Across Social Networks (Version 0.14.3)
+Sherlock: Find Usernames Across Social Networks (Version 0.16.0)
 
 positional arguments:
   USERNAMES             One or more usernames to check with social networks.
@@ -96,6 +97,10 @@ optional arguments:
   --browse, -b          Browse to all results on default browser.
   --local, -l           Force the use of the local data.json file.
   --nsfw                Include checking of NSFW sites from default list.
+  --no-cache            Disable caching of results (don't read or write cache)
+  --force-check         Ignore cached results and force fresh checks for all sites
+  --cache-duration CACHE_DURATION
+                        Cache duration in seconds (default: 86400 = 24 hours)
 ```
 ## Apify Actor Usage [![Sherlock Actor](https://apify.com/actor-badge?actor=netmilk/sherlock)](https://apify.com/netmilk/sherlock?fpr=sherlock)
 

@@ -53,6 +53,7 @@ stem = "^1.8.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
 tomli = "^2.2.1"
+platformdirs = "^4.4.0"
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
@@ -66,3 +67,4 @@ defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
+sherlock-cache = 'sherlock_project.cache_cli:main'
