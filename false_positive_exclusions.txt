@@ -1,8 +1,6 @@
 APClips
 Archive.org
-BoardGameGeek
 Code Snippet Wiki
-Cults3D
 DeviantArt
 Fandom
 GNOME VCS
@@ -11,7 +9,6 @@ Giphy
 Hubski
 LushStories
 Minecraft
-OurDJTalk
 PocketStars
 Realmeye
 Reddit
