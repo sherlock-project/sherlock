@@ -3268,11 +3268,41 @@
     "errorCode": 404,
     "username_claimed": "blue"
   },
-  "CurseForge": {
-    "url": "https://www.curseforge.com/members/{}/projects",
-    "urlMain": "https://www.curseforge.com.",
+  "Zhihu": {
+    "url": "https://www.zhihu.com/people/{}",
+    "urlMain": "https://www.zhihu.com/",
     "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "blue"
+    "username_claimed": "vczh"
+  },
+  "Douban": {
+    "url": "https://www.douban.com/people/{}/",
+    "urlMain": "https://www.douban.com/",
+    "errorType": "status_code",
+    "username_claimed": "ahbei"
+  },
+  "BaiduTieba": {
+    "url": "https://tieba.baidu.com/home/main?un={}",
+    "urlMain": "https://tieba.baidu.com/",
+    "errorType": "message",
+    "errorMsg": "抱歉，您访问的页面不存在",
+    "username_claimed": "百度"
+  },
+  "Xiaohongshu": {
+    "url": "https://www.xiaohongshu.com/user/profile/{}",
+    "urlMain": "https://www.xiaohongshu.com/",
+    "errorType": "status_code",
+    "username_claimed": "1000000000"
+  },
+  "HeyBox": {
+    "url": "https://www.xiaoheihe.cn/community/user/{}",
+    "urlMain": "https://www.xiaoheihe.cn/",
+    "errorType": "status_code",
+    "username_claimed": "1"
+  },
+  "Baidu": {
+    "url": "https://www.baidu.com/p/{}",
+    "urlMain": "https://www.baidu.com/",
+    "errorType": "status_code",
+    "username_claimed": "百度"
   }
 }
