@@ -1,12 +1,14 @@
 APClips
 Archive.org
+Audiojungle
 Code Snippet Wiki
 DeviantArt
 Fandom
-GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
+LushStories
+Minecraft
 PocketStars
 Realmeye
 Reddit
@@ -24,4 +26,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
