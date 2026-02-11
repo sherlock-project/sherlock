@@ -1,9 +1,9 @@
 APClips
 Archive.org
-Audiojungle
 Code Snippet Wiki
 DeviantArt
 Fandom
+GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
@@ -21,7 +21,6 @@ Spotify
 Trovo
 TryHackMe
 Weblate
-YandexMusic
 mercadolivre
 opennet
 phpRU
