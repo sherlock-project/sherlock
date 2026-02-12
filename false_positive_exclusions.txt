@@ -7,6 +7,7 @@ GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
+LessWrong
 LushStories
 Minecraft
 PocketStars
@@ -21,7 +22,9 @@ Spotify
 Trovo
 TryHackMe
 Weblate
+YandexMusic
 mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
