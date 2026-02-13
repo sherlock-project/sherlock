@@ -1816,6 +1816,13 @@
     "urlMain": "https://www.patreon.com/",
     "username_claimed": "blue"
   },
+  "PayPalMe": {
+  "errorType": "status_code",
+  "url": "https://www.paypal.com/paypalme/{}",
+  "urlMain": "https://www.paypal.com/paypalme/",
+  "regexCheck": "^[A-Za-z0-9]{1,20}$",
+  "username_claimed": "paypal"
+},
   "PentesterLab": {
     "errorType": "status_code",
     "regexCheck": "^[\\w]{4,30}$",
