@@ -1,13 +1,13 @@
 APClips
 Archive.org
 Code Snippet Wiki
+Cracked Forum
 Fandom
 GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
 LushStories
-Minecraft
 PocketStars
 Realmeye
 Reddit
@@ -15,13 +15,12 @@ RocketTube
 Scribd
 SlideShare
 Smule
-Snapchat
 Splice
 Spotify
 TryHackMe
 Weblate
+Wikidot
 YandexMusic
 mercadolivre
-opennet
 phpRU
 svidbook
