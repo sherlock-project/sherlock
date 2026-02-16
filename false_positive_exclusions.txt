@@ -1,9 +1,8 @@
 APClips
 Archive.org
 Code Snippet Wiki
-Cracked Forum
+DeviantArt
 Fandom
-GNOME VCS
 GeeksforGeeks
 Giphy
 Hubski
@@ -15,12 +14,14 @@ RocketTube
 Scribd
 SlideShare
 Smule
+SpeakerDeck
 Splice
 Spotify
+Trovo
 TryHackMe
 Weblate
-Wikidot
 YandexMusic
 mercadolivre
+opennet
 phpRU
 svidbook
