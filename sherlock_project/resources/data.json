@@ -805,6 +805,14 @@
     "urlMain": "https://www.erome.com/",
     "username_claimed": "bob"
   },
+  "Etsy": {
+    "errorType": "status_code",
+    "errorCode": 404,
+    "url": "https://www.etsy.com/people/{}",
+    "urlMain": "https://www.etsy.com/",
+    "username_claimed": "blue",
+    "request_method": "GET"
+  },
   "Exposure": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9-]{1,63}$",
