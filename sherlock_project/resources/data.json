@@ -447,7 +447,7 @@
   "Chess": {
     "errorMsg": "Username is valid",
     "errorType": "message",
-    "regexCheck": "^[a-z1-9]{3,25}$",
+    "regexCheck": "^[a-zA-Z0-9_]{3,25}$",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
     "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
