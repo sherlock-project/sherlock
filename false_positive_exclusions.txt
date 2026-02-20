@@ -1,11 +1,13 @@
 APClips
 Archive.org
-BoardGameGeek
+Code Snippet Wiki
 GNOME VCS
 GeeksforGeeks
 Giphy
+Hashnode
 Hubski
 LessWrong
+LushStories
 PocketStars
 Realmeye
 Reddit
@@ -22,4 +24,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
