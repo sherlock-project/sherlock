@@ -1274,8 +1274,7 @@
   "Instagram": {
     "errorType": "status_code",
     "url": "https://instagram.com/{}",
-    "urlMain": "https://instagram.com/",
-    "urlProbe": "https://imginn.com/{}",
+    "urlMain": "https://www.instagram.com/",
     "username_claimed": "instagram"
   },
   "Instapaper": {
