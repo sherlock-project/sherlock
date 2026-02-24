@@ -2167,6 +2167,12 @@
     "urlMain": "https://www.seoforum.com/",
     "username_claimed": "ko"
   },
+  "Shelf": {
+    "errorType": "status_code",
+    "url": "https://www.shelf.im/{}",
+    "urlMain": "https://www.shelf.im/",
+    "username_claimed": "blue"
+  },
   "ShitpostBot5000": {
     "errorType": "status_code",
     "url": "https://www.shitpostbot.com/user/{}",
@@ -3241,5 +3247,26 @@
       "\u0414\u043e\u0441\u0442\u0443\u043f \u0441 \u0432\u0430\u0448\u0435\u0433\u043e IP-\u0430\u0434\u0440\u0435\u0441\u0430 \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d"
     ],
     "username_claimed": "example"
+  },
+  "Wowhead": {
+    "url": "https://wowhead.com/user={}",
+    "urlMain": "https://wowhead.com/",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "addons.wago.io": {
+    "url": "https://addons.wago.io/user/{}",
+    "urlMain": "https://addons.wago.io/",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "CurseForge": {
+    "url": "https://www.curseforge.com/members/{}/projects",
+    "urlMain": "https://www.curseforge.com.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
   }
 }
