@@ -1804,10 +1804,9 @@
     "username_claimed": "blue"
   },
   "Patched": {
-    "errorMsg": "The member you specified is either invalid or doesn't exist.",
-    "errorType": "message",
-    "url": "https://patched.sh/User/{}",
-    "urlMain": "https://patched.sh/",
+    "errorType": "status_code",
+    "url": "https://patched.to/User/{}",
+    "urlMain": "https://patched.to/",
     "username_claimed": "blue"
   },
   "Patreon": {
