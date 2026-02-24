@@ -1997,7 +1997,7 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
 ```
 
 ## GeeksforGeeks
-__2026-01-07 :__ Site is problematic and results in false positives for users due to the fact that the current `status_code`, `message`, or `redirect_url` methodologies can be utilized to accurately verify whether or not usernames exist at the moment due to recent site behavior changes.
+__2026-01-07 :__ Site is problematic and results in false positives for users due to the fact that the current `status_code`, `message`, or `redirect_url` methodologies cannot be utilized to accurately verify whether or not usernames exist at the moment due to recent site behavior changes.
 ```json
   "GeeksforGeeks": {
     "errorType": "status_code",
