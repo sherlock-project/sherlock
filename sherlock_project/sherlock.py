@@ -41,7 +41,8 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
-from colorama import init
+from sherlock_project.ai_analysis import AIAnalyzer, create_ai_analyzer
+from colorama import init, Fore, Style
 from argparse import ArgumentTypeError
 
 
@@ -174,6 +175,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    ai_analyzer: Optional[AIAnalyzer] = None,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -478,6 +480,31 @@ def sherlock(
             print("VERDICT       : " + str(query_status))
             print("+++++++++++++++++++++")
 
+        # Run AI analysis if enabled
+        ai_result = None
+        if ai_analyzer is not None:
+            try:
+                response_text_str = ""
+                if isinstance(response_text, bytes):
+                    response_text_str = response_text.decode("utf-8", errors="replace")
+                elif isinstance(response_text, str):
+                    response_text_str = response_text
+
+                # Get the primary error type as string
+                error_type_str = error_type[0] if isinstance(error_type, list) else str(error_type)
+
+                ai_result = ai_analyzer.analyze_response(
+                    username=username,
+                    site_name=social_network,
+                    url=url,
+                    response_text=response_text_str,
+                    http_status=http_status if isinstance(http_status, int) else 0,
+                    error_type=error_type_str,
+                    query_status_str=str(query_status),
+                )
+            except Exception:
+                pass  # AI analysis is optional; don't break the main flow
+
         # Notify caller about results of query.
         result: QueryResult = QueryResult(
             username=username,
@@ -486,6 +513,7 @@ def sherlock(
             status=query_status,
             query_time=response_time,
             context=error_context,
+            ai_analysis=ai_result,
         )
         query_notify.update(result)
 
@@ -495,6 +523,7 @@ def sherlock(
         # Save results from request
         results_site["http_status"] = http_status
         results_site["response_text"] = response_text
+        results_site["ai_analysis"] = ai_result
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
@@ -701,6 +730,70 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    # AI-powered analysis options
+    ai_group = parser.add_argument_group("AI Analysis", "Options for AI-powered result analysis")
+    ai_group.add_argument(
+        "--ai",
+        action="store_true",
+        dest="ai_enabled",
+        default=False,
+        help="Enable AI-powered analysis for improved accuracy and confidence scoring.",
+    )
+    ai_group.add_argument(
+        "--ai-suggest",
+        action="store_true",
+        dest="ai_suggest",
+        default=False,
+        help="Show AI-suggested related usernames after search.",
+    )
+    ai_group.add_argument(
+        "--ai-summary",
+        action="store_true",
+        dest="ai_summary",
+        default=False,
+        help="Display an AI-generated summary of results.",
+    )
+    ai_group.add_argument(
+        "--ai-filter",
+        action="store",
+        dest="ai_filter",
+        type=float,
+        default=None,
+        metavar="THRESHOLD",
+        help="Only show results with AI confidence above this threshold (0.0-1.0).",
+    )
+    ai_group.add_argument(
+        "--ai-llm",
+        action="store_true",
+        dest="ai_llm",
+        default=False,
+        help="Enable LLM-powered verification for ambiguous results (requires API key).",
+    )
+    ai_group.add_argument(
+        "--ai-api-key",
+        action="store",
+        dest="ai_api_key",
+        default=None,
+        metavar="KEY",
+        help="API key for LLM service. Also reads SHERLOCK_AI_API_KEY env var.",
+    )
+    ai_group.add_argument(
+        "--ai-api-url",
+        action="store",
+        dest="ai_api_url",
+        default=None,
+        metavar="URL",
+        help="Base URL for OpenAI-compatible API (default: https://api.openai.com/v1). Also reads SHERLOCK_AI_API_URL env var.",
+    )
+    ai_group.add_argument(
+        "--ai-model",
+        action="store",
+        dest="ai_model",
+        default=None,
+        metavar="MODEL",
+        help="LLM model name (default: gpt-4o-mini). Also reads SHERLOCK_AI_MODEL env var.",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -807,9 +900,32 @@ def main():
         if not site_data:
             sys.exit(1)
 
+    # Initialize AI analyzer if requested
+    ai_analyzer = None
+    if args.ai_enabled or args.ai_suggest or args.ai_summary or args.ai_filter is not None or args.ai_llm:
+        ai_analyzer = create_ai_analyzer(
+            enable_llm=args.ai_llm,
+            api_key=args.ai_api_key,
+            api_url=args.ai_api_url,
+            model=args.ai_model,
+        )
+        mode_label = "AI-powered analysis enabled"
+        if args.ai_llm:
+            llm_status = "(LLM: connected)" if ai_analyzer.api_key else "(LLM: no API key found)"
+            mode_label += f" {llm_status}"
+        print(
+            Style.BRIGHT + Fore.CYAN + "[" +
+            Fore.WHITE + "AI" +
+            Fore.CYAN + "] " +
+            Fore.WHITE + mode_label +
+            Style.RESET_ALL
+        )
+
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
-        result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
+        result=None, verbose=args.verbose, print_all=args.print_all,
+        browse=args.browse, ai_enabled=(ai_analyzer is not None),
+        ai_filter_threshold=args.ai_filter,
     )
 
     # Run report on all specified users.
@@ -828,7 +944,54 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            ai_analyzer=ai_analyzer,
         )
+
+        # AI Summary
+        if ai_analyzer and args.ai_summary:
+            summary = ai_analyzer.get_ai_summary(results)
+            print()
+            print(Style.BRIGHT + Fore.CYAN + "╔══════════════════════════════════════════╗")
+            print(Fore.CYAN + "║" + Fore.WHITE + "        AI Analysis Summary               " + Fore.CYAN + "║")
+            print(Fore.CYAN + "╠══════════════════════════════════════════╣" + Style.RESET_ALL)
+            print(Fore.CYAN + "║" + Fore.WHITE + f"  Sites checked:       {summary['total_sites_checked']:<18}" + Fore.CYAN + "║")
+            print(Fore.CYAN + "║" + Fore.GREEN + f"  Accounts found:      {summary['accounts_found']:<18}" + Fore.CYAN + "║")
+            print(Fore.CYAN + "║" + Fore.GREEN + f"  High confidence:     {summary['high_confidence']:<18}" + Fore.CYAN + "║")
+            print(Fore.CYAN + "║" + Fore.YELLOW + f"  Low confidence:      {summary['low_confidence']:<18}" + Fore.CYAN + "║")
+            print(Fore.CYAN + "║" + Fore.RED + f"  Suspicious results:  {summary['suspicious_results']:<18}" + Fore.CYAN + "║")
+            conf_pct = f"{summary['confidence_rate']:.0%}"
+            print(Fore.CYAN + "║" + Fore.WHITE + f"  Confidence rate:     {conf_pct:<18}" + Fore.CYAN + "║")
+            if summary['categories']:
+                print(Fore.CYAN + "║" + Fore.WHITE + "  Categories:                              " + Fore.CYAN + "║")
+                for cat, count in sorted(summary['categories'].items(), key=lambda x: x[1], reverse=True):
+                    print(Fore.CYAN + "║" + Fore.WHITE + f"    {cat:<20} {count:<17}" + Fore.CYAN + "║")
+            print(Style.BRIGHT + Fore.CYAN + "╚══════════════════════════════════════════╝" + Style.RESET_ALL)
+
+            # Display LLM-generated natural language summary if available
+            llm_summary = summary.get("llm_summary")
+            if llm_summary:
+                print()
+                print(
+                    Style.BRIGHT + Fore.CYAN + "[" +
+                    Fore.WHITE + "AI" +
+                    Fore.CYAN + " LLM] " +
+                    Fore.WHITE + llm_summary +
+                    Style.RESET_ALL
+                )
+
+        # AI Username Suggestions
+        if ai_analyzer and args.ai_suggest:
+            suggestions = ai_analyzer.suggest_related_usernames(username)
+            if suggestions:
+                print()
+                print(
+                    Style.BRIGHT + Fore.CYAN + "[" +
+                    Fore.WHITE + "AI" +
+                    Fore.CYAN + "] " +
+                    Fore.WHITE + "Related usernames to try: " +
+                    Fore.YELLOW + ", ".join(suggestions) +
+                    Style.RESET_ALL
+                )
 
         if args.output:
             result_file = args.output
@@ -860,17 +1023,18 @@ def main():
 
             with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
-                writer.writerow(
-                    [
-                        "username",
-                        "name",
-                        "url_main",
-                        "url_user",
-                        "exists",
-                        "http_status",
-                        "response_time_s",
-                    ]
-                )
+                csv_headers = [
+                    "username",
+                    "name",
+                    "url_main",
+                    "url_user",
+                    "exists",
+                    "http_status",
+                    "response_time_s",
+                ]
+                if ai_analyzer is not None:
+                    csv_headers.extend(["ai_confidence", "ai_level", "ai_category"])
+                writer.writerow(csv_headers)
                 for site in results:
                     if (
                         args.print_found
@@ -882,17 +1046,26 @@ def main():
                     response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
                         response_time_s = ""
-                    writer.writerow(
-                        [
-                            username,
-                            site,
-                            results[site]["url_main"],
-                            results[site]["url_user"],
-                            str(results[site]["status"].status),
-                            results[site]["http_status"],
-                            response_time_s,
-                        ]
-                    )
+                    row = [
+                        username,
+                        site,
+                        results[site]["url_main"],
+                        results[site]["url_user"],
+                        str(results[site]["status"].status),
+                        results[site]["http_status"],
+                        response_time_s,
+                    ]
+                    if ai_analyzer is not None:
+                        ai_res = results[site].get("ai_analysis")
+                        if ai_res:
+                            row.extend([
+                                f"{ai_res.confidence_score:.2f}",
+                                str(ai_res.confidence_level),
+                                ai_res.site_category,
+                            ])
+                        else:
+                            row.extend(["", "", ""])
+                    writer.writerow(row)
         if args.xlsx:
             usernames = []
             names = []
@@ -901,6 +1074,9 @@ def main():
             exists = []
             http_status = []
             response_time_s = []
+            ai_confidence = []
+            ai_level = []
+            ai_category = []
 
             for site in results:
                 if (
@@ -921,17 +1097,32 @@ def main():
                 exists.append(str(results[site]["status"].status))
                 http_status.append(results[site]["http_status"])
 
-            DataFrame = pd.DataFrame(
-                {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
-                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
-                    "exists": exists,
-                    "http_status": http_status,
-                    "response_time_s": response_time_s,
-                }
-            )
+                # AI columns
+                ai_res = results[site].get("ai_analysis")
+                if ai_res:
+                    ai_confidence.append(f"{ai_res.confidence_score:.2f}")
+                    ai_level.append(str(ai_res.confidence_level))
+                    ai_category.append(ai_res.site_category)
+                else:
+                    ai_confidence.append("")
+                    ai_level.append("")
+                    ai_category.append("")
+
+            df_data = {
+                "username": usernames,
+                "name": names,
+                "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
+                "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
+                "exists": exists,
+                "http_status": http_status,
+                "response_time_s": response_time_s,
+            }
+            if ai_analyzer is not None:
+                df_data["ai_confidence"] = ai_confidence
+                df_data["ai_level"] = ai_level
+                df_data["ai_category"] = ai_category
+
+            DataFrame = pd.DataFrame(df_data)
             DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
 
         print()
