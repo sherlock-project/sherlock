@@ -7,8 +7,7 @@ Giphy
 Hashnode
 Hubski
 LessWrong
-Linktree
-Minecraft
+LushStories
 Patched
 PocketStars
 Realmeye
@@ -23,8 +22,9 @@ Spotify
 Trovo
 TryHackMe
 Weblate
-Wordnik
 YandexMusic
 mercadolivre
+opennet
 phpRU
 svidbook
+xHamster
