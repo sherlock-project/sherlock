@@ -3275,4 +3275,16 @@
     "errorCode": 404,
     "username_claimed": "blue"
   }
+  ,"Tracker.gg Valorant": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9_\\- ]{3,16}#[A-Za-z0-9]{3,5}$",
+    "url": "https://tracker.gg/valorant/profile/riot/{}/overview",
+    "urlMain": "https://tracker.gg/valorant",
+    "username_claimed": "TenZ#NA1",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "tags": "gaming",
+    "__comment__": "Note: Detection may be affected by Cloudflare protection. The regex ensures valid Riot ID format."
+  }
 }
