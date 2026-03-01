@@ -17,7 +17,6 @@ except ImportError:
     sys.exit(1)
 
 import csv
-import signal
 import pandas as pd
 import os
 import re
@@ -527,14 +526,6 @@ def timeout_check(value):
     return float_value
 
 
-def handler(signal_received, frame):
-    """Exit gracefully without throwing errors
-
-    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
-    """
-    sys.exit(0)
-
-
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
@@ -703,9 +694,6 @@ def main():
 
     args = parser.parse_args()
 
-    # If the user presses CTRL-C, exit gracefully without throwing errors
-    signal.signal(signal.SIGINT, handler)
-
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
         latest_release_raw = requests.get(forge_api_latest_release, timeout=10).text
@@ -820,57 +808,89 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
-    for username in all_usernames:
-        results = sherlock(
-            username,
-            site_data,
-            query_notify,
-            dump_response=args.dump_response,
-            proxy=args.proxy,
-            timeout=args.timeout,
-        )
+    try:
+        for username in all_usernames:
+            results = sherlock(
+                username,
+                site_data,
+                query_notify,
+                dump_response=args.dump_response,
+                proxy=args.proxy,
+                timeout=args.timeout,
+            )
 
-        if args.output:
-            result_file = args.output
-        elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
-        else:
-            result_file = f"{username}.txt"
-
-        if args.output_txt:
-            with open(result_file, "w", encoding="utf-8") as file:
-                exists_counter = 0
-                for website_name in results:
-                    dictionary = results[website_name]
-                    if dictionary.get("status").status == QueryStatus.CLAIMED:
-                        exists_counter += 1
-                        file.write(dictionary["url_user"] + "\n")
-                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
-
-        if args.csv:
-            result_file = f"{username}.csv"
-            if args.folderoutput:
+            if args.output:
+                result_file = args.output
+            elif args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
                 os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
+                result_file = os.path.join(args.folderoutput, f"{username}.txt")
+            else:
+                result_file = f"{username}.txt"
 
-            with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(
-                    [
-                        "username",
-                        "name",
-                        "url_main",
-                        "url_user",
-                        "exists",
-                        "http_status",
-                        "response_time_s",
-                    ]
-                )
+            if args.output_txt:
+                with open(result_file, "w", encoding="utf-8") as file:
+                    exists_counter = 0
+                    for website_name in results:
+                        dictionary = results[website_name]
+                        if dictionary.get("status").status == QueryStatus.CLAIMED:
+                            exists_counter += 1
+                            file.write(dictionary["url_user"] + "\n")
+                    file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+
+            if args.csv:
+                result_file = f"{username}.csv"
+                if args.folderoutput:
+                    # The usernames results should be stored in a targeted folder.
+                    # If the folder doesn't exist, create it first
+                    os.makedirs(args.folderoutput, exist_ok=True)
+                    result_file = os.path.join(args.folderoutput, result_file)
+
+                with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
+                    writer = csv.writer(csv_report)
+                    writer.writerow(
+                        [
+                            "username",
+                            "name",
+                            "url_main",
+                            "url_user",
+                            "exists",
+                            "http_status",
+                            "response_time_s",
+                        ]
+                    )
+                    for site in results:
+                        if (
+                            args.print_found
+                            and not args.print_all
+                            and results[site]["status"].status != QueryStatus.CLAIMED
+                        ):
+                            continue
+
+                        response_time_s = results[site]["status"].query_time
+                        if response_time_s is None:
+                            response_time_s = ""
+                        writer.writerow(
+                            [
+                                username,
+                                site,
+                                results[site]["url_main"],
+                                results[site]["url_user"],
+                                str(results[site]["status"].status),
+                                results[site]["http_status"],
+                                response_time_s,
+                            ]
+                        )
+            if args.xlsx:
+                usernames = []
+                names = []
+                url_main = []
+                url_user = []
+                exists = []
+                http_status = []
+                response_time_s = []
+
                 for site in results:
                     if (
                         args.print_found
@@ -879,64 +899,37 @@ def main():
                     ):
                         continue
 
-                    response_time_s = results[site]["status"].query_time
                     if response_time_s is None:
-                        response_time_s = ""
-                    writer.writerow(
-                        [
-                            username,
-                            site,
-                            results[site]["url_main"],
-                            results[site]["url_user"],
-                            str(results[site]["status"].status),
-                            results[site]["http_status"],
-                            response_time_s,
-                        ]
-                    )
-        if args.xlsx:
-            usernames = []
-            names = []
-            url_main = []
-            url_user = []
-            exists = []
-            http_status = []
-            response_time_s = []
+                        response_time_s.append("")
+                    else:
+                        response_time_s.append(results[site]["status"].query_time)
+                    usernames.append(username)
+                    names.append(site)
+                    url_main.append(results[site]["url_main"])
+                    url_user.append(results[site]["url_user"])
+                    exists.append(str(results[site]["status"].status))
+                    http_status.append(results[site]["http_status"])
 
-            for site in results:
-                if (
-                    args.print_found
-                    and not args.print_all
-                    and results[site]["status"].status != QueryStatus.CLAIMED
-                ):
-                    continue
+                DataFrame = pd.DataFrame(
+                    {
+                        "username": usernames,
+                        "name": names,
+                        "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
+                        "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
+                        "exists": exists,
+                        "http_status": http_status,
+                        "response_time_s": response_time_s,
+                    }
+                )
+                DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
 
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
-                usernames.append(username)
-                names.append(site)
-                url_main.append(results[site]["url_main"])
-                url_user.append(results[site]["url_user"])
-                exists.append(str(results[site]["status"].status))
-                http_status.append(results[site]["http_status"])
-
-            DataFrame = pd.DataFrame(
-                {
-                    "username": usernames,
-                    "name": names,
-                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
-                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
-                    "exists": exists,
-                    "http_status": http_status,
-                    "response_time_s": response_time_s,
-                }
-            )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
-
-        print()
-    query_notify.finish()
+            print()
+    finally:
+        query_notify.finish()
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n[!] Sherlock interrupted by user.")
