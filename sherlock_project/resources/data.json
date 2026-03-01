@@ -1441,6 +1441,16 @@
     "urlMain": "https://lemmy.world",
     "username_claimed": "blue"
   },
+     "Lemon8": {
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+    },
+    "regexCheck": "^[a-zA-Z0-9._-]{2,30}$",
+    "url": "https://www.lemon8-app.com/@{}",
+    "urlMain": "https://www.lemon8-app.com/",
+    "username_claimed": "luniaa_0"
+  },
   "LessWrong": {
     "url": "https://www.lesswrong.com/users/{}",
     "urlMain": "https://www.lesswrong.com/",
