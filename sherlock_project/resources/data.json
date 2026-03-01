@@ -3236,6 +3236,12 @@
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
   },
+  "Zoom": {
+    "errorType": "status_code",
+    "url": "https://{}.zoom.us",
+    "urlMain": "https://zoom.us/",
+    "username_claimed": "blue"
+  },
   "Platzi": {
     "errorType": "status_code",
     "errorCode": 404,
