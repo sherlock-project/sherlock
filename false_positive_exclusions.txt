@@ -1,5 +1,7 @@
 APClips
+Archive of Our Own
 Archive.org
+Codolio
 DeviantArt
 GNOME VCS
 GeeksforGeeks
@@ -8,6 +10,7 @@ Hashnode
 Hubski
 LessWrong
 LushStories
+Minecraft
 Patched
 PocketStars
 Realmeye
