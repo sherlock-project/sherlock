@@ -20,6 +20,7 @@ import csv
 import signal
 import pandas as pd
 import os
+import asyncio
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
@@ -41,6 +42,7 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
+from sherlock_project.async_engine import sherlock_async
 from colorama import init
 from argparse import ArgumentTypeError
 
@@ -624,6 +626,24 @@ def main():
         help="Time (in seconds) to wait for response to requests (Default: 60)",
     )
     parser.add_argument(
+        "--workers",
+        "-w",
+        action="store",
+        metavar="WORKERS",
+        dest="max_workers",
+        type=int,
+        default=100,
+        help="Maximum concurrent requests for async engine (Default: 100)",
+    )
+
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        dest="use_sync",
+        default=False,
+        help="Use legacy synchronous engine instead of async.",
+    )
+    parser.add_argument(
         "--print-all",
         action="store_true",
         dest="print_all",
@@ -821,14 +841,27 @@ def main():
         else:
             all_usernames.append(username)
     for username in all_usernames:
-        results = sherlock(
-            username,
-            site_data,
-            query_notify,
-            dump_response=args.dump_response,
-            proxy=args.proxy,
-            timeout=args.timeout,
-        )
+        if args.use_sync:
+            results = sherlock(
+                username,
+                site_data,
+                query_notify,
+                dump_response=args.dump_response,
+                proxy=args.proxy,
+                timeout=args.timeout,
+            )
+        else:
+            results = asyncio.run(
+                sherlock_async(
+                    username,
+                    site_data,
+                    query_notify,
+                    dump_response=args.dump_response,
+                    proxy=args.proxy,
+                    timeout=args.timeout,
+                    max_concurrent=args.max_workers,
+                )
+            )
 
         if args.output:
             result_file = args.output
