@@ -717,7 +717,10 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
+    "errorMsg": [
+      "{\"taken\":false}",
+      "The resource is being rate limited"
+    ],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -1114,7 +1117,10 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": ["No such user.", "Sorry."],
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -2541,7 +2547,6 @@
     "urlMain": "https://www.twitch.tv",
     "username_claimed": "xqc"
   },
-
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
@@ -2621,7 +2626,9 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": ["Venmo | Page Not Found"],
+    "errorMsg": [
+      "Venmo | Page Not Found"
+    ],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
@@ -3268,11 +3275,57 @@
     "errorCode": 404,
     "username_claimed": "blue"
   },
-  "CurseForge": {
-    "url": "https://www.curseforge.com/members/{}/projects",
-    "urlMain": "https://www.curseforge.com.",
+  "Douban": {
+    "url": "https://www.douban.com/people/{}/",
+    "urlMain": "https://www.douban.com/",
     "errorType": "status_code",
-    "errorCode": 404,
-    "username_claimed": "blue"
+    "username_claimed": "ahbei"
+  },
+  "Zhihu": {
+    "url": "https://www.zhihu.com/people/{}",
+    "urlMain": "https://www.zhihu.com/",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "vczh"
+  },
+  "BaiduTieba": {
+    "url": "https://tieba.baidu.com/home/main?un={}",
+    "urlMain": "https://tieba.baidu.com/",
+    "errorType": "message",
+    "errorMsg": [
+      "很抱歉，该用户不存在",
+      "抱歉，您访问的页面不存在"
+    ],
+    "username_claimed": "百度"
+  },
+  "Xiaohongshu": {
+    "url": "https://www.xiaohongshu.com/user/profile/{}",
+    "urlMain": "https://www.xiaohongshu.com/",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "5ead9514000000000100693a"
+  },
+  "HeyBox": {
+    "url": "https://www.xiaoheihe.cn/community/user/{}",
+    "urlMain": "https://www.xiaoheihe.cn/",
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+    },
+    "username_claimed": "1"
+  },
+  "Baidu": {
+    "url": "https://www.baidu.com/p/{}",
+    "urlMain": "https://www.baidu.com/",
+    "errorType": "message",
+    "errorMsg": [
+      "很抱歉，由于您访问的URL无效",
+      "百度安全验证"
+    ],
+    "username_claimed": "百度"
   }
 }
