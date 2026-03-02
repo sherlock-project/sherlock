@@ -1272,11 +1272,14 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorType": "status_code",
-    "url": "https://instagram.com/{}",
-    "urlMain": "https://instagram.com/",
-    "urlProbe": "https://imginn.com/{}",
-    "username_claimed": "instagram"
+    "errorType": "message",
+    "errorMsg": "<title>Instagram</title>",
+    "url": "https://www.instagram.com/{}/",
+    "urlMain": "https://www.instagram.com/",
+    "username_claimed": "instagram",
+    "headers": {
+      "User-Agent": "python-requests/2.32.3"
+    }
   },
   "Instapaper": {
     "errorType": "status_code",
@@ -1312,7 +1315,7 @@
     "url": "https://issuu.com/{}",
     "urlMain": "https://issuu.com/",
     "username_claimed": "jenny"
-  },
+   },
   "Itch.io": {
     "errorType": "status_code",
     "regexCheck": "^[\\w@-]+?$",
