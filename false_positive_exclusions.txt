@@ -1,6 +1,7 @@
 APClips
-Archive of Our Own
+Apple Discussions
 Archive.org
+CGTrader
 Codolio
 DeviantArt
 GNOME VCS
@@ -30,4 +31,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
