@@ -1,11 +1,11 @@
 APClips
 Archive.org
 Codolio
+Cracked Forum
 DeviantArt
 GNOME VCS
 GeeksforGeeks
 Giphy
-Gravatar
 Hashnode
 Hubski
 LessWrong
@@ -21,6 +21,7 @@ SlideShare
 Smule
 Splice
 Spotify
+Trovo
 TryHackMe
 Weblate
 YandexMusic
@@ -28,3 +29,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
