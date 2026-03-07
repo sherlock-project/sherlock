@@ -136,6 +136,9 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)
+    except UnicodeDecodeError as erru:
+        error_context = "Error Connecting"
+        exception_text = "Character encoding error"
 
     return response, error_context, exception_text
 
