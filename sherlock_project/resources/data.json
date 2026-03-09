@@ -1471,14 +1471,7 @@
     "urlMain": "https://lichess.org",
     "username_claimed": "john"
   },
-  "LinkedIn": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9]{3,100}$",
-    "request_method": "GET",
-    "url": "https://linkedin.com/in/{}",
-    "urlMain": "https://linkedin.com",
-    "username_claimed": "paulpfeister"
-  },
+
   "Linktree": {
     "errorMsg": "\"statusCode\":404",
     "errorType": "message",
