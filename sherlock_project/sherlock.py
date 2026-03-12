@@ -775,15 +775,7 @@ def main():
         dest="ai_api_key",
         default=None,
         metavar="KEY",
-        help="API key for LLM service. Also reads SHERLOCK_AI_API_KEY env var.",
-    )
-    ai_group.add_argument(
-        "--ai-api-url",
-        action="store",
-        dest="ai_api_url",
-        default=None,
-        metavar="URL",
-        help="Base URL for OpenAI-compatible API (default: https://api.openai.com/v1). Also reads SHERLOCK_AI_API_URL env var.",
+        help="API key for Google Gemini. Also reads GEMINI_API_KEY env var.",
     )
     ai_group.add_argument(
         "--ai-model",
@@ -791,7 +783,7 @@ def main():
         dest="ai_model",
         default=None,
         metavar="MODEL",
-        help="LLM model name (default: gpt-4o-mini). Also reads SHERLOCK_AI_MODEL env var.",
+        help="Gemini model name (default: gemini-3-flash-preview). Also reads SHERLOCK_AI_MODEL env var.",
     )
 
     args = parser.parse_args()
@@ -906,7 +898,6 @@ def main():
         ai_analyzer = create_ai_analyzer(
             enable_llm=args.ai_llm,
             api_key=args.ai_api_key,
-            api_url=args.ai_api_url,
             model=args.ai_model,
         )
         mode_label = "AI-powered analysis enabled"

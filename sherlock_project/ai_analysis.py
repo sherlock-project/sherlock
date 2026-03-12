@@ -15,7 +15,8 @@ from typing import Optional
 from dataclasses import dataclass, field
 from enum import Enum
 
-import requests as http_requests
+from google import genai
+from google.genai import types
 
 logger = logging.getLogger(__name__)
 
@@ -116,19 +117,23 @@ class AIAnalyzer:
     """
 
     def __init__(self, enable_llm: bool = False, api_key: Optional[str] = None,
-                 api_url: Optional[str] = None, model: Optional[str] = None):
+                 model: Optional[str] = None):
         """Initialize AI Analyzer.
         
         Args:
             enable_llm: Whether to use external LLM API for enhanced analysis.
-            api_key: API key for LLM service (OpenAI-compatible).
-            api_url: Base URL for LLM API endpoint.
-            model: Model name to use for LLM queries.
+            api_key: API key for Google Gemini service.
+            model: Gemini model name to use for LLM queries.
         """
         self.enable_llm = enable_llm
-        self.api_key = api_key or os.environ.get("SHERLOCK_AI_API_KEY", "")
-        self.api_url = api_url or os.environ.get("SHERLOCK_AI_API_URL", "https://api.openai.com/v1")
-        self.model = model or os.environ.get("SHERLOCK_AI_MODEL", "gpt-4o-mini")
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY", "")
+        self.model = model or os.environ.get("SHERLOCK_AI_MODEL", "gemini-3-flash-preview")
+        self._gemini_client = None
+        if self.enable_llm and self.api_key:
+            try:
+                self._gemini_client = genai.Client(api_key=self.api_key)
+            except Exception as e:
+                logger.debug(f"Failed to initialize Gemini client: {e}")
         self._response_cache: dict[str, AIAnalysisResult] = {}
         self._site_fingerprints: dict[str, dict] = {}
 
@@ -659,41 +664,39 @@ class AIAnalyzer:
     # ─── LLM API Methods ────────────────────────────────────────────────
 
     def _llm_call(self, system_prompt: str, user_prompt: str, max_tokens: int = 300) -> Optional[str]:
-        """Make a call to an OpenAI-compatible chat completions API.
+        """Make a call to Google Gemini API.
         
         Args:
-            system_prompt: The system message for the LLM.
+            system_prompt: The system instruction for the LLM.
             user_prompt: The user message for the LLM.
             max_tokens: Maximum tokens in the response.
         
         Returns:
             The LLM's response text, or None if the call failed.
         """
-        if not self.api_key:
+        if not self._gemini_client:
             return None
 
-        url = f"{self.api_url.rstrip('/')}/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": self.model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            "max_tokens": max_tokens,
-            "temperature": 0.1,
-        }
-
         try:
-            resp = http_requests.post(url, headers=headers, json=payload, timeout=15)
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"].strip()
+            contents = [
+                types.Content(
+                    role="user",
+                    parts=[types.Part.from_text(text=user_prompt)],
+                ),
+            ]
+            config = types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                max_output_tokens=max_tokens,
+                temperature=0.1,
+            )
+            response = self._gemini_client.models.generate_content(
+                model=self.model,
+                contents=contents,
+                config=config,
+            )
+            return response.text.strip() if response.text else None
         except Exception as e:
-            logger.debug(f"LLM API call failed: {e}")
+            logger.debug(f"Gemini API call failed: {e}")
             return None
 
     def _llm_verify_profile(
@@ -798,16 +801,14 @@ class AIAnalyzer:
 def create_ai_analyzer(
     enable_llm: bool = False,
     api_key: Optional[str] = None,
-    api_url: Optional[str] = None,
     model: Optional[str] = None,
 ) -> AIAnalyzer:
     """Factory function to create an AIAnalyzer instance.
     
     Args:
         enable_llm: Enable LLM-powered analysis.
-        api_key: API key for LLM service.
-        api_url: Base URL for LLM API.
-        model: LLM model name.
+        api_key: API key for Google Gemini service.
+        model: Gemini model name.
     
     Returns:
         Configured AIAnalyzer instance.
@@ -815,6 +816,5 @@ def create_ai_analyzer(
     return AIAnalyzer(
         enable_llm=enable_llm,
         api_key=api_key,
-        api_url=api_url,
         model=model,
     )
