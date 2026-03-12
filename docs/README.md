@@ -97,6 +97,86 @@ optional arguments:
   --local, -l           Force the use of the local data.json file.
   --nsfw                Include checking of NSFW sites from default list.
 ```
+## AI-Powered Analysis 🤖
+
+Sherlock now includes an **AI-powered analysis engine** that enhances search accuracy with confidence scoring, false positive detection, and optional LLM verification.
+
+### Quick Start
+
+```bash
+# Enable AI analysis with confidence scores
+sherlock --ai user123
+
+# Filter results — only show ≥60% confidence
+sherlock --ai --ai-filter 0.6 user123
+
+# Show AI summary + related username suggestions
+sherlock --ai --ai-summary --ai-suggest user123
+
+# Enable LLM verification for ambiguous results (Gemini)
+sherlock --ai --ai-llm user123
+```
+
+### AI Features
+
+| Feature | Flag | Description |
+| ------- | ---- | ----------- |
+| Confidence Scoring | `--ai` | Color-coded confidence badges `[AI:85%]` on each result |
+| Result Filtering | `--ai-filter 0.5` | Only show results above the confidence threshold (0.0–1.0) |
+| Analysis Summary | `--ai-summary` | Boxed summary with stats: high/low confidence counts, categories |
+| Username Suggestions | `--ai-suggest` | Suggests related usernames (separator variants, prefixes, etc.) |
+| LLM Verification | `--ai-llm` | Calls Google Gemini API to verify ambiguous results |
+| LLM API Key | `.env:GEMINI_API_KEY` | API key loaded from `.env` or environment variable |
+| LLM Model | `--ai-model MODEL` | Model name (or env `SHERLOCK_AI_MODEL`, default: `gemini-3-flash-preview`) |
+
+### How It Works
+
+The AI engine performs **multi-layer analysis** on each HTTP response:
+
+1. **Pattern Recognition** — Detects profile indicators (followers, posts, bio, join date) vs error patterns (404, not found, suspended)
+2. **Structure Analysis** — Evaluates HTML structure, JSON APIs, Schema.org/OpenGraph metadata, content length
+3. **Username Verification** — Checks if the username appears meaningfully in titles, headings, and structured data
+4. **False Positive Detection** — Identifies parked domains, WAF blocks, bot detection, and default server pages
+5. **LLM Verification** *(optional)* — For ambiguous results (35–75% confidence), asks Google Gemini to verify with a blended score (40% heuristic + 60% LLM)
+
+Without `--ai-llm`, everything runs **locally with zero external calls**. The AI adds no new dependencies unless Gemini is enabled.
+## Gemini API Key Setup
+
+To use LLM features, create a `.env` file in your project root:
+
+```
+GEMINI_API_KEY=your-google-gemini-api-key
+SHERLOCK_AI_MODEL=gemini-3-flash-preview
+```
+
+Or set the environment variable `GEMINI_API_KEY` before running Sherlock.
+
+### Output Examples
+
+**Terminal with `--ai`:**
+```
+[+] [AI:92%] GitHub: https://github.com/user123
+[+] [AI:67%] Twitter: https://twitter.com/user123
+      ⚠ Few profile indicators found in response
+[~] [AI:28%] SomeSite: Filtered (low AI confidence)
+```
+
+**Terminal with `--ai --ai-summary`:**
+```
+╔══════════════════════════════════════════╗
+║        AI Analysis Summary               ║
+╠══════════════════════════════════════════╣
+║  Sites checked:       400               ║
+║  Accounts found:      12                ║
+║  High confidence:     8                 ║
+║  Low confidence:      2                 ║
+║  Suspicious results:  1                 ║
+║  Confidence rate:     67%               ║
+╚══════════════════════════════════════════╝
+```
+
+**CSV/XLSX exports** with `--ai` include extra columns: `ai_confidence`, `ai_level`, `ai_category`.
+
 ## Apify Actor Usage [![Sherlock Actor](https://apify.com/actor-badge?actor=netmilk/sherlock)](https://apify.com/netmilk/sherlock?fpr=sherlock)
 
 <a href="https://apify.com/netmilk/sherlock?fpr=sherlock"><img src="https://apify.com/ext/run-on-apify.png" alt="Run Sherlock Actor on Apify" width="176" height="39" /></a>
