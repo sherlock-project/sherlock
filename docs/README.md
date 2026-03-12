@@ -113,8 +113,8 @@ sherlock --ai --ai-filter 0.6 user123
 # Show AI summary + related username suggestions
 sherlock --ai --ai-summary --ai-suggest user123
 
-# Enable LLM verification for ambiguous results
-sherlock --ai --ai-llm --ai-api-key sk-... user123
+# Enable LLM verification for ambiguous results (Gemini)
+sherlock --ai --ai-llm user123
 ```
 
 ### AI Features
@@ -125,10 +125,9 @@ sherlock --ai --ai-llm --ai-api-key sk-... user123
 | Result Filtering | `--ai-filter 0.5` | Only show results above the confidence threshold (0.0–1.0) |
 | Analysis Summary | `--ai-summary` | Boxed summary with stats: high/low confidence counts, categories |
 | Username Suggestions | `--ai-suggest` | Suggests related usernames (separator variants, prefixes, etc.) |
-| LLM Verification | `--ai-llm` | Calls an OpenAI-compatible API to verify ambiguous results |
-| LLM API Key | `--ai-api-key KEY` | API key (or env `SHERLOCK_AI_API_KEY`) |
-| LLM API URL | `--ai-api-url URL` | Custom endpoint (or env `SHERLOCK_AI_API_URL`) |
-| LLM Model | `--ai-model MODEL` | Model name (or env `SHERLOCK_AI_MODEL`, default: `gpt-4o-mini`) |
+| LLM Verification | `--ai-llm` | Calls Google Gemini API to verify ambiguous results |
+| LLM API Key | `.env:GEMINI_API_KEY` | API key loaded from `.env` or environment variable |
+| LLM Model | `--ai-model MODEL` | Model name (or env `SHERLOCK_AI_MODEL`, default: `gemini-3-flash-preview`) |
 
 ### How It Works
 
@@ -138,9 +137,19 @@ The AI engine performs **multi-layer analysis** on each HTTP response:
 2. **Structure Analysis** — Evaluates HTML structure, JSON APIs, Schema.org/OpenGraph metadata, content length
 3. **Username Verification** — Checks if the username appears meaningfully in titles, headings, and structured data
 4. **False Positive Detection** — Identifies parked domains, WAF blocks, bot detection, and default server pages
-5. **LLM Verification** *(optional)* — For ambiguous results (35–75% confidence), asks an LLM to verify with a blended score (40% heuristic + 60% LLM)
+5. **LLM Verification** *(optional)* — For ambiguous results (35–75% confidence), asks Google Gemini to verify with a blended score (40% heuristic + 60% LLM)
 
-Without `--ai-llm`, everything runs **locally with zero external calls**. The AI adds no new dependencies.
+Without `--ai-llm`, everything runs **locally with zero external calls**. The AI adds no new dependencies unless Gemini is enabled.
+## Gemini API Key Setup
+
+To use LLM features, create a `.env` file in your project root:
+
+```
+GEMINI_API_KEY=your-google-gemini-api-key
+SHERLOCK_AI_MODEL=gemini-3-flash-preview
+```
+
+Or set the environment variable `GEMINI_API_KEY` before running Sherlock.
 
 ### Output Examples
 

@@ -769,14 +769,7 @@ def main():
         default=False,
         help="Enable LLM-powered verification for ambiguous results (requires API key).",
     )
-    ai_group.add_argument(
-        "--ai-api-key",
-        action="store",
-        dest="ai_api_key",
-        default=None,
-        metavar="KEY",
-        help="API key for Google Gemini. Also reads GEMINI_API_KEY env var.",
-    )
+    # API key is now loaded from .env only, not CLI
     ai_group.add_argument(
         "--ai-model",
         action="store",
@@ -897,7 +890,6 @@ def main():
     if args.ai_enabled or args.ai_suggest or args.ai_summary or args.ai_filter is not None or args.ai_llm:
         ai_analyzer = create_ai_analyzer(
             enable_llm=args.ai_llm,
-            api_key=args.ai_api_key,
             model=args.ai_model,
         )
         mode_label = "AI-powered analysis enabled"

@@ -116,17 +116,15 @@ class AIAnalyzer:
     integration to provide confidence scores and reduce false results.
     """
 
-    def __init__(self, enable_llm: bool = False, api_key: Optional[str] = None,
-                 model: Optional[str] = None):
+    def __init__(self, enable_llm: bool = False, model: Optional[str] = None):
         """Initialize AI Analyzer.
         
         Args:
             enable_llm: Whether to use external LLM API for enhanced analysis.
-            api_key: API key for Google Gemini service.
             model: Gemini model name to use for LLM queries.
         """
         self.enable_llm = enable_llm
-        self.api_key = api_key or os.environ.get("GEMINI_API_KEY", "")
+        self.api_key = os.environ.get("GEMINI_API_KEY", "")
         self.model = model or os.environ.get("SHERLOCK_AI_MODEL", "gemini-3-flash-preview")
         self._gemini_client = None
         if self.enable_llm and self.api_key:
@@ -800,14 +798,12 @@ class AIAnalyzer:
 
 def create_ai_analyzer(
     enable_llm: bool = False,
-    api_key: Optional[str] = None,
     model: Optional[str] = None,
 ) -> AIAnalyzer:
     """Factory function to create an AIAnalyzer instance.
     
     Args:
         enable_llm: Enable LLM-powered analysis.
-        api_key: API key for Google Gemini service.
         model: Gemini model name.
     
     Returns:
@@ -815,6 +811,5 @@ def create_ai_analyzer(
     """
     return AIAnalyzer(
         enable_llm=enable_llm,
-        api_key=api_key,
         model=model,
     )
