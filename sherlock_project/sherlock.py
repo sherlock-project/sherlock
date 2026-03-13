@@ -3,44 +3,15 @@
 """
 Sherlock: Find Usernames Across Social Networks Module
 
-This module contains the main logic to search for usernames at social
-networks.
+This module contains the main logic to search for usernames at social networks.
 """
 
 import sys
-
-try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
-except ImportError:
-    print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
-    sys.exit(1)
-
-import csv
 import signal
-import pandas as pd
-import os
-import re
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
+import asyncio
 from json import loads as json_loads
-from time import monotonic
-from typing import Optional
+from concurrent.futures import as_completed
 
-import requests
-from requests_futures.sessions import FuturesSession
-
-from sherlock_project.__init__ import (
-    __longname__,
-    __shortname__,
-    __version__,
-    forge_api_latest_release,
-)
-
-from sherlock_project.result import QueryStatus
-from sherlock_project.result import QueryResult
-from sherlock_project.notify import QueryNotify
-from sherlock_project.notify import QueryNotifyPrint
-from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
 
@@ -524,14 +495,18 @@ def timeout_check(value):
             f"Invalid timeout value: {value}. Timeout must be a positive number."
         )
 
-    return float_value
+# Check for proper import structure
+try:
+    from .__init__ import import_error_test_var  # noqa: F401
+except ImportError:
+    print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
+    print("Please see https://sherlock-project.github.io/sherlock/ for installation instructions.")
+    sys.exit(1)
 
 
 def handler(signal_received, frame):
-    """Exit gracefully without throwing errors
-
-    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
-    """
+    """Handle Ctrl+C gracefully"""
+    print("\nKeyboardInterrupt detected. Exiting...")
     sys.exit(0)
 
 
@@ -703,7 +678,7 @@ def main():
 
     args = parser.parse_args()
 
-    # If the user presses CTRL-C, exit gracefully without throwing errors
+    # Set up signal handler for Ctrl+C
     signal.signal(signal.SIGINT, handler)
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
@@ -737,9 +712,8 @@ def main():
         print("You can only use one of the output methods.")
         sys.exit(1)
 
-    # Check validity for single username output.
-    if args.output is not None and len(args.username) != 1:
-        print("You can only use --output with a single username")
+    if args.output and len(args.username) > 1:
+        print("Error: --output can only be used with a single username")
         sys.exit(1)
 
     # Create object with all information about sites we are aware of.
@@ -776,50 +750,25 @@ def main():
         print(f"ERROR:  {error}")
         sys.exit(1)
 
-    if not args.nsfw:
-        sites.remove_nsfw_sites(do_not_remove=args.site_list)
+    # Load and filter site data
+    site_data = load_and_filter_sites(args)
 
-    # Create original dictionary from SitesInformation() object.
-    # Eventually, the rest of the code will be updated to use the new object
-    # directly, but this will glue the two pieces together.
-    site_data_all = {site.name: site.information for site in sites}
-    if args.site_list == []:
-        # Not desired to look at a sub-set of sites
-        site_data = site_data_all
-    else:
-        # User desires to selectively run queries on a sub-set of the site list.
-        # Make sure that the sites are supported & build up pruned site database.
-        site_data = {}
-        site_missing = []
-        for site in args.site_list:
-            counter = 0
-            for existing_site in site_data_all:
-                if site.lower() == existing_site.lower():
-                    site_data[existing_site] = site_data_all[existing_site]
-                    counter += 1
-            if counter == 0:
-                # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
-
-        if site_missing:
-            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
-
-        if not site_data:
-            sys.exit(1)
-
-    # Create notify object for query results.
+    # Set up notification system
     query_notify = QueryNotifyPrint(
-        result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
+        result=None,
+        verbose=args.verbose,
+        print_all=args.print_all,
+        browse=args.browse
     )
 
-    # Run report on all specified users.
+    # Process each username
     all_usernames = []
     for username in args.username:
         if check_for_parameter(username):
-            for name in multiple_usernames(username):
-                all_usernames.append(name)
+            all_usernames.extend(multiple_usernames(username))
         else:
             all_usernames.append(username)
+
     for username in all_usernames:
         results = sherlock(
             username,
@@ -827,7 +776,7 @@ def main():
             query_notify,
             dump_response=args.dump_response,
             proxy=args.proxy,
-            timeout=args.timeout,
+            timeout=args.timeout
         )
 
         if args.output:
@@ -939,4 +888,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Run Sherlock
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nExiting... (Ctrl+C pressed)")
+        sys.exit(0)
