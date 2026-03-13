@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Checkout the base branch but fetch all history to avoid a second fetch call
           ref: ${{ github.base_ref }}
