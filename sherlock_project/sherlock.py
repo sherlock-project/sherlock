@@ -835,7 +835,14 @@ def main():
         elif args.folderoutput:
             # The usernames results should be stored in a targeted folder.
             # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
+            try:
+                os.makedirs(args.folderoutput, exist_ok=True)
+            except OSError as err:
+                print(f"ERROR: Could not create output folder '{args.folderoutput}': {err}. Please ensure you are running in a directory with write permission.")
+                if args.verbose:
+                    import traceback
+                    traceback.print_exc()
+                continue  # skip this username
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         else:
             result_file = f"{username}.txt"
@@ -860,10 +867,17 @@ def main():
         if args.csv:
     result_file = f"{username}.csv"
     if args.folderoutput:
-        # The usernames results should be stored in a targeted folder.
-        # If the folder doesn't exist, create it first
+    # The usernames results should be stored in a targeted folder.
+    # If the folder doesn't exist, create it first
+    try:
         os.makedirs(args.folderoutput, exist_ok=True)
-        result_file = os.path.join(args.folderoutput, result_file)
+    except OSError as err:
+        print(f"ERROR: Could not create output folder '{args.folderoutput}': {err}. Please ensure you are running in a directory with write permission.")
+        if args.verbose:
+            import traceback
+            traceback.print_exc()
+        continue  # skip this username/output
+    result_file = os.path.join(args.folderoutput, result_file)
 
     try:
         with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
