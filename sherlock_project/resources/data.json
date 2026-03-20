@@ -602,8 +602,7 @@
     "username_claimed": "blue"
   },
   "Cracked.sh": {
-    "errorMsg": "404 Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://cracked.sh/user/{}",
     "urlMain": "https://cracked.sh/",
     "username_claimed": "admin"
