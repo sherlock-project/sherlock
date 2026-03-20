@@ -596,9 +596,9 @@
   },
   "Cracked": {
     "errorType": "message",
-    "errorMsg": "https://www.cracked.com/",
-    "url": "https://www.cracked.com/members/{}",
-    "urlMain": "https://www.cracked.com/",
+    "errorMsg": "404 Not Found",
+    "url": "https://www.cracked.sh/user/{}",
+    "urlMain": "https://www.cracked.sh/",
     "username_claimed": "blue"
   },
   "Cracked Forum": {
