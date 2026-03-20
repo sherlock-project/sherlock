@@ -596,8 +596,8 @@
   },
   "Cracked": {
     "errorType": "message",
-    "errorMsg": "404 Not Found",
-    "url": "https://www.cracked.com/user/{}",
+    "errorMsg": "https://www.cracked.com/",
+    "url": "https://www.cracked.com/members/{}",
     "urlMain": "https://www.cracked.com/",
     "username_claimed": "blue"
   },
