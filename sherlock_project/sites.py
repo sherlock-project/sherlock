@@ -7,15 +7,19 @@ import json
 import requests
 import secrets
 
+MANIFEST_URL = (
+    "https://raw.githubusercontent.com/sherlock-project/"
+    "sherlock/master/sherlock_project/resources/data.json"
+)
+EXCLUSIONS_URL = (
+    "https://raw.githubusercontent.com/sherlock-project/"
+    "sherlock/refs/heads/exclusions/false_positive_exclusions.txt"
+)
 
-MANIFEST_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.json"
-EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/refs/heads/exclusions/false_positive_exclusions.txt"
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-            information, is_nsfw, username_unclaimed=None):
-        if username_unclaimed is None:
-            username_unclaimed = secrets.token_urlsafe(10)
+                 information, is_nsfw, username_unclaimed=None):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -47,20 +51,21 @@ class SiteInformation:
                                          be needed by the detection method,
                                          but it is only recorded in this
                                          object for future use.
-        is_nsfw                -- Boolean indicating if site is Not Safe For Work.
+        is_nsfw                -- Boolean indicating if site is NSFW.
 
         Return Value:
         Nothing.
         """
+        if username_unclaimed is None:
+            username_unclaimed = secrets.token_urlsafe(10)
 
         self.name = name
         self.url_home = url_home
         self.url_username_format = url_username_format
-
         self.username_claimed = username_claimed
         self.username_unclaimed = username_unclaimed
         self.information = information
-        self.is_nsfw  = is_nsfw
+        self.is_nsfw = is_nsfw
 
         return
 
@@ -73,19 +78,16 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-
         return f"{self.name} ({self.url_home})"
 
 
 class SitesInformation:
     def __init__(
         self,
-        data_file_path: str|None = None,
+        data_file_path: str | None = None,
         honor_exclusions: bool = True,
         do_not_exclude: list[str] | None = None,
     ):
-        if do_not_exclude is None:
-            do_not_exclude = []
         """Create Sites Information Object.
 
         Contains information about all supported websites.
@@ -118,36 +120,42 @@ class SitesInformation:
         Return Value:
         Nothing.
         """
+        if do_not_exclude is None:
+            do_not_exclude = []
 
         if not data_file_path:
-            # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
-            # this instead of the local one is so that the user has the most up-to-date data. This prevents
-            # users from creating issue about false positives which has already been fixed or having outdated data
+            # Use live data.json from GitHub for most up-to-date data.
+            # Prevents false positive issues and outdated data.
             data_file_path = MANIFEST_URL
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
-            raise FileNotFoundError(f"Incorrect JSON file extension for data file '{data_file_path}'.")
+            raise FileNotFoundError(
+                f"Incorrect JSON file extension for data file "
+                f"'{data_file_path}'."
+            )
 
-        # if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
         if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path, timeout=30)
             except Exception as error:
                 raise FileNotFoundError(
-                    f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
+                    f"Problem while attempting to access "
+                    f"data file URL '{data_file_path}':  {error}"
                 )
 
             if response.status_code != 200:
-                raise FileNotFoundError(f"Bad response while accessing "
-                                        f"data file URL '{data_file_path}'."
-                                        )
+                raise FileNotFoundError(
+                    f"Bad response while accessing "
+                    f"data file URL '{data_file_path}'."
+                )
             try:
                 site_data = response.json()
             except Exception as error:
                 raise ValueError(
-                    f"Problem parsing json contents at '{data_file_path}':  {error}."
+                    f"Problem parsing json contents at "
+                    f"'{data_file_path}':  {error}."
                 )
 
         else:
@@ -158,13 +166,15 @@ class SitesInformation:
                         site_data = json.load(file)
                     except Exception as error:
                         raise ValueError(
-                            f"Problem parsing json contents at '{data_file_path}':  {error}."
+                            f"Problem parsing json contents at "
+                            f"'{data_file_path}':  {error}."
                         )
 
             except FileNotFoundError:
-                raise FileNotFoundError(f"Problem while attempting to access "
-                                        f"data file '{data_file_path}'."
-                                        )
+                raise FileNotFoundError(
+                    f"Problem while attempting to access "
+                    f"data file '{data_file_path}'."
+                )
 
         site_data.pop('$schema', None)
 
@@ -173,7 +183,9 @@ class SitesInformation:
                 response = requests.get(url=EXCLUSIONS_URL, timeout=10)
                 if response.status_code == 200:
                     exclusions = response.text.splitlines()
-                    exclusions = [exclusion.strip() for exclusion in exclusions]
+                    exclusions = [
+                        exclusion.strip() for exclusion in exclusions
+                    ]
 
                     for site in do_not_exclude:
                         if site in exclusions:
@@ -186,8 +198,10 @@ class SitesInformation:
                             pass
 
             except Exception:
-                # If there was any problem loading the exclusions, just continue without them
-                print("Warning: Could not load exclusions, continuing without them.")
+                # If there was a problem loading exclusions,
+                # continue without them.
+                print("Warning: Could not load exclusions, "
+                      "continuing without them.")
                 honor_exclusions = False
 
         self.sites = {}
@@ -195,42 +209,49 @@ class SitesInformation:
         # Add all site information from the json file to internal site list.
         for site_name in site_data:
             try:
-
                 self.sites[site_name] = \
                     SiteInformation(site_name,
                                     site_data[site_name]["urlMain"],
                                     site_data[site_name]["url"],
                                     site_data[site_name]["username_claimed"],
                                     site_data[site_name],
-                                    site_data[site_name].get("isNSFW",False)
-
+                                    site_data[site_name].get("isNSFW", False)
                                     )
             except KeyError as error:
                 raise ValueError(
-                    f"Problem parsing json contents at '{data_file_path}':  Missing attribute {error}."
+                    f"Problem parsing json contents at "
+                    f"'{data_file_path}':  Missing attribute {error}."
                 )
             except TypeError:
-                print(f"Encountered TypeError parsing json contents for target '{site_name}' at {data_file_path}\nSkipping target.\n")
+                print(
+                    f"Encountered TypeError parsing json contents "
+                    f"for target '{site_name}' at {data_file_path}"
+                    f"\nSkipping target.\n"
+                )
 
         return
 
-    def remove_nsfw_sites(self, do_not_remove: list | None = None):  # Fix: mutable default [] changed to None
+    def remove_nsfw_sites(self, do_not_remove: list | None = None):
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
+
         Keyword Arguments:
         self                   -- This object.
+
         Return Value:
         None
         """
-        if do_not_remove is None:  # Fix: initialize fresh list each call
+        if do_not_remove is None:
             do_not_remove = []
         sites = {}
         do_not_remove = [site.casefold() for site in do_not_remove]
         for site in self.sites:
-            if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
+            if self.sites[site].is_nsfw and (
+                site.casefold() not in do_not_remove
+            ):
                 continue
             sites[site] = self.sites[site]
-        self.sites =  sites
+        self.sites = sites
 
     def site_name_list(self):
         """Get Site Name List.
@@ -241,7 +262,6 @@ class SitesInformation:
         Return Value:
         List of strings containing names of sites.
         """
-
         return sorted([site.name for site in self], key=str.lower)
 
     def __iter__(self):
@@ -253,7 +273,6 @@ class SitesInformation:
         Return Value:
         Iterator for sites object.
         """
-
         for site_name in self.sites:
             yield self.sites[site_name]
 
