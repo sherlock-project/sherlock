@@ -13,7 +13,9 @@ EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/re
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+            information, is_nsfw, username_unclaimed=None):
+        if username_unclaimed is None:
+            username_unclaimed = secrets.token_urlsafe(10)
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -56,7 +58,7 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = secrets.token_urlsafe(32)
+        self.username_unclaimed = username_unclaimed
         self.information = information
         self.is_nsfw  = is_nsfw
 
@@ -77,11 +79,13 @@ class SiteInformation:
 
 class SitesInformation:
     def __init__(
-            self,
-            data_file_path: str|None = None,
-            honor_exclusions: bool = True,
-            do_not_exclude: list[str] = [],
-        ):
+        self,
+        data_file_path: str|None = None,
+        honor_exclusions: bool = True,
+        do_not_exclude: list[str] | None = None,
+    ):
+        if do_not_exclude is None:
+            do_not_exclude = []
         """Create Sites Information Object.
 
         Contains information about all supported websites.
@@ -210,16 +214,16 @@ class SitesInformation:
 
         return
 
-    def remove_nsfw_sites(self, do_not_remove: list = []):
+    def remove_nsfw_sites(self, do_not_remove: list | None = None):  # Fix: mutable default [] changed to None
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
-
         Keyword Arguments:
         self                   -- This object.
-
         Return Value:
         None
         """
+        if do_not_remove is None:  # Fix: initialize fresh list each call
+            do_not_remove = []
         sites = {}
         do_not_remove = [site.casefold() for site in do_not_remove]
         for site in self.sites:
