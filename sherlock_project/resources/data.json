@@ -2,8 +2,8 @@
   "$schema": "data.schema.json",
   "1337x": {
     "errorMsg": [
-      "<title>Error something went wrong.</title>",
-      "<head><title>404 Not Found</title></head>"
+      "Bad username.",
+      "<title>Error something went wrong.</title>"
     ],
     "errorType": "message",
     "regexCheck": "^[A-Za-z0-9]{4,12}$",
