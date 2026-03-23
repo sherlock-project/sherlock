@@ -1,5 +1,6 @@
 APClips
 Archive.org
+Blogger
 Codolio
 GeeksforGeeks
 Giphy
@@ -7,10 +8,9 @@ Hashnode
 Hubski
 LessWrong
 LushStories
+Minecraft
 Patched
 PocketStars
-Pornhub
-Rajce.net
 Rarible
 Realmeye
 Reddit
@@ -25,6 +25,7 @@ TryHackMe
 Weblate
 YandexMusic
 mercadolivre
+minds
+opennet
 phpRU
 svidbook
-xHamster
