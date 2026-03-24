@@ -1,16 +1,5 @@
 {
   "$schema": "data.schema.json",
-  "1337x": {
-    "errorMsg": [
-      "<title>Error something went wrong.</title>",
-      "<head><title>404 Not Found</title></head>"
-    ],
-    "errorType": "message",
-    "regexCheck": "^[A-Za-z0-9]{4,12}$",
-    "url": "https://www.1337x.to/user/{}/",
-    "urlMain": "https://www.1337x.to/",
-    "username_claimed": "FitGirl"
-  },
   "2Dimensions": {
     "errorType": "status_code",
     "url": "https://2Dimensions.com/a/{}",
@@ -988,13 +977,6 @@
     "url": "https://www.giantbomb.com/profile/{}/",
     "urlMain": "https://www.giantbomb.com/",
     "username_claimed": "bob"
-  },
-  "Giphy": {
-    "errorType": "message",
-    "errorMsg": "<title> GIFs - Find &amp; Share on GIPHY</title>",
-    "url": "https://giphy.com/{}",
-    "urlMain": "https://giphy.com/",
-    "username_claimed": "red"
   },
   "GitBook": {
     "errorType": "status_code",
