@@ -312,7 +312,9 @@
     "username_claimed": "blue"
   },
   "BoardGameGeek": {
-    "errorMsg": "\"isValid\":true",
+    "errorMsg": [
+      "\"isValid\":true",
+      "\"message\":\"Username must start with a letter and may contain letters, numbers, and _.\""],
     "errorType": "message",
     "url": "https://boardgamegeek.com/user/{}",
     "urlMain": "https://boardgamegeek.com/",
