@@ -1,31 +1,47 @@
-# Release instructions:
-  # 1. Update the version tag in the Dockerfile to match the version in sherlock/__init__.py
-  # 2. Update the VCS_REF tag to match the tagged version's FULL commit hash
-  # 3. Build image with BOTH latest and version tags
-    # i.e. `docker build -t sherlock/sherlock:0.16.0 -t sherlock/sherlock:latest .`
+# ── Stage 1: build the TypeScript API ─────────────────────────────────────────
+FROM node:22-slim AS node-build
 
-FROM python:3.12-slim-bullseye AS build
-WORKDIR /sherlock
+WORKDIR /build/api
+COPY api/package*.json ./
+RUN npm ci
+COPY api/ ./
+RUN npm run build
 
-RUN pip3 install --no-cache-dir --upgrade pip
+# ── Stage 2: final runtime image ──────────────────────────────────────────────
+FROM python:3.12-slim
 
-FROM python:3.12-slim-bullseye
-WORKDIR /sherlock
+# Install Node.js runtime (no build tools needed)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        curl \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && rm -rf /var/lib/apt/lists/*
 
-ARG VCS_REF= # CHANGE ME ON UPDATE
-ARG VCS_URL="https://github.com/sherlock-project/sherlock"
-ARG VERSION_TAG= # CHANGE ME ON UPDATE
+WORKDIR /app
 
-ENV SHERLOCK_ENV=docker
+# ── Python dependencies (sherlock) ─────────────────────────────────────────────
+COPY sherlock_project/ ./sherlock_project/
+COPY pyproject.toml ./
+RUN pip install --no-cache-dir \
+        tomli \
+        requests \
+        requests-futures \
+        colorama \
+        pandas \
+        openpyxl \
+        PySocks \
+        certifi
 
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url=$VCS_URL \
-      org.label-schema.name="Sherlock" \
-      org.label-schema.version=$VERSION_TAG \
-      website="https://sherlockproject.xyz"
+# ── Python bridge script ───────────────────────────────────────────────────────
+COPY sherlock_bridge.py ./
 
-RUN pip3 install --no-cache-dir sherlock-project==$VERSION_TAG
+# ── Node.js API (compiled JS + production node_modules) ───────────────────────
+COPY --from=node-build /build/api/dist ./api/dist
+COPY api/package*.json ./api/
+RUN cd api && npm ci --omit=dev
 
-WORKDIR /sherlock
+# Railway injects PORT at runtime; default to 3000 for local runs.
+ENV PORT=3000
+EXPOSE 3000
 
-ENTRYPOINT ["sherlock"]
+CMD ["node", "api/dist/index.js"]
