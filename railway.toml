@@ -1,0 +1,10 @@
+[build]
+# Build from the api/ Dockerfile which bundles Python + Node.js
+dockerfilePath = "api/Dockerfile"
+
+[deploy]
+startCommand = "node api/dist/index.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
