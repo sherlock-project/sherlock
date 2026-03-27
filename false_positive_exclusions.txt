@@ -1,15 +1,14 @@
 APClips
 Archive.org
 Codolio
+CyberDefenders
 DeviantArt
 GeeksforGeeks
 Giphy
-GitHub
 Hashnode
 Hubski
 LessWrong
 LushStories
-Minecraft
 Patched
 PocketStars
 Rarible
@@ -18,7 +17,6 @@ Reddit
 RocketTube
 Scribd
 Shelf
-Slack
 SlideShare
 Smule
 Splice
