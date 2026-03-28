@@ -70,6 +70,12 @@
     "urlMain": "https://www.airliners.net/",
     "username_claimed": "yushinlin"
   },
+  "Akniga": {
+    "errorType": "status_code",
+    "url": "https://akniga.org/profile/{}",
+    "urlMain": "https://akniga.org/",
+    "username_claimed": "user123"
+  },
   "All Things Worn": {
     "errorMsg": "Sell Used Panties",
     "errorType": "message",
