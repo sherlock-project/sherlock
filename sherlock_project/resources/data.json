@@ -925,11 +925,11 @@
     "username_claimed": "blue"
   },
   "GNOME VCS": {
-    "errorType": "response_url",
-    "errorUrl": "https://gitlab.gnome.org/{}",
-    "regexCheck": "^(?!-)[a-zA-Z0-9_.-]{2,255}(?<!\\.)$",
+    "errorMsg": "[]",
+    "errorType": "message",
     "url": "https://gitlab.gnome.org/{}",
     "urlMain": "https://gitlab.gnome.org/",
+    "urlProbe": "https://gitlab.gnome.org/api/v4/users?username={}",
     "username_claimed": "adam"
   },
   "GaiaOnline": {
@@ -1811,8 +1811,8 @@
   "Patched": {
     "errorMsg": "The member you specified is either invalid or doesn't exist.",
     "errorType": "message",
-    "url": "https://patched.sh/User/{}",
-    "urlMain": "https://patched.sh/",
+    "url": "https://patched.to/User/{}",
+    "urlMain": "https://patched.to/",
     "username_claimed": "blue"
   },
   "Patreon": {
