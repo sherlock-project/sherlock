@@ -1,14 +1,15 @@
 APClips
+Academia.edu
 Archive.org
 Codolio
 DeviantArt
+DigitalSpy
 GeeksforGeeks
 Giphy
 Hashnode
 Hubski
-Itch.io
+LessWrong
 LushStories
-Minecraft
 Patched
 PocketStars
 Pornhub
@@ -22,7 +23,6 @@ SlideShare
 Smule
 Splice
 Spotify
-Strava
 Trovo
 TryHackMe
 Weblate
