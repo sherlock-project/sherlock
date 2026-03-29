@@ -2118,6 +2118,15 @@
     "urlMain": "https://www.rockettube.com/",
     "username_claimed": "Tatteddick5600"
   },
+  "Root-Me": {
+    "errorType": "status_code",
+    "headers": {
+      "User-Agent": "curl/8.0"
+    },
+    "url": "https://www.root-me.org/{}",
+    "urlMain": "https://www.root-me.org/",
+    "username_claimed": "admin"
+  },
   "RoyalCams": {
     "errorType": "status_code",
     "url": "https://royalcams.com/profile/{}",
