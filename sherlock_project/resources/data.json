@@ -1746,6 +1746,12 @@
     "urlMain": "https://observablehq.com/",
     "username_claimed": "mbostock"
   },
+  "omg.lol": {
+    "errorType": "status_code",
+    "url": "https://omg.lol/{}",
+    "urlMain": "https://omg.lol/",
+    "username_claimed": "adam"
+  },
   "Open Collective": {
     "errorType": "status_code",
     "url": "https://opencollective.com/{}",
