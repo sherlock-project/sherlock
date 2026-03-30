@@ -20,6 +20,7 @@ import csv
 import signal
 import pandas as pd
 import os
+from urllib.parse import quote as url_quote
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
@@ -245,8 +246,13 @@ def sherlock(
             # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
-        # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        # URL of user on site (if it exists).
+        # Percent-encode the username so that non-ASCII characters (e.g. accented
+        # letters like 'É') and other special characters are safely embedded in
+        # the URL.  We keep forward-slashes unencoded (safe='/') because some
+        # sites use path segments containing the username.  The legacy
+        # space→%20 behaviour is preserved since quote() already does this.
+        url = interpolate_string(net_info["url"], url_quote(username, safe='/'))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
