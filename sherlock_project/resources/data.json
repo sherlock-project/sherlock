@@ -1068,8 +1068,8 @@
   "Gravatar": {
     "errorType": "status_code",
     "regexCheck": "^((?!\\.).)*$",
-    "url": "https://en.gravatar.com/{}",
-    "urlMain": "https://en.gravatar.com/",
+    "url": "http://en.gravatar.com/{}",
+    "urlMain": "http://en.gravatar.com/",
     "username_claimed": "blue"
   },
   "Gumroad": {
@@ -2833,8 +2833,8 @@
   },
   "authorSTREAM": {
     "errorType": "status_code",
-    "url": "https://www.authorstream.com/{}/",
-    "urlMain": "https://www.authorstream.com/",
+    "url": "http://www.authorstream.com/{}/",
+    "urlMain": "http://www.authorstream.com/",
     "username_claimed": "blue"
   },
   "babyblogRU": {
