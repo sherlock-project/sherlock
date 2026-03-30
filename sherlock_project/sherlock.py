@@ -21,6 +21,7 @@ import signal
 import pandas as pd
 import os
 import re
+from urllib.parse import quote
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
@@ -150,6 +151,15 @@ def interpolate_string(input_object, username):
     return input_object
 
 
+def url_safe_username(username: str) -> str:
+    # Encode only characters that would break URL structure, while leaving
+    # common, structurally safe username characters (e.g., "@", "+", ":")
+    # unencoded. This avoids altering hostnames when usernames are
+    # substituted into the netloc portion of a URL template.
+    safe_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~@+:"
+    return quote(username, safe=safe_chars)
+
+
 def check_for_parameter(username):
     """checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username"""
@@ -212,10 +222,9 @@ def sherlock(
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
-    else:
-        max_workers = len(site_data)
+    max_workers = min(20, max(1, len(site_data)))
+
+    encoded_username = url_safe_username(username)
 
     # Create multi-threaded session for all requests.
     session = SherlockFuturesSession(
@@ -243,7 +252,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], quote(username, safe=""))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -285,7 +294,7 @@ def sherlock(
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = interpolate_string(url_probe, username)
+                url_probe = interpolate_string(url_probe, encoded_username)
 
             if request is None:
                 if net_info["errorType"] == "status_code":
