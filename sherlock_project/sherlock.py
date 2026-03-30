@@ -152,8 +152,12 @@ def interpolate_string(input_object, username):
 
 
 def url_safe_username(username: str) -> str:
-    # Encode all special characters so user input cannot alter URL structure.
-    return quote(username, safe="")
+    # Encode only characters that would break URL structure, while leaving
+    # common, structurally safe username characters (e.g., "@", "+", ":")
+    # unencoded. This avoids altering hostnames when usernames are
+    # substituted into the netloc portion of a URL template.
+    safe_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~@+:"
+    return quote(username, safe=safe_chars)
 
 
 def check_for_parameter(username):
