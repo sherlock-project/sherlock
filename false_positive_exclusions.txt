@@ -1,13 +1,16 @@
+7Cups
 APClips
 Archive.org
+Blogger
 Codolio
-DigitalSpy
+DeviantArt
+Discord.bio
 GeeksforGeeks
 Giphy
 Hashnode
 Hubski
-Itch.io
 LessWrong
+LushStories
 Patched
 PocketStars
 Pornhub
@@ -17,12 +20,11 @@ Reddit
 RocketTube
 Scribd
 Shelf
-Slack
 SlideShare
 Smule
 Splice
 Spotify
-Strava
+Trovo
 TryHackMe
 Weblate
 YandexMusic
@@ -31,3 +33,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
