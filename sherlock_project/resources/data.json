@@ -3279,5 +3279,40 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "zhihu": {
+    "url": "https://www.zhihu.com/people/{}",
+    "urlMain": "https://www.zhihu.com.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "Bilibili": {
+    "url": "https://space.bilibili.com/{}",
+    "urlMain": "https://space.bilibili.com.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "Sina": {
+    "url": "https://weibo.com/{}",
+    "urlMain": "https://weibo.com.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "WechatVideo": {
+    "url": "https://channels.weixin.qq.com/profile/{}",
+    "urlMain": "https://channels.weixin.qq.com.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
+  },
+  "CSDN": {
+    "url": "https://blog.csdn.net/{}",
+    "urlMain": "https://blog.csdn.net.",
+    "errorType": "status_code",
+    "errorCode": 404,
+    "username_claimed": "blue"
   }
 }
