@@ -114,7 +114,8 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
+    def __init__(self, result=None, verbose=False, print_all=False, browse=False,
+                 ai_enabled=False, ai_filter_threshold=None):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -127,6 +128,8 @@ class QueryNotifyPrint(QueryNotify):
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
         browse                 -- Boolean indicating whether to open found sites in a web browser.
+        ai_enabled             -- Boolean indicating whether AI analysis is enabled.
+        ai_filter_threshold    -- Float threshold (0.0-1.0) to filter results by AI confidence.
 
         Return Value:
         Nothing.
@@ -136,6 +139,8 @@ class QueryNotifyPrint(QueryNotify):
         self.verbose = verbose
         self.print_all = print_all
         self.browse = browse
+        self.ai_enabled = ai_enabled
+        self.ai_filter_threshold = ai_filter_threshold
 
         return
 
@@ -198,6 +203,42 @@ class QueryNotifyPrint(QueryNotify):
         if self.result.query_time is not None and self.verbose is True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
 
+        # AI confidence badge
+        ai_badge = ""
+        if self.ai_enabled and self.result.ai_analysis is not None:
+            ai = self.result.ai_analysis
+            score = ai.confidence_score
+            # Color confidence based on level
+            if score >= 0.7:
+                conf_color = Fore.GREEN
+            elif score >= 0.5:
+                conf_color = Fore.YELLOW
+            else:
+                conf_color = Fore.RED
+            ai_badge = (
+                Style.BRIGHT + Fore.CYAN + " [" +
+                Fore.WHITE + "AI" +
+                Fore.CYAN + ":" +
+                conf_color + f"{score:.0%}" +
+                Fore.CYAN + "]" + Style.RESET_ALL
+            )
+
+        # Apply AI filter: skip results below threshold
+        if (self.ai_filter_threshold is not None
+                and result.status == QueryStatus.CLAIMED
+                and self.result.ai_analysis is not None):
+            if self.result.ai_analysis.confidence_score < self.ai_filter_threshold:
+                # Below threshold — treat as filtered out
+                if self.print_all:
+                    print(Style.BRIGHT + Fore.WHITE + "[" +
+                          Fore.CYAN + "~" +
+                          Fore.WHITE + "]" +
+                          ai_badge +
+                          Fore.YELLOW + f" {self.result.site_name}: " +
+                          Style.RESET_ALL +
+                          Fore.WHITE + "Filtered (low AI confidence)")
+                return
+
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
@@ -205,10 +246,22 @@ class QueryNotifyPrint(QueryNotify):
                   Fore.GREEN + "+" +
                   Fore.WHITE + "]" +
                   response_time_text +
+                  ai_badge +
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
                   f"{self.result.site_url_user}")
+            # Show risk indicators in verbose mode
+            if (self.verbose and self.ai_enabled
+                    and self.result.ai_analysis is not None
+                    and self.result.ai_analysis.risk_indicators):
+                for risk in self.result.ai_analysis.risk_indicators:
+                    print(Fore.YELLOW + f"      ⚠ {risk}" + Style.RESET_ALL)
+            # Show LLM reasoning in verbose mode
+            if (self.verbose and self.ai_enabled
+                    and self.result.ai_analysis is not None
+                    and self.result.ai_analysis.llm_reasoning):
+                print(Fore.CYAN + f"      🤖 LLM: {self.result.ai_analysis.llm_reasoning}" + Style.RESET_ALL)
             if self.browse:
                 webbrowser.open(self.result.site_url_user, 2)
 

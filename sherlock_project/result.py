@@ -33,7 +33,7 @@ class QueryResult():
     Describes result of query about a given username.
     """
     def __init__(self, username, site_name, site_url_user, status,
-                 query_time=None, context=None):
+                 query_time=None, context=None, ai_analysis=None):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
@@ -57,6 +57,9 @@ class QueryResult():
                                   an error, this might indicate the type of
                                   error that occurred.
                                   Default of None.
+        ai_analysis            -- Object of type AIAnalysisResult containing
+                                  AI-powered analysis of the query response.
+                                  Default of None.
 
         Return Value:
         Nothing.
@@ -68,6 +71,7 @@ class QueryResult():
         self.status        = status
         self.query_time    = query_time
         self.context       = context
+        self.ai_analysis   = ai_analysis
 
         return
 
