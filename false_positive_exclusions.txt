@@ -1,14 +1,13 @@
 7Cups
 APClips
 Archive.org
-CGTrader
 Codolio
+DeviantArt
 Discord.bio
 GeeksforGeeks
 Giphy
 Hashnode
 Hubski
-LessWrong
 LushStories
 Minecraft
 Patched
@@ -22,11 +21,11 @@ Scribd
 Shelf
 SlideShare
 Smule
-Snapchat
-SoylentNews
 Splice
 Spotify
+Trovo
 TryHackMe
+Velomania
 Weblate
 YandexMusic
 interpals
@@ -34,4 +33,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
