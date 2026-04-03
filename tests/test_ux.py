@@ -35,9 +35,13 @@ def test_wildcard_username_expansion():
 
 @pytest.mark.parametrize('cliargs', [
     '',
-    '--site urghrtuight --egiotr',
     '--',
 ])
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+
+def test_unrecognized_arguments():
+    with pytest.raises(InteractivesSubprocessError, match=r"error: unrecognized arguments"):
+        Interactives.run_cli('--site urghrtuight --egiotr')
