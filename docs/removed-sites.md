@@ -1,17 +1,12 @@
 # List Of Sites Removed From Sherlock
 
-This is a list of sites implemented in such a way that the current design of
-Sherlock is not capable of determining if a given username exists or not.
-They are listed here in the hope that things may change in the future
-so they may be re-included.
-
+This document lists sites whose current behavior prevents Sherlock from reliably determining whether a username exists.
+They are included for potential re-inclusion if site behavior changes.
 
 ## gpodder.net
 
-As of 2020-05-25, all usernames are reported as available.
-
-The server is returning a HTTP Status 500 (Internal server error)
-for all queries.
+As of 2020-05-25, the site reports all usernames as available.
+The server returns HTTP 500 (Internal Server Error) for every query.
 
 ```json
   "gpodder.net": {
@@ -24,14 +19,10 @@ for all queries.
   },
 ```
 
-
 ## Investing.com
 
-As of 2020-05-25, all usernames are reported as claimed.
-
-Any query against a user seems to be redirecting to a general
-information page at https://www.investing.com/brokers/.  Probably
-required login before access.
+As of 2020-05-25, the site reports all usernames as claimed.
+All queries redirect to https://www.investing.com/brokers/, likely requiring login.
 
 ```json
   "Investing.com": {
@@ -46,15 +37,9 @@ required login before access.
 
 ## AdobeForums
 
-As of 2020-04-12, all usernames are reported as available.
-
-When I went to the site to see what was going on, usernames that I know
-existed were redirecting to the main page.
-
-I was able to see user profiles without logging in, but the URL was not
-related to their user name.  For example, user "tomke" went to
-https://community.adobe.com/t5/user/viewprofilepage/user-id/10882613.
-This can be detected, but it requires a different detection method.
+As of 2020-04-12, the site reports all usernames as available.
+Existing usernames redirect to the main page, and profile URLs do not contain the username (e.g. https://community.adobe.com/t5/user/viewprofilepage/user-id/10882613).
+Detection requires a different approach.
 
 ```json
   "AdobeForums": {
@@ -70,7 +55,6 @@ This can be detected, but it requires a different detection method.
 ## Basecamp
 
 As of 2020-02-23, all usernames are reported as not existing.
-
 
 ```json
   "Basecamp": {
@@ -117,7 +101,7 @@ As of 2020-01-21, all usernames are reported as not existing.
 
 ## NPM-Packages
 
-NPM-Packages are not users.
+NPM packages are not users.
 
 ```json
   "NPM-Package": {
@@ -146,7 +130,7 @@ As of 2020-01-21, all usernames are reported as not existing.
 
 ## RamblerDating
 
-As of 2019-12-31, site always times out.
+As of 2019-12-31, the site always times out.
 
 ```json
   "RamblerDating": {
@@ -162,7 +146,7 @@ As of 2019-12-31, site always times out.
 
 ## YandexMarket
 
-As of 2019-12-31, all usernames are reported as existing.
+As of 2019-12-31, the site reports all usernames as existing.
 
 ```json
   "YandexMarket": {
@@ -178,7 +162,7 @@ As of 2019-12-31, all usernames are reported as existing.
 
 ## Codementor
 
-As of 2019-12-31, usernames that exist are not detected.
+As of 2019-12-31, existing usernames are not detected.
 
 ```json
   "Codementor": {
@@ -193,7 +177,7 @@ As of 2019-12-31, usernames that exist are not detected.
 
 ## KiwiFarms
 
-As of 2019-12-31, the site gives a 403 for all usernames.  You have to
+As of 2019-12-31, the site gives a 403 for all usernames. You have to
 be logged into see a profile.
 
 ```json
@@ -210,7 +194,7 @@ be logged into see a profile.
 
 ## Teknik
 
-As of 2019-11-30, the site causes Sherlock to just hang.
+As of 2019-11-30, the site causes Sherlock to hang.
 
 ```json
   "Teknik": {
@@ -226,8 +210,7 @@ As of 2019-11-30, the site causes Sherlock to just hang.
 
 ## Shockwave
 
-As of 2019-11-28, usernames that exist give a 503 "Service Unavailable"
-HTTP Status.
+As of 2019-11-28, existing usernames return HTTP 503 "Service Unavailable".
 
 ```json
   "Shockwave": {
@@ -243,8 +226,8 @@ HTTP Status.
 
 ## Foursquare
 
-When usage of automated tool is detected. Whole IP is banned from future requests.
-There is an error message:
+When automated access is detected, the IP is blocked from future requests.
+Error message:
 
 > Please verify you are a human
 > Access to this page has been denied because we believe you are using automation tools to browse the website.
@@ -262,7 +245,7 @@ There is an error message:
 
 ## Khan Academy
 
-Usernames that don't exist are detected.  First noticed 2019-10-25.
+Nonexistent usernames are detected (first observed 2019-10-25).
 
 ```json
   "Khan Academy": {
@@ -275,10 +258,9 @@ Usernames that don't exist are detected.  First noticed 2019-10-25.
   },
 ```
 
-
 ## EVE Online
 
-Usernames that exist are not detected.
+Existing usernames are not detected.
 
 ```json
   "EVE Online": {
@@ -294,7 +276,7 @@ Usernames that exist are not detected.
 
 ## AngelList
 
-Usernames that exist are not detected. Forbidden Request 403 Error.
+Existing usernames are not detected. Forbidden Request 403 Error.
 
 ```json
   "AngelList": {
@@ -309,8 +291,7 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
 
 ## PowerShell Gallery
 
-Accidentally merged even though the original pull request showed that all
-user names were available.
+This entry was merged in error; the original report showed all usernames as available.
 
 ```json
   "PowerShell Gallery": {
@@ -325,12 +306,8 @@ user names were available.
 
 ## StreamMe
 
-On 2019-04-07, I get a Timed Out message from the website.  It has not
-been working earlier either (for some weeks).  It takes about 21s before
-the site finally times out, so it really makes getting the results from
-Sherlock a pain.
-
-If the site becomes available in the future, we can put it back in.
+As of 2019-04-07, the site times out (around 21 seconds), causing severe delays.
+If availability improves, it may be re-added.
 
 ```json
   "StreamMe": {
@@ -345,10 +322,7 @@ If the site becomes available in the future, we can put it back in.
 
 ## BlackPlanet
 
-This site has always returned a false positive.  The site returns the exact
-same text for a claimed or an unclaimed username.  The site must be rendering
-all of the different content using Javascript in the browser.  So, there is
-no way distinguish between the results with the current design of Sherlock.
+This site has always returned false positives; claimed and unclaimed usernames return identical content. It appears to render content via JavaScript, making detection impossible with Sherlock's current approach.
 
 ```json
   "BlackPlanet": {
@@ -362,11 +336,8 @@ no way distinguish between the results with the current design of Sherlock.
 
 ## Fotolog
 
-Around 2019-02-09, I get a 502 HTTP error (bad gateway) for any access.  On
-2019-03-10, the site is up, but it is in maintenance mode.
-
-It does not seem to be working, so there is no sense in including it in
-Sherlock.
+Around 2019-02-09, the site returned HTTP 502 (Bad Gateway). On 2019-03-10, it displayed maintenance mode.
+The site is unreliable and not suitable for Sherlock inclusion.
 
 ```json
   "Fotolog": {
@@ -379,10 +350,7 @@ Sherlock.
 
 ## Google Plus
 
-On 2019-04-02, Google shutdown Google Plus.  While the content for some
-users is available after that point, it is going away.  And, no one will
-be able to create a new account.  So, there is no value is keeping it in
-Sherlock.
+On 2019-04-02, Google shut down Google Plus. Existing content may remain temporarily, but no new accounts can be created, so the service is no longer relevant to Sherlock.
 
 Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
 
@@ -397,11 +365,9 @@ Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
   },
 ```
 
-
 ## InsaneJournal
 
-As of 2020-02-23, InsaneJournal returns false positive, when providing a username which contains a period.
-Since we were not able to find the criteria for a valid username, the best thing to do now is to remove it.
+As of 2020-02-23, InsaneJournal returns false positives for usernames containing a period. Username rules are unknown, so it is removed.
 
 ```json
   "InsaneJournal": {
@@ -417,8 +383,7 @@ Since we were not able to find the criteria for a valid username, the best thing
 
 ## Sports Tracker
 
-As of 2020-04-02, Sports Tracker returns false positives. Checking with `errorMsg` and `response_url`
-did not seem to work.
+As of 2020-04-02, Sports Tracker returns false positives. `errorMsg` and `response_url` checks are unreliable.
 
 ```
    "SportsTracker": {
@@ -434,8 +399,7 @@ did not seem to work.
 
 ## Trip
 
-As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
-redirecting to skyscanner.com whether the username exists or not.
+As of 2020-04-02, Trip by Skyscanner redirects to skyscanner.com regardless of username existence.
 
 ```json
   "Trip": {
@@ -451,7 +415,7 @@ redirecting to skyscanner.com whether the username exists or not.
 
 ## boingboing.net
 
-As of 2020-04-02, boingboing.net requires a login to check if a user exits or not.
+As of 2020-04-02, boingboing.net requires login for username checks.
 
 ```
    "boingboing.net": {
@@ -465,8 +429,8 @@ As of 2020-04-02, boingboing.net requires a login to check if a user exits or no
 ```
 
 ## elwoRU
-As of 2020-04-04, elwoRu does not exist anymore. I confirmed using
-downforeveryoneorjustme.com that the website is down.
+
+As of 2020-04-04, elwoRU is offline, as confirmed by downforeveryoneorjustme.com.
 
 ```json
   "elwoRU": {
@@ -482,8 +446,7 @@ downforeveryoneorjustme.com that the website is down.
 
 ## ingvarr.net.ru
 
-As of 2020-04-04, ingvarr.net.ru does not exist anymore. I confirmed using
-downforeveryoneorjustme.com that the website is down.
+As of 2020-04-04, ingvarr.net.ru is offline, as confirmed by downforeveryoneorjustme.com.
 
 ```json
   "ingvarr.net.ru": {
@@ -499,8 +462,7 @@ downforeveryoneorjustme.com that the website is down.
 
 ## Redsun.tf
 
-As of 2020-06-20, Redsun.tf seems to be adding random digits to the end of the usernames which makes it pretty much impossible
-for Sherlock to check for usernames on this particular website.
+As of 2020-06-20, Redsun.tf appends random digits to usernames, preventing reliable checks.
 
 ```json
   "Redsun.tf": {
@@ -516,9 +478,7 @@ for Sherlock to check for usernames on this particular website.
 
 ## Creative Market
 
-As of 2020-06-20, Creative Market has a captcha to prove that you are a human, and because of this
-Sherlock is unable to check for username on this site because we will always get  a page which asks
-us to prove that we are not a robot.
+As of 2020-06-20, Creative Market uses CAPTCHA, which prevents automated username checks.
 
 ```json
   "CreativeMarket": {
@@ -533,8 +493,7 @@ us to prove that we are not a robot.
 
 ## pvpru
 
-As of 2020-06-20, pvpru uses CloudFlair, and because of this we get a "Access denied" error whenever
-we try to check for a username.
+As of 2020-06-20, pvpru uses Cloudflare, resulting in "Access denied" for username checks.
 
 ```json
   "pvpru": {
@@ -548,9 +507,8 @@ we try to check for a username.
 ```
 
 ## easyen
-As of 2020-06-21, easyen returns false positives when using a username which contains
-a period. Since we could not find the criteria for the usernames for this site, it will be
-removed
+
+As of 2020-06-21, easyen returns false positives for usernames containing a period. Username rules are unknown, so it is removed.
 
 ```json
   "easyen": {
@@ -565,9 +523,8 @@ removed
 ```
 
 ## pedsovet
-As of 2020-06-21, pedsovet returns false positives when using a username which contains
-a period. Since we could not find the criteria for the usernames for this site, it will be
-removed
+
+As of 2020-06-21, pedsovet returns false positives for usernames containing a period. Username rules are unknown, so it is removed.
 
 ```json
   "pedsovet": {
@@ -581,11 +538,10 @@ removed
   },
 ```
 
-
 ## radioskot
-As of 2020-06-21, radioskot returns false positives when using a username which contains
-a period. Since we could not find the criteria for the usernames for this site, it will be
-removed
+
+As of 2020-06-21, radioskot returns false positives for usernames containing a period. Username rules are unknown, so it is removed.
+
 ```json
   "radioskot": {
     "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d",
@@ -598,12 +554,10 @@ removed
   },
 ```
 
-
-
 ## Coderwall
-As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
-I have tried to find out what Coderwall's criteria is for a valid username, but unfortunately I have not been able to
-find it and because of this, the best thing we can do now is to remove it.
+
+As of 2020-07-06, Coderwall returns false positives for usernames containing a period. Username validation rules are unknown, so it is removed.
+
 ```json
   "Coderwall": {
     "errorMsg": "404! Our feels when that url is used",
@@ -616,9 +570,10 @@ find it and because of this, the best thing we can do now is to remove it.
   }
 ```
 
-
 ## TamTam
-As of 2020-07-06, TamTam returns false positives when given a username which contains a period
+
+As of 2020-07-06, TamTam returns false positives for usernames containing a period.
+
 ```json
   "TamTam": {
     "errorType": "response_url",
@@ -632,7 +587,9 @@ As of 2020-07-06, TamTam returns false positives when given a username which con
 ```
 
 ## Zomato
-As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato takes a very long time to respond.
+
+As of 2020-07-24, Zomato is unstable and often very slow to respond.
+
 ```json
   "Zomato": {
     "errorType": "status_code",
@@ -648,7 +605,9 @@ As of 2020-07-24, Zomato seems to be unstable. Majority of the time, Zomato take
 ```
 
 ## Mixer
-As of 2020-07-22, the Mixer service has closed down.
+
+As of 2020-07-22, the Mixer service has shut down.
+
 ```json
   "mixer.com": {
     "errorType": "status_code",
@@ -661,10 +620,11 @@ As of 2020-07-22, the Mixer service has closed down.
   },
 ```
 
-
 ## KanoWorld
-As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us check for usernames.
-If an alternative way to check for usernames is found then it will added.
+
+As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists, so username checks are not possible.
+If an alternative method is found, it may be re-added.
+
 ```json
   "KanoWorld": {
     "errorType": "status_code",
@@ -677,7 +637,9 @@ If an alternative way to check for usernames is found then it will added.
 ```
 
 ## YandexCollection
-As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents us from checking for usernames
+
+As of 2020-08-11, YandexCollection presents a CAPTCHA that prevents username checks
+
 ```json
   "YandexCollection": {
     "errorType": "status_code",
@@ -690,8 +652,9 @@ As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents u
 
 ## PayPal
 
-As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
+
 ```json
   "PayPal": {
     "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
@@ -708,7 +671,8 @@ future once we find a better error detecting method.
 
 ## ImageShack
 
-As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
+
 ```json
   "ImageShack": {
     "errorType": "response_url",
@@ -722,8 +686,9 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 ## Aptoide
 
-As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
+
 ```json
   "Aptoide": {
     "errorType": "status_code",
@@ -736,7 +701,7 @@ future once we find a better error detecting method.
 
 ## Crunchyroll
 
-As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "Crunchyroll": {
@@ -749,7 +714,8 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ```
 
 ## T-MobileSupport
-As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "T-MobileSupport": {
@@ -763,7 +729,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 ## OpenCollective
 
-As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "OpenCollective": {
@@ -777,7 +743,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 ## SegmentFault
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "SegmentFault": {
@@ -791,7 +757,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a fix for this
 
 ```json
   "Viadeo": {
@@ -818,9 +784,9 @@ As of 2020-09-02, MeetMe returns false positives
   },
 ```
 
-## Linkdedin
+## LinkedIn
 
-As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
+As of 2020-09-23, LinkedIn returns false positives because login prompts appear when checking a user.
 
 ```json
   "Linkedin": {
@@ -835,7 +801,9 @@ As of 2020-09-23, Linkedin returns false positives because we are prompted with 
 ```
 
 ## tracr.co
+
 As of 2020-09-23, tracr.co returns false positives because the site seems to be shut down.
+
 ```json
   "tracr.co": {
     "errorMsg": "No search results",
@@ -864,7 +832,9 @@ As of 2020-09-23, Taringa returns false positives.
 ```
 
 ## Photobucket
+
 As of 2020-10-21, Photobucket return false positives. This was reported in #785.
+
 ```json
   "Photobucket": {
     "errorType": "status_code",
@@ -876,6 +846,7 @@ As of 2020-10-21, Photobucket return false positives. This was reported in #785.
 ```
 
 ## 4PDA
+
 As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
 
 ```json
@@ -891,7 +862,9 @@ As of 2020-10-21, 4PDA returns false positives. This was reported in #784.
 ```
 
 ## PokerStrategy
+
 As of 2020-10-21, PokerStrategy returns false positives. This was reported in #776.
+
 ```json
   "PokerStrategy": {
     "errorType": "status_code",
@@ -920,6 +893,7 @@ Filmogs has closed down.
 ```
 
 ## 500px
+
 As of 2021-01-13, 500px returns false positives. This will hopefully be fixed soon once we add the ability to add different
 request methods.
 
@@ -936,7 +910,9 @@ request methods.
 ```
 
 ## Badoo
+
 As of 2021-01-13, Badoo returns false positives
+
 ```json
   "Badoo": {
     "errorType": "status_code",
@@ -948,7 +924,9 @@ As of 2021-01-13, Badoo returns false positives
 ```
 
 ## Pling
+
 As of 2021-01-13, Pling returns false positives.
+
 ```json
   "Pling": {
     "errorMsg": "Resource not found",
@@ -961,7 +939,9 @@ As of 2021-01-13, Pling returns false positives.
 ```
 
 ## Realmeye
+
 As of 2021-01-13, Realmeye returns false positives.
+
 ```json
   "Realmeye": {
     "errorMsg": "Sorry, but we either:",
@@ -974,7 +954,9 @@ As of 2021-01-13, Realmeye returns false positives.
 ```
 
 ## Travellerspoint
+
 As of 2021-01-13, Travellerspoint returns false positives
+
 ```json
   "Travellerspoint": {
     "errorMsg": "Wooops. Sorry!",
@@ -989,6 +971,7 @@ As of 2021-01-13, Travellerspoint returns false positives
 ## GDProfiles
 
 As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
+
 ```json
   "GDProfiles": {
     "errorType": "status_code",
@@ -1002,6 +985,7 @@ As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on 
 ## AllTrails
 
 As of 2021-06-27, AllTrails has a captcha which prevents us from checking for usernames on the site.
+
 ```json
   "AllTrails": {
     "errorMsg": "class=\"home index\"",
@@ -1015,7 +999,7 @@ As of 2021-06-27, AllTrails has a captcha which prevents us from checking for us
 
 ## Cent
 
-As of 2021-06-27, there is not way of checking if a username exists on Cent
+As of 2021-06-27, there is no way to check if a username exists on Cent.
 
 ```json
   "Cent": {
@@ -1031,6 +1015,7 @@ As of 2021-06-27, there is not way of checking if a username exists on Cent
 ## Anobii
 
 As of 2021-06-27, Anobii returns false positives and there is no stable way of checking usernames.
+
 ```
 
   "Anobii": {
@@ -1044,7 +1029,7 @@ As of 2021-06-27, Anobii returns false positives and there is no stable way of c
 
 ## Kali Community
 
-As of 2021-06-27, Kali Community requires us to be logged in order to check if a user exists on their forum.
+As of 2021-06-27, Kali Community requires login to check user existence.
 
 ```json
   "Kali community": {
@@ -1059,7 +1044,7 @@ As of 2021-06-27, Kali Community requires us to be logged in order to check if a
 
 ## NameMC
 
-As of 2021-06-27, NameMC uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, NameMC uses Cloudflare CAPTCHA, preventing username checks on the site.
 
 ```json
   "NameMC (Minecraft.net skins)": {
@@ -1074,7 +1059,8 @@ As of 2021-06-27, NameMC uses captcha through CloudFlare which prevents us from 
 
 ## SteamID
 
-As of 2021-06-27, Steam uses captcha through CloudFlare which prevents us from checking if usernames exists on the site.
+As of 2021-06-27, Steam uses Cloudflare CAPTCHA, preventing username checks on the site.
+
 ```json
   "Steamid": {
     "errorMsg": "<link rel=\"canonical\" href=\"https://steamid.uk\" />",
@@ -1086,10 +1072,10 @@ As of 2021-06-27, Steam uses captcha through CloudFlare which prevents us from c
   }
 ```
 
-
 ## TripAdvisor
 
 As of 2021-06-27, Trip takes too long to return a response. As of now, the reason is not known.
+
 ```json
   "TripAdvisor": {
     "errorMsg": "This page is on vacation\u2026",
@@ -1104,7 +1090,8 @@ As of 2021-06-27, Trip takes too long to return a response. As of now, the reaso
 
 ### House Mixes
 
-As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
+As of 2021-09-04, House Mixes has connection issues that cause Sherlock to freeze.
+
 ```json
   "House-Mixes.com": {
     "errorMsg": "Profile Not Found",
@@ -1118,7 +1105,9 @@ As of 2021-09-04, House Mixes has issues connecting causing Sherlock to freeze.
 ```
 
 ### Quora
+
 As of 2021-09-04, Quora returns false positives.
+
 ```json
   "Quora": {
     "errorMsg": "Page Not Found",
@@ -1131,7 +1120,9 @@ As of 2021-09-04, Quora returns false positives.
 ```
 
 ### SparkPeople
+
 As of 2021-09-04, SparkPeople returns false positives.
+
 ```json
   "SparkPeople": {
     "errorMsg": "We couldn't find that user",
@@ -1144,7 +1135,9 @@ As of 2021-09-04, SparkPeople returns false positives.
 ```
 
 ### Cloob
+
 As of 2021-10-25, Cloob seems to be down and their site is not responding.
+
 ```json
   "Cloob": {
     "errorType": "status_code",
@@ -1156,6 +1149,7 @@ As of 2021-10-25, Cloob seems to be down and their site is not responding.
 ```
 
 ### TM-Ladder
+
 As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 
 ```json
@@ -1169,6 +1163,7 @@ As of 2021-11-30, TM-Ladder is returning false positives due to rate limits.
 ```
 
 ### plug.dj
+
 As of 2021-12-02, plug.dj is returning false positives because the service is down.
 
 ```json
@@ -1183,7 +1178,8 @@ As of 2021-12-02, plug.dj is returning false positives because the service is do
 
 ## Facenama
 
-As of 2022-02-6, Facenama seems to be down their rebuilding their site
+As of 2022-02-06, Facenama appears down while rebuilding the site.
+
 ```json
   "Facenama": {
     "errorType": "response_url",
@@ -1195,7 +1191,6 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
     "username_unclaimed": "noonewouldeverusethis77"
   },
 ```
-
 
 ## Designspiration
 
@@ -1230,7 +1225,8 @@ then of course causes false positives in Sherlock's results.
 
 ## Gab
 
-As of 2022-05-01, Gab returns false positives because they now use CloudFlare
+As of 2022-05-01, Gab returns false positives due to Cloudflare.
+
 ```json
   "Gab": {
     "errorMsg": "The page you are looking for isn't here.",
@@ -1258,7 +1254,9 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
 ```
 
 ## Smashcast
-As og 2022-05-01, Smashcast is down
+
+As of 2022-05-01, Smashcast is down
+
 ```json
   "Smashcast": {
     "errorType": "status_code",
@@ -1271,7 +1269,8 @@ As og 2022-05-01, Smashcast is down
 
 ## Countable
 
-As og 2022-05-01, Countable returns false positives
+As of 2022-05-01, Countable returns false positives
+
 ```json
   "Countable": {
     "errorType": "status_code",
@@ -1285,6 +1284,7 @@ As og 2022-05-01, Countable returns false positives
 ## Raidforums
 
 Raidforums is [now run by the FBI](https://twitter.com/janomine/status/1499453777648234501?s=21)
+
 ```json
   "Raidforums": {
     "errorType": "status_code",
@@ -1296,6 +1296,7 @@ Raidforums is [now run by the FBI](https://twitter.com/janomine/status/149945377
 ```
 
 ## Pinterest
+
 Removed due to false positive
 
 ```json
@@ -1309,6 +1310,7 @@ Removed due to false positive
 ```
 
 ## PCPartPicker
+
 As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
 
 ```json
@@ -1322,6 +1324,7 @@ As of 17-07-2022, PCPartPicker requires us to login in order to check if a user 
 ```
 
 ## Ebay
+
 As of 17-07-2022, Ebay is very slow to respond. It was also reported that it returned false positives. So this is something that has been investigated further later.
 
 ```json
@@ -1344,6 +1347,7 @@ As of 17-07-2022, Ebay is very slow to respond. It was also reported that it ret
 ```
 
 ## Ghost
+
 As of 17-07-2022, Ghost returns false positives
 
 ```json
@@ -1358,8 +1362,8 @@ As of 17-07-2022, Ghost returns false positives
 ```
 
 ## Atom Discussions
-As of 25-07-2022, Atom Discussions seems to not work beceause it keeps on
-redirecting to github discussion tab which does not exist and is not specific to a username
+
+As of 2022-07-25, Atom Discussions seems to not work because it redirects to a GitHub discussion tab that does not exist and is not specific to a username
 
 ```json
   "Atom Discussions": {
@@ -1373,6 +1377,7 @@ redirecting to github discussion tab which does not exist and is not specific to
 ```
 
 ## Gam1ng
+
 As of 25-07-2022, Gam1ng has been permanently moved and is no longer functional
 
 ```json
@@ -1386,6 +1391,7 @@ As of 25-07-2022, Gam1ng has been permanently moved and is no longer functional
 ```
 
 ## OGUsers
+
 As of 25-07-2022, OGUsers is now no longer functional
 
 ```json
@@ -1399,6 +1405,7 @@ As of 25-07-2022, OGUsers is now no longer functional
 ```
 
 ## Otzovik
+
 As of 25-07-2022, Otzovik is now no longer functional
 
 ```json
@@ -1412,6 +1419,7 @@ As of 25-07-2022, Otzovik is now no longer functional
 ```
 
 ## radio_echo_msk
+
 As of 25-07-2022, radio_echo_msk is now no longer functional
 
 ```json
@@ -1423,8 +1431,11 @@ As of 25-07-2022, radio_echo_msk is now no longer functional
     "username_unclaimed": "noonewouldeverusethis7"
   }
 ```
+
 ## Ello
+
 As of 06.09.2022, Ello is now behind CloudFlare
+
 ```json
   "Ello": {
     "errorMsg": "We couldn't find the page you're looking for",
@@ -1437,7 +1448,9 @@ As of 06.09.2022, Ello is now behind CloudFlare
 ```
 
 ## GitHub Support Community
+
 As of 06.09.2022, GitHub Support Community's endpoint just redirects to the main community page
+
 ```json
   "GitHub Support Community": {
     "errorMsg": "Oops! That page doesn\u2019t exist or is private.",
@@ -1450,6 +1463,7 @@ As of 06.09.2022, GitHub Support Community's endpoint just redirects to the main
 ```
 
 ## GuruShots
+
 As of 08.09.2022, GuruShots returns false positives because it just returns a blank page. Need to look further into it so that it can be added back.
 
 ```json
@@ -1463,6 +1477,7 @@ As of 08.09.2022, GuruShots returns false positives because it just returns a bl
 ```
 
 ## Google Developer
+
 As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not abl to get any proper results
 
 ```json
@@ -1477,6 +1492,7 @@ As of 09.10.2022, Google Developer returns false positives. The site is dynamic 
 ```
 
 ## mastodon.technology
+
 As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was shut down by the owner](https://ashfurrow.com/blog/mastodon-technology-shutdown/).
 
 ```json
@@ -1489,8 +1505,8 @@ As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was
   },
 ```
 
-
 ## Aruino
+
 As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but takes some time. Will be fixed later
 
 ```json
@@ -1507,7 +1523,9 @@ As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but t
 ```
 
 ## Zoomit
-As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+
+As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it will not be prioritized for now.
+
 ```json
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
@@ -1520,7 +1538,9 @@ As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was 
 ```
 
 ## Facebook
+
 As of 04.02.2023, Facebook returns false positives because we get prompted with the login screen to view the data
+
 ```json
 "Facebook": {
     "errorType": "status_code",
@@ -1534,7 +1554,9 @@ As of 04.02.2023, Facebook returns false positives because we get prompted with 
 ```
 
 ## BinarySearch
+
 As of 08.02.2023, BinarySearch seems to not be responding at all
+
 ```json
   "BinarySearch": {
     "errorMsg": "{}",
@@ -1546,8 +1568,11 @@ As of 08.02.2023, BinarySearch seems to not be responding at all
     "username_claimed": "Eyes_Wide_Shut"
   },
 ```
+
 ## Arduino
+
 As of 15.02.2023, Arduino returns false positives due to some unstable redirects
+
 ```json
   "Arduino": {
     "errorType": "status_code",
@@ -1557,8 +1582,11 @@ As of 15.02.2023, Arduino returns false positives due to some unstable redirects
     "username_claimed": "blue"
   },
 ```
+
 ## Koo
+
 As of 15.02.2023, Koo returns false positives
+
 ```json
   "koo": {
     "errorMsg": "This profile does not exist",
@@ -1570,9 +1598,10 @@ As of 15.02.2023, Koo returns false positives
   }
 ```
 
-
 ## We Heart It
-As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through their website. Visiting their website leads to links to download the mobile application. A potential way of fixing this is to find API endpoints in the app
+
+As of 2022.02.25, WeHeartIt no longer allows username checks through their website. Visiting their website leads to links to download the mobile application. A potential way of fixing this is to find API endpoints in the app
+
 ```json
   "We Heart It": {
     "errorMsg": "Oops! You've landed on a moving target!",
@@ -1583,8 +1612,8 @@ As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through
   }
 ```
 
-
 ## Tinder
+
 As of 2022.03.15, Tinder returns false positives. We will try to rev the API endpoint on the android app to find a better soon
 
 ```json
@@ -1600,8 +1629,8 @@ As of 2022.03.15, Tinder returns false positives. We will try to rev the API end
   },
 ```
 
-
 ## Coil
+
 As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any requests return a 404.
 
 ```json
@@ -1624,6 +1653,7 @@ As of 2023.03.15, Coil has been discontinued. All accounts were deleted and any 
 ```
 
 ## OnlyFans
+
 As of 2023.04.20, OnlyFans returns false negatives on checking usernames with the API endpoint and directly through their website.
 
 ```json
@@ -1638,7 +1668,9 @@ As of 2023.04.20, OnlyFans returns false negatives on checking usernames with th
 ```
 
 ## OK
+
 As of 2023.04.21, Ok.ru returns false positives
+
 ```json
   "OK": {
     "errorType": "status_code",
@@ -1650,7 +1682,9 @@ As of 2023.04.21, Ok.ru returns false positives
 ```
 
 ## ForumhouseRU
+
 As of 2023.04.21, ForumhouseRU returns false positives
+
 ```json
   "forumhouseRU": {
     "errorMsg": "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0435 \u0438\u043c\u044f.",
@@ -1662,6 +1696,7 @@ As of 2023.04.21, ForumhouseRU returns false positives
 ```
 
 ## Enjin
+
 As of 2023.08.29, Enjin has closed down.
 
 ```json
@@ -1675,7 +1710,9 @@ As of 2023.08.29, Enjin has closed down.
 ```
 
 ## IRL
+
 As of 2023.08.29, IRL has shut down
+
 ```json
   "IRL": {
     "errorType": "status_code",
@@ -1686,7 +1723,9 @@ As of 2023.08.29, IRL has shut down
 ```
 
 ## Munzee
+
 As of 2023.08.29, Munzee requires us to be logged into the site in order to check if a user exists or not
+
 ```json
   "Munzee": {
     "errorType": "status_code",
@@ -1697,7 +1736,8 @@ As of 2023.08.29, Munzee requires us to be logged into the site in order to chec
 ```
 
 ## Quizlet
-As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+
+As of 2023.08.29 Quizlet requires JavaScript to check if a user exists on the website
 
 ```json
 "Quizlet": {
@@ -1710,7 +1750,9 @@ As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exs
 ```
 
 ## GunsAndAmmo
+
 As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
+
 ```json
   "GunsAndAmmo": {
     "errorType": "status_code",
@@ -1721,7 +1763,8 @@ As of 2023.08.29, GunsAndAmmo responds with 404 from time to time
 ```
 
 ## TikTok
-As of 2023.12.21, TikTok returns false positives. This is because the webpage returns a somewhat blank page. This prevents us from being able to check for the existence of usernames. Proxitok does not work either.
+
+As of 2023-12-21, TikTok returns false positives because the page is blank and username detection is unreliable. Proxitok also fails.
 
 ```json
   "TikTok": {
@@ -1733,7 +1776,9 @@ As of 2023.12.21, TikTok returns false positives. This is because the webpage re
 ```
 
 ## Lolchess
+
 As of 2023.12.21, Lolchess returns false positives.
+
 ```json
   "Lolchess": {
     "errorMsg": "No search results",
@@ -1745,7 +1790,9 @@ As of 2023.12.21, Lolchess returns false positives.
 ```
 
 ## Virgool
+
 As of 2023.12.21, Virgool returns false positives.
+
 ```json
   "Virgool": {
     "errorMsg": "\u06f4\u06f0\u06f4",
@@ -1757,7 +1804,9 @@ As of 2023.12.21, Virgool returns false positives.
 ```
 
 ## Whonix Forum
+
 As of 2023.12.21, Whonix Forum returns false positives.
+
 ```json
   "Whonix Forum": {
     "errorType": "status_code",
@@ -1768,7 +1817,9 @@ As of 2023.12.21, Whonix Forum returns false positives.
 ```
 
 ## Ebio
+
 As of 2023.12.21, Ebio returns false positives.
+
 ```json
   "ebio.gg": {
     "errorType": "status_code",
@@ -1779,7 +1830,9 @@ As of 2023.12.21, Ebio returns false positives.
 ```
 
 ## HexRPG
-__2024-04-07 :__ HexRPG behind authentication wall. Unable to check usernames without logging in.
+
+**2024-04-07:** HexRPG behind authentication wall. Unable to check usernames without logging in.
+
 ```json
   "HexRPG": {
     "errorMsg": "Error : User ",
@@ -1792,7 +1845,9 @@ __2024-04-07 :__ HexRPG behind authentication wall. Unable to check usernames wi
 ```
 
 ## Oracle Communities
-__2024-04-07 :__ Oracle Communities behind authentication wall. Unable to check usernames without logging in.
+
+**2024-04-07:** Oracle Communities behind authentication wall. Unable to check usernames without logging in.
+
 ```json
   "Oracle Communities": {
     "errorType": "status_code",
@@ -1803,7 +1858,9 @@ __2024-04-07 :__ Oracle Communities behind authentication wall. Unable to check 
 ```
 
 ## Metacritic
-__2024-04-07 :__ Non-existent users seemingly displayed as real users with no activity. Needs adjustment.
+
+**2024-04-07:** Non-existent users seemingly displayed as real users with no activity. Needs adjustment.
+
 ```json
   "metacritic": {
     "errorMsg": "User not found",
@@ -1816,7 +1873,9 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
 ```
 
 ## G2G
-__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+
+**2024-04-10:** Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+
 ```json
   "G2G": {
     "errorType": "response_url",
@@ -1829,7 +1888,9 @@ __2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup t
 ```
 
 ## Bitcoin Forum
-__2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
+
+**2024-04-24:** BCF seems to have gone defunct. Uncertain.
+
 ```json
 "BitCoinForum": {
     "errorMsg": "The user whose profile you are trying to view does not exist.",
@@ -1841,7 +1902,9 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
 ```
 
 ## Zhihu
-As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats returned. Checking for patterns may allow us to find a way to detect the existans of a user, this will be need to be worked on later
+
+As of 2024-06-24, Zhihu returns false positives because it obfuscates returned page content. Pattern-based detection may allow a reliable check and should be investigated further.
+
 ```json
 
   "Zhihu": {
@@ -1855,7 +1918,7 @@ As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats
 
 ## Penetestit
 
-As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site structures
+As of 2024-06-24, Penetestit returns HTTP 403, likely due to a site structure change.
 
 ```json
   "labpentestit": {
@@ -1867,9 +1930,10 @@ As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site
   }
 ```
 
-
 ## Euw
-__2024-06-09 :__ errorMsg detection doesn't work anymore, because the error message is included in HTTP request body, even in successful search
+
+**2024-06-09:** error message detection no longer works because the message appears in the HTTP body for both successful and failed searches
+
 ```json
 "Euw": {
     "errorMsg": "This summoner is not registered at OP.GG. Please check spelling.",
@@ -1881,7 +1945,9 @@ __2024-06-09 :__ errorMsg detection doesn't work anymore, because the error mess
 ```
 
 ## Etsy
-__2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the connection, so it doesn't work anymore
+
+**2024-06-10:** Http request returns 403 forbidden, and tries to verify the connection, so it doesn't work anymore
+
 ```json
 "Etsy": {
     "errorType": "status_code",
@@ -1892,10 +1958,13 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
 ```
 
 ## Alik.cz
-__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+
+**2024-07-21:** Target is now BLACKLISTED from the default manifest due to the site receiving high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
 
 ## 8tracks
-__2025-02-02 :__ Might be dead again. Nobody knows for sure.
+
+**2025-02-02:** Might be dead again. Nobody knows for sure.
+
 ```json
 "8tracks": {
     "errorType": "message",
@@ -1911,7 +1980,9 @@ __2025-02-02 :__ Might be dead again. Nobody knows for sure.
 ```
 
 ## Shpock
-__2025-02-02 :__ Can likely be added back with a new endpoint (source username availability endpoint from mobile app reg flow?)
+
+**2025-02-02:** Can likely be added back with a new endpoint (source username availability endpoint from mobile app reg flow?)
+
 ```json
 "Shpock": {
     "errorType": "status_code",
@@ -1922,7 +1993,9 @@ __2025-02-02 :__ Can likely be added back with a new endpoint (source username a
 ```
 
 ## Twitch
-__2025-02-02 :__
+
+**2025-02-02:**
+
 ```json
 "Twitch": {
     "errorType": "message",
@@ -1935,7 +2008,9 @@ __2025-02-02 :__
 ```
 
 ## Fiverr
-__2025-02-02 :__ Fiverr added CSRF protections that messed with this test
+
+**2025-02-02:** Fiverr added CSRF protections that messed with this test
+
 ```json
 "Fiverr": {
     "errorMsg": "\"status\":\"success\"",
@@ -1957,7 +2032,9 @@ __2025-02-02 :__ Fiverr added CSRF protections that messed with this test
 ```
 
 ## BabyRU
-__2025-02-02 :__ Just being problematic (possibly related to errorMsg encoding?)
+
+**2025-02-02:** Just being problematic (possibly related to errorMsg encoding?)
+
 ```json
 "babyRU": {
     "errorMsg": [
@@ -1972,7 +2049,9 @@ __2025-02-02 :__ Just being problematic (possibly related to errorMsg encoding?)
 ```
 
 ## v0.dev
-__2025-02-16 :__ Unsure if any way to view profiles exists now
+
+**2025-02-16:** Unsure if any way to view profiles exists now
+
 ```json
 "v0.dev": {
     "errorType": "message",
@@ -1984,7 +2063,9 @@ __2025-02-16 :__ Unsure if any way to view profiles exists now
 ```
 
 ## TorrentGalaxy
-__2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
+
+**2025-07-06:** Site appears to have gone offline in March and hasn't come back
+
 ```json
   "TorrentGalaxy": {
     "errorMsg": "<title>TGx:Can't show details</title>",
