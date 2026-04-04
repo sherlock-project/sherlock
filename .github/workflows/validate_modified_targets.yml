@@ -33,6 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          poetry self add poetry-dynamic-versioning
           poetry install --no-interaction --with dev
 
       - name: Prepare JSON versions for comparison

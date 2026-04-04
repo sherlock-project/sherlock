@@ -25,6 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          poetry self add poetry-dynamic-versioning
           poetry install --no-interaction --with dev
 
       - name: Run false positive tests

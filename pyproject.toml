@@ -1,17 +1,27 @@
 [build-system]
-requires = [ "poetry-core>=2.0.0" ]
-build-backend = "poetry.core.masonry.api"
-# poetry-core 1.8 not available in .fc39. Can upgrade to 1.8.0 at .fc39 EOL
+requires = ["pdm-backend>=2.4.8"]
+build-backend = "pdm.backend"
 
-[tool.poetry-version-plugin]
-source = "init"
+[tool.pdm.version]
+path = "sherlock_project/__init__.py"
 
 [tool.poetry]
 packages = [ { include = "sherlock_project"} ]
+version = "0.0.0"
+
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.poetry-dynamic-versioning.from-file]
+source = "sherlock_project/__init__.py"
+pattern = '__version__ = "(.+)"'
 
 [project]
 name = "sherlock-project"
-version = "0.16.0"
+dynamic = ["version"]
 description = "Hunt down social media accounts by username across social networks"
 license = {text="MIT"}
 authors = [
@@ -48,7 +58,6 @@ dependencies = [
     "stem >=1.8.0",
     "pandas >=2.2.1",
     "openpyxl >=3.0.10",
-    "tomli >=2.2.1"
 ]
 
 [project.urls]
