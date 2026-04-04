@@ -27,7 +27,7 @@ class QueryStatus(Enum):
         """
         return self.value
 
-class QueryResult():
+class QueryResult:
     """Query Result Object.
 
     Describes result of query about a given username.

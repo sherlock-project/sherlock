@@ -10,23 +10,23 @@ networks.
 import sys
 
 try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var  # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
     print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
     sys.exit(1)
 
 import csv
-import signal
-import pandas as pd
 import os
 import re
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
+import signal
+from argparse import ArgumentParser, ArgumentTypeError, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
-from typing import Optional
 
+import pandas as pd
 import requests
+from colorama import init
 from requests_futures.sessions import FuturesSession
 
 from sherlock_project.__init__ import (
@@ -35,14 +35,11 @@ from sherlock_project.__init__ import (
     __version__,
     forge_api_latest_release,
 )
-
-from sherlock_project.result import QueryStatus
-from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
+from sherlock_project.result import QueryResult
+from sherlock_project.result import QueryStatus
 from sherlock_project.sites import SitesInformation
-from colorama import init
-from argparse import ArgumentTypeError
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -105,9 +102,7 @@ class SherlockFuturesSession(FuturesSession):
             # No response hook was already defined, so install it ourselves.
             hooks["response"] = [response_time]
 
-        return super(SherlockFuturesSession, self).request(
-            method, url, hooks=hooks, *args, **kwargs
-        )
+        return super().request(method, url, hooks=hooks, *args, **kwargs)
 
 
 def get_response(request_future, error_type, social_network):
@@ -172,9 +167,9 @@ def sherlock(
     site_data: dict[str, dict[str, str]],
     query_notify: QueryNotify,
     dump_response: bool = False,
-    proxy: Optional[str] = None,
+    proxy: "str | None" = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+) -> dict[str, dict[str, "str | QueryResult"]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
