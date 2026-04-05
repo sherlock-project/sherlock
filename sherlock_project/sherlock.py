@@ -18,13 +18,14 @@ except ImportError:
 
 import csv
 import signal
+import logging
 import pandas as pd
 import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
-from typing import Optional
+from typing import Any, Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -46,7 +47,8 @@ from argparse import ArgumentTypeError
 
 
 class SherlockFuturesSession(FuturesSession):
-    def request(self, method, url, hooks=None, *args, **kwargs):
+    def request(self, method: str, url: str, hooks: None = None,
+                *args: Any, **kwargs: Any) -> requests.Response:
         """Request URL.
 
         This extends the FuturesSession request method to calculate a response
@@ -72,7 +74,7 @@ class SherlockFuturesSession(FuturesSession):
             hooks = {}
         start = monotonic()
 
-        def response_time(resp, *args, **kwargs):
+        def response_time(resp: requests.Response, *args: Any, **kwargs: Any) -> None:
             """Response Time Hook.
 
             Keyword Arguments:
@@ -150,19 +152,19 @@ def interpolate_string(input_object, username):
     return input_object
 
 
-def check_for_parameter(username):
+def check_for_parameter(username: str) -> bool:
     """checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username"""
     return "{?}" in username
 
 
-checksymbols = ["_", "-", "."]
+CHECKSYMBOLS = ["_", "-", "."]
 
 
-def multiple_usernames(username):
+def multiple_usernames(username: str) -> list[str]:
     """replace the parameter with with symbols and return a list of usernames"""
     allUsernames = []
-    for i in checksymbols:
+    for i in CHECKSYMBOLS:
         allUsernames.append(username.replace("{?}", i))
     return allUsernames
 
@@ -459,21 +461,21 @@ def sherlock(
             try:
                 print(f"STATUS CODES  : {net_info['errorCode']}")
             except KeyError:
-                pass
+                logging.debug("errorCode not present in net_info")
             print("Results...")
             try:
                 print(f"RESPONSE CODE : {r.status_code}")
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Could not print response code: {e}")
             try:
                 print(f"ERROR TEXT    : {net_info['errorMsg']}")
             except KeyError:
-                pass
+                logging.debug("errorMsg not present in net_info")
             print(">>>>> BEGIN RESPONSE TEXT")
             try:
                 print(r.text)
-            except Exception:
-                pass
+            except Exception as e:
+                logging.debug(f"Could not print response text: {e}")
             print("<<<<< END RESPONSE TEXT")
             print("VERDICT       : " + str(query_status))
             print("+++++++++++++++++++++")
@@ -502,7 +504,7 @@ def sherlock(
     return results_total
 
 
-def timeout_check(value):
+def timeout_check(value: float) -> float:
     """Check Timeout Argument.
 
     Checks timeout for validity.
@@ -527,7 +529,7 @@ def timeout_check(value):
     return float_value
 
 
-def handler(signal_received, frame):
+def handler(_signal_received, frame) -> None:
     """Exit gracefully without throwing errors
 
     Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
@@ -535,7 +537,7 @@ def handler(signal_received, frame):
     sys.exit(0)
 
 
-def main():
+def main() -> None:
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
         description=f"{__longname__} (Version {__version__})",
