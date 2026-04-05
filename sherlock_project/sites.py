@@ -4,6 +4,7 @@ This module supports storing information about websites.
 This is the raw data that will be used to search for usernames.
 """
 import json
+import logging
 import requests
 import secrets
 
@@ -12,8 +13,9 @@ MANIFEST_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/mast
 EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/refs/heads/exclusions/false_positive_exclusions.txt"
 
 class SiteInformation:
-    def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+    def __init__(self, name: str, url_home: str, url_username_format: str,
+                 username_claimed: str, information: dict, is_nsfw: bool,
+                 username_unclaimed: str = secrets.token_urlsafe(10)) -> None:
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -56,7 +58,7 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = secrets.token_urlsafe(32)
+        self.username_unclaimed = username_unclaimed
         self.information = information
         self.is_nsfw  = is_nsfw
 
@@ -81,7 +83,7 @@ class SitesInformation:
             data_file_path: str|None = None,
             honor_exclusions: bool = True,
             do_not_exclude: list[str] = [],
-        ):
+        ) -> None:
         """Create Sites Information Object.
 
         Contains information about all supported websites.
@@ -179,7 +181,7 @@ class SitesInformation:
                         try:
                             site_data.pop(exclusion, None)
                         except KeyError:
-                            pass
+                            logging.debug(f"Exclusion '{exclusion}' not in site_data")
 
             except Exception:
                 # If there was any problem loading the exclusions, just continue without them
@@ -210,7 +212,7 @@ class SitesInformation:
 
         return
 
-    def remove_nsfw_sites(self, do_not_remove: list = []):
+    def remove_nsfw_sites(self, do_not_remove: list = []) -> None:
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
 

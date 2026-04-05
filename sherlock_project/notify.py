@@ -20,7 +20,7 @@ class QueryNotify:
     override the methods to implement specific functionality.
     """
 
-    def __init__(self, result=None):
+    def __init__(self, result: None=None) -> None:
         """Create Query Notify Object.
 
         Contains information about a specific method of notifying the results
@@ -39,7 +39,7 @@ class QueryNotify:
 
         # return
 
-    def start(self, message=None):
+    def start(self, message: None=None) -> None:
         """Notify Start.
 
         Notify method for start of query.  This method will be called before
@@ -58,7 +58,7 @@ class QueryNotify:
 
         # return
 
-    def update(self, result):
+    def update(self, result: "QueryResult") -> None:
         """Notify Update.
 
         Notify method for query result.  This method will typically be
@@ -77,7 +77,7 @@ class QueryNotify:
 
         # return
 
-    def finish(self, message=None):
+    def finish(self, message: None=None) -> None:
         """Notify Finish.
 
         Notify method for finish of query.  This method will be called after
@@ -114,7 +114,7 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
+    def __init__(self, result: None=None, verbose: bool=False, print_all: bool=False, browse: bool=False) -> None:
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -139,7 +139,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def start(self, message):
+    def start(self, message: str) -> None:
         """Notify Start.
 
         Will print the title to the standard output.
@@ -165,7 +165,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def countResults(self):
+    def countResults(self) -> int:
         """This function counts the number of results. Every time the function is called,
         the number of results is increasing.
 
@@ -179,7 +179,7 @@ class QueryNotifyPrint(QueryNotify):
         globvar += 1
         return globvar
 
-    def update(self, result):
+    def update(self, result) -> None:
         """Notify Update.
 
         Will print the query result to the standard output.
@@ -256,7 +256,7 @@ class QueryNotifyPrint(QueryNotify):
 
         return
 
-    def finish(self, message="The processing has been finished."):
+    def finish(self, message: str="The processing has been finished.") -> None:
         """Notify Start.
         Will print the last line to the standard output.
         Keyword Arguments:
