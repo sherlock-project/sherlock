@@ -1979,9 +1979,8 @@
   "Poshmark": {
     "errorType": "status_code",
     "url": "https://poshmark.com/closet/{}",
-    "urlMain": "https://poshmark.com",
-    "username_claimed": "poshmark",
-    "username_unclaimed": "sam"
+    "urlMain": "https://poshmark.com/",
+    "username_claimed": "poshmark"
   },
   "ProductHunt": {
     "errorType": "status_code",
