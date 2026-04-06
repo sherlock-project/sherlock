@@ -717,7 +717,10 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
+    "errorMsg": [
+      "{\"taken\":false}",
+      "The resource is being rate limited"
+    ],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -1114,7 +1117,10 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": ["No such user.", "Sorry."],
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -1471,7 +1477,7 @@
     "urlMain": "https://lichess.org",
     "username_claimed": "john"
   },
- "LinkedIn": {
+  "LinkedIn": {
     "errorType": "status_code",
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -1969,6 +1975,13 @@
     "url": "https://pornhub.com/users/{}",
     "urlMain": "https://pornhub.com/",
     "username_claimed": "blue"
+  },
+  "Poshmark": {
+    "errorType": "status_code",
+    "url": "https://poshmark.com/closet/{}",
+    "urlMain": "https://poshmark.com",
+    "username_claimed": "poshmark",
+    "username_unclaimed": "sam"
   },
   "ProductHunt": {
     "errorType": "status_code",
@@ -2546,7 +2559,6 @@
     "urlMain": "https://www.twitch.tv",
     "username_claimed": "xqc"
   },
-
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
@@ -2626,7 +2638,9 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": ["Venmo | Page Not Found"],
+    "errorMsg": [
+      "Venmo | Page Not Found"
+    ],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
