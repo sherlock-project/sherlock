@@ -1,6 +1,7 @@
 7Cups
 APClips
 Archive.org
+Bandcamp
 Codolio
 DeviantArt
 Discord.bio
@@ -9,7 +10,7 @@ Giphy
 Hashnode
 Hubski
 LessWrong
-LushStories
+LiveJournal
 Minecraft
 Patched
 PocketStars
@@ -29,6 +30,7 @@ Weblate
 YandexMusic
 interpals
 mercadolivre
+nnRU
 opennet
 phpRU
 svidbook
