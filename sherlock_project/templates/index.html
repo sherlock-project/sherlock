@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherlock Web UI</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f0f; color: #e0e0e0; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .subtitle { color: #888; margin-bottom: 32px; }
+        .search-box { display: flex; gap: 12px; margin-bottom: 24px; }
+        .search-box input { flex: 1; padding: 12px 16px; border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 1rem; }
+        .search-box input:focus { outline: none; border-color: #555; }
+        .search-box button { padding: 12px 24px; border-radius: 8px; border: none; background: #e63946; color: #fff; font-weight: 600; cursor: pointer; font-size: 1rem; }
+        .search-box button:hover { background: #c1121f; }
+        .search-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .results { display: grid; gap: 12px; }
+        .result-card { display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 8px; background: #1a1a1a; border: 1px solid #2a2a2a; }
+        .result-card .status-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .status-claimed { background: rgba(230, 57, 70, 0.15); color: #e63946; }
+        .status-available { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+        .status-unknown { background: rgba(255, 193, 7, 0.15); color: #ffc107; }
+        .status-illegal, .status-waf { background: rgba(158, 158, 158, 0.15); color: #9e9e9e; }
+        .result-card .info { flex: 1; }
+        .result-card .site-name { font-weight: 600; color: #fff; }
+        .result-card .site-url { font-size: 0.8rem; color: #666; margin-top: 2px; }
+        .result-card .site-status { font-size: 0.85rem; font-weight: 500; margin-top: 4px; }
+        .result-card .site-status.claimed { color: #e63946; }
+        .result-card .site-status.available { color: #4caf50; }
+        .result-card .site-status.unknown { color: #ffc107; }
+        .result-card .response-time { font-size: 0.75rem; color: #555; }
+        .spinner { border: 3px solid #333; border-top: 3px solid #e63946; border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading { display: none; justify-content: center; padding: 40px; }
+        .loading.active { display: flex; }
+        .summary { margin-bottom: 16px; padding: 14px 18px; border-radius: 8px; background: #1a1a1a; border: 1px solid #2a2a2a; display: flex; gap: 24px; }
+        .summary-item { text-align: center; }
+        .summary-item .num { font-size: 1.5rem; font-weight: 700; }
+        .summary-item .label { font-size: 0.8rem; color: #666; }
+        .summary-item .num.claimed { color: #e63946; }
+        .summary-item .num.available { color: #4caf50; }
+        .summary-item .num.unknown { color: #ffc107; }
+        .error-msg { background: rgba(230, 57, 70, 0.1); border: 1px solid rgba(230, 57, 70, 0.3); border-radius: 8px; padding: 16px; color: #e63946; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sherlock</h1>
+    <p class="subtitle">Find usernames across social networks</p>
+    <div class="search-box">
+        <input type="text" id="username" placeholder="Enter username to search..." autocomplete="off" />
+        <button id="searchBtn" onclick="doSearch()">Search</button>
+    </div>
+    <div class="loading" id="loading"><div class="spinner"></div></div>
+    <div id="results"></div>
+</div>
+<script>
+async function doSearch() {
+    const username = document.getElementById('username').value.trim();
+    if (!username) return;
+    const btn = document.getElementById('searchBtn');
+    const loading = document.getElementById('loading');
+    const resultsEl = document.getElementById('results');
+    btn.disabled = true;
+    loading.classList.add('active');
+    resultsEl.innerHTML = '';
+    try {
+        const resp = await fetch('/api/search', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username})
+        });
+        const data = await resp.json();
+        loading.classList.remove('active');
+        btn.disabled = false;
+        if (data.error) {
+            resultsEl.innerHTML = `<div class="error-msg">${data.error}</div>`;
+            return;
+        }
+        const counts = {claimed: 0, available: 0, unknown: 0};
+        data.results.forEach(r => { if (counts[r.status] !== undefined) counts[r.status]++; });
+        resultsEl.innerHTML = `
+        <div class="summary">
+            <div class="summary-item"><div class="num claimed">${counts.claimed}</div><div class="label">Found</div></div>
+            <div class="summary-item"><div class="num available">${counts.available}</div><div class="label">Available</div></div>
+            <div class="summary-item"><div class="num unknown">${counts.unknown}</div><div class="label">Unknown</div></div>
+        </div>
+        <div class="results">${data.results.map(r => `
+            <div class="result-card">
+                <div class="status-icon status-${r.status}">${r.status === 'claimed' ? '✓' : r.status === 'available' ? '✗' : '?'}</div>
+                <div class="info">
+                    <div class="site-name">${r.site_name}</div>
+                    <div class="site-url">${r.site_url_user}</div>
+                    <div class="site-status ${r.status}">${r.status.charAt(0).toUpperCase() + r.status.slice(1)}</div>
+                </div>
+                <div class="response-time">${r.response_time ? r.response_time.toFixed(3) + 's' : ''}</div>
+            </div>`).join('')}
+        </div>`;
+    } catch(e) {
+        loading.classList.remove('active');
+        btn.disabled = false;
+        resultsEl.innerHTML = `<div class="error-msg">Request failed: ${e.message}</div>`;
+    }
+}
+document.getElementById('username').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+</script>
+</body>
+</html>
