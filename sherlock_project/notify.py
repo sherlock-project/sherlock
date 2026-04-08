@@ -5,10 +5,12 @@ results of queries.
 """
 from sherlock_project.result import QueryStatus
 from colorama import Fore, Style
+import threading
 import webbrowser
 
-# Global variable to count the number of results.
-globvar = 0
+# Thread-safe counter for found results.
+_results_lock = threading.Lock()
+_results_count = 0
 
 
 class QueryNotify:
@@ -166,18 +168,15 @@ class QueryNotifyPrint(QueryNotify):
         return
 
     def countResults(self):
-        """This function counts the number of results. Every time the function is called,
-        the number of results is increasing.
+        """Increment and return the thread-safe found-results counter."""
+        global _results_count
+        with _results_lock:
+            _results_count += 1
+            return _results_count
 
-        Keyword Arguments:
-        self                   -- This object.
-
-        Return Value:
-        The number of results by the time we call the function.
-        """
-        global globvar
-        globvar += 1
-        return globvar
+    def getResults(self):
+        """Return the current found-results count without incrementing."""
+        return _results_count
 
     def update(self, result):
         """Notify Update.
@@ -265,7 +264,7 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        NumberOfResults = self.countResults() - 1
+        NumberOfResults = self.getResults()
 
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +

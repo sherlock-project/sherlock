@@ -287,8 +287,11 @@ def sherlock(
                 # from where the user profile normally can be found.
                 url_probe = interpolate_string(url_probe, username)
 
+            # Normalise errorType to a list for consistent checks below
+            _error_type_norm = net_info["errorType"] if isinstance(net_info["errorType"], list) else [net_info["errorType"]]
+
             if request is None:
-                if net_info["errorType"] == "status_code":
+                if "status_code" in _error_type_norm:
                     # In most cases when we are detecting by status code,
                     # it is not necessary to get the entire body:  we can
                     # detect fine with just the HEAD response.
@@ -299,7 +302,7 @@ def sherlock(
                     # not respond properly unless we request the whole page.
                     request = session.get
 
-            if net_info["errorType"] == "response_url":
+            if "response_url" in _error_type_norm:
                 # Site forwards request to a different URL if username not
                 # found.  Disallow the redirect so we can capture the
                 # http status from the original URL request.
@@ -370,7 +373,7 @@ def sherlock(
         except Exception:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding or "UTF-8")
+            response_text = r.text
         except Exception:
             response_text = ""
 
@@ -392,7 +395,7 @@ def sherlock(
         if error_text is not None:
             error_context = error_text
 
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+        elif r is not None and any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
 
         else:
@@ -631,11 +634,11 @@ def main():
         help="Output sites where the username was not found.",
     )
     parser.add_argument(
-        "--print-found",
-        action="store_true",
+        "--no-print-found",
+        action="store_false",
         dest="print_found",
         default=True,
-        help="Output sites where the username was found (also if exported as file).",
+        help="Suppress output of sites where the username was found.",
     )
     parser.add_argument(
         "--no-color",
@@ -712,7 +715,8 @@ def main():
         latest_release_json = json_loads(latest_release_raw)
         latest_remote_tag = latest_release_json["tag_name"]
 
-        if latest_remote_tag[1:] != __version__:
+        remote_version = latest_remote_tag.lstrip("v").lstrip("release-")
+        if remote_version != __version__:
             print(
                 f"Update available! {__version__} --> {latest_remote_tag[1:]}"
                 f"\n{latest_release_json['html_url']}"

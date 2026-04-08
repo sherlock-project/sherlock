@@ -13,7 +13,7 @@ EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/re
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                information, is_nsfw, username_unclaimed=None):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -56,7 +56,7 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = secrets.token_urlsafe(32)
+        self.username_unclaimed = username_unclaimed if username_unclaimed is not None else secrets.token_urlsafe(32)
         self.information = information
         self.is_nsfw  = is_nsfw
 
@@ -80,7 +80,7 @@ class SitesInformation:
             self,
             data_file_path: str|None = None,
             honor_exclusions: bool = True,
-            do_not_exclude: list[str] = [],
+            do_not_exclude: list[str] | None = None,
         ):
         """Create Sites Information Object.
 
@@ -115,10 +115,10 @@ class SitesInformation:
         Nothing.
         """
 
+        do_not_exclude = do_not_exclude if do_not_exclude is not None else []
+
         if not data_file_path:
-            # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
-            # this instead of the local one is so that the user has the most up-to-date data. This prevents
-            # users from creating issue about false positives which has already been fixed or having outdated data
+            # The default data file is the live data.json from the GitHub repo.
             data_file_path = MANIFEST_URL
 
         # Ensure that specified data file has correct extension.
