@@ -1,6 +1,5 @@
 7Cups
 APClips
-Archive of Our Own
 Archive.org
 Bandcamp
 Codolio
@@ -12,7 +11,6 @@ Hashnode
 Hubski
 LessWrong
 LushStories
-Minecraft
 Patched
 PocketStars
 Rarible
@@ -23,15 +21,16 @@ Scribd
 Shelf
 SlideShare
 Smule
+SpeakerDeck
 Splice
 Spotify
-Strava
 Trovo
 TryHackMe
 Weblate
 YandexMusic
 interpals
 mercadolivre
+nnRU
 opennet
 phpRU
 svidbook
