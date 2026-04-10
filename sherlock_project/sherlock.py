@@ -110,7 +110,7 @@ class SherlockFuturesSession(FuturesSession):
         )
 
 
-def get_response(request_future, error_type, social_network):
+def get_response(request_future, social_network):
     # Default for Response object if some failure occurs.
     response = None
 
@@ -174,7 +174,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+) -> dict:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -355,7 +355,7 @@ def sherlock(
         # Retrieve future and ensure it has finished
         future = net_info["request_future"]
         r, error_text, exception_text = get_response(
-            request_future=future, error_type=error_type, social_network=social_network
+            request_future=future, social_network=social_network
         )
 
         # Get response time for response of our request.
@@ -370,7 +370,7 @@ def sherlock(
         except Exception:
             http_status = "?"
         try:
-            response_text = r.text.encode(r.encoding or "UTF-8")
+            response_text = r.text
         except Exception:
             response_text = ""
 
@@ -389,7 +389,11 @@ def sherlock(
             r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
 
-        if error_text is not None:
+        if r is None:
+            query_status = QueryStatus.UNKNOWN
+            error_context = error_text or "No response received"
+
+        elif error_text is not None:
             error_context = error_text
 
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
@@ -712,9 +716,10 @@ def main():
         latest_release_json = json_loads(latest_release_raw)
         latest_remote_tag = latest_release_json["tag_name"]
 
-        if latest_remote_tag[1:] != __version__:
+        remote_version = latest_remote_tag.lstrip("v")
+        if remote_version != __version__:
             print(
-                f"Update available! {__version__} --> {latest_remote_tag[1:]}"
+                f"Update available! {__version__} --> {remote_version}"
                 f"\n{latest_release_json['html_url']}"
             )
 
@@ -910,10 +915,8 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
+                qt = results[site]["status"].query_time
+                response_time_s.append(qt if qt is not None else "")
                 usernames.append(username)
                 names.append(site)
                 url_main.append(results[site]["url_main"])
@@ -925,17 +928,21 @@ def main():
                 {
                     "username": usernames,
                     "name": names,
-                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
-                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
+                    "url_main": [f'=HYPERLINK(\"{u.replace(chr(34), chr(34)*2)}\")' for u in url_main],
+                    "url_user": [f'=HYPERLINK(\"{u.replace(chr(34), chr(34)*2)}\")' for u in url_user],
                     "exists": exists,
                     "http_status": http_status,
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            xlsx_file = f"{username}.xlsx"
+            if args.folderoutput:
+                os.makedirs(args.folderoutput, exist_ok=True)
+                xlsx_file = os.path.join(args.folderoutput, xlsx_file)
+            DataFrame.to_excel(xlsx_file, sheet_name="sheet1", index=False)
 
         print()
-    query_notify.finish()
+        query_notify.finish()
 
 
 if __name__ == "__main__":

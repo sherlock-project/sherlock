@@ -7,9 +7,6 @@ from sherlock_project.result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
 
-# Global variable to count the number of results.
-globvar = 0
-
 
 class QueryNotify:
     """Query Notify Object.
@@ -136,6 +133,7 @@ class QueryNotifyPrint(QueryNotify):
         self.verbose = verbose
         self.print_all = print_all
         self.browse = browse
+        self.result_count = 0
 
         return
 
@@ -153,6 +151,7 @@ class QueryNotifyPrint(QueryNotify):
         Nothing.
         """
 
+        self.result_count = 0
         title = "Checking username"
 
         print(Style.BRIGHT + Fore.GREEN + "[" +
@@ -175,9 +174,8 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         The number of results by the time we call the function.
         """
-        global globvar
-        globvar += 1
-        return globvar
+        self.result_count += 1
+        return self.result_count
 
     def update(self, result):
         """Notify Update.
@@ -265,7 +263,7 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        NumberOfResults = self.countResults() - 1
+        NumberOfResults = self.result_count
 
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
