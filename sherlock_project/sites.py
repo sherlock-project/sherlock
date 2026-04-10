@@ -6,6 +6,7 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+from typing import Optional
 
 
 MANIFEST_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.json"
@@ -13,7 +14,7 @@ EXCLUSIONS_URL = "https://raw.githubusercontent.com/sherlock-project/sherlock/re
 
 class SiteInformation:
     def __init__(self, name, url_home, url_username_format, username_claimed,
-                information, is_nsfw, username_unclaimed=secrets.token_urlsafe(10)):
+                information, is_nsfw, username_unclaimed=None):
         """Create Site Information Object.
 
         Contains information about a specific website.
@@ -56,7 +57,7 @@ class SiteInformation:
         self.url_username_format = url_username_format
 
         self.username_claimed = username_claimed
-        self.username_unclaimed = secrets.token_urlsafe(32)
+        self.username_unclaimed = username_unclaimed or secrets.token_urlsafe(32)
         self.information = information
         self.is_nsfw  = is_nsfw
 
@@ -78,9 +79,9 @@ class SiteInformation:
 class SitesInformation:
     def __init__(
             self,
-            data_file_path: str|None = None,
+            data_file_path: Optional[str] = None,
             honor_exclusions: bool = True,
-            do_not_exclude: list[str] = [],
+            do_not_exclude: Optional[list[str]] = None,
         ):
         """Create Sites Information Object.
 
@@ -120,6 +121,9 @@ class SitesInformation:
             # this instead of the local one is so that the user has the most up-to-date data. This prevents
             # users from creating issue about false positives which has already been fixed or having outdated data
             data_file_path = MANIFEST_URL
+
+        if do_not_exclude is None:
+            do_not_exclude = []
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
@@ -210,7 +214,7 @@ class SitesInformation:
 
         return
 
-    def remove_nsfw_sites(self, do_not_remove: list = []):
+    def remove_nsfw_sites(self, do_not_remove: Optional[list] = None):
         """
         Remove NSFW sites from the sites, if isNSFW flag is true for site
 
@@ -221,6 +225,8 @@ class SitesInformation:
         None
         """
         sites = {}
+        if do_not_remove is None:
+            do_not_remove = []
         do_not_remove = [site.casefold() for site in do_not_remove]
         for site in self.sites:
             if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
