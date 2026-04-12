@@ -121,7 +121,6 @@ class SitesInformation:
             # users from creating issue about false positives which has already been fixed or having outdated data
             data_file_path = MANIFEST_URL
 
-        # if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
         if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
             try:
