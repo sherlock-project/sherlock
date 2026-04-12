@@ -23,11 +23,11 @@
 
 > [!WARNING]  
 > Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
-> Users of these systems should defer to pipx/pip or Docker.
+> Users of these systems should defer to [`uv`](https://docs.astral.sh/uv/)/`pipx`/`pip` or Docker.
 
 | Method | Notes |
 | - | - |
-| `pipx install sherlock-project` | `pip` may be used in place of `pipx` |
+| `pipx install sherlock-project` | `pip` or [`uv`](https://docs.astral.sh/uv/) may be used in place of `pipx` |
 | `docker run -it --rm sherlock/sherlock` |
 | `dnf install sherlock-project` | |
 
