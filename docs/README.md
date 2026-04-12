@@ -33,7 +33,7 @@
 
 Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, and BlackArch. These packages are not directly supported or maintained by the Sherlock Project.
 
-See all alternative installation methods [here](https://sherlockproject.xyz/installation)
+See all alternative installation methods [here](https://sherlockproject.xyz/installation).
 
 ## General usage
 
