@@ -250,7 +250,7 @@ class QueryNotifyPrint(QueryNotify):
 
 
     def finish(self, message="The processing has been finished."):
-        """Notify Start.
+        """Notify Finish.
         Will print the last line to the standard output.
         Keyword Arguments:
         self                   -- This object.
