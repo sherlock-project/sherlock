@@ -78,7 +78,7 @@ class SiteInformation:
 class SitesInformation:
     def __init__(
             self,
-            data_file_path: str|None = None,
+            data_file_path: "str|None" = None,
             honor_exclusions: bool = True,
             do_not_exclude: list[str] = [],
         ):
@@ -144,7 +144,7 @@ class SitesInformation:
         else:
             # Reference is to a file.
             try:
-                with open(data_file_path, "r", encoding="utf-8") as file:
+                with open(data_file_path, encoding="utf-8") as file:
                     try:
                         site_data = json.load(file)
                     except Exception as error:
