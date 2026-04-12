@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "poetry-core>=1.2.0" ]
+requires = [ "poetry-core>=2.0.0" ]
 build-backend = "poetry.core.masonry.api"
 # poetry-core 1.8 not available in .fc39. Can upgrade to 1.8.0 at .fc39 EOL
 
@@ -7,20 +7,22 @@ build-backend = "poetry.core.masonry.api"
 source = "init"
 
 [tool.poetry]
+packages = [ { include = "sherlock_project"} ]
+
+[project]
 name = "sherlock-project"
 version = "0.16.0"
 description = "Hunt down social media accounts by username across social networks"
-license = "MIT"
+license = {text="MIT"}
 authors = [
-    "Siddharth Dushantha <siddharth.dushantha@gmail.com>"
+    { name="Siddharth Dushantha", email="siddharth.dushantha@gmail.com" }
 ]
 maintainers = [
-    "Paul Pfeister <code@pfeister.dev>",
-    "Matheus Felipe <matheusfelipeog@protonmail.com>",
-    "Sondre Karlsen Dyrnes <sondre@villdyr.no>"
+    { name="Paul Pfeister", email="code@pfeister.dev" },
+    { name="Matheus Felipe", email="matheusfelipeog@protonmail.com" },
+    { name="Sondre Karlsen Dyrnes", email="sondre@villdyr.no" }
 ]
 readme = "docs/pyproject/README.md"
-packages = [ { include = "sherlock_project"} ]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -33,36 +35,37 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Security"
 ]
+requires-python = ">=3.9"
+dependencies = [
+    "certifi >=2019.6.16",
+    "colorama >=0.4.1",
+    "PySocks >=1.7.0",
+    "requests >=2.22.0",
+    "requests-futures >=1.0.0",
+    "stem >=1.8.0",
+    "pandas >=2.2.1",
+    "openpyxl >=3.0.10",
+    "tomli >=2.2.1"
+]
+
+[project.urls]
 homepage = "https://sherlockproject.xyz/"
 repository = "https://github.com/sherlock-project/sherlock"
-
-
-[tool.poetry.urls]
 "Bug Tracker" = "https://github.com/sherlock-project/sherlock/issues"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-certifi = ">=2019.6.16"
-colorama = "^0.4.1"
-PySocks = "^1.7.0"
-requests = "^2.22.0"
-requests-futures = "^1.0.0"
-stem = "^1.8.0"
-pandas = "^2.2.1"
-openpyxl = "^3.0.10"
-tomli = "^2.2.1"
+[dependency-groups]
+dev = [
+    "jsonschema >=4.0.0",
+    "rstr >=3.2.2",
+    "pytest >=8.4.2",
+    "pytest-xdist >=3.8.0"
+]
+ci = [
+    "defusedxml >=0.7.1"
+]
 
-[tool.poetry.group.dev.dependencies]
-jsonschema = "^4.0.0"
-rstr = "^3.2.2"
-pytest = "^8.4.2"
-pytest-xdist = "^3.8.0"
-
-
-[tool.poetry.group.ci.dependencies]
-defusedxml = "^0.7.1"
-
-[tool.poetry.scripts]
+[project.scripts]
 sherlock = 'sherlock_project.sherlock:main'
