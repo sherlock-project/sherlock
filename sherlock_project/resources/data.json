@@ -3279,5 +3279,12 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "Codementor": {
+    "url": "https://www.codementor.io/@{}",
+    "urlMain": "https://www.codementor.io/",
+    "errorType": "message",
+    "errorMsg": ["codementor.io/404"],
+    "username_claimed": "blue"
   }
 }
