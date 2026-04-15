@@ -11,10 +11,10 @@ Giphy
 Hashnode
 Hubski
 LessWrong
-LiveJournal
 LushStories
 Patched
 PocketStars
+Pornhub
 Rarible
 Realmeye
 Reddit
@@ -29,8 +29,10 @@ Trovo
 TryHackMe
 Weblate
 YandexMusic
+dailykos
 interpals
 mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
