@@ -10,6 +10,7 @@ GeeksforGeeks
 Giphy
 Hashnode
 Hubski
+Itch.io
 LessWrong
 LushStories
 Patched
@@ -35,4 +36,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
