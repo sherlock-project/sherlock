@@ -4,8 +4,15 @@ This module supports storing information about websites.
 This is the raw data that will be used to search for usernames.
 """
 import json
+import os
 import requests
 import secrets
+
+try:
+    from jsonschema import validate, ValidationError
+    _HAS_JSONSCHEMA = True
+except ImportError:
+    _HAS_JSONSCHEMA = False
 
 
 MANIFEST_URL = "https://data.sherlockproject.xyz"
@@ -156,6 +163,31 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
+
+        # Validate remote manifest against local schema when jsonschema is available.
+        # If validation fails, fall back to the local manifest so older versions
+        # degrade gracefully when the remote schema evolves.
+        if _HAS_JSONSCHEMA and data_file_path.lower().startswith("http"):
+            schema_path = os.path.join(
+                os.path.dirname(__file__), "resources", "data.schema.json"
+            )
+            try:
+                with open(schema_path, "r", encoding="utf-8") as sf:
+                    schema_data = json.load(sf)
+                validate(instance=site_data, schema=schema_data)
+            except ValidationError:
+                print(
+                    "Warning: Remote manifest failed schema validation, "
+                    "falling back to local data."
+                )
+                local_path = os.path.join(
+                    os.path.dirname(__file__), "resources", "data.json"
+                )
+                with open(local_path, "r", encoding="utf-8") as lf:
+                    site_data = json.load(lf)
+            except Exception:
+                # Schema file missing or unreadable -- continue without validation
+                pass
 
         site_data.pop('$schema', None)
 
