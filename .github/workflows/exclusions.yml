@@ -11,27 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.13'
 
-      - name: Install Poetry
-        uses: abatilo/actions-poetry@v4
+      - uses: astral-sh/setup-uv@v7
         with:
-          poetry-version: 'latest'
+          activate-environment: true
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --with dev
+          uv sync --group dev
 
       - name: Run false positive tests
         run: |
-          $(poetry env activate)
           pytest -q --tb no -m validate_targets_fp -n 20 | tee fp_test_results.txt
-          deactivate
 
       - name: Parse false positive detections by desired categories
         run: |
