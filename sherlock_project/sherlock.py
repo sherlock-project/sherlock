@@ -502,6 +502,86 @@ def sherlock(
     return results_total
 
 
+def check_sites(site_data, proxy=None, timeout=60):
+    """Validate all sites by testing their claimed usernames.
+
+    For each site, runs a query using the site's username_claimed value.
+    A site is considered healthy if the claimed username is detected.
+
+    Keyword Arguments:
+    site_data              -- Dictionary containing all of the site data.
+    proxy                  -- String indicating the proxy URL.
+    timeout                -- Time in seconds to wait before timing out request.
+
+    Return Value:
+    Exit code: 0 if all sites are healthy, 1 if any are broken.
+    """
+
+    ok_sites = []
+    broken_sites = []
+    timeout_sites = []
+
+    total = len(site_data)
+    print(f"Checking {total} sites...\n")
+
+    # Use the base notifier to suppress per-site output
+    query_notify = QueryNotify()
+
+    for site_name, site_info in site_data.items():
+        claimed_user = site_info.get("username_claimed", "")
+        if not claimed_user:
+            broken_sites.append((site_name, "no username_claimed defined"))
+            continue
+
+        # Run sherlock on just this one site
+        single_site = {site_name: site_info}
+        results = sherlock(
+            claimed_user,
+            single_site,
+            query_notify,
+            proxy=proxy,
+            timeout=timeout,
+        )
+
+        result = results.get(site_name, {})
+        status = result.get("status")
+
+        if status is None:
+            broken_sites.append((site_name, "no response"))
+        elif status.status == QueryStatus.CLAIMED:
+            ok_sites.append(site_name)
+        elif status.status == QueryStatus.UNKNOWN:
+            context = status.context or "unknown error"
+            if "timed out" in context.lower() or "timeout" in context.lower():
+                timeout_sites.append((site_name, context))
+            else:
+                broken_sites.append((site_name, context))
+        else:
+            broken_sites.append((site_name, f"claimed user \"{claimed_user}\" returned {status.status}"))
+
+    # Print report
+    ok_count = len(ok_sites)
+    broken_count = len(broken_sites)
+    timeout_count = len(timeout_sites)
+
+    print(f"\nSite Health Report ({total} sites)")
+    print(f"  OK:      {ok_count:>4d} ({ok_count/total*100:.1f}%)")
+    print(f"  BROKEN:  {broken_count:>4d} ({broken_count/total*100:.1f}%)")
+    print(f"  TIMEOUT: {timeout_count:>4d} ({timeout_count/total*100:.1f}%)")
+
+    if broken_sites:
+        print(f"\nBroken sites:")
+        for name, reason in sorted(broken_sites):
+            print(f"  {name:<30s} - {reason}")
+
+    if timeout_sites:
+        print(f"\nTimed out sites:")
+        for name, reason in sorted(timeout_sites):
+            print(f"  {name:<30s} - {reason}")
+
+    return 1 if broken_sites or timeout_sites else 0
+
+
 def timeout_check(value):
     """Check Timeout Argument.
 
@@ -646,10 +726,17 @@ def main():
     )
     parser.add_argument(
         "username",
-        nargs="+",
+        nargs="*",
         metavar="USERNAMES",
         action="store",
         help="One or more usernames to check with social networks. Check similar usernames using {?} (replace to '_', '-', '.').",
+    )
+    parser.add_argument(
+        "--check-sites",
+        action="store_true",
+        dest="check_sites",
+        default=False,
+        help="Validate all sites in data.json by testing claimed usernames. Reports broken sites.",
     )
     parser.add_argument(
         "--browse",
@@ -692,6 +779,10 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # Require either usernames or --check-sites
+    if not args.check_sites and not args.username:
+        parser.error("the following arguments are required: USERNAMES (or use --check-sites)")
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
@@ -796,6 +887,11 @@ def main():
 
         if not site_data:
             sys.exit(1)
+
+    # If --check-sites mode, validate all sites and exit
+    if args.check_sites:
+        exit_code = check_sites(site_data, proxy=args.proxy, timeout=args.timeout)
+        sys.exit(exit_code)
 
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
