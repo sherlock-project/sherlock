@@ -25,6 +25,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
+import cloudscraper
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -207,8 +208,11 @@ def sherlock(
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
-    # Normal requests
-    underlying_session = requests.session()
+    # Check if site needs cloudscraper
+    if any(site_info.get("useCloudScraper", False) for site_info in site_data.values()):
+        underlying_session = cloudscraper.create_scraper()
+    else:
+        underlying_session = requests.session()
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
