@@ -608,6 +608,13 @@
     "urlMain": "https://cracked.sh/",
     "username_claimed": "Blue"
   },
+  "Crackmes.one": {
+    "errorType": "status_code",
+    "url": "https://crackmes.one/user/{}",
+    "urlMain": "https://crackmes.one/",
+    "username_claimed": "stellarix",
+    "request_method": "GET"
+  },
   "Credly": {
     "errorType": "status_code",
     "url": "https://www.credly.com/users/{}",
