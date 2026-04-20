@@ -129,6 +129,19 @@ NPM-Packages are not users.
   },
 ```
 
+## NPM Users
+
+NPM uses cloudflare bot detection
+
+```json
+    "npm": {
+    "errorType": "status_code",
+    "url": "https://www.npmjs.com/~{}",
+    "urlMain": "https://www.npmjs.com/",
+    "username_claimed": "kennethsweezy"
+  },
+```
+
 ## Pexels
 
 As of 2020-01-21, all usernames are reported as not existing.
