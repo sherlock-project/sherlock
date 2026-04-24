@@ -16,6 +16,8 @@ except ImportError:
     print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
     sys.exit(1)
 
+import threading
+
 import csv
 import signal
 import pandas as pd
@@ -43,6 +45,8 @@ from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+
+stop_requested = False
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -167,24 +171,41 @@ def multiple_usernames(username):
     return allUsernames
 
 
-def sherlock(username, site_data, query_notify, dump_response=False, proxy=None, timeout=60):
+def sherlock(username, site_data, query_notify, dump_response=False, proxy=None, timeout=10):
+    global stop_requested
+
     query_notify.start(username)
 
     session = create_session(site_data)
     results_total = {}
 
-    
+    # First loop: prepare requests
     for site, net_info in site_data.items():
+        if stop_requested:
+            break
+
         results_total[site] = prepare_request(
-            site, net_info, username, session,
-            query_notify, proxy, timeout
+            site,
+            net_info,
+            username,
+            session,
+            query_notify,
+            proxy,
+            timeout
         )
 
-    
+    # Second loop: process responses
     for site, net_info in site_data.items():
+        if stop_requested:
+            break
+
         results_total[site] = process_response(
-            site, net_info, username,
-            results_total[site], query_notify, dump_response
+            site,
+            net_info,
+            username,
+            results_total[site],
+            query_notify,
+            dump_response
         )
 
     return results_total
@@ -461,11 +482,13 @@ def timeout_check(value):
 
 
 def handler(signal_received, frame):
-    """Exit gracefully without throwing errors
+    global stop_requested
+    # Only the main thread should react to Ctrl+C
+    if threading.current_thread() is threading.main_thread():
+        if not stop_requested:
+            print("\n[!] Interrupted by user")
+        stop_requested = True
 
-    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
-    """
-    sys.exit(0)
 
 def parse_arguments():
     parser = ArgumentParser(
@@ -656,8 +679,13 @@ def write_xlsx(results, username, args):
 
 
 def main():
+
+
+    global stop_requested
+
     args = parse_arguments()
 
+    # Install our safe Ctrl+C handler
     signal.signal(signal.SIGINT, handler)
 
     check_latest_version()
@@ -681,6 +709,9 @@ def main():
     usernames = expand_usernames(args.username)
 
     for username in usernames:
+        if stop_requested:
+            break
+
         results = sherlock(
             username,
             site_data,
@@ -690,6 +721,10 @@ def main():
             timeout=args.timeout,
         )
 
+        if stop_requested:
+            break
+
+        # Output handling
         if args.output:
             result_file = args.output
         elif args.folderoutput:
@@ -714,6 +749,7 @@ def main():
         print()
 
     query_notify.finish()
+
 
 
 if __name__ == "__main__":
