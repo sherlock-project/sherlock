@@ -136,6 +136,9 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)
+    except (UnicodeEncodeError, UnicodeDecodeError) as err:
+        error_context = "Encoding Error"
+        exception_text = str(err)
 
     return response, error_context, exception_text
 
@@ -221,6 +224,11 @@ def sherlock(
     session = SherlockFuturesSession(
         max_workers=max_workers, session=underlying_session
     )
+
+    # Expose session globally so the SIGINT handler can cancel pending futures
+    # before exiting, preventing spurious ThreadPoolExecutor tracebacks.
+    global _active_session
+    _active_session = session
 
     # Results from analysis of all sites
     results_total = {}
@@ -527,11 +535,27 @@ def timeout_check(value):
     return float_value
 
 
+# Global reference to the active FuturesSession so the signal handler can
+# cancel in-flight requests before exiting (fixes noisy tracebacks on Ctrl-C
+# with Python 3.13+ where ThreadPoolExecutor.shutdown is stricter).
+_active_session = None
+
+
 def handler(signal_received, frame):
-    """Exit gracefully without throwing errors
+    """Exit gracefully without throwing errors.
+
+    Cancels any pending futures before exiting so that Python's
+    ThreadPoolExecutor does not print spurious tracebacks on shutdown
+    (particularly visible on Python 3.13+).
 
     Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
     """
+    global _active_session
+    if _active_session is not None:
+        try:
+            _active_session.executor.shutdown(wait=False, cancel_futures=True)
+        except Exception:
+            pass
     sys.exit(0)
 
 
