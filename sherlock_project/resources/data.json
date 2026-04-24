@@ -927,15 +927,6 @@
         "urlMain": "https://freesound.org/",
         "username_claimed": "blue"
     },
-    "GNOME VCS": {
-        "errorMsg": "[]",
-        "errorType": "message",
-        "url": "https://gitlab.gnome.org/{}",
-        "urlMain": "https://gitlab.gnome.org/",
-        "urlProbe": "https://gitlab.gnome.org/api/v4/users?username={}",
-        "username_claimed": "adam",
-        "regexCheck": "^[a-zA-Z][a-zA-Z0-9]{19,29}$"
-    },
     "GaiaOnline": {
         "errorMsg": "No user ID specified or user does not exist",
         "errorType": "message",
