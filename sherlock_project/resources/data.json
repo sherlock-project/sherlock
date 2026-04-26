@@ -2827,8 +2827,10 @@
   },
   "akniga": {
     "errorType": "status_code",
+    "errorCode": 404,
+    "request_method": "GET",
     "url": "https://akniga.org/profile/{}",
-    "urlMain": "https://akniga.org/profile/blue/",
+    "urlMain": "https://akniga.org/",
     "username_claimed": "blue"
   },
   "authorSTREAM": {
