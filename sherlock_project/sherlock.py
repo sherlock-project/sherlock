@@ -127,12 +127,21 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.ProxyError as errp:
         error_context = "Proxy Error"
         exception_text = str(errp)
+    except requests.exceptions.SSLError as errssl:
+        error_context = "SSL Error"
+        exception_text = str(errssl)
     except requests.exceptions.ConnectionError as errc:
         error_context = "Error Connecting"
         exception_text = str(errc)
     except requests.exceptions.Timeout as errt:
         error_context = "Timeout Error"
         exception_text = str(errt)
+    except requests.exceptions.ChunkedEncodingError as errce:
+        error_context = "Chunked Encoding Error"
+        exception_text = str(errce)
+    except requests.exceptions.ContentDecodingError as errcd:
+        error_context = "Content Decoding Error"
+        exception_text = str(errcd)
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)
@@ -388,11 +397,21 @@ def sherlock(
             r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
             r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
+        WAFHitMsgsCaseInsensitive = [
+            r'cf-browser-verification', # 2025-03 Cloudflare browser verification
+            r'just a moment...',  # 2025-03 Cloudflare challenge page title
+            r'enable javascript and cookies to continue', # 2025-03 Cloudflare challenge
+            r'attentionrequired', # 2025-03 Cloudflare Turnstile
+            r'why do i have to complete a captcha', # 2025-03 Generic WAF captcha page
+        ]
 
         if error_text is not None:
             error_context = error_text
 
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
+
+        elif any(hitMsg.lower() in r.text.lower() for hitMsg in WAFHitMsgsCaseInsensitive):
             query_status = QueryStatus.WAF
 
         else:
