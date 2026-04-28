@@ -5,7 +5,6 @@ Apple Discussions
 Archive.org
 Bandcamp
 Codolio
-DeviantArt
 Discord.bio
 GeeksforGeeks
 Giphy
@@ -13,20 +12,19 @@ Hashnode
 Hubski
 LessWrong
 LushStories
-Minecraft
-Motherless
 Patched
+Pornhub
 Rarible
 Realmeye
 Reddit
 RocketTube
+RuneScape
 Scribd
 Shelf
 SlideShare
 Smule
 Splice
 Spotify
-Trovo
 TryHackMe
 Weblate
 YandexMusic
@@ -36,4 +34,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
