@@ -10,10 +10,12 @@ networks.
 import sys
 
 try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var  # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
+    print(
+        "This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions."
+    )
     sys.exit(1)
 
 import csv
@@ -21,6 +23,9 @@ import signal
 import pandas as pd
 import os
 import re
+import random
+from concurrent.futures import as_completed
+from tqdm import tqdm
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
@@ -167,6 +172,19 @@ def multiple_usernames(username):
     return allUsernames
 
 
+# Modern User-Agents for rotation to avoid bot detection
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14.7; rv:130.0) Gecko/20100101 Firefox/130.0",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1",
+    "Mozilla/5.0 (iPad; CPU OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15",
+]
+
+
 def sherlock(
     username: str,
     site_data: dict[str, dict[str, str]],
@@ -174,6 +192,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    max_workers: int = 20,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -189,6 +208,7 @@ def sherlock(
     proxy                  -- String indicating the proxy URL
     timeout                -- Time in seconds to wait before timing out request.
                               Default is 60 seconds.
+    max_workers            -- Number of parallel workers to use for the search.
 
     Return Value:
     Dictionary containing results from report. Key of dictionary is the name
@@ -207,14 +227,22 @@ def sherlock(
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
+    # Performance optimization: cache local references
+    # Accessing local variables is faster than global/module ones.
+    status_illegal = QueryStatus.ILLEGAL
+    status_unknown = QueryStatus.UNKNOWN
+    status_claimed = QueryStatus.CLAIMED
+    status_available = QueryStatus.AVAILABLE
+    status_waf = QueryStatus.WAF
+
+    # Pre-calculate escaped username for use in all URLs
+    username_escaped = username.replace(" ", "%20")
+
     # Normal requests
     underlying_session = requests.session()
 
-    # Limit number of workers to 20.
-    # This is probably vastly overkill.
-    if len(site_data) >= 20:
-        max_workers = 20
-    else:
+    # Limit number of workers.
+    if len(site_data) < max_workers:
         max_workers = len(site_data)
 
     # Create multi-threaded session for all requests.
@@ -225,17 +253,17 @@ def sherlock(
     # Results from analysis of all sites
     results_total = {}
 
+    # Create a mapping of futures to social network names
+    future_to_network = {}
+
     # First create futures for all requests. This allows for the requests to run in parallel
     for social_network, net_info in site_data.items():
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
 
-        # Record URL of main site
-
-        # A user agent is needed because some sites don't return the correct
-        # information since they think that we are bots (Which we actually are...)
+        # Use a random User-Agent for each request to avoid bot detection
         headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0",
+            "User-Agent": random.choice(USER_AGENTS)
         }
 
         if "headers" in net_info:
@@ -243,19 +271,20 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], username_escaped)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(
-                username, social_network, url, QueryStatus.ILLEGAL
+                username, social_network, url, status_illegal
             )
             results_site["url_user"] = ""
             results_site["http_status"] = ""
             results_site["response_text"] = ""
             query_notify.update(results_site["status"])
+            results_total[social_network] = results_site
         else:
             # URL of user on site (if it exists)
             results_site["url_user"] = url
@@ -329,176 +358,158 @@ def sherlock(
                     json=request_payload,
                 )
 
-            # Store future in data for access later
-            net_info["request_future"] = future
+            # Store future in mapping for access later
+            future_to_network[future] = social_network
+            results_total[social_network] = results_site
 
-        # Add this site's results into final dictionary with all the other results.
-        results_total[social_network] = results_site
+    # Optimization: move WAF fingerprints outside the results loop
+    WAFHitMsgs = [
+        r".loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark",  # 2024-05-13 Cloudflare
+        r'<span id="challenge-error-text">',  # 2024-11-11 Cloudflare error page
+        r"AwsWafIntegration.forceRefreshToken",  # 2024-11-11 Cloudfront (AWS)
+        r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:',  # 2024-04-09 PerimeterX / Human Security
+    ]
 
-    # Open the file containing account links
-    for social_network, net_info in site_data.items():
-        # Retrieve results again
-        results_site = results_total.get(social_network)
+    # Process results as they complete with a progress bar
+    with tqdm(total=len(site_data), desc="Searching", unit="site", disable=dump_response) as progress_bar:
+        # Update progress for sites already skipped due to regex
+        progress_bar.update(len(site_data) - len(future_to_network))
 
-        # Retrieve other site information again
-        url = results_site.get("url_user")
-        status = results_site.get("status")
-        if status is not None:
-            # We have already determined the user doesn't exist here
-            continue
+        for future in as_completed(future_to_network):
+            social_network = future_to_network[future]
+            net_info = site_data[social_network]
+            results_site = results_total[social_network]
 
-        # Get the expected error type
-        error_type = net_info["errorType"]
-        if isinstance(error_type, str):
-            error_type: list[str] = [error_type]
+            # Update progress bar
+            progress_bar.update(1)
 
-        # Retrieve future and ensure it has finished
-        future = net_info["request_future"]
-        r, error_text, exception_text = get_response(
-            request_future=future, error_type=error_type, social_network=social_network
-        )
+            # Retrieve other site information again
+            url = results_site.get("url_user")
 
-        # Get response time for response of our request.
-        try:
-            response_time = r.elapsed
-        except AttributeError:
-            response_time = None
+            # Get the expected error type
+            error_type = net_info["errorType"]
+            if isinstance(error_type, str):
+                error_type = [error_type]
 
-        # Attempt to get request information
-        try:
-            http_status = r.status_code
-        except Exception:
-            http_status = "?"
-        try:
-            response_text = r.text.encode(r.encoding or "UTF-8")
-        except Exception:
-            response_text = ""
+            # Retrieve future results
+            r, error_text, exception_text = get_response(
+                request_future=future, error_type=error_type, social_network=social_network
+            )
 
-        query_status = QueryStatus.UNKNOWN
-        error_context = None
+                        # Get response time for response of our request.
+            try:
+                response_time = r.elapsed
+            except AttributeError:
+                response_time = None
 
-        # As WAFs advance and evolve, they will occasionally block Sherlock and
-        # lead to false positives and negatives. Fingerprints should be added
-        # here to filter results that fail to bypass WAFs. Fingerprints should
-        # be highly targetted. Comment at the end of each fingerprint to
-        # indicate target and date fingerprinted.
-        WAFHitMsgs = [
-            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
-            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
-        ]
+            # Attempt to get request information
+            try:
+                http_status = r.status_code
+                response_text_content = r.text
+            except Exception:
+                http_status = '?'
+                response_text_content = ''
 
-        if error_text is not None:
-            error_context = error_text
+            try:
+                response_text = response_text_content.encode(r.encoding or 'UTF-8')
+            except Exception:
+                response_text = b''
 
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
-            query_status = QueryStatus.WAF
+            query_status = status_unknown
+            error_context = None
 
-        else:
-            if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
-                error_context = f"Unknown error type '{error_type}' for {social_network}"
-                query_status = QueryStatus.UNKNOWN
+            if error_text is not None:
+                error_context = error_text
+
+            elif any(hitMsg in response_text_content for hitMsg in WAFHitMsgs):
+                query_status = status_waf
+
             else:
-                if "message" in error_type:
-                    # error_flag True denotes no error found in the HTML
-                    # error_flag False denotes error found in the HTML
-                    error_flag = True
-                    errors = net_info.get("errorMsg")
-                    # errors will hold the error message
-                    # it can be string or list
-                    # by isinstance method we can detect that
-                    # and handle the case for strings as normal procedure
-                    # and if its list we can iterate the errors
-                    if isinstance(errors, str):
-                        # Checks if the error message is in the HTML
-                        # if error is present we will set flag to False
-                        if errors in r.text:
-                            error_flag = False
-                    else:
-                        # If it's list, it will iterate all the error message
-                        for error in errors:
-                            if error in r.text:
+                if any(
+                    errtype not in ['message', 'status_code', 'response_url']
+                    for errtype in error_type
+                ):
+                    error_context = (
+                        f'Unknown error type "{error_type}" for {social_network}'
+                    )
+                    query_status = status_unknown
+                else:
+                    if 'message' in error_type:
+                        error_flag = True
+                        errors = net_info.get('errorMsg')
+                        if isinstance(errors, str):
+                            if errors in response_text_content:
                                 error_flag = False
-                                break
-                    if error_flag:
-                        query_status = QueryStatus.CLAIMED
-                    else:
-                        query_status = QueryStatus.AVAILABLE
+                        else:
+                            for error in errors:
+                                if error in response_text_content:
+                                    error_flag = False
+                                    break
+                        if error_flag:
+                            query_status = status_claimed
+                        else:
+                            query_status = status_available
 
-                if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
-                    error_codes = net_info.get("errorCode")
-                    query_status = QueryStatus.CLAIMED
+                    if (
+                        'status_code' in error_type
+                        and query_status is not status_available
+                    ):
+                        error_codes = net_info.get('errorCode')
+                        query_status = status_claimed
+                        if isinstance(error_codes, int):
+                            error_codes = [error_codes]
+                        if error_codes is not None and http_status in error_codes:
+                            query_status = status_available
+                        elif http_status == '?' or http_status >= 300 or http_status < 200:
+                            query_status = status_available
 
-                    # Type consistency, allowing for both singlets and lists in manifest
-                    if isinstance(error_codes, int):
-                        error_codes = [error_codes]
+                    if (
+                        'response_url' in error_type
+                        and query_status is not status_available
+                    ):
+                        if http_status != '?' and 200 <= http_status < 300:
+                            query_status = status_claimed
+                        else:
+                            query_status = status_available
 
-                    if error_codes is not None and r.status_code in error_codes:
-                        query_status = QueryStatus.AVAILABLE
-                    elif r.status_code >= 300 or r.status_code < 200:
-                        query_status = QueryStatus.AVAILABLE
+            if dump_response:
+                tqdm.write('+++++++++++++++++++++')
+                tqdm.write(f'TARGET NAME   : {social_network}')
+                tqdm.write(f'USERNAME      : {username}')
+                tqdm.write(f'TARGET URL    : {url}')
+                tqdm.write(f'TEST METHOD   : {error_type}')
+                try:
+                    tqdm.write(f'STATUS CODES  : {net_info['errorCode']}')
+                except KeyError:
+                    pass
+                tqdm.write('Results...')
+                tqdm.write(f'RESPONSE CODE : {http_status}')
+                try:
+                    tqdm.write(f'ERROR TEXT    : {net_info['errorMsg']}')
+                except KeyError:
+                    pass
+                tqdm.write('>>>>> BEGIN RESPONSE TEXT')
+                tqdm.write(response_text_content)
+                tqdm.write('<<<<< END RESPONSE TEXT')
+                tqdm.write('VERDICT       : ' + str(query_status))
+                tqdm.write('+++++++++++++++++++++')
 
-                if "response_url" in error_type and query_status is not QueryStatus.AVAILABLE:
-                    # For this detection method, we have turned off the redirect.
-                    # So, there is no need to check the response URL: it will always
-                    # match the request.  Instead, we will ensure that the response
-                    # code indicates that the request was successful (i.e. no 404, or
-                    # forward to some odd redirect).
-                    if 200 <= r.status_code < 300:
-                        query_status = QueryStatus.CLAIMED
-                    else:
-                        query_status = QueryStatus.AVAILABLE
+            # Notify caller about results of query.
+            result = QueryResult(
+                username=username,
+                site_name=social_network,
+                site_url_user=url,
+                status=query_status,
+                query_time=response_time,
+                context=error_context,
+            )
+            query_notify.update(result)
 
-        if dump_response:
-            print("+++++++++++++++++++++")
-            print(f"TARGET NAME   : {social_network}")
-            print(f"USERNAME      : {username}")
-            print(f"TARGET URL    : {url}")
-            print(f"TEST METHOD   : {error_type}")
-            try:
-                print(f"STATUS CODES  : {net_info['errorCode']}")
-            except KeyError:
-                pass
-            print("Results...")
-            try:
-                print(f"RESPONSE CODE : {r.status_code}")
-            except Exception:
-                pass
-            try:
-                print(f"ERROR TEXT    : {net_info['errorMsg']}")
-            except KeyError:
-                pass
-            print(">>>>> BEGIN RESPONSE TEXT")
-            try:
-                print(r.text)
-            except Exception:
-                pass
-            print("<<<<< END RESPONSE TEXT")
-            print("VERDICT       : " + str(query_status))
-            print("+++++++++++++++++++++")
-
-        # Notify caller about results of query.
-        result: QueryResult = QueryResult(
-            username=username,
-            site_name=social_network,
-            site_url_user=url,
-            status=query_status,
-            query_time=response_time,
-            context=error_context,
-        )
-        query_notify.update(result)
-
-        # Save status of request
-        results_site["status"] = result
-
-        # Save results from request
-        results_site["http_status"] = http_status
-        results_site["response_text"] = response_text
-
-        # Add this site's results into final dictionary with all of the other results.
-        results_total[social_network] = results_site
-
+            # Save status of request
+            results_site['status'] = result
+            results_site['http_status'] = http_status
+            results_site['response_text'] = response_text
+            results_total[social_network] = results_site
     return results_total
 
 
@@ -622,6 +633,16 @@ def main():
         type=timeout_check,
         default=60,
         help="Time (in seconds) to wait for response to requests (Default: 60)",
+    )
+    parser.add_argument(
+        "--workers",
+        "-r",
+        action="store",
+        metavar="WORKERS",
+        dest="workers",
+        type=int,
+        default=20,
+        help="Number of parallel workers to use for the search (Default: 20)",
     )
     parser.add_argument(
         "--print-all",
@@ -802,6 +823,9 @@ def main():
         result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
     )
 
+    # Record start time
+    start_time = monotonic()
+
     # Run report on all specified users.
     all_usernames = []
     for username in args.username:
@@ -818,6 +842,7 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            max_workers=args.workers,
         )
 
         if args.output:
@@ -915,8 +940,8 @@ def main():
                 {
                     "username": usernames,
                     "name": names,
-                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
-                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
+                    "url_main": [f'=HYPERLINK("{u}")' for u in url_main],
+                    "url_user": [f'=HYPERLINK("{u}")' for u in url_user],
                     "exists": exists,
                     "http_status": http_status,
                     "response_time_s": response_time_s,
@@ -925,7 +950,7 @@ def main():
             DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
 
         print()
-    query_notify.finish()
+    query_notify.finish(total_time=monotonic() - start_time)
 
 
 if __name__ == "__main__":

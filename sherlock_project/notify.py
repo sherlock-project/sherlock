@@ -3,9 +3,11 @@
 This module defines the objects for notifying the caller about the
 results of queries.
 """
+
 from sherlock_project.result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
+from tqdm import tqdm
 
 # Global variable to count the number of results.
 globvar = 0
@@ -37,7 +39,6 @@ class QueryNotify:
 
         self.result = result
 
-
     def start(self, message=None):
         """Notify Start.
 
@@ -54,7 +55,6 @@ class QueryNotify:
         Return Value:
         Nothing.
         """
-
 
     def update(self, result):
         """Notify Update.
@@ -73,7 +73,6 @@ class QueryNotify:
 
         self.result = result
 
-
     def finish(self, message=None):
         """Notify Finish.
 
@@ -90,7 +89,6 @@ class QueryNotify:
         Return Value:
         Nothing.
         """
-
 
     def __str__(self):
         """Convert Object To String.
@@ -133,7 +131,6 @@ class QueryNotifyPrint(QueryNotify):
         self.print_all = print_all
         self.browse = browse
 
-
     def start(self, message):
         """Notify Start.
 
@@ -150,14 +147,21 @@ class QueryNotifyPrint(QueryNotify):
 
         title = "Checking username"
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {message}" +
-              Fore.GREEN + " on:")
+        tqdm.write(
+            Style.BRIGHT
+            + Fore.GREEN
+            + "["
+            + Fore.YELLOW
+            + "*"
+            + Fore.GREEN
+            + f"] {title}"
+            + Fore.WHITE
+            + f" {message}"
+            + Fore.GREEN
+            + " on:"
+        )
         # An empty line between first line and the result(more clear output)
-        print('\r')
-
+        tqdm.write("\r")
 
     def countResults(self):
         """This function counts the number of results. Every time the function is called,
@@ -189,58 +193,100 @@ class QueryNotifyPrint(QueryNotify):
         self.result = result
 
         response_time_text = ""
-        if self.result.query_time is not None and self.verbose is True:
-            response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
+        if self.result.query_time is not None:
+            response_time_text = (
+                Fore.YELLOW + f" [{round(self.result.query_time * 1000)}ms]"
+            )
 
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
-            print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
-                  Fore.GREEN +
-                  f" {self.result.site_name}: " +
-                  Style.RESET_ALL +
-                  f"{self.result.site_url_user}")
+            tqdm.write(
+                Style.BRIGHT
+                + Fore.WHITE
+                + "["
+                + Fore.GREEN
+                + "+"
+                + Fore.WHITE
+                + "]"
+                + response_time_text
+                + Fore.GREEN
+                + f" {self.result.site_name}: "
+                + Style.RESET_ALL
+                + f"{self.result.site_url_user}"
+            )
             if self.browse:
                 webbrowser.open(self.result.site_url_user, 2)
 
         elif result.status == QueryStatus.AVAILABLE:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      response_time_text +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + " Not Found!")
+                tqdm.write(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + response_time_text
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.YELLOW
+                    + " Not Found!"
+                )
 
         elif result.status == QueryStatus.UNKNOWN:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + " ")
+                tqdm.write(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.RED
+                    + f" {self.result.context}"
+                    + Fore.YELLOW
+                    + " "
+                )
 
         elif result.status == QueryStatus.ILLEGAL:
             if self.print_all:
                 msg = "Illegal Username Format For This Site!"
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + f" {msg}")
+                tqdm.write(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.YELLOW
+                    + f" {msg}"
+                )
 
         elif result.status == QueryStatus.WAF:
             if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + " Blocked by bot detection" +
-                      Fore.YELLOW + " (proxy may help)")
+                tqdm.write(
+                    Style.BRIGHT
+                    + Fore.WHITE
+                    + "["
+                    + Fore.RED
+                    + "-"
+                    + Fore.WHITE
+                    + "]"
+                    + Fore.GREEN
+                    + f" {self.result.site_name}:"
+                    + Fore.RED
+                    + " Blocked by bot detection"
+                    + Fore.YELLOW
+                    + " (proxy may help)"
+                )
 
         else:
             # It should be impossible to ever get here...
@@ -248,24 +294,37 @@ class QueryNotifyPrint(QueryNotify):
                 f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
             )
 
-
-    def finish(self, message="The processing has been finished."):
+    def finish(self, total_time=None):
         """Notify Finish.
         Will print the last line to the standard output.
         Keyword Arguments:
         self                   -- This object.
-        message                -- The 2 last phrases.
+        total_time             -- Total time taken for the search.
         Return Value:
         Nothing.
         """
         NumberOfResults = self.countResults() - 1
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + "] Search completed with" +
-              Fore.WHITE + f" {NumberOfResults} " +
-              Fore.GREEN + "results" + Style.RESET_ALL
-              )
+        total_time_text = ""
+        if total_time is not None:
+            total_time_text = f" in {round(total_time, 2)} seconds"
+
+        tqdm.write(
+            Style.BRIGHT
+            + Fore.GREEN
+            + "["
+            + Fore.YELLOW
+            + "*"
+            + Fore.GREEN
+            + "] Search completed with"
+            + Fore.WHITE
+            + f" {NumberOfResults} "
+            + Fore.GREEN
+            + "results"
+            + Fore.YELLOW
+            + total_time_text
+            + Style.RESET_ALL
+        )
 
     def __str__(self):
         """Convert Object To String.
