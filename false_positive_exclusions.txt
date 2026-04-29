@@ -5,11 +5,14 @@ Apple Discussions
 Archive.org
 Bandcamp
 Codolio
+DeviantArt
 Discord.bio
 GeeksforGeeks
 Giphy
+HackerRank
 Hashnode
 Hubski
+Itch.io
 LessWrong
 LushStories
 Patched
@@ -18,14 +21,15 @@ Rarible
 Realmeye
 Reddit
 RocketTube
-RuneScape
 Scribd
 Shelf
 SlideShare
 Smule
 Splice
 Spotify
+Trovo
 TryHackMe
+Velomania
 Weblate
 YandexMusic
 dailykos
@@ -34,3 +38,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
