@@ -403,7 +403,7 @@
     "errorType": "status_code",
     "url": "https://campsite.bio/{}",
     "urlMain": "https://campsite.bio/",
-    "username_claimed": "blue"
+    "username_claimed": "linkinbio"
   },
   "Car Talk Community": {
     "errorType": "status_code",
@@ -2406,7 +2406,7 @@
     "errorType": "status_code",
     "url": "https://{}.substack.com",
     "urlMain": "https://substack.com/",
-    "username_claimed": "on"
+    "username_claimed": "heathercoxrichardson"
   },
   "TETR.IO": {
     "errorMsg": "No such user!",
