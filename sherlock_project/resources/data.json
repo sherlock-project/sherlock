@@ -399,12 +399,6 @@
     "urlMain": "https://caddy.community/",
     "username_claimed": "taako_magnusen"
   },
-  "Campsite.bio": {
-    "errorType": "status_code",
-    "url": "https://campsite.bio/{}",
-    "urlMain": "https://campsite.bio/",
-    "username_claimed": "linkinbio"
-  },
   "Car Talk Community": {
     "errorType": "status_code",
     "url": "https://community.cartalk.com/u/{}/summary",
@@ -2401,12 +2395,6 @@
     "url": "https://forum.sublimetext.com/u/{}",
     "urlMain": "https://forum.sublimetext.com/",
     "username_claimed": "blue"
-  },
-  "Substack": {
-    "errorType": "status_code",
-    "url": "https://{}.substack.com",
-    "urlMain": "https://substack.com/",
-    "username_claimed": "heathercoxrichardson"
   },
   "TETR.IO": {
     "errorMsg": "No such user!",
