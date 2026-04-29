@@ -192,12 +192,6 @@
     "urlMain": "https://author.today/",
     "username_claimed": "blue"
   },
-  "Auto.ru": {
-    "errorType": "status_code",
-    "url": "https://mag.auto.ru/profile/{}/",
-    "urlMain": "https://mag.auto.ru/",
-    "username_claimed": "blue"
-  },
   "Autofrage": {
     "errorType": "status_code",
     "url": "https://www.autofrage.net/nutzer/{}",
@@ -499,23 +493,11 @@
     "urlMain": "https://www.chollometro.com/",
     "username_claimed": "blue"
   },
-  "Civitai": {
-    "errorType": "status_code",
-    "url": "https://civitai.com/user/{}",
-    "urlMain": "https://civitai.com/",
-    "username_claimed": "blue"
-  },
   "Clapper": {
     "errorType": "status_code",
     "url": "https://clapperapp.com/{}",
     "urlMain": "https://clapperapp.com/",
     "username_claimed": "blue"
-  },
-  "CloudflareCommunity": {
-    "errorType": "status_code",
-    "url": "https://community.cloudflare.com/u/{}",
-    "urlMain": "https://community.cloudflare.com/",
-    "username_claimed": "cloonan"
   },
   "Clozemaster": {
     "errorMsg": "Oh no! Player not found.",
@@ -545,12 +527,6 @@
     "urlMain": "https://codesandbox.io",
     "urlProbe": "https://codesandbox.io/api/v1/users/{}",
     "username_claimed": "icyjoseph"
-  },
-  "CodeWars": {
-    "errorType": "status_code",
-    "url": "https://www.codewars.com/users/{}",
-    "urlMain": "https://www.codewars.com/",
-    "username_claimed": "blue"
   },
   "Codeberg": {
     "errorType": "status_code",
@@ -637,7 +613,7 @@
     "errorType": "status_code",
     "url": "https://contra.com/@{}",
     "urlMain": "https://contra.com/",
-    "username_claimed": "blue"
+    "username_claimed": "gajus"
   },
   "Coroflot": {
     "errorType": "status_code",
@@ -840,13 +816,6 @@
     "urlProbe": "https://www.duolingo.com/2017-06-30/users?username={}",
     "username_claimed": "blue"
   },
-  "EPORNER": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.eporner.com/profile/{}/",
-    "urlMain": "https://www.eporner.com/",
-    "username_claimed": "blue"
-  },
   "Eintracht Frankfurt Forum": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -878,7 +847,7 @@
     "errorType": "status_code",
     "url": "https://exercism.org/profiles/{}",
     "urlMain": "https://exercism.org/",
-    "username_claimed": "blue"
+    "username_claimed": "iHiD"
   },
   "Exposure": {
     "errorType": "status_code",
@@ -916,13 +885,6 @@
     "errorUrl": "https://www.fanpop.com/",
     "url": "https://www.fanpop.com/fans/{}",
     "urlMain": "https://www.fanpop.com/",
-    "username_claimed": "blue"
-  },
-  "Fansly": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://fansly.com/{}",
-    "urlMain": "https://fansly.com/",
     "username_claimed": "blue"
   },
   "Finanzfrage": {
@@ -1119,12 +1081,6 @@
     "urlMain": "https://play.google.com",
     "username_claimed": "GitHub"
   },
-  "Gradio": {
-    "errorType": "status_code",
-    "url": "https://huggingface.co/spaces/{}/gradio",
-    "urlMain": "https://gradio.app/",
-    "username_claimed": "gradio"
-  },
   "Gradle": {
     "errorType": "status_code",
     "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",
@@ -1301,13 +1257,6 @@
     "urlMain": "https://huggingface.co/",
     "username_claimed": "blue"
   },
-  "Hyperskill": {
-    "errorMsg": "No such user",
-    "errorType": "message",
-    "url": "https://hubski.com/user/{}",
-    "urlMain": "https://hubski.com/",
-    "username_claimed": "blue"
-  },
   "IFTTT": {
     "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
@@ -1466,12 +1415,6 @@
     "urlProbe": "https://ws2.kik.com/user/{}",
     "username_claimed": "blue"
   },
-  "Kitsu": {
-    "errorType": "status_code",
-    "url": "https://kitsu.io/users/{}",
-    "urlMain": "https://kitsu.io/",
-    "username_claimed": "blue"
-  },
   "Kongregate": {
     "errorType": "status_code",
     "headers": {
@@ -1528,12 +1471,6 @@
     "url": "https://lemmy.world/u/{}",
     "urlMain": "https://lemmy.world",
     "username_claimed": "blue"
-  },
-  "Lemon8": {
-    "errorType": "status_code",
-    "url": "https://www.lemon8-app.com/@{}",
-    "urlMain": "https://www.lemon8-app.com/",
-    "username_claimed": "lemon8"
   },
   "LessWrong": {
     "errorType": "response_url",
@@ -1619,13 +1556,6 @@
     "urlMain": "https://lottiefiles.com/",
     "username_claimed": "lottiefiles"
   },
-  "LoyalFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.loyalfans.com/{}",
-    "urlMain": "https://www.loyalfans.com/",
-    "username_claimed": "blue"
-  },
   "LushStories": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -1645,13 +1575,6 @@
     "url": "https://mamot.fr/@{}",
     "urlMain": "https://mamot.fr/",
     "username_claimed": "anciensEnssat"
-  },
-  "ManyVids": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.manyvids.com/Profile/{}/",
-    "urlMain": "https://www.manyvids.com/",
-    "username_claimed": "blue"
   },
   "Medium": {
     "errorMsg": "<body",
@@ -1681,19 +1604,6 @@
     "urlMain": "https://www.mixcloud.com/",
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny"
-  },
-  "ModelHub": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://www.modelhub.com/{}",
-    "urlMain": "https://www.modelhub.com/",
-    "username_claimed": "blue"
-  },
-  "ModelScope": {
-    "errorType": "status_code",
-    "url": "https://modelscope.cn/profile/{}",
-    "urlMain": "https://modelscope.cn/",
-    "username_claimed": "blue"
   },
   "Monkeytype": {
     "errorType": "status_code",
@@ -1867,13 +1777,6 @@
     "url": "https://odysee.com/@{}",
     "urlMain": "https://odysee.com/",
     "username_claimed": "Odysee"
-  },
-  "OnlyFans": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://onlyfans.com/{}",
-    "urlMain": "https://onlyfans.com/",
-    "username_claimed": "blue"
   },
   "Open Collective": {
     "errorType": "status_code",
@@ -2072,12 +1975,6 @@
     "urlMain": "https://polymart.org/",
     "username_claimed": "craciu25yt"
   },
-  "Polywork": {
-    "errorType": "status_code",
-    "url": "https://www.polywork.com/{}",
-    "urlMain": "https://www.polywork.com/",
-    "username_claimed": "blue"
-  },
   "Pornhub": {
     "errorType": "status_code",
     "isNSFW": true,
@@ -2157,12 +2054,6 @@
     "urlMain": "https://rateyourmusic.com/",
     "username_claimed": "blue"
   },
-  "Read.cv": {
-    "errorType": "status_code",
-    "url": "https://read.cv/{}",
-    "urlMain": "https://read.cv/",
-    "username_claimed": "blue"
-  },
   "Realmeye": {
     "errorMsg": "Sorry, but we either:",
     "errorType": "message",
@@ -2198,18 +2089,6 @@
     "url": "https://www.reisefrage.net/nutzer/{}",
     "urlMain": "https://www.reisefrage.net/",
     "username_claimed": "reisefrage"
-  },
-  "Render": {
-    "errorType": "status_code",
-    "url": "https://{}.onrender.com",
-    "urlMain": "https://render.com/",
-    "username_claimed": "blue"
-  },
-  "Replicate": {
-    "errorType": "status_code",
-    "url": "https://replicate.com/{}",
-    "urlMain": "https://replicate.com/",
-    "username_claimed": "blue"
   },
   "Replit.com": {
     "errorType": "status_code",
@@ -2420,13 +2299,6 @@
     "urlMain": "https://soylentnews.org",
     "username_claimed": "adam"
   },
-  "SpankBang": {
-    "errorType": "status_code",
-    "isNSFW": true,
-    "url": "https://spankbang.com/profile/{}/",
-    "urlMain": "https://spankbang.com/",
-    "username_claimed": "blue"
-  },
   "SpeakerDeck": {
     "errorType": "status_code",
     "url": "https://speakerdeck.com/{}",
@@ -2516,12 +2388,6 @@
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
-  "StoryGraph": {
-    "errorType": "status_code",
-    "url": "https://app.thestorygraph.com/profile/{}",
-    "urlMain": "https://app.thestorygraph.com/",
-    "username_claimed": "blue"
-  },
   "Strava": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -2554,12 +2420,6 @@
     "url": "https://traktrain.com/{}",
     "urlMain": "https://traktrain.com/",
     "username_claimed": "traktrain"
-  },
-  "Tealfeed": {
-    "errorType": "status_code",
-    "url": "https://tealfeed.com/@{}",
-    "urlMain": "https://tealfeed.com/",
-    "username_claimed": "blue"
   },
   "Telegram": {
     "errorMsg": [
@@ -2682,12 +2542,6 @@
     "url": "https://trovo.live/s/{}/",
     "urlMain": "https://trovo.live",
     "username_claimed": "Aimilios"
-  },
-  "Truth Social": {
-    "errorType": "status_code",
-    "url": "https://truthsocial.com/@{}",
-    "urlMain": "https://truthsocial.com/",
-    "username_claimed": "blue"
   },
   "TryHackMe": {
     "errorMsg": "{\"success\":false}",
@@ -2820,12 +2674,6 @@
     "urlMain": "https://vimeo.com/",
     "username_claimed": "blue"
   },
-  "Vinted": {
-    "errorType": "status_code",
-    "url": "https://www.vinted.com/member/{}",
-    "urlMain": "https://www.vinted.com/",
-    "username_claimed": "blue"
-  },
   "VirusTotal": {
     "errorType": "status_code",
     "request_method": "GET",
@@ -2845,12 +2693,6 @@
     "errorType": "status_code",
     "url": "https://wakatime.com/@{}",
     "urlMain": "https://wakatime.com/",
-    "username_claimed": "blue"
-  },
-  "WandB": {
-    "errorType": "status_code",
-    "url": "https://wandb.ai/{}",
-    "urlMain": "https://wandb.ai/",
     "username_claimed": "blue"
   },
   "Warframe Market": {
