@@ -2,6 +2,7 @@
 # This module summarizes the results of site validation tests queued by
 # workflow validate_modified_targets for presentation in Issue comments.
 
+# Use defusedxml to protect against XXE and XML bomb (Billion Laughs) attacks
 from defusedxml import ElementTree as ET
 import sys
 from pathlib import Path
