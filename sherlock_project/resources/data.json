@@ -2355,7 +2355,8 @@
     "username_claimed": "blue"
   },
   "Spoutible": {
-    "errorType": "status_code",
+    "errorMsg": "Page not found!",
+    "errorType": "message",
     "url": "https://spoutible.com/{}",
     "urlMain": "https://spoutible.com/",
     "username_claimed": "cbouzy"
@@ -2405,7 +2406,7 @@
     "errorType": "status_code",
     "url": "https://{}.substack.com",
     "urlMain": "https://substack.com/",
-    "username_claimed": "blue"
+    "username_claimed": "on"
   },
   "TETR.IO": {
     "errorMsg": "No such user!",
