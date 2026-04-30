@@ -1077,8 +1077,7 @@
     "errorType": "message",
     "url": "https://guns.lol",
     "urlMain": "https://guns.lol/{}",
-    "username_claimed": "example",
-    "username_unclaimed": "noonewouldeverusethis7"
+    "username_claimed": "example"
   },
   "Gumroad": {
     "errorMsg": "Page not found (404) - Gumroad",
