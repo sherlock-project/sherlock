@@ -134,7 +134,7 @@ class QueryNotifyPrint(QueryNotify):
         self.browse = browse
 
 
-    def start(self, message):
+    def start(self, message=None):
         """Notify Start.
 
         Will print the title to the standard output.
