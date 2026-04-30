@@ -134,7 +134,7 @@ class QueryNotifyPrint(QueryNotify):
         self.browse = browse
 
 
-    def start(self, message):
+    def start(self, message=None):
         """Notify Start.
 
         Will print the title to the standard output.
@@ -173,6 +173,55 @@ class QueryNotifyPrint(QueryNotify):
         globvar += 1
         return globvar
 
+    def _handle_claimed(self, response_time_text):
+        self.countResults()
+        print(Style.BRIGHT + Fore.WHITE + "[" +
+              Fore.GREEN + "+" +
+              Fore.WHITE + "]" +
+              response_time_text +
+              Fore.GREEN +
+              f" {self.result.site_name}: " +
+              Style.RESET_ALL +
+              f"{self.result.site_url_user}")
+        if self.browse:
+            webbrowser.open(self.result.site_url_user, 2)
+
+    def _handle_available(self, response_time_text):
+        if self.print_all:
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.RED + "-" +
+                  Fore.WHITE + "]" +
+                  response_time_text +
+                  Fore.GREEN + f" {self.result.site_name}:" +
+                  Fore.YELLOW + " Not Found!")
+
+    def _handle_unknown(self, response_time_text):
+        if self.print_all:
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.RED + "-" +
+                  Fore.WHITE + "]" +
+                  Fore.GREEN + f" {self.result.site_name}:" +
+                  Fore.RED + f" {self.result.context}" +
+                  Fore.YELLOW + " ")
+
+    def _handle_illegal(self, response_time_text):
+        if self.print_all:
+            msg = "Illegal Username Format For This Site!"
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.RED + "-" +
+                  Fore.WHITE + "]" +
+                  Fore.GREEN + f" {self.result.site_name}:" +
+                  Fore.YELLOW + f" {msg}")
+
+    def _handle_waf(self, response_time_text):
+        if self.print_all:
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.RED + "-" +
+                  Fore.WHITE + "]" +
+                  Fore.GREEN + f" {self.result.site_name}:" +
+                  Fore.RED + " Blocked by bot detection" +
+                  Fore.YELLOW + " (proxy may help)")
+
     def update(self, result):
         """Notify Update.
 
@@ -181,7 +230,7 @@ class QueryNotifyPrint(QueryNotify):
         Keyword Arguments:
         self                   -- This object.
         result                 -- Object of type QueryResult() containing
-                                  results for this query.
+                                   results for this query.
 
         Return Value:
         Nothing.
@@ -192,58 +241,18 @@ class QueryNotifyPrint(QueryNotify):
         if self.result.query_time is not None and self.verbose is True:
             response_time_text = f" [{round(self.result.query_time * 1000)}ms]"
 
-        # Output to the terminal is desired.
-        if result.status == QueryStatus.CLAIMED:
-            self.countResults()
-            print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
-                  Fore.GREEN +
-                  f" {self.result.site_name}: " +
-                  Style.RESET_ALL +
-                  f"{self.result.site_url_user}")
-            if self.browse:
-                webbrowser.open(self.result.site_url_user, 2)
+        status_handlers = {
+            QueryStatus.CLAIMED: self._handle_claimed,
+            QueryStatus.AVAILABLE: self._handle_available,
+            QueryStatus.UNKNOWN: self._handle_unknown,
+            QueryStatus.ILLEGAL: self._handle_illegal,
+            QueryStatus.WAF: self._handle_waf,
+        }
 
-        elif result.status == QueryStatus.AVAILABLE:
-            if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      response_time_text +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + " Not Found!")
-
-        elif result.status == QueryStatus.UNKNOWN:
-            if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + f" {self.result.context}" +
-                      Fore.YELLOW + " ")
-
-        elif result.status == QueryStatus.ILLEGAL:
-            if self.print_all:
-                msg = "Illegal Username Format For This Site!"
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.YELLOW + f" {msg}")
-
-        elif result.status == QueryStatus.WAF:
-            if self.print_all:
-                print(Style.BRIGHT + Fore.WHITE + "[" +
-                      Fore.RED + "-" +
-                      Fore.WHITE + "]" +
-                      Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + " Blocked by bot detection" +
-                      Fore.YELLOW + " (proxy may help)")
-
+        handler = status_handlers.get(result.status)
+        if handler:
+            handler(response_time_text)
         else:
-            # It should be impossible to ever get here...
             raise ValueError(
                 f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
             )
@@ -258,12 +267,12 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        NumberOfResults = self.countResults() - 1
+        number_of_results = self.countResults() - 1
 
         print(Style.BRIGHT + Fore.GREEN + "[" +
               Fore.YELLOW + "*" +
               Fore.GREEN + "] Search completed with" +
-              Fore.WHITE + f" {NumberOfResults} " +
+              Fore.WHITE + f" {number_of_results} " +
               Fore.GREEN + "results" + Style.RESET_ALL
               )
 
