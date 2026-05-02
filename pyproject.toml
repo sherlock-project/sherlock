@@ -8,7 +8,7 @@ source = "init"
 
 [tool.poetry]
 name = "sherlock-project"
-version = "0.16.0"
+version = "0.16.1"
 description = "Hunt down social media accounts by username across social networks"
 license = "MIT"
 authors = [
