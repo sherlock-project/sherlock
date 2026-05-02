@@ -20,6 +20,7 @@ jobs:
           # Checkout the base branch but fetch all history to avoid a second fetch call
           ref: ${{ github.base_ref }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -90,11 +91,11 @@ jobs:
       # --- The rest of the steps below are unchanged ---
 
       - name: Validate modified targets
-        if: steps.discover-modified.outputs.changed_targets != ''
-        continue-on-error: true
+        env:
+          CHANGED_TARGETS: ${{ steps.discover-modified.outputs.changed_targets }}
         run: |
           poetry run pytest -q --tb no -rA -m validate_targets -n 20 \
-            --chunked-sites "${{ steps.discover-modified.outputs.changed_targets }}" \
+            --chunked-sites "$CHANGED_TARGETS" \
             --junitxml=validation_results.xml
 
       - name: Prepare validation summary
