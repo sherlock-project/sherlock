@@ -3279,5 +3279,11 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "Wallhaven": {
+    "errorType": "status_code",
+    "url": "https://wallhaven.cc/user/{}",
+    "urlMain": "https://wallhaven.cc/",
+    "username_claimed": "AksumkA"
   }
 }
