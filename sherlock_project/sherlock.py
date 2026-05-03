@@ -389,10 +389,20 @@ def sherlock(
             r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
 
+        WAFHitHeaders = {
+            "cf-mitigated": "challenge", # 2026-04-05 Cloudflare challenge header on HEAD/GET
+        }
+
         if error_text is not None:
             error_context = error_text
 
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
+
+        elif any(
+            r.headers.get(header_name, "").lower() == expected_value
+            for header_name, expected_value in WAFHitHeaders.items()
+        ):
             query_status = QueryStatus.WAF
 
         else:
