@@ -952,7 +952,8 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://auth.geeksforgeeks.org/user/false",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
