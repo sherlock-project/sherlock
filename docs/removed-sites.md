@@ -6,6 +6,42 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
+## ArtStation
+
+As of 2026-04-02, all usernames are reported as claimed.
+
+The site is a single-page application that returns HTTP 200 with an empty
+body for all requests, regardless of whether the username exists. Detection
+via status code is not possible.
+
+```json
+  "ArtStation": {
+    "errorType": "status_code",
+    "url": "https://www.artstation.com/{}",
+    "urlMain": "https://www.artstation.com/",
+    "username_claimed": "Blue"
+  },
+```
+
+
+## Envato Forum
+
+As of 2026-04-02, all usernames are reported as claimed.
+
+The site is a single-page application that returns HTTP 200 with an empty
+body for all requests, regardless of whether the username exists. Detection
+via status code is not possible.
+
+```json
+  "Envato Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.envato.com/u/{}",
+    "urlMain": "https://forums.envato.com/",
+    "username_claimed": "enabled"
+  },
+```
+
+
 ## gpodder.net
 
 As of 2020-05-25, all usernames are reported as available.
