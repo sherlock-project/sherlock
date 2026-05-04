@@ -2179,7 +2179,8 @@
     "username_claimed": "ko"
   },
   "Shelf": {
-    "errorType": "status_code",
+    "errorMsg": "User Not Found",
+    "errorType": "message",
     "url": "https://www.shelf.im/{}",
     "urlMain": "https://www.shelf.im/",
     "username_claimed": "blue"
