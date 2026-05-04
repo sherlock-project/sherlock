@@ -690,8 +690,8 @@ As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents u
 
 ## PayPal
 
-As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
-future once we find a better error detecting method.
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likely be added again in the near
+future once we find a better error-detection method.
 ```json
   "PayPal": {
     "errorMsg": "<meta name=\"twitter:title\" content=\"Get your very own PayPal.Me link\" />",
@@ -708,7 +708,7 @@ future once we find a better error detecting method.
 
 ## ImageShack
 
-As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error-detection method.
 ```json
   "ImageShack": {
     "errorType": "response_url",
@@ -722,8 +722,8 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 ## Aptoide
 
-As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
-future once we find a better error detecting method.
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likely be added again in the near
+future once we find a better error-detection method.
 ```json
   "Aptoide": {
     "errorType": "status_code",
@@ -736,7 +736,7 @@ future once we find a better error detecting method.
 
 ## Crunchyroll
 
-As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error-detection method.
 
 ```json
   "Crunchyroll": {
@@ -749,7 +749,7 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ```
 
 ## T-MobileSupport
-As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error-detection method.
 
 ```json
   "T-MobileSupport": {
@@ -763,7 +763,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 ## OpenCollective
 
-As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error-detection method.
 
 ```json
   "OpenCollective": {
@@ -777,7 +777,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 ## SegmentFault
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error-detection method.
 
 ```json
   "SegmentFault": {
@@ -791,7 +791,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a fix for this
 
 ```json
   "Viadeo": {
@@ -1507,7 +1507,7 @@ As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but t
 ```
 
 ## Zoomit
-As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+As of 04.02.2023, Zoomit returns false positives. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it won't be prioritized at the moment.
 ```json
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
@@ -1816,7 +1816,7 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
 ```
 
 ## G2G
-__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+__2024-04-10 :__ Seems to be loading profiles with some weird JavaScript setup that sherlock doesn't like, leading to difficult-to-control false positives
 ```json
   "G2G": {
     "errorType": "response_url",
