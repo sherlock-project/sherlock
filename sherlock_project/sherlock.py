@@ -10,10 +10,12 @@ networks.
 import sys
 
 try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
+    from sherlock_project.__init__ import import_error_test_var  # noqa: F401
 except ImportError:
     print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
+    print(
+        "This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions."
+    )
     sys.exit(1)
 
 import csv
@@ -243,7 +245,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(net_info["url"], username.replace(" ", "%20"))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -383,10 +385,10 @@ def sherlock(
         # be highly targetted. Comment at the end of each fingerprint to
         # indicate target and date fingerprinted.
         WAFHitMsgs = [
-            r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
-            r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
-            r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
+            r".loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark",  # 2024-05-13 Cloudflare
+            r'<span id="challenge-error-text">',  # 2024-11-11 Cloudflare error page
+            r"AwsWafIntegration.forceRefreshToken",  # 2024-11-11 Cloudfront (AWS)
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:',  # 2024-04-09 PerimeterX / Human Security
         ]
 
         if error_text is not None:
@@ -396,8 +398,13 @@ def sherlock(
             query_status = QueryStatus.WAF
 
         else:
-            if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
-                error_context = f"Unknown error type '{error_type}' for {social_network}"
+            if any(
+                errtype not in ["message", "status_code", "response_url"]
+                for errtype in error_type
+            ):
+                error_context = (
+                    f"Unknown error type '{error_type}' for {social_network}"
+                )
                 query_status = QueryStatus.UNKNOWN
             else:
                 if "message" in error_type:
@@ -426,7 +433,10 @@ def sherlock(
                     else:
                         query_status = QueryStatus.AVAILABLE
 
-                if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
+                if (
+                    "status_code" in error_type
+                    and query_status is not QueryStatus.AVAILABLE
+                ):
                     error_codes = net_info.get("errorCode")
                     query_status = QueryStatus.CLAIMED
 
@@ -439,7 +449,10 @@ def sherlock(
                     elif r.status_code >= 300 or r.status_code < 200:
                         query_status = QueryStatus.AVAILABLE
 
-                if "response_url" in error_type and query_status is not QueryStatus.AVAILABLE:
+                if (
+                    "response_url" in error_type
+                    and query_status is not QueryStatus.AVAILABLE
+                ):
                     # For this detection method, we have turned off the redirect.
                     # So, there is no need to check the response URL: it will always
                     # match the request.  Instead, we will ensure that the response
@@ -511,13 +524,18 @@ def timeout_check(value):
     value                  -- Time in seconds to wait before timing out request.
 
     Return Value:
-    Floating point number representing the time (in seconds) that should be
-    used for the timeout.
+    Floating point number representing the time (in seconds) that should
+    be used for the timeout.
 
     NOTE:  Will raise an exception if the timeout in invalid.
     """
 
-    float_value = float(value)
+    try:
+        float_value = float(value)
+    except ValueError:
+        raise ArgumentTypeError(
+            f"Invalid timeout value: {value}. Timeout must be a positive number."
+        )
 
     if float_value <= 0:
         raise ArgumentTypeError(
@@ -900,10 +918,11 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
+                query_time = results[site]["status"].query_time
+                if query_time is None:
                     response_time_s.append("")
                 else:
-                    response_time_s.append(results[site]["status"].query_time)
+                    response_time_s.append(query_time)
                 usernames.append(username)
                 names.append(site)
                 url_main.append(results[site]["url_main"])
@@ -915,8 +934,8 @@ def main():
                 {
                     "username": usernames,
                     "name": names,
-                    "url_main": [f'=HYPERLINK(\"{u}\")' for u in url_main],
-                    "url_user": [f'=HYPERLINK(\"{u}\")' for u in url_user],
+                    "url_main": [f'=HYPERLINK("{u}")' for u in url_main],
+                    "url_user": [f'=HYPERLINK("{u}")' for u in url_user],
                     "exists": exists,
                     "http_status": http_status,
                     "response_time_s": response_time_s,
