@@ -159,6 +159,7 @@
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
     "urlMain": "https://www.artstation.com/",
+    "urlProbe": "https://www.artstation.com/users/{}.json",
     "username_claimed": "Blue"
   },
   "Asciinema": {
@@ -959,7 +960,8 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorType": "status_code",
+    "errorMsg": "false   | GeeksforGeeks Profile",
+    "errorType": "message",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
@@ -1533,7 +1535,8 @@
     "username_claimed": "lottiefiles"
   },
   "LushStories": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.lushstories.com/login",
     "isNSFW": true,
     "url": "https://www.lushstories.com/profile/{}",
     "urlMain": "https://www.lushstories.com/",
