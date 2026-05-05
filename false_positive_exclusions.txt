@@ -2,20 +2,17 @@
 APClips
 Airliners
 Apple Discussions
-Archive of Our Own
 Archive.org
-ArtStation
+Audiojungle
 Bandcamp
 Codolio
-DeviantArt
+Cults3D
 Discord.bio
 Envato Forum
-GeeksforGeeks
 Giphy
 Hashnode
 Hubski
 LessWrong
-LushStories
 Minecraft
 Patched
 Pornhub
@@ -29,7 +26,6 @@ SlideShare
 Smule
 Splice
 Spotify
-Trovo
 TryHackMe
 Velomania
 Weblate
@@ -40,3 +36,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
