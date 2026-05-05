@@ -404,6 +404,13 @@
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny"
   },
+  "Carrd": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,50}$",
+    "url": "https://{}.carrd.co/",
+    "urlMain": "https://carrd.co/",
+    "username_claimed": "blue"
+  },
   "Career.habr": {
     "errorMsg": "<h1>\u041e\u0448\u0438\u0431\u043a\u0430 404</h1>",
     "errorType": "message",
@@ -2279,6 +2286,13 @@
     "urlMain": "https://sourceforge.net/",
     "username_claimed": "blue"
   },
+  "SpaceHey": {
+    "errorType": "message",
+    "errorMsg": "Not Found (Error 404) | SpaceHey",
+    "url": "https://spacehey.com/{}",
+    "urlMain": "https://spacehey.com/",
+    "username_claimed": "blue"
+  },
   "SoylentNews": {
     "errorMsg": "The user you requested does not exist, no matter how much you wish this might be the case.",
     "errorType": "message",
@@ -2375,6 +2389,13 @@
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
     "username_claimed": "blue"
+  },
+  "Substack": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9][a-zA-Z0-9_-]{1,60}$",
+    "url": "https://{}.substack.com/",
+    "urlMain": "https://substack.com/",
+    "username_claimed": "green"
   },
   "SublimeForum": {
     "errorType": "status_code",
