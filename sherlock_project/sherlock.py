@@ -391,11 +391,14 @@ def sherlock(
             r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
             r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
         ]
+        WAFStatusCodes = [
+            999,  # 2024 LinkedIn anti-bot
+        ]
 
         if error_text is not None:
             error_context = error_text
 
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs) or r.status_code in WAFStatusCodes:
             query_status = QueryStatus.WAF
 
         else:
@@ -424,14 +427,17 @@ def sherlock(
                             if error in r.text:
                                 error_flag = False
                                 break
-                    if error_flag:
-                        query_status = QueryStatus.CLAIMED
-                    else:
+                    if not error_flag:
                         query_status = QueryStatus.AVAILABLE
+                    elif not r.text.strip():
+                        query_status = QueryStatus.UNKNOWN
+                        if error_context is None:
+                            error_context = "Empty response"
+                    else:
+                        query_status = QueryStatus.CLAIMED
 
                 if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
                     error_codes = net_info.get("errorCode")
-                    query_status = QueryStatus.CLAIMED
 
                     # Type consistency, allowing for both singlets and lists in manifest
                     if isinstance(error_codes, int):
@@ -439,8 +445,16 @@ def sherlock(
 
                     if error_codes is not None and r.status_code in error_codes:
                         query_status = QueryStatus.AVAILABLE
-                    elif r.status_code >= 300 or r.status_code < 200:
+                    elif 200 <= r.status_code < 300:
+                        query_status = QueryStatus.CLAIMED
+                    elif r.status_code == 404:
                         query_status = QueryStatus.AVAILABLE
+                    else:
+                        # Non-2xx codes that don't signal "not found" (e.g. 403 bot
+                        # blocking, 429 rate limiting, 5xx server errors) are ambiguous
+                        query_status = QueryStatus.UNKNOWN
+                        if error_context is None:
+                            error_context = f"Status {r.status_code}"
 
                 if "response_url" in error_type and query_status is not QueryStatus.AVAILABLE:
                     # For this detection method, we have turned off the redirect.
