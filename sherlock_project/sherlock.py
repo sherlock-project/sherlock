@@ -903,7 +903,7 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
+                if results[site]["status"].query_time is None:
                     response_time_s.append("")
                 else:
                     response_time_s.append(results[site]["status"].query_time)
