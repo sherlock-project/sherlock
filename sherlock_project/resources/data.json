@@ -610,10 +610,9 @@
     "username_claimed": "blue"
   },
   "Cracked Forum": {
-    "errorMsg": "The member you specified is either invalid or doesn't exist",
-    "errorType": "message",
-    "url": "https://cracked.sh/{}",
-    "urlMain": "https://cracked.sh/",
+    "errorType": "status_code",
+    "url": "https://cracked.ax/{}",
+    "urlMain": "https://cracked.ax/",
     "username_claimed": "Blue"
   },
   "Credly": {
