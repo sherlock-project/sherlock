@@ -1079,6 +1079,13 @@
     "urlMain": "http://en.gravatar.com/",
     "username_claimed": "blue"
   },
+  "guns.lol": {
+    "errorMsg": "Username not found",
+    "errorType": "message",
+    "url": "https://guns.lol",
+    "urlMain": "https://guns.lol/{}",
+    "username_claimed": "example"
+  },
   "Gumroad": {
     "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
