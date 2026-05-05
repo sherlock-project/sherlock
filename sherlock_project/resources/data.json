@@ -2267,6 +2267,12 @@
     "urlMain": "https://www.snapchat.com",
     "username_claimed": "teamsnapchat"
   },
+  "SoloTo": {
+  "errorType": "status_code",
+  "url": "https://solo.to/{}",
+  "urlMain": "https://solo.to/",
+  "username_claimed": "example"
+  },
   "SOOP": {
     "errorType": "status_code",
     "url": "https://www.sooplive.co.kr/station/{}",
