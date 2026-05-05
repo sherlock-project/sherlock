@@ -113,3 +113,7 @@ Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 [ext_pypi]: https://pypi.org/project/sherlock-project/
 [ext_brew]: https://formulae.brew.sh/formula/sherlock
+
+## Development setup note
+
+This project was set up and tested locally by Berre for the SWE Spring 2026 project.
