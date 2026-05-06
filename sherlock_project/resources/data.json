@@ -724,7 +724,10 @@
     "url": "https://discord.com",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-    "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],
+    "errorMsg": [
+      "{\"taken\":false}",
+      "The resource is being rate limited"
+    ],
     "request_method": "POST",
     "request_payload": {
       "username": "{}"
@@ -1122,7 +1125,10 @@
   },
   "HackerNews": {
     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-    "errorMsg": ["No such user.", "Sorry."],
+    "errorMsg": [
+      "No such user.",
+      "Sorry."
+    ],
     "errorType": "message",
     "url": "https://news.ycombinator.com/user?id={}",
     "urlMain": "https://news.ycombinator.com/",
@@ -1280,10 +1286,16 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorType": "status_code",
-    "url": "https://instagram.com/{}",
-    "urlMain": "https://instagram.com/",
-    "urlProbe": "https://imginn.com/{}",
+    "errorMsg": [
+      "<title>Instagram</title>",
+      "Profile isn't available"
+    ],
+    "errorType": "message",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1"
+    },
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
     "username_claimed": "instagram"
   },
   "Instapaper": {
@@ -1479,7 +1491,7 @@
     "urlMain": "https://lichess.org",
     "username_claimed": "john"
   },
- "LinkedIn": {
+  "LinkedIn": {
     "errorType": "status_code",
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -2569,7 +2581,6 @@
     "urlMain": "https://www.twitch.tv",
     "username_claimed": "xqc"
   },
-
   "Trovo": {
     "errorMsg": "Uh Ohhh...",
     "errorType": "message",
@@ -2649,7 +2660,9 @@
     "username_claimed": "red"
   },
   "Venmo": {
-    "errorMsg": ["Venmo | Page Not Found"],
+    "errorMsg": [
+      "Venmo | Page Not Found"
+    ],
     "errorType": "message",
     "headers": {
       "Host": "account.venmo.com"
