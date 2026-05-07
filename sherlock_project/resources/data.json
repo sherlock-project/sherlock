@@ -3305,13 +3305,14 @@
     "errorCode": 404,
     "username_claimed": "blue"
   },
-  "Bento.me": {
+ "curseforge": {
+    "url": "https://www.curseforge.com/members/{}/projects",
+    "urlMain": "https://www.curseforge.com/",
     "errorType": "status_code",
-    "url": "https://bento.me/{}",
-    "urlMain": "https://bento.me/",
-    "username_claimed": "tito"
+    "errorCode": 404,
+    "username_claimed": "blue"
   },
- "Peerlist": {
+  "Peerlist": {
     "errorType": "status_code",
     "url": "https://peerlist.io/{}",
     "urlMain": "https://peerlist.io/",
