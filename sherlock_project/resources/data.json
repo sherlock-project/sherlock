@@ -3311,7 +3311,7 @@
     "urlMain": "https://bento.me/",
     "username_claimed": "tito"
   },
-  "Peerlist": {
+ "Peerlist": {
     "errorType": "status_code",
     "url": "https://peerlist.io/{}",
     "urlMain": "https://peerlist.io/",
