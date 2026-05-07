@@ -3298,7 +3298,7 @@
     "errorCode": 404,
     "username_claimed": "blue"
   },
-      "curseforge": {
+    "curseforge": {
     "url": "https://www.curseforge.com/members/{}/projects",
     "urlMain": "https://www.curseforge.com/",
     "errorType": "status_code",
