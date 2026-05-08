@@ -25,6 +25,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
+from urllib.parse import quote
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -150,6 +151,23 @@ def interpolate_string(input_object, username):
     return input_object
 
 
+def encode_username_for_url(username):
+    """Encode usernames before interpolating them into URLs."""
+    return quote(username, safe="@._-")
+
+
+def is_reddit_verification_page(response_text):
+    """Detect Reddit verification / challenge pages."""
+    return (
+        "Please wait for verification" in response_text
+        and (
+            'name="js_challenge"' in response_text
+            or 'name="solution"' in response_text
+            or 'name="jsc_orig_r"' in response_text
+        )
+    )
+
+
 def check_for_parameter(username):
     """checks if {?} exists in the username
     if exist it means that sherlock is looking for more multiple username"""
@@ -243,7 +261,8 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        encoded_username = encode_username_for_url(username)
+        url = interpolate_string(net_info["url"], encoded_username)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -285,7 +304,7 @@ def sherlock(
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = interpolate_string(url_probe, username)
+                url_probe = interpolate_string(url_probe, encoded_username)
 
             if request is None:
                 if net_info["errorType"] == "status_code":
@@ -395,6 +414,10 @@ def sherlock(
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
 
+        elif social_network == "Reddit" and is_reddit_verification_page(r.text):
+            query_status = QueryStatus.WAF
+            error_context = "Reddit verification page"
+
         else:
             if any(errtype not in ["message", "status_code", "response_url"] for errtype in error_type):
                 error_context = f"Unknown error type '{error_type}' for {social_network}"
@@ -465,10 +488,15 @@ def sherlock(
                 print(f"RESPONSE CODE : {r.status_code}")
             except Exception:
                 pass
-            try:
-                print(f"ERROR TEXT    : {net_info['errorMsg']}")
-            except KeyError:
-                pass
+            if error_context is not None:
+                print(f"CONTEXT       : {error_context}")
+            if query_status is QueryStatus.WAF:
+                print("DETECTED AS   : WAF / challenge page")
+            else:
+                try:
+                    print(f"EXPECTED TEXT : {net_info['errorMsg']}")
+                except KeyError:
+                    pass
             print(">>>>> BEGIN RESPONSE TEXT")
             try:
                 print(r.text)
