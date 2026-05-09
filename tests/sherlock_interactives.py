@@ -1,6 +1,7 @@
 import os
 import platform
 import re
+import shlex
 import subprocess
 
 class Interactives:
@@ -8,13 +9,13 @@ class Interactives:
         """Pass arguments to Sherlock as a normal user on the command line"""
         # Adapt for platform differences (Windows likes to be special)
         if platform.system() == "Windows":
-            command:str = f"py -m sherlock_project {args}"
+            command:list = ["py", "-m", "sherlock_project"] + shlex.split(args)
         else:
-            command:str = f"sherlock {args}"
+            command:list = ["sherlock"] + shlex.split(args)
 
         proc_out:str = ""
         try:
-            proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+            proc_out = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
             return proc_out.decode()
         except subprocess.CalledProcessError as e:
             raise InteractivesSubprocessError(e.output.decode())
