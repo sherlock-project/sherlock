@@ -389,13 +389,28 @@ def sherlock(
             r'.loading-spinner{visibility:hidden}body.no-js .challenge-running{display:none}body.dark{background-color:#222;color:#d9d9d9}body.dark a{color:#fff}body.dark a:hover{color:#ee730a;text-decoration:underline}body.dark .lds-ring div{border-color:#999 transparent transparent}body.dark .font-red{color:#b20f03}body.dark', # 2024-05-13 Cloudflare
             r'<span id="challenge-error-text">', # 2024-11-11 Cloudflare error page
             r'AwsWafIntegration.forceRefreshToken', # 2024-11-11 Cloudfront (AWS)
-            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:' # 2024-04-09 PerimeterX / Human Security
+            r'{return l.onPageView}}),Object.defineProperty(r,"perimeterxIdentifiers",{enumerable:', # 2024-04-09 PerimeterX / Human Security
+            r'window.POW_CHALLENGE_DATA', # 2026-05-14 Proof of Work Challenge
+            r'class SecurityVerificationApp', # 2026-05-14 Apple Security Verification
+            r'asc_btm' # 2026-05-14 Apple Security Verification
         ]
 
         if error_text is not None:
             error_context = error_text
 
         elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+            query_status = QueryStatus.WAF
+
+        elif r.status_code == 202 and (r.headers.get('x-amzn-waf-action') or r.headers.get('server') in ['CloudFront', 'Varnish']):
+            # AWS WAF or Varnish Challenge (Common on 7Cups, Airliners, etc.)
+            query_status = QueryStatus.WAF
+
+        elif r.status_code == 403 and (r.headers.get('server') == 'CloudFront' or 'Cloudflare' in r.headers.get('server', '')):
+            # WAF block
+            query_status = QueryStatus.WAF
+
+        elif 'http_x_shield_bot_status=fail' in r.headers.get('X-Debug', '') or 'redirect_to_verify_human' in r.headers.get('X-Debug', ''):
+            # Apple Shield bot protection
             query_status = QueryStatus.WAF
 
         else:
