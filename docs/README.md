@@ -51,7 +51,9 @@ To search for more than one user:
 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in the `results/` directory (e.g. `results/user123.txt`). If running
+via the provided Docker Compose setup, these results are automatically mapped and collected into
+the local `results/` folder.
 
 ```console
 $ sherlock --help
