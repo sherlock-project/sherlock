@@ -92,6 +92,71 @@ options:
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
 ```
 
+## Docker & SonarQube Automation
+
+A `Makefile` and `docker-compose.yml` are provided to simplify development and static code
+analysis. The setup uses a multi-container architecture where the scanner communicates with the
+SonarQube server over an internal Docker network.
+
+### Static Code Analysis Setup
+
+1.  **Start the SonarQube Server:**
+    Run the following command to pull and start the SonarQube Community Edition:
+    ```bash
+    make sonar-up
+    ```
+    *   **Dashboard:** [http://localhost:9000](http://localhost:9000)
+    *   **Default Credentials:** `admin` / `admin` (you will be prompted to change the password on first login).
+
+2.  **Generate an Analysis Token:**
+    *   Log into the SonarQube dashboard.
+    *   If it's your first time, select **"Create a local project"**.
+    *   Set the **Project Key** and **Display Name** to `sherlock`.
+    *   Select **"Use the global setting"** for the main branch.
+    *   When prompted to "Analyze your project", choose **"Locally"**.
+    *   Generate a **Project Analysis Token**. Give it a name (e.g., `sherlock-token`) and click **Generate**.
+    *   **Copy the token immediately**; you won't be able to see it again.
+
+3.  **Configure your Environment:**
+    Create a `.env` file in the project root to store your token securely:
+    ```bash
+    cp .env.example .env
+    ```
+    Open `.env` and update the `SONAR_TOKEN` variable:
+    ```env
+    SONAR_TOKEN=sqp_your_newly_generated_token_here
+    ```
+
+4.  **Run the Scan:**
+    Once configured, you can trigger the analysis at any time:
+    ```bash
+    make sonar-scan
+    ```
+    The results will be available in the SonarQube dashboard.
+
+### Docker Compose Architecture
+
+The project's `docker-compose.yml` defines three main components:
+*   **`sherlock`**: The application container for running the tool itself.
+*   **`sonarqube`**: The server that hosts the dashboard and stores analysis reports. It uses
+    persistent volumes (`sonarqube_data`, `sonarqube_extensions`, `sonarqube_logs`) to ensure your
+    data survives container restarts.
+*   **`sonar-scanner`**: A transient container that runs the `sonar-scanner-cli`, performs the
+    analysis on the source code, and pushes the results to the `sonarqube` server via the internal
+    network.
+
+### Makefile Commands
+
+| Command | Description |
+| - | - |
+| `make build` | Builds the Sherlock Docker image from local source. |
+| `make sonar-up` | Starts SonarQube with a 5-minute graceful shutdown period to prevent data corruption. |
+| `make sonar-down` | Stops the SonarQube container. |
+| `make sonar-scan` | Runs the Sonar Scanner CLI via Docker. Supports `.env` or `token=...` override. |
+| `make run user=NAME` | Runs the local Sherlock build for a specific username. |
+| `make clean` | Wipes all containers and persistent SonarQube volumes. |
+| `make nuke` | Stop all services, remove volumes, networks and images. |
+
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
