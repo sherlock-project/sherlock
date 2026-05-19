@@ -20,7 +20,7 @@ maintainers = [
     "Sondre Karlsen Dyrnes <sondre@villdyr.no>"
 ]
 readme = "docs/pyproject/README.md"
-packages = [ { include = "sherlock_project"} ]
+packages = [ { include = "sherlock_project"}, { include = "beyond_naked_eye"} ]
 keywords = [ "osint", "reconnaissance", "information gathering" ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -53,6 +53,13 @@ stem = "^1.8.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
 tomli = "^2.2.1"
+rich = "^13.9.4"
+aiohttp = "^3.12.2"
+redis = "^6.4.0"
+textual = "^0.82.0"
+uvicorn = "^0.35.0"
+sqlalchemy = "^2.0.43"
+fastapi = "^0.116.1"
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
@@ -66,3 +73,4 @@ defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
+beyond-the-naked-eye = 'beyond_naked_eye.cli:main'
