@@ -1,0 +1,138 @@
+name: Manual Sherlock Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Username(s) to search for. Separate multiple usernames with spaces."
+        required: true
+        type: string
+      sites:
+        description: "Optional: limit to specific sites (space-separated, e.g. 'GitHub Twitter')."
+        required: false
+        type: string
+        default: ""
+      timeout:
+        description: "Per-request timeout in seconds."
+        required: false
+        type: string
+        default: "60"
+      nsfw:
+        description: "Include NSFW sites in the search."
+        required: false
+        type: boolean
+        default: false
+      print_all:
+        description: "Include sites where the username was NOT found in output."
+        required: false
+        type: boolean
+        default: false
+      extra_args:
+        description: "Optional: additional raw CLI arguments passed to sherlock."
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  run-sherlock:
+    name: Run Sherlock
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Sherlock from this checkout
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+
+      - name: Show Sherlock version
+        run: sherlock --version
+
+      - name: Prepare results directory
+        id: prep
+        run: |
+          mkdir -p results
+          # Sanitize a short tag for artifact naming (alphanumerics, dashes, underscores only)
+          RAW_TAG="${{ github.event.inputs.username }}"
+          SAFE_TAG=$(printf '%s' "$RAW_TAG" | tr ' ' '_' | tr -cd '[:alnum:]_-' | cut -c1-40)
+          if [ -z "$SAFE_TAG" ]; then SAFE_TAG="run"; fi
+          echo "safe_tag=$SAFE_TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Build site arguments
+        id: sites
+        run: |
+          SITE_ARGS=""
+          if [ -n "${{ github.event.inputs.sites }}" ]; then
+            for s in ${{ github.event.inputs.sites }}; do
+              SITE_ARGS="$SITE_ARGS --site $s"
+            done
+          fi
+          echo "site_args=$SITE_ARGS" >> "$GITHUB_OUTPUT"
+
+      - name: Build flag arguments
+        id: flags
+        run: |
+          FLAGS=""
+          if [ "${{ github.event.inputs.nsfw }}" = "true" ]; then
+            FLAGS="$FLAGS --nsfw"
+          fi
+          if [ "${{ github.event.inputs.print_all }}" = "true" ]; then
+            FLAGS="$FLAGS --print-all"
+          fi
+          echo "flag_args=$FLAGS" >> "$GITHUB_OUTPUT"
+
+      - name: Run Sherlock
+        working-directory: results
+        run: |
+          set -o pipefail
+          sherlock \
+            --folderoutput . \
+            --txt \
+            --csv \
+            --xlsx \
+            --timeout "${{ github.event.inputs.timeout }}" \
+            --no-color \
+            ${{ steps.sites.outputs.site_args }} \
+            ${{ steps.flags.outputs.flag_args }} \
+            ${{ github.event.inputs.extra_args }} \
+            ${{ github.event.inputs.username }} \
+            2>&1 | tee summary.txt
+
+      - name: Convert CSV results to JSON
+        if: always()
+        run: |
+          python - <<'PY'
+          import csv, json, glob, os
+          for csv_path in glob.glob("results/*.csv"):
+              rows = []
+              with open(csv_path, newline="", encoding="utf-8") as f:
+                  for row in csv.DictReader(f):
+                      rows.append(row)
+              json_path = os.path.splitext(csv_path)[0] + ".json"
+              with open(json_path, "w", encoding="utf-8") as f:
+                  json.dump(rows, f, indent=2)
+              print(f"Wrote {json_path} ({len(rows)} rows)")
+          PY
+
+      - name: List generated files
+        if: always()
+        run: ls -la results || true
+
+      - name: Upload Sherlock results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sherlock-results-${{ steps.prep.outputs.safe_tag }}-${{ github.run_id }}
+          path: results/
+          if-no-files-found: warn
+          retention-days: 14
