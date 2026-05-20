@@ -1,0 +1,109 @@
+# Sherlock (RE3CON fork)
+
+OSINT username enumeration across 400+ social networks. This repository is a fork
+of the upstream [Sherlock Project](https://github.com/sherlock-project/sherlock)
+maintained for operational use and continuous improvements to the source manifest.
+
+The fork tracks upstream and adds:
+
+- A GitHub Actions workflow (**Manual Sherlock Run**) for executing username
+  enumeration directly from the repository UI, with multi-format result artifacts.
+- Additional username sources contributed on top of upstream: **GitConnected**,
+  **Steemit**, **Stocktwits**, and **mastodon.online**.
+- Workflow and packaging fixes (pipx-based install, removal of unsupported CLI
+  flags from the manual run).
+
+For end-user CLI documentation, refer to upstream. This README focuses on what is
+distinct about this fork.
+
+## Installation
+
+The official, supported installation method is via `pipx` as documented at
+<https://sherlockproject.xyz/installation>:
+
+```bash
+pipx install sherlock-project
+sherlock --version
+```
+
+`pipx` keeps Sherlock and its dependencies isolated from your system Python.
+`pip`, `uv`, and the upstream Docker image are also supported — see the
+[upstream installation guide](https://sherlockproject.xyz/installation) for
+alternatives and platform notes.
+
+## Running searches via the GitHub Action
+
+This fork ships a `workflow_dispatch` job, **Manual Sherlock Run**
+(`.github/workflows/manual-run.yml`), that runs Sherlock on GitHub-hosted
+infrastructure and uploads results as a build artifact. No local installation
+is needed.
+
+### Triggering a run
+
+1. Open the **Actions** tab of this repository.
+2. Select **Manual Sherlock Run** from the workflow list.
+3. Click **Run workflow** and fill in the inputs (see below).
+4. When the run finishes, download the `sherlock-results-*` artifact from the
+   run summary.
+
+### Inputs
+
+| Input        | Required | Default | Description                                                                 |
+|--------------|----------|---------|-----------------------------------------------------------------------------|
+| `username`   | yes      | —       | One or more usernames to search for. Separate multiple with spaces.         |
+| `sites`      | no       | (all)   | Space-separated site names to restrict the search to (e.g. `GitHub Twitter`). |
+| `timeout`    | no       | `60`    | Per-request timeout in seconds.                                             |
+| `nsfw`       | no       | `false` | Include NSFW sites in the search.                                           |
+| `print_all`  | no       | `false` | Include sites where the username was **not** found in the output.           |
+| `extra_args` | no       | `""`    | Additional raw CLI arguments forwarded to `sherlock`.                       |
+
+### Output artifacts
+
+Each run produces a single artifact, `sherlock-results-<tag>-<run_id>`, retained
+for 14 days. It contains:
+
+- `summary.txt` — captured stdout/stderr of the Sherlock run (the plain-text
+  hit list and progress output).
+- `<username>.csv` — Sherlock's native CSV report.
+- `<username>.xlsx` — Sherlock's native Excel report.
+- `<username>.json` — JSON conversion of the CSV (one object per row), produced
+  in-workflow for downstream tooling.
+
+## Added sources in this fork
+
+On top of upstream's manifest, this fork adds detectors for:
+
+- **GitConnected** — developer community profiles.
+- **Steemit** — Steem-blockchain blogging platform profiles.
+- **Stocktwits** — retail-investor social network profiles.
+- **mastodon.online** — the flagship mastodon.online Mastodon instance.
+
+All four use HTTP `status_code` detection (200 = present, 404 = absent),
+require no API keys, and were validated against the upstream
+`tests/test_manual.py::test_validate_targets` false-positive and
+false-negative checks.
+
+**Not supported:** Facebook was intentionally skipped during source review
+because the available signatures produced unreliable false positives. Do not
+expect Facebook coverage from this fork.
+
+## Safety and ethics
+
+Sherlock is an OSINT tool. The results it produces are username matches against
+public profile endpoints — a hit indicates that a username is registered on a
+site, not that any particular person owns that account. Use responsibly:
+
+- Only enumerate identifiers you are authorized to investigate.
+- Comply with each target platform's Terms of Service and with applicable laws
+  and privacy regulations in your jurisdiction.
+- Do not use this tool to harass, stalk, dox, or otherwise harm individuals.
+- Treat results as leads, not conclusions — username collisions are common and
+  false positives do occur.
+
+## Links
+
+- Upstream project: <https://github.com/sherlock-project/sherlock>
+- Upstream site: <https://sherlockproject.xyz/>
+- Official installation guide: <https://sherlockproject.xyz/installation>
+- Site list: <https://sherlockproject.xyz/sites>
+- License: see [`LICENSE`](LICENSE) (MIT, inherited from upstream).
