@@ -1011,6 +1011,12 @@
     "urlMain": "https://gitbook.com/",
     "username_claimed": "gitbook"
   },
+  "GitConnected": {
+    "errorType": "status_code",
+    "url": "https://gitconnected.com/{}",
+    "urlMain": "https://gitconnected.com/",
+    "username_claimed": "treyhuffine"
+  },
   "GitHub": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
@@ -2385,6 +2391,18 @@
     "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue"
   },
+  "Steemit": {
+    "errorType": "status_code",
+    "url": "https://steemit.com/@{}",
+    "urlMain": "https://steemit.com/",
+    "username_claimed": "ned"
+  },
+  "Stocktwits": {
+    "errorType": "status_code",
+    "url": "https://stocktwits.com/{}",
+    "urlMain": "https://stocktwits.com/",
+    "username_claimed": "StockTwits"
+  },
   "Strava": {
     "errorType": "status_code",
     "regexCheck": "^[^.]*?$",
@@ -3055,6 +3073,12 @@
     "url": "https://mastodon.cloud/@{}",
     "urlMain": "https://mastodon.cloud/",
     "username_claimed": "TheAdmin"
+  },
+  "mastodon.online": {
+    "errorType": "status_code",
+    "url": "https://mastodon.online/@{}",
+    "urlMain": "https://mastodon.online/",
+    "username_claimed": "Gargron"
   },
   "mastodon.social": {
     "errorType": "status_code",
