@@ -62,10 +62,19 @@ save <name>
 load <name>
 export <name> <json|txt|csv|html>
 graph <name>
+analyze url <url>
+analyze file <path>
+analyze image <path>
+analyze executable <path>
+analyze source <path>
+analyze archive <path>
+analyze export <output.json>
 clear
 help
 quit
 ```
+
+Safety: analysis intake is explicit-user-input only, static/local by default, and does not execute uploaded binaries.
 
 ### Diagnostics commands
 ```text
@@ -116,6 +125,8 @@ pyinstaller --onefile --name "BeyondTheNakedEye" -m beyond_naked_eye
 - `/exports` report generation
 - `/install` installer scripts (Inno Setup/NSIS-ready)
 - `/ui` terminal interface components
+- `/themes/retro_crt` default monochrome CRT theme engine
+- `/legacy_ui` archived neon cyberpunk interface (disabled by default)
 - `/core` async task manager and caching layer
 
 ---
