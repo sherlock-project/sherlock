@@ -25,32 +25,12 @@ jobs:
           pip install .
           pip install pyinstaller
 
-      - name: Build app EXE
+      - name: Build one-file EXE
         run: |
-          pyinstaller --onefile --name BeyondTheNakedEye -m beyond_naked_eye
-
-      - name: Build installer EXE with Inno Setup
-        shell: pwsh
-        run: |
-          choco install innosetup --no-progress -y
-          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "beyond_naked_eye\install\installer.iss"
-
-      - name: Optional code-sign installer EXE (if cert secrets are set)
-        if: ${{ secrets.WINDOWS_CODESIGN_CERT_BASE64 != '' && secrets.WINDOWS_CODESIGN_CERT_PASSWORD != '' }}
-        shell: pwsh
-        run: |
-          [IO.File]::WriteAllBytes("codesign.pfx", [Convert]::FromBase64String("${{ secrets.WINDOWS_CODESIGN_CERT_BASE64 }}"))
-          & signtool sign /f codesign.pfx /p "${{ secrets.WINDOWS_CODESIGN_CERT_PASSWORD }}" /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 Output/BeyondTheNakedEye_Setup.exe
-
-      - name: Generate SHA256 checksum
-        shell: pwsh
-        run: |
-          (Get-FileHash Output/BeyondTheNakedEye_Setup.exe -Algorithm SHA256).Hash | Out-File Output/BeyondTheNakedEye_Setup.exe.sha256 -Encoding ascii
+          pyinstaller --onefile --name sherlock-installer beyond_naked_eye/__main__.py
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: beyond-the-naked-eye-installer
-          path: |
-            Output/BeyondTheNakedEye_Setup.exe
-            Output/BeyondTheNakedEye_Setup.exe.sha256
+          name: sherlock-installer-exe
+          path: dist/sherlock-installer.exe
