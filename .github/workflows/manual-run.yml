@@ -100,7 +100,6 @@ jobs:
           set -o pipefail
           sherlock \
             --folderoutput . \
-            --txt \
             --csv \
             --xlsx \
             --timeout "${{ github.event.inputs.timeout }}" \
