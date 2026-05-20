@@ -1,17 +1,19 @@
-# Windows installer artifact
+# Build BeyondTheNakedEye Windows Installer
 
-This repository now includes GitHub Actions workflows that build a standalone Windows `.exe` installer-style launcher and publish it to Releases.
+## Prerequisites
+- Windows 10/11 build host
+- Python 3.11+
+- `pip install pyinstaller`
+- Inno Setup 6 (`iscc` in PATH)
 
-## How to get the EXE
+## Build
+```powershell
+# from repository root
+pyinstaller --noconfirm --clean --onedir --name "BeyondTheNakedEye" -m beyond_naked_eye
+iscc beyond_naked_eye\install\installer.iss
+```
 
-1. Go to **Actions** in GitHub.
-2. Run **Build Windows Installer** manually (or push a `v*` tag).
-3. Open the workflow run and download the artifact named **sherlock-installer-exe**.
-4. Extract the ZIP and run `sherlock-installer.exe`.
-
-> Note: GitHub's default "Download ZIP" for source code does **not** include compiled binaries. The `.exe` comes from the workflow artifact.
-
-
-## Download from Releases
-
-When a GitHub Release is published, the **Release Windows Installer** workflow automatically builds and attaches `sherlock-installer.exe` to that release.
+## Outputs
+- `dist\BeyondTheNakedEye\BeyondTheNakedEye.exe`
+- `beyond_naked_eye\install\Output\BeyondTheNakedEye_Setup.exe` (path depends on Inno defaults)
+- Installed uninstaller: `C:\Program Files\Beyond The Naked Eye\unins000.exe` (user-facing BeyondTheNakedEye_Uninstaller.exe equivalent)
