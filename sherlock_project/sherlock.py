@@ -136,7 +136,7 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)
-    except (UnicodeEncodeError, UnicodeDecodeError) as err:
+    except UnicodeError as err:
         error_context = "Encoding Error"
         exception_text = str(err)
 
@@ -697,16 +697,6 @@ def main():
         action="store_true",
         default=False,
         help="Include checking of NSFW sites from default list.",
-    )
-
-    # TODO deprecated in favor of --txt, retained for workflow compatibility, to be removed
-    # in future release
-    parser.add_argument(
-        "--no-txt",
-        action="store_true",
-        dest="no_txt",
-        default=False,
-        help="Disable creation of a txt file - WILL BE DEPRECATED",
     )
 
     parser.add_argument(
