@@ -258,3 +258,27 @@ class SitesInformation:
         Length of sites object.
         """
         return len(self.sites)
+# Site manager helper validation utilities
+
+
+def get_site_manager_required_fields():
+    """Return required fields for adding a site."""
+    return [
+        "name",
+        "url",
+        "user_url",
+        "error_type",
+        "error_msg",
+    ]
+
+
+def validate_site_manager_entry(entry):
+    """Validate site manager form data."""
+    required_fields = get_site_manager_required_fields()
+    missing_fields = []
+
+    for field in required_fields:
+        if not entry.get(field):
+            missing_fields.append(field)
+
+    return len(missing_fields) == 0, missing_fields

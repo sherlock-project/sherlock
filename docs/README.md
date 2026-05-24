@@ -2,10 +2,10 @@
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="images/sherlock-logo.png" alt="sherlock"/></a>
   <br>
-  <span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
+  <span>Hunt down  social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span>
   <br>
 </p>
-
+ 
 <p align="center">
   <a href="https://sherlockproject.xyz/installation">Installation</a>
   &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
@@ -20,6 +20,10 @@
 
 
 ## Installation
+
+<p align="center">
+  <a href="https://www.osint.industries/" target="_blank"><img src="images/banner.jpg" alt="OSINT Industries"/></a>
+</p>
 
 > [!WARNING]  
 > Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
@@ -113,3 +117,8 @@ Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 [ext_pypi]: https://pypi.org/project/sherlock-project/
 [ext_brew]: https://formulae.brew.sh/formula/sherlock
+<<<<<<< Updated upstream
+
+=======
+...
+>>>>>>> Stashed changes

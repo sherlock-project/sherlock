@@ -6,6 +6,7 @@ results of queries.
 from sherlock_project.result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
+from sherlock_project.storage import LocalStorage
 
 # Global variable to count the number of results.
 globvar = 0
@@ -251,7 +252,9 @@ class QueryNotifyPrint(QueryNotify):
 
     def finish(self, message="The processing has been finished."):
         """Notify Finish.
-        Will print the last line to the standard output.
+        Will print the last line to the standard output,
+        along with recent search history from local storage.
+
         Keyword Arguments:
         self                   -- This object.
         message                -- The 2 last phrases.
@@ -267,6 +270,24 @@ class QueryNotifyPrint(QueryNotify):
               Fore.GREEN + "results" + Style.RESET_ALL
               )
 
+        # Display recent search history if available.
+        try:
+            local_storage = LocalStorage()
+            recent_history = local_storage.load_search_history(limit=5)
+            if recent_history:
+                print()
+                print(Style.BRIGHT + Fore.CYAN + "--- Recent History (last 5) ---" + Style.RESET_ALL)
+                print(f"{'Timestamp':<25} {'Query':<20} {'Results':<8}")
+                print("-" * 53)
+                for entry in recent_history:
+                    timestamp = entry.get("timestamp", "unknown")[:19]
+                    query = entry.get("query", "unknown")
+                    result_count = entry.get("resultCount", 0)
+                    print(f"{timestamp:<25} {query:<20} {result_count:<8}")
+        except Exception:
+            # Gracefully handle any storage errors when displaying history.
+            pass
+
     def __str__(self):
         """Convert Object To String.
 
@@ -277,3 +298,27 @@ class QueryNotifyPrint(QueryNotify):
         Nicely formatted string to get information about this object.
         """
         return str(self.result)
+    
+
+class QueryNotifyGUI:
+    """
+    Instead of printing to the terminal, a notification class that sends data to the desktop interface via PyQt signals (QThread).
+    """
+    def __init__(self, result_signal):
+        # We receive the communication cable (signal) from the interface.
+        self.result_signal = result_signal
+
+    def start(self, message):
+        pass 
+
+    def update(self, result):
+        # This function is automatically triggered when Sherlock scans a site.
+        # result is an object of type QueryResult() containing results for this query.
+        
+        status_str = "Found" if result.status.name == "CLAIMED" else "Not Found"
+        
+        # Instead of printing to the terminal, we emit a signal to the interface's table.
+        self.result_signal.emit(result.site_name, status_str, result.site_url_user)
+
+    def finish(self, message):
+        pass

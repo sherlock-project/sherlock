@@ -8,6 +8,7 @@ networks.
 """
 
 import sys
+import asyncio
 
 try:
     from sherlock_project.__init__ import import_error_test_var # noqa: F401
@@ -41,7 +42,8 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
-from colorama import init
+from sherlock_project.storage import LocalStorage
+from colorama import init, Fore, Style
 from argparse import ArgumentTypeError
 
 
@@ -694,6 +696,13 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--history",
+        action="store_true",
+        default=False,
+        help="Display previous search history from local storage.",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -800,6 +809,26 @@ def main():
         if not site_data:
             sys.exit(1)
 
+    # Initialize local storage for search history persistence.
+    local_storage = LocalStorage()
+
+    # Handle --history flag: display previous searches and exit.
+    if args.history:
+        history = local_storage.load_search_history(limit=20)
+        if not history:
+            print("No previous search history found.")
+            sys.exit(0)
+
+        print(Style.BRIGHT + Fore.CYAN + "=== Search History ===" + Style.RESET_ALL)
+        print(f"{'Timestamp':<25} {'Query':<20} {'Results':<8}")
+        print("-" * 53)
+        for entry in history:
+            timestamp = entry.get("timestamp", "unknown")[:19]
+            query = entry.get("query", "unknown")
+            result_count = entry.get("resultCount", 0)
+            print(f"{timestamp:<25} {query:<20} {result_count:<8}")
+        sys.exit(0)
+
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
         result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
@@ -822,6 +851,26 @@ def main():
             proxy=args.proxy,
             timeout=args.timeout,
         )
+
+        # Save successful search results to local storage (skips empty searches).
+        query_results = [
+            site_result.get("status")
+            for site_result in results.values()
+            if isinstance(site_result.get("status"), QueryResult)
+        ]
+        saved_path = asyncio.run(
+            local_storage.save_scan(
+                username=username,
+                results=query_results,
+                total_sites=len(results),
+            )
+        )
+        if saved_path:
+            print(
+                Style.BRIGHT + Fore.CYAN +
+                "[*] Search results saved to local storage." +
+                Style.RESET_ALL
+            )
 
         if args.output:
             result_file = args.output
@@ -929,7 +978,13 @@ def main():
 
         print()
     query_notify.finish()
+    
+def build_username_variation_preview(username: str):
+    """Generate preview username variations."""
+    from sherlock_project.username_generator import UsernameGenerator
 
+    generator = UsernameGenerator(username)
+    return generator.generate_all(max_results=10)
 
 if __name__ == "__main__":
     main()
