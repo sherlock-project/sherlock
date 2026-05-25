@@ -21,6 +21,10 @@
 
 ## Installation
 
+<p align="center">
+  <a href="https://www.osint.industries/" target="_blank"><img src="images/banner.jpg" alt="OSINT Industries"/></a>
+</p>
+
 > [!WARNING]  
 > Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
 > Users of these systems should defer to [`uv`](https://docs.astral.sh/uv/)/`pipx`/`pip` or Docker.
