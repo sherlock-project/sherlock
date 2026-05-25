@@ -1,8 +1,20 @@
 import sys
+import os
+import json
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from sherlock_project.notify import QueryNotifyGUI
+from sherlock_project.sherlock import sherlock
+from sherlock_project.sites import SitesInformation
+
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLineEdit, QPushButton, QTableWidget, 
                              QTableWidgetItem, QLabel, QHeaderView, QAbstractItemView)
-from PyQt5.QtCore import Qt
+
+
+from PyQt5.QtCore import Qt, QThread, pyqtSignal
+
 
 class SherlockGUI(QMainWindow):
     def __init__(self):
@@ -38,7 +50,7 @@ class SherlockGUI(QMainWindow):
         self.search_button = QPushButton("Search")
         self.search_button.setCursor(Qt.PointingHandCursor)
         # We are attaching the function that will run when the button is clicked (Signal-Slot logic).
-        self.search_button.clicked.connect(self.start_search_mock)
+        self.search_button.clicked.connect(self.start_search)
 
         search_layout.addWidget(self.username_input)
         search_layout.addWidget(self.search_button)
@@ -160,35 +172,90 @@ class SherlockGUI(QMainWindow):
 
 
 
-
-    def start_search_mock(self):
-        """
-        This function is for testing purposes only.
-        Later, we will connect it to the original sherlock.py.
-        """
-        username = self.username_input.text()
-        
+    def start_search(self):
+        username = self.username_input.text().strip()
         if not username:
             return
 
-        
-        # Clean the table and add 2 rows of fake data for testing.
         self.result_table.setRowCount(0)
-        
-        mock_results = [
-            {"site": "GitHub", "status": "Found", "url": f"https://github.com/{username}"},
-            {"site": "Instagram", "status": "Not Found", "url": "-"}
-        ]
+        self.search_button.setEnabled(False)
+        self.search_button.setText("Searching...")
 
-        for row_idx, result in enumerate(mock_results):
-            self.result_table.insertRow(row_idx)
+        self.worker = SherlockWorker(username)
+        self.worker.result_signal.connect(self.add_result_to_table)
+        self.worker.finished_signal.connect(self.search_finished)
+        self.worker.start()
+
+    def add_result_to_table(self, site, status, url):
+        status_text = "✅ Found" if status == "Found" else "❌ Not Found"
+        
+        insert_row = self.result_table.rowCount() 
+        
+        for i in range(self.result_table.rowCount()):
+            current_site = self.result_table.item(i, 0).text()
+            current_status = self.result_table.item(i, 1).text()
             
-            # Durum kısmına daha estetik görünmesi için emoji ekledik
-            status_text = "✅ Found" if result["status"] == "Found" else "❌ Not Found"
+            if status_text == "✅ Found":
+                # Rule 1: The newly entered "Found" data should be placed above the first "Not Found" row in the table.
+                if current_status == "❌ Not Found":
+                    insert_row = i
+                    break
+                # Rule 2: Claimed sites should be sorted alphabetically (A-Z) within the found section
+                elif current_site.lower() > site.lower():
+                    insert_row = i
+                    break
+            else:
+                # Rule 3: Newly entered "Not Found" entries should skip over existing "Found" rows
+
+                if current_status == "✅ Found":
+                    continue
+                # Rule 4: "Not Found" sites should be sorted alphabetically (A-Z) within their own section
+                if current_site.lower() > site.lower():
+                    insert_row = i
+                    break
+        
+        self.result_table.insertRow(insert_row)
+        self.result_table.setItem(insert_row, 0, QTableWidgetItem(site))
+        self.result_table.setItem(insert_row, 1, QTableWidgetItem(status_text))
+        self.result_table.setItem(insert_row, 2, QTableWidgetItem(url))
+        self.result_table.scrollToBottom()
+
+    def search_finished(self):
+        self.search_button.setEnabled(True)
+        self.search_button.setText("Search")
+        print("[*] Search completed.")
+
+class SherlockWorker(QThread):
+    result_signal = pyqtSignal(str, str, str)
+    finished_signal = pyqtSignal()
+
+    def __init__(self, username):
+        super().__init__()
+        self.username = username
+
+    def run(self):
+        print(f"[*] Running background search for {self.username}...")
+        
+        gui_notifier = QueryNotifyGUI(self.result_signal)
+        
+        try:
+            with open("sherlock_project/resources/data.json", "r", encoding="utf-8") as f:
+                site_data = json.load(f)
             
-            self.result_table.setItem(row_idx, 0, QTableWidgetItem(result["site"]))
-            self.result_table.setItem(row_idx, 1, QTableWidgetItem(status_text))
-            self.result_table.setItem(row_idx, 2, QTableWidgetItem(result["url"]))
+            if "$schema" in site_data:
+                del site_data["$schema"]
+                
+        except Exception as e:
+            print(f"Site data could not be read: {e}")
+            self.finished_signal.emit()
+            return
+            
+        # We are triggering the main search engine.
+        sherlock(self.username, site_data, gui_notifier, timeout=60)
+        
+        self.finished_signal.emit()
+
+
 
 def run_gui():
     app = QApplication(sys.argv) 
