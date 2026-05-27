@@ -794,7 +794,7 @@
   },
   "Empretienda AR": {
     "__comment__": "Note that Error Connecting responses may be indicative of unclaimed handles",
-    "regexCheck": "^(?=.{2,24}$)[a-zA-Z]+(?:-[a-zA-Z]+)?$",
+    "regexCheck": "^[\\w@-]+?$",
     "errorType": "status_code",
     "url": "https://{}.empretienda.com.ar",
     "urlMain": "https://empretienda.com",
@@ -2431,7 +2431,7 @@
     "username_claimed": "charlidamelio"
   },
   "Tiendanube": {
-    "regexCheck": "^[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+    "regexCheck": "^[\\w@-]+?$",
     "url": "https://{}.mitiendanube.com/",
     "urlMain": "https://www.tiendanube.com/",
     "errorType": "status_code",
@@ -2495,7 +2495,7 @@
     "username_claimed": "user"
   },
   "tistory": {
-    "regexCheck": "^[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+    "regexCheck": "^[\\w@-]+?$",
     "errorType": "status_code",
     "url": "https://{}.tistory.com/",
     "urlMain": "https://www.tistory.com/",
@@ -3238,7 +3238,7 @@
     "username_claimed": "adam"
   },
   "tumblr": {
-    "regexCheck": "^[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+    "regexCheck": "^[\\w@-]+?$",
     "errorType": "status_code",
     "url": "https://{}.tumblr.com/",
     "urlMain": "https://www.tumblr.com/",
