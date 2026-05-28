@@ -33,6 +33,17 @@ def test_wildcard_username_expansion():
     assert sherlock.multiple_usernames('test{?}test') == ["test_test" , "test-test" , "test.test"]
 
 
+@pytest.mark.parametrize('invalid_timeout', [
+    'abc',
+    'not_a_number',
+    'foo123',
+])
+def test_timeout_check_invalid_value(invalid_timeout):
+    from argparse import ArgumentTypeError
+    with pytest.raises(ArgumentTypeError, match=r"Invalid timeout value"):
+        sherlock.timeout_check(invalid_timeout)
+
+
 @pytest.mark.parametrize('cliargs', [
     '',
     '--site urghrtuight --egiotr',
