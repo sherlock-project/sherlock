@@ -42,3 +42,27 @@ class TestInterpolateStringParticionamento:
     def test_dict_vazio(self):
         """CE3b – dict vazio: deve retornar dict vazio."""
         assert interpolate_string({}, "user") == {}
+
+   # --- CE4: input_object é list ---
+    def test_list_com_placeholder(self):
+        """CE4 – list com strings contendo "{}": substitui em todos os elementos."""
+        entrada = ["{}a", "b{}", "c"]
+        assert interpolate_string(entrada, "x") == ["xa", "bx", "c"]
+
+    def test_list_vazia(self):
+        """CE4b – list vazia: deve retornar list vazia."""
+        assert interpolate_string([], "user") == []
+
+    # --- CE5: input_object é de outro tipo ---
+    def test_none_retorna_none(self):
+        """CE5a – None: deve retornar None sem alteração."""
+        assert interpolate_string(None, "user") is None
+
+    def test_int_retorna_mesmo_valor(self):
+        """CE5b – int: deve retornar o mesmo valor sem alteração."""
+        assert interpolate_string(42, "user") == 42
+
+    def test_bool_retorna_mesmo_valor(self):
+        """CE5c – bool: deve retornar o mesmo valor sem alteração."""
+        assert interpolate_string(True, "user") is True
+
