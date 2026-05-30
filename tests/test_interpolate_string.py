@@ -42,7 +42,7 @@ class TestInterpolateStringParticionamento:
     def test_dict_vazio(self):
         """CE3b – dict vazio: deve retornar dict vazio."""
         assert interpolate_string({}, "user") == {}
-
+        
    # --- CE4: input_object é list ---
     def test_list_com_placeholder(self):
         """CE4 – list com strings contendo "{}": substitui em todos os elementos."""
@@ -66,3 +66,50 @@ class TestInterpolateStringParticionamento:
         """CE5c – bool: deve retornar o mesmo valor sem alteração."""
         assert interpolate_string(True, "user") is True
 
+
+# ---------------------------------------------------------------------------
+# Análise de Valor Limite
+# ---------------------------------------------------------------------------
+
+class TestInterpolateStringValorLimite:
+    """VL – valores nos limites dos domínios de entrada."""
+
+    # --- Limites do username ---
+    def test_username_vazio(self):
+        """VL1 – username = "": substitui "{}" por string vazia."""
+        assert interpolate_string("prefix{}suffix", "") == "prefixsuffix"
+
+    def test_username_um_caractere(self):
+        """VL2 – username com exatamente 1 caractere."""
+        assert interpolate_string("{}ok", "a") == "aok"
+
+    # --- Limites da string de entrada ---
+    def test_str_somente_placeholder(self):
+        """VL3 – input_object == "{}": resultado deve ser exatamente o username."""
+        assert interpolate_string("{}", "abc") == "abc"
+
+    def test_str_vazia(self):
+        """VL4 – input_object == "": resultado deve ser string vazia."""
+        assert interpolate_string("", "user") == ""
+
+    def test_multiplos_placeholders(self):
+        """VL5 – múltiplos "{}" na mesma string: todos devem ser substituídos."""
+        assert interpolate_string("{}-{}-{}", "x") == "x-x-x"
+
+    # --- Limites de estruturas compostas ---
+    def test_dict_um_par(self):
+        """VL6 – dict com exatamente 1 par chave-valor."""
+        assert interpolate_string({"k": "{}"}, "v") == {"k": "v"}
+
+    def test_list_um_elemento(self):
+        """VL7 – list com exatamente 1 elemento."""
+        assert interpolate_string(["{}"], "z") == ["z"]
+
+    def test_list_aninhada(self):
+        """VL8 – list com list aninhada: deve aplicar recursivamente."""
+        assert interpolate_string([["{}"], "{}"], "r") == [["r"], "r"]
+
+    def test_dict_aninhado(self):
+        """VL9 – dict com dict aninhado: deve aplicar recursivamente."""
+        entrada = {"outer": {"inner": "{}"}}
+        assert interpolate_string(entrada, "deep") == {"outer": {"inner": "deep"}}
