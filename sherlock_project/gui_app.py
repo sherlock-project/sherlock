@@ -10,7 +10,7 @@ from sherlock_project.sites import SitesInformation
 
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLineEdit, QPushButton, QTableWidget, 
-                             QTableWidgetItem, QLabel, QHeaderView, QAbstractItemView)
+                             QTableWidgetItem, QLabel, QHeaderView, QAbstractItemView, QProgressBar)
 
 
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
@@ -74,6 +74,13 @@ class SherlockGUI(QMainWindow):
         header.setSectionResizeMode(2, QHeaderView.Stretch)
         
         main_layout.addWidget(self.result_table)
+
+        # Progress Bar Settings
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setValue(0)
+        self.progress_bar.setTextVisible(True)
+        self.progress_bar.hide() 
+        main_layout.addWidget(self.progress_bar)
 
         # Assign main layout to central widget
         central_widget.setLayout(main_layout)
@@ -184,6 +191,8 @@ class SherlockGUI(QMainWindow):
         self.worker = SherlockWorker(username)
         self.worker.result_signal.connect(self.add_result_to_table)
         self.worker.finished_signal.connect(self.search_finished)
+        self.progress_bar.show() 
+        self.worker.progress_signal.connect(self.update_progress)
         self.worker.start()
 
     def add_result_to_table(self, site, status, url):
@@ -224,37 +233,43 @@ class SherlockGUI(QMainWindow):
         self.search_button.setEnabled(True)
         self.search_button.setText("Search")
         print("[*] Search completed.")
+    
+    def update_progress(self, current, total):
+        self.progress_bar.setMaximum(total)
+        self.progress_bar.setValue(current)
 
 class SherlockWorker(QThread):
     result_signal = pyqtSignal(str, str, str)
     finished_signal = pyqtSignal()
+    progress_signal = pyqtSignal(int, int) 
 
     def __init__(self, username):
         super().__init__()
         self.username = username
+        self.checked_count = 0
 
     def run(self):
-        print(f"[*] Running background search for {self.username}...")
-        
         gui_notifier = QueryNotifyGUI(self.result_signal)
         
         try:
             with open("sherlock_project/resources/data.json", "r", encoding="utf-8") as f:
                 site_data = json.load(f)
-            
             if "$schema" in site_data:
                 del site_data["$schema"]
-                
         except Exception as e:
-            print(f"Site data could not be read: {e}")
             self.finished_signal.emit()
             return
             
-        # We are triggering the main search engine.
-        sherlock(self.username, site_data, gui_notifier, timeout=60)
-        
-        self.finished_signal.emit()
+        total_sites = len(site_data)
 
+        # The Callback function that Sherlock.py will call at the end of each site visit.
+        def progress_callback():
+            self.checked_count += 1
+            self.progress_signal.emit(self.checked_count, total_sites)
+        
+        # We are sending the callback as a parameter.
+        sherlock(self.username, site_data, gui_notifier, timeout=60, progress_callback=progress_callback)
+        self.finished_signal.emit()
 
 
 def run_gui():
