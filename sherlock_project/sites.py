@@ -6,6 +6,7 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+from sherlock_project.__init__ import get_resource_path, is_frozen
 
 
 MANIFEST_URL = "https://data.sherlockproject.xyz"
@@ -116,10 +117,15 @@ class SitesInformation:
         """
 
         if not data_file_path:
-            # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
-            # this instead of the local one is so that the user has the most up-to-date data. This prevents
-            # users from creating issue about false positives which has already been fixed or having outdated data
-            data_file_path = MANIFEST_URL
+            if is_frozen():
+                # Standalone executables bundle data.json; avoid requiring network
+                # access just to load the default site manifest.
+                data_file_path = str(get_resource_path("data.json"))
+            else:
+                # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
+                # this instead of the local one is so that the user has the most up-to-date data. This prevents
+                # users from creating issue about false positives which has already been fixed or having outdated data
+                data_file_path = MANIFEST_URL
 
         if data_file_path.lower().startswith("http"):
             # Reference is to a URL.
