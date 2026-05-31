@@ -232,6 +232,7 @@ class SherlockGUI(QMainWindow):
     def search_finished(self):
         self.search_button.setEnabled(True)
         self.search_button.setText("Search")
+        self.progress_bar.setValue(self.progress_bar.maximum())
         print("[*] Search completed.")
     
     def update_progress(self, current, total):
