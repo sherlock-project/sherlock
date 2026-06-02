@@ -23,6 +23,7 @@ class SherlockGUI(QMainWindow):
         self.apply_styles()
 
     def initUI(self):
+
         # Main window settings
         self.setWindowTitle("Sherlock OSINT Dashboard")
         self.resize(800, 600)
@@ -39,6 +40,15 @@ class SherlockGUI(QMainWindow):
         title_label.setAlignment(Qt.AlignCenter)
         title_label.setObjectName("TitleLabel")
         main_layout.addWidget(title_label)
+
+        # Usage Guide / Information Box and Color Legend
+        self.info_label = QLabel(
+            "ℹ️ Enter the username you want to search for and click the 'Search' button.\n"
+            "Results are added to the table alphabetically as they are found. Color Codes: 🟢 Found (Green) | 🔴 Not Found (Red) | 🟡 Error (Yellow)"
+        )
+        self.info_label.setAlignment(Qt.AlignCenter)
+        self.info_label.setObjectName("infoLabel")
+        main_layout.addWidget(self.info_label)
 
         # Search bar and button for horizontal layout
         search_layout = QHBoxLayout()
@@ -88,92 +98,89 @@ class SherlockGUI(QMainWindow):
 
     def apply_styles(self):
         self.setStyleSheet("""
-            /* Main Background */
-            QMainWindow {
-                background-color: #1e1e2e;
-            }
-            /* General Font and Color */
             QWidget {
+                background-color: #F3F4F6;
+                color: #1F2937;
                 font-family: 'Segoe UI', Arial, sans-serif;
-                color: #cdd6f4;
             }
-            /* Title Customization */
-            #titleLabel {
-                font-size: 28px;
-                font-weight: bold;
-                color: #89b4fa;
-                margin-bottom: 15px;
+            #infoLabel {
+                color: #4338CA; 
+                font-size: 13px;
+                background-color: #E0E7FF; 
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #C7D2FE;
+                margin-bottom: 5px;
             }
-            /* Text Input Field */
             QLineEdit {
-                background-color: #313244;
-                border: 2px solid #45475a;
-                border-radius: 8px;
-                padding: 12px 15px;
-                font-size: 15px;
-                color: #cdd6f4;
+                padding: 10px;
+                border: 1px solid #D1D5DB;
+                border-radius: 6px;
+                background-color: #FFFFFF;
+                color: #000000;
             }
-            QLineEdit:focus {
-                border: 2px solid #89b4fa;
-                background-color: #1e1e2e;
-            }
-            /* Search Button */
             QPushButton {
-                background-color: #89b4fa;
-                color: #1e1e2e;
+                background-color: #3B82F6;
+                color: white;
                 border: none;
-                border-radius: 8px;
-                padding: 12px 25px;
-                font-size: 15px;
+                padding: 10px 20px;
+                border-radius: 6px;
                 font-weight: bold;
             }
             QPushButton:hover {
-                background-color: #b4befe;
+                background-color: #2563EB;
             }
-            QPushButton:pressed {
-                background-color: #74c7ec;
+            QPushButton:disabled {
+                background-color: #9CA3AF;
             }
-            /* Table General Settings */
             QTableWidget {
-                background-color: #1e1e2e;
-                border: 1px solid #45475a;
-                border-radius: 8px;
-                font-size: 14px;
-                outline: none;
+                background-color: #FFFFFF;
+                alternate-background-color: #F9FAFB;
+                gridline-color: #E5E7EB;
+                border: 1px solid #D1D5DB;
+                border-radius: 6px;
+                color: #000000;
             }
-            /* Table Rows */
-            QTableWidget::item {
-                padding: 10px;
-                border-bottom: 1px solid #313244;
-            }
-            QTableWidget::item:selected {
-                background-color: #313244;
-                color: #89b4fa;
-            }
-            /* Table Header */
             QHeaderView::section {
-                background-color: #313244;
-                color: #a6adc8;
-                padding: 12px;
+                background-color: #E5E7EB;
+                padding: 6px;
                 border: none;
                 font-weight: bold;
-                font-size: 15px;
-                text-align: left;
+                color: #374151;
             }
-            /* Scrollbar Aesthetics */
+            QProgressBar {
+                border: 1px solid #D1D5DB;
+                border-radius: 6px;
+                text-align: center;
+                background-color: #E5E7EB;
+                color: #1F2937;
+            }
+            QProgressBar::chunk {
+                background-color: #3B82F6;
+                border-radius: 4px;
+            }
             QScrollBar:vertical {
                 border: none;
-                background: #1e1e2e;
+                background: #F3F4F6;
                 width: 12px;
                 border-radius: 6px;
+                margin: 0px 0px 0px 0px;
             }
             QScrollBar::handle:vertical {
-                background: #45475a;
+                background: #CBD5E1; 
                 min-height: 30px;
-                border-radius: 6px;
+                border-radius: 6px; 
             }
             QScrollBar::handle:vertical:hover {
-                background: #585b70;
+                background: #94A3B8; 
+            }
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                border: none;
+                background: none;
+                height: 0px; 
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: none;
             }
         """)
 
