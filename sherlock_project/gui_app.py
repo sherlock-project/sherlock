@@ -8,9 +8,10 @@ from sherlock_project.notify import QueryNotifyGUI
 from sherlock_project.sherlock import sherlock
 from sherlock_project.sites import SitesInformation
 
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
-                             QHBoxLayout, QLineEdit, QPushButton, QTableWidget, 
-                             QTableWidgetItem, QLabel, QHeaderView, QAbstractItemView, QProgressBar)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+                            QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QLabel,
+                            QHeaderView, QAbstractItemView, QProgressBar, QTextEdit, QListWidget,
+                            QListWidgetItem, QDialog, QScrollArea, QCheckBox, QDialogButtonBox)
 
 from PyQt5.QtGui import QColor
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
@@ -80,8 +81,15 @@ class SherlockGUI(QMainWindow):
         # We are attaching the function that will run when the button is clicked (Signal-Slot logic).
         self.search_button.clicked.connect(self.start_search)
 
+        # We are creating a new button for the site filter and connecting it to the corresponding function that will open the filter dialog.
+        self.filter_button = QPushButton("⚙️ Filter Sites")
+        self.filter_button.setCursor(Qt.PointingHandCursor)
+        self.filter_button.clicked.connect(self.open_site_filter)
+        self.filter_button.setStyleSheet("background-color: #64748B; color: white;") 
+
         search_layout.addWidget(self.username_input)
         search_layout.addWidget(self.search_button)
+        search_layout.addWidget(self.filter_button)
         main_layout.addLayout(search_layout)
 
         # Bottom section: Results table
@@ -96,13 +104,13 @@ class SherlockGUI(QMainWindow):
         )
         self.empty_state_label.setAlignment(Qt.AlignCenter)
         self.empty_state_label.setStyleSheet("""
-            color: #94A3B8; /* Açık gri profesyonel metin */
+            color: #94A3B8; 
             font-size: 16px;
             font-weight: bold;
             background-color: #FFFFFF;
-            border: 2px dashed #E2E8F0; /* Kesik çizgili şık çerçeve */
+            border: 2px dashed #E2E8F0; 
             border-radius: 8px;
-            padding: 80px; /* Kutuyu genişletmek için iç boşluk */
+            padding: 80px; 
         """)
         main_layout.addWidget(self.empty_state_label)
 
@@ -143,7 +151,7 @@ class SherlockGUI(QMainWindow):
                 font-family: 'Segoe UI', Arial, sans-serif;
             }
             QLabel#TitleLabel {
-                font-size: 26px; /* Büyütüldü */
+                font-size: 26px; 
                 font-weight: bold;
                 color: #1E293B;
                 margin-bottom: 5px;
@@ -153,8 +161,8 @@ class SherlockGUI(QMainWindow):
                 color: #1D4ED8;
                 border: 1px solid #BFDBFE;
                 border-radius: 6px;
-                padding: 6px 15px; /* Daraltıldı */
-                font-size: 12px; /* Küçültüldü */
+                padding: 6px 15px; 
+                font-size: 12px; 
                 margin-bottom: 10px;
             }
             QLabel#statCard {
@@ -239,6 +247,50 @@ class SherlockGUI(QMainWindow):
                 background: none;
             }
         """)
+    
+    def open_site_filter(self):
+        # We are loading the site information only when the filter dialog is opened for the first time.
+        # This way, we avoid unnecessary loading during the initial startup of the application and only load the data when it's actually needed.
+        if not hasattr(self, 'sites_info'):
+            self.sites_info = SitesInformation(data_file_path="sherlock_project/resources/data.json")
+            self.all_sites = self.sites_info.get_sites_for_ui()
+            self.selected_sites = [site['name'] for site in self.all_sites] 
+            
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Select Target Platforms")
+        dialog.resize(400, 500)
+        dialog.setStyleSheet(self.styleSheet()) 
+        
+        layout = QVBoxLayout(dialog)
+        
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll_content = QWidget()
+        scroll_layout = QVBoxLayout(scroll_content)
+        
+        self.checkboxes = {}
+        for site in self.all_sites:
+            # We are adding a clear NSFW tag next to the site name for platforms that are marked as NSFW in the data. 
+            # This allows users to easily identify and exclude adult content platforms from their search if they choose to do so.
+            nsfw_tag = " 🔞 (NSFW)" if site['is_nsfw'] else ""
+            cb = QCheckBox(f"{site['name']}{nsfw_tag}")
+            
+            if site['name'] in self.selected_sites:
+                cb.setChecked(True)
+                
+            self.checkboxes[site['name']] = cb
+            scroll_layout.addWidget(cb)
+            
+        scroll.setWidget(scroll_content)
+        layout.addWidget(scroll)
+        
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addWidget(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            self.selected_sites = [name for name, cb in self.checkboxes.items() if cb.isChecked()]
 
 
 
@@ -256,7 +308,7 @@ class SherlockGUI(QMainWindow):
         self.search_button.setEnabled(False)
         self.search_button.setText("Searching...")
 
-        self.worker = SherlockWorker(username)
+        self.worker = SherlockWorker(username, getattr(self, 'selected_sites', None))
         self.worker.result_signal.connect(self.add_result_to_table)
         self.worker.finished_signal.connect(self.search_finished)
         self.progress_bar.show() 
@@ -291,7 +343,6 @@ class SherlockGUI(QMainWindow):
                     break
             else:
                 # Rule 3: Newly entered "Not Found" entries should skip over existing "Found" rows
-
                 if current_status == "✅ Found":
                     continue
                 # Rule 4: "Not Found" sites should be sorted alphabetically (A-Z) within their own section
@@ -313,9 +364,6 @@ class SherlockGUI(QMainWindow):
         site_item.setForeground(QColor(color_code))
         status_item.setForeground(QColor(color_code))
         url_item.setForeground(QColor(color_code))
-        #site_item.setForeground(QColor(color_code))
-        #url_item.setForeground(QColor(color_code))
-        
 
         # We are creating QLabel for the new badge design.
         badge_label = QLabel(status_text)
@@ -385,23 +433,31 @@ class SherlockWorker(QThread):
     finished_signal = pyqtSignal()
     progress_signal = pyqtSignal(int, int) 
 
-    def __init__(self, username):
+    def __init__(self, username, selected_sites=None):
         super().__init__()
         self.username = username
+        self.selected_sites = selected_sites if selected_sites is not None else []
         self.checked_count = 0
 
     def run(self):
         gui_notifier = QueryNotifyGUI(self.result_signal)
-
+        
         try:
-            with open("sherlock_project/resources/data.json", "r", encoding="utf-8") as f:
-                site_data = json.load(f)
-            if "$schema" in site_data:
-                del site_data["$schema"]
+            # We are loading the site information from the JSON file and applying the user's site filter preferences before starting the search.
+            sites_info = SitesInformation(data_file_path="sherlock_project/resources/data.json")
+            
+            if self.selected_sites:
+                sites_info.filter_sites_by_names(self.selected_sites)
+                
+            site_data = {}
+            for site in sites_info:
+                site_data[site.name] = site.information
+                
         except Exception as e:
+            print("Error loading sites:", e)
             self.finished_signal.emit()
             return
-
+            
         total_sites = len(site_data)
 
         # The Callback function that Sherlock.py will call at the end of each site visit.
