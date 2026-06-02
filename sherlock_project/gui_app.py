@@ -21,7 +21,10 @@ class SherlockGUI(QMainWindow):
         super().__init__()
         self.initUI()
         self.apply_styles()
-
+        self.count_total = 0
+        self.count_found = 0
+        self.count_not_found = 0
+        
     def initUI(self):
 
         # Main window settings
@@ -49,6 +52,21 @@ class SherlockGUI(QMainWindow):
         self.info_label.setAlignment(Qt.AlignCenter)
         self.info_label.setObjectName("infoLabel")
         main_layout.addWidget(self.info_label)
+
+        # Statistics Cards Layout
+        self.stats_layout = QHBoxLayout()
+        
+        self.card_total = QLabel("🔍 Scanned\n0")
+        self.card_found = QLabel("✅ Found\n0")
+        self.card_not_found = QLabel("❌ Not Found\n0")
+        
+        # We are applying a consistent style to all three cards and adding them to the horizontal layout.
+        for card in [self.card_total, self.card_found, self.card_not_found]:
+            card.setAlignment(Qt.AlignCenter)
+            card.setObjectName("statCard")
+            self.stats_layout.addWidget(card)
+            
+        main_layout.addLayout(self.stats_layout)
 
         # Search bar and button for horizontal layout
         search_layout = QHBoxLayout()
@@ -202,6 +220,14 @@ class SherlockGUI(QMainWindow):
         self.worker.progress_signal.connect(self.update_progress)
         self.worker.start()
 
+        # We reset the statistics cards and counters at the start of a new search.
+        self.count_total = 0
+        self.count_found = 0
+        self.count_not_found = 0
+        self.card_total.setText("🔍 Scanned\n0")
+        self.card_found.setText("✅ Found\n0")
+        self.card_not_found.setText("❌ Not Found\n0")
+
     def add_result_to_table(self, site, status, url, color_code):
         status_text = "✅ Found" if status == "Found" else "❌ Not Found"
         
@@ -248,6 +274,17 @@ class SherlockGUI(QMainWindow):
         self.result_table.setItem(insert_row, 2, url_item)
         
         self.result_table.scrollToBottom()
+
+        # We update the statistics cards based on the new result.
+        self.count_total += 1
+        if status == "Found":
+            self.count_found += 1
+        else:
+            self.count_not_found += 1
+            
+        self.card_total.setText(f"🔍 Scanned\n{self.count_total}")
+        self.card_found.setText(f"✅ Found\n{self.count_found}")
+        self.card_not_found.setText(f"❌ Not Found\n{self.count_not_found}")
 
     def search_finished(self):
         self.search_button.setEnabled(True)
