@@ -122,13 +122,22 @@ class SherlockGUI(QMainWindow):
                 font-family: 'Segoe UI', Arial, sans-serif;
             }
             #infoLabel {
-                color: #4338CA; 
+                background-color: #EFF6FF;
+                color: #1D4ED8;
+                border: 1px solid #BFDBFE;
+                border-radius: 6px;
+                padding: 10px;
                 font-size: 13px;
-                background-color: #E0E7FF; 
-                padding: 12px;
+                margin-bottom: 10px;
+            }
+            QLabel#statCard {
+                background-color: #FFFFFF;
+                border: 1px solid #E2E8F0;
                 border-radius: 8px;
-                border: 1px solid #C7D2FE;
-                margin-bottom: 5px;
+                padding: 15px;
+                font-size: 14px;
+                font-weight: bold;
+                color: #334155;
             }
             QLineEdit {
                 padding: 10px;
@@ -248,7 +257,6 @@ class SherlockGUI(QMainWindow):
                     break
             else:
                 # Rule 3: Newly entered "Not Found" entries should skip over existing "Found" rows
-
                 if current_status == "✅ Found":
                     continue
                 # Rule 4: "Not Found" sites should be sorted alphabetically (A-Z) within their own section
@@ -260,19 +268,54 @@ class SherlockGUI(QMainWindow):
 
         # 1. We create cell objects.
         site_item = QTableWidgetItem(site)
-        status_item = QTableWidgetItem(status_text)
+        # We are creating a hidden text item that will remain in the background to avoid disrupting the sorting algorithm.
+        status_hidden_item = QTableWidgetItem(status_text)
+        status_hidden_item.setForeground(QColor(0, 0, 0, 0))
         url_item = QTableWidgetItem(url)
         
         # 2. We apply color coding to the text based on the status (green for "Found", red for "Not Found").
-        site_item.setForeground(QColor(color_code))
-        status_item.setForeground(QColor(color_code))
-        url_item.setForeground(QColor(color_code))
+        #site_item.setForeground(QColor(color_code))
+        #url_item.setForeground(QColor(color_code))
+        
+
+        # We are creating QLabel for the new badge design.
+        badge_label = QLabel(status_text)
+        badge_label.setAlignment(Qt.AlignCenter)
+
+        if status == "Found":
+            # Light pastel green background, bold dark green text.
+            badge_label.setStyleSheet("""
+                background-color: #D1FAE5; 
+                color: #065F46; 
+                border-radius: 10px; 
+                padding: 4px 10px; 
+                font-weight: bold;
+            """)
+        else:
+            # Light pastel red background, bold dark red text.
+            badge_label.setStyleSheet("""
+                background-color: #FEE2E2; 
+                color: #991B1B; 
+                border-radius: 10px; 
+                padding: 4px 10px; 
+                font-weight: bold;
+            """)
+
+        # We are preparing a carrier QWidget so that the badge fits perfectly inside the cell and doesn't look unsightly.
+        badge_container = QWidget()
+        badge_container.setStyleSheet("background-color: transparent;")
+        badge_layout = QHBoxLayout(badge_container)
+        badge_layout.setContentsMargins(10, 2, 10, 2)
+        badge_layout.addWidget(badge_label)
+        badge_layout.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
         
         # 3. We insert the items into the table at the determined row index.
         self.result_table.setItem(insert_row, 0, site_item)
-        self.result_table.setItem(insert_row, 1, status_item)
+        self.result_table.setItem(insert_row, 1, status_hidden_item)
+        # We place our visual badge on the corresponding cell.
+        self.result_table.setCellWidget(insert_row, 1, badge_container)
         self.result_table.setItem(insert_row, 2, url_item)
-        
+
         self.result_table.scrollToBottom()
 
         # We update the statistics cards based on the new result.
