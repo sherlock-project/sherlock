@@ -12,7 +12,7 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QHBoxLayout, QLineEdit, QPushButton, QTableWidget, 
                              QTableWidgetItem, QLabel, QHeaderView, QAbstractItemView, QProgressBar)
 
-
+from PyQt5.QtGui import QColor
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
 
@@ -195,7 +195,7 @@ class SherlockGUI(QMainWindow):
         self.worker.progress_signal.connect(self.update_progress)
         self.worker.start()
 
-    def add_result_to_table(self, site, status, url):
+    def add_result_to_table(self, site, status, url, color_code):
         status_text = "✅ Found" if status == "Found" else "❌ Not Found"
         
         insert_row = self.result_table.rowCount() 
@@ -224,9 +224,22 @@ class SherlockGUI(QMainWindow):
                     break
         
         self.result_table.insertRow(insert_row)
-        self.result_table.setItem(insert_row, 0, QTableWidgetItem(site))
-        self.result_table.setItem(insert_row, 1, QTableWidgetItem(status_text))
-        self.result_table.setItem(insert_row, 2, QTableWidgetItem(url))
+
+        # 1. We create cell objects.
+        site_item = QTableWidgetItem(site)
+        status_item = QTableWidgetItem(status_text)
+        url_item = QTableWidgetItem(url)
+        
+        # 2. We apply color coding to the text based on the status (green for "Found", red for "Not Found").
+        site_item.setForeground(QColor(color_code))
+        status_item.setForeground(QColor(color_code))
+        url_item.setForeground(QColor(color_code))
+        
+        # 3. We insert the items into the table at the determined row index.
+        self.result_table.setItem(insert_row, 0, site_item)
+        self.result_table.setItem(insert_row, 1, status_item)
+        self.result_table.setItem(insert_row, 2, url_item)
+        
         self.result_table.scrollToBottom()
 
     def search_finished(self):
@@ -240,7 +253,7 @@ class SherlockGUI(QMainWindow):
         self.progress_bar.setValue(current)
 
 class SherlockWorker(QThread):
-    result_signal = pyqtSignal(str, str, str)
+    result_signal = pyqtSignal(str, str, str, str)
     finished_signal = pyqtSignal()
     progress_signal = pyqtSignal(int, int) 
 

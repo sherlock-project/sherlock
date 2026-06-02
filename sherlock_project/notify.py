@@ -302,3 +302,15 @@ class QueryNotifyGUI(QueryNotify):
 
     def finish(self, message=None):
         pass
+
+    def update(self, result):
+        # 1. We call the new infrastructure we just wrote in the result.py file.
+        data = result.to_dict()
+        
+        status_str = "Found" if result.status.name == "CLAIMED" else "Not Found"
+        
+        # 2. We get the color code from the data dictionary, which is determined by the status of the query result.
+        color_code = data["ui_color_code"]
+        
+        # 3. We emit the signal to the interface's table, including the color code.
+        self.result_signal.emit(data["site_name"], status_str, data["site_url_user"], color_code)
