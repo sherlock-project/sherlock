@@ -269,13 +269,13 @@ Todo PR precisa demonstrar o ciclo. Roteiro:
 | Dupla | Entregas | Status |
 |---|---|---|
 | **D3** | Cria estrutura `web/`, `manage.py`, `settings/{base,dev,test}.py`, `pytest.ini`. | ✅ Concluído (commit `32f6974`) |
-| **D3** | CI `ci-web.yml` rodando `pytest` vazio com sucesso em PR. | ❌ Pendente |
+| **D3** | CI `ci-web.yml` rodando `pytest` com sucesso em PR. | ✅ Concluído — `.github/workflows/ci-web.yml` |
 | **D1** | Escreve testes 1 e 2 vermelhos do `SherlockService` (sem implementação ainda). | ✅ Concluído — `web/apps/core/tests/test_service.py` (4 testes RED) |
 | **D2** | Escreve testes 1, 2 e 3 vermelhos do `SearchForm`. | ✅ Concluído (commit `5570c85` + `928a6dc`) |
 | **D2** | Escreve teste 4 vermelho do `index_view` (GET retorna 200). | ❌ Pendente |
 
 **Marco Dia 1:** `pytest` roda no CI; cada dupla com pelo menos 2 testes vermelhos commitados.
-**Status do marco:** 🟡 Quase — testes RED existem, CI ainda não.
+**Status do marco:** ✅ Concluído — CI ativo, 7 testes RED (4 D1 + 3 D2). Falta: teste #4 da D2 (`index_view`).
 
 ### Dia 2 — Fluxo mínimo verde com mock
 
