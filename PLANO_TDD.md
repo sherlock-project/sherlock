@@ -6,7 +6,7 @@
 > **Repositório:** Monorepo (CLI atual + nova aplicação web no mesmo repo)
 > **Escopo desta fase:** MVP funcional + testes unitários e de integração via TDD. E2E (Playwright) fica para fase posterior, mas o frontend já será preparado para ele.
 
->  **Restrição de tempo:** com apenas 5 dias, o foco é **fluxo mínimo funcionando ponta a ponta com TDD**. Tudo marcado como _opcional_ só entra se sobrar tempo no Dia 5.
+> ⚠️ **Restrição de tempo:** com apenas 5 dias, o foco é **fluxo mínimo funcionando ponta a ponta com TDD**. Tudo marcado como _opcional_ só entra se sobrar tempo no Dia 5.
 
 ---
 
@@ -123,26 +123,25 @@ Cross-review obrigatório: a dupla X só faz merge se a dupla Y aprovar — queb
 **Missão:** Encapsular a chamada ao `sherlock_project` numa camada de serviço testável, com DTOs estáveis e tratamento de erros explícito.
 
 #### Entregáveis
-- `apps/core/dtos.py`
-  - `@dataclass SiteResult` com campos: `site_name: str`, `url: str`, `status: Literal["found","not_found","error","timeout"]`, `response_time_ms: int | None`, `error_message: str | None`.
-  - `@dataclass SearchRequest` com `username: str`, `sites: list[str] | None`, `timeout: float`.
-- `apps/core/exceptions.py`
-  - `InvalidUsernameError`, `ServiceTimeoutError`, `UpstreamError`.
-- `apps/core/services.py`
-  - `class SherlockService` com método `search(req: SearchRequest) -> Iterator[SiteResult]`.
-  - Wrapper fino sobre `sherlock_project.sherlock.sherlock(...)`, convertendo `QueryResult` → `SiteResult`.
+| Arquivo | Status |
+|---------|--------|
+| `apps/core/dtos.py` — `SiteResult`, `SearchRequest` | ✅ Concluído (commit `32f6974`) |
+| `apps/core/exceptions.py` — `InvalidUsernameError`, `ServiceTimeoutError`, `UpstreamError` | ✅ Concluído (commit `32f6974`) |
+| `apps/core/services.py` — `SherlockService.search` stub + import do `sherlock` | ✅ Stub criado (implementação real: Dia 2) |
 
-#### Testes a escrever (cada um inicia vermelho)
-| # | Teste | O que verifica |
-|---|---|---|
-| 1 | `test_search_returns_results_for_known_user` | Dado mock de `sherlock_project` devolvendo 2 hits, o serviço entrega 2 `SiteResult` com status correto. |
-| 2 | `test_search_rejects_empty_username` | `SearchRequest(username="")` levanta `InvalidUsernameError`. |
-| 3 | `test_search_rejects_username_with_invalid_chars` | Caracteres como `/`, espaço, etc. levantam `InvalidUsernameError`. |
-| 4 | `test_search_propagates_timeout` | Quando a chamada upstream estoura, levanta `ServiceTimeoutError`. |
-| 5 | `test_search_filters_by_sites` | Passando `sites=["GitHub"]`, apenas o site filtrado é consultado (verifica via mock). |
-| 6 | `test_site_result_mapping_status_found` | `QueryStatus.CLAIMED` mapeia para `"found"`. |
-| 7 | `test_site_result_mapping_status_not_found` | `QueryStatus.AVAILABLE` mapeia para `"not_found"`. |
-| 8 | `test_service_does_not_perform_real_network_in_tests` | Garante que sem mock o teste falha — protege a suíte de flakes. |
+#### Testes (cada um inicia vermelho)
+| # | Teste | O que verifica | Status |
+|---|---|---|---|
+| 1 | `test_search_returns_results_for_known_user` | Mock de `sherlock_project` com 2 hits → 2 `SiteResult` com status correto. | 🔴 RED |
+| 1b | `test_search_result_has_correct_url` | Complementar: SiteResult carrega a URL do perfil. | 🔴 RED |
+| 2 | `test_search_rejects_empty_username` | `SearchRequest(username="")` levanta `InvalidUsernameError`. | 🔴 RED |
+| 2b | `test_search_rejects_empty_username_without_network_call` | Validação ocorre antes de chamar `sherlock()`. | 🔴 RED |
+| 3 | `test_search_rejects_username_with_invalid_chars` | Caracteres como `/`, espaço levantam `InvalidUsernameError`. | ⬜ Dia 3 |
+| 4 | `test_search_propagates_timeout` | Upstream estoura → levanta `ServiceTimeoutError`. | ⬜ Dia 3 |
+| 5 | `test_search_filters_by_sites` | `sites=["GitHub"]` → só aquele site é consultado (via mock). | ⬜ Dia 3 |
+| 6 | `test_site_result_mapping_status_found` | `QueryStatus.CLAIMED` → `"found"`. | ⬜ Dia 2 |
+| 7 | `test_site_result_mapping_status_not_found` | `QueryStatus.AVAILABLE` → `"not_found"`. | ⬜ Dia 2 |
+| 8 | `test_service_does_not_perform_real_network_in_tests` | Sem mock o teste falha — protege a suíte de flakes. | ⬜ Dia 3 |
 
 #### Definition of Done da Dupla 1
 - 100% dos testes acima passando.
@@ -168,18 +167,18 @@ Cross-review obrigatório: a dupla X só faz merge se a dupla Y aprovar — queb
   - Lista com `data-testid="results-list"`, cada item `data-testid="result-row"`.
   - Botões "Exportar CSV" / "Exportar JSON" apontando pro app `export` (acordar URL com Dupla 3).
 
-#### Testes a escrever
-| # | Teste | O que verifica |
-|---|---|---|
-| 1 | `test_form_accepts_valid_username` | `SearchForm({"username":"john_doe"})` é válido. |
-| 2 | `test_form_rejects_empty_username` | Username vazio → form inválido com erro em `username`. |
-| 3 | `test_form_rejects_invalid_chars` | `"jo hn"` → inválido. |
-| 4 | `test_index_view_get_renders_form` | GET `/` retorna 200 e contém o form. |
-| 5 | `test_results_view_post_invalid_returns_form_with_errors` | POST sem username → 200 + erro renderizado. |
-| 6 | `test_results_view_post_valid_calls_service_with_username` | POST válido invoca `SherlockService.search` com `SearchRequest` esperado (mock). |
-| 7 | `test_results_view_renders_hits` | Página de resultados mostra todos os `SiteResult` retornados pelo mock. |
-| 8 | `test_results_view_renders_empty_state` | Zero resultados renderiza `data-testid="empty-state"`. |
-| 9 | `test_results_view_renders_error_on_timeout` | Quando service levanta `ServiceTimeoutError`, página mostra `data-testid="error-state"`. |
+#### Testes
+| # | Teste | O que verifica | Status |
+|---|---|---|---|
+| 1 | `test_form_accepts_valid_username` | `SearchForm({"username":"john_doe"})` é válido. | 🔴 RED (forms.py vazio) |
+| 2 | `test_form_rejects_empty_username` | Username vazio → form inválido com erro em `username`. | 🔴 RED |
+| 3 | `test_form_rejects_invalid_chars` | `"jo hn"` → inválido. | 🔴 RED |
+| 4 | `test_index_view_get_renders_form` | GET `/` retorna 200 e contém o form. | ❌ Pendente (Dia 1) |
+| 5 | `test_results_view_post_invalid_returns_form_with_errors` | POST sem username → 200 + erro renderizado. | ⬜ Dia 2 |
+| 6 | `test_results_view_post_valid_calls_service_with_username` | POST válido invoca `SherlockService.search` com `SearchRequest` esperado (mock). | ⬜ Dia 2 |
+| 7 | `test_results_view_renders_hits` | Página de resultados mostra todos os `SiteResult` retornados pelo mock. | ⬜ Dia 3 |
+| 8 | `test_results_view_renders_empty_state` | Zero resultados renderiza `data-testid="empty-state"`. | ⬜ Dia 3 |
+| 9 | `test_results_view_renders_error_on_timeout` | Quando service levanta `ServiceTimeoutError`, página mostra `data-testid="error-state"`. | ⬜ Dia 3 |
 
 #### Definition of Done da Dupla 2
 - `data-testid` em todos os elementos interativos — base para o E2E futuro.
@@ -193,7 +192,7 @@ Cross-review obrigatório: a dupla X só faz merge se a dupla Y aprovar — queb
 **Membros:** João Felipe
 **Missão:** Exportar o resultado da busca atual em CSV/JSON (sem persistência) e manter o tooling (CI, lint, cobertura) que sustenta o TDD das outras duplas.
 
->  Sem banco nesta fase. O export refaz a busca via `SherlockService` a partir do `username` na URL e devolve o arquivo direto. Persistência fica para o Pós-MVP.
+> ℹ️ Sem banco nesta fase. O export refaz a busca via `SherlockService` a partir do `username` na URL e devolve o arquivo direto. Persistência fica para o Pós-MVP.
 
 #### Entregáveis — parte App
 - `apps/export/exporters.py`
@@ -267,13 +266,16 @@ Todo PR precisa demonstrar o ciclo. Roteiro:
 
 ### Dia 1 — Setup e primeiros testes vermelhos
 
-| Dupla | Entregas |
-|---|---|
-| **D3** | **Bloqueador para as outras duplas.** Cria estrutura `web/`, `manage.py`, `settings/{base,dev,test}.py`, `pytest.ini`. CI rodando `pytest` vazio com sucesso em PR. Faz merge até o **almoço**. |
-| **D1** | Escreve testes 1 e 2 vermelhos do `SherlockService` (sem implementação ainda). PR draft. |
-| **D2** | Escreve testes 1, 2, 4 vermelhos do `SearchForm`/`index_view`. PR draft. |
+| Dupla | Entregas | Status |
+|---|---|---|
+| **D3** | Cria estrutura `web/`, `manage.py`, `settings/{base,dev,test}.py`, `pytest.ini`. | ✅ Concluído (commit `32f6974`) |
+| **D3** | CI `ci-web.yml` rodando `pytest` vazio com sucesso em PR. | ❌ Pendente |
+| **D1** | Escreve testes 1 e 2 vermelhos do `SherlockService` (sem implementação ainda). | ✅ Concluído — `web/apps/core/tests/test_service.py` (4 testes RED) |
+| **D2** | Escreve testes 1, 2 e 3 vermelhos do `SearchForm`. | ✅ Concluído (commit `5570c85` + `928a6dc`) |
+| **D2** | Escreve teste 4 vermelho do `index_view` (GET retorna 200). | ❌ Pendente |
 
 **Marco Dia 1:** `pytest` roda no CI; cada dupla com pelo menos 2 testes vermelhos commitados.
+**Status do marco:** 🟡 Quase — testes RED existem, CI ainda não.
 
 ### Dia 2 — Fluxo mínimo verde com mock
 
