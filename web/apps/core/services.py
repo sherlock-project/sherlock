@@ -1,6 +1,11 @@
 from typing import Iterator
+
+from sherlock_project.sherlock import (
+    sherlock,  # noqa: F401 — necessário para patch nos testes
+)
+
 from .dtos import SearchRequest, SiteResult
-from sherlock_project.sherlock import sherlock  # importado para permitir mock nos testes
+
 
 class SherlockService:
     def search(self, req: SearchRequest) -> Iterator[SiteResult]:

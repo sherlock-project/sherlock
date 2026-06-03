@@ -10,13 +10,14 @@ Testes deste arquivo:
   #2 test_search_rejects_empty_username
 """
 
-import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
-from apps.core.services import SherlockService
+import pytest
+from sherlock_project.result import QueryResult, QueryStatus
+
 from apps.core.dtos import SearchRequest, SiteResult
 from apps.core.exceptions import InvalidUsernameError
-from sherlock_project.result import QueryResult, QueryStatus
+from apps.core.services import SherlockService
 
 
 def _make_query_result(username: str, site: str, url: str, status: QueryStatus) -> dict:
