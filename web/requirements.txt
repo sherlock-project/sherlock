@@ -1,0 +1,7 @@
+Django==5.0.*
+pytest==8.*
+pytest-django==4.*
+pytest-cov==5.*
+pytest-mock==3.*
+responses==0.25.*
+ruff==0.6.*
