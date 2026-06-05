@@ -1,0 +1,6 @@
+[lint]
+select = ["E", "F", "W", "I"]
+
+[lint.per-file-ignores]
+# Django settings usam 'from .base import *' por convenção
+"config/settings/*.py" = ["F403", "F405"]

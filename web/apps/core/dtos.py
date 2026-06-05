@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from typing import Literal, Optional, List
+from typing import List, Literal, Optional
+
 
 @dataclass
 class SiteResult:

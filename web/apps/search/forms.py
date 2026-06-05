@@ -1,12 +1,14 @@
-from django import forms
 import re
+
+from django import forms
+
 
 class SearchForm(forms.Form):
     username = forms.CharField(
         max_length=100,
         required=True,
         error_messages={'required': 'Este campo é obrigatório.'},
-        widget=forms.TextInput(attrs={'data-testid': 'username-input'})
+        widget=forms.TextInput(attrs={'data-testid': 'username-input'}),
     )
 
     def clean_username(self):

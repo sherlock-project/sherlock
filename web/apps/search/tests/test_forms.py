@@ -1,12 +1,12 @@
-import pytest
 from apps.search.forms import SearchForm
+
 
 def test_form_accepts_valid_username():
     """Teste 1: SearchForm({'username':'john_doe'}) é válido."""
     form = SearchForm({'username': 'john_doe'})
-    
+
     assert form.is_valid() is True
-    
+
     assert 'username' in form.cleaned_data
     assert form.cleaned_data['username'] == 'john_doe'
 
