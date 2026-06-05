@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Busca Sherlock</h2>
-  
   <form method="post" action="{% url 'search:results' %}" data-testid="search-form">
     {% csrf_token %}
     
-    <div>
-      <label for="{{ form.username.id_for_label }}">Username:</label>
+    <div class="input-group">
+      <label for="{{ form.username.id_for_label }}">Username</label>
+      
       {{ form.username }}
       
       {% if form.username.errors %}
         <ul class="errorlist">
           {% for error in form.username.errors %}
-            <li style="color: red;">{{ error }}</li>
+            <li>{{ error }}</li>
           {% endfor %}
         </ul>
       {% endif %}
     </div>
     
-    <button type="submit" data-testid="submit-btn">Buscar</button>
+    <button type="submit" data-testid="submit-btn" class="btn btn-primary">
+      Search for digital traces
+    </button>
   </form>
 {% endblock %}

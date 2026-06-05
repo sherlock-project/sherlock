@@ -1,0 +1,233 @@
+:root {
+  --bg-color: #f4f5f7;
+  --text-main: #2d3748;
+  --text-muted: #718096;
+  --card-bg: #ffffff;
+  --primary: #2b6cb0;
+  --primary-hover: #2c5282;
+  --accent: #edf2f7;
+  --border-color: #e2e8f0;
+  
+  --status-found: #38a169;
+  --status-not_found: #a0aec0;
+  --status-error: #e53e3e;
+  --status-timeout: #dd6b20;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+  padding: 2rem 1rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  max-width: 700px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem; 
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.content {
+  width: 100%;
+  margin-top: 1rem; 
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background-color: #fafafa;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+}
+
+.errorlist {
+  color: var(--status-error);
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.alert p { margin: 0; }
+
+.alert-error {
+  background-color: #fff5f5;
+  border-left: 4px solid var(--status-error);
+  color: #c53030;
+}
+
+.alert-info {
+  background-color: #ebf8ff;
+  border-left: 4px solid var(--primary);
+  color: var(--primary-hover);
+}
+
+.results-header {
+  margin-bottom: 1.5rem;
+}
+
+.results-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.site-info strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.site-info a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.site-info a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.badge {
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-found { background-color: #c6f6d5; color: var(--status-found); }
+.status-not_found { background-color: #edf2f7; color: var(--status-not_found); }
+.status-error { background-color: #fed7d7; color: var(--status-error); }
+.status-timeout { background-color: #feebc8; color: var(--status-timeout); }
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.action-buttons .btn {
+  flex: 1;
+  min-width: 150px;
+}

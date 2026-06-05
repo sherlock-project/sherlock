@@ -1,24 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sherlock Web</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .errorlist { color: red; list-style: none; padding: 0; }
-    </style>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>🕵️ Sherlock Web</h1>
-        <hr>
-    </header>
-    
     <main>
-        {% block content %}
-        <!-- conteudo de apps/search/templates -->
-        {% endblock %}
+        <header>
+            <h1>🕵️ Sherlock Web</h1>
+            <p>Find a user's digital traces in the web.</p>
+        </header>
+        
+        <div class="content">
+            {% block content %}
+            <!-- conteudo de apps/search/templates -->
+            {% endblock %}
+        </div>
     </main>
 </body>
 </html>

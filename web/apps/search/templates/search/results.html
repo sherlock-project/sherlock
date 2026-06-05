@@ -1,38 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Resultados para: {{ username }}</h2>
+  <div class="results-header">
+    <h2>Results for: <strong>{{ username }}</strong></h2>
+  </div>
 
   {% if error %}
-    <div data-testid="error-state" style="color: red; border: 1px solid red; padding: 1rem;">
-      <p>Erro: {{ error }}</p>
+    <div data-testid="error-state" class="alert alert-error">
+      <p><strong>Warning:</strong> {{ error }}</p>
     </div>
   {% elif is_empty %}
-    <div data-testid="empty-state">
-      <p>Nenhum resultado encontrado para o usuário fornecido.</p>
+    <div data-testid="empty-state" class="alert alert-info">
+      <p>No results found for the specified user.</p>
     </div>
   {% else %}
-    <ul data-testid="results-list">
+    <ul data-testid="results-list" class="results-list">
       {% for result in results %}
-        <li data-testid="result-row">
-          <strong>{{ result.site_name }}</strong>: 
-          <a href="{{ result.url }}" target="_blank">{{ result.url }}</a> 
-          - Status: {{ result.status }}
+        <li data-testid="result-row" class="result-item">
+          <div class="site-info">
+            <strong>{{ result.site_name }}</strong>
+            <a href="{{ result.url }}" target="_blank" rel="noopener noreferrer">{{ result.url }}</a>
+          </div>
+          <div class="badge status-{{ result.status }}">
+            {{ result.status }}
+          </div>
         </li>
       {% endfor %}
     </ul>
   {% endif %}
 
-  <div style="margin-top: 2rem;">
-    <a href="/export/?username={{ username }}&format=csv">
-      <button>Exportar CSV</button>
-    </a>
-    <a href="/export/?username={{ username }}&format=json">
-      <button>Exportar JSON</button>
-    </a>
+  <div class="action-buttons">
+    <a href="/export/?username={{ username }}&format=csv" class="btn btn-outline">Download CSV</a>
     
-    <a href="{% url 'search:index' %}" style="margin-left: 1rem;">
-      <button>Nova Busca</button>
-    </a>
+    <a href="/export/?username={{ username }}&format=json" class="btn btn-outline">Download JSON</a>
+    
+    <a href="{% url 'search:index' %}" class="btn btn-primary">New Search</a>
   </div>
 {% endblock %}
