@@ -1,4 +1,4 @@
-!!!! VERY IMPORTANT: USE PYTHON 3.12 FOR THIS PROJECT
+!!!! VERY IMPORTANT: USE PYTHON 3.12 FOR THIS PROJECT -- YOU CAN NOW USE 3.14, THE MISMATCH HAS BEEN FIXED IN CONFTEST.PY
 
 We have a temporary requirements.txt file for now, so what you're gonna want to do is:
 
