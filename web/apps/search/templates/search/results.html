@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Resultados para: {{ username }}</h2>
+
+  {% if error %}
+    <div data-testid="error-state" style="color: red; border: 1px solid red; padding: 1rem;">
+      <p>Erro: {{ error }}</p>
+    </div>
+  {% elif is_empty %}
+    <div data-testid="empty-state">
+      <p>Nenhum resultado encontrado para o usuário fornecido.</p>
+    </div>
+  {% else %}
+    <ul data-testid="results-list">
+      {% for result in results %}
+        <li data-testid="result-row">
+          <strong>{{ result.site_name }}</strong>: 
+          <a href="{{ result.url }}" target="_blank">{{ result.url }}</a> 
+          - Status: {{ result.status }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div style="margin-top: 2rem;">
+    <a href="/export/?username={{ username }}&format=csv">
+      <button>Exportar CSV</button>
+    </a>
+    <a href="/export/?username={{ username }}&format=json">
+      <button>Exportar JSON</button>
+    </a>
+    
+    <a href="{% url 'search:index' %}" style="margin-left: 1rem;">
+      <button>Nova Busca</button>
+    </a>
+  </div>
+{% endblock %}

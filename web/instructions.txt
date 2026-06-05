@@ -1,0 +1,13 @@
+!!!! VERY IMPORTANT: USE PYTHON 3.12 FOR THIS PROJECT
+
+We have a temporary requirements.txt file for now, so what you're gonna want to do is:
+
+1- Have a virtual environment running (varies mildly depending on your OS)
+
+2- Go to 'sherlock/web'
+
+3- Run 'pip install -r requirements.txt' (Side note: If you still get some dependency errors, try: pip install -e ..)
+
+4- To run the test suite: 'pytest'; If you instead wish to run the suite and see the coverage report, use: 'pytest --cov=apps --cov-report=term-missing'
+
+5- To access the graphical interface created by Pair #2, run: 'python manage.py migrate' and 'python manage.py runserver'
