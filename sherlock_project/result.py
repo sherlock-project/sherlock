@@ -42,21 +42,21 @@ class QueryResult():
         Keyword Arguments:
         self                   -- This object.
         username               -- String indicating username that query result
-                                  was about.
+                                   was about.
         site_name              -- String which identifies site.
         site_url_user          -- String containing URL for username on site.
-                                  NOTE:  The site may or may not exist:  this
-                                         just indicates what the name would
-                                         be, if it existed.
+                                   NOTE:  The site may or may not exist:  this
+                                          just indicates what the name would
+                                          be, if it existed.
         status                 -- Enumeration of type QueryStatus() indicating
-                                  the status of the query.
+                                   the status of the query.
         query_time             -- Time (in seconds) required to perform query.
-                                  Default of None.
+                                   Default of None.
         context                -- String indicating any additional context
-                                  about the query.  For example, if there was
-                                  an error, this might indicate the type of
-                                  error that occurred.
-                                  Default of None.
+                                   about the query.  For example, if there was
+                                   an error, this might indicate the type of
+                                   error that occurred.
+                                   Default of None.
 
         Return Value:
         Nothing.
@@ -70,6 +70,24 @@ class QueryResult():
         self.context       = context
 
         return
+
+    def to_dict(self):
+        """Serialize QueryResult to a dictionary for JSON storage.
+
+        Keyword Arguments:
+        self                   -- This object.
+
+        Return Value:
+        Dictionary containing serialized query result data.
+        """
+        return {
+            "username": self.username,
+            "site_name": self.site_name,
+            "site_url_user": self.site_url_user,
+            "status": self.status.value if self.status else "Unknown",
+            "query_time": self.query_time if self.query_time is None else round(self.query_time, 4),
+            "context": self.context,
+        }
 
     def __str__(self):
         """Convert Object To String.
