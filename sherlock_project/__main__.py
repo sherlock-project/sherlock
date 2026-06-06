@@ -20,3 +20,20 @@ if __name__ == "__main__":
 
     from sherlock_project import sherlock
     sherlock.main()
+# Optional tool metadata for demonstration and documentation
+
+
+def get_optional_tool_names():
+    """Return optional tool names added for this contribution."""
+    return [
+        "site_manager",
+        "username_generator",
+    ]
+
+
+def describe_optional_tools():
+    """Return short descriptions for optional helper tools."""
+    return {
+        "site_manager": "GUI helper for managing supported site definitions.",
+        "username_generator": "Helper for generating username variations.",
+    }

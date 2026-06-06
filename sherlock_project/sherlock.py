@@ -929,7 +929,13 @@ def main():
 
         print()
     query_notify.finish()
+    
+def build_username_variation_preview(username: str):
+    """Generate preview username variations."""
+    from sherlock_project.username_generator import UsernameGenerator
 
+    generator = UsernameGenerator(username)
+    return generator.generate_all(max_results=10)
 
 if __name__ == "__main__":
     main()
