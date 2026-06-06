@@ -1,14 +1,17 @@
 """
-Testes RED — Dia 1, Dupla 1 (SherlockService).
+Testes — Dupla 1 (SherlockService).
 
 Técnica: TDD (ciclo Red → Green → Refactor).
-Estes testes foram escritos ANTES da implementação real do SherlockService.
-Todos devem FALHAR com a implementação atual (NotImplementedError).
 
 Testes deste arquivo:
-  #1 test_search_returns_results_for_known_user
-  #2 test_search_rejects_empty_username
+  #1  test_search_returns_results_for_known_user        — GREEN (Dia 2)
+  #1b test_search_result_has_correct_url                — GREEN (Dia 2)
+  #2  test_search_rejects_empty_username                — GREEN (Dia 2)
+  #2b test_search_rejects_empty_username_without_...    — GREEN (Dia 2)
+  #6  test_site_result_mapping_status_found             — GREEN (Dia 2)
+  #7  test_site_result_mapping_status_not_found         — GREEN (Dia 2)
 """
+
 
 from unittest.mock import patch
 
@@ -54,7 +57,7 @@ def two_found_results():
 
 
 # ---------------------------------------------------------------------------
-# Teste #1 — RED: serviço entrega SiteResult para cada hit retornado pelo mock
+# Teste #1 — serviço entrega SiteResult para cada hit retornado pelo mock
 # ---------------------------------------------------------------------------
 
 class TestSearchReturnsResults:
@@ -65,12 +68,12 @@ class TestSearchReturnsResults:
         Quando: SherlockService.search() é chamado com username válido.
         Então: retorna 2 SiteResult com status "found" e URLs corretas.
 
-        RED: falha porque SherlockService.search() levanta NotImplementedError.
         """
         req = SearchRequest(username="torvalds")
 
         with patch("apps.core.services.sherlock", return_value=two_found_results):
-            results = list(service.search(req))
+            with patch("apps.core.services.SitesInformation"):
+                results = list(service.search(req))
 
         assert len(results) == 2
         assert all(isinstance(r, SiteResult) for r in results)
@@ -83,12 +86,12 @@ class TestSearchReturnsResults:
         """
         Complementar ao #1: cada SiteResult deve carregar a URL do perfil.
 
-        RED: mesmo motivo — NotImplementedError.
         """
         req = SearchRequest(username="torvalds")
 
         with patch("apps.core.services.sherlock", return_value=two_found_results):
-            results = list(service.search(req))
+            with patch("apps.core.services.SitesInformation"):
+                results = list(service.search(req))
 
         urls = {r.url for r in results}
         assert "https://github.com/torvalds" in urls
@@ -96,7 +99,7 @@ class TestSearchReturnsResults:
 
 
 # ---------------------------------------------------------------------------
-# Teste #2 — RED: username vazio levanta InvalidUsernameError
+# Teste #2 — username vazio levanta InvalidUsernameError
 # ---------------------------------------------------------------------------
 
 class TestSearchValidatesUsername:
@@ -106,9 +109,6 @@ class TestSearchValidatesUsername:
         Dado: SearchRequest com username vazio.
         Quando: SherlockService.search() é chamado.
         Então: levanta InvalidUsernameError antes de qualquer chamada de rede.
-
-        RED: falha porque SherlockService.search() levanta NotImplementedError,
-             não InvalidUsernameError.
         """
         req = SearchRequest(username="")
 
@@ -119,8 +119,6 @@ class TestSearchValidatesUsername:
         """
         Complementar ao #2: a validação deve ocorrer ANTES de chamar sherlock(),
         portanto nenhuma chamada de rede deve ser feita.
-
-        RED: mesmo motivo.
         """
         req = SearchRequest(username="")
 
@@ -129,3 +127,55 @@ class TestSearchValidatesUsername:
                 list(service.search(req))
 
             mock_sherlock.assert_not_called()
+
+
+# ---------------------------------------------------------------------------
+# Teste #6 — QueryStatus.CLAIMED mapeia para "found"
+# ---------------------------------------------------------------------------
+
+class TestSiteResultStatusMapping:
+
+    def test_site_result_mapping_status_found(self, service):
+        """
+        Dado: mock de sherlock() devolvendo 1 site com status CLAIMED.
+        Quando: SherlockService.search() é chamado.
+        Então: o SiteResult resultante tem status "found".
+        """
+        mock_results = {
+            "GitHub": _make_query_result(
+                "torvalds", "GitHub", "https://github.com/torvalds", QueryStatus.CLAIMED
+            ),
+        }
+        req = SearchRequest(username="torvalds")
+
+        with patch("apps.core.services.sherlock", return_value=mock_results):
+            with patch("apps.core.services.SitesInformation"):
+                results = list(service.search(req))
+
+        assert len(results) == 1
+        assert results[0].status == "found"
+
+    # -----------------------------------------------------------------------
+    # Teste #7 — QueryStatus.AVAILABLE mapeia para "not_found"
+    # -----------------------------------------------------------------------
+
+    def test_site_result_mapping_status_not_found(self, service):
+        """
+        Dado: mock de sherlock() devolvendo 1 site com status AVAILABLE.
+        Quando: SherlockService.search() é chamado.
+        Então: o SiteResult resultante tem status "not_found".
+        """
+        mock_results = {
+            "GitHub": _make_query_result(
+                "nonexistent_user_xyz", "GitHub",
+                "https://github.com/nonexistent_user_xyz", QueryStatus.AVAILABLE
+            ),
+        }
+        req = SearchRequest(username="nonexistent_user_xyz")
+
+        with patch("apps.core.services.sherlock", return_value=mock_results):
+            with patch("apps.core.services.SitesInformation"):
+                results = list(service.search(req))
+
+        assert len(results) == 1
+        assert results[0].status == "not_found"
