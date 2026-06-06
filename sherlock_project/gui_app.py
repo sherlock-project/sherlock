@@ -266,3 +266,35 @@ def run_gui():
 #  If this file is executed directly, the GUI should open.
 if __name__ == "__main__":
     run_gui()
+    # Optional GUI tool registry for site management and username variations
+
+
+def get_gui_tool_registry():
+    """Return optional GUI tools available in the application."""
+    return {
+        "site_manager": {
+            "label": "Site Manager",
+            "module": "sherlock_project.gui.site_manager",
+        },
+        "username_generator": {
+            "label": "Username Generator",
+            "module": "sherlock_project.username_generator",
+        },
+    }
+
+
+def is_gui_tool_available(tool_name):
+    """Check whether an optional GUI tool is registered."""
+    return tool_name in get_gui_tool_registry()
+
+
+def run_gui():
+    app = QApplication(sys.argv)
+    window = SherlockGUI()
+    window.show()
+    sys.exit(app.exec_())
+
+
+# If this file is executed directly, the GUI should open.
+if __name__ == "__main__":
+    run_gui()
