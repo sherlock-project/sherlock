@@ -1,10 +1,6 @@
 
 """ Sherlock Module
 
-from .pdf_reporter import PDFReporter
-from .excel_reporter import ExcelReporter
-from .html_reporter import HTMLReporter
-
 This module contains the main logic to search for usernames at social
 networks.
 
@@ -33,4 +29,22 @@ __longname__    = "Sherlock: Find Usernames Across Social Networks"
 __version__     = get_version()
 
 forge_api_latest_release = "https://api.github.com/repos/sherlock-project/sherlock/releases/latest"
-__all__ = ['PDFReporter', 'ExcelReporter', 'HTMLReporter']
+
+try:
+    from .pdf_reporter import PDFReporter
+    from .excel_reporter import ExcelReporter
+    from .html_reporter import HTMLReporter
+except ImportError:
+    PDFReporter = ExcelReporter = HTMLReporter = None
+
+__all__ = ['PDFReporter', 'ExcelReporter', 'HTMLReporter', 'get_reporter']
+
+def get_reporter(format_type: str):
+    """Factory method for safely initializing reporter classes."""
+    reporters = {
+        'pdf': PDFReporter,
+        'excel': ExcelReporter,
+        'html': HTMLReporter
+    }
+    cls = reporters.get(format_type.lower())
+    return cls() if cls else None
