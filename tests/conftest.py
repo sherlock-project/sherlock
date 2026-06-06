@@ -10,7 +10,7 @@ def fetch_local_manifest(honor_exclusions: bool = True) -> dict[str, dict[str, s
     return sites_iterable
 
 @pytest.fixture()
-def sites_obj():
+def sites_obj() -> SitesInformation:
     sites_obj = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../sherlock_project/resources/data.json"))
     yield sites_obj
 
