@@ -14,7 +14,7 @@ INSTALLED_APPS = [
     # Nossos apps
     'apps.core',
     'apps.search',
-    # 'apps.export', # Dupla 3
+    'apps.export',
 ]
 
 MIDDLEWARE = [
