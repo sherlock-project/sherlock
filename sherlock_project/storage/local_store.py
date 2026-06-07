@@ -45,11 +45,14 @@ class LocalStorage:
 
     def _result_to_dict(self, result: QueryResult) -> Dict[str, Any]:
         """QueryResult'u dict'e cevir"""
+        http_status = None
+        if isinstance(result.context, dict):
+            http_status = result.context.get('http_status')
         return {
             'site_name': result.site_name,
             'url_user': result.site_url_user,
             'status': result.status.value if result.status else 'unknown',
-            'http_status': result.context.get('http_status'),
+            'http_status': http_status,
             'response_time': result.query_time,
             'context': result.context
         }
