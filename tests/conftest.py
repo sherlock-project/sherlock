@@ -1,8 +1,13 @@
 import os
 import json
 import urllib
+from pathlib import Path
+from unittest.mock import patch
+
 import pytest
+from sherlock_project.result import QueryResult, QueryStatus
 from sherlock_project.sites import SitesInformation
+from sherlock_project.storage.local_store import LocalStorage
 
 def fetch_local_manifest(honor_exclusions: bool = True) -> dict[str, dict[str, str]]:
     sites_obj = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), "../sherlock_project/resources/data.json"), honor_exclusions=honor_exclusions)
@@ -24,6 +29,42 @@ def remote_schema():
     with urllib.request.urlopen(schema_url) as remoteschema:
         schemadat = json.load(remoteschema)
     yield schemadat
+
+@pytest.fixture
+def local_storage(tmp_path: Path):
+    """Create a LocalStorage instance with a temporary home directory.
+
+    Patches Path.home() so storage writes to an isolated temp directory
+    that is automatically cleaned up after each test. Useful for any test
+    that needs to interact with search history persistence.
+    """
+    with patch.object(Path, "home", return_value=tmp_path):
+        storage = LocalStorage()
+        yield storage
+
+
+@pytest.fixture
+def claimed_result() -> QueryResult:
+    """Create a QueryResult with CLAIMED status for search history tests."""
+    return QueryResult(
+        username="testuser",
+        site_name="github",
+        site_url_user="https://github.com/testuser",
+        status=QueryStatus.CLAIMED,
+        query_time=0.123,
+    )
+
+
+@pytest.fixture
+def available_result() -> QueryResult:
+    """Create a QueryResult with AVAILABLE status for search history tests."""
+    return QueryResult(
+        username="testuser",
+        site_name="twitter",
+        site_url_user="https://twitter.com/testuser",
+        status=QueryStatus.AVAILABLE,
+    )
+
 
 def pytest_addoption(parser):
     parser.addoption(
