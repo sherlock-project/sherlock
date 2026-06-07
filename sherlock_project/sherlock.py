@@ -35,6 +35,8 @@ from sherlock_project.__init__ import (
     __shortname__,
     __version__,
     forge_api_latest_release,
+    get_resource_path,
+    is_frozen,
 )
 
 from sherlock_project.result import QueryStatus
@@ -534,21 +536,29 @@ def timeout_check(value):
 
 def handler(signal_received, frame):
     """Exit gracefully without throwing errors
-
     Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
     """
     sys.exit(0)
 
 
+def format_version_string() -> str:
+    """Build the version string shown by --version and the CLI description."""
+    version_label = f"{__shortname__} v{__version__}"
+    if is_frozen():
+        return f"{version_label} (standalone executable)"
+    return version_label
+
+
 def main():
+    version_string = format_version_string()
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
-        description=f"{__longname__} (Version {__version__})",
+        description=f"{__longname__} ({version_string})",
     )
     parser.add_argument(
         "--version",
         action="version",
-        version=f"{__shortname__} v{__version__}",
+        version=version_string,
         help="Display version information and dependencies.",
     )
     parser.add_argument(
@@ -746,10 +756,12 @@ def main():
 
     # Create object with all information about sites we are aware of.
     try:
-        if args.local:
+        use_bundled_manifest = args.local or (is_frozen() and not args.json_file)
+        if use_bundled_manifest:
             sites = SitesInformation(
-                os.path.join(os.path.dirname(__file__), "resources/data.json"),
+                str(get_resource_path("data.json")),
                 honor_exclusions=False,
+                do_not_exclude=args.site_list,
             )
         else:
             json_file_location = args.json_file

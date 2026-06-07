@@ -7,7 +7,24 @@ networks.
 
 from importlib.metadata import version as pkg_version, PackageNotFoundError
 import pathlib
-import tomli
+import sys
+
+
+def is_frozen() -> bool:
+    """Return True when running as a PyInstaller standalone executable."""
+    return getattr(sys, "frozen", False)
+
+
+def get_package_path() -> pathlib.Path:
+    """Return the directory containing the sherlock_project package."""
+    if is_frozen():
+        return pathlib.Path(sys._MEIPASS) / "sherlock_project"
+    return pathlib.Path(__file__).resolve().parent
+
+
+def get_resource_path(filename: str) -> pathlib.Path:
+    """Return the absolute path to a file under sherlock_project/resources/."""
+    return get_package_path() / "resources" / filename
 
 
 def get_version() -> str:
@@ -15,7 +32,15 @@ def get_version() -> str:
     try:
         return pkg_version("sherlock_project")
     except PackageNotFoundError:
-        pyproject_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent / "pyproject.toml"
+        if is_frozen():
+            version_file = get_resource_path("version.txt")
+            if version_file.is_file():
+                return version_file.read_text(encoding="utf-8").strip()
+            return "0.0.0+standalone"
+        pyproject_path: pathlib.Path = (
+            pathlib.Path(__file__).resolve().parent.parent / "pyproject.toml"
+        )
+        import tomli
         with pyproject_path.open("rb") as f:
             pyproject_data = tomli.load(f)
         return pyproject_data["tool"]["poetry"]["version"]
