@@ -3304,12 +3304,11 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "FACEIT": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.faceit.com/en/notfound",
+    "url": "https://www.faceit.com/en/players/{}",
+    "urlMain": "https://www.faceit.com/",
+    "username_claimed": "s1mple-"
   }
-}.
-"FACEIT": {
-  "errorType": "response_url",
-  "errorUrl": "https://www.faceit.com/en/notfound",
-  "url": "https://www.faceit.com/en/players/{}",
-  "urlMain": "https://www.faceit.com/",
-  "username_claimed": "s1mple-"
-}
