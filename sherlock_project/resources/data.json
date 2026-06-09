@@ -3305,7 +3305,7 @@
     "errorCode": 404,
     "username_claimed": "blue"
   }
-}
+}.
 "FACEIT": {
   "errorType": "response_url",
   "errorUrl": "https://www.faceit.com/en/notfound",
