@@ -6,17 +6,14 @@ Apple Discussions
 Archive.org
 Bandcamp
 Codolio
-DeviantArt
 Discord.bio
 Envato Forum
-Flipboard
 GeeksforGeeks
 Giphy
 HackenProof (Hackers)
 Hashnode
 Hubski
 LessWrong
-Minecraft
 Patched
 Pornhub
 Rarible
@@ -24,12 +21,15 @@ Realmeye
 Reddit
 Replit.com
 RocketTube
+RuneScape
 Scribd
 Shelf
+Slack
 SlideShare
 Splice
 Spotify
-Trovo
+Star Citizen
+Strava
 TryHackMe
 Velomania
 Weblate
