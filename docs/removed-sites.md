@@ -690,7 +690,7 @@ As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents u
 
 ## PayPal
 
-As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "PayPal": {
@@ -708,7 +708,7 @@ future once we find a better error detecting method.
 
 ## ImageShack
 
-As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 ```json
   "ImageShack": {
     "errorType": "response_url",
@@ -722,7 +722,7 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 ## Aptoide
 
-As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "Aptoide": {
@@ -736,7 +736,7 @@ future once we find a better error detecting method.
 
 ## Crunchyroll
 
-As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "Crunchyroll": {
@@ -749,7 +749,7 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ```
 
 ## T-MobileSupport
-As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "T-MobileSupport": {
@@ -763,7 +763,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 ## OpenCollective
 
-As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "OpenCollective": {
@@ -777,7 +777,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 ## SegmentFault
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "SegmentFault": {
@@ -791,7 +791,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a fix for this
 
 ```json
   "Viadeo": {
@@ -1463,7 +1463,7 @@ As of 08.09.2022, GuruShots returns false positives because it just returns a bl
 ```
 
 ## Google Developer
-As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not abl to get any proper results
+As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not able to get any proper results
 
 ```json
   "Google Developer": {
@@ -1507,7 +1507,7 @@ As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but t
 ```
 
 ## Zoomit
-As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+As of 04.02.2023, Zoomit return false positives. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it won't be prioritized at the moment.
 ```json
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
@@ -1697,7 +1697,7 @@ As of 2023.08.29, Munzee requires us to be logged into the site in order to chec
 ```
 
 ## Quizlet
-As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exists on the website
 
 ```json
 "Quizlet": {
@@ -1816,7 +1816,7 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
 ```
 
 ## G2G
-__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+__2024-04-10 :__ Seems to be loading profiles with some weird javascript setup that sherlock doesn't like, leading to difficult to control false positives
 ```json
   "G2G": {
     "errorType": "response_url",
@@ -1841,7 +1841,7 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
 ```
 
 ## Zhihu
-As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats returned. Checking for patterns may allow us to find a way to detect the existans of a user, this will be need to be worked on later
+As of 24.06.2024, Zhihu returns false positives as they obfuscate the code that's returned. Checking for patterns may allow us to find a way to detect the existans of a user, this will be need to be worked on later
 ```json
 
   "Zhihu": {
@@ -1892,7 +1892,7 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
 ```
 
 ## Alik.cz
-__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site receiving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
 
 ## 8tracks
 __2025-02-02 :__ Might be dead again. Nobody knows for sure.
