@@ -434,7 +434,7 @@ did not seem to work.
 
 ## Trip
 
-As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
+As of 2020-04-02, Trip by Skyscanner seems to not work because it keeps on
 redirecting to skyscanner.com whether the username exists or not.
 
 ```json
@@ -690,7 +690,7 @@ As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents u
 
 ## PayPal
 
-As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "PayPal": {
@@ -708,7 +708,7 @@ future once we find a better error detecting method.
 
 ## ImageShack
 
-As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 ```json
   "ImageShack": {
     "errorType": "response_url",
@@ -722,7 +722,7 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 ## Aptoide
 
-As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "Aptoide": {
@@ -736,7 +736,7 @@ future once we find a better error detecting method.
 
 ## Crunchyroll
 
-As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "Crunchyroll": {
@@ -749,7 +749,7 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ```
 
 ## T-MobileSupport
-As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "T-MobileSupport": {
@@ -763,7 +763,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 ## OpenCollective
 
-As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "OpenCollective": {
@@ -777,7 +777,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 ## SegmentFault
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "SegmentFault": {
@@ -791,7 +791,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a fix for this
 
 ```json
   "Viadeo": {
@@ -820,7 +820,7 @@ As of 2020-09-02, MeetMe returns false positives
 
 ## Linkdedin
 
-As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
+As of 2020-09-23, Linkedin returns false positives because we are prompted to login when checking for a user
 
 ```json
   "Linkedin": {
@@ -1258,7 +1258,7 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
 ```
 
 ## Smashcast
-As og 2022-05-01, Smashcast is down
+As of 2022-05-01, Smashcast is down
 ```json
   "Smashcast": {
     "errorType": "status_code",
@@ -1271,7 +1271,7 @@ As og 2022-05-01, Smashcast is down
 
 ## Countable
 
-As og 2022-05-01, Countable returns false positives
+As of 2022-05-01, Countable returns false positives
 ```json
   "Countable": {
     "errorType": "status_code",
@@ -1358,7 +1358,7 @@ As of 17-07-2022, Ghost returns false positives
 ```
 
 ## Atom Discussions
-As of 25-07-2022, Atom Discussions seems to not work beceause it keeps on
+As of 25-07-2022, Atom Discussions seems to not work because it keeps on
 redirecting to github discussion tab which does not exist and is not specific to a username
 
 ```json
@@ -1463,7 +1463,7 @@ As of 08.09.2022, GuruShots returns false positives because it just returns a bl
 ```
 
 ## Google Developer
-As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not abl to get any proper results
+As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not able to get any proper results
 
 ```json
   "Google Developer": {
@@ -1697,7 +1697,7 @@ As of 2023.08.29, Munzee requires us to be logged into the site in order to chec
 ```
 
 ## Quizlet
-As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exists on the website
 
 ```json
 "Quizlet": {
@@ -1816,7 +1816,7 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
 ```
 
 ## G2G
-__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+__2024-04-10 :__ Seems to be loading profiles with some weird javascript setup that sherlock doesn't like, leading to difficult to control false positives
 ```json
   "G2G": {
     "errorType": "response_url",
