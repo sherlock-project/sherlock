@@ -6,6 +6,7 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+from typing import Optional
 
 
 MANIFEST_URL = "https://data.sherlockproject.xyz"
@@ -78,9 +79,9 @@ class SiteInformation:
 class SitesInformation:
     def __init__(
             self,
-            data_file_path: str|None = None,
+            data_file_path: Optional[str] = None,
             honor_exclusions: bool = True,
-            do_not_exclude: list[str] = [],
+            do_not_exclude: list = [],
         ):
         """Create Sites Information Object.
 

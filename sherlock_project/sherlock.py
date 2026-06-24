@@ -24,7 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
-from typing import Optional
+from typing import Optional, Union
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -177,7 +177,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+) -> dict[str, dict[str, Union[str, QueryResult]]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
