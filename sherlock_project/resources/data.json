@@ -11,10 +11,10 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
-  "2Dimensions": {
+  "Rive": {
     "errorType": "status_code",
-    "url": "https://2Dimensions.com/a/{}",
-    "urlMain": "https://2Dimensions.com/",
+    "url": "https://rive.app/a/{}",
+    "urlMain": "https://rive.app/",
     "username_claimed": "blue"
   },
   "7Cups": {
@@ -1541,6 +1541,13 @@
     "urlMain": "https://www.lushstories.com/",
     "username_claimed": "chris_brown"
   },
+ "MangaDex": {
+  "errorType": "message",
+  "errorMsg": "\"result\":\"error\"",
+  "url": "https://api.mangadex.org/user?username={}",
+  "urlMain": "https://mangadex.org/",
+  "username_claimed": "mangadex"
+},
   "MMORPG Forum": {
     "errorType": "status_code",
     "url": "https://forums.mmorpg.com/profile/{}",
