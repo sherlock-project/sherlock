@@ -12,10 +12,10 @@
     "username_claimed": "FitGirl"
   },
   "Rive": {
-    "errorType": "status_code",
-    "url": "https://rive.app/a/{}",
-    "urlMain": "https://rive.app/",
-    "username_claimed": "blue"
+  "errorType": "status_code",
+  "url": "https://rive.app/@{}/",
+  "urlMain": "https://rive.app/",
+  "username_claimed": "blue"
   },
   "7Cups": {
     "errorType": "status_code",
@@ -1541,13 +1541,6 @@
     "urlMain": "https://www.lushstories.com/",
     "username_claimed": "chris_brown"
   },
- "MangaDex": {
-  "errorType": "message",
-  "errorMsg": "\"result\":\"error\"",
-  "url": "https://api.mangadex.org/user?username={}",
-  "urlMain": "https://mangadex.org/",
-  "username_claimed": "mangadex"
-},
   "MMORPG Forum": {
     "errorType": "status_code",
     "url": "https://forums.mmorpg.com/profile/{}",
