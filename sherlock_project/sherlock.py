@@ -809,10 +809,10 @@ def main():
     all_usernames = []
     for username in args.username:
         if check_for_parameter(username):
-            for name in multiple_usernames(username):
-                all_usernames.append(name)
+            for raw_name in multiple_usernames(username):
+                all_usernames.append(raw_name.rstrip("."))
         else:
-            all_usernames.append(username)
+            all_usernames.append(username.rstrip("."))
     for username in all_usernames:
         results = sherlock(
             username,
