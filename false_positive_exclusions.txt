@@ -4,19 +4,22 @@ Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
+BoardGameGeek
+BreachSta.rs Forum
 Codolio
 Cults3D
 Discord.bio
 Envato Forum
 GeeksforGeeks
 Giphy
-Gumroad
 Hashnode
 Houzz
 Hubski
 LessWrong
 Minecraft
 Odysee
+OurDJTalk
+PCGamer
 Patched
 Rarible
 Realmeye
@@ -25,9 +28,11 @@ Replit.com
 RocketTube
 Scribd
 Shelf
+Slack
 SlideShare
 Splice
 Spotify
+Star Citizen
 TryHackMe
 Velomania
 Weblate
