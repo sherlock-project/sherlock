@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Lightweight launcher so tests invoking `sherlock` on the PATH will run the
+# local package without requiring `pip install -e .`.
+PYTHONPATH="$(cd "$(dirname "$0")" && pwd)" exec python3 -m sherlock_project "$@"
