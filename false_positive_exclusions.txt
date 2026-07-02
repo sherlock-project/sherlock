@@ -4,10 +4,9 @@ Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
-BoardGameGeek
 BreachSta.rs Forum
 Codolio
-Cults3D
+DeviantArt
 Discord.bio
 Envato Forum
 GeeksforGeeks
@@ -18,7 +17,6 @@ Hubski
 LessWrong
 Minecraft
 Odysee
-OurDJTalk
 PCGamer
 Patched
 Rarible
@@ -26,23 +24,25 @@ Realmeye
 Reddit
 Replit.com
 RocketTube
+RuneScape
 Scribd
 Shelf
 Slack
 SlideShare
 Splice
 Spotify
-Star Citizen
+Trakt
+Trovo
 TryHackMe
 Velomania
 Weblate
 YandexMusic
 authorSTREAM
 dailykos
+fixya
 igromania
 interpals
 mercadolivre
-nnRU
 opennet
 phpRU
 svidbook
