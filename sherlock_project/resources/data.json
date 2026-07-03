@@ -1278,16 +1278,10 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorMsg": [
-      "<title>Instagram</title>",
-      "Profile isn't available"
-    ],
-    "errorType": "message",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1"
-    },
-    "url": "https://www.instagram.com/{}",
-    "urlMain": "https://www.instagram.com/",
+    "errorType": "status_code",
+    "url": "https://instagram.com/{}",
+    "urlMain": "https://instagram.com/",
+    "urlProbe": "https://imginn.com/{}",
     "username_claimed": "instagram"
   },
   "Instapaper": {
