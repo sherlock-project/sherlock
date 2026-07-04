@@ -6,7 +6,7 @@ Apple Discussions
 Archive.org
 Bandcamp
 BreachSta.rs Forum
-Carbonmade
+Chess
 Codolio
 DeviantArt
 Discord.bio
@@ -16,8 +16,8 @@ Giphy
 Hashnode
 Houzz
 Hubski
-Itch.io
 LessWrong
+LushStories
 Odysee
 PCGamer
 Patched
@@ -29,6 +29,7 @@ Replit.com
 RocketTube
 Scribd
 Shelf
+Slack
 SlideShare
 Splice
 Spotify
@@ -39,11 +40,9 @@ Weblate
 YandexMusic
 authorSTREAM
 dailykos
-fixya
 igromania
 interpals
 mercadolivre
-minds
 opennet
 phpRU
 svidbook
