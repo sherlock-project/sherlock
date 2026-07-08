@@ -118,7 +118,7 @@ def get_response(request_future, error_type, social_network):
     exception_text = None
     try:
         response = request_future.result()
-        if response.status_code:
+        if response is not None and response.status_code is not None:
             # Status code exists in response object
             error_context = None
     except requests.exceptions.HTTPError as errh:
