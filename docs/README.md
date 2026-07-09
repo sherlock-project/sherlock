@@ -92,6 +92,23 @@ options:
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
 ```
 
+## Optional local API key configuration
+
+If you run Sherlock from the repository root, it can read optional API keys from a local `.env.local` file.
+Use `.env.local.example` as a starting point:
+
+```bash
+cp .env.local.example .env.local
+```
+
+The following keys are supported:
+
+- `NUMVERIFY_API_KEY`
+- `GOOGLECSE_CX`
+- `GOOGLE_API_KEY`
+
+Use `--verbose` to see whether these variables were loaded and whether any are missing.
+
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
