@@ -121,7 +121,7 @@ class SitesInformation:
             # users from creating issue about false positives which has already been fixed or having outdated data
             data_file_path = MANIFEST_URL
 
-        if data_file_path.lower().startswith("http"):
+        if data_file_path.lower().startswith(("http://", "https://")):
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path, timeout=30)
