@@ -11,13 +11,12 @@ Discord.bio
 Envato Forum
 GeeksforGeeks
 Giphy
-Gravatar
 Hashnode
 Houzz
 Hubski
 LessWrong
-Minecraft
 Odysee
+OurDJTalk
 PCGamer
 Patched
 Rarible
