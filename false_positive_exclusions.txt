@@ -1,4 +1,5 @@
 7Cups
+APClips
 Airliners
 Apple Developer
 Apple Discussions
@@ -16,9 +17,8 @@ Houzz
 Hubski
 LessWrong
 Odysee
-OurDJTalk
 PCGamer
-Patched
+Pornhub
 Rarible
 Realmeye
 Reddit
@@ -33,6 +33,7 @@ Trovo
 TryHackMe
 Velomania
 Weblate
+Wordnik
 YandexMusic
 authorSTREAM
 dailykos
