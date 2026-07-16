@@ -210,6 +210,10 @@ def sherlock(
     # Notify caller that we are starting the query.
     query_notify.start(username)
 
+    # Strip trailing period from username to prevent URL construction issues
+    # (e.g. "alice." would produce "alice..example.com")
+    username = username.rstrip(".")
+
     # Normal requests
     underlying_session = requests.session()
 
