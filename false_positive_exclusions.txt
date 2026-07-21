@@ -1,12 +1,9 @@
 7Cups
-APClips
 Airliners
 Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
-Blogger
-BreachSta.rs Forum
 Codolio
 DeviantArt
 Discord.bio
@@ -31,7 +28,6 @@ Shelf
 SlideShare
 Splice
 Spotify
-Trakt
 Trovo
 TryHackMe
 Velomania
