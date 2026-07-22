@@ -1,6 +1,7 @@
 import os
 import platform
 import re
+import shlex
 import subprocess
 
 class Interactives:
@@ -14,7 +15,7 @@ class Interactives:
 
         proc_out:str = ""
         try:
-            proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+            proc_out = subprocess.check_output(shlex.split(command), stderr=subprocess.STDOUT)
             return proc_out.decode()
         except subprocess.CalledProcessError as e:
             raise InteractivesSubprocessError(e.output.decode())
