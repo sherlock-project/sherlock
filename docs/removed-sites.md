@@ -31,7 +31,7 @@ As of 2020-05-25, all usernames are reported as claimed.
 
 Any query against a user seems to be redirecting to a general
 information page at https://www.investing.com/brokers/.  Probably
-required login before access.
+requires login before access.
 
 ```json
   "Investing.com": {

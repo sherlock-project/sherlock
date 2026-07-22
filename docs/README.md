@@ -43,15 +43,15 @@ See all alternative installation methods [here](https://sherlockproject.xyz/inst
 
 To search for only one user:
 ```bash
-sherlock user123
+sherlock example_user
 ```
 
 To search for more than one user:
 ```bash
-sherlock user1 user2 user3
+sherlock example_user1 example_user2 example_user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in an individual text file with the corresponding username (e.g ```example_user.txt```).
 
 ```console
 $ sherlock --help
