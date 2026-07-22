@@ -194,7 +194,7 @@ As of 2019-12-31, usernames that exist are not detected.
 ## KiwiFarms
 
 As of 2019-12-31, the site gives a 403 for all usernames.  You have to
-be logged into see a profile.
+be logged in to see a profile.
 
 ```json
   "KiwiFarms": {
@@ -243,7 +243,7 @@ HTTP Status.
 
 ## Foursquare
 
-When usage of automated tool is detected. Whole IP is banned from future requests.
+When usage of automated tools is detected, the whole IP is banned from future requests.
 There is an error message:
 
 > Please verify you are a human
@@ -348,7 +348,7 @@ If the site becomes available in the future, we can put it back in.
 This site has always returned a false positive.  The site returns the exact
 same text for a claimed or an unclaimed username.  The site must be rendering
 all of the different content using Javascript in the browser.  So, there is
-no way distinguish between the results with the current design of Sherlock.
+no way to distinguish between the results with the current design of Sherlock.
 
 ```json
   "BlackPlanet": {
@@ -381,7 +381,7 @@ Sherlock.
 
 On 2019-04-02, Google shutdown Google Plus.  While the content for some
 users is available after that point, it is going away.  And, no one will
-be able to create a new account.  So, there is no value is keeping it in
+be able to create a new account.  So, there is no value in keeping it in
 Sherlock.
 
 Good-bye [Google Plus](https://en.wikipedia.org/wiki/Google%2B)...
@@ -434,8 +434,10 @@ did not seem to work.
 
 ## Trip
 
-As of 2020-04-02, Trip by Skyscanner seems to not work beceause it keeps on
+As of 2020-04-02, Trip by Skyscanner seems to not work because it keeps on
 redirecting to skyscanner.com whether the username exists or not.
+
+
 
 ```json
   "Trip": {
@@ -451,7 +453,7 @@ redirecting to skyscanner.com whether the username exists or not.
 
 ## boingboing.net
 
-As of 2020-04-02, boingboing.net requires a login to check if a user exits or not.
+As of 2020-04-02, boingboing.net requires a login to check if a user exists or not.
 
 ```
    "boingboing.net": {
@@ -517,7 +519,7 @@ for Sherlock to check for usernames on this particular website.
 ## Creative Market
 
 As of 2020-06-20, Creative Market has a captcha to prove that you are a human, and because of this
-Sherlock is unable to check for username on this site because we will always get  a page which asks
+Sherlock is unable to check for username on this site because we will always get a page which asks
 us to prove that we are not a robot.
 
 ```json
@@ -533,7 +535,7 @@ us to prove that we are not a robot.
 
 ## pvpru
 
-As of 2020-06-20, pvpru uses CloudFlair, and because of this we get a "Access denied" error whenever
+As of 2020-06-20, pvpru uses CloudFlare, and because of this we get a "Access denied" error whenever
 we try to check for a username.
 
 ```json
@@ -601,7 +603,7 @@ removed
 
 
 ## Coderwall
-As of 2020-07-06, Coderwall returns false positives when checking for an username which contains a period.
+As of 2020-07-06, Coderwall returns false positives when checking for a username which contains a period.
 I have tried to find out what Coderwall's criteria is for a valid username, but unfortunately I have not been able to
 find it and because of this, the best thing we can do now is to remove it.
 ```json
@@ -663,8 +665,8 @@ As of 2020-07-22, the Mixer service has closed down.
 
 
 ## KanoWorld
-As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us check for usernames.
-If an alternative way to check for usernames is found then it will added.
+As of 2020-07-22, KanoWorld's api.kano.me subdomain no longer exists which makes it not possible for us to check for usernames.
+If an alternative way to check for usernames is found then it will be added.
 ```json
   "KanoWorld": {
     "errorType": "status_code",
@@ -690,7 +692,7 @@ As of 2020-08-11, YandexCollection presents us with a recaptcha which prevents u
 
 ## PayPal
 
-As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, PayPal now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "PayPal": {
@@ -708,7 +710,7 @@ future once we find a better error detecting method.
 
 ## ImageShack
 
-As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, ImageShack now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 ```json
   "ImageShack": {
     "errorType": "response_url",
@@ -722,7 +724,7 @@ As of 2020-08-24, ImageShack now returns false positives, which was found when r
 
 ## Aptoide
 
-As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likley be added again in the near
+As of 2020-08-24, Aptoide now returns false positives, which was found when running the tests, but will most likely be added again in the near
 future once we find a better error detecting method.
 ```json
   "Aptoide": {
@@ -736,7 +738,7 @@ future once we find a better error detecting method.
 
 ## Crunchyroll
 
-As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, Crunchyroll now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "Crunchyroll": {
@@ -749,7 +751,7 @@ As of 2020-08-24, Crunchyroll now returns false positives, which was found when 
 ```
 
 ## T-MobileSupport
-As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, T-MobileSupport now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "T-MobileSupport": {
@@ -763,7 +765,7 @@ As of 2020-08-24, T-MobileSupport now returns false positives, which was found w
 
 ## OpenCollective
 
-As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, OpenCollective now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "OpenCollective": {
@@ -777,7 +779,7 @@ As of 2020-08-24, OpenCollective now returns false positives, which was found wh
 
 ## SegmentFault
 
-As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a better error detecting method.
+As of 2020-08-24, SegmentFault now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a better error detecting method.
 
 ```json
   "SegmentFault": {
@@ -791,7 +793,7 @@ As of 2020-08-24, SegmentFault now returns false positives, which was found when
 
 ## Viadeo
 
-As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likley be added again in the near future once we find a fix for this
+As of 2020-08-24, Viadeo now returns false positives, which was found when running the tests, but will most likely be added again in the near future once we find a fix for this
 
 ```json
   "Viadeo": {
@@ -820,7 +822,7 @@ As of 2020-09-02, MeetMe returns false positives
 
 ## Linkdedin
 
-As of 2020-09-23, Linkedin returns false positives because we are prompted with prompted to login when checking for a user
+As of 2020-09-23, Linkedin returns false positives because we are prompted to login when checking for a user
 
 ```json
   "Linkedin": {
@@ -864,7 +866,7 @@ As of 2020-09-23, Taringa returns false positives.
 ```
 
 ## Photobucket
-As of 2020-10-21, Photobucket return false positives. This was reported in #785.
+As of 2020-10-21, Photobucket returns false positives. This was reported in #785.
 ```json
   "Photobucket": {
     "errorType": "status_code",
@@ -1183,7 +1185,7 @@ As of 2021-12-02, plug.dj is returning false positives because the service is do
 
 ## Facenama
 
-As of 2022-02-6, Facenama seems to be down their rebuilding their site
+As of 2022-02-6, Facenama seems to be down or rebuilding their site
 ```json
   "Facenama": {
     "errorType": "response_url",
@@ -1244,7 +1246,7 @@ As of 2022-05-01, Gab returns false positives because they now use CloudFlare
 
 ## FanCentro
 
-As of 2022-05-1, FanCentro returns false positives. Will later in new version of Sherlock.
+As of 2022-05-1, FanCentro returns false positives. Will be fixed later in a new version of Sherlock.
 
 ```json
   "FanCentro": {
@@ -1258,7 +1260,7 @@ As of 2022-05-1, FanCentro returns false positives. Will later in new version of
 ```
 
 ## Smashcast
-As og 2022-05-01, Smashcast is down
+As of 2022-05-01, Smashcast is down
 ```json
   "Smashcast": {
     "errorType": "status_code",
@@ -1271,7 +1273,7 @@ As og 2022-05-01, Smashcast is down
 
 ## Countable
 
-As og 2022-05-01, Countable returns false positives
+As of 2022-05-01, Countable returns false positives
 ```json
   "Countable": {
     "errorType": "status_code",
@@ -1309,7 +1311,7 @@ Removed due to false positive
 ```
 
 ## PCPartPicker
-As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exits
+As of 17-07-2022, PCPartPicker requires us to login in order to check if a user exists
 
 ```json
   "PCPartPicker": {
@@ -1358,8 +1360,8 @@ As of 17-07-2022, Ghost returns false positives
 ```
 
 ## Atom Discussions
-As of 25-07-2022, Atom Discussions seems to not work beceause it keeps on
-redirecting to github discussion tab which does not exist and is not specific to a username
+As of 25-07-2022, Atom Discussions seems to not work because it keeps on
+redirecting to GitHub discussion tab which does not exist and is not specific to a username
 
 ```json
   "Atom Discussions": {
@@ -1463,7 +1465,7 @@ As of 08.09.2022, GuruShots returns false positives because it just returns a bl
 ```
 
 ## Google Developer
-As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not abl to get any proper results
+As of 09.10.2022, Google Developer returns false positives. The site is dynamic so we're not able to get any proper results
 
 ```json
   "Google Developer": {
@@ -1490,7 +1492,7 @@ As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was
 ```
 
 
-## Aruino
+## Arduino
 As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but takes some time. Will be fixed later
 
 ```json
@@ -1507,7 +1509,7 @@ As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but t
 ```
 
 ## Zoomit
-As of 04.02.2023, Zoomit return false positves. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it wont be prioritized at the moment.
+As of 04.02.2023, Zoomit returns false positives. An attempt at finding a fix was made but a lot of time was used without luck. Therefore, it won't be prioritized at the moment.
 ```json
   "zoomit": {
     "errorMsg": "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0635\u0641\u062d\u0647 \u06cc\u0627\u0641\u062a \u0646\u0634\u062f",
@@ -1572,7 +1574,7 @@ As of 15.02.2023, Koo returns false positives
 
 
 ## We Heart It
-As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through their website. Visiting their website leads to links to download the mobile application. A potential way of fixing this is to find API endpoints in the app
+As of  2022.02.25, WeHeartIt no longer allows us to check for usernames through their website. Visiting their website leads to links to download the mobile application. A potential way of fixing this is to find API endpoints in the app
 ```json
   "We Heart It": {
     "errorMsg": "Oops! You've landed on a moving target!",
@@ -1585,7 +1587,7 @@ As of  2022.02.25, WeHeartIt no longer allows us to check for usersnames through
 
 
 ## Tinder
-As of 2022.03.15, Tinder returns false positives. We will try to rev the API endpoint on the android app to find a better soon
+As of 2022.03.15, Tinder returns false positives. We will try to investigate the API endpoint on the Android app to find a better solution soon
 
 ```json
 "Tinder": {
@@ -1697,7 +1699,7 @@ As of 2023.08.29, Munzee requires us to be logged into the site in order to chec
 ```
 
 ## Quizlet
-As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exsits on the website
+As of 2023.08.29 Quizlet requires us to enable JavaScript to check if a user exists on the website
 
 ```json
 "Quizlet": {
@@ -1816,7 +1818,7 @@ __2024-04-07 :__ Non-existent users seemingly displayed as real users with no ac
 ```
 
 ## G2G
-__2024-04-10 :__ Seems to be loading profiles with some wierd javascript setup that sherlock doesn't like, leading to difficult to control false positives
+__2024-04-10 :__ Seems to be loading profiles with some weird JavaScript setup that Sherlock doesn't like, leading to difficult to control false positives
 ```json
   "G2G": {
     "errorType": "response_url",
@@ -1841,7 +1843,7 @@ __2024-04-24 :__ BCF seems to have gone defunct. Uncertain.
 ```
 
 ## Zhihu
-As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats returned. Checking for patterns may allow us to find a way to detect the existans of a user, this will be need to be worked on later
+As of 24.06.2024, Zhihu returns false positives as they obfuscate the code that's returned. Checking for patterns may allow us to find a way to detect the existence of a user; this will need to be worked on later
 ```json
 
   "Zhihu": {
@@ -1855,7 +1857,7 @@ As of 24.06.2024, Zhihu returns false positives as they obfuscate the code thats
 
 ## Penetestit
 
-As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site structures
+As of 24.06.2024, Pentestit returns a 403. This is most likely due to a new site structure
 
 ```json
   "labpentestit": {
@@ -1892,7 +1894,7 @@ __2024-06-10 :__ Http request returns 403 forbidden, and tries to verify the con
 ```
 
 ## Alik.cz
-__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site recieving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivited. Inclusion in unrelated manifests is not impacted, but it is discouraged.
+__2024-07-21 :__ Target is now BLACKLISTED from the default manifest due to the site receiving unnecessarily high traffic from Sherlock (by request of the site owners). This target is not permitted to be reactivated. Inclusion in unrelated manifests is not impacted, but it is discouraged.
 
 ## 8tracks
 __2025-02-02 :__ Might be dead again. Nobody knows for sure.
