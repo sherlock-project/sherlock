@@ -808,6 +808,7 @@ def main():
     # Run report on all specified users.
     all_usernames = []
     for username in args.username:
+        username = username.rstrip(".")
         if check_for_parameter(username):
             for name in multiple_usernames(username):
                 all_usernames.append(name)
