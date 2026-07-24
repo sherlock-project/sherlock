@@ -3,14 +3,12 @@ Airliners
 Apple Developer
 Apple Discussions
 Archive.org
-Bandcamp
 Codolio
 DeviantArt
 Discord.bio
 Envato Forum
 Flipboard
 GeeksforGeeks
-Giphy
 Hashnode
 Hubski
 LessWrong
@@ -28,7 +26,6 @@ Slack
 SlideShare
 Splice
 Spotify
-Trovo
 TryHackMe
 Weblate
 YandexMusic
