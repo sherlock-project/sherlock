@@ -14,7 +14,9 @@ GeeksforGeeks
 Giphy
 Hashnode
 Hubski
+Instapaper
 LessWrong
+LushStories
 Odysee
 PCGamer
 Patched
@@ -29,6 +31,7 @@ Shelf
 SlideShare
 Splice
 Spotify
+Trakt
 Trovo
 TryHackMe
 Weblate
@@ -41,3 +44,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
