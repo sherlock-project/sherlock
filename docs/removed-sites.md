@@ -1490,7 +1490,7 @@ As of 18.12.2022, mastodon.technology has no A/AAAA records and the [website was
 ```
 
 
-## Aruino
+## Arduino
 As of 04.02.2023, Arduino returns false positives. Finding a fix is doable but takes some time. Will be fixed later
 
 ```json
