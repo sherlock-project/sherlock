@@ -53,6 +53,7 @@ stem = "^1.8.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
 tomli = "^2.2.1"
+cloudscraper = "^1.2.71"
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"
