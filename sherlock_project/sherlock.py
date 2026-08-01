@@ -453,6 +453,120 @@ def sherlock(
                     else:
                         query_status = QueryStatus.AVAILABLE
 
+        # If a site manifest provides an explicit confirmation regex, prefer
+        # that authoritative check over heuristic detection. This allows
+        # per-site rules for very high-accuracy confirmation.
+        confirm_regex = net_info.get("confirmRegex")
+        if confirm_regex and r is not None and isinstance(r.text, str):
+            try:
+                if re.search(confirm_regex, r.text, re.I):
+                    query_status = QueryStatus.CLAIMED
+                else:
+                    query_status = QueryStatus.AVAILABLE
+                    error_context = "confirmRegex_no_match"
+            except re.error:
+                # Bad regex in manifest should not crash detection; ignore it.
+                pass
+
+        # Additional heuristic checks to reduce false positives and dead links.
+        # These are generic safeguards for cases where a site returns HTTP 200
+        # but the page is a search/login/no-result page or otherwise not a
+        # real profile. They intentionally run only when a site initially
+        # appears to be CLAIMED so we don't alter clear AVAILABLE/WAF states.
+        if query_status == QueryStatus.CLAIMED:
+            try:
+                page_text = r.text.lower() if isinstance(r.text, str) else ""
+            except Exception:
+                page_text = ""
+
+            # Common phrases that indicate the username was not found.
+            not_found_phrases = [
+                "user not found",
+                "page not found",
+                "no results",
+                "does not exist",
+                "could not find",
+                "not found",
+                "404 not found",
+                "this account does not exist",
+            ]
+
+            if any(phrase in page_text for phrase in not_found_phrases):
+                query_status = QueryStatus.AVAILABLE
+                error_context = "heuristic_not_found_phrase"
+
+            # If the final URL looks like a login, signup or search page,
+            # it is likely not a valid profile page.
+            try:
+                final_url = getattr(r, "url", "") or ""
+                final_url_lower = final_url.lower()
+            except Exception:
+                final_url_lower = ""
+
+            if query_status == QueryStatus.CLAIMED and final_url_lower:
+                if any(keyword in final_url_lower for keyword in ("login", "signup", "register", "search", "session")):
+                    query_status = QueryStatus.AVAILABLE
+                    error_context = "heuristic_redirected_to_login_or_search"
+
+            # Check canonical link: if the page's canonical URL does not include
+            # the username we requested, it's likely not the profile page.
+            if query_status == QueryStatus.CLAIMED:
+                try:
+                    canonical_match = re.search(r'<link rel=["\']canonical["\'] href=["\']([^"\']+)["\']', r.text, re.I)
+                except Exception:
+                    canonical_match = None
+
+                if canonical_match:
+                    canonical = canonical_match.group(1)
+                    if username.replace(' ', '%20') not in canonical:
+                        query_status = QueryStatus.AVAILABLE
+                        error_context = "heuristic_canonical_mismatch"
+
+            # Require explicit presence of the username or profile markers
+            # in the page content for a positive detection. This can be
+            # enabled per-site with `require_profile_evidence` in the site
+            # manifest. Otherwise, skip the strict check for sites that use
+            # `status_code` detection to preserve expected behavior.
+            require_evidence = net_info.get("require_profile_evidence", False)
+            error_method = net_info.get("errorType")
+            if isinstance(error_method, list):
+                # Prefer the first shown method for this check
+                error_method = error_method[0]
+
+            apply_strict_check = require_evidence or (error_method != "status_code")
+
+            if query_status == QueryStatus.CLAIMED and apply_strict_check:
+                uname = username.lower()
+                uname_escaped = username.replace(' ', '%20').lower()
+                has_uname = False
+                try:
+                    # Look for '@username' or plain username in the page
+                    if f"@{uname}" in page_text or uname in page_text or uname_escaped in page_text:
+                        has_uname = True
+                except Exception:
+                    has_uname = False
+
+                # Common profile markers suggesting a real profile page
+                profile_markers = [
+                    "followers",
+                    "following",
+                    "posts",
+                    "likes",
+                    "tweets",
+                    "subscribers",
+                    "follow",
+                    "posts",
+                    "member since",
+                    "joined",
+                    "profile",
+                ]
+
+                has_profile_marker = any(marker in page_text for marker in profile_markers)
+
+                if not has_uname and not has_profile_marker:
+                    query_status = QueryStatus.AVAILABLE
+                    error_context = "heuristic_missing_username_and_profile_markers"
+
         if dump_response:
             print("+++++++++++++++++++++")
             print(f"TARGET NAME   : {social_network}")
