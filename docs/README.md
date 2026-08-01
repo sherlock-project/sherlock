@@ -22,7 +22,7 @@
 ## Installation
 
 <p align="center">
-  <a href="https://usersearch.com/" target="_blank"><img src="images/usersearch.png" alt="User Search"/></a>
+  <a href="https://usersearch.com/?utm_source=github&utm_medium=referral&utm_campaign=sherlock&utm_content=banner_install" target="_blank"><img src="images/usersearch.png" alt="User Search"/></a>
   <a href="https://www.osint.industries/" target="_blank"><img src="images/osint-industries.jpg" alt="OSINT Industries"/></a>
 </p>
 
