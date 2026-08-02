@@ -163,18 +163,28 @@ class SitesInformation:
             try:
                 response = requests.get(url=EXCLUSIONS_URL, timeout=10)
                 if response.status_code == 200:
-                    exclusions = response.text.splitlines()
-                    exclusions = [exclusion.strip() for exclusion in exclusions]
+                    exclusions = [
+                        exclusion.strip()
+                        for exclusion in response.text.splitlines()
+                        if exclusion.strip()
+                    ]
 
-                    for site in do_not_exclude:
-                        if site in exclusions:
-                            exclusions.remove(site)
+                    # Sites passed via --site should bypass exclusions even if
+                    # casing differs from the exclusions file.
+                    do_not_exclude_normalized = {site.casefold() for site in do_not_exclude}
+                    exclusions = [
+                        exclusion for exclusion in exclusions
+                        if exclusion.casefold() not in do_not_exclude_normalized
+                    ]
 
+                    # Match exclusion entries to manifest keys case-insensitively
+                    # so a small case drift in either source does not silently
+                    # leave a flagged site in the search.
+                    manifest_keys_by_lower = {key.casefold(): key for key in site_data}
                     for exclusion in exclusions:
-                        try:
-                            site_data.pop(exclusion, None)
-                        except KeyError:
-                            pass
+                        key = manifest_keys_by_lower.get(exclusion.casefold())
+                        if key is not None:
+                            site_data.pop(key, None)
 
             except Exception:
                 # If there was any problem loading the exclusions, just continue without them
