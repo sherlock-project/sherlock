@@ -18,5 +18,11 @@ if __name__ == "__main__":
         print(f"Sherlock requires Python 3.9+\nYou are using Python {python_version}, which is not supported by Sherlock.")
         sys.exit(1)
 
-    from sherlock_project import sherlock
-    sherlock.main()
+    import asyncio
+    from . import sherlock
+
+    try:
+        asyncio.run(sherlock.main())
+    except KeyboardInterrupt:
+        print("\nExiting... (Ctrl+C pressed)")
+        sys.exit(0)
