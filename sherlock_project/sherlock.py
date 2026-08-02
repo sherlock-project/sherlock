@@ -20,6 +20,7 @@ import csv
 import signal
 import pandas as pd
 import os
+import pathlib
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
@@ -43,6 +44,42 @@ from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+
+
+PHONE_LOOKUP_ENV_VARS = ("NUMVERIFY_API_KEY", "GOOGLECSE_CX", "GOOGLE_API_KEY")
+
+
+def load_environment_file(env_path: pathlib.Path) -> None:
+    with env_path.open(encoding="utf-8") as env_file:
+        for line_number, raw_line in enumerate(env_file, start=1):
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+
+            if "=" not in line:
+                raise ValueError(
+                    f"{env_path}:{line_number} must be in KEY=VALUE format."
+                )
+
+            key, value = line.split("=", 1)
+            key = key.strip()
+            if not key:
+                raise ValueError(f"{env_path}:{line_number} is missing the key name.")
+
+            value = value.strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in ('"', "'"):
+                value = value[1:-1]
+
+            os.environ.setdefault(key, value)
+
+
+def load_local_environment() -> Optional[pathlib.Path]:
+    env_path = pathlib.Path.cwd() / ".env.local"
+    if not env_path.is_file():
+        return None
+
+    load_environment_file(env_path)
+    return env_path
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -695,6 +732,26 @@ def main():
     )
 
     args = parser.parse_args()
+
+    try:
+        loaded_environment = load_local_environment()
+    except ValueError as error:
+        print(f"Invalid .env.local file: {error}")
+        sys.exit(1)
+
+    if args.verbose:
+        if loaded_environment is not None:
+            print(f"Loaded environment from {loaded_environment}.")
+        missing_phone_lookup_env = [
+            key for key in PHONE_LOOKUP_ENV_VARS if not os.environ.get(key)
+        ]
+        if missing_phone_lookup_env:
+            print(
+                "Missing phone lookup environment variables: "
+                + ", ".join(missing_phone_lookup_env)
+            )
+        else:
+            print("Phone lookup environment variables are configured.")
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
