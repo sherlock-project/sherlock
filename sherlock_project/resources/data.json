@@ -1479,7 +1479,7 @@
     "urlMain": "https://lichess.org",
     "username_claimed": "john"
   },
- "LinkedIn": {
+  "LinkedIn": {
     "errorType": "status_code",
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -2577,18 +2577,22 @@
     "urlMain": "https://trovo.live",
     "username_claimed": "Aimilios"
   },
+
   "Twitter": {
     "errorMsg": [
-      "<div class=\"error-panel\"><span>User ",
-      "<title>429 Too Many Requests</title>"
+      "ApiError",
+      "\"code\":50",
+      "This account doesn’t exist",
+      "<title>This account doesn’t exist"
     ],
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://x.com/{}",
     "urlMain": "https://x.com/",
-    "urlProbe": "https://nitter.privacydev.net/{}",
+    "urlProbe": "https://x.com/{}",
     "username_claimed": "blue"
   },
+
   "Typeracer": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
