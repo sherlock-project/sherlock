@@ -3168,7 +3168,6 @@
   },
   "Pinterest": {
     "errorType": "status_code",
-    "errorUrl": "https://www.pinterest.com/",
     "url": "https://www.pinterest.com/{}/",
     "urlProbe": "https://www.pinterest.com/oembed.json?url=https://www.pinterest.com/{}/",
     "urlMain": "https://www.pinterest.com/",
