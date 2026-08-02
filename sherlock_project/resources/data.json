@@ -2562,6 +2562,14 @@
     "urlMain": "https://tweakers.net",
     "username_claimed": "femme"
   },
+  "Tweetapus": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9_]{1,30}$",
+    "url": "https://tweeta.tiago.zip/@{}",
+    "urlMain": "https://tweeta.tiago.zip/",
+    "urlProbe": "https://tweetapus.tiag.workers.dev/@{}.json",
+    "username_claimed": "tiago"
+  },
   "Twitch": {
     "errorMsg": "content='Twitch is the world&#39;s leading video platform and community for gamers.'",
     "errorType": "message",
