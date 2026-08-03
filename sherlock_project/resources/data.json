@@ -440,6 +440,7 @@
   "Chatujme.cz": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
+    "request_method": "GET",
     "url": "https://profil.chatujme.cz/{}",
     "urlMain": "https://chatujme.cz/",
     "username_claimed": "david"
@@ -2991,6 +2992,7 @@
   },
   "interpals": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.interpals.net/{}",
     "urlMain": "https://www.interpals.net/",
     "username_claimed": "blue"
