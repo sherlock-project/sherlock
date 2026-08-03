@@ -438,9 +438,9 @@
     "username_claimed": "ordnung"
   },
   "Chatujme.cz": {
-    "errorMsg": "Neexistujic\u00ed profil",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
+    "request_method": "GET",
     "url": "https://profil.chatujme.cz/{}",
     "urlMain": "https://chatujme.cz/",
     "username_claimed": "david"
@@ -735,8 +735,7 @@
     "username_claimed": "blue"
   },
   "Discord.bio": {
-    "errorType": "message",
-    "errorMsg": "<title>Server Error (500)</title>",
+    "errorType": "status_code",
     "url": "https://discords.com/api-v2/bio/details/{}",
     "urlMain": "https://discord.bio/",
     "username_claimed": "robert"
@@ -2101,8 +2100,7 @@
     "username_claimed": "John_Smith"
   },
   "ReverbNation": {
-    "errorMsg": "Sorry, we couldn't find that page",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.reverbnation.com/{}",
     "urlMain": "https://www.reverbnation.com/",
     "username_claimed": "blue"
@@ -2993,8 +2991,8 @@
     "username_claimed": "blue"
   },
   "interpals": {
-    "errorMsg": "The requested user does not exist or is inactive",
-    "errorType": "message",
+    "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.interpals.net/{}",
     "urlMain": "https://www.interpals.net/",
     "username_claimed": "blue"
