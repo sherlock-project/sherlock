@@ -87,3 +87,33 @@ class QueryResult():
             status += f" ({self.context})"
 
         return status
+    
+    def to_dict(self):
+        """
+        Converts the QueryResult object to a dictionary format suitable for GUI parsing.
+        This prevents the GUI from needing to access raw object attributes directly.
+        """
+        return {
+            "username": self.username,
+            "site_name": self.site_name,
+            "site_url_user": self.site_url_user,
+            "status": str(self.status),
+            "query_time": self.query_time,
+            "context": self.context,
+            "ui_color_code": self.get_ui_color_code()
+        }
+    
+    def get_ui_color_code(self):
+        """
+        Returns a hex color code based on the query status for UI representation.
+        Green for Found, Red for Not Found, Yellow for Unknown/Errors.
+        """
+
+        if self.status.name == "CLAIMED":
+            return "#28a745" # Success Green
+        elif self.status.name == "AVAILABLE":
+            return "#dc3545" # Danger Red
+        elif self.status.name == "UNKNOWN":
+            return "#ffc107" # Warning Yellow
+        else:
+            return "#6c757d" # Secondary Gray for other statuses (ILLEGAL, WAF, etc.)

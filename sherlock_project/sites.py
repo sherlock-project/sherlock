@@ -258,3 +258,53 @@ class SitesInformation:
         Length of sites object.
         """
         return len(self.sites)
+    
+    def get_sites_for_ui(self):
+        """Formats and returns the site list for the user interface (GUI).
+        Return Value:
+        An alphabetically sorted list of site dictionaries prepared for display on the user interface.  
+        """
+        ui_sites = []
+        # Sort sites alphabetically by name (case-insensitive) and format them for the UI
+        for site_name in sorted(self.sites.keys(), key=str.lower):
+            site_obj = self.sites[site_name]
+            ui_sites.append({
+                "name": site_obj.name,
+                "url_main": site_obj.url_home,
+                "is_nsfw": site_obj.is_nsfw
+            })
+        return ui_sites
+    
+    def filter_sites_by_names(self, selected_names: list):
+        """Sherlock can scan only the sites selected by the user.
+        Keyword Arguments:
+        selected_names -- A list containing the names of the sites selected by the user from the interface.
+        """
+        # if the user did not select any sites, then we should not filter the list at all.
+        #  This allows the user to easily reset the filter by deselecting all sites.
+        if not selected_names:
+            return
+
+        filtered_sites = {}
+        # To prevent errors due to case sensitivity, we convert all names to lowercase.
+        selected_lower = [name.lower() for name in selected_names]
+        
+        for site_name, site_obj in self.sites.items():
+            if site_name.lower() in selected_lower:
+                filtered_sites[site_name] = site_obj
+                
+        # replacing the current massive list of 400+ sites with only the sites chosen by the user.
+        self.sites = filtered_sites
+        if not selected_names:
+            return
+
+        filtered_sites = {}
+        # To prevent errors due to case sensitivity, we convert all names to lowercase.
+        selected_lower = [name.lower() for name in selected_names]
+        
+        for site_name, site_obj in self.sites.items():
+            if site_name.lower() in selected_lower:
+                filtered_sites[site_name] = site_obj
+                
+        # replacing the current massive list of 400+ sites with only the sites chosen by the user.
+        self.sites = filtered_sites

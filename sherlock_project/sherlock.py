@@ -177,6 +177,9 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    # Callback function that Sherlock.py will call at the end of each site visit. This is used to update the progress bar in the GUI.
+    progress_callback=None,
+
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -501,6 +504,10 @@ def sherlock(
 
         # Add this site's results into final dictionary with all of the other results.
         results_total[social_network] = results_site
+
+        # We send a signal to the interface when each site's cycle ends.
+        if progress_callback:
+            progress_callback()
 
     return results_total
 

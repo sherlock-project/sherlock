@@ -277,3 +277,40 @@ class QueryNotifyPrint(QueryNotify):
         Nicely formatted string to get information about this object.
         """
         return str(self.result)
+    
+class QueryNotifyGUI(QueryNotify):
+    """
+    Instead of printing to the terminal, a notification class that sends data 
+    to the desktop interface via PyQt signals (QThread).
+    """
+    def __init__(self, result_signal):
+        super().__init__()
+        # We receive the communication cable (signal) from the interface.
+        self.result_signal = result_signal
+
+    def start(self, message=None):
+        pass 
+
+    def update(self, result):
+        # This function is automatically triggered when Sherlock scans a site.
+        # result is an object of type QueryResult() containing results for this query.
+        
+        status_str = "Found" if result.status == QueryStatus.CLAIMED else "Not Found"
+        
+        # Instead of printing to the terminal, we emit a signal to the interface's table.
+        self.result_signal.emit(result.site_name, status_str, result.site_url_user)
+
+    def finish(self, message=None):
+        pass
+
+    def update(self, result):
+        # 1. We call the new infrastructure we just wrote in the result.py file.
+        data = result.to_dict()
+        
+        status_str = "Found" if result.status.name == "CLAIMED" else "Not Found"
+        
+        # 2. We get the color code from the data dictionary, which is determined by the status of the query result.
+        color_code = data["ui_color_code"]
+        
+        # 3. We emit the signal to the interface's table, including the color code.
+        self.result_signal.emit(data["site_name"], status_str, data["site_url_user"], color_code)
