@@ -27,6 +27,7 @@ from time import monotonic
 from typing import Optional
 
 import requests
+import urllib3
 from requests_futures.sessions import FuturesSession
 
 from sherlock_project.__init__ import (
@@ -121,6 +122,12 @@ def get_response(request_future, error_type, social_network):
         if response.status_code:
             # Status code exists in response object
             error_context = None
+    except urllib3.exceptions.LocationParseError as errl:
+        error_context = "Illegal URL"
+        exception_text = str(errl)
+    except requests.exceptions.InvalidURL as erriu:
+        error_context = "Invalid URL"
+        exception_text = str(erriu)
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
         exception_text = str(errh)
