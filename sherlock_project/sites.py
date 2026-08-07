@@ -6,6 +6,7 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+from pathlib import Path
 
 
 MANIFEST_URL = "https://data.sherlockproject.xyz"
@@ -131,15 +132,27 @@ class SitesInformation:
                 )
 
             if response.status_code != 200:
-                raise FileNotFoundError(f"Bad response while accessing "
-                                        f"data file URL '{data_file_path}'."
-                                        )
-            try:
-                site_data = response.json()
-            except Exception as error:
-                raise ValueError(
-                    f"Problem parsing json contents at '{data_file_path}':  {error}."
-                )
+                local_fallback = Path(__file__).parent / "resources" / "data.json"
+                if local_fallback.exists():
+                    print(
+                        f"Warning: Remote data unavailable (HTTP {response.status_code}). "
+                        "Falling back to bundled local data file."
+                    )
+                    with open(local_fallback, "r", encoding="utf-8") as f:
+                        site_data = json.load(f)
+                else:
+                    raise FileNotFoundError(
+                        f"Bad response while accessing data file URL '{data_file_path}' "
+                        f"(HTTP {response.status_code}). "
+                        "Try updating: pip install -U sherlock-project"
+                    )
+            else:
+                try:
+                    site_data = response.json()
+                except Exception as error:
+                    raise ValueError(
+                        f"Problem parsing json contents at '{data_file_path}':  {error}."
+                    )
 
         else:
             # Reference is to a file.
