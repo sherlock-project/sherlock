@@ -466,8 +466,8 @@ def sherlock(
             print("Results...")
             try:
                 print(f"RESPONSE CODE : {r.status_code}")
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"WARNING: Could not retrieve response code: {e}")
             try:
                 print(f"ERROR TEXT    : {net_info['errorMsg']}")
             except KeyError:
@@ -475,8 +475,8 @@ def sherlock(
             print(">>>>> BEGIN RESPONSE TEXT")
             try:
                 print(r.text)
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"WARNING: Could not retrieve response text: {e}")
             print("<<<<< END RESPONSE TEXT")
             print("VERDICT       : " + str(query_status))
             print("+++++++++++++++++++++")
