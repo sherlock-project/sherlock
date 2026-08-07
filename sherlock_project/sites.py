@@ -6,6 +6,7 @@ This is the raw data that will be used to search for usernames.
 import json
 import requests
 import secrets
+from typing import Optional
 
 
 MANIFEST_URL = "https://data.sherlockproject.xyz"
@@ -78,9 +79,9 @@ class SiteInformation:
 class SitesInformation:
     def __init__(
             self,
-            data_file_path: str|None = None,
+            data_file_path: Optional[str] = None,
             honor_exclusions: bool = True,
-            do_not_exclude: list[str] = [],
+            do_not_exclude: list = [],
         ):
         """Create Sites Information Object.
 
@@ -125,7 +126,7 @@ class SitesInformation:
             # Reference is to a URL.
             try:
                 response = requests.get(url=data_file_path, timeout=30)
-            except Exception as error:
+            except requests.exceptions.RequestException as error:
                 raise FileNotFoundError(
                     f"Problem while attempting to access data file URL '{data_file_path}':  {error}"
                 )
@@ -136,7 +137,7 @@ class SitesInformation:
                                         )
             try:
                 site_data = response.json()
-            except Exception as error:
+            except ValueError as error:
                 raise ValueError(
                     f"Problem parsing json contents at '{data_file_path}':  {error}."
                 )
@@ -147,7 +148,7 @@ class SitesInformation:
                 with open(data_file_path, "r", encoding="utf-8") as file:
                     try:
                         site_data = json.load(file)
-                    except Exception as error:
+                    except ValueError as error:
                         raise ValueError(
                             f"Problem parsing json contents at '{data_file_path}':  {error}."
                         )
@@ -176,7 +177,7 @@ class SitesInformation:
                         except KeyError:
                             pass
 
-            except Exception:
+            except requests.exceptions.RequestException:
                 # If there was any problem loading the exclusions, just continue without them
                 print("Warning: Could not load exclusions, continuing without them.")
                 honor_exclusions = False

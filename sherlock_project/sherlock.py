@@ -24,7 +24,7 @@ import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
-from typing import Optional
+from typing import Optional, Union
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -177,7 +177,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
-) -> dict[str, dict[str, str | QueryResult]]:
+) -> dict[str, dict[str, Union[str, QueryResult]]]:
     """Run Sherlock Analysis.
 
     Checks for existence of username on various social media sites.
@@ -370,11 +370,11 @@ def sherlock(
         # Attempt to get request information
         try:
             http_status = r.status_code
-        except Exception:
+        except AttributeError:
             http_status = "?"
         try:
             response_text = r.text.encode(r.encoding or "UTF-8")
-        except Exception:
+        except (AttributeError, TypeError, ValueError):
             response_text = ""
 
         query_status = QueryStatus.UNKNOWN
@@ -466,7 +466,7 @@ def sherlock(
             print("Results...")
             try:
                 print(f"RESPONSE CODE : {r.status_code}")
-            except Exception:
+            except AttributeError:
                 pass
             try:
                 print(f"ERROR TEXT    : {net_info['errorMsg']}")
@@ -475,7 +475,7 @@ def sherlock(
             print(">>>>> BEGIN RESPONSE TEXT")
             try:
                 print(r.text)
-            except Exception:
+            except AttributeError:
                 pass
             print("<<<<< END RESPONSE TEXT")
             print("VERDICT       : " + str(query_status))
@@ -711,7 +711,7 @@ def main():
                 f"\n{latest_release_json['html_url']}"
             )
 
-    except Exception as error:
+    except (requests.exceptions.RequestException, ValueError, KeyError, TypeError, TimeoutError) as error:
         print(f"A problem occurred while checking for an update: {error}")
 
     # Make prompts
@@ -765,7 +765,7 @@ def main():
                 honor_exclusions=not args.ignore_exclusions,
                 do_not_exclude=args.site_list,
             )
-    except Exception as error:
+    except (requests.exceptions.RequestException, ValueError, FileNotFoundError, KeyError, TypeError) as error:
         print(f"ERROR:  {error}")
         sys.exit(1)
 
