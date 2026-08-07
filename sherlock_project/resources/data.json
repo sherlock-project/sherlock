@@ -925,6 +925,12 @@
     "urlProbe": "https://www.freelancer.com/api/users/0.1/users?usernames%5B%5D={}&compact=true",
     "username_claimed": "red0xff"
   },
+  "Frontend Mentor": {
+    "errorType": "status_code",
+    "url": "https://www.frontendmentor.io/profile/{}",
+    "urlMain": "https://www.frontendmentor.io/",
+    "username_claimed": "artimys"
+  },
   "Freesound": {
     "errorType": "status_code",
     "url": "https://freesound.org/people/{}/",
