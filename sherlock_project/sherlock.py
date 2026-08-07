@@ -535,7 +535,8 @@ def handler(signal_received, frame):
 
     Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c
     """
-    sys.exit(0)
+    print("Shutting down Sherlock...")
+    os._exit(0)
 
 
 def main():
