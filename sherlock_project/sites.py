@@ -131,9 +131,16 @@ class SitesInformation:
                 )
 
             if response.status_code != 200:
-                raise FileNotFoundError(f"Bad response while accessing "
-                                        f"data file URL '{data_file_path}'."
-                                        )
+                # Include the status code and a short body snippet so users
+                # can tell the difference between e.g. a 404 (URL moved),
+                # 5xx (host outage), or a captive-portal HTML page.
+                body_snippet = response.text[:200].strip()
+                raise FileNotFoundError(
+                    f"Bad response while accessing data file URL "
+                    f"'{data_file_path}': HTTP {response.status_code} "
+                    f"{response.reason}. "
+                    f"Response body starts with: {body_snippet!r}"
+                )
             try:
                 site_data = response.json()
             except Exception as error:
