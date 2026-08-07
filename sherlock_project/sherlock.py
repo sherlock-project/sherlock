@@ -170,6 +170,22 @@ def multiple_usernames(username):
     return allUsernames
 
 
+def check_message_query_status(response_text, errors, status_code) -> QueryStatus:
+    """Determine the query status for a "message"-type site.
+
+    The absence of the "not found" message is only meaningful when the server
+    actually answered the request. On a server error (HTTP 5xx) the body cannot
+    be trusted, so the status is UNKNOWN rather than a false CLAIMED.
+    """
+    if isinstance(errors, str):
+        errors = [errors]
+    if any(error in response_text for error in errors):
+        return QueryStatus.AVAILABLE
+    if status_code >= 500:
+        return QueryStatus.UNKNOWN
+    return QueryStatus.CLAIMED
+
+
 def sherlock(
     username: str,
     site_data: dict[str, dict[str, str]],
@@ -404,30 +420,9 @@ def sherlock(
                 query_status = QueryStatus.UNKNOWN
             else:
                 if "message" in error_type:
-                    # error_flag True denotes no error found in the HTML
-                    # error_flag False denotes error found in the HTML
-                    error_flag = True
-                    errors = net_info.get("errorMsg")
-                    # errors will hold the error message
-                    # it can be string or list
-                    # by isinstance method we can detect that
-                    # and handle the case for strings as normal procedure
-                    # and if its list we can iterate the errors
-                    if isinstance(errors, str):
-                        # Checks if the error message is in the HTML
-                        # if error is present we will set flag to False
-                        if errors in r.text:
-                            error_flag = False
-                    else:
-                        # If it's list, it will iterate all the error message
-                        for error in errors:
-                            if error in r.text:
-                                error_flag = False
-                                break
-                    if error_flag:
-                        query_status = QueryStatus.CLAIMED
-                    else:
-                        query_status = QueryStatus.AVAILABLE
+                    query_status = check_message_query_status(
+                        r.text, net_info.get("errorMsg"), r.status_code
+                    )
 
                 if "status_code" in error_type and query_status is not QueryStatus.AVAILABLE:
                     error_codes = net_info.get("errorCode")
