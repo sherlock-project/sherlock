@@ -672,6 +672,13 @@ def main():
     )
 
     parser.add_argument(
+        "--update",
+        action="store_true",
+        default=False,
+        help="Update data from the remote repository.",
+    )
+
+    parser.add_argument(
         "--nsfw",
         action="store_true",
         default=False,
@@ -699,7 +706,8 @@ def main():
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
 
-    # Check for newer version of Sherlock. If it exists, let the user know about it
+    # Check for newer version of Sherlock. If it exists, let the user know about it.
+    # This should never interrupt normal offline execution.
     try:
         latest_release_raw = requests.get(forge_api_latest_release, timeout=10).text
         latest_release_json = json_loads(latest_release_raw)
@@ -711,8 +719,8 @@ def main():
                 f"\n{latest_release_json['html_url']}"
             )
 
-    except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
+    except (requests.exceptions.RequestException, ValueError, KeyError):
+        pass
 
     # Make prompts
     if args.proxy is not None:
@@ -738,6 +746,33 @@ def main():
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
+            print("--local is deprecated and will be removed in a future release. Local data is now the default.")
+
+        # Determine if we should use local data or fetch remotely
+        use_local = True
+        if args.json_file:
+            use_local = False
+        
+        # If --update is passed, try to refresh local data, but do not block the
+        # normal search flow for long or fail the run if the refresh endpoint is unstable.
+        if args.update:
+            print("Updating local data from remote repository...")
+            try:
+                from sherlock_project.sites import MANIFEST_URL
+                response = requests.get(MANIFEST_URL, timeout=8)
+                if response.status_code == 200:
+                    local_data_path = os.path.join(os.path.dirname(__file__), "resources/data.json")
+                    with open(local_data_path, "w", encoding="utf-8") as f:
+                        f.write(response.text)
+                    print("Local data effectively updated.")
+                else:
+                    print(f"Failed to update data (Status Code: {response.status_code}).")
+            except requests.exceptions.RequestException as error:
+                print(f"Skipping data update due to network error: {error}")
+            except OSError as error:
+                print(f"Skipping data update due to file write error: {error}")
+
+        if use_local:
             sites = SitesInformation(
                 os.path.join(os.path.dirname(__file__), "resources/data.json"),
                 honor_exclusions=False,
