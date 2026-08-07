@@ -711,7 +711,17 @@ def main():
                 f"\n{latest_release_json['html_url']}"
             )
 
-    except Exception as error:
+    except (requests.RequestException, ValueError, KeyError) as error:
+        # requests.get() raises requests.RequestException (and its concrete
+        # subclasses ConnectionError, Timeout, HTTPError) for network and
+        # transport failures; json_loads() raises json.JSONDecodeError (a
+        # ValueError subclass) for malformed JSON; and the ["tag_name"] /
+        # latest_remote_tag[1:] lookups raise KeyError / IndexError for
+        # unexpected payload shapes. Catching the bare Exception was
+        # masking KeyboardInterrupt during a Ctrl-C just after the version
+        # check and turning any unrelated bug (a typo in forge_api_latest_release,
+        # an unhandled unicode issue in latest_release_raw) into a confusing
+        # 'A problem occurred while checking for an update' line on stderr.
         print(f"A problem occurred while checking for an update: {error}")
 
     # Make prompts
