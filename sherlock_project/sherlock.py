@@ -118,8 +118,15 @@ def get_response(request_future, error_type, social_network):
     exception_text = None
     try:
         response = request_future.result()
-        if response.status_code:
-            # Status code exists in response object
+        if response is not None:
+            # Future returned a real Response object. Don't try to gate on
+            # ``response.status_code`` being truthy: a response with
+            # ``status_code=0`` (returned by requests for InvalidURL and
+            # retry-exhausted failures) is still a valid response, and the
+            # caller inspects ``r.text`` / ``r.status_code`` downstream — leaving
+            # error_context at the "General Unknown Error" default made every
+            # site report as an error even when the request future had
+            # returned cleanly.
             error_context = None
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
@@ -395,7 +402,7 @@ def sherlock(
         if error_text is not None:
             error_context = error_text
 
-        elif any(hitMsg in r.text for hitMsg in WAFHitMsgs):
+        elif r is not None and any(hitMsg in r.text for hitMsg in WAFHitMsgs):
             query_status = QueryStatus.WAF
 
         else:
