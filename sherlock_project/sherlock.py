@@ -29,6 +29,11 @@ from typing import Optional
 import requests
 from requests_futures.sessions import FuturesSession
 
+try:
+    from fpdf import FPDF, enums
+except ImportError:
+    FPDF = enums = None
+
 from sherlock_project.__init__ import (
     __longname__,
     __shortname__,
@@ -694,6 +699,15 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--export",
+        nargs=2,
+        metavar=('FORMAT', 'FILE'),
+        dest="export_options",
+        default=None,
+        help="Export results to a file. FORMAT can be 'pdf' or 'html'.",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -703,11 +717,15 @@ def main():
     try:
         latest_release_raw = requests.get(forge_api_latest_release, timeout=10).text
         latest_release_json = json_loads(latest_release_raw)
-        latest_remote_tag = latest_release_json["tag_name"]
+        latest_remote_tag_str = latest_release_json["tag_name"].lstrip('v')
 
-        if latest_remote_tag[1:] != __version__:
+        # Simple version comparison to avoid incorrect update notifications
+        local_version = tuple(map(int, __version__.split('.')))
+        remote_version = tuple(map(int, latest_remote_tag_str.split('.')))
+
+        if remote_version > local_version:
             print(
-                f"Update available! {__version__} --> {latest_remote_tag[1:]}"
+                f"Update available! {__version__} --> {latest_remote_tag_str}"
                 f"\n{latest_release_json['html_url']}"
             )
 
@@ -733,6 +751,10 @@ def main():
     # Check validity for single username output.
     if args.output is not None and len(args.username) != 1:
         print("You can only use --output with a single username")
+        sys.exit(1)
+
+    if args.export_options and len(args.username) > 1:
+        print("Error: --export can only be used with a single username.")
         sys.exit(1)
 
     # Create object with all information about sites we are aware of.
@@ -926,6 +948,87 @@ def main():
                 }
             )
             DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+
+        if args.export_options:
+            export_format, file_name = args.export_options
+            export_format = export_format.lower()
+
+            # Create DataFrame
+            df_usernames = []
+            df_names = []
+            df_url_main = []
+            df_url_user = []
+            df_exists = []
+            df_http_status = []
+            df_response_time_s = []
+
+            for site in results:
+                if (
+                    args.print_found
+                    and not args.print_all
+                    and results[site]["status"].status != QueryStatus.CLAIMED
+                ):
+                    continue
+
+                query_time = results[site]["status"].query_time
+                df_response_time_s.append(query_time if query_time is not None else "")
+                df_usernames.append(username)
+                df_names.append(site)
+                df_url_main.append(results[site]["url_main"])
+                df_url_user.append(results[site]["url_user"])
+                df_exists.append(str(results[site]["status"].status))
+                df_http_status.append(results[site]["http_status"])
+
+            df = pd.DataFrame(
+                {
+                    "username": df_usernames,
+                    "name": df_names,
+                    "url_main": df_url_main,
+                    "url_user": df_url_user,
+                    "exists": df_exists,
+                    "http_status": df_http_status,
+                    "response_time_s": df_response_time_s,
+                }
+            )
+
+            if export_format == 'html':
+                df_html = df.copy()
+                df_html['url_main'] = df_html['url_main'].apply(lambda u: f'<a href="{u}">{u}</a>')
+                df_html['url_user'] = df_html['url_user'].apply(lambda u: f'<a href="{u}">{u}</a>' if u else '')
+                with open(file_name, "w", encoding="utf-8") as f:
+                    f.write(df_html.to_html(escape=False, index=False, justify='center'))
+                print(f"\nResults exported to {file_name}")
+            elif export_format == 'pdf':
+                if FPDF is None:
+                    print("\nError: FPDF library not found. Please ensure 'fpdf2' is installed.")
+                    sys.exit(1)
+
+                pdf = FPDF(orientation='L')
+                pdf.add_page()
+                pdf.set_font("Helvetica", 'B', 16)
+                pdf.cell(0, 10, f"Sherlock Results for {username}", new_x=enums.XPos.LMARGIN, new_y=enums.YPos.NEXT, align='C')
+                pdf.ln(5)
+
+                pdf.set_font("Helvetica", 'B', 8)
+                col_widths = {'username': 30, 'name': 30, 'url_main': 65, 'url_user': 65, 'exists': 20, 'http_status': 20, 'response_time_s': 25}
+
+                for col in df.columns:
+                    pdf.cell(col_widths[col], 10, col, border=1, new_x=enums.XPos.RIGHT, new_y=enums.YPos.TOP, align='C')
+                pdf.ln()
+
+                pdf.set_font("Helvetica", '', 7)
+                for i in range(len(df)):
+                    for col in df.columns:
+                        text = str(df.iloc[i][col])
+                        if (col == 'url_main' or col == 'url_user') and len(text) > 45:
+                            text = text[:42] + '...'
+                        pdf.cell(col_widths[col], 10, text, border=1, new_x=enums.XPos.RIGHT, new_y=enums.YPos.TOP)
+                    pdf.ln()
+
+                pdf.output(file_name)
+                print(f"\nResults exported to {file_name}")
+            else:
+                print(f"\nUnsupported export format: {export_format}. Supported formats: 'pdf', 'html'")
 
         print()
     query_notify.finish()
