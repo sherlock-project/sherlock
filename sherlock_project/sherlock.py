@@ -227,6 +227,7 @@ def sherlock(
 
     # Results from analysis of all sites
     results_total = {}
+    request_futures = {}
 
     # First create futures for all requests. This allows for the requests to run in parallel
     for social_network, net_info in site_data.items():
@@ -333,7 +334,7 @@ def sherlock(
                 )
 
             # Store future in data for access later
-            net_info["request_future"] = future
+            request_futures[social_network] = future
 
         # Add this site's results into final dictionary with all the other results.
         results_total[social_network] = results_site
@@ -356,7 +357,7 @@ def sherlock(
             error_type: list[str] = [error_type]
 
         # Retrieve future and ensure it has finished
-        future = net_info["request_future"]
+        future = request_futures[social_network]
         r, error_text, exception_text = get_response(
             request_future=future, error_type=error_type, social_network=social_network
         )
