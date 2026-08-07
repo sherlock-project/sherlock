@@ -95,6 +95,17 @@ options:
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
 ```
 
+## Dev zone
+
+If you want to help :), first : 
+```bash
+(
+  git clone https://github.com/sherlock-project/sherlock.git && cd sherlock
+  poetry install
+  poetry run pre-commit install
+) || echo "failed to pull and setup project"
+```
+
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
