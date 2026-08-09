@@ -18,6 +18,7 @@ Hashnode
 Houzz
 Hubski
 Instapaper
+Minecraft
 Odysee
 PCGamer
 Patched
@@ -40,6 +41,7 @@ Weblate
 YandexMusic
 authorSTREAM
 dailykos
+dcinside
 igromania
 interpals
 mercadolivre
