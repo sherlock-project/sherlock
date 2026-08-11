@@ -1437,9 +1437,18 @@
     "username_claimed": "blue"
   },
   "LeetCode": {
-    "errorType": "status_code",
-    "url": "https://leetcode.com/{}",
+    "errorMsg": "That user does not exist.",
+    "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "query": "query getUserProfile($username: String!) { matchedUser(username: $username) { username } }",
+      "variables": {
+        "username": "{}"
+      }
+    },
+    "url": "https://leetcode.com/u/{}/",
     "urlMain": "https://leetcode.com/",
+    "urlProbe": "https://leetcode.com/graphql",
     "username_claimed": "blue"
   },
   "LemmyWorld": {
