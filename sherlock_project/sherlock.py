@@ -27,6 +27,7 @@ from time import monotonic
 from typing import Optional
 
 import requests
+import urllib3
 from requests_futures.sessions import FuturesSession
 
 from sherlock_project.__init__ import (
@@ -135,6 +136,13 @@ def get_response(request_future, error_type, social_network):
         exception_text = str(errt)
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
+        exception_text = str(err)
+    except urllib3.exceptions.LocationParseError as err:
+        # Raised when the username produces an unresolvable URL (e.g. "alice."
+        # yields the host "alice..empretienda.com.ar"). requests does not wrap
+        # this exception, so without this handler a single invalid site would
+        # crash the entire run.
+        error_context = "Invalid URL"
         exception_text = str(err)
     except UnicodeError as err:
         error_context = "Encoding Error"
