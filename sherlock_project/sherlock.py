@@ -928,7 +928,7 @@ def main():
             DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
 
         print()
-    query_notify.finish()
+        query_notify.finish()
 
 
 if __name__ == "__main__":
