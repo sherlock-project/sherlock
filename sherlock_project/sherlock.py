@@ -425,7 +425,10 @@ def sherlock(
                                 error_flag = False
                                 break
                     if error_flag:
-                        query_status = QueryStatus.CLAIMED
+                        if 200 <= r.status_code < 300:
+                            query_status = QueryStatus.CLAIMED
+                        else:
+                            query_status = QueryStatus.UNKNOWN
                     else:
                         query_status = QueryStatus.AVAILABLE
 

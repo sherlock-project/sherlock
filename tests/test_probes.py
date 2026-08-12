@@ -2,6 +2,7 @@ import pytest
 import random
 import string
 import re
+from datetime import timedelta
 from sherlock_project.sherlock import sherlock
 from sherlock_project.notify import QueryNotify
 from sherlock_project.result import QueryStatus
@@ -103,3 +104,66 @@ def test_username_illegal_regex(sites_info):
     assert pattern.match(invalid_handle) is None
     assert simple_query(sites_info=sites_info, site=site, username=invalid_handle) is QueryStatus.ILLEGAL
 
+
+def test_message_error_type_gates_on_http_status(monkeypatch):
+    """Sites using ``errorType: ``message`` must not claim a username (or
+    report it as found) from a transient non-2xx response whose body lacks the
+    configured ``errorMsg`` -- e.g. the ``minds`` 502 false positive in #2950.
+    """
+    class FakeResponse:
+        def __init__(self, status_code, text):
+            self.status_code = status_code
+            self.text = text
+            self.encoding = "utf-8"
+            self.url = ""
+            self.elapsed = timedelta(seconds=0.1)
+
+    class FakeFuture:
+        def __init__(self, resp):
+            self._resp = resp
+
+        def result(self):
+            return self._resp
+
+    class FakeSession:
+        def __init__(self, status_code, text):
+            self._resp = FakeResponse(status_code, text)
+
+        def get(self, *args, **kwargs):
+            return FakeFuture(self._resp)
+
+        def head(self, *args, **kwargs):
+            return FakeFuture(self._resp)
+
+    class FakeSessionFactory:
+        answer = (200, "")
+
+        def __call__(self, max_workers=1, session=None):
+            return FakeSession(*self.answer)
+
+    factory = FakeSessionFactory()
+    monkeypatch.setattr("sherlock_project.sherlock.SherlockFuturesSession", factory)
+
+    site_data: dict = {
+        "MindsLike": {
+            "urlMain": "https://www.minds.com/",
+            "url": "https://www.minds.com/{}",
+            "errorType": "message",
+            "errorMsg": '"valid":true',
+        }
+    }
+
+    # 5xx response without the error message must not be reported as claimed.
+    factory.answer = (502, "Bad Gateway")
+    status = simple_query(sites_info=site_data, site="MindsLike", username="nonsense_uname_xyzzy")
+    assert status is QueryStatus.UNKNOWN
+
+    # Healthy page with the error message -> not found.
+    factory.answer = (200, '{"status":"success","valid":true}')
+    status = simple_query(sites_info=site_data, site="MindsLike", username="nonsense_uname_xyzzy")
+    assert status is QueryStatus.AVAILABLE
+
+    # Healthy page without the error message -> claimed.
+    factory.answer = (200, "<html><body>profile page</body></html>")
+    status = simple_query(sites_info=site_data, site="MindsLike", username="somerealuser")
+    assert status is QueryStatus.CLAIMED
