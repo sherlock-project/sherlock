@@ -903,10 +903,8 @@ def main():
                 ):
                     continue
 
-                if response_time_s is None:
-                    response_time_s.append("")
-                else:
-                    response_time_s.append(results[site]["status"].query_time)
+                response_time = results[site]["status"].query_time
+                response_time_s.append("" if response_time is None else response_time)
                 usernames.append(username)
                 names.append(site)
                 url_main.append(results[site]["url_main"])
