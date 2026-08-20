@@ -10,9 +10,9 @@ Codolio
 Cults3D
 DeviantArt
 Discord.bio
-Eintracht Frankfurt Forum
 Envato Forum
 F3.cool
+Fosstodon
 GeeksforGeeks
 Giphy
 Hashnode
@@ -20,8 +20,8 @@ Houzz
 Hubski
 Instapaper
 Odysee
+OurDJTalk
 PCGamer
-Patched
 Pornhub
 Rarible
 Realmeye
@@ -34,6 +34,7 @@ Shelf
 SlideShare
 Splice
 Spotify
+Trakt
 Trovo
 TryHackMe
 Velomania
@@ -49,4 +50,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
