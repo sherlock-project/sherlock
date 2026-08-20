@@ -139,6 +139,13 @@ def get_response(request_future, error_type, social_network):
     except UnicodeError as err:
         error_context = "Encoding Error"
         exception_text = str(err)
+    except Exception as err:
+        # Catch-all for errors raised outside of the `requests` exception
+        # hierarchy (e.g. urllib3.exceptions.LocationParseError for
+        # malformed hosts produced by usernames such as "alice."), so a
+        # single bad site/username combination cannot crash the whole run.
+        error_context = "Unknown Error"
+        exception_text = str(err)
 
     return response, error_context, exception_text
 
