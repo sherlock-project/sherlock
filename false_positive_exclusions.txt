@@ -7,18 +7,17 @@ Archive.org
 Bandcamp
 Chatujme.cz
 Codolio
-Cults3D
 DeviantArt
 Discord.bio
 Envato Forum
 F3.cool
-Fosstodon
 GeeksforGeeks
 Giphy
 Hashnode
 Houzz
 Hubski
 Instapaper
+Minecraft
 Odysee
 OurDJTalk
 PCGamer
@@ -34,7 +33,6 @@ Shelf
 SlideShare
 Splice
 Spotify
-Trakt
 Trovo
 TryHackMe
 Velomania
@@ -50,3 +48,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
