@@ -5,16 +5,16 @@ Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
+Blogger
 Chatujme.cz
 Codolio
 DeviantArt
 Discord.bio
-Dribbble
 Envato Forum
 F3.cool
 GeeksforGeeks
 Giphy
-GitHub
+HackenProof (Hackers)
 Hashnode
 Houzz
 Hubski
@@ -49,4 +49,3 @@ mercadolivre
 opennet
 phpRU
 svidbook
-xHamster
