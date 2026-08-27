@@ -6,6 +6,8 @@ Apple Discussions
 Archive.org
 Bandcamp
 Blogger
+BoardGameGeek
+Championat
 Chatujme.cz
 Codolio
 DeviantArt
@@ -49,3 +51,4 @@ mercadolivre
 opennet
 phpRU
 svidbook
+xHamster
