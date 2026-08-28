@@ -27,6 +27,7 @@ from time import monotonic
 from typing import Optional
 
 import requests
+import urllib3
 from requests_futures.sessions import FuturesSession
 
 from sherlock_project.__init__ import (
@@ -138,6 +139,13 @@ def get_response(request_future, error_type, social_network):
         exception_text = str(err)
     except UnicodeError as err:
         error_context = "Encoding Error"
+        exception_text = str(err)
+    except urllib3.exceptions.LocationParseError as err:
+        # Raised when a site embeds the username in the hostname and the
+        # resulting address has an empty label (e.g. a trailing period makes
+        # "alice." -> "alice..example.com"). Treat it as a per-site error
+        # instead of crashing the entire scan.
+        error_context = "Error Parsing URL"
         exception_text = str(err)
 
     return response, error_context, exception_text
