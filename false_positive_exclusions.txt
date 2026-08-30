@@ -1,11 +1,9 @@
 7Cups
-APClips
 Airliners
 Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
-Blogger
 Championat
 Chatujme.cz
 ChaturBate
@@ -34,7 +32,6 @@ Shelf
 SlideShare
 Splice
 Spotify
-Strava
 Trakt
 Trovo
 TryHackMe
