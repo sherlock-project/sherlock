@@ -26,14 +26,15 @@
 </p>
 
 > [!WARNING]  
-> Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
+> Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be **broken**.  
 > Users of these systems should defer to [`uv`](https://docs.astral.sh/uv/)/`pipx`/`pip` or Docker.
 
 | Method | Notes |
-| - | - |
+| --- | --- |
 | `pipx install sherlock-project` | `pip` or [`uv`](https://docs.astral.sh/uv/) may be used in place of `pipx` |
-| `docker run -it --rm sherlock/sherlock` |
-| `dnf install sherlock-project` | |
+|  |  |
+| ```<br>docker run -it --rm sherlock/sherlock<br>``` |  |
+| `dnf install sherlock-project` |  |
 
 Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, and BlackArch. These packages are not directly supported or maintained by the Sherlock Project.
 
@@ -51,7 +52,7 @@ To search for more than one user:
 sherlock user1 user2 user3
 ```
 
-Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
+Accounts found will be stored in an individual text file with the corresponding username (e.g `user123.txt`).
 
 ```console
 $ sherlock --help
@@ -115,5 +116,5 @@ Creator - [Siddharth Dushantha](https://github.com/sdushantha)
 
 <!-- Reference Links -->
 
-[ext_pypi]: https://pypi.org/project/sherlock-project/
-[ext_brew]: https://formulae.brew.sh/formula/sherlock
+[ext\_pypi]: https://pypi.org/project/sherlock-project/
+[ext\_brew]: https://formulae.brew.sh/formula/sherlock
