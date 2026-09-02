@@ -20,10 +20,10 @@ Hashnode
 Houzz
 Hubski
 Instapaper
+ObservableHQ
 Odysee
 PCGamer
 Pornhub
-Rajce.net
 Rarible
 Realmeye
 Reddit
@@ -43,6 +43,7 @@ Weblate
 YandexMusic
 authorSTREAM
 dailykos
+eintracht
 fixya
 hunting
 igromania
