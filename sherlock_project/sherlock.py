@@ -833,7 +833,7 @@ def main():
         else:
             result_file = f"{username}.txt"
 
-        if args.output_txt:
+        if args.output_txt or args.output:
             with open(result_file, "w", encoding="utf-8") as file:
                 exists_counter = 0
                 for website_name in results:
