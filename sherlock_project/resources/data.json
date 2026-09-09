@@ -80,7 +80,10 @@
   },
   "AllMyLinks": {
     "errorMsg": "Page not found",
-    "errorType": "message",
+    "errorType": [
+      "message",
+      "status_code"
+    ],
     "regexCheck": "^[a-z0-9][a-z0-9-]{2,32}$",
     "url": "https://allmylinks.com/{}",
     "urlMain": "https://allmylinks.com/",
