@@ -45,6 +45,7 @@ repository = "https://github.com/sherlock-project/sherlock"
 [tool.poetry.dependencies]
 python = "^3.9"
 certifi = ">=2019.6.16"
+aiohttp = "^3.9.0"
 colorama = "^0.4.1"
 PySocks = "^1.7.0"
 requests = "^2.22.0"
