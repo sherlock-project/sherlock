@@ -2,7 +2,11 @@
 
 from concurrent.futures import Future
 
+import requests
+
+from sherlock_project.notify import QueryNotify
 from sherlock_project.sherlock import get_response
+import sherlock_project.sherlock as sherlock_module
 
 
 def _make_future_with_exception(exc):
@@ -45,3 +49,42 @@ def test_get_response_handles_unicode_encode_error():
     assert response is None
     assert error_context == "Encoding Error"
     assert "ascii" in exception_text
+
+
+def test_sherlock_percent_encodes_username_in_profile_url(monkeypatch):
+    """Usernames must be URL-encoded before they are inserted into templates."""
+    captured_urls = []
+
+    class FakeSession:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def head(self, url, **kwargs):
+            captured_urls.append(url)
+            response = requests.Response()
+            response.status_code = 404
+            response._content = b""
+            response.encoding = "utf-8"
+
+            future = Future()
+            future.set_result(response)
+            return future
+
+    monkeypatch.setattr(sherlock_module, "SherlockFuturesSession", FakeSession)
+
+    result = sherlock_module.sherlock(
+        username="\u00c9mile Doe/Dev+Ops",
+        site_data={
+            "Example": {
+                "url": "https://example.com/users/{}",
+                "urlMain": "https://example.com",
+                "errorType": "status_code",
+                "errorCode": 404,
+            }
+        },
+        query_notify=QueryNotify(),
+    )
+
+    expected_url = "https://example.com/users/%C3%89mile%20Doe/Dev%2BOps"
+    assert captured_urls == [expected_url]
+    assert result["Example"]["url_user"] == expected_url
