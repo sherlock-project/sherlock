@@ -14,7 +14,7 @@ with open(DATA_REL_URI, "r", encoding=DEFAULT_ENCODING) as data_file:
 
 # Removes schema-specific keywords for proper processing
 social_networks = data.copy()
-social_networks.pop('$schema', None)
+social_networks.pop("$schema", None)
 
 # Sort the social networks in alphanumeric order
 social_networks = sorted(social_networks.items())
