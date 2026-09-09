@@ -2,7 +2,8 @@ import pytest
 import random
 import string
 import re
-from sherlock_project.sherlock import sherlock
+import urllib3
+from sherlock_project.sherlock import get_response, sherlock
 from sherlock_project.notify import QueryNotify
 from sherlock_project.result import QueryStatus
 #from sherlock_interactives import Interactives
@@ -102,4 +103,33 @@ def test_username_illegal_regex(sites_info):
     # Ensure that the username actually fails regex before testing sherlock
     assert pattern.match(invalid_handle) is None
     assert simple_query(sites_info=sites_info, site=site, username=invalid_handle) is QueryStatus.ILLEGAL
+
+
+def test_location_parse_error_does_not_crash():
+    """A period-terminated username (e.g. ``alice.``) can build an invalid host
+    such as ``alice..empretienda.com.ar``. urllib3 raises LocationParseError,
+    which requests does not wrap; get_response must convert it into a
+    per-site error instead of letting it crash the whole run."""
+    class FakeFuture:
+        def __init__(self, exception):
+            self._exception = exception
+
+        def result(self):
+            raise self._exception
+
+    future = FakeFuture(
+        urllib3.exceptions.LocationParseError(
+            "Failed to parse: 'alice..empretienda.com.ar', label empty or too long"
+        )
+    )
+
+    response, error_context, exception_text = get_response(
+        request_future=future,
+        error_type=["status_code"],
+        social_network="Empretienda AR",
+    )
+
+    assert response is None
+    assert error_context == "Invalid URL"
+    assert "alice..empretienda.com.ar" in exception_text
 
