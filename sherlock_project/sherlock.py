@@ -28,6 +28,7 @@ from typing import Optional
 
 import requests
 from requests_futures.sessions import FuturesSession
+from tqdm import tqdm
 
 from sherlock_project.__init__ import (
     __longname__,
@@ -177,6 +178,7 @@ def sherlock(
     dump_response: bool = False,
     proxy: Optional[str] = None,
     timeout: int = 60,
+    show_progress: bool = True,
 ) -> dict[str, dict[str, str | QueryResult]]:
     """Run Sherlock Analysis.
 
@@ -339,7 +341,15 @@ def sherlock(
         results_total[social_network] = results_site
 
     # Open the file containing account links
-    for social_network, net_info in site_data.items():
+    progress = tqdm(
+        site_data.items(),
+        desc=username,
+        unit="site",
+        disable=not show_progress,
+        file=sys.stderr,
+        bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}]",
+    )
+    for social_network, net_info in progress:
         # Retrieve results again
         results_site = results_total.get(social_network)
 
@@ -694,6 +704,14 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--no-progress",
+        action="store_true",
+        dest="no_progress",
+        default=False,
+        help="Suppress the progress bar.",
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
@@ -821,6 +839,7 @@ def main():
             dump_response=args.dump_response,
             proxy=args.proxy,
             timeout=args.timeout,
+            show_progress=not args.no_progress,
         )
 
         if args.output:
