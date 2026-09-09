@@ -29,7 +29,7 @@
               "fields": [
                 "username",
                 "links"
-              ],
+              ]
             },
             "display": {
                "component": "table",
