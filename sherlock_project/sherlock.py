@@ -812,6 +812,12 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
+
+    # Check validity for single username output after wildcard expansion.
+    if args.output is not None and len(all_usernames) != 1:
+        print("You can only use --output with a single username")
+        sys.exit(1)
+
     for username in all_usernames:
         results = sherlock(
             username,
