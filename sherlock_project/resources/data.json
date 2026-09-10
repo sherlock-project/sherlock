@@ -3082,7 +3082,10 @@
   },
   "minds": {
     "errorMsg": "\"valid\":true",
-    "errorType": "message",
+    "errorType": [
+      "message",
+      "status_code"
+    ],
     "url": "https://www.minds.com/{}/",
     "urlMain": "https://www.minds.com",
     "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
