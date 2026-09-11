@@ -2667,6 +2667,12 @@
     "urlMain": "https://vero.co/",
     "username_claimed": "blue"
   },
+  "Viblo": {
+    "errorType": "status_code",
+    "url": "https://viblo.asia/u/{}",
+    "urlMain": "https://viblo.asia/",
+    "username_claimed": "cuong"
+  },
   "Vimeo": {
     "errorType": "status_code",
     "url": "https://vimeo.com/{}",
