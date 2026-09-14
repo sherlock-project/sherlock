@@ -959,9 +959,9 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorMsg": "false   | GeeksforGeeks Profile",
+    "errorMsg": "undefined   | GeeksforGeeks Profile",
     "errorType": "message",
-    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "url": "https://www.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
   },
@@ -1162,10 +1162,11 @@
     "username_claimed": "ousmanekane"
   },
   "Hashnode": {
-    "errorType": "status_code",
+    "errorMsg": "<title>User not found | Hashnode</title>",
+    "errorType": "message",
     "url": "https://hashnode.com/@{}",
     "urlMain": "https://hashnode.com",
-    "username_claimed": "blue"
+    "username_claimed": "unclebigbay"
   },
   "Heavy-R": {
     "errorMsg": "Channel not found",
@@ -2541,12 +2542,11 @@
     "username_claimed": "blue"
   },
   "TryHackMe": {
-    "errorMsg": "{\"success\":false}",
+    "errorMsg": "<title>TryHackMe | Cyber Security Training</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
-    "urlProbe": "https://tryhackme.com/api/user/exist/{}",
     "username_claimed": "ashu"
   },
   "Tuna": {
