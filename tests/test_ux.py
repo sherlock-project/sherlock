@@ -117,3 +117,89 @@ def test_xlsx_report_write_failure_is_fail_soft(tmp_path, monkeypatch, offline_s
     assert "ERROR: Failed to write XLSX report for 'a/b'" in out
     assert captured['ok1_path'].endswith('ok1.xlsx')
     assert 'Search completed with' in out
+
+
+def _uncreatable_folderoutput(tmp_path):
+    """A path under a regular file: os.makedirs() raises NotADirectoryError."""
+    blocker = tmp_path / 'blocker'
+    blocker.write_text('not a folder')
+    return blocker / 'sub'
+
+
+def test_txt_folderoutput_creation_failure_is_fail_soft(tmp_path, monkeypatch, offline_sherlock_main, capsys):
+    folderoutput = _uncreatable_folderoutput(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('sys.argv', [
+        'sherlock',
+        '--local',
+        '--txt',
+        '--folderoutput',
+        str(folderoutput),
+        'ok1',
+    ])
+    sherlock.main()
+    captured = capsys.readouterr()
+    assert captured.out.count('ERROR:') == 1
+    assert "ERROR: Failed to write TXT report for 'ok1'" in captured.out
+    assert not folderoutput.exists()
+    assert 'Search completed with' in captured.out
+
+
+def test_csv_folderoutput_creation_failure_is_fail_soft(tmp_path, monkeypatch, offline_sherlock_main, capsys):
+    folderoutput = _uncreatable_folderoutput(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('sys.argv', [
+        'sherlock',
+        '--local',
+        '--csv',
+        '--folderoutput',
+        str(folderoutput),
+        'ok1',
+    ])
+    sherlock.main()
+    captured = capsys.readouterr()
+    assert captured.out.count('ERROR:') == 1
+    assert "ERROR: Failed to write CSV report for 'ok1'" in captured.out
+    assert not folderoutput.exists()
+    assert not (tmp_path / 'ok1.csv').exists()
+    assert 'Search completed with' in captured.out
+
+
+def test_folderoutput_creation_failure_still_processes_other_usernames(tmp_path, monkeypatch, offline_sherlock_main, capsys):
+    folderoutput = _uncreatable_folderoutput(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('sys.argv', [
+        'sherlock',
+        '--local',
+        '--txt',
+        '--folderoutput',
+        str(folderoutput),
+        'ok1',
+        'ok2',
+    ])
+    sherlock.main()
+    captured = capsys.readouterr()
+    assert captured.out.count("ERROR: Failed to write TXT report for 'ok1'") == 1
+    assert captured.out.count("ERROR: Failed to write TXT report for 'ok2'") == 1
+    assert 'Search completed with' in captured.out
+
+
+def test_creatable_folderoutput_still_writes_reports(tmp_path, monkeypatch, offline_sherlock_main, capsys):
+    folderoutput = tmp_path / 'out'
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('sys.argv', [
+        'sherlock',
+        '--local',
+        '--txt',
+        '--csv',
+        '--folderoutput',
+        str(folderoutput),
+        'ok1',
+    ])
+    sherlock.main()
+    captured = capsys.readouterr()
+    assert 'ERROR:' not in captured.out
+    assert (folderoutput / 'ok1.txt').exists()
+    assert (folderoutput / 'ok1.csv').exists()
+    assert not (tmp_path / 'ok1.txt').exists()
+    assert not (tmp_path / 'ok1.csv').exists()

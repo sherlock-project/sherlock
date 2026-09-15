@@ -825,15 +825,16 @@ def main():
         if args.output:
             result_file = args.output
         elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         else:
             result_file = f"{username}.txt"
 
         if args.output_txt:
             try:
+                if args.folderoutput:
+                    # The usernames results should be stored in a targeted folder.
+                    # If the folder doesn't exist, create it first
+                    os.makedirs(args.folderoutput, exist_ok=True)
                 with open(result_file, "w", encoding="utf-8") as file:
                     exists_counter = 0
                     for website_name in results:
@@ -847,13 +848,13 @@ def main():
 
         if args.csv:
             result_file = f"{username}.csv"
-            if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
 
             try:
+                if args.folderoutput:
+                    # The usernames results should be stored in a targeted folder.
+                    # If the folder doesn't exist, create it first
+                    os.makedirs(args.folderoutput, exist_ok=True)
+                    result_file = os.path.join(args.folderoutput, result_file)
                 with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
                     writer = csv.writer(csv_report)
                     writer.writerow(
