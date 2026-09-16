@@ -55,6 +55,11 @@ To search for more than one user:
 sherlock user1 user2 user3
 ```
 
+To run Sherlock as a module and export matches for multiple usernames:
+```bash
+python3 -m sherlock_project maris.219 marisp139 --print-found --csv --folderoutput /tmp/maris-search
+```
+
 Accounts found will be stored in an individual text file with the corresponding username (e.g ```user123.txt```).
 
 ```console
