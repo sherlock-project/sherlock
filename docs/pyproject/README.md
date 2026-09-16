@@ -31,6 +31,11 @@ To search for more than one user:
 ```bash
 $ sherlock user1 user2 user3
 ```
+
+To run Sherlock as a module and export matches for multiple usernames:
+```bash
+$ python3 -m sherlock_project maris.219 marisp139 --print-found --csv --folderoutput /tmp/maris-search
+```
 <br>
 
 ___

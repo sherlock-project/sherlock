@@ -1,1 +1,0 @@
-python3 -m sherlock_project maris.219 marisp139 --print-found --csv --folderoutput /tmp/maris-search
