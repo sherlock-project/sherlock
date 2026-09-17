@@ -32,7 +32,7 @@ class QueryNotify:
                                   results for this query.
 
         Return Value:
-        Nothing.
+        Nothing.              --This return nothing
         """
 
         self.result = result
@@ -67,7 +67,7 @@ class QueryNotify:
         result                 -- Object of type QueryResult() containing
                                   results for this query.
 
-        Return Value:
+        Return Value:         -- This return nothing
         Nothing.
         """
 
@@ -87,7 +87,7 @@ class QueryNotify:
                                   of query.
                                   Default is None.
 
-        Return Value:
+        Return Value:            This return nothing
         Nothing.
         """
 
@@ -125,7 +125,7 @@ class QueryNotifyPrint(QueryNotify):
         browse                 -- Boolean indicating whether to open found sites in a web browser.
 
         Return Value:
-        Nothing.
+        Nothing.               -- this return nothing
         """
 
         super().__init__(result)
