@@ -2888,11 +2888,9 @@
     "username_claimed": "blue"
   },
   "dailykos": {
-    "errorMsg": "{\"result\":true,\"message\":null}",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.dailykos.com/user/{}",
     "urlMain": "https://www.dailykos.com",
-    "urlProbe": "https://www.dailykos.com/signup/check_nickname?nickname={}",
     "username_claimed": "blue"
   },
   "datingRU": {
