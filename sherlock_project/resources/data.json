@@ -313,7 +313,7 @@
     "username_claimed": "blue"
   },
   "BoardGameGeek": {
-    "errorMsg": "\"isValid\":true",
+    "errorMsg": "\"isValid\":false",
     "errorType": "message",
     "url": "https://boardgamegeek.com/user/{}",
     "urlMain": "https://boardgamegeek.com/",
