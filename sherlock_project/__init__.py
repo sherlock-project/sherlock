@@ -9,7 +9,6 @@ from importlib.metadata import version as pkg_version, PackageNotFoundError
 import pathlib
 import tomli
 
-
 def get_version() -> str:
     """Fetch the version number of the installed package."""
     try:
