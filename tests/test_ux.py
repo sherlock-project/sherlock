@@ -41,3 +41,13 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+
+@pytest.mark.parametrize('cliargs', [
+    '--timeout abc testuser',
+    '--timeout 0 testuser',
+    '--timeout -1 testuser',
+])
+def test_invalid_timeout_reports_argparse_error(cliargs):
+    with pytest.raises(InteractivesSubprocessError, match=r"Invalid timeout value: .*Timeout must be a positive number."):
+        Interactives.run_cli(cliargs)
