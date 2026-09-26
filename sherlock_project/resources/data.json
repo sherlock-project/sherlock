@@ -1287,10 +1287,12 @@
     "username_claimed": "instagram"
   },
   "Instapaper": {
-    "errorType": "status_code",
+    "errorMsg": "<title>Instapaper</title>",
+    "errorType": "message",
     "request_method": "GET",
     "url": "https://www.instapaper.com/p/{}",
     "urlMain": "https://www.instapaper.com/",
+    "urlProbe": "https://www.instapaper.com/data/profile/{}?page=1",
     "username_claimed": "john"
   },
   "Instructables": {
