@@ -103,3 +103,21 @@ def test_username_illegal_regex(sites_info):
     assert pattern.match(invalid_handle) is None
     assert simple_query(sites_info=sites_info, site=site, username=invalid_handle) is QueryStatus.ILLEGAL
 
+
+def test_trailing_period_does_not_crash_hostname_site(sites_info):
+    # Regression test for #2970. A username ending in a period, when embedded in
+    # a site whose URL places the username in the hostname (e.g. "Empretienda AR"
+    # -> "https://{}.empretienda.com.ar"), produces an empty DNS label
+    # ("alice..empretienda.com.ar"). urllib3 raises LocationParseError for this;
+    # sherlock must surface it as a per-site error, not crash the whole scan.
+    site: str = 'Empretienda AR'
+    trailing_dot_handle: str = 'sherlockfix.'
+    query_notify = QueryNotify()
+    result = sherlock(
+        username=trailing_dot_handle,
+        site_data={site: sites_info[site]},
+        query_notify=query_notify,
+    )
+    status = result[site]['status']
+    assert status.status is QueryStatus.UNKNOWN
+
