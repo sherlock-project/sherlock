@@ -252,7 +252,8 @@ def sherlock(
         if regex_check and re.search(regex_check, username) is None:
             # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(
-                username, social_network, url, QueryStatus.ILLEGAL
+                username, social_network, url, QueryStatus.ILLEGAL,
+                is_nsfw=net_info.get("isNSFW", False)
             )
             results_site["url_user"] = ""
             results_site["http_status"] = ""
@@ -488,6 +489,7 @@ def sherlock(
             status=query_status,
             query_time=response_time,
             context=error_context,
+            is_nsfw=net_info.get("isNSFW", False),
         )
         query_notify.update(result)
 
@@ -801,7 +803,7 @@ def main():
 
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
-        result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse
+        result=None, verbose=args.verbose, print_all=args.print_all, browse=args.browse, include_nsfw=args.nsfw
     )
 
     # Run report on all specified users.
