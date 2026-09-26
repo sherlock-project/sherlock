@@ -17,6 +17,7 @@ except ImportError:
     sys.exit(1)
 
 import csv
+import math
 import signal
 import pandas as pd
 import os
@@ -507,7 +508,8 @@ def sherlock(
 def timeout_check(value):
     """Check Timeout Argument.
 
-    Checks timeout for validity.
+    Checks timeout for validity. The timeout must be a finite, positive
+    number.
 
     Keyword Arguments:
     value                  -- Time in seconds to wait before timing out request.
@@ -521,9 +523,9 @@ def timeout_check(value):
 
     float_value = float(value)
 
-    if float_value <= 0:
+    if not math.isfinite(float_value) or float_value <= 0:
         raise ArgumentTypeError(
-            f"Invalid timeout value: {value}. Timeout must be a positive number."
+            f"Invalid timeout value: {value}. Timeout must be a finite, positive number."
         )
 
     return float_value
