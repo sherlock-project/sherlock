@@ -1995,3 +1995,15 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## F3.cool
+__2026-09-16 :__ F3 has ceased operations; domain has expired and redirects to a parked GoDaddy page
+```json
+  "F3.cool": {
+    "errorType": "status_code",
+    "url": "https://f3.cool/{}/",
+    "urlMain": "https://f3.cool/",
+    "username_claimed": "blue"
+  },
+```
+
