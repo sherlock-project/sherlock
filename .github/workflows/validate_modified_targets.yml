@@ -91,6 +91,7 @@ jobs:
       # --- The rest of the steps below are unchanged ---
 
       - name: Validate modified targets
+        if: steps.discover-modified.outputs.changed_targets != ''
         env:
           CHANGED_TARGETS: ${{ steps.discover-modified.outputs.changed_targets }}
         run: |
