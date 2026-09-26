@@ -52,10 +52,14 @@ requests-futures = "^1.0.0"
 stem = "^1.8.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
-tomli = "^2.2.1"
+tomli = {version = "^2.0.1", python = "<3.11"}
+fpdf2 = [
+    {version = "~2.7.8", python = "~3.9"},
+    {version = "^2.8.7", python = ">=3.10"}
+]
 
 [tool.poetry.group.dev.dependencies]
-jsonschema = "^4.0.0"
+jsonschema = "~4.16.0"
 rstr = "^3.2.2"
 pytest = "^8.4.2"
 pytest-xdist = "^3.8.0"
