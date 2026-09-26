@@ -1,7 +1,50 @@
 import os
 import json
+from unittest.mock import Mock
+
 import pytest
 from jsonschema import validate
+
+from sherlock_project.sites import SitesInformation
+
+
+@pytest.mark.parametrize("manifest_name", ["http-manifest.json", "https-manifest.json"])
+def test_local_manifest_filename_starting_with_http(manifest_name, tmp_path, monkeypatch):
+    manifest = tmp_path / manifest_name
+    manifest.write_text(
+        json.dumps(
+            {
+                "Example": {
+                    "urlMain": "https://example.com",
+                    "url": "https://example.com/{}",
+                    "username_claimed": "taken",
+                    "errorType": "status_code",
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.chdir(tmp_path)
+
+    sites = SitesInformation(manifest.name, honor_exclusions=False)
+
+    assert sites.site_name_list() == ["Example"]
+
+
+@pytest.mark.parametrize("manifest_url", [
+    "http://example.com/manifest.json",
+    "https://example.com/manifest.json",
+])
+def test_manifest_http_url_is_fetched(manifest_url, monkeypatch):
+    response = Mock(status_code=200)
+    response.json.return_value = {}
+    get = Mock(return_value=response)
+    monkeypatch.setattr("sherlock_project.sites.requests.get", get)
+
+    sites = SitesInformation(manifest_url, honor_exclusions=False)
+
+    assert sites.site_name_list() == []
+    get.assert_called_once_with(url=manifest_url, timeout=30)
 
 def test_validate_manifest_against_local_schema():
     """Ensures that the manifest matches the local schema, for situations where the schema is being changed."""
