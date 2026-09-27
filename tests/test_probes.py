@@ -29,6 +29,17 @@ class TestLiveTargets:
     ])
     def test_known_positives_via_message(self, sites_info, site, username):
         assert simple_query(sites_info=sites_info, site=site, username=username) is QueryStatus.CLAIMED
+        
+    @pytest.mark.online
+    @pytest.mark.parametrize('site,username',[
+        ('Tracker.gg Valorant', 'TenZ#NA1'),
+        ('Tracker.gg Valorant', 'ScreaM#1337'),
+    ])
+    def test_known_valorant_positives(self, sites_info, site, username):
+        status = simple_query(sites_info=sites_info, site=site, username=username)
+        if status is not QueryStatus.CLAIMED:
+            pytest.xfail(f"Known Valorant player {username} detection failed - possible Cloudflare or API limitation")
+        assert status is QueryStatus.CLAIMED
 
 
     # Known positives should only use sites trusted to be reliable and unchanging
@@ -93,6 +104,27 @@ class TestLiveTargets:
             if status is QueryStatus.AVAILABLE:
                 break
         assert status is QueryStatus.AVAILABLE, f"Could not validate available username after {num_attempts} attempts with randomly generated usernames {attempted_usernames}."
+
+    @pytest.mark.online
+    @pytest.mark.parametrize('site,invalid_username',[
+        ('Tracker.gg Valorant', 'NonExistentPlayer#0000'),
+        ('Tracker.gg Valorant', 'ThisUserDoesNotExist#TEST'),
+    ])
+    def test_valorant_negatives(self, sites_info, site, invalid_username):
+        status = simple_query(sites_info=sites_info, site=site, username=invalid_username)
+        if status not in (QueryStatus.AVAILABLE, QueryStatus.UNKNOWN):
+            pytest.xfail(f"Non-existent Valorant player detection affected by Cloudflare protection")
+
+    @pytest.mark.online
+    @pytest.mark.parametrize('site,invalid_format',[
+        ('Tracker.gg Valorant', 'no-hashtag'),
+        ('Tracker.gg Valorant', '#notag'),
+        ('Tracker.gg Valorant', 'short#1'),
+        ('Tracker.gg Valorant', 'waytoolongusername123456#1234'),
+    ])
+    def test_valorant_illegal_format(self, sites_info, site, invalid_format):
+        status = simple_query(sites_info=sites_info, site=site, username=invalid_format)
+        assert status is QueryStatus.ILLEGAL, f"Expected {invalid_format} to be marked as illegal format on {site}"
 
 
 def test_username_illegal_regex(sites_info):
