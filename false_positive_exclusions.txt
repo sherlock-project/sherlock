@@ -1,11 +1,11 @@
 7Cups
+APClips
 Airliners
 Apple Developer
 Apple Discussions
 Archive.org
 Bandcamp
-BoardGameGeek
-CGTrader
+Blogger
 Championat
 Chatujme.cz
 ChaturBate
@@ -20,7 +20,6 @@ Houzz
 Hubski
 Instapaper
 Linktree
-NationStates Nation
 ObservableHQ
 Odysee
 PCGamer
@@ -52,3 +51,4 @@ opennet
 phpRU
 social.tchncs.de
 svidbook
+xHamster
