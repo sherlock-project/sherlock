@@ -1,5 +1,6 @@
 import pytest
 from sherlock_project import sherlock
+from sherlock_project.sites import SiteInformation
 from sherlock_interactives import Interactives
 from sherlock_interactives import InteractivesSubprocessError
 
@@ -31,6 +32,20 @@ def test_wildcard_username_expansion():
     assert sherlock.check_for_parameter('test{?test') is False
     assert sherlock.check_for_parameter('test?}test') is False
     assert sherlock.multiple_usernames('test{?}test') == ["test_test" , "test-test" , "test.test"]
+
+
+def test_site_information_preserves_explicit_unclaimed_username():
+    site = SiteInformation(
+        "Example",
+        "https://example.com",
+        "https://example.com/{}",
+        "claimed-user",
+        {"urlMain": "https://example.com"},
+        False,
+        username_unclaimed="available-user",
+    )
+
+    assert site.username_unclaimed == "available-user"
 
 
 @pytest.mark.parametrize('cliargs', [
