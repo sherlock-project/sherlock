@@ -12,3 +12,4 @@ for username in $INPUT; do
   cat $username.txt
   sed '$d' $username.txt | jo -a | jo username=$safe_username links:=- | apify actor:push-data
 done
+hamzaa
