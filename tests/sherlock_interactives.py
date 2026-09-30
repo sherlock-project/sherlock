@@ -3,9 +3,10 @@ import re
 import shlex
 import subprocess
 import sys
+from typing import Union
 
 class Interactives:
-    def run_cli(args: str | list[str] = "") -> str:
+    def run_cli(args: Union[str, list[str]] = "") -> str:
         """Run CLI arguments; strings use POSIX quoting, lists preserve paths verbatim."""
         # Use the test environment, not a launcher or executable from PATH.
         arguments = shlex.split(args) if isinstance(args, str) else args
