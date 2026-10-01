@@ -14,6 +14,7 @@ Discord.bio
 Envato Forum
 GeeksforGeeks
 Giphy
+HackerNews
 Hashnode
 Houzz
 Hubski
@@ -29,7 +30,10 @@ ReverbNation
 RocketTube
 Scribd
 Shelf
+Slashdot
 SlideShare
+Snapchat
+SourceForge
 Splice
 Spotify
 Trakt
