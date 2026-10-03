@@ -315,7 +315,7 @@
   "BoardGameGeek": {
     "errorMsg": "\"isValid\":true",
     "errorType": "message",
-    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{0,19}$",
+    "regexCheck": "^[A-Za-z][A-Za-z0-9_]{3,19}$",
     "url": "https://boardgamegeek.com/user/{}",
     "urlMain": "https://boardgamegeek.com/",
     "urlProbe": "https://api.geekdo.com/api/accounts/validate/username?username={}",
