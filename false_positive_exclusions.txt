@@ -6,6 +6,7 @@ Apple Discussions
 Archive.org
 Bandcamp
 Blogger
+CGTrader
 Championat
 Chatujme.cz
 ChaturBate
@@ -16,6 +17,7 @@ Envato Forum
 GeeksforGeeks
 Giphy
 HackerNews
+HackerRank
 Hashnode
 Houzz
 Hubski
@@ -35,6 +37,7 @@ Shelf
 SlideShare
 Splice
 Spotify
+Trakt
 Trovo
 TryHackMe
 Velomania
