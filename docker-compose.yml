@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  phoneinfoga:
+    container_name: phoneinfoga
+    restart: on-failure
+    image: sundowndev/phoneinfoga:latest
+    command:
+      - "serve"
+    ports:
+      - "80:5000"
