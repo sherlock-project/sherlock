@@ -735,8 +735,8 @@
     "username_claimed": "blue"
   },
   "Discord.bio": {
-    "errorType": "message",
-    "errorMsg": "<title>Server Error (500)</title>",
+    "errorCode": 404,
+    "errorType": "status_code",
     "url": "https://discords.com/api-v2/bio/details/{}",
     "urlMain": "https://discord.bio/",
     "username_claimed": "robert"
@@ -2993,8 +2993,9 @@
     "username_claimed": "blue"
   },
   "interpals": {
-    "errorMsg": "The requested user does not exist or is inactive",
-    "errorType": "message",
+    "errorCode": 404,
+    "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.interpals.net/{}",
     "urlMain": "https://www.interpals.net/",
     "username_claimed": "blue"
