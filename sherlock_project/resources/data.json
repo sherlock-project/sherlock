@@ -3304,5 +3304,13 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+    "FACEIT": {
+    "errorType": "message",
+    "errorMsg": "user not found",
+    "url": "https://www.faceit.com/en/players/{}",
+    "urlMain": "https://www.faceit.com/",
+    "urlProbe": "https://www.faceit.com/api/users/v1/nicknames/{}",
+    "username_claimed": "s1mple-"
   }
 }
