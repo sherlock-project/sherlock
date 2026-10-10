@@ -235,11 +235,14 @@ class QueryNotifyPrint(QueryNotify):
 
         elif result.status == QueryStatus.WAF:
             if self.print_all:
+                waf_message = "Blocked by bot detection"
+                if self.result.context is not None:
+                    waf_message += f" ({self.result.context})"
                 print(Style.BRIGHT + Fore.WHITE + "[" +
                       Fore.RED + "-" +
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
-                      Fore.RED + " Blocked by bot detection" +
+                      Fore.RED + f" {waf_message}" +
                       Fore.YELLOW + " (proxy may help)")
 
         else:
