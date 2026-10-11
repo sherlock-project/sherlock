@@ -69,9 +69,11 @@ def test_txt_report_write_failure_is_fail_soft(tmp_path, monkeypatch, offline_sh
         'a/b',
         'ok1',
     ])
-    sherlock.main()
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
     captured = capsys.readouterr()
-    assert "ERROR: Failed to write TXT report for 'a/b'" in captured.out
+    assert "ERROR: Failed to write TXT report for 'a/b'" in captured.err
     assert (tmp_path / 'ok1.txt').exists()
     assert 'Total Websites Username Detected On : 1' in (tmp_path / 'ok1.txt').read_text()
     assert 'Search completed with' in captured.out
@@ -86,9 +88,11 @@ def test_csv_report_write_failure_is_fail_soft(tmp_path, monkeypatch, offline_sh
         'a/b',
         'ok1',
     ])
-    sherlock.main()
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
     captured = capsys.readouterr()
-    assert "ERROR: Failed to write CSV report for 'a/b'" in captured.out
+    assert "ERROR: Failed to write CSV report for 'a/b'" in captured.err
     csv_lines = (tmp_path / 'ok1.csv').read_text().splitlines()
     assert csv_lines[0] == 'username,name,url_main,url_user,exists,http_status,response_time_s'
     assert csv_lines[1].startswith('ok1,Example')
@@ -112,11 +116,13 @@ def test_xlsx_report_write_failure_is_fail_soft(tmp_path, monkeypatch, offline_s
         'a/b',
         'ok1',
     ])
-    sherlock.main()
-    out = capsys.readouterr().out
-    assert "ERROR: Failed to write XLSX report for 'a/b'" in out
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
+    output = capsys.readouterr()
+    assert "ERROR: Failed to write XLSX report for 'a/b'" in output.err
     assert captured['ok1_path'].endswith('ok1.xlsx')
-    assert 'Search completed with' in out
+    assert 'Search completed with' in output.out
 
 
 def _uncreatable_folderoutput(tmp_path):
@@ -137,10 +143,12 @@ def test_txt_folderoutput_creation_failure_is_fail_soft(tmp_path, monkeypatch, o
         str(folderoutput),
         'ok1',
     ])
-    sherlock.main()
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
     captured = capsys.readouterr()
-    assert captured.out.count('ERROR:') == 1
-    assert "ERROR: Failed to write TXT report for 'ok1'" in captured.out
+    assert captured.err.count('ERROR:') == 1
+    assert "ERROR: Failed to write TXT report for 'ok1'" in captured.err
     assert not folderoutput.exists()
     assert 'Search completed with' in captured.out
 
@@ -156,10 +164,12 @@ def test_csv_folderoutput_creation_failure_is_fail_soft(tmp_path, monkeypatch, o
         str(folderoutput),
         'ok1',
     ])
-    sherlock.main()
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
     captured = capsys.readouterr()
-    assert captured.out.count('ERROR:') == 1
-    assert "ERROR: Failed to write CSV report for 'ok1'" in captured.out
+    assert captured.err.count('ERROR:') == 1
+    assert "ERROR: Failed to write CSV report for 'ok1'" in captured.err
     assert not folderoutput.exists()
     assert not (tmp_path / 'ok1.csv').exists()
     assert 'Search completed with' in captured.out
@@ -177,10 +187,12 @@ def test_folderoutput_creation_failure_still_processes_other_usernames(tmp_path,
         'ok1',
         'ok2',
     ])
-    sherlock.main()
+    with pytest.raises(SystemExit) as exc:
+        sherlock.main()
+    assert exc.value.code == 1
     captured = capsys.readouterr()
-    assert captured.out.count("ERROR: Failed to write TXT report for 'ok1'") == 1
-    assert captured.out.count("ERROR: Failed to write TXT report for 'ok2'") == 1
+    assert captured.err.count("ERROR: Failed to write TXT report for 'ok1'") == 1
+    assert captured.err.count("ERROR: Failed to write TXT report for 'ok2'") == 1
     assert 'Search completed with' in captured.out
 
 
@@ -199,6 +211,7 @@ def test_creatable_folderoutput_still_writes_reports(tmp_path, monkeypatch, offl
     sherlock.main()
     captured = capsys.readouterr()
     assert 'ERROR:' not in captured.out
+    assert 'ERROR:' not in captured.err
     assert (folderoutput / 'ok1.txt').exists()
     assert (folderoutput / 'ok1.csv').exists()
     assert not (tmp_path / 'ok1.txt').exists()

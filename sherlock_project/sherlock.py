@@ -812,6 +812,7 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
+    write_failed = False
     for username in all_usernames:
         results = sherlock(
             username,
@@ -844,7 +845,11 @@ def main():
                             file.write(dictionary["url_user"] + "\n")
                     file.write(f"Total Websites Username Detected On : {exists_counter}\n")
             except OSError as error:
-                print(f"ERROR: Failed to write TXT report for '{username}': {error}")
+                print(
+                    f"ERROR: Failed to write TXT report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
 
         if args.csv:
             result_file = f"{username}.csv"
@@ -891,7 +896,11 @@ def main():
                             ]
                         )
             except OSError as error:
-                print(f"ERROR: Failed to write CSV report for '{username}': {error}")
+                print(
+                    f"ERROR: Failed to write CSV report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
         if args.xlsx:
             usernames = []
             names = []
@@ -934,10 +943,17 @@ def main():
             try:
                 DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
             except OSError as error:
-                print(f"ERROR: Failed to write XLSX report for '{username}': {error}")
+                print(
+                    f"ERROR: Failed to write XLSX report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
 
         print()
     query_notify.finish()
+
+    if write_failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
