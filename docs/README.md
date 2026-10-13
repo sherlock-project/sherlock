@@ -39,7 +39,7 @@
 | `docker run -it --rm sherlock/sherlock` |
 | `dnf install sherlock-project` | |
 
-Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, BlackArch, and the [OTinstaller](https://github.com/OSINTVerseHQ/OTinstaller) tool manager (`otinstaller install sherlock`). These packages are not directly supported or maintained by the Sherlock Project.
+Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, BlackArch, and the [OTinstaller](https://github.com/OSINTVerseHQ/OTinstaller) tool manager (`otinstaller init`, then `otinstaller install sherlock`). These packages are not directly supported or maintained by the Sherlock Project.
 
 See all alternative installation methods [here](https://sherlockproject.xyz/installation).
 
