@@ -1995,3 +1995,16 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## CodersRank
+__2025-10-25 :__ Site fails to load all user profiles and only returns negatives
+```json
+  "CodersRank": {
+    "errorMsg": "not a registered member",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+    "url": "https://profile.codersrank.io/user/{}/",
+    "urlMain": "https://codersrank.io/",
+    "username_claimed": "rootkit7628"
+  },
+```
