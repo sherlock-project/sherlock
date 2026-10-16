@@ -33,7 +33,7 @@ jobs:
         run: python devel/site-list.py
 
       - name: Pushes to another repository
-        uses: sdushantha/github-action-push-to-another-repository@main
+        uses: sdushantha/github-action-push-to-another-repository@c3194624a23d419e5d1fff6d01b611b27029931d # main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
