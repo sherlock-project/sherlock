@@ -2579,14 +2579,13 @@
   },
   "Twitter": {
     "errorMsg": [
-      "<div class=\"error-panel\"><span>User ",
+      "<title>User Profile Not Found - X | 404 Error",
       "<title>429 Too Many Requests</title>"
     ],
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
     "url": "https://x.com/{}",
     "urlMain": "https://x.com/",
-    "urlProbe": "https://nitter.privacydev.net/{}",
     "username_claimed": "blue"
   },
   "Typeracer": {
