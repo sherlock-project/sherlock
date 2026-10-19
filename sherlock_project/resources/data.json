@@ -2641,13 +2641,6 @@
     "urlMain": "https://velog.io/",
     "username_claimed": "qlgks1"
   },
-  "Velomania": {
-    "errorMsg": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d \u0438 \u043d\u0435 \u0438\u043c\u0435\u0435\u0442 \u043f\u0440\u043e\u0444\u0438\u043b\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.",
-    "errorType": "message",
-    "url": "https://forum.velomania.ru/member.php?username={}",
-    "urlMain": "https://forum.velomania.ru/",
-    "username_claimed": "red"
-  },
   "Venmo": {
     "errorMsg": ["Venmo | Page Not Found"],
     "errorType": "message",
@@ -3112,13 +3105,6 @@
     "urlMain": "https://community.n8n.io/",
     "username_claimed": "n8n"
   },
-  "nnRU": {
-    "errorType": "status_code",
-    "regexCheck": "^[\\w@-]+?$",
-    "url": "https://{}.www.nn.ru/",
-    "urlMain": "https://www.nn.ru/",
-    "username_claimed": "blue"
-  },
   "note": {
     "errorType": "status_code",
     "url": "https://note.com/{}",
@@ -3138,14 +3124,6 @@
     "urlMain": "https://home.omg.lol",
     "urlProbe": "https://api.omg.lol/address/{}/availability",
     "username_claimed": "adam"
-  },
-  "opennet": {
-    "errorMsg": "\u0418\u043c\u044f \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e",
-    "errorType": "message",
-    "regexCheck": "^[^-]*$",
-    "url": "https://www.opennet.ru/~{}",
-    "urlMain": "https://www.opennet.ru/",
-    "username_claimed": "anonismus"
   },
   "osu!": {
     "errorType": "status_code",
@@ -3211,12 +3189,6 @@
     "url": "https://spletnik.ru/user/{}",
     "urlMain": "https://spletnik.ru/",
     "username_claimed": "blue"
-  },
-  "svidbook": {
-    "errorType": "status_code",
-    "url": "https://www.svidbook.ru/user/{}",
-    "urlMain": "https://www.svidbook.ru/",
-    "username_claimed": "green"
   },
   "threads": {
     "errorMsg": "<title>Threads • Log in</title>",
