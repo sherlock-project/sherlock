@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111719">
+  <title>Sherlock — Username Search</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111719;
+      --panel: #192124;
+      --panel-raised: #202a2d;
+      --line: #2b373a;
+      --text: #ecf2ef;
+      --muted: #94a29e;
+      --green: #a4e6bb;
+      --green-deep: #17382b;
+      --red: #ff8d8d;
+      --yellow: #edc675;
+      --blue: #86c4e8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { height: 76px; border-bottom: 1px solid var(--line); }
+    .topbar { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.03em; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; color: var(--bg); background: var(--green); border-radius: 11px; font-size: 20px; }
+    .brand-name { font-size: 18px; }
+    .brand-name span { color: var(--muted); font-weight: 500; }
+    .local-status { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+    .local-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px #a4e6bb77; }
+    main { padding: 68px 0 56px; }
+    .intro { max-width: 690px; margin: 0 auto 34px; text-align: center; }
+    .eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 14px 0 12px; font-size: clamp(35px, 6vw, 56px); line-height: 1.05; letter-spacing: -.055em; }
+    .intro p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .search-card { max-width: 760px; margin: 0 auto; padding: 9px; border: 1px solid #354245; background: var(--panel); border-radius: 16px; box-shadow: 0 18px 60px #0003; }
+    .search-row { display: flex; gap: 9px; }
+    .input-wrap { display: flex; align-items: center; flex: 1; gap: 12px; min-width: 0; padding: 0 14px; }
+    .input-wrap svg { flex: 0 0 auto; color: var(--muted); }
+    #username { width: 100%; padding: 15px 0; color: var(--text); background: transparent; border: 0; outline: 0; font-size: 15px; }
+    #username::placeholder { color: #75827e; }
+    .search-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-width: 132px; padding: 0 18px; border: 0; border-radius: 11px; background: var(--green); color: #102018; font-weight: 700; transition: background .18s, transform .18s; }
+    .search-button:hover { background: #baf1ca; transform: translateY(-1px); }
+    .search-button:disabled { cursor: wait; opacity: .7; transform: none; }
+    .search-options { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 13px 4px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .option-check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+    .option-check input { accent-color: var(--green); }
+    .shortcut { color: #74817d; }
+    .notice { display: none; max-width: 760px; margin: 14px auto 0; padding: 12px 15px; border: 1px solid #744343; border-radius: 10px; background: #331f21; color: #ffc0bd; font-size: 13px; }
+    .notice.visible { display: block; }
+    .results { margin-top: 46px; }
+    .results-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .results-title { margin: 0; font-size: 20px; letter-spacing: -.025em; }
+    .results-caption { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+    .result-actions { display: flex; gap: 8px; }
+    .subtle-button, .filter-select { padding: 9px 11px; color: #bdc8c4; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; font-size: 12px; }
+    .subtle-button:hover { border-color: #64726e; color: var(--text); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+    .stat { padding: 15px 17px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    .stat-label { display: block; color: var(--muted); font-size: 11px; }
+    .stat-value { display: block; margin-top: 7px; font-size: 23px; font-weight: 650; letter-spacing: -.04em; }
+    .stat-found .stat-value { color: var(--green); }
+    .results-table-wrap { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th { padding: 12px 16px; color: var(--muted); background: #1c2528; font-size: 10px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+    td { padding: 13px 16px; border-top: 1px solid #293437; font-size: 13px; }
+    tr:hover td { background: #20292b; }
+    .site-name { font-weight: 600; }
+    .profile-link { color: #b8d9e8; text-decoration: none; }
+    .profile-link:hover { text-decoration: underline; }
+    .status { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; }
+    .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .status-claimed { color: var(--green); }
+    .status-available { color: #87938f; }
+    .status-unknown, .status-waf { color: var(--yellow); }
+    .status-illegal { color: var(--blue); }
+    .empty { padding: 32px 16px; color: var(--muted); text-align: center; font-size: 13px; }
+    .empty-state { max-width: 500px; margin: 50px auto 0; padding: 24px; border: 1px dashed #344144; border-radius: 13px; color: var(--muted); text-align: center; font-size: 13px; line-height: 1.6; }
+    .empty-state strong { display: block; margin-bottom: 7px; color: #d6dfdb; font-size: 14px; }
+    [hidden] { display: none !important; }
+    footer { padding: 24px 0; border-top: 1px solid var(--line); color: #75827e; font-size: 11px; text-align: center; }
+    footer a { color: #a7b8b1; text-decoration: none; }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 28px, 1120px); }
+      header { height: 64px; }
+      main { padding-top: 48px; }
+      .intro { margin-bottom: 25px; }
+      .intro p { font-size: 14px; }
+      .search-row { flex-direction: column; }
+      .input-wrap { min-height: 48px; }
+      .search-button { min-height: 46px; }
+      .search-options { align-items: flex-start; flex-direction: column; }
+      .results-head { align-items: flex-start; flex-direction: column; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .results-table-wrap { overflow-x: auto; }
+      table { min-width: 580px; }
+      .local-status { font-size: 0; }
+      .local-status::before { width: 8px; height: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">⌕</span><span class="brand-name">sherlock <span>/ search</span></span></div>
+      <div class="local-status">Local web interface</div>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div class="eyebrow">Open-source username investigation</div>
+      <h1>One username.<br>Hundreds of platforms.</h1>
+      <p>Search social networks and online services for a username. Results are checked by Sherlock on this machine.</p>
+    </section>
+
+    <form id="search-form" class="search-card">
+      <div class="search-row">
+        <label class="input-wrap" for="username">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="username" name="username" type="text" maxlength="100" autocomplete="off" placeholder="Enter a username, e.g. sherlock" required>
+        </label>
+        <button id="search-button" class="search-button" type="submit">
+          <span id="button-label">Search profiles</span><span id="spinner" hidden aria-hidden="true">…</span>
+        </button>
+      </div>
+      <div class="search-options">
+        <label class="option-check"><input id="include-nsfw" type="checkbox"> Include adult platforms</label>
+        <span class="shortcut">Tip: use <code>{?}</code> to check _, - and . variations</span>
+      </div>
+    </form>
+    <div id="notice" class="notice" role="alert"></div>
+
+    <section id="results" class="results" hidden aria-live="polite">
+      <div class="results-head">
+        <div>
+          <h2 class="results-title">Search results</h2>
+          <p id="results-caption" class="results-caption"></p>
+        </div>
+        <div class="result-actions">
+          <select id="status-filter" class="filter-select" aria-label="Filter results by status">
+            <option value="all">All statuses</option>
+            <option value="Claimed">Found</option>
+            <option value="Available">Not found</option>
+            <option value="other">Other</option>
+          </select>
+          <button id="export-button" class="subtle-button" type="button">Export CSV</button>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat stat-found"><span class="stat-label">Found</span><strong id="found-count" class="stat-value">0</strong></div>
+        <div class="stat"><span class="stat-label">Not found</span><strong id="available-count" class="stat-value">0</strong></div>
+        <div class="stat"><span class="stat-label">Other results</span><strong id="other-count" class="stat-value">0</strong></div>
+        <div class="stat"><span class="stat-label">Sites checked</span><strong id="checked-count" class="stat-value">0</strong></div>
+      </div>
+      <div class="results-table-wrap">
+        <table>
+          <thead><tr><th>Platform</th><th>Username</th><th>Status</th><th>Response</th></tr></thead>
+          <tbody id="results-body"></tbody>
+        </table>
+        <div id="filtered-empty" class="empty" hidden>No results match this filter.</div>
+      </div>
+    </section>
+    <div id="empty-state" class="empty-state">
+      <strong>Start with a username</strong>
+      Sherlock checks profile URLs across its site list. Searches make requests to third-party platforms; only the interface and search API run locally.
+    </div>
+  </main>
+  <footer class="shell">Built on <a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noreferrer">Sherlock Project</a> · Use responsibly and respect platform terms.</footer>
+  <script>
+    const form = document.querySelector("#search-form");
+    const input = document.querySelector("#username");
+    const button = document.querySelector("#search-button");
+    const buttonLabel = document.querySelector("#button-label");
+    const spinner = document.querySelector("#spinner");
+    const notice = document.querySelector("#notice");
+    const resultsSection = document.querySelector("#results");
+    const emptyState = document.querySelector("#empty-state");
+    const resultsBody = document.querySelector("#results-body");
+    const statusFilter = document.querySelector("#status-filter");
+    const filteredEmpty = document.querySelector("#filtered-empty");
+    let allResults = [];
+
+    function setLoading(loading) {
+      button.disabled = loading;
+      buttonLabel.textContent = loading ? "Searching…" : "Search profiles";
+      spinner.hidden = !loading;
+    }
+
+    function showNotice(message) {
+      notice.textContent = message;
+      notice.classList.toggle("visible", Boolean(message));
+    }
+
+    function formatTime(seconds) {
+      if (typeof seconds !== "number") return "—";
+      return `${seconds < 1 ? Math.round(seconds * 1000) + " ms" : seconds.toFixed(2) + " s"}`;
+    }
+
+    function makeCell(text, className) {
+      const cell = document.createElement("td");
+      if (className) cell.className = className;
+      cell.textContent = text;
+      return cell;
+    }
+
+    function filteredResults() {
+      const filter = statusFilter.value;
+      if (filter === "all") return allResults;
+      if (filter === "other") return allResults.filter((item) => !["Claimed", "Available"].includes(item.status));
+      return allResults.filter((item) => item.status === filter);
+    }
+
+    function renderResults() {
+      resultsBody.replaceChildren();
+      const visible = filteredResults();
+      for (const item of visible) {
+        const row = document.createElement("tr");
+        row.append(makeCell(item.site, "site-name"));
+        const usernameCell = document.createElement("td");
+        let profileUrl;
+        try {
+          profileUrl = new URL(item.url);
+        } catch {
+          profileUrl = null;
+        }
+        if (item.status === "Claimed" && profileUrl && ["https:", "http:"].includes(profileUrl.protocol)) {
+          const link = document.createElement("a");
+          link.className = "profile-link";
+          link.href = profileUrl.href;
+          link.target = "_blank";
+          link.rel = "noreferrer";
+          link.textContent = item.username;
+          usernameCell.append(link);
+        } else {
+          usernameCell.textContent = item.username;
+        }
+        row.append(usernameCell);
+        const statusCell = document.createElement("td");
+        const badge = document.createElement("span");
+        badge.className = `status status-${item.status.toLowerCase()}`;
+        badge.textContent = item.status;
+        statusCell.append(badge);
+        row.append(statusCell);
+        row.append(makeCell(formatTime(item.query_time)));
+        resultsBody.append(row);
+      }
+      filteredEmpty.hidden = visible.length !== 0;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const username = input.value.trim();
+      if (!username) {
+        input.focus();
+        return;
+      }
+      setLoading(true);
+      showNotice("");
+      try {
+        const response = await fetch("/api/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username,
+            include_nsfw: document.querySelector("#include-nsfw").checked,
+          }),
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || "Search failed. Please try again.");
+        allResults = payload.profiles.flatMap((profile) =>
+          profile.results.map((result) => ({ ...result, username: profile.username }))
+        );
+        allResults.sort((a, b) => a.site.localeCompare(b.site));
+        const counts = {
+          claimed: allResults.filter((item) => item.status === "Claimed").length,
+          available: allResults.filter((item) => item.status === "Available").length,
+          other: allResults.filter((item) => !["Claimed", "Available"].includes(item.status)).length,
+        };
+        document.querySelector("#found-count").textContent = counts.claimed;
+        document.querySelector("#available-count").textContent = counts.available;
+        document.querySelector("#other-count").textContent = counts.other;
+        document.querySelector("#checked-count").textContent = allResults.length;
+        document.querySelector("#results-caption").textContent =
+          `Results for ${payload.profiles.map((profile) => profile.username).join(", ")}`;
+        resultsSection.hidden = false;
+        emptyState.hidden = true;
+        renderResults();
+      } catch (error) {
+        showNotice(error.message || "Could not reach the Sherlock server.");
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    statusFilter.addEventListener("change", renderResults);
+    document.querySelector("#export-button").addEventListener("click", () => {
+      const rows = [["Username", "Platform", "Status", "Profile URL", "HTTP status", "Response time (s)"]];
+      for (const item of filteredResults()) {
+        rows.push([item.username, item.site, item.status, item.url, item.http_status, item.query_time ?? ""]);
+      }
+      const csv = rows.map((row) => row.map((value) => {
+        const text = String(value ?? "");
+        const safe = /^[\s]*[=+\-@]/.test(text) ? `'${text}` : text;
+        return `"${safe.replaceAll('"', '""')}"`;
+      }).join(",")).join("\r\n");
+      const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "sherlock-results.csv";
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
