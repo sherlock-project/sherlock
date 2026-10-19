@@ -1995,3 +1995,51 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## nnRU
+__2026-10-19 :__ Host dead / DNS failure
+```json
+  "nnRU": {
+    "errorType": "status_code",
+    "regexCheck": "^[\\w@-]+?$",
+    "url": "https://{}.www.nn.ru/",
+    "urlMain": "https://www.nn.ru/",
+    "username_claimed": "blue"
+  },
+```
+
+## opennet
+__2026-10-19 :__ JavaScript client-side cookie challenge prevents static inspection
+```json
+  "opennet": {
+    "errorMsg": "Имя участника не найдено",
+    "errorType": "message",
+    "regexCheck": "^[^-]*$",
+    "url": "https://www.opennet.ru/~{}",
+    "urlMain": "https://www.opennet.ru/",
+    "username_claimed": "anonismus"
+  },
+```
+
+## svidbook
+__2026-10-19 :__ Unfilterable catch-all: redirects non-existent profiles to home page with HTTP 200 OK
+```json
+  "svidbook": {
+    "errorType": "status_code",
+    "url": "https://www.svidbook.ru/user/{}",
+    "urlMain": "https://www.svidbook.ru/",
+    "username_claimed": "green"
+  },
+```
+
+## Velomania
+__2026-10-19 :__ Authentication wall: requires login to view any member profile, preventing unauthenticated enumeration
+```json
+  "Velomania": {
+    "errorMsg": "Пользователь не зарегистрирован и не имеет профиля для просмотра.",
+    "errorType": "message",
+    "url": "https://forum.velomania.ru/member.php?username={}",
+    "urlMain": "https://forum.velomania.ru/",
+    "username_claimed": "red"
+  },
+```
