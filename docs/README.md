@@ -96,6 +96,12 @@ options:
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
 ```
 
+## Contributing site definitions
+
+See the [contribution guide](https://sherlockproject.xyz/contribute) and the
+[status-code configuration notes](adding-sites.md) for request-method defaults,
+optional error codes, and checks for false positives and false negatives.
+
 ## Credits
 
 Thank you to everyone who has contributed to Sherlock! ❤️
