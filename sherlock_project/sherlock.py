@@ -266,6 +266,14 @@ def sherlock(
             request_payload = net_info.get("request_payload")
             request = None
 
+            # `errorType` is either one detection method or a list of them
+            # (data.schema.json allows both).  Normalise it once so the two
+            # checks below cannot disagree about a site that declares the list
+            # form.
+            error_types = net_info["errorType"]
+            if isinstance(error_types, str):
+                error_types = [error_types]
+
             if request_method is not None:
                 if request_method == "GET":
                     request = session.get
@@ -290,7 +298,7 @@ def sherlock(
                 url_probe = interpolate_string(url_probe, username)
 
             if request is None:
-                if net_info["errorType"] == "status_code":
+                if error_types == ["status_code"]:
                     # In most cases when we are detecting by status code,
                     # it is not necessary to get the entire body:  we can
                     # detect fine with just the HEAD response.
@@ -301,7 +309,7 @@ def sherlock(
                     # not respond properly unless we request the whole page.
                     request = session.get
 
-            if net_info["errorType"] == "response_url":
+            if "response_url" in error_types:
                 # Site forwards request to a different URL if username not
                 # found.  Disallow the redirect so we can capture the
                 # http status from the original URL request.
