@@ -1,3 +1,4 @@
+APClips
 Airliners
 Apple Developer
 Apple Discussions
@@ -5,6 +6,7 @@ Archive.org
 Bandcamp
 Championat
 Chatujme.cz
+ChaturBate
 Codolio
 DeviantArt
 Discord.bio
@@ -12,16 +14,17 @@ Envato Forum
 GaiaOnline
 GeeksforGeeks
 Giphy
+GitBook
 HackerNews
 Hashnode
 Houzz
 Hubski
 Instapaper
 Linktree
+Minecraft
 ObservableHQ
 Odysee
 PCGamer
-Rajce.net
 Rarible
 Realmeye
 Reddit
@@ -32,8 +35,10 @@ Shelf
 SlideShare
 Splice
 Spotify
+Trakt
 TryHackMe
 Velomania
+Vero
 Weblate
 YandexMusic
 authorSTREAM
@@ -46,3 +51,4 @@ opennet
 phpRU
 social.tchncs.de
 svidbook
+xHamster
