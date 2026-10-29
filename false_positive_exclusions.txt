@@ -14,7 +14,7 @@ Envato Forum
 GaiaOnline
 GeeksforGeeks
 Giphy
-GitBook
+HackenProof (Hackers)
 HackerNews
 Hashnode
 Houzz
@@ -35,7 +35,6 @@ Shelf
 SlideShare
 Splice
 Spotify
-Trakt
 TryHackMe
 Velomania
 Vero
@@ -45,10 +44,10 @@ authorSTREAM
 dailykos
 fixya
 hunting
+igromania
 interpals
 mercadolivre
 opennet
 phpRU
 social.tchncs.de
 svidbook
-xHamster
