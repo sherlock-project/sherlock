@@ -5,7 +5,7 @@ from sherlock_interactives import InteractivesSubprocessError
 
 
 def test_remove_nsfw(sites_obj):
-    nsfw_target: str = "Pornhub"
+    nsfw_target: str = "Xvideos"
     assert nsfw_target in {site.name: site.information for site in sites_obj}
     sites_obj.remove_nsfw_sites()
     assert nsfw_target not in {site.name: site.information for site in sites_obj}
@@ -15,8 +15,8 @@ def test_remove_nsfw(sites_obj):
 @pytest.mark.parametrize(
     "nsfwsites",
     [
-        ["Pornhub"],
-        ["Pornhub", "Xvideos"],
+        ["Xvideos"],
+        ["Xvideos", "Erome"],
     ],
 )
 def test_nsfw_explicit_selection(sites_obj, nsfwsites):

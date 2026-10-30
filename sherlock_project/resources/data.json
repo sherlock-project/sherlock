@@ -159,6 +159,7 @@
     "errorType": "status_code",
     "url": "https://www.artstation.com/{}",
     "urlMain": "https://www.artstation.com/",
+    "urlProbe": "https://www.artstation.com/users/{}.json",
     "username_claimed": "Blue"
   },
   "Asciinema": {
@@ -404,6 +405,13 @@
     "urlMain": "https://carbonmade.com/",
     "username_claimed": "jenny"
   },
+  "Carrd": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_-]{3,50}$",
+    "url": "https://{}.carrd.co/",
+    "urlMain": "https://carrd.co/",
+    "username_claimed": "blue"
+  },
   "Career.habr": {
     "errorMsg": "<h1>\u041e\u0448\u0438\u0431\u043a\u0430 404</h1>",
     "errorType": "message",
@@ -602,10 +610,9 @@
     "username_claimed": "blue"
   },
   "Cracked Forum": {
-    "errorMsg": "The member you specified is either invalid or doesn't exist",
-    "errorType": "message",
-    "url": "https://cracked.sh/{}",
-    "urlMain": "https://cracked.sh/",
+    "errorType": "status_code",
+    "url": "https://cracked.ax/{}",
+    "urlMain": "https://cracked.ax/",
     "username_claimed": "Blue"
   },
   "Credly": {
@@ -952,7 +959,8 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorType": "status_code",
+    "errorMsg": "false   | GeeksforGeeks Profile",
+    "errorType": "message",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
@@ -1526,7 +1534,8 @@
     "username_claimed": "lottiefiles"
   },
   "LushStories": {
-    "errorType": "status_code",
+    "errorType": "response_url",
+    "errorUrl": "https://www.lushstories.com/login",
     "isNSFW": true,
     "url": "https://www.lushstories.com/profile/{}",
     "urlMain": "https://www.lushstories.com/",
@@ -2279,6 +2288,13 @@
     "urlMain": "https://sourceforge.net/",
     "username_claimed": "blue"
   },
+  "SpaceHey": {
+    "errorType": "message",
+    "errorMsg": "Not Found (Error 404) | SpaceHey",
+    "url": "https://spacehey.com/{}",
+    "urlMain": "https://spacehey.com/",
+    "username_claimed": "blue"
+  },
   "SoylentNews": {
     "errorMsg": "The user you requested does not exist, no matter how much you wish this might be the case.",
     "errorType": "message",
@@ -2375,6 +2391,13 @@
     "url": "https://www.strava.com/athletes/{}",
     "urlMain": "https://www.strava.com/",
     "username_claimed": "blue"
+  },
+  "Substack": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9][a-zA-Z0-9_-]{1,60}$",
+    "url": "https://{}.substack.com/",
+    "urlMain": "https://substack.com/",
+    "username_claimed": "green"
   },
   "SublimeForum": {
     "errorType": "status_code",
@@ -2827,8 +2850,10 @@
   },
   "akniga": {
     "errorType": "status_code",
+    "errorCode": 404,
+    "request_method": "GET",
     "url": "https://akniga.org/profile/{}",
-    "urlMain": "https://akniga.org/profile/blue/",
+    "urlMain": "https://akniga.org/",
     "username_claimed": "blue"
   },
   "authorSTREAM": {

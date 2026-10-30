@@ -38,8 +38,6 @@ class QueryNotify:
 
         self.result = result
 
-        # return
-
     def start(self, message=None):
         """Notify Start.
 
@@ -56,8 +54,6 @@ class QueryNotify:
         Return Value:
         Nothing.
         """
-
-        # return
 
     def update(self, result):
         """Notify Update.
@@ -76,8 +72,6 @@ class QueryNotify:
 
         self.result = result
 
-        # return
-
     def finish(self, message=None):
         """Notify Finish.
 
@@ -94,8 +88,6 @@ class QueryNotify:
         Return Value:
         Nothing.
         """
-
-        # return
 
     def __str__(self):
         """Convert Object To String.
@@ -138,8 +130,6 @@ class QueryNotifyPrint(QueryNotify):
         self.print_all = print_all
         self.browse = browse
 
-        return
-
     def start(self, message):
         """Notify Start.
 
@@ -171,8 +161,6 @@ class QueryNotifyPrint(QueryNotify):
         )
         # An empty line between first line and the result(more clear output)
         print("\r")
-
-        return
 
     def countResults(self):
         """This function counts the number of results. Every time the function is called,
@@ -303,10 +291,8 @@ class QueryNotifyPrint(QueryNotify):
                 f"Unknown Query Status '{result.status}' for site '{self.result.site_name}'"
             )
 
-        return
-
     def finish(self, message="The processing has been finished."):
-        """Notify Start.
+        """Notify Finish.
         Will print the last line to the standard output.
         Keyword Arguments:
         self                   -- This object.
@@ -329,6 +315,13 @@ class QueryNotifyPrint(QueryNotify):
             + Fore.GREEN
             + "results"
             + Style.RESET_ALL
+        )
+
+        print(
+            "\nGo deeper than a username. Explore public profiles and export your findings."
+        )
+        print(
+            "Try OSINTSearch: \033]8;;https://osintsearch.org/go/sherlock\033\\https://osintsearch.org\033]8;;\033\\"
         )
 
     def __str__(self):
