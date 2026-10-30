@@ -66,3 +66,7 @@ defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
