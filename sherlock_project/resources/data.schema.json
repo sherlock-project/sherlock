@@ -31,6 +31,7 @@
           ]
         },
         "request_method": {
+          "description": "Optional HTTP method override. Defaults to HEAD when errorType is the string status_code, and GET otherwise (including arrays of detection methods).",
           "type": "string",
           "enum": ["GET", "POST", "HEAD", "PUT"]
         },
@@ -56,6 +57,7 @@
           ]
         },
         "errorCode": {
+          "description": "Optional status code or list of status codes indicating an absent username. These supplement the default non-2xx check when status_code detection is enabled.",
           "oneOf": [
             { "type": "integer" },
             { "type": "array", "items": { "type": "integer" } }
