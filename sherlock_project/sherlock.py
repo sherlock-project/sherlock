@@ -22,6 +22,7 @@ import pandas as pd
 import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from difflib import get_close_matches
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
@@ -791,10 +792,16 @@ def main():
                     counter += 1
             if counter == 0:
                 # Build up list of sites not supported for future error message.
-                site_missing.append(f"'{site}'")
+                site_missing.append(site)
 
         if site_missing:
-            print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
+            print(f"Error: Desired sites not found: {', '.join(repr(site) for site in site_missing)}.")
+            canonical_names = {name.lower(): name for name in site_data_all}
+            for missing_site in site_missing:
+                matches = get_close_matches(missing_site.lower(), canonical_names, n=3, cutoff=0.8)
+                if matches:
+                    suggestions = ', '.join(repr(canonical_names[name]) for name in matches)
+                    print(f"For {missing_site!r}: Did you mean {suggestions}?")
 
         if not site_data:
             sys.exit(1)
