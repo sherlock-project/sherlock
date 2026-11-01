@@ -812,6 +812,7 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
+    write_failed = False
     for username in all_usernames:
         results = sherlock(
             username,
@@ -825,66 +826,81 @@ def main():
         if args.output:
             result_file = args.output
         elif args.folderoutput:
-            # The usernames results should be stored in a targeted folder.
-            # If the folder doesn't exist, create it first
-            os.makedirs(args.folderoutput, exist_ok=True)
             result_file = os.path.join(args.folderoutput, f"{username}.txt")
         else:
             result_file = f"{username}.txt"
 
         if args.output_txt:
-            with open(result_file, "w", encoding="utf-8") as file:
-                exists_counter = 0
-                for website_name in results:
-                    dictionary = results[website_name]
-                    if dictionary.get("status").status == QueryStatus.CLAIMED:
-                        exists_counter += 1
-                        file.write(dictionary["url_user"] + "\n")
-                file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+            try:
+                if args.folderoutput:
+                    # The usernames results should be stored in a targeted folder.
+                    # If the folder doesn't exist, create it first
+                    os.makedirs(args.folderoutput, exist_ok=True)
+                with open(result_file, "w", encoding="utf-8") as file:
+                    exists_counter = 0
+                    for website_name in results:
+                        dictionary = results[website_name]
+                        if dictionary.get("status").status == QueryStatus.CLAIMED:
+                            exists_counter += 1
+                            file.write(dictionary["url_user"] + "\n")
+                    file.write(f"Total Websites Username Detected On : {exists_counter}\n")
+            except OSError as error:
+                print(
+                    f"ERROR: Failed to write TXT report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
 
         if args.csv:
             result_file = f"{username}.csv"
-            if args.folderoutput:
-                # The usernames results should be stored in a targeted folder.
-                # If the folder doesn't exist, create it first
-                os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
 
-            with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
-                writer = csv.writer(csv_report)
-                writer.writerow(
-                    [
-                        "username",
-                        "name",
-                        "url_main",
-                        "url_user",
-                        "exists",
-                        "http_status",
-                        "response_time_s",
-                    ]
-                )
-                for site in results:
-                    if (
-                        args.print_found
-                        and not args.print_all
-                        and results[site]["status"].status != QueryStatus.CLAIMED
-                    ):
-                        continue
-
-                    response_time_s = results[site]["status"].query_time
-                    if response_time_s is None:
-                        response_time_s = ""
+            try:
+                if args.folderoutput:
+                    # The usernames results should be stored in a targeted folder.
+                    # If the folder doesn't exist, create it first
+                    os.makedirs(args.folderoutput, exist_ok=True)
+                    result_file = os.path.join(args.folderoutput, result_file)
+                with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
+                    writer = csv.writer(csv_report)
                     writer.writerow(
                         [
-                            username,
-                            site,
-                            results[site]["url_main"],
-                            results[site]["url_user"],
-                            str(results[site]["status"].status),
-                            results[site]["http_status"],
-                            response_time_s,
+                            "username",
+                            "name",
+                            "url_main",
+                            "url_user",
+                            "exists",
+                            "http_status",
+                            "response_time_s",
                         ]
                     )
+                    for site in results:
+                        if (
+                            args.print_found
+                            and not args.print_all
+                            and results[site]["status"].status != QueryStatus.CLAIMED
+                        ):
+                            continue
+
+                        response_time_s = results[site]["status"].query_time
+                        if response_time_s is None:
+                            response_time_s = ""
+                        writer.writerow(
+                            [
+                                username,
+                                site,
+                                results[site]["url_main"],
+                                results[site]["url_user"],
+                                str(results[site]["status"].status),
+                                results[site]["http_status"],
+                                response_time_s,
+                            ]
+                        )
+            except OSError as error:
+                print(
+                    f"ERROR: Failed to write CSV report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
         if args.xlsx:
             usernames = []
             names = []
@@ -924,10 +940,20 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            try:
+                DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            except OSError as error:
+                print(
+                    f"ERROR: Failed to write XLSX report for '{username}': {error}",
+                    file=sys.stderr,
+                )
+                write_failed = True
 
         print()
     query_notify.finish()
+
+    if write_failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
