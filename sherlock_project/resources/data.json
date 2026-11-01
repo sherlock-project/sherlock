@@ -3304,5 +3304,13 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "Intervals.icu Forum": {
+    "errorType": "status_code",
+    "request_method": "GET",
+    "url": "https://forum.intervals.icu/u/{}",
+    "urlProbe": "https://forum.intervals.icu/u/{}.json",
+    "urlMain": "https://forum.intervals.icu/",
+    "username_claimed": "david"
   }
 }
