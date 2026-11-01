@@ -576,7 +576,11 @@
     "username_claimed": "blue"
   },
   "ColourLovers": {
-    "errorType": "status_code",
+    "errorMsg": [
+      "Lover not found",
+      "Nothing here by that name"
+    ],
+    "errorType": "message",
     "url": "https://www.colourlovers.com/lover/{}",
     "urlMain": "https://www.colourlovers.com/",
     "username_claimed": "blue"
