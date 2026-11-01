@@ -31,6 +31,16 @@ To search for more than one user:
 ```bash
 $ sherlock user1 user2 user3
 ```
+
+## Web interface
+
+Start the local web interface with:
+
+```bash
+$ sherlock-web
+```
+
+Then open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser. The interface uses the bundled site list and binds to localhost by default. Searches make requests to third-party platforms. To use a different port, pass `--port`; only bind to a non-local interface on a trusted network.
 <br>
 
 ___
