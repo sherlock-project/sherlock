@@ -1,18 +1,16 @@
-APClips
 Airliners
 Apple Developer
 Apple Discussions
 Archive.org
-Carbonmade
 Championat
 Chatujme.cz
 Codolio
+DEV Community
 DeviantArt
 Discord.bio
 GaiaOnline
 GeeksforGeeks
 HackerNews
-HackerRank
 Hashnode
 Hubski
 Instapaper
@@ -32,6 +30,7 @@ Splice
 Spotify
 Trakt
 TryHackMe
+Venmo
 Vero
 YandexMusic
 authorSTREAM
