@@ -1,0 +1,23 @@
+repos:
+    - repo: local
+      hooks:
+          - id: ruff-format-diff
+            name: ruff format diff
+            description: show diffs with ruff target
+            language: system
+            entry: poetry run ruff format --diff
+            types: [python]
+
+          - id: ruff-check
+            name: ruff check
+            description: TODO
+            language: system
+            entry: poetry run ruff check
+            types: [python]
+
+          # - id: pytest
+          #   name: pytest
+          #   description: run tests
+          #   language: system
+          #   entry: poetry run pytest --config-file=pytest.ini
+          #   types: [python] 
