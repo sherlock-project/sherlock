@@ -83,6 +83,61 @@ jobs:
           echo -e ">>> Changed targets: \n$(echo $CHANGED | tr ',' '\n')"
           echo "changed_targets=$CHANGED" >> "$GITHUB_OUTPUT"
 
+      - name: Check for duplicate entries
+        id: check-duplicates
+        if: steps.discover-modified.outputs.changed_targets != ''
+        run: |
+          DUPLICATES=$(
+            python - <<'PYEOF'
+          import json
+          import sys
+
+          try:
+              with open("data.json.base") as f: base = json.load(f)
+              with open("data.json.head") as f: head = json.load(f)
+          except (FileNotFoundError, json.JSONDecodeError) as e:
+              print(f"Error reading JSON: {e}", file=sys.stderr)
+              sys.exit(0)
+
+          new_keys = [k for k in head if k not in base]
+          if not new_keys:
+              sys.exit(0)
+
+          findings = []
+
+          # Case-insensitive name duplicates
+          existing_lower = {k.lower(): k for k in base}
+          for nk in new_keys:
+              match = existing_lower.get(nk.lower())
+              if match:
+                  findings.append(f"- **{nk}** duplicates existing entry **{match}** (case-insensitive match)")
+
+          # URL-based duplicates (same urlMain domain)
+          existing_urls = {}
+          for k, v in base.items():
+              url_main = v.get("urlMain", "").rstrip("/").lower()
+              if url_main:
+                  existing_urls[url_main] = k
+
+          for nk in new_keys:
+              url_main = head[nk].get("urlMain", "").rstrip("/").lower()
+              if url_main and url_main in existing_urls:
+                  findings.append(f"- **{nk}** shares urlMain `{url_main}` with existing entry **{existing_urls[url_main]}**")
+
+          if findings:
+              print("\n".join(findings))
+          PYEOF
+          )
+
+          if [ -n "$DUPLICATES" ]; then
+            echo "has_duplicates=true" >> "$GITHUB_OUTPUT"
+            echo "$DUPLICATES" > duplicate_findings.md
+            echo -e ">>> Duplicate entries found:\n$DUPLICATES"
+          else
+            echo "has_duplicates=false" >> "$GITHUB_OUTPUT"
+            echo ">>> No duplicate entries found"
+          fi
+
       - name: Validate remote manifest against local schema
         if: steps.discover-modified.outputs.changed_targets != ''
         run: |
@@ -105,7 +160,21 @@ jobs:
           summary=$(
             poetry run python devel/summarize_site_validation.py validation_results.xml || echo "Failed to generate summary of test results"
           )
-          echo "$summary" > validation_summary.md
+
+          # Prepend duplicate findings if any
+          if [ "${{ steps.check-duplicates.outputs.has_duplicates }}" = "true" ] && [ -f duplicate_findings.md ]; then
+            {
+              echo "#### Duplicate Entry Check"
+              echo ""
+              cat duplicate_findings.md
+              echo ""
+              echo "---"
+              echo ""
+              echo "$summary"
+            } > validation_summary.md
+          else
+            echo "$summary" > validation_summary.md
+          fi
 
       - name: Announce validation results
         if: steps.discover-modified.outputs.changed_targets != ''
