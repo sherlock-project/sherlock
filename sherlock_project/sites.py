@@ -166,8 +166,9 @@ class SitesInformation:
                     exclusions = [exclusion.strip() for exclusion in exclusions]
 
                     for site in do_not_exclude:
-                        if site in exclusions:
-                            exclusions.remove(site)
+                        for exclusion in list(exclusions):
+                            if exclusion.casefold() == site.casefold():
+                                exclusions.remove(exclusion)
 
                     for exclusion in exclusions:
                         try:
