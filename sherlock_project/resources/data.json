@@ -3304,5 +3304,107 @@
     "errorType": "status_code",
     "errorCode": 404,
     "username_claimed": "blue"
+  },
+  "F-List": {
+  "errorMsg": ["No such character exists.", "The specified character name has invalid characters."],
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://www.f-list.net/c/{}",
+  "urlMain": "https://www.f-list.net/",
+  "username_claimed": "Bitdash",
+  "username_unclaimed": "test-no-such-character-928374",
+  "headers": {
+    "Cookie": "warning=1"
+  }
+  },
+  "E621": {
+  "errorMsg": ["Not found.", "is not a supported format for this page"],
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://e621.net/users/{}",
+  "urlMain": "https://e621.net/",
+  "username_claimed": "Varka",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "Inkbunny": {
+  "errorMsg": ["User not found.", "404 Not Found"],
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://inkbunny.net/{}",
+  "urlMain": "https://inkbunny.net/",
+  "username_claimed": "GreenReaper",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "SoFurry": {
+  "errorMsg": "User not found",
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://sofurry.com/u/{}",
+  "urlMain": "https://sofurry.com/",
+  "username_claimed": "Toumal",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "Weasyl": {
+  "errorMsg": "This user doesn't seem to be in our database.",
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://www.weasyl.com/~{}",
+  "urlMain": "https://www.weasyl.com/",
+  "username_claimed": "Ikani",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "Yiff-Comics": {
+  "errorMsg": "The comic or page you were looking for doesn't exist",
+  "errorType": "message",
+  "isNSFW": true,
+  "url": "https://yiff-comics.com/artist/{}/",
+  "urlMain": "https://yiff-comics.com/",
+  "username_claimed": "akoqev",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "Flashback": {
+  "errorMsg": "ingen profil att visa.",
+  "errorType": "message",
+  "url": "https://www.flashback.org/member.php?username={}",
+  "urlMain": "https://www.flashback.org/",
+  "username_claimed": "jan.axelsson",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "GOG": {
+    "errorType": "status_code",
+    "url": "https://www.gog.com/u/{}",
+    "urlMain": "https://www.gog.com/",
+    "username_claimed": "blue"
+  },
+  "Familjeliv": {
+  "errorMsg": "Användaren finns inte.",
+  "errorType": "message",
+  "url": "https://www.familjeliv.se/user/presentation/view/{}",
+  "urlMain": "https://www.familjeliv.se/",
+  "username_claimed": "gustav",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "SweClockers": {
+    "errorType": "status_code",
+    "url": "https://www.sweclockers.com/medlem/{}",
+    "urlMain": "https://www.sweclockers.com/",
+    "username_claimed": "Edin",
+    "username_unclaimed": "test-no-such-character-928374"
+  },
+  "Skalman": {
+  "errorMsg": "Inga träffar hittades.",
+  "errorType": "message",
+  "url": "https://forum.skalman.nu/search.php?author={}",
+  "urlMain": "https://forum.skalman.nu/",
+  "username_claimed": "Markus Holst",
+  "username_unclaimed": "test-no-such-character-928374"
+  },
+  "EpicDuel": {
+  "errorMsg": "Search by Character Name",
+  "errorType": "message",
+  "url": "https://epicduel.artix.com/charpage.asp?id={}",
+  "urlMain": "https://epicduel.artix.com/",
+  "username_claimed": "nightwraith",
+  "username_unclaimed": "test-no-such-character-928374"
   }
 }
