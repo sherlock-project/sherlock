@@ -1,11 +1,12 @@
+APClips
 Airliners
 Apple Developer
 Apple Discussions
 Archive.org
+BoardGameGeek
 Championat
 Chatujme.cz
 Codolio
-DEV Community
 DeviantArt
 Discord.bio
 GaiaOnline
@@ -30,7 +31,6 @@ Splice
 Spotify
 Trakt
 TryHackMe
-Venmo
 Vero
 YandexMusic
 authorSTREAM
@@ -43,3 +43,4 @@ opennet
 phpRU
 social.tchncs.de
 svidbook
+xHamster
