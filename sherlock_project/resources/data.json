@@ -1527,6 +1527,12 @@
     "urlMain": "https://lobste.rs/",
     "username_claimed": "jcs"
   },
+  "Loop": {
+    "errorType": "status_code",
+    "url": "https://loopapp.me/profile/{}",
+    "urlMain": "https://loopapp.me",
+    "username_claimed": "thetradingguy01"
+  },
   "LottieFiles": {
     "errorType": "status_code",
     "url": "https://lottiefiles.com/{}",
