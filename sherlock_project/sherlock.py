@@ -244,12 +244,23 @@ def sherlock(
             # Override/append any extra headers required by a given site.
             headers.update(net_info["headers"])
 
+        url_template = net_info["url"]
+        username_placeholder_index = url_template.find("{}")
+        username_in_host = False
+        if username_placeholder_index != -1:
+            scheme_index = url_template.find("://")
+            if scheme_index != -1:
+                first_path_sep_index = url_template.find("/", scheme_index + 3)
+            else:
+                first_path_sep_index = url_template.find("/")
+            username_in_host = first_path_sep_index == -1 or username_placeholder_index < first_path_sep_index
+
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_string(url_template, username.replace(' ', '%20'))
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
-        if regex_check and re.search(regex_check, username) is None:
+        if (regex_check and re.search(regex_check, username) is None) or (username_in_host and "." in username):
             # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(
                 username, social_network, url, QueryStatus.ILLEGAL
