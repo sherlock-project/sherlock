@@ -729,9 +729,25 @@ def main():
         print("You can only use one of the output methods.")
         sys.exit(1)
 
+    # Expand any {?} wildcards before validating --output: a single username
+    # argument can still expand into several once multiple_usernames() runs,
+    # and checking len(args.username) (the pre-expansion count) let that case
+    # through, so each variant's results silently overwrote the last one's
+    # --output file in turn.
+    all_usernames = []
+    for username in args.username:
+        if check_for_parameter(username):
+            for name in multiple_usernames(username):
+                all_usernames.append(name)
+        else:
+            all_usernames.append(username)
+
     # Check validity for single username output.
-    if args.output is not None and len(args.username) != 1:
-        print("You can only use --output with a single username")
+    if args.output is not None and len(all_usernames) != 1:
+        print(
+            "You can only use --output with a single username "
+            "(this includes a {?} wildcard, which expands to more than one)."
+        )
         sys.exit(1)
 
     # Create object with all information about sites we are aware of.
@@ -805,13 +821,6 @@ def main():
     )
 
     # Run report on all specified users.
-    all_usernames = []
-    for username in args.username:
-        if check_for_parameter(username):
-            for name in multiple_usernames(username):
-                all_usernames.append(name)
-        else:
-            all_usernames.append(username)
     for username in all_usernames:
         results = sherlock(
             username,
@@ -843,12 +852,15 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
-            if args.folderoutput:
+            if args.output:
+                result_file = args.output
+            elif args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
                 os.makedirs(args.folderoutput, exist_ok=True)
-                result_file = os.path.join(args.folderoutput, result_file)
+                result_file = os.path.join(args.folderoutput, f"{username}.csv")
+            else:
+                result_file = f"{username}.csv"
 
             with open(result_file, "w", newline="", encoding="utf-8") as csv_report:
                 writer = csv.writer(csv_report)
@@ -924,7 +936,14 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            if args.output:
+                xlsx_file = args.output
+            elif args.folderoutput:
+                os.makedirs(args.folderoutput, exist_ok=True)
+                xlsx_file = os.path.join(args.folderoutput, f"{username}.xlsx")
+            else:
+                xlsx_file = f"{username}.xlsx"
+            DataFrame.to_excel(xlsx_file, sheet_name="sheet1", index=False)
 
         print()
     query_notify.finish()
