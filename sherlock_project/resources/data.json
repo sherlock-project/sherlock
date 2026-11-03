@@ -438,7 +438,7 @@
     "username_claimed": "ordnung"
   },
   "Chatujme.cz": {
-    "errorMsg": "Neexistujic\u00ed profil",
+    "errorMsg": "nelze zobrazit",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "url": "https://profil.chatujme.cz/{}",
@@ -735,8 +735,7 @@
     "username_claimed": "blue"
   },
   "Discord.bio": {
-    "errorType": "message",
-    "errorMsg": "<title>Server Error (500)</title>",
+    "errorType": "status_code",
     "url": "https://discords.com/api-v2/bio/details/{}",
     "urlMain": "https://discord.bio/",
     "username_claimed": "robert"
@@ -959,9 +958,9 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorMsg": "false   | GeeksforGeeks Profile",
+    "errorMsg": "undefined   | GeeksforGeeks Profile",
     "errorType": "message",
-    "url": "https://auth.geeksforgeeks.org/user/{}",
+    "url": "https://www.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
     "username_claimed": "adam"
   },
@@ -1162,10 +1161,11 @@
     "username_claimed": "ousmanekane"
   },
   "Hashnode": {
-    "errorType": "status_code",
+    "errorMsg": "<title>User not found | Hashnode</title>",
+    "errorType": "message",
     "url": "https://hashnode.com/@{}",
     "urlMain": "https://hashnode.com",
-    "username_claimed": "blue"
+    "username_claimed": "unclebigbay"
   },
   "Heavy-R": {
     "errorMsg": "Channel not found",
@@ -2033,7 +2033,8 @@
     "username_claimed": "blue"
   },
   "Rarible": {
-    "errorType": "status_code",
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
     "url": "https://rarible.com/marketplace/api/v4/urls/{}",
     "urlMain": "https://rarible.com/",
     "username_claimed": "blue"
@@ -2101,8 +2102,7 @@
     "username_claimed": "John_Smith"
   },
   "ReverbNation": {
-    "errorMsg": "Sorry, we couldn't find that page",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.reverbnation.com/{}",
     "urlMain": "https://www.reverbnation.com/",
     "username_claimed": "blue"
@@ -2541,12 +2541,11 @@
     "username_claimed": "blue"
   },
   "TryHackMe": {
-    "errorMsg": "{\"success\":false}",
+    "errorMsg": "<title>TryHackMe | Cyber Security Training</title>",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
     "url": "https://tryhackme.com/p/{}",
     "urlMain": "https://tryhackme.com/",
-    "urlProbe": "https://tryhackme.com/api/user/exist/{}",
     "username_claimed": "ashu"
   },
   "Tuna": {
@@ -2888,11 +2887,9 @@
     "username_claimed": "blue"
   },
   "dailykos": {
-    "errorMsg": "{\"result\":true,\"message\":null}",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.dailykos.com/user/{}",
     "urlMain": "https://www.dailykos.com",
-    "urlProbe": "https://www.dailykos.com/signup/check_nickname?nickname={}",
     "username_claimed": "blue"
   },
   "datingRU": {
@@ -2993,8 +2990,7 @@
     "username_claimed": "blue"
   },
   "interpals": {
-    "errorMsg": "The requested user does not exist or is inactive",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.interpals.net/{}",
     "urlMain": "https://www.interpals.net/",
     "username_claimed": "blue"
