@@ -110,7 +110,7 @@ class QueryNotifyPrint(QueryNotify):
     Query notify class that prints results.
     """
 
-    def __init__(self, result=None, verbose=False, print_all=False, browse=False):
+    def __init__(self, result=None, verbose=False, print_all=False, browse=False, include_nsfw=False):
         """Create Query Notify Print Object.
 
         Contains information about a specific method of notifying the results
@@ -123,6 +123,7 @@ class QueryNotifyPrint(QueryNotify):
         verbose                -- Boolean indicating whether to give verbose output.
         print_all              -- Boolean indicating whether to only print all sites, including not found.
         browse                 -- Boolean indicating whether to open found sites in a web browser.
+        include_nsfw           -- Boolean indicating whether NSFW sites are included.
 
         Return Value:
         Nothing.
@@ -132,6 +133,9 @@ class QueryNotifyPrint(QueryNotify):
         self.verbose = verbose
         self.print_all = print_all
         self.browse = browse
+        self.include_nsfw = include_nsfw
+        self.regular_count = 0
+        self.nsfw_count = 0
 
 
     def start(self, message):
@@ -148,15 +152,12 @@ class QueryNotifyPrint(QueryNotify):
         Nothing.
         """
 
-        title = "Checking username"
+        mode_str = "NSFW Included" if self.include_nsfw else "Standard Search"
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + f"] {title}" +
-              Fore.WHITE + f" {message}" +
-              Fore.GREEN + " on:")
-        # An empty line between first line and the result(more clear output)
-        print('\r')
+        print(Style.BRIGHT + Fore.CYAN + "+-----------------------------------------------------------+")
+        print(Style.BRIGHT + Fore.CYAN + f"| Sherlock OSINT Search for: {Fore.YELLOW}{message:<30}{Fore.CYAN} |")
+        print(Style.BRIGHT + Fore.CYAN + f"| Mode: {Fore.GREEN}{mode_str:<51}{Fore.CYAN} |")
+        print(Style.BRIGHT + Fore.CYAN + "+-----------------------------------------------------------+\n")
 
 
     def countResults(self):
@@ -195,10 +196,15 @@ class QueryNotifyPrint(QueryNotify):
         # Output to the terminal is desired.
         if result.status == QueryStatus.CLAIMED:
             self.countResults()
-            print(Style.BRIGHT + Fore.WHITE + "[" +
-                  Fore.GREEN + "+" +
-                  Fore.WHITE + "]" +
-                  response_time_text +
+            is_nsfw = getattr(self.result, "is_nsfw", False)
+            if is_nsfw:
+                self.nsfw_count += 1
+                prefix = f"  |- {Fore.MAGENTA}[NSFW 18+]{Fore.GREEN}"
+            else:
+                self.regular_count += 1
+                prefix = f"  |- {Fore.GREEN}[+]"
+
+            print(Style.BRIGHT + prefix + response_time_text +
                   Fore.GREEN +
                   f" {self.result.site_name}: " +
                   Style.RESET_ALL +
@@ -258,14 +264,12 @@ class QueryNotifyPrint(QueryNotify):
         Return Value:
         Nothing.
         """
-        NumberOfResults = self.countResults() - 1
+        total_found = self.regular_count + self.nsfw_count
 
-        print(Style.BRIGHT + Fore.GREEN + "[" +
-              Fore.YELLOW + "*" +
-              Fore.GREEN + "] Search completed with" +
-              Fore.WHITE + f" {NumberOfResults} " +
-              Fore.GREEN + "results" + Style.RESET_ALL
-              )
+        print(Style.BRIGHT + Fore.CYAN + "\n===========================================================")
+        print(Style.BRIGHT + Fore.CYAN + "SUMMARY REPORT:")
+        print(Style.BRIGHT + Fore.WHITE + f"   * Total Accounts Found : {total_found} ({self.regular_count} Regular | {self.nsfw_count} NSFW)")
+        print(Style.BRIGHT + Fore.CYAN + "===========================================================" + Style.RESET_ALL)
 
         print("\nGo deeper than a username. Explore public profiles and export your findings.")
         print("Try OSINTSearch: \033]8;;https://osintsearch.org/go/sherlock\033\\https://osintsearch.org\033]8;;\033\\")

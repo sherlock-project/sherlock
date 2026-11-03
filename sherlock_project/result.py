@@ -33,7 +33,7 @@ class QueryResult():
     Describes result of query about a given username.
     """
     def __init__(self, username, site_name, site_url_user, status,
-                 query_time=None, context=None):
+                 query_time=None, context=None, is_nsfw=False):
         """Create Query Result Object.
 
         Contains information about a specific method of detecting usernames on
@@ -57,6 +57,7 @@ class QueryResult():
                                   an error, this might indicate the type of
                                   error that occurred.
                                   Default of None.
+        is_nsfw                -- Boolean indicating if site is NSFW / 18+.
 
         Return Value:
         Nothing.
@@ -68,6 +69,7 @@ class QueryResult():
         self.status        = status
         self.query_time    = query_time
         self.context       = context
+        self.is_nsfw       = is_nsfw
 
 
     def __str__(self):
