@@ -21,6 +21,7 @@ import signal
 import pandas as pd
 import os
 import re
+from urllib.parse import urlparse
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
@@ -249,7 +250,17 @@ def sherlock(
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
-        if regex_check and re.search(regex_check, username) is None:
+        # An interpolated URL with an invalid host (e.g. a username ending in
+        # '.' combined with a subdomain template like https://{username}.example.com)
+        # makes the request raise and aborts the whole run. Mark it illegal and
+        # skip instead of crashing (#2970).
+        parsed_url = urlparse(url)
+        url_host_invalid = (
+            not parsed_url.netloc
+            or ".." in parsed_url.netloc
+            or parsed_url.netloc.startswith(".")
+        )
+        if (regex_check and re.search(regex_check, username) is None) or url_host_invalid:
             # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(
                 username, social_network, url, QueryStatus.ILLEGAL
