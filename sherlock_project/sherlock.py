@@ -924,7 +924,14 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            result_file = f"{username}.xlsx"
+            if args.folderoutput:
+                # The usernames results should be stored in a targeted folder.
+                # If the folder doesn't exist, create it first
+                os.makedirs(args.folderoutput, exist_ok=True)
+                result_file = os.path.join(args.folderoutput, result_file)
+
+            DataFrame.to_excel(result_file, sheet_name="sheet1", index=False)
 
         print()
     query_notify.finish()

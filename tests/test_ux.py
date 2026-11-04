@@ -1,5 +1,8 @@
+import os
+
 import pytest
 from sherlock_project import sherlock
+from sherlock_project.result import QueryResult, QueryStatus
 from sherlock_interactives import Interactives
 from sherlock_interactives import InteractivesSubprocessError
 
@@ -41,3 +44,34 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+
+def test_xlsx_honors_folderoutput(tmp_path, monkeypatch):
+    def fake(username, site_data, query_notify, **kw):
+        return {'Example': {
+            'url_main': 'https://example.com',
+            'url_user': f'https://example.com/{username}',
+            'status': QueryResult(username, 'Example', f'https://example.com/{username}', QueryStatus.CLAIMED),
+            'http_status': 200,
+            'response_text': b'',
+        }}
+
+    captured = {}
+
+    def spy_to_excel(self, path, *args, **kwargs):
+        captured['path'] = path
+
+    out_dir = tmp_path / 'sub'
+    monkeypatch.setattr(sherlock, 'sherlock', fake)
+    monkeypatch.setattr(sherlock.requests, 'get', lambda *a, **kw: (_ for _ in ()).throw(RuntimeError('offline')))
+    monkeypatch.setattr(sherlock.pd.DataFrame, 'to_excel', spy_to_excel)
+    monkeypatch.setattr('sys.argv', [
+        'sherlock',
+        '--local',
+        '--xlsx',
+        '--folderoutput', str(out_dir),
+        'user_folderoutput',
+    ])
+    sherlock.main()
+    assert out_dir.is_dir()
+    assert captured['path'] == os.path.join(str(out_dir), 'user_folderoutput.xlsx')
