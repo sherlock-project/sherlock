@@ -3,11 +3,9 @@ Airliners
 Apple Developer
 Apple Discussions
 Archive.org
-Carbonmade
 Championat
 Chatujme.cz
 Codolio
-DeviantArt
 Discord.bio
 GaiaOnline
 GeeksforGeeks
@@ -15,10 +13,10 @@ HackerNews
 Hashnode
 Hubski
 Instapaper
-Itch.io
 ObservableHQ
 Odysee
 PCGamer
+Pornhub
 Rarible
 Realmeye
 Reddit
@@ -44,3 +42,4 @@ opennet
 phpRU
 social.tchncs.de
 svidbook
+xHamster
