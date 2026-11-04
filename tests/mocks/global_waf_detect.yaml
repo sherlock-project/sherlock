@@ -1,0 +1,26 @@
+id: global-waf-detect
+http:
+  - global-matchers: true
+    matchers-condition: or
+    matchers:
+      - type: regex
+        name: regexSite
+        regex:
+          - '(?i)access.to.this.page.has.been.denied'
+          - '(?i)http(s)?://(www.)?anotheroneblocked.\w+.whywasiblocked'
+        condition: or
+        part: response
+
+      - type: word
+        name: wordSiteBody
+        part: body
+        words:
+          - "bad_text_in_body"
+
+      - type: word
+        name: wordSiteHead
+        part: header
+        condition: or
+        words:
+          - "text_in_head"
+          - "other_in_head"
