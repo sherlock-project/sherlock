@@ -734,6 +734,11 @@ def main():
         print("You can only use --output with a single username")
         sys.exit(1)
 
+    # Check that --output is only combined with a single output format.
+    if args.output is not None and sum((args.output_txt, args.csv, args.xlsx)) > 1:
+        print("You can only use --output with a single output format")
+        sys.exit(1)
+
     # Create object with all information about sites we are aware of.
     try:
         if args.local:
@@ -843,7 +848,10 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
+            if args.output:
+                result_file = args.output
+            else:
+                result_file = f"{username}.csv"
             if args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
@@ -924,7 +932,9 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            DataFrame.to_excel(
+                args.output or f"{username}.xlsx", sheet_name="sheet1", index=False
+            )
 
         print()
     query_notify.finish()
