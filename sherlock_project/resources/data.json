@@ -2660,8 +2660,7 @@
     "username_claimed": "jenny"
   },
   "Vero": {
-    "errorMsg": "Not Found",
-    "errorType": "message",
+    "errorType": "status_code",
     "request_method": "GET",
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
