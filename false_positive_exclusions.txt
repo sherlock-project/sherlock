@@ -1,7 +1,7 @@
 Airliners
+Apple Developer
 Apple Discussions
 Archive.org
-CGTrader
 Championat
 Chatujme.cz
 Codolio
@@ -27,6 +27,7 @@ Shelf
 SlideShare
 Splice
 Spotify
+TikTok
 Trakt
 TryHackMe
 Velomania
