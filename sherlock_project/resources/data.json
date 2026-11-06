@@ -180,6 +180,12 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "Cara": {
+    "errorType": "status_code",
+    "url": "https://cara.app/{}",
+    "urlMain": "https://cara.app/",
+    "username_claimed": "briedie"
+  },
   "crates.io": {
     "errorType": "status_code",
     "url": "https://crates.io/users/{}",
