@@ -198,6 +198,13 @@
     "urlMain": "https://open.kattis.com/",
     "username_claimed": "tourist"
   },
+  "NuGet Gallery": {
+    "errorType": "status_code",
+    "url": "https://www.nuget.org/profiles/{}",
+    "urlMain": "https://www.nuget.org/",
+    "username_claimed": "nuget",
+    "request_method": "GET"
+  },
   "Travellerspoint": {
     "errorType": "status_code",
     "url": "https://www.travellerspoint.com/users/{}/",
