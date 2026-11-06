@@ -2844,6 +2844,7 @@
   },
   "YouTube": {
     "errorType": "status_code",
+    "errorCode": 404,
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
