@@ -186,6 +186,12 @@
     "urlMain": "https://www.designspiration.com/",
     "username_claimed": "jenny"
   },
+  "Discourse Meta": {
+    "errorType": "status_code",
+    "url": "https://meta.discourse.org/u/{}/summary",
+    "urlMain": "https://meta.discourse.org/",
+    "username_claimed": "codinghorror"
+  },
   "gpodder.net": {
     "errorType": "status_code",
     "url": "https://gpodder.net/user/{}/",
