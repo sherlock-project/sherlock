@@ -229,6 +229,12 @@
     "urlMain": "https://open.kattis.com/",
     "username_claimed": "tourist"
   },
+  "Micro.blog": {
+    "errorType": "status_code",
+    "url": "https://micro.blog/{}",
+    "urlMain": "https://micro.blog/",
+    "username_claimed": "manton"
+  },
   "Neocities": {
     "errorType": "status_code",
     "url": "https://neocities.org/site/{}",
