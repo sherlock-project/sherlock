@@ -180,6 +180,12 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "Designspiration": {
+    "errorType": "status_code",
+    "url": "https://www.designspiration.com/{}/",
+    "urlMain": "https://www.designspiration.com/",
+    "username_claimed": "jenny"
+  },
   "gpodder.net": {
     "errorType": "status_code",
     "url": "https://gpodder.net/user/{}/",

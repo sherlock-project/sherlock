@@ -1165,20 +1165,6 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
 ```
 
 
-## Designspiration
-
-As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
-
-```json
-  "Designspiration": {
-    "errorType": "status_code",
-    "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## CapFriendly
 
 As of 2022-05-01, CapFriendly always shows that a username exists even though it doesn't. This
