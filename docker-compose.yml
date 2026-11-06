@@ -1,0 +1,35 @@
+services:
+  sherlock:
+    build:
+      context: .
+    image: sherlock:latest
+    container_name: sherlock
+    volumes:
+      - .:/sherlock
+      - ./results:/sherlock/results
+    environment:
+      - SHERLOCK_ENV=docker
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    stop_grace_period: 5m
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+    env_file: '.env'
+    volumes:
+      - .:/usr/src
+    environment:
+      - SONAR_HOST_URL=http://sonarqube:9000
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
