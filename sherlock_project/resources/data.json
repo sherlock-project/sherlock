@@ -223,6 +223,12 @@
     "urlMain": "https://open.kattis.com/",
     "username_claimed": "tourist"
   },
+  "Neocities": {
+    "errorType": "status_code",
+    "url": "https://neocities.org/site/{}",
+    "urlMain": "https://neocities.org/",
+    "username_claimed": "neocities"
+  },
   "NuGet Gallery": {
     "errorType": "status_code",
     "url": "https://www.nuget.org/profiles/{}",
