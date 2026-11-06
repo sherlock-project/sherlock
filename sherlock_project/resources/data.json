@@ -11,11 +11,11 @@
     "urlMain": "https://www.1337x.to/",
     "username_claimed": "FitGirl"
   },
-  "2Dimensions": {
-    "errorType": "status_code",
-    "url": "https://2Dimensions.com/a/{}",
-    "urlMain": "https://2Dimensions.com/",
-    "username_claimed": "blue"
+  "Rive": {
+  "errorType": "status_code",
+  "url": "https://rive.app/@{}/",
+  "urlMain": "https://rive.app/",
+  "username_claimed": "blue"
   },
   "7Cups": {
     "errorType": "status_code",
