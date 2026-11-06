@@ -192,6 +192,12 @@
     "urlMain": "https://gpodder.net/",
     "username_claimed": "blue"
   },
+  "Kattis": {
+    "errorType": "status_code",
+    "url": "https://open.kattis.com/users/{}",
+    "urlMain": "https://open.kattis.com/",
+    "username_claimed": "tourist"
+  },
   "Travellerspoint": {
     "errorType": "status_code",
     "url": "https://www.travellerspoint.com/users/{}/",
