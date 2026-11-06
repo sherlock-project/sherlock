@@ -62,7 +62,11 @@
           ]
         },
         "errorUrl": { "type": "string" },
-        "response_url": { "type": "string" }
+        "response_url": { "type": "string" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
       },
       "dependencies": {
         "errorMsg": {
