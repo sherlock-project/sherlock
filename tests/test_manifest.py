@@ -11,9 +11,9 @@ def test_validate_manifest_against_local_schema():
     json_path: str = os.path.join(os.path.dirname(__file__), json_relative)
     schema_path: str = os.path.join(os.path.dirname(__file__), schema_relative)
 
-    with open(json_path, 'r') as f:
+    with open(json_path, 'r', encoding='utf-8') as f:
         jsondat = json.load(f)
-    with open(schema_path, 'r') as f:
+    with open(schema_path, 'r', encoding='utf-8') as f:
         schemadat = json.load(f)
 
     validate(instance=jsondat, schema=schemadat)
@@ -25,7 +25,7 @@ def test_validate_manifest_against_remote_schema(remote_schema):
     json_relative: str = '../sherlock_project/resources/data.json'
     json_path: str = os.path.join(os.path.dirname(__file__), json_relative)
 
-    with open(json_path, 'r') as f:
+    with open(json_path, 'r', encoding='utf-8') as f:
         jsondat = json.load(f)
 
     validate(instance=jsondat, schema=remote_schema)
