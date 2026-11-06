@@ -217,6 +217,12 @@
     "urlMain": "https://gpodder.net/",
     "username_claimed": "blue"
   },
+  "Inkitt": {
+    "errorType": "status_code",
+    "url": "https://www.inkitt.com/{}",
+    "urlMain": "https://www.inkitt.com/",
+    "username_claimed": "AidenIsObsessed"
+  },
   "Kattis": {
     "errorType": "status_code",
     "url": "https://open.kattis.com/users/{}",
