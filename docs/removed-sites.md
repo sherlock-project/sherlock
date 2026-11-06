@@ -288,22 +288,6 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
   },
 ```
 
-## PowerShell Gallery
-
-Accidentally merged even though the original pull request showed that all
-user names were available.
-
-```json
-  "PowerShell Gallery": {
-    "errorType": "status_code",
-    "rank": 163562,
-    "url": "https://www.powershellgallery.com/profiles/{}",
-    "urlMain": "https://www.powershellgallery.com",
-    "username_claimed": "powershellteam",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## StreamMe
 
 On 2019-04-07, I get a Timed Out message from the website.  It has not

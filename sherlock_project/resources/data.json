@@ -205,6 +205,13 @@
     "username_claimed": "nuget",
     "request_method": "GET"
   },
+  "PowerShell Gallery": {
+    "errorType": "status_code",
+    "url": "https://www.powershellgallery.com/profiles/{}",
+    "urlMain": "https://www.powershellgallery.com/",
+    "username_claimed": "powershellteam",
+    "request_method": "GET"
+  },
   "Travellerspoint": {
     "errorType": "status_code",
     "url": "https://www.travellerspoint.com/users/{}/",
