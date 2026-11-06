@@ -6,25 +6,6 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
-## gpodder.net
-
-As of 2020-05-25, all usernames are reported as available.
-
-The server is returning a HTTP Status 500 (Internal server error)
-for all queries.
-
-```json
-  "gpodder.net": {
-    "errorType": "status_code",
-    "rank": 2013984,
-    "url": "https://gpodder.net/user/{}",
-    "urlMain": "https://gpodder.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-
 ## Investing.com
 
 As of 2020-05-25, all usernames are reported as claimed.

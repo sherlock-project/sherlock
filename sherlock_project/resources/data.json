@@ -180,6 +180,12 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "gpodder.net": {
+    "errorType": "status_code",
+    "url": "https://gpodder.net/user/{}/",
+    "urlMain": "https://gpodder.net/",
+    "username_claimed": "blue"
+  },
   "Vjudge": {
     "errorType": "status_code",
     "url": "https://VJudge.net/user/{}",
