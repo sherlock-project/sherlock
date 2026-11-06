@@ -180,6 +180,12 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "Bear Blog": {
+    "errorType": "status_code",
+    "url": "https://{}.bearblog.dev/",
+    "urlMain": "https://bearblog.dev/",
+    "username_claimed": "bear"
+  },
   "Cara": {
     "errorType": "status_code",
     "url": "https://cara.app/{}",
