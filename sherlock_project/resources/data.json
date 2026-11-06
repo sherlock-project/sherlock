@@ -180,6 +180,13 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "crates.io": {
+    "errorType": "status_code",
+    "url": "https://crates.io/users/{}",
+    "urlMain": "https://crates.io/",
+    "urlProbe": "https://crates.io/api/v1/users/{}",
+    "username_claimed": "dtolnay"
+  },
   "Designspiration": {
     "errorType": "status_code",
     "url": "https://www.designspiration.com/{}/",
