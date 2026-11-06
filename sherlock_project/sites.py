@@ -3,6 +3,8 @@
 This module supports storing information about websites.
 This is the raw data that will be used to search for usernames.
 """
+from __future__ import annotations
+
 import json
 import requests
 import secrets
