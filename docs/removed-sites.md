@@ -954,19 +954,6 @@ As of 2021-01-13, Realmeye returns false positives.
   },
 ```
 
-## Travellerspoint
-As of 2021-01-13, Travellerspoint returns false positives
-```json
-  "Travellerspoint": {
-    "errorMsg": "Wooops. Sorry!",
-    "errorType": "message",
-    "url": "https://www.travellerspoint.com/users/{}",
-    "urlMain": "https://www.travellerspoint.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## GDProfiles
 
 As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.

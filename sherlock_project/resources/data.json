@@ -186,6 +186,12 @@
     "urlMain": "https://gpodder.net/",
     "username_claimed": "blue"
   },
+  "Travellerspoint": {
+    "errorType": "status_code",
+    "url": "https://www.travellerspoint.com/users/{}/",
+    "urlMain": "https://www.travellerspoint.com/",
+    "username_claimed": "blue"
+  },
   "Vjudge": {
     "errorType": "status_code",
     "url": "https://VJudge.net/user/{}",
