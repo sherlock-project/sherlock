@@ -796,8 +796,10 @@ def main():
         if site_missing:
             print(f"Error: Desired sites not found: {', '.join(site_missing)}.")
 
-        if not site_data:
-            sys.exit(1)
+    if not site_data:
+        if not args.site_list:
+            print("Error: No sites available to search.")
+        sys.exit(1)
 
     # Create notify object for query results.
     query_notify = QueryNotifyPrint(
