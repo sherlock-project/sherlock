@@ -6,25 +6,6 @@ They are listed here in the hope that things may change in the future
 so they may be re-included.
 
 
-## gpodder.net
-
-As of 2020-05-25, all usernames are reported as available.
-
-The server is returning a HTTP Status 500 (Internal server error)
-for all queries.
-
-```json
-  "gpodder.net": {
-    "errorType": "status_code",
-    "rank": 2013984,
-    "url": "https://gpodder.net/user/{}",
-    "urlMain": "https://gpodder.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-
 ## Investing.com
 
 As of 2020-05-25, all usernames are reported as claimed.
@@ -303,22 +284,6 @@ Usernames that exist are not detected. Forbidden Request 403 Error.
     "url": "https://angel.co/u/{}",
     "urlMain": "https://angel.co/",
     "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
-## PowerShell Gallery
-
-Accidentally merged even though the original pull request showed that all
-user names were available.
-
-```json
-  "PowerShell Gallery": {
-    "errorType": "status_code",
-    "rank": 163562,
-    "url": "https://www.powershellgallery.com/profiles/{}",
-    "urlMain": "https://www.powershellgallery.com",
-    "username_claimed": "powershellteam",
     "username_unclaimed": "noonewouldeverusethis7"
   },
 ```
@@ -973,19 +938,6 @@ As of 2021-01-13, Realmeye returns false positives.
   },
 ```
 
-## Travellerspoint
-As of 2021-01-13, Travellerspoint returns false positives
-```json
-  "Travellerspoint": {
-    "errorMsg": "Wooops. Sorry!",
-    "errorType": "message",
-    "url": "https://www.travellerspoint.com/users/{}",
-    "urlMain": "https://www.travellerspoint.com",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
-
 ## GDProfiles
 
 As of 2021-06-27, GDProfiles takes way too long to respond. Must be an issue on their side.
@@ -1196,20 +1148,6 @@ As of 2022-02-6, Facenama seems to be down their rebuilding their site
   },
 ```
 
-
-## Designspiration
-
-As of 2022-04-17, Designspiration seems to be down or very laggy. Therefore, we're removing the site for now.
-
-```json
-  "Designspiration": {
-    "errorType": "status_code",
-    "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
-```
 
 ## CapFriendly
 

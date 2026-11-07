@@ -66,3 +66,10 @@ defusedxml = "^0.7.1"
 
 [tool.poetry.scripts]
 sherlock = 'sherlock_project.sherlock:main'
+
+[tool.ruff]
+target-version = "py39"
+
+[tool.ruff.lint]
+# Preserve the pre-0.16 defaults rather than adopting new rules on upgrade.
+select = ["E4", "E7", "E9", "F"]

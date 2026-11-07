@@ -180,6 +180,87 @@
     "urlMain": "https://atcoder.jp/",
     "username_claimed": "ksun48"
   },
+  "Bear Blog": {
+    "errorType": "status_code",
+    "url": "https://{}.bearblog.dev/",
+    "urlMain": "https://bearblog.dev/",
+    "username_claimed": "bear"
+  },
+  "Cara": {
+    "errorType": "status_code",
+    "url": "https://cara.app/{}",
+    "urlMain": "https://cara.app/",
+    "username_claimed": "briedie"
+  },
+  "crates.io": {
+    "errorType": "status_code",
+    "url": "https://crates.io/users/{}",
+    "urlMain": "https://crates.io/",
+    "urlProbe": "https://crates.io/api/v1/users/{}",
+    "username_claimed": "dtolnay"
+  },
+  "Designspiration": {
+    "errorType": "status_code",
+    "url": "https://www.designspiration.com/{}/",
+    "urlMain": "https://www.designspiration.com/",
+    "username_claimed": "jenny"
+  },
+  "Discourse Meta": {
+    "errorType": "status_code",
+    "url": "https://meta.discourse.org/u/{}/summary",
+    "urlMain": "https://meta.discourse.org/",
+    "username_claimed": "codinghorror"
+  },
+  "gpodder.net": {
+    "errorType": "status_code",
+    "url": "https://gpodder.net/user/{}/",
+    "urlMain": "https://gpodder.net/",
+    "username_claimed": "blue"
+  },
+  "Inkitt": {
+    "errorType": "status_code",
+    "url": "https://www.inkitt.com/{}",
+    "urlMain": "https://www.inkitt.com/",
+    "username_claimed": "AidenIsObsessed"
+  },
+  "Kattis": {
+    "errorType": "status_code",
+    "url": "https://open.kattis.com/users/{}",
+    "urlMain": "https://open.kattis.com/",
+    "username_claimed": "tourist"
+  },
+  "Micro.blog": {
+    "errorType": "status_code",
+    "url": "https://micro.blog/{}",
+    "urlMain": "https://micro.blog/",
+    "username_claimed": "manton"
+  },
+  "Neocities": {
+    "errorType": "status_code",
+    "url": "https://neocities.org/site/{}",
+    "urlMain": "https://neocities.org/",
+    "username_claimed": "neocities"
+  },
+  "NuGet Gallery": {
+    "errorType": "status_code",
+    "url": "https://www.nuget.org/profiles/{}",
+    "urlMain": "https://www.nuget.org/",
+    "username_claimed": "nuget",
+    "request_method": "GET"
+  },
+  "PowerShell Gallery": {
+    "errorType": "status_code",
+    "url": "https://www.powershellgallery.com/profiles/{}",
+    "urlMain": "https://www.powershellgallery.com/",
+    "username_claimed": "powershellteam",
+    "request_method": "GET"
+  },
+  "Travellerspoint": {
+    "errorType": "status_code",
+    "url": "https://www.travellerspoint.com/users/{}/",
+    "urlMain": "https://www.travellerspoint.com/",
+    "username_claimed": "blue"
+  },
   "Vjudge": {
     "errorType": "status_code",
     "url": "https://VJudge.net/user/{}",
