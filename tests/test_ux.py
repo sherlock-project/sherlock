@@ -1,7 +1,11 @@
+import json
+import sys
+from types import SimpleNamespace
+
 import pytest
+from sherlock_interactives import Interactives, InteractivesSubprocessError
+
 from sherlock_project import sherlock
-from sherlock_interactives import Interactives
-from sherlock_interactives import InteractivesSubprocessError
 
 def test_remove_nsfw(sites_obj):
     nsfw_target: str = 'Xvideos'
@@ -41,3 +45,38 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+
+@pytest.mark.parametrize(
+    "manifest",
+    [
+        {},
+        {
+            "Example": {
+                "url": "https://example.invalid/users/{}",
+                "urlMain": "https://example.invalid",
+                "username_claimed": "fixture",
+                "errorType": "status_code",
+                "isNSFW": True,
+                "regexCheck": "^fixture$",
+            },
+        },
+    ],
+    ids=["empty-manifest", "all-sites-filtered"],
+)
+def test_no_sites_available(tmp_path, monkeypatch, capsys, manifest):
+    manifest_path = tmp_path / "sites.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    release = SimpleNamespace(text=json.dumps({"tag_name": f"v{sherlock.__version__}"}))
+    monkeypatch.setattr(sherlock.requests, "get", lambda *args, **kwargs: release)
+    monkeypatch.setattr(sherlock.signal, "signal", lambda *args: None)
+    monkeypatch.setattr(
+        sys, "argv",
+        ["sherlock", "--json", str(manifest_path), "--ignore-exclusions", "example"],
+    )
+
+    with pytest.raises(SystemExit) as error:
+        sherlock.main()
+
+    assert error.value.code == 1
+    assert "No sites available to search" in capsys.readouterr().out
