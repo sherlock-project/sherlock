@@ -14,3 +14,9 @@ def test_versioning() -> None:
     ]
     # Sorting is REQUIRED for Mac
     assert sorted(found) == sorted(expected)
+
+
+def test_get_version_fallback() -> None:
+    version = sherlock_project.get_version()
+    assert version is not None
+    assert len(version.split(".")) >= 2
