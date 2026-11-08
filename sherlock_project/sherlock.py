@@ -126,12 +126,12 @@ def get_response(request_future, error_type, social_network):
     except requests.exceptions.ProxyError as errp:
         error_context = "Proxy Error"
         exception_text = str(errp)
-    except requests.exceptions.ConnectionError as errc:
-        error_context = "Error Connecting"
-        exception_text = str(errc)
     except requests.exceptions.Timeout as errt:
         error_context = "Timeout Error"
         exception_text = str(errt)
+    except requests.exceptions.ConnectionError as errc:
+        error_context = "Error Connecting"
+        exception_text = str(errc)
     except requests.exceptions.RequestException as err:
         error_context = "Unknown Error"
         exception_text = str(err)

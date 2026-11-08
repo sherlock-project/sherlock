@@ -2,6 +2,9 @@
 
 from concurrent.futures import Future
 
+import pytest
+from requests.exceptions import ConnectionError, ConnectTimeout, ReadTimeout
+
 from sherlock_project.sherlock import get_response
 
 
@@ -10,6 +13,16 @@ def _make_future_with_exception(exc):
     future = Future()
     future.set_exception(exc)
     return future
+
+
+@pytest.mark.parametrize(("error", "expected"), [
+    (ConnectTimeout, "Timeout Error"),
+    (ReadTimeout, "Timeout Error"),
+    (ConnectionError, "Error Connecting"),
+])
+def test_get_response_classifies_request_errors(error, expected):
+    future = _make_future_with_exception(error("request failed"))
+    assert get_response(future, ["status_code"], "TestSite") == (None, expected, "request failed")
 
 
 def test_get_response_handles_unicode_decode_error():
