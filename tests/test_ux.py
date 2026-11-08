@@ -41,3 +41,7 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+def test_all_queries_failed_warning():
+    out = Interactives.run_cli("--timeout 1 --site GitHub --proxy socks5://127.0.0.1:9 fakeuser987654")
+    assert "Warning: all 1 site queries failed" in out

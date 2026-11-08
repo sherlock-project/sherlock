@@ -41,7 +41,7 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
-from colorama import init
+from colorama import init, Fore, Style
 from argparse import ArgumentTypeError
 
 
@@ -821,6 +821,20 @@ def main():
             proxy=args.proxy,
             timeout=args.timeout,
         )
+
+        total_queries = len(results)
+        failed_queries = sum(
+            1 for site in results if results[site].get("status").status in (QueryStatus.UNKNOWN, QueryStatus.WAF)
+        )
+        if total_queries > 0 and failed_queries == total_queries and not args.print_all:
+            print(
+                Style.BRIGHT + Fore.RED + "[" +
+                Fore.YELLOW + "!" +
+                Fore.RED + f"] Warning: all {total_queries} site queries failed (errors/timeouts) "
+                f"- check network/proxy, or use --print-all for per-site details." +
+                Style.RESET_ALL,
+                file=sys.stderr,
+            )
 
         if args.output:
             result_file = args.output
