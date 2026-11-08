@@ -2101,7 +2101,7 @@
     "username_claimed": "John_Smith"
   },
   "ReverbNation": {
-    "errorMsg": "Sorry, we couldn't find that page",
+    "errorMsg": "404 Not found",
     "errorType": "message",
     "url": "https://www.reverbnation.com/{}",
     "urlMain": "https://www.reverbnation.com/",
