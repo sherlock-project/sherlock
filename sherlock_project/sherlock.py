@@ -537,6 +537,38 @@ def handler(signal_received, frame):
     sys.exit(0)
 
 
+def pull_request_manifest_url(status_code: int, payload) -> str:
+    """Return the raw manifest URL for a GitHub pull request API response.
+
+    HTTP 404 means that pull request does not exist.
+    Any other non-200 response is a fetch failure. GitHub puts rate-limit
+    and authentication errors in a ``message`` field, so that field alone
+    does not mean the pull request is missing.
+    """
+    if status_code == 404:
+        raise LookupError(f"HTTP {status_code}")
+
+    if status_code != 200 or not isinstance(payload, dict):
+        message = payload.get("message") if isinstance(payload, dict) else None
+        if isinstance(message, str) and message != "":
+            raise RuntimeError(f"HTTP {status_code}: {message}")
+        raise RuntimeError(f"HTTP {status_code}")
+
+    try:
+        sha = payload["head"]["sha"]
+    except (KeyError, TypeError) as error:
+        raise RuntimeError(
+            f"HTTP {status_code}: response did not include a head SHA."
+        ) from error
+    if not isinstance(sha, str) or sha == "":
+        raise RuntimeError(f"HTTP {status_code}: response did not include a head SHA.")
+
+    return (
+        "https://raw.githubusercontent.com/sherlock-project/sherlock/"
+        f"{sha}/sherlock_project/resources/data.json"
+    )
+
+
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
@@ -748,16 +780,23 @@ def main():
                 if args.json_file.isnumeric():
                     pull_number = args.json_file
                     pull_url = f"https://api.github.com/repos/sherlock-project/sherlock/pulls/{pull_number}"
-                    pull_request_raw = requests.get(pull_url, timeout=10).text
-                    pull_request_json = json_loads(pull_request_raw)
-
-                    # Check if it's a valid pull request
-                    if "message" in pull_request_json:
+                    response = requests.get(pull_url, timeout=10)
+                    try:
+                        payload = json_loads(response.text)
+                    except ValueError:
+                        payload = None
+                    try:
+                        json_file_location = pull_request_manifest_url(
+                            response.status_code, payload
+                        )
+                    except LookupError:
                         print(f"ERROR: Pull request #{pull_number} not found.")
                         sys.exit(1)
-
-                    head_commit_sha = pull_request_json["head"]["sha"]
-                    json_file_location = f"https://raw.githubusercontent.com/sherlock-project/sherlock/{head_commit_sha}/sherlock_project/resources/data.json"
+                    except RuntimeError as error:
+                        print(
+                            f"ERROR: Could not load pull request #{pull_number}: {error}"
+                        )
+                        sys.exit(1)
 
             sites = SitesInformation(
                 data_file_path=json_file_location,
