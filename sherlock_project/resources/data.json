@@ -721,7 +721,7 @@
   },
   "Discord": {
     "errorType": "message",
-    "url": "https://discord.com",
+    "url": "https://discord.com/@{}",
     "urlMain": "https://discord.com/",
     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
     "errorMsg": ["{\"taken\":false}", "The resource is being rate limited"],

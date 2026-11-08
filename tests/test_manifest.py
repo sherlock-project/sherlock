@@ -37,3 +37,19 @@ def test_validate_manifest_against_remote_schema(remote_schema):
 ])
 def test_site_list_iterability (sites_info, target_name, target_expected_err_type):
     assert sites_info[target_name]['errorType'] == target_expected_err_type
+
+
+def test_discord_url_includes_username(sites_info):
+    """Discord's profile URL must carry the username (issue #3186).
+
+    The reported URL is built by interpolating the manifest's `url` with the
+    username, so a `url` without a `{}` placeholder degrades to the bare
+    https://discord.com homepage instead of the user's profile.
+    """
+    from sherlock_project.sherlock import interpolate_string
+
+    assert "{}" in sites_info["Discord"]["url"]
+    assert (
+        interpolate_string(sites_info["Discord"]["url"], "chechyotka")
+        == "https://discord.com/@chechyotka"
+    )
