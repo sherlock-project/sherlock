@@ -66,7 +66,7 @@ The Actor provides three types of outputs:
 |-------|------|----------|-------------|
 | `username` | string | Yes | Username the search was conducted for |
 | `links` | array | Yes | Array with found links to the social media |
-| `links[]`| string | No | URL to the account
+| `links[]` | string | No | URL to the account |
 
 ### Example Dataset Item (JSON)
 
