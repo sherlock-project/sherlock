@@ -52,7 +52,7 @@ requests-futures = "^1.0.0"
 stem = "^1.8.0"
 pandas = "^2.2.1"
 openpyxl = "^3.0.10"
-tomli = "^2.2.1"
+tomli = { version = "^2.2.1", python = "<3.11" }
 
 [tool.poetry.group.dev.dependencies]
 jsonschema = "^4.0.0"

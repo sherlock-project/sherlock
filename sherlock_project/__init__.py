@@ -7,7 +7,10 @@ networks.
 
 from importlib.metadata import version as pkg_version, PackageNotFoundError
 import pathlib
-import tomli
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
 
 def get_version() -> str:
@@ -17,7 +20,7 @@ def get_version() -> str:
     except PackageNotFoundError:
         pyproject_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent / "pyproject.toml"
         with pyproject_path.open("rb") as f:
-            pyproject_data = tomli.load(f)
+            pyproject_data = tomllib.load(f)
         return pyproject_data["tool"]["poetry"]["version"]
 
 # This variable is only used to check for ImportErrors induced by users running as script rather than as module or package
