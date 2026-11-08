@@ -1763,10 +1763,24 @@
     "username_claimed": "blue"
   },
   "Odysee": {
-    "errorMsg": "<link rel=\"canonical\" content=\"odysee.com\"/>",
+    "errorMsg": [
+      "NOT_FOUND",
+      "is not a valid url"
+    ],
     "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "jsonrpc": "2.0",
+      "method": "resolve",
+      "params": {
+        "urls": [
+          "@{}"
+        ]
+      }
+    },
     "url": "https://odysee.com/@{}",
     "urlMain": "https://odysee.com/",
+    "urlProbe": "https://api.na-backend.odysee.com/api/v1/proxy",
     "username_claimed": "Odysee"
   },
   "Opensource": {
