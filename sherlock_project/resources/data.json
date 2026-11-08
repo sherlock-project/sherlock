@@ -2821,6 +2821,12 @@
     "urlMain": "https://music.yandex",
     "username_claimed": "ya.playlist"
   },
+  "YesWeHack": {
+    "errorType": "status_code",
+    "url": "https://yeswehack.com/hunters/{}",
+    "urlMain": "https://yeswehack.com/",
+    "username_claimed": "n1nj4sec"
+  },
   "YouNow": {
     "errorMsg": "No users found",
     "errorType": "message",
