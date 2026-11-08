@@ -438,7 +438,7 @@
     "username_claimed": "ordnung"
   },
   "Chatujme.cz": {
-    "errorMsg": "Neexistujic\u00ed profil",
+    "errorMsg": "Tento profil bu\u010f u\u017e neexistuje",
     "errorType": "message",
     "regexCheck": "^[a-zA-Z][a-zA-Z1-9_-]*$",
     "url": "https://profil.chatujme.cz/{}",
