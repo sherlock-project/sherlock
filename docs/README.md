@@ -38,7 +38,7 @@
 | Method | Notes |
 | - | - |
 | `pipx install sherlock-project` | `pip` or [`uv`](https://docs.astral.sh/uv/) may be used in place of `pipx` |
-| `docker run -it --rm sherlock/sherlock` |
+| `docker run -it --rm sherlock/sherlock` | |
 | `dnf install sherlock-project` | |
 
 Community-maintained packages are available for Debian (>= 13), Ubuntu (>= 22.10), Homebrew, Kali, and BlackArch. These packages are not directly supported or maintained by the Sherlock Project.
