@@ -1162,10 +1162,11 @@
     "username_claimed": "ousmanekane"
   },
   "Hashnode": {
-    "errorType": "status_code",
+    "errorMsg": "User not found",
+    "errorType": "message",
     "url": "https://hashnode.com/@{}",
     "urlMain": "https://hashnode.com",
-    "username_claimed": "blue"
+    "username_claimed": "sandeep"
   },
   "Heavy-R": {
     "errorMsg": "Channel not found",
