@@ -2,6 +2,26 @@ import os
 import json
 import pytest
 from jsonschema import validate
+from sherlock_project.sites import SitesInformation
+
+
+@pytest.mark.parametrize("filename", ["http-sites.json", "HTTPS-fixtures.json"])
+def test_loads_local_manifest_with_http_prefix(tmp_path, monkeypatch, filename):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / filename).write_text(json.dumps({
+        "Example": {
+            "urlMain": "https://example.test",
+            "url": "https://example.test/{}",
+            "username_claimed": "sample",
+        },
+    }), encoding="utf-8")
+
+    def unexpected_request(**kwargs):
+        pytest.fail("A local manifest should not trigger an HTTP request")
+
+    monkeypatch.setattr("sherlock_project.sites.requests.get", unexpected_request)
+
+    assert SitesInformation(filename, honor_exclusions=False).site_name_list() == ["Example"]
 
 def test_validate_manifest_against_local_schema():
     """Ensures that the manifest matches the local schema, for situations where the schema is being changed."""
