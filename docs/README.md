@@ -61,7 +61,7 @@ Accounts found will be stored in an individual text file with the corresponding 
 
 ```console
 $ sherlock --help
-usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--csv] [--xlsx] [--site SITE_NAME] [--proxy PROXY_URL] [--dump-response]
+usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--csv] [--xlsx] [--json-output PATH] [--site SITE_NAME] [--proxy PROXY_URL] [--dump-response]
                 [--json JSON_FILE] [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color] [--browse] [--local] [--nsfw] [--txt] [--ignore-exclusions]
                 USERNAMES [USERNAMES ...]
 
@@ -81,6 +81,7 @@ options:
                         If using single username, the output of the result will be saved to this file.
   --csv                 Create Comma-Separated Values (CSV) File.
   --xlsx                Create the standard file for the modern Microsoft Excel spreadsheet (xlsx).
+  --json-output PATH    Write all usernames and query outcomes to a UTF-8 JSON report.
   --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to specify more than one site.
   --proxy PROXY_URL, -p PROXY_URL
                         Make requests over a proxy. e.g. socks5://127.0.0.1:1080
@@ -97,6 +98,21 @@ options:
   --txt                 Enable creation of a txt file
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
 ```
+
+## JSON reports
+
+Export one or more username checks to a structured report:
+
+```bash
+sherlock user123 --json-output results.json
+sherlock user1 user2 --json-output results.json
+```
+
+`--json-output` writes results; the existing `--json` / `-j` option loads a site
+manifest. Reports retain every query status, including unavailable usernames,
+errors and blocked checks, independently of terminal display options.
+
+See [JSON report format and examples](json-output.md) for the schema and error handling.
 
 ## Credits
 
