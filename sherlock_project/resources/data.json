@@ -959,7 +959,7 @@
     "username_claimed": "blue"
   },
   "GeeksforGeeks": {
-    "errorMsg": "false   | GeeksforGeeks Profile",
+    "errorMsg": "undefined   | GeeksforGeeks Profile",
     "errorType": "message",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "urlMain": "https://www.geeksforgeeks.org/",
