@@ -453,12 +453,11 @@
     "username_claimed": "cute18cute"
   },
   "Chess": {
-    "errorMsg": "Username is valid",
-    "errorType": "message",
+    "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]{3,25}$",
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
-    "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
+    "urlProbe": "https://api.chess.com/pub/player/{}",
     "username_claimed": "blue"
   },
   "Choice Community": {
