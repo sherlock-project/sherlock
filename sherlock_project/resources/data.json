@@ -2181,6 +2181,13 @@
     "urlMain": "https://www.scribd.com/",
     "username_claimed": "blue"
   },
+    "SecretHitler": {
+    "errorMsg": "status_code",
+    "errorType": "message",
+    "url": "https://secrethitler.io/{}",
+    "urlMain": "https://secrethitler.io/",
+    "username_claimed": "blue"
+  },
   "SEOForum": {
     "errorType": "status_code",
     "url": "https://seoforum.com/@{}",
