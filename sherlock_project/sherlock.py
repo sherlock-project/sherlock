@@ -27,7 +27,10 @@ from time import monotonic
 from typing import Optional
 
 import requests
+from requests.adapters import HTTPAdapter
 from requests_futures.sessions import FuturesSession
+from urllib3.exceptions import InvalidHeader
+from urllib3.util.retry import Retry
 
 from sherlock_project.__init__ import (
     __longname__,
@@ -43,6 +46,18 @@ from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+
+
+class SherlockRetry(Retry):
+    RETRY_AFTER_STATUS_CODES = frozenset((429, 503))
+
+    def get_retry_after(self, response):
+        try:
+            delay = super().get_retry_after(response)
+        except InvalidHeader:
+            return None
+        # ponytail: cap server-requested waits at 30s; use a scheduler for longer waits.
+        return min(delay, 30) if delay is not None else None
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -120,6 +135,12 @@ def get_response(request_future, error_type, social_network):
         if response.status_code:
             # Status code exists in response object
             error_context = None
+        if response.status_code == 429:
+            error_context = "Rate Limited (HTTP 429)"
+        elif response.status_code == 403:
+            error_context = "Access Forbidden (HTTP 403)"
+        elif 500 <= response.status_code < 600:
+            error_context = f"Server Error (HTTP {response.status_code})"
     except requests.exceptions.HTTPError as errh:
         error_context = "HTTP Error"
         exception_text = str(errh)
@@ -211,6 +232,18 @@ def sherlock(
 
     # Normal requests
     underlying_session = requests.session()
+    retry = SherlockRetry(
+        total=2,
+        connect=0,
+        read=0,
+        other=0,
+        backoff_factor=1,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=frozenset(("GET", "HEAD", "OPTIONS")),
+        raise_on_status=False,
+    )
+    for prefix in ("http://", "https://"):
+        underlying_session.mount(prefix, HTTPAdapter(max_retries=retry))
 
     # Limit number of workers to 20.
     # This is probably vastly overkill.
