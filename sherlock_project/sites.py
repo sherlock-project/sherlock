@@ -166,14 +166,21 @@ class SitesInformation:
                     exclusions = [exclusion.strip() for exclusion in exclusions]
 
                     for site in do_not_exclude:
-                        if site in exclusions:
-                            exclusions.remove(site)
+                        for exclusion in list(exclusions):
+                            if exclusion.casefold() == site.casefold():
+                                exclusions.remove(exclusion)
 
                     for exclusion in exclusions:
                         try:
                             site_data.pop(exclusion, None)
                         except KeyError:
                             pass
+
+                else:
+                    # A non-200 response (e.g. 403/404/503) does not raise,
+                    # so warn here just like the except below does.
+                    print("Warning: Could not load exclusions, continuing without them.")
+                    honor_exclusions = False
 
             except Exception:
                 # If there was any problem loading the exclusions, just continue without them
