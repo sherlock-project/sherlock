@@ -1,3 +1,4 @@
+import os
 import pytest
 from sherlock_project import sherlock
 from sherlock_interactives import Interactives
@@ -31,6 +32,27 @@ def test_wildcard_username_expansion():
     assert sherlock.check_for_parameter('test{?test') is False
     assert sherlock.check_for_parameter('test?}test') is False
     assert sherlock.multiple_usernames('test{?}test') == ["test_test" , "test-test" , "test.test"]
+
+
+@pytest.mark.parametrize('username', [
+    '../poc_escape',
+    r'..\poc_escape',
+    '/tmp/poc_escape',
+    r'C:\temp\poc_escape',
+])
+@pytest.mark.parametrize('extension', ['txt', 'csv', 'xlsx'])
+def test_output_filename_stays_within_output_folder(username, extension):
+    filename = f"{sherlock.safe_filename_component(username)}.{extension}"
+    output_folder = os.path.abspath('out')
+    result_file = os.path.abspath(os.path.join(output_folder, filename))
+
+    assert os.path.commonpath([output_folder, result_file]) == output_folder
+
+
+@pytest.mark.parametrize('username', ['', '.', '..', '../'])
+def test_invalid_output_filename_component(username):
+    with pytest.raises(ValueError, match='cannot be used as an output filename'):
+        sherlock.safe_filename_component(username)
 
 
 @pytest.mark.parametrize('cliargs', [

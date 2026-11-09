@@ -537,6 +537,13 @@ def handler(signal_received, frame):
     sys.exit(0)
 
 
+def safe_filename_component(username: str) -> str:
+    filename = os.path.basename(username.replace("\\", os.sep))
+    if filename in ("", ".", ".."):
+        raise ValueError(f"Username {username!r} cannot be used as an output filename.")
+    return filename
+
+
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
@@ -813,6 +820,13 @@ def main():
         else:
             all_usernames.append(username)
     for username in all_usernames:
+        output_username = username
+        if (args.output_txt and not args.output) or args.csv or args.xlsx:
+            try:
+                output_username = safe_filename_component(username)
+            except ValueError as error:
+                parser.error(str(error))
+
         results = sherlock(
             username,
             site_data,
@@ -828,9 +842,9 @@ def main():
             # The usernames results should be stored in a targeted folder.
             # If the folder doesn't exist, create it first
             os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
+            result_file = os.path.join(args.folderoutput, f"{output_username}.txt")
         else:
-            result_file = f"{username}.txt"
+            result_file = f"{output_username}.txt"
 
         if args.output_txt:
             with open(result_file, "w", encoding="utf-8") as file:
@@ -843,7 +857,7 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
+            result_file = f"{output_username}.csv"
             if args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
@@ -924,7 +938,7 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            DataFrame.to_excel(f"{output_username}.xlsx", sheet_name="sheet1", index=False)
 
         print()
     query_notify.finish()
