@@ -156,6 +156,11 @@ class SitesInformation:
                                         f"data file '{data_file_path}'."
                                         )
 
+        if not isinstance(site_data, dict):
+            raise ValueError(
+                f"Problem parsing json contents at '{data_file_path}': expected a JSON object."
+            )
+
         site_data.pop('$schema', None)
 
         if honor_exclusions:
