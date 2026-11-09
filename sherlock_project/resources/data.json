@@ -88,7 +88,10 @@
   },
   "AniWorld": {
     "errorMsg": "Dieses Profil ist nicht verf\u00fcgbar",
-    "errorType": "message",
+    "errorType": [
+      "message",
+      "status_code"
+    ],
     "url": "https://aniworld.to/user/profil/{}",
     "urlMain": "https://aniworld.to/",
     "username_claimed": "blue"
