@@ -38,6 +38,7 @@ from sherlock_project.__init__ import (
 
 from sherlock_project.result import QueryStatus
 from sherlock_project.result import QueryResult
+from sherlock_project.reporting import build_username_report, write_json_report
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
@@ -585,6 +586,11 @@ def main():
         help="Create the standard file for the modern Microsoft Excel spreadsheet (xlsx).",
     )
     parser.add_argument(
+        "--json-output",
+        metavar="PATH",
+        help="Write all usernames and query outcomes to a UTF-8 JSON report.",
+    )
+    parser.add_argument(
         "--site",
         action="append",
         metavar="SITE_NAME",
@@ -812,6 +818,7 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
+    json_reports = []
     for username in all_usernames:
         results = sherlock(
             username,
@@ -821,6 +828,9 @@ def main():
             proxy=args.proxy,
             timeout=args.timeout,
         )
+
+        if args.json_output:
+            json_reports.append(build_username_report(username, results))
 
         if args.output:
             result_file = args.output
@@ -928,6 +938,12 @@ def main():
 
         print()
     query_notify.finish()
+
+    if args.json_output:
+        try:
+            write_json_report(args.json_output, json_reports)
+        except OSError as error:
+            parser.exit(1, f"Could not write JSON report '{args.json_output}': {error}\n")
 
 
 if __name__ == "__main__":
