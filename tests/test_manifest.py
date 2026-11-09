@@ -1,7 +1,29 @@
 import os
 import json
+from unittest.mock import Mock
+
 import pytest
 from jsonschema import validate
+
+from sherlock_project.sites import SitesInformation
+
+
+@pytest.mark.parametrize("manifest", [[], None, "not a site list"])
+def test_reject_manifest_without_top_level_object(tmp_path, manifest):
+    filename = tmp_path / "sites.json"
+    filename.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ValueError, match=r"sites\.json.*expected a JSON object"):
+        SitesInformation(str(filename), honor_exclusions=False)
+
+
+def test_reject_remote_manifest_without_top_level_object(monkeypatch):
+    response = Mock(status_code=200)
+    response.json.return_value = []
+    monkeypatch.setattr("sherlock_project.sites.requests.get", Mock(return_value=response))
+
+    with pytest.raises(ValueError, match=r"sites\.json.*expected a JSON object"):
+        SitesInformation("https://example.com/sites.json", honor_exclusions=False)
 
 def test_validate_manifest_against_local_schema():
     """Ensures that the manifest matches the local schema, for situations where the schema is being changed."""
