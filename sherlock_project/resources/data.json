@@ -615,6 +615,13 @@
     "urlMain": "https://cracked.ax/",
     "username_claimed": "Blue"
   },
+  "crates.io": {
+    "errorType": "status_code",
+    "url": "https://crates.io/users/{}",
+    "urlMain": "https://crates.io/",
+    "urlProbe": "https://crates.io/api/v1/users/{}",
+    "username_claimed": "dtolnay"
+  },
   "Credly": {
     "errorType": "status_code",
     "url": "https://www.credly.com/users/{}",
