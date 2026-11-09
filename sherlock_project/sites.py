@@ -176,6 +176,12 @@ class SitesInformation:
                         except KeyError:
                             pass
 
+                else:
+                    # A non-200 response (e.g. 403/404/503) does not raise,
+                    # so warn here just like the except below does.
+                    print("Warning: Could not load exclusions, continuing without them.")
+                    honor_exclusions = False
+
             except Exception:
                 # If there was any problem loading the exclusions, just continue without them
                 print("Warning: Could not load exclusions, continuing without them.")
