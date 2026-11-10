@@ -41,7 +41,12 @@ from sherlock_project.result import QueryResult
 from sherlock_project.notify import QueryNotify
 from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
-from colorama import init
+from sherlock_project.manual_checks import (
+    MANUAL_CHECK_SITES,
+    build_manual_check_links,
+    select_manual_check_sites,
+)
+from colorama import Fore, Style, init
 from argparse import ArgumentTypeError
 
 
@@ -537,6 +542,65 @@ def handler(signal_received, frame):
     sys.exit(0)
 
 
+def expand_usernames(usernames):
+    """Expand {?} wildcards in a list of usernames."""
+    all_usernames = []
+    for username in usernames:
+        if check_for_parameter(username):
+            all_usernames.extend(multiple_usernames(username))
+        else:
+            all_usernames.append(username)
+    return all_usernames
+
+
+def run_manual_check(args) -> int:
+    """Print unverified manual-check search links. Sends no requests.
+
+    Keyword Arguments:
+    args                   -- Parsed command line arguments.
+
+    Return Value:
+    Process exit code.
+    """
+    if args.no_color:
+        init(strip=True, convert=False)
+    else:
+        init(autoreset=True)
+
+    sites, unknown = select_manual_check_sites(args.site_list)
+    if unknown:
+        print(
+            "Error: Sites not available for --manual-check: "
+            f"{', '.join(repr(name) for name in unknown)}. "
+            f"Supported: {', '.join(MANUAL_CHECK_SITES)}."
+        )
+    if not sites:
+        return 1
+
+    if args.output or args.folderoutput or args.output_txt or args.csv or args.xlsx:
+        print("Note: --manual-check links are unverified and are not written to report files.")
+
+    for username in expand_usernames(args.username):
+        print(Style.BRIGHT + Fore.GREEN + "[" +
+              Fore.YELLOW + "*" +
+              Fore.GREEN + "] Manual check links for" +
+              Fore.WHITE + f" {username}" +
+              Fore.GREEN + " (unverified):")
+        print()
+        for link in build_manual_check_links(username, sites):
+            print(Style.BRIGHT + Fore.WHITE + "[" +
+                  Fore.YELLOW + "?" +
+                  Fore.WHITE + "]" +
+                  Fore.GREEN + f" {link.site_name}: " +
+                  Style.RESET_ALL + link.url)
+            print(f"    {link.instructions}")
+        print()
+
+    print("These links are search pages, not detected accounts. "
+          "Confirm the exact handle on a candidate profile before relying on a match.")
+    return 0
+
+
 def main():
     parser = ArgumentParser(
         formatter_class=RawDescriptionHelpFormatter,
@@ -693,10 +757,26 @@ def main():
         help="Ignore upstream exclusions (may return more false positives)",
     )
 
+    parser.add_argument(
+        "--manual-check",
+        action="store_true",
+        dest="manual_check",
+        default=False,
+        help=(
+            "Print unverified user-search links for sites that cannot be checked "
+            f"automatically ({', '.join(MANUAL_CHECK_SITES)}) and exit. "
+            "Sends no requests; links are not counted as results or written to reports."
+        ),
+    )
+
     args = parser.parse_args()
 
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
+
+    if args.manual_check:
+        # Runs fully offline: skip the update check and manifest download.
+        sys.exit(run_manual_check(args))
 
     # Check for newer version of Sherlock. If it exists, let the user know about it
     try:
@@ -805,14 +885,7 @@ def main():
     )
 
     # Run report on all specified users.
-    all_usernames = []
-    for username in args.username:
-        if check_for_parameter(username):
-            for name in multiple_usernames(username):
-                all_usernames.append(name)
-        else:
-            all_usernames.append(username)
-    for username in all_usernames:
+    for username in expand_usernames(args.username):
         results = sherlock(
             username,
             site_data,

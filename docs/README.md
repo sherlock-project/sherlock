@@ -63,7 +63,7 @@ Accounts found will be stored in an individual text file with the corresponding 
 $ sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT] [--output OUTPUT] [--csv] [--xlsx] [--site SITE_NAME] [--proxy PROXY_URL] [--dump-response]
                 [--json JSON_FILE] [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color] [--browse] [--local] [--nsfw] [--txt] [--ignore-exclusions]
-                USERNAMES [USERNAMES ...]
+                [--manual-check] USERNAMES [USERNAMES ...]
 
 Sherlock: Find Usernames Across Social Networks (Version 0.16.0)
 
@@ -96,6 +96,8 @@ options:
   --nsfw                Include checking of NSFW sites from default list.
   --txt                 Enable creation of a txt file
   --ignore-exclusions   Ignore upstream exclusions (may return more false positives)
+  --manual-check        Print unverified user-search links for sites that cannot be checked automatically (Douyin, Xiaohongshu) and exit.
+                        Sends no requests; links are not counted as results or written to reports.
 ```
 
 ## Credits
