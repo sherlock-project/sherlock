@@ -2844,6 +2844,9 @@
   },
   "YouTube": {
     "errorType": "status_code",
+    "headers": {
+    "Cookie": "SOCS=CAI; CONSENT=YES+1"
+    },
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
