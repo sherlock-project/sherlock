@@ -169,6 +169,26 @@ def multiple_usernames(username):
     return allUsernames
 
 
+def safe_result_filename(username: str) -> str:
+    """Reduce a username to a single filename component.
+
+    Result files are named after the username, so a username containing
+    path separators (for example "../poc" or an absolute path) would
+    otherwise make the result file escape the output folder. Strip any
+    directory portion, treating both "/" and "\\" as separators on every
+    platform so the result is the same across operating systems.
+
+    Raises ValueError if nothing usable remains, for example when the
+    username is "..", ".", or ends in a separator.
+    """
+    filename = username.replace("\\", "/").split("/")[-1]
+    if filename in ("", ".", "..") or "\x00" in filename:
+        raise ValueError(
+            f"username {username!r} cannot be used to name a result file"
+        )
+    return filename
+
+
 def sherlock(
     username: str,
     site_data: dict[str, dict[str, str]],
@@ -812,6 +832,22 @@ def main():
                 all_usernames.append(name)
         else:
             all_usernames.append(username)
+
+    # Result files are named after the username, except the text report
+    # when --output names it directly. When a username does become a
+    # filename, every username must reduce to a safe filename before any
+    # searching or writing happens.
+    username_names_a_file = (
+        (args.output_txt and not args.output) or args.csv or args.xlsx
+    )
+    if username_names_a_file:
+        for username in all_usernames:
+            try:
+                safe_result_filename(username)
+            except ValueError as error:
+                print(f"Error: {error}.")
+                sys.exit(1)
+
     for username in all_usernames:
         results = sherlock(
             username,
@@ -822,15 +858,26 @@ def main():
             timeout=args.timeout,
         )
 
+        # Base name for this username's result files, reduced to a single
+        # safe component when the username names a file (validated above,
+        # so this cannot raise there). Otherwise the value is unused, and
+        # the username is kept as-is.
+        if username_names_a_file:
+            result_basename = safe_result_filename(username)
+        else:
+            result_basename = username
+
         if args.output:
             result_file = args.output
         elif args.folderoutput:
             # The usernames results should be stored in a targeted folder.
             # If the folder doesn't exist, create it first
             os.makedirs(args.folderoutput, exist_ok=True)
-            result_file = os.path.join(args.folderoutput, f"{username}.txt")
+            result_file = os.path.join(
+                args.folderoutput, f"{result_basename}.txt"
+            )
         else:
-            result_file = f"{username}.txt"
+            result_file = f"{result_basename}.txt"
 
         if args.output_txt:
             with open(result_file, "w", encoding="utf-8") as file:
@@ -843,7 +890,7 @@ def main():
                 file.write(f"Total Websites Username Detected On : {exists_counter}\n")
 
         if args.csv:
-            result_file = f"{username}.csv"
+            result_file = f"{result_basename}.csv"
             if args.folderoutput:
                 # The usernames results should be stored in a targeted folder.
                 # If the folder doesn't exist, create it first
@@ -924,7 +971,9 @@ def main():
                     "response_time_s": response_time_s,
                 }
             )
-            DataFrame.to_excel(f"{username}.xlsx", sheet_name="sheet1", index=False)
+            DataFrame.to_excel(
+                f"{result_basename}.xlsx", sheet_name="sheet1", index=False
+            )
 
         print()
     query_notify.finish()
