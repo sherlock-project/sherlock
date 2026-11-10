@@ -1789,13 +1789,6 @@
     "urlMain": "https://outgress.com/",
     "username_claimed": "pylapp"
   },
-  "PCGamer": {
-    "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
-    "errorType": "message",
-    "url": "https://forums.pcgamer.com/members/?username={}",
-    "urlMain": "https://pcgamer.com",
-    "username_claimed": "admin"
-  },
   "PSNProfiles.com": {
     "errorType": "response_url",
     "errorUrl": "https://psnprofiles.com/?psnId={}",
