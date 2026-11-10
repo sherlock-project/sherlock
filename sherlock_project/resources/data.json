@@ -1820,6 +1820,7 @@
   "Patched": {
     "errorMsg": "The member you specified is either invalid or doesn't exist.",
     "errorType": "message",
+    "regexCheck": "^(?!.*\\.).*$",
     "url": "https://patched.sh/User/{}",
     "urlMain": "https://patched.sh/",
     "username_claimed": "blue"
