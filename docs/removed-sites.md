@@ -1995,3 +1995,14 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## Houzz
+__2026-11-11 :__ All usernames are reported as claimed. Houzz answers every request with a bot-check page ("Client Challenge", HTTP 200), so claimed and unclaimed usernames return identical responses.
+```json
+  "Houzz": {
+    "errorType": "status_code",
+    "url": "https://houzz.com/user/{}",
+    "urlMain": "https://houzz.com/",
+    "username_claimed": "blue"
+  },
+```
