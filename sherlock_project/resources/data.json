@@ -1194,12 +1194,6 @@
     "urlProbe": "https://www.holopin.io/api/auth/username",
     "username_claimed": "red"
   },
-  "Houzz": {
-    "errorType": "status_code",
-    "url": "https://houzz.com/user/{}",
-    "urlMain": "https://houzz.com/",
-    "username_claimed": "blue"
-  },
   "HubPages": {
     "errorType": "status_code",
     "url": "https://hubpages.com/@{}",
