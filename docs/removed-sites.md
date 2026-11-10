@@ -1995,3 +1995,15 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## PCGamer
+__2026-11-10 :__ Every profile request is redirected to a bot-challenge page (/.stile/challenge, HTTP 200) regardless of whether the username exists, so the errorMsg never appears and all usernames are reported as claimed
+```json
+  "PCGamer": {
+    "errorMsg": "The specified member cannot be found. Please enter a member's entire name.",
+    "errorType": "message",
+    "url": "https://forums.pcgamer.com/members/?username={}",
+    "urlMain": "https://pcgamer.com",
+    "username_claimed": "admin"
+  },
+```
