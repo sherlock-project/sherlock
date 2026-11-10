@@ -833,10 +833,14 @@ def main():
         else:
             all_usernames.append(username)
 
-    # Result files are named after the username, so when a file output
-    # mode is requested, every username must reduce to a safe filename
-    # before any searching or writing happens.
-    if args.output_txt or args.csv or args.xlsx:
+    # Result files are named after the username, except the text report
+    # when --output names it directly. When a username does become a
+    # filename, every username must reduce to a safe filename before any
+    # searching or writing happens.
+    username_names_a_file = (
+        (args.output_txt and not args.output) or args.csv or args.xlsx
+    )
+    if username_names_a_file:
         for username in all_usernames:
             try:
                 safe_result_filename(username)
@@ -855,10 +859,10 @@ def main():
         )
 
         # Base name for this username's result files, reduced to a single
-        # safe component when a file output mode is on (validated above,
-        # so this cannot raise there). When no file is written the value
-        # is unused, and the username is kept as-is.
-        if args.output_txt or args.csv or args.xlsx:
+        # safe component when the username names a file (validated above,
+        # so this cannot raise there). Otherwise the value is unused, and
+        # the username is kept as-is.
+        if username_names_a_file:
             result_basename = safe_result_filename(username)
         else:
             result_basename = username

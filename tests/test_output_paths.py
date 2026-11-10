@@ -61,7 +61,7 @@ def _fake_sherlock(username, site_data, query_notify, **kwargs):
     }
 
 
-def _run_main(monkeypatch, tmp_path, username, extra_args):
+def _run_main(monkeypatch, tmp_path, username, extra_args, use_folder=True):
     """Run main() offline: search stubbed, update check forced to fail."""
     workdir = tmp_path / "work"
     workdir.mkdir()
@@ -73,18 +73,11 @@ def _run_main(monkeypatch, tmp_path, username, extra_args):
     monkeypatch.setattr(requests, "get", offline_get)
     monkeypatch.setattr(sherlock_module, "sherlock", _fake_sherlock)
     monkeypatch.chdir(workdir)
-    monkeypatch.setattr(
-        sys,
-        "argv",
-        [
-            "sherlock",
-            username,
-            "--folderoutput",
-            str(outdir),
-            "--local",
-            *extra_args,
-        ],
-    )
+    argv = ["sherlock", username]
+    if use_folder:
+        argv += ["--folderoutput", str(outdir)]
+    argv += ["--local", *extra_args]
+    monkeypatch.setattr(sys, "argv", argv)
     sherlock_module.main()
     return workdir, outdir
 
@@ -144,4 +137,36 @@ def test_dotdot_username_without_file_output_still_searches(
     # No --txt/--csv/--xlsx: nothing is written, so the run must not be
     # rejected just because the username cannot name a result file.
     _run_main(monkeypatch, tmp_path, "..", [])
+    assert [p for p in tmp_path.rglob("*") if p.is_file()] == []
+
+
+def test_explicit_output_path_skips_username_validation(
+    monkeypatch, tmp_path
+):
+    # --output names the text report itself, so the username never
+    # becomes a filename and a separator in it must not reject the run.
+    workdir, _ = _run_main(
+        monkeypatch,
+        tmp_path,
+        "foo/",
+        ["--txt", "--output", "safe.txt"],
+        use_folder=False,
+    )
+    assert (workdir / "safe.txt").is_file()
+
+
+def test_csv_still_validates_username_with_explicit_output(
+    monkeypatch, tmp_path
+):
+    # The csv report is still named after the username even when
+    # --output is given, so an unusable username is still rejected.
+    with pytest.raises(SystemExit) as excinfo:
+        _run_main(
+            monkeypatch,
+            tmp_path,
+            "..",
+            ["--csv", "--output", "safe.txt"],
+            use_folder=False,
+        )
+    assert excinfo.value.code == 1
     assert [p for p in tmp_path.rglob("*") if p.is_file()] == []
