@@ -939,13 +939,6 @@
     "urlMain": "https://gitlab.gnome.org/",
     "username_claimed": "adam"
   },
-  "GaiaOnline": {
-    "errorMsg": "No user ID specified or user does not exist",
-    "errorType": "message",
-    "url": "https://www.gaiaonline.com/profiles/{}",
-    "urlMain": "https://www.gaiaonline.com/",
-    "username_claimed": "adam"
-  },
   "Gamespot": {
     "errorType": "status_code",
     "url": "https://www.gamespot.com/profile/{}/",
