@@ -1995,3 +1995,15 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## GaiaOnline
+__2026-11-11 :__ Every profile request returns an AWS WAF challenge (HTTP 202, empty body) regardless of whether the username exists, so the errorMsg never appears and all usernames are reported as claimed
+```json
+  "GaiaOnline": {
+    "errorMsg": "No user ID specified or user does not exist",
+    "errorType": "message",
+    "url": "https://www.gaiaonline.com/profiles/{}",
+    "urlMain": "https://www.gaiaonline.com/",
+    "username_claimed": "adam"
+  },
+```
