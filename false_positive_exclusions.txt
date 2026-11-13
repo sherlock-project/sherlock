@@ -1,3 +1,4 @@
+APClips
 Airliners
 Apple Developer
 Apple Discussions
@@ -14,7 +15,6 @@ Hashnode
 Hubski
 Ifunny
 Instapaper
-Minecraft
 ObservableHQ
 Odysee
 PCGamer
@@ -43,3 +43,4 @@ mercadolivre
 opennet
 phpRU
 social.tchncs.de
+xHamster
