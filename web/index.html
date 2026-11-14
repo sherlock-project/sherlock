@@ -65,6 +65,9 @@
   .Unknown, .WAF, .Illegal { color: var(--err); background: var(--err-bg); }
   .empty { text-align: center; color: var(--muted); padding: 32px; }
   .error { color: var(--err); margin-top: 12px; }
+  .notice { border-color: var(--err); margin-bottom: 16px; }
+  .notice p, .notice ol { margin: 8px 0; }
+  code { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; font-size: 13px; }
   @media (max-width: 600px) { th.time, td.num { display: none; } }
 </style>
 </head>
@@ -72,6 +75,19 @@
 <main>
   <h1>Sherlock Web</h1>
   <p class="sub">Tìm tài khoản theo username trên hàng trăm mạng xã hội và trang web.</p>
+
+  <div class="panel notice" id="notice" hidden>
+    <b>Chưa kết nối được tới server Sherlock.</b>
+    <p>Trang này cần server chạy trên máy bạn. Cách chạy:</p>
+    <ol>
+      <li>Windows: nhấp đúp file <code>run_web.bat</code> trong thư mục dự án.<br>
+          macOS / Linux: mở Terminal trong thư mục dự án và chạy <code>sh run_web.sh</code>.</li>
+      <li>Đợi cửa sổ báo <code>Sherlock Web đang chạy tại http://127.0.0.1:8000</code> (giữ cửa sổ đó mở).</li>
+      <li>Trình duyệt sẽ tự mở trang. Nếu không, vào <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</li>
+    </ol>
+    <p class="hint">Cần cài Python 3.9 trở lên (python.org). Đang thử kết nối tới: <code id="apiShown"></code></p>
+    <button type="button" id="retry">Thử kết nối lại</button>
+  </div>
 
   <form class="panel" id="form">
     <div class="row">
@@ -125,6 +141,8 @@
 
 <script>
 const $ = (id) => document.getElementById(id);
+// Khi mở trực tiếp file index.html (file://) thì gọi tới server mặc định trên máy.
+const API = location.protocol.startsWith("http") ? "" : "http://127.0.0.1:8000";
 const LABEL = { Claimed: "Tìm thấy", Available: "Không có", Unknown: "Lỗi", WAF: "Bị chặn (WAF)", Illegal: "Username không hợp lệ" };
 let results = [], filter = "found", source = null, total = 0, allSites = [];
 const selected = new Set();
@@ -177,7 +195,7 @@ $("form").addEventListener("submit", (e) => {
   const params = new URLSearchParams({ username, timeout: $("timeout").value || 30, nsfw: $("nsfw").checked ? 1 : 0 });
   if (selected.size) params.set("sites", [...selected].join(","));
   setRunning(true);
-  source = new EventSource("/api/search?" + params);
+  source = new EventSource(API + "/api/search?" + params);
   source.onmessage = (ev) => {
     const m = JSON.parse(ev.data);
     if (m.type === "start") { total = m.total; schedule(); }
@@ -186,8 +204,8 @@ $("form").addEventListener("submit", (e) => {
     else if (m.type === "done") { stop(); schedule(); }
   };
   source.onerror = () => {
-    if (source && results.length < total) showError("Mất kết nối tới server. Hãy kiểm tra server còn chạy không.");
-    else if (source && !total) showError("Không gọi được server. Username có thể không hợp lệ, hoặc server chưa chạy.");
+    if (source && results.length < total) showError("Mất kết nối tới server. Hãy kiểm tra cửa sổ server còn chạy không.");
+    else if (source && !total) { showError("Không gọi được server. Username có thể không hợp lệ, hoặc server chưa chạy."); loadSites(); }
     stop();
   };
 });
@@ -232,11 +250,17 @@ $("clearSel").addEventListener("click", () => { selected.clear(); renderSites();
 
 async function loadSites() {
   try {
-    const r = await fetch("/api/sites?nsfw=" + ($("nsfw").checked ? 1 : 0));
+    const r = await fetch(API + "/api/sites?nsfw=" + ($("nsfw").checked ? 1 : 0));
     allSites = await r.json();
+    $("notice").hidden = true;
     renderSites();
-  } catch { $("siteList").innerHTML = '<span class="hint">Không tải được danh sách trang.</span>'; }
+  } catch {
+    $("apiShown").textContent = (API || location.origin);
+    $("notice").hidden = false;
+    $("siteList").innerHTML = '<span class="hint">Không tải được danh sách trang.</span>';
+  }
 }
+$("retry").addEventListener("click", loadSites);
 $("nsfw").addEventListener("change", loadSites);
 loadSites();
 </script>
