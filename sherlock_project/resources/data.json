@@ -3134,6 +3134,7 @@
   "omg.lol": {
     "errorMsg": "\"available\": true",
     "errorType": "message",
+    "regexCheck": "^[^\\W_](?:[^\\W_]|-){0,61}[^\\W_]$",
     "url": "https://{}.omg.lol",
     "urlMain": "https://home.omg.lol",
     "urlProbe": "https://api.omg.lol/address/{}/availability",
