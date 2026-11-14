@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sherlock Web</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #1b1f24; --muted: #5f6b7a;
+    --border: #dfe3e8; --accent: #2f5bd3; --accent-text: #ffffff;
+    --found: #1a7f37; --found-bg: #e6f4ea; --miss: #6e7781; --err: #b35900; --err-bg: #fff4e5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216; --panel: #171b21; --text: #e6e9ee; --muted: #9aa5b1;
+      --border: #2a313a; --accent: #6b8fff; --accent-text: #0f1216;
+      --found: #4ac26b; --found-bg: #13261a; --miss: #8b949e; --err: #f0a14a; --err-bg: #2b1f10;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  input[type=text], input[type=number], input[type=search] {
+    font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 12px; min-width: 0;
+  }
+  #username { flex: 1 1 240px; }
+  button { font: inherit; border-radius: 8px; padding: 9px 16px; cursor: pointer;
+           border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+  button:disabled { opacity: .5; cursor: default; }
+  details { margin-top: 12px; }
+  summary { cursor: pointer; color: var(--muted); }
+  .opts { display: grid; gap: 12px; margin-top: 12px; }
+  .opts label { display: flex; align-items: center; gap: 8px; }
+  #siteFilter { width: 100%; }
+  #siteList { max-height: 220px; overflow: auto; border: 1px solid var(--border); border-radius: 8px;
+              padding: 6px 10px; columns: 3 180px; font-size: 14px; }
+  #siteList label { display: flex; gap: 6px; break-inside: avoid; }
+  .hint { color: var(--muted); font-size: 13px; }
+  .progress { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin: 16px 0 8px; }
+  .progress > div { height: 100%; width: 0; background: var(--accent); transition: width .15s; }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; color: var(--muted); font-size: 14px; }
+  .stats b { color: var(--text); }
+  .tabs { display: flex; gap: 6px; margin: 16px 0 8px; flex-wrap: wrap; }
+  .tabs button { padding: 5px 12px; font-size: 14px; }
+  .tabs button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .spacer { flex: 1; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel);
+          border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td.url { word-break: break-all; }
+  td.url a { color: var(--accent); }
+  td.num { text-align: right; color: var(--muted); white-space: nowrap; }
+  .badge { font-size: 12px; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+  .Claimed { color: var(--found); background: var(--found-bg); }
+  .Available { color: var(--miss); border: 1px solid var(--border); }
+  .Unknown, .WAF, .Illegal { color: var(--err); background: var(--err-bg); }
+  .empty { text-align: center; color: var(--muted); padding: 32px; }
+  .error { color: var(--err); margin-top: 12px; }
+  @media (max-width: 600px) { th.time, td.num { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Sherlock Web</h1>
+  <p class="sub">Tìm tài khoản theo username trên hàng trăm mạng xã hội và trang web.</p>
+
+  <form class="panel" id="form">
+    <div class="row">
+      <input type="text" id="username" placeholder="Nhập username, ví dụ: johndoe" autocomplete="off" required>
+      <button class="primary" id="go" type="submit">Tìm kiếm</button>
+      <button id="stop" type="button" disabled>Dừng</button>
+    </div>
+    <details>
+      <summary>Tùy chọn nâng cao</summary>
+      <div class="opts">
+        <label>Thời gian chờ mỗi trang (giây)
+          <input type="number" id="timeout" value="30" min="1" max="120" style="width:90px">
+        </label>
+        <label><input type="checkbox" id="nsfw"> Bao gồm trang NSFW</label>
+        <div>
+          <div class="row" style="align-items:center;margin-bottom:6px">
+            <span>Chỉ tìm trên các trang đã chọn <span class="hint" id="selCount">(đang chọn: tất cả)</span></span>
+            <span class="spacer"></span>
+            <button type="button" id="clearSel">Bỏ chọn</button>
+          </div>
+          <input type="search" id="siteFilter" placeholder="Lọc tên trang…">
+          <div id="siteList" style="margin-top:6px"><span class="hint">Đang tải danh sách trang…</span></div>
+        </div>
+      </div>
+    </details>
+    <div class="error" id="error" hidden></div>
+  </form>
+
+  <div class="progress"><div id="bar"></div></div>
+  <div class="stats">
+    <span>Đã kiểm tra <b id="done">0</b>/<b id="total">0</b></span>
+    <span>Tìm thấy <b id="nFound">0</b></span>
+    <span>Không có <b id="nMiss">0</b></span>
+    <span>Lỗi <b id="nErr">0</b></span>
+    <span class="spacer"></span>
+    <button type="button" id="csv" disabled>Xuất CSV</button>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button type="button" data-f="found" class="active">Tìm thấy</button>
+    <button type="button" data-f="all">Tất cả</button>
+    <button type="button" data-f="miss">Không có</button>
+    <button type="button" data-f="err">Lỗi</button>
+  </div>
+
+  <table>
+    <thead><tr><th>Trang</th><th>Liên kết</th><th>Trạng thái</th><th class="time">Thời gian</th></tr></thead>
+    <tbody id="rows"><tr><td colspan="4" class="empty">Chưa có kết quả.</td></tr></tbody>
+  </table>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const LABEL = { Claimed: "Tìm thấy", Available: "Không có", Unknown: "Lỗi", WAF: "Bị chặn (WAF)", Illegal: "Username không hợp lệ" };
+let results = [], filter = "found", source = null, total = 0, allSites = [];
+const selected = new Set();
+
+function group(s) { return s === "Claimed" ? "found" : s === "Available" ? "miss" : "err"; }
+function esc(t) { return String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+
+function render() {
+  const list = results.filter(r => filter === "all" || group(r.status) === filter)
+                      .sort((a, b) => a.site.localeCompare(b.site));
+  $("rows").innerHTML = list.length ? list.map(r => `
+    <tr>
+      <td>${esc(r.site)}</td>
+      <td class="url">${r.status === "Claimed" ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.url)}</a>` : esc(r.url)}</td>
+      <td><span class="badge ${esc(r.status)}" title="${esc(r.context)}">${esc(LABEL[r.status] || r.status)}</span>${r.context && r.status !== "Claimed" && r.status !== "Available" ? `<div class="hint">${esc(r.context)}</div>` : ""}</td>
+      <td class="num">${r.time != null ? r.time.toFixed(2) + " s" : ""}</td>
+    </tr>`).join("")
+    : `<tr><td colspan="4" class="empty">${results.length ? "Không có kết quả trong mục này." : "Chưa có kết quả."}</td></tr>`;
+}
+
+function stats() {
+  const c = { found: 0, miss: 0, err: 0 };
+  results.forEach(r => c[group(r.status)]++);
+  $("done").textContent = results.length; $("total").textContent = total;
+  $("nFound").textContent = c.found; $("nMiss").textContent = c.miss; $("nErr").textContent = c.err;
+  $("bar").style.width = total ? (100 * results.length / total) + "%" : "0";
+}
+
+let renderPending = false;
+function schedule() {
+  if (renderPending) return;
+  renderPending = true;
+  requestAnimationFrame(() => { renderPending = false; stats(); render(); });
+}
+
+function setRunning(on) {
+  $("go").disabled = on; $("stop").disabled = !on; $("username").disabled = on;
+  $("csv").disabled = on || !results.length;
+}
+
+function stop() { if (source) { source.close(); source = null; } setRunning(false); }
+
+$("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const username = $("username").value.trim();
+  $("error").hidden = true;
+  if (!username || /\s/.test(username)) { showError("Username không được rỗng hoặc chứa khoảng trắng."); return; }
+  stop();
+  results = []; total = 0; schedule();
+  const params = new URLSearchParams({ username, timeout: $("timeout").value || 30, nsfw: $("nsfw").checked ? 1 : 0 });
+  if (selected.size) params.set("sites", [...selected].join(","));
+  setRunning(true);
+  source = new EventSource("/api/search?" + params);
+  source.onmessage = (ev) => {
+    const m = JSON.parse(ev.data);
+    if (m.type === "start") { total = m.total; schedule(); }
+    else if (m.type === "result") { results.push(m); schedule(); }
+    else if (m.type === "error") { showError(m.message); }
+    else if (m.type === "done") { stop(); schedule(); }
+  };
+  source.onerror = () => {
+    if (source && results.length < total) showError("Mất kết nối tới server. Hãy kiểm tra server còn chạy không.");
+    else if (source && !total) showError("Không gọi được server. Username có thể không hợp lệ, hoặc server chưa chạy.");
+    stop();
+  };
+});
+$("stop").addEventListener("click", stop);
+
+function showError(msg) { $("error").textContent = msg; $("error").hidden = false; }
+
+$("tabs").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  filter = b.dataset.f;
+  [...$("tabs").children].forEach(x => x.classList.toggle("active", x === b));
+  render();
+});
+
+$("csv").addEventListener("click", () => {
+  const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const lines = [["site", "url", "status", "time_s", "context"].join(",")]
+    .concat(results.map(r => [r.site, r.url, r.status, r.time ?? "", r.context ?? ""].map(q).join(",")));
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${$("username").value.trim() || "sherlock"}.csv`;
+  a.click(); URL.revokeObjectURL(a.href);
+});
+
+// Danh sách trang để chọn lọc
+function renderSites() {
+  const q = $("siteFilter").value.trim().toLowerCase();
+  const shown = allSites.filter(s => !q || s.name.toLowerCase().includes(q));
+  $("siteList").innerHTML = shown.map(s =>
+    `<label><input type="checkbox" value="${esc(s.name)}" ${selected.has(s.name) ? "checked" : ""}>${esc(s.name)}</label>`
+  ).join("") || '<span class="hint">Không có trang nào khớp.</span>';
+  $("selCount").textContent = selected.size ? `(đang chọn: ${selected.size})` : "(đang chọn: tất cả)";
+}
+$("siteList").addEventListener("change", (e) => {
+  if (e.target.type !== "checkbox") return;
+  e.target.checked ? selected.add(e.target.value) : selected.delete(e.target.value);
+  renderSites();
+});
+$("siteFilter").addEventListener("input", renderSites);
+$("clearSel").addEventListener("click", () => { selected.clear(); renderSites(); });
+
+async function loadSites() {
+  try {
+    const r = await fetch("/api/sites?nsfw=" + ($("nsfw").checked ? 1 : 0));
+    allSites = await r.json();
+    renderSites();
+  } catch { $("siteList").innerHTML = '<span class="hint">Không tải được danh sách trang.</span>'; }
+}
+$("nsfw").addEventListener("change", loadSites);
+loadSites();
+</script>
+</body>
+</html>
