@@ -2092,6 +2092,13 @@
     "urlMain": "https://replit.com/",
     "username_claimed": "blue"
   },
+  "Replicate": {
+      "errorType": "status_code",
+      "url": "https://replicate.com/{}",
+      "urlMain": "https://replicate.com/",
+      "username_claimed": "meta",
+      "username_unclaimed": "noonewouldeverusethis7"
+  },
   "ResearchGate": {
     "errorType": "response_url",
     "errorUrl": "https://www.researchgate.net/directory/profiles",
