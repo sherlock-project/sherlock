@@ -467,6 +467,13 @@
     "urlMain": "https://choice.community/",
     "username_claimed": "gordon"
   },
+  "Civitai": {
+      "errorType": "status_code",
+      "url": "https://civitai.com/user/{}",
+      "urlMain": "https://civitai.com/",
+      "username_claimed": "civitai",
+      "username_unclaimed": "noonewouldeverusethis7"
+  },
   "Clapper": {
     "errorType": "status_code",
     "url": "https://clapperapp.com/{}",
