@@ -2551,7 +2551,7 @@
   },
   "Tuna": {
     "errorType": "status_code",
-    "regexCheck": "^[a-z0-9]{4,40}$",
+    "regexCheck": "^[a-z0-9]{3,40}$",
     "url": "https://tuna.voicemod.net/user/{}",
     "urlMain": "https://tuna.voicemod.net/",
     "username_claimed": "bob"

@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import pytest
 from jsonschema import validate
@@ -37,3 +38,11 @@ def test_validate_manifest_against_remote_schema(remote_schema):
 ])
 def test_site_list_iterability (sites_info, target_name, target_expected_err_type):
     assert sites_info[target_name]['errorType'] == target_expected_err_type
+
+def test_claimed_usernames_match_regex_check(sites_info):
+    """A site's username_claimed must pass its own regexCheck, or it is never actually probed."""
+    mismatched = [
+        name for name, site in sites_info.items()
+        if "regexCheck" in site and re.search(site["regexCheck"], site["username_claimed"]) is None
+    ]
+    assert mismatched == []
