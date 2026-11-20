@@ -2,6 +2,8 @@ import pytest
 from sherlock_project import sherlock
 from sherlock_interactives import Interactives
 from sherlock_interactives import InteractivesSubprocessError
+from argparse import ArgumentTypeError
+from sherlock_project.sherlock import timeout_check
 
 def test_remove_nsfw(sites_obj):
     nsfw_target: str = 'Xvideos'
@@ -41,3 +43,16 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+def test_timeout_check_valid():
+    assert timeout_check("5") == 5.0
+    assert timeout_check("0.5") == 0.5
+
+
+@pytest.mark.parametrize(
+    "invalid_value",
+    ["0", "-1", "inf", "-inf", "nan", "NaN", "Infinity", "-Infinity"],
+)
+def test_timeout_check_invalid(invalid_value):
+    with pytest.raises(ArgumentTypeError):
+        timeout_check(invalid_value)
