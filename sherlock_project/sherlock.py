@@ -43,6 +43,7 @@ from sherlock_project.notify import QueryNotifyPrint
 from sherlock_project.sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
+import math
 
 
 class SherlockFuturesSession(FuturesSession):
@@ -521,9 +522,9 @@ def timeout_check(value):
 
     float_value = float(value)
 
-    if float_value <= 0:
+    if not math.isfinite(float_value) or float_value <= 0:
         raise ArgumentTypeError(
-            f"Invalid timeout value: {value}. Timeout must be a positive number."
+            f"Invalid timeout value: {value}. Timeout must be a positive finite number."
         )
 
     return float_value
