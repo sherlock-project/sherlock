@@ -64,7 +64,7 @@
         "errorUrl": { "type": "string" },
         "response_url": { "type": "string" }
       },
-      "dependencies": {
+      "dependentSchemas": {
         "errorMsg": {
           "oneOf": [
             { "properties": { "errorType": { "const": "message" } } },
