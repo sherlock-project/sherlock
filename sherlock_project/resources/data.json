@@ -1280,10 +1280,13 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorType": "status_code",
-    "url": "https://instagram.com/{}",
-    "urlMain": "https://instagram.com/",
-    "urlProbe": "https://imginn.com/{}",
+    "errorMsg": "<title>Instagram</title>\n",
+    "errorType": "message",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "url": "https://www.instagram.com/{}/",
+    "urlMain": "https://www.instagram.com/",
     "username_claimed": "instagram"
   },
   "Instapaper": {
@@ -2843,7 +2846,8 @@
     "username_claimed": "blue"
   },
   "YouTube": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "<title>404 Not Found</title>",
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
