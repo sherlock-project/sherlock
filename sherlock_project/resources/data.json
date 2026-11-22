@@ -1280,7 +1280,7 @@
     "username_claimed": "blue"
   },
   "Instagram": {
-    "errorMsg": "<title>Instagram</title>",
+    "errorMsg": "<title>Instagram</title>\n",
     "errorType": "message",
     "headers": {
       "User-Agent": "Mozilla/5.0"
@@ -2846,7 +2846,8 @@
     "username_claimed": "blue"
   },
   "YouTube": {
-    "errorType": "status_code",
+    "errorType": "message",
+    "errorMsg": "<title>404 Not Found</title>",
     "url": "https://www.youtube.com/@{}",
     "urlMain": "https://www.youtube.com/",
     "username_claimed": "youtube"
