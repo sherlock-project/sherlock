@@ -25,6 +25,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
 from time import monotonic
 from typing import Optional
+from urllib.parse import quote, urlsplit
 
 import requests
 from requests_futures.sessions import FuturesSession
@@ -142,6 +143,32 @@ def get_response(request_future, error_type, social_network):
     return response, error_context, exception_text
 
 
+# Characters allowed verbatim in a URL path segment (RFC 3986 pchar) and in a
+# query value (pchar plus "/"), minus the ones that change how the URL is
+# parsed: "#" starts a fragment, "%" starts an escape, "?" starts a query,
+# "/" starts a new path segment, and in a query "&", "=" and "+" separate or
+# re-decode as part of the parameters.
+PATH_SAFE = "!$&'()*+,;=:@"
+QUERY_SAFE = "!$'()*,;:@/"
+
+
+def interpolate_url(url_template, username):
+    """Substitute a username into a URL template.
+
+    The username fills a path, query or host component, so it is encoded for
+    that component. Substituting it verbatim makes a username such as "a#b"
+    request "a" (everything after "#" is a fragment that is never sent) and
+    report a profile that was never checked. Host-position templates take the
+    username as a bare label, where percent-encoding is invalid, so only
+    spaces are encoded there, as before.
+    """
+    split = urlsplit(url_template)
+    if "{}" in split.netloc:
+        return url_template.replace("{}", username.replace(" ", "%20"))
+    safe = PATH_SAFE if "{}" in split.path else QUERY_SAFE
+    return url_template.replace("{}", quote(username, safe=safe))
+
+
 def interpolate_string(input_object, username):
     if isinstance(input_object, str):
         return input_object.replace("{}", username)
@@ -245,7 +272,7 @@ def sherlock(
             headers.update(net_info["headers"])
 
         # URL of user on site (if it exists)
-        url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
+        url = interpolate_url(net_info["url"], username)
 
         # Don't make request if username is invalid for the site
         regex_check = net_info.get("regexCheck")
@@ -287,7 +314,7 @@ def sherlock(
             else:
                 # There is a special URL for probing existence separate
                 # from where the user profile normally can be found.
-                url_probe = interpolate_string(url_probe, username)
+                url_probe = interpolate_url(url_probe, username)
 
             if request is None:
                 if net_info["errorType"] == "status_code":
