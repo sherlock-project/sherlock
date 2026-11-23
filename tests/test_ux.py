@@ -1,7 +1,8 @@
+import os
 import pytest
 from sherlock_project import sherlock
-from sherlock_interactives import Interactives
-from sherlock_interactives import InteractivesSubprocessError
+from sherlock_project.result import QueryResult, QueryStatus
+from tests.sherlock_interactives import Interactives, InteractivesSubprocessError
 
 def test_remove_nsfw(sites_obj):
     nsfw_target: str = 'Xvideos'
@@ -41,3 +42,41 @@ def test_wildcard_username_expansion():
 def test_no_usernames_provided(cliargs):
     with pytest.raises(InteractivesSubprocessError, match=r"error: the following arguments are required: USERNAMES"):
         Interactives.run_cli(cliargs)
+
+
+def test_folderoutput_honored_by_xlsx_and_csv(tmp_path, monkeypatch):
+    out_dir = str(tmp_path / "custom_output")
+    dummy_results = {
+        "ExampleSite": {
+            "url_main": "https://example.com",
+            "url_user": "https://example.com/user/testuser",
+            "status": QueryResult(
+                "testuser",
+                "ExampleSite",
+                "https://example.com/user/testuser",
+                QueryStatus.CLAIMED,
+                query_time=0.5,
+            ),
+            "http_status": 200,
+        }
+    }
+    monkeypatch.setattr(sherlock, "sherlock", lambda *args, **kwargs: dummy_results)
+    monkeypatch.setattr(sherlock, "check_for_parameter", lambda u: False)
+    test_args = [
+        "sherlock",
+        "--local",
+        "--folderoutput",
+        out_dir,
+        "--txt",
+        "--csv",
+        "--xlsx",
+        "testuser",
+    ]
+    monkeypatch.setattr("sys.argv", test_args)
+    sherlock.main()
+
+    assert (tmp_path / "custom_output" / "testuser.txt").is_file()
+    assert (tmp_path / "custom_output" / "testuser.csv").is_file()
+    assert (tmp_path / "custom_output" / "testuser.xlsx").is_file()
+    assert not os.path.exists("testuser.xlsx")
+
