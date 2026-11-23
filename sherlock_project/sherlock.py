@@ -23,7 +23,6 @@ import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 from json import loads as json_loads
-from time import monotonic
 from typing import Optional
 
 import requests
@@ -67,10 +66,9 @@ class SherlockFuturesSession(FuturesSession):
         Return Value:
         Request object.
         """
-        # Record the start time for the request.
         if hooks is None:
             hooks = {}
-        start = monotonic()
+        total_elapsed = 0.0
 
         def response_time(resp, *args, **kwargs):
             """Response Time Hook.
@@ -83,7 +81,12 @@ class SherlockFuturesSession(FuturesSession):
             Return Value:
             Nothing.
             """
-            resp.elapsed = monotonic() - start
+            # requests sets resp.elapsed for each hop, timed from when the
+            # worker actually sends it, so time spent waiting in the thread
+            # pool queue is not counted. Sum the hops to cover redirects.
+            nonlocal total_elapsed
+            total_elapsed += resp.elapsed.total_seconds()
+            resp.elapsed = total_elapsed
 
 
         # Install hook to execute when response completes.
