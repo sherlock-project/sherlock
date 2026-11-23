@@ -21,13 +21,15 @@
 
 ## Installation
 
-<p align="center">
-  <a href="https://osintsearch.org/go/sherlock-readme"><img src="images/osintsearch.jpg" alt="OSINTSearch"></a>
-  <a href="https://usersearch.com/?utm_source=github&utm_medium=referral&utm_campaign=sherlock&utm_content=banner_install" target="_blank"><img src="images/usersearch.png" alt="User Search"/></a>
-  <a href="https://www.osint.industries/" target="_blank"><img src="images/osint-industries.jpg" alt="OSINT Industries"/></a>
-</p>
+<div align="center">
+  <a href="https://sponsors.sherlockproject.xyz/go/readme-1"><img src="https://sponsors.sherlockproject.xyz/banner/readme-1" width="100%"></a>
+</div>
 
+<div align="center">
+<a href="https://sponsors.sherlockproject.xyz/go/readme-2"><img src="https://sponsors.sherlockproject.xyz/banner/readme-2" width="49.8%"></a>&#8202;&#8202;<a href="https://sponsors.sherlockproject.xyz/go/readme-3"><img src="https://sponsors.sherlockproject.xyz/banner/readme-3" width="49.8%"></a>
+</div>
 
+<br>
 
 > [!WARNING]  
 > Packages for ParrotOS and Ubuntu 24.04, maintained by a third party, appear to be __broken__.  
