@@ -4,7 +4,7 @@
   <br>
   <a href="https://sherlock-project.github.io/" target="_blank"><img src="https://www.kali.org/tools/sherlock/images/sherlock-logo.svg" width="25%"/></a>
   <br>
-  <strong><span>Hunt down social media accounts by username across <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">400+ social networks</a></span></strong>
+  <strong><span>Hunt down social media accounts by username across <a href="https://sherlockproject.xyz/sites">400+ social networks</a></span></strong>
   <br><br>
   <span>Additional documentation can be found at our <a href="https://github.com/sherlock-project/sherlock/">GitHub repository</a></span>
   <br>
@@ -15,10 +15,10 @@
 ```console
 $ sherlock --help
 usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]
-                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]
-                [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]
+                [--output OUTPUT] [--csv] [--xlsx] [--site SITE_NAME]
+                [--proxy PROXY_URL] [--dump-response] [--json JSON_FILE]
                 [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]
-                [--browse] [--local] [--nsfw]
+                [--browse] [--local] [--nsfw] [--txt] [--ignore-exclusions]
                 USERNAMES [USERNAMES ...]
 ```
 
