@@ -1364,6 +1364,7 @@
   },
   "Kaggle": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.kaggle.com/{}",
     "urlMain": "https://www.kaggle.com/",
     "username_claimed": "dansbecker"
@@ -2109,6 +2110,7 @@
   },
   "Roblox": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.roblox.com/user.aspx?username={}",
     "urlMain": "https://www.roblox.com/",
     "username_claimed": "bluewolfekiller"
