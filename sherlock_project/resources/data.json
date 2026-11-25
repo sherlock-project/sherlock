@@ -248,6 +248,7 @@
   },
   "BiggerPockets": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.biggerpockets.com/users/{}",
     "urlMain": "https://www.biggerpockets.com/",
     "username_claimed": "blue"
@@ -1295,6 +1296,7 @@
   },
   "Instructables": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.instructables.com/member/{}",
     "urlMain": "https://www.instructables.com/",
     "urlProbe": "https://www.instructables.com/json-api/showAuthorExists?screenName={}",
@@ -2752,6 +2754,7 @@
   },
   "Windy": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://community.windy.com/user/{}",
     "urlMain": "https://windy.com/",
     "username_claimed": "blue"
@@ -2833,6 +2836,7 @@
   },
   "YouPic": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://youpic.com/photographer/{}/",
     "urlMain": "https://youpic.com/",
     "username_claimed": "blue"
@@ -3003,6 +3007,7 @@
   },
   "irecommend": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://irecommend.ru/users/{}",
     "urlMain": "https://irecommend.ru/",
     "username_claimed": "blue"
