@@ -165,9 +165,11 @@ class SitesInformation:
                     exclusions = response.text.splitlines()
                     exclusions = [exclusion.strip() for exclusion in exclusions]
 
-                    for site in do_not_exclude:
-                        if site in exclusions:
-                            exclusions.remove(site)
+                    excluded_names = {site.casefold() for site in do_not_exclude}
+                    exclusions = [
+                        exclusion for exclusion in exclusions
+                        if exclusion.casefold() not in excluded_names
+                    ]
 
                     for exclusion in exclusions:
                         try:
