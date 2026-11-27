@@ -50,7 +50,7 @@ PySocks = "^1.7.0"
 requests = "^2.22.0"
 requests-futures = "^1.0.0"
 stem = "^1.8.0"
-pandas = "^2.2.1"
+pandas = ">=2.2.1,<4.0.0"
 openpyxl = "^3.0.10"
 tomli = "^2.2.1"
 
