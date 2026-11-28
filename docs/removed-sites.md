@@ -1995,3 +1995,15 @@ __2025-07-06 :__ Site appears to have gone offline in March and hasn't come back
     "username_claimed": "GalaxyRG"
   },
 ```
+
+## Hubski
+__2026-11-28 :__ Site is now invite-only and serves its login form in place of every page, including profiles, to logged-out visitors
+```json
+  "Hubski": {
+    "errorMsg": "No such user",
+    "errorType": "message",
+    "url": "https://hubski.com/user/{}",
+    "urlMain": "https://hubski.com/",
+    "username_claimed": "blue"
+  },
+```

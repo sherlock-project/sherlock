@@ -1206,13 +1206,6 @@
     "urlMain": "https://hubpages.com/",
     "username_claimed": "blue"
   },
-  "Hubski": {
-    "errorMsg": "No such user",
-    "errorType": "message",
-    "url": "https://hubski.com/user/{}",
-    "urlMain": "https://hubski.com/",
-    "username_claimed": "blue"
-  },
   "HudsonRock": {
     "errorMsg": "This username is not associated",
     "errorType": "message",
