@@ -1206,13 +1206,6 @@
     "urlMain": "https://hubpages.com/",
     "username_claimed": "blue"
   },
-  "Hubski": {
-    "errorMsg": "No such user",
-    "errorType": "message",
-    "url": "https://hubski.com/user/{}",
-    "urlMain": "https://hubski.com/",
-    "username_claimed": "blue"
-  },
   "HudsonRock": {
     "errorMsg": "This username is not associated",
     "errorType": "message",
@@ -2742,10 +2735,17 @@
     "username_claimed": "blue"
   },
   "Wikipedia": {
-    "errorMsg": "centralauth-admin-nonexistent:",
+    "errorMsg": [
+      "\"globaluserinfo\":{\"missing\"",
+      "{\"error\":{\"code\":"
+    ],
     "errorType": "message",
-    "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
+    "headers": {
+      "User-Agent": "Sherlock (https://github.com/sherlock-project/sherlock)"
+    },
+    "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}",
     "urlMain": "https://www.wikipedia.org/",
+    "urlProbe": "https://en.wikipedia.org/w/api.php?action=query&meta=globaluserinfo&format=json&guiuser={}",
     "username_claimed": "Hoadlck"
   },
   "Windy": {
