@@ -3,7 +3,6 @@ Airliners
 Apple Developer
 Apple Discussions
 Archive.org
-Blogger
 Chatujme.cz
 Codolio
 DeviantArt
@@ -14,7 +13,9 @@ HackerNews
 Hashnode
 Hubski
 Instapaper
+Itch.io
 Linktree
+Minecraft
 ObservableHQ
 Odysee
 PCGamer
@@ -31,7 +32,6 @@ Spotify
 Trakt
 TryHackMe
 Velomania
-Venmo
 Vero
 Wikipedia
 YandexMusic
