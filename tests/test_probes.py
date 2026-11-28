@@ -103,3 +103,18 @@ def test_username_illegal_regex(sites_info):
     assert pattern.match(invalid_handle) is None
     assert simple_query(sites_info=sites_info, site=site, username=invalid_handle) is QueryStatus.ILLEGAL
 
+
+def test_username_empty_is_illegal_with_matching_regex(sites_info):
+    site: str = 'Gravatar'
+    pattern = re.compile(sites_info[site]['regexCheck'])
+    # Ensure that the site's regexCheck actually matches "" before testing sherlock
+    assert pattern.search('') is not None
+    assert simple_query(sites_info=sites_info, site=site, username='') is QueryStatus.ILLEGAL
+
+
+def test_username_empty_is_illegal_without_regex(sites_info):
+    site: str = '9GAG'
+    # Ensure that the site has no regexCheck gate before testing sherlock
+    assert 'regexCheck' not in sites_info[site]
+    assert simple_query(sites_info=sites_info, site=site, username='') is QueryStatus.ILLEGAL
+
