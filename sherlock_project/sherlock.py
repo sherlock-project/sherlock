@@ -169,6 +169,67 @@ def multiple_usernames(username):
     return allUsernames
 
 
+def site_entry_error(net_info: dict) -> Optional[str]:
+    """Check one manifest entry for fields that would crash the scan.
+
+    Keyword Arguments:
+    net_info               -- Dictionary containing the manifest entry of a
+                              single site.
+
+    Return Value:
+    None when the entry can be scanned safely, otherwise a string naming
+    the offending field and describing what is wrong with it.
+    """
+    error_type = net_info.get("errorType")
+    if isinstance(error_type, str):
+        error_types = [error_type]
+    else:
+        error_types = error_type
+
+    if error_types is None:
+        return "errorType is missing"
+    if not isinstance(error_types, list) or not all(
+        isinstance(error_type_item, str) for error_type_item in error_types
+    ):
+        return f"errorType must be a string or a list of strings, got {error_type!r}"
+
+    if "message" in error_types:
+        error_msg = net_info.get("errorMsg")
+        if error_msg is None:
+            return "errorMsg is missing but errorType includes 'message'"
+        if not isinstance(error_msg, str) and not (
+            isinstance(error_msg, list)
+            and all(isinstance(error_msg_item, str) for error_msg_item in error_msg)
+        ):
+            return f"errorMsg must be a string or a list of strings, got {error_msg!r}"
+
+    if "status_code" in error_types:
+        error_code = net_info.get("errorCode")
+        if error_code is not None and not (
+            isinstance(error_code, int)
+            or (
+                isinstance(error_code, list)
+                and all(isinstance(error_code_item, int) for error_code_item in error_code)
+            )
+        ):
+            return f"errorCode must be an integer or a list of integers, got {error_code!r}"
+
+    request_method = net_info.get("request_method")
+    if request_method is not None and request_method not in ("GET", "HEAD", "POST", "PUT"):
+        return f"request_method must be one of GET, HEAD, POST, PUT, got {request_method!r}"
+
+    regex_check = net_info.get("regexCheck")
+    if regex_check is not None:
+        if not isinstance(regex_check, str):
+            return f"regexCheck must be a string, got {regex_check!r}"
+        try:
+            re.compile(regex_check)
+        except re.error as error:
+            return f"regexCheck is not a valid regular expression: {error}"
+
+    return None
+
+
 def sherlock(
     username: str,
     site_data: dict[str, dict[str, str]],
@@ -231,6 +292,25 @@ def sherlock(
     for social_network, net_info in site_data.items():
         # Results from analysis of this specific site
         results_site = {"url_main": net_info.get("urlMain")}
+
+        # A malformed entry would crash the scan below, so degrade only this
+        # site to an Unknown result naming the offending field and keep
+        # scanning the remaining sites.
+        entry_error = site_entry_error(net_info)
+        if entry_error is not None:
+            results_site["status"] = QueryResult(
+                username,
+                social_network,
+                "",
+                QueryStatus.UNKNOWN,
+                context=f"Invalid manifest entry: {entry_error}",
+            )
+            results_site["url_user"] = ""
+            results_site["http_status"] = ""
+            results_site["response_text"] = ""
+            query_notify.update(results_site["status"])
+            results_total[social_network] = results_site
+            continue
 
         # Record URL of main site
 
@@ -465,7 +545,7 @@ def sherlock(
             print("Results...")
             try:
                 print(f"RESPONSE CODE : {r.status_code}")
-            except Exception:
+            except Exception:  # fallback-guard: allow: debug dump only; a response lacking a status code must not abort the scan
                 pass
             try:
                 print(f"ERROR TEXT    : {net_info['errorMsg']}")
@@ -474,7 +554,7 @@ def sherlock(
             print(">>>>> BEGIN RESPONSE TEXT")
             try:
                 print(r.text)
-            except Exception:
+            except Exception:  # fallback-guard: allow: debug dump only; a response lacking printable text must not abort the scan
                 pass
             print("<<<<< END RESPONSE TEXT")
             print("VERDICT       : " + str(query_status))
