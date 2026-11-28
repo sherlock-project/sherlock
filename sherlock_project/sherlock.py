@@ -248,8 +248,12 @@ def sherlock(
         url = interpolate_string(net_info["url"], username.replace(' ', '%20'))
 
         # Don't make request if username is invalid for the site
+        # An empty username is invalid for every site, even if the site's
+        # regexCheck happens to match it or the site has no regexCheck at all
         regex_check = net_info.get("regexCheck")
-        if regex_check and re.search(regex_check, username) is None:
+        if username == "" or (
+            regex_check and re.search(regex_check, username) is None
+        ):
             # No need to do the check at the site: this username is not allowed.
             results_site["status"] = QueryResult(
                 username, social_network, url, QueryStatus.ILLEGAL
